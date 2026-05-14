@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { blogPosts } from "@/lib/blog";
+import { blogPosts, blogCategories } from "@/lib/blog";
 
 const Blog = () => {
   const featuredPost = blogPosts[0];
@@ -59,6 +59,68 @@ const Blog = () => {
 
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
+          {/* Blog Categories Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <p className="text-xs uppercase tracking-[0.32em] text-secondary font-semibold mb-2">
+                Explore Categories
+              </p>
+              <h2 className="text-4xl font-bold text-foreground">
+                Blog By Topic
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                Browse blogs organized by waste stream and EPR topic
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {blogCategories.map((category, index) => (
+                <motion.div
+                  key={category.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group rounded-[2rem] border border-border bg-card overflow-hidden shadow-lg shadow-secondary/5 hover:shadow-secondary/20 transition-all duration-300"
+                >
+                  <div className="relative overflow-hidden h-40">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-xs uppercase tracking-[0.24em] text-secondary font-semibold mb-2">
+                      {category.tagLine}
+                    </p>
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
+                      {category.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                      {category.description}
+                    </p>
+                    <Link
+                      to={category.path}
+                      className="inline-flex items-center justify-center rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold text-secondary hover:bg-secondary hover:text-primary-foreground transition-colors w-full"
+                    >
+                      Read Articles
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <hr className="my-20 border-border/50" />
+
+          {/* Featured and Recent Posts */}
           <div className="grid gap-10 xl:grid-cols-[1.5fr_0.9fr]">
             <div className="space-y-10">
               <motion.article

@@ -10,7 +10,7 @@ export interface ServiceItem {
   compliancePoints?: string[];
   highlights: string[];
   path: string;
-  category: "epr-credits" | "sops-kpis-checklists" | "buy-sell" | "recycling-setups";
+  category: "epr-credits" | "sops-kpis-checklists" | "buy-sell" | "recycling-setups" | "business-growth-lead-generation";
   subcategory?: string;
 }
 
@@ -403,6 +403,50 @@ export const services: ServiceItem[] = [
     category: "recycling-setups",
     subcategory: "Solar Panel",
   },
+  {
+    slug: "business-growth",
+    title: "Business Growth & Lead Generation",
+    subtitle: "Find the right buyers through targeted digital campaigns, SEO-driven content, and structured lead conversion systems.",
+    desc: "Strategic business growth services that generate qualified leads, build digital brand authority, and create sales pipelines that convert. We help established businesses break through visibility barriers and scale predictably through targeted campaigns, SEO optimization, and conversion systems.",
+    details:
+      "We partner with established businesses ready to scale beyond referrals. You have built a great product or service, but your pipeline is dry, you are losing deals to weaker competitors, and growth has plateaued. We become your growth partner by building your digital visibility, generating qualified leads through targeted campaigns and SEO, and structuring your sales pipeline so enquiries convert to deals. We handle ad management, cold calling outreach, lead nurturing, CRM setup, and sales team support on your behalf.",
+    features: [
+      "Targeted digital campaigns & ad management",
+      "SEO-driven content strategy",
+      "Cold calling & lead outreach",
+      "Lead conversion & CRM systems",
+      "Brand authority building",
+      "Sales team support",
+    ],
+    useCases: [
+      "Established businesses with great products but low visibility",
+      "Companies losing contracts to weaker competitors",
+      "Service providers ready to scale beyond referrals",
+      "Businesses with long sales cycles and cold leads",
+      "Entrepreneurs with proven products seeking predictable lead flow",
+    ],
+    processSteps: [
+      { title: "Visibility Audit", description: "We assess why your pipeline is dry. Market analysis, competitor positioning, and digital presence gaps are identified." },
+      { title: "Campaign Strategy", description: "Develop targeted digital campaigns and ad strategy to reach your ideal buyer profile directly." },
+      { title: "Content & SEO", description: "Create SEO-optimized content and position you as the authority in your category so buyers find you." },
+      { title: "Lead Generation", description: "Launch targeted campaigns, manage ad spend, execute cold calling, and nurture leads through the sales funnel." },
+      { title: "Pipeline Setup", description: "Implement CRM systems, follow-up automation, and structured processes so leads convert to deals." },
+      { title: "Sales Support", description: "If your product is the right fit, our sales team works on your behalf to close deals." },
+      { title: "Optimization", description: "Continuously monitor metrics, refine campaigns, and optimize conversion rates for maximum ROI." },
+    ],
+    highlights: [
+      "End-to-end growth partnership",
+      "Digital brand authority building",
+      "Qualified lead generation",
+      "Ad management & cold calling",
+      "Lead conversion optimization",
+      "Revenue predictability",
+      "Sales team support",
+    ],
+    path: "/services/business-growth",
+    category: "business-growth-lead-generation",
+    subcategory: "Business Growth & Lead Generation",
+  },
 ];
 
 export const serviceDropdown = [
@@ -425,6 +469,7 @@ export const serviceDropdown = [
   { label: "Registered Vehicles Scraping Faculty Plant", path: "/services/recycling-vehicles-scrapping" },
   { label: "Solar Panel", path: "/services/recycling-solar-panel" },
   { label: "Plastic", path: "/services/recycling-plastic" },
+  { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
 ];
 
 export interface ServiceCategory {
@@ -475,5 +520,10 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
     ],
   },
-  
+  {
+    name: "Business Growth & Lead Generation",
+    subcategories: [
+      { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
+    ],
+  },
 ];

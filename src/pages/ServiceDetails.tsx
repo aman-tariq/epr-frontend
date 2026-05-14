@@ -9,6 +9,7 @@ import EWasteBlog from "@/components/EWasteBlog";
 import VehicleScrappingBlog from "@/components/VehicleScrappingBlog";
 import SolarPanelBlog from "@/components/SolarPanelBlog";
 import PlasticRecyclingBlog from "@/components/PlasticRecyclingBlog";
+import BusinessGrowth from "./BusinessGrowth";
 
 const ServiceDetails = () => {
   const { serviceSlug } = useParams();
@@ -36,6 +37,10 @@ const ServiceDetails = () => {
 
   if (service.slug === "recycling-plastic") {
     return <PlasticRecyclingBlog />;
+  }
+
+  if (service.slug === "business-growth") {
+    return <BusinessGrowth />;
   }
 
   return (

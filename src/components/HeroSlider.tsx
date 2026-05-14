@@ -1,38 +1,220 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle,
+  AlertTriangle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
+
+import hero1 from "@/assets/hero/pp1.jpg";
+import hero2 from "@/assets/hero/ss1.jpg";
+import hero3 from "@/assets/hero-1.jpg";
+import hero4 from "@/assets/hero-2.jpg";
+import hero5 from "@/assets/hero/epr-pp.png";
+import hero6 from "@/assets/hero/epr-ss.png";
+import hero7 from "@/assets/hero/feedstock-pp.png";
+import hero8 from "@/assets/hero/network-ss.png";
+import hero9 from "@/assets/company-banner.jpg";
+import hero10 from "@/assets/recycling-process.jpg";
+import hero11 from "@/assets/e-waste-types.jpg";
+import hero12 from "@/assets/epr-trading-platform.jpg";
+import hero13 from "@/assets/showcase-1.jpg";
+import hero14 from "@/assets/showcase-2.jpg";
 
 const slides = [
   {
     image: hero1,
-    title: "Your Comprehensive Partner in Extended Producer Responsibility & Management",
-    subtitle: "Leading the way in sustainable waste management and EPR compliance solutions.",
+    title: "Stuck Before Starting?",
+    subtitle:
+      "PCB APPROVALS • PROCESS DESIGN • MACHINERY SELECTION • DPR",
+    description:
+      "You have ₹2–10 crore ready to invest in a recycling plant — but CPCB norms, SPCB approvals, hydrometallurgy process design and machinery selection are keeping you stuck at square one.",
+    buttonText: "See How We Solve It",
+    buttonLink: "/services/recycling-setups",
+    isPainPoint: true,
   },
   {
     image: hero2,
-    title: "Certified E-Waste Recycling & EPR Credit Trading",
-    subtitle: "Responsible disposal and recycling of electronic waste with full regulatory compliance.",
+    title: "End-to-End Plant Setup",
+    subtitle:
+      "BANK-APPROVED DPR • CPCB/SPCB CLEARANCE • LIVE DASHBOARD",
+    description:
+      "We deliver bank-approved DPRs, CPCB & SPCB clearances, BATX-grade machinery commissioning, and live digital dashboards — from groundbreaking to first production batch.",
+    buttonText: "Get Plant Setup Services",
+    buttonLink: "/services/recycling-setups",
+    isSolution: true,
   },
+  // Banner 2A — Pain
   {
     image: hero3,
-    title: "Building a Circular Economy for a Greener Future",
-    subtitle: "Transforming waste into resources through innovative recycling and credit trading.",
+    title: "Operations Out Of Control?",
+    subtitle:
+      "NO REAL-TIME VISIBILITY • PROCESS GAPS • MARGIN LEAKAGE • NO SOPs",
+    description:
+      "Your plant is running — but yield is inconsistent, shift teams operate differently, energy costs are unclear, and nobody can tell you in real time whether today's production is on target or bleeding margin.",
+    buttonText: "Fix Plant Operations",
+    buttonLink: "/services/operations-management",
+    isPainPoint: true,
   },
+
+  // Banner 2B — Solution
+  {
+    image: hero4,
+    title: "Smart Plant Operations",
+    subtitle:
+      "LIVE KPI DASHBOARDS • SHIFT SOPs • ENERGY TRACKING • CHECKLISTS",
+    description:
+      "We install digital display boards showing live KPIs — daily throughput, yield percentage, energy cost per tonne, and shift-wise performance — backed by role-specific SOPs and commissioning checklists your team actually follows.",
+    buttonText: "Optimize Operations",
+    buttonLink: "/services/operations-management",
+    isSolution: true,
+  },
+  // Banner 3A — Pain Point
+  {
+    image: hero5,
+    title: "EPR Compliance Chaos?",
+    subtitle:
+      "CPCB PORTAL • CREDIT ISSUES • RECYCLER VERIFICATION • PENALTY RISK",
+    description:
+      "Your brand has mandatory EPR targets under plastic, e-waste or battery rules — but CPCB's credit portal is complex, verified recyclers are hard to find, and one wrong filing can lead to heavy penalties and operational risk.",
+    buttonText: "Fix Compliance Issues",
+    buttonLink: "/services/epr-services",
+    isPainPoint: true,
+  },
+
+  // Banner 3B — Solution
+  {
+    image: hero6,
+    title: "Complete EPR Compliance",
+    subtitle:
+      "EPR CREDIT TRADING • VERIFIED RECYCLERS • LIVE DASHBOARD",
+    description:
+      "We manage EPR credits across plastic, e-waste, battery and tyre categories — connecting you with CPCB-registered recyclers, handling annual return filings, and providing a live compliance dashboard for complete transparency.",
+    buttonText: "Get EPR Support",
+    buttonLink: "/services/epr-services",
+    isSolution: true,
+  },
+  // Banner 4A — Pain Point
+  {
+    image: hero7,
+    title: "Feedstock Supply Problems?",
+    subtitle:
+      "LOW UTILISATION • INCONSISTENT FEEDSTOCK • AGGREGATOR ISSUES",
+    description:
+      "Your hydrometallurgy or e-waste shredding line has the capacity — but operations are running below potential because feedstock is inconsistent, aggregators are unreliable, and there is no visibility into daily inflow versus production demand.",
+    buttonText: "Stabilize Material Supply",
+    buttonLink: "/services/e-waste-battery-trading",
+    isPainPoint: true,
+  },
+
+  // Banner 4B — Solution
+  {
+    image: hero8,
+    title: "Reliable Waste Supply Network",
+    subtitle:
+      "DAILY PROCUREMENT • MATERIAL TRACKING • COST VISIBILITY",
+    description:
+      "We supply e-waste and battery waste through a trusted network built over 20 years — with live procurement tracking, inbound tonnage visibility, material grade updates, and landed cost forecasting to maintain consistent plant utilisation.",
+    buttonText: "Secure Feedstock Supply",
+    buttonLink: "/services/e-waste-battery-trading",
+    isSolution: true,
+  },
+  // Banner 5A — Pain Point
+  // {
+  //   image: hero9,
+  //   title: "No Visibility, No Leads?",
+  //   subtitle:
+  //     "LOW BRAND RECOGNITION • DRY PIPELINE • LOST OPPORTUNITIES",
+  //   description:
+  //     "You have spent years building a product or service that genuinely works — but your pipeline is dry, your phone is not ringing, and weaker competitors are winning contracts simply because they are more visible in the market.",
+  //   buttonText: "Increase Brand Visibility",
+  //   buttonLink: "/services/business-growth",
+  //   isPainPoint: true,
+  // },
+
+  // Banner 5B — Solution
+  // {
+  //   image: hero10,
+  //   title: "Turn Visibility Into Growth",
+  //   subtitle:
+  //     "SEO • DIGITAL CAMPAIGNS • LEAD CONVERSION SYSTEM",
+  //   description:
+  //     "We help the right buyers discover your business through targeted digital campaigns, SEO-driven content, and lead conversion systems that transform your brand into the most trusted name in your industry.",
+  //   buttonText: "Grow My Business",
+  //   buttonLink: "/services/business-growth",
+  //   isSolution: true,
+  // },
+
+  // Banner 6A — Pain Point
+  // {
+  //   image: hero11,
+  //   title: "Leads But No Conversions?",
+  //   subtitle:
+  //     "COLD LEADS • LONG SALES CYCLES • LOST REVENUE",
+  //   description:
+  //     "You receive enquiries and attend meetings — but deals are not closing. Without a structured sales pipeline, leads go cold, follow-ups are missed, and revenue becomes inconsistent while competitors close faster.",
+  //   buttonText: "Fix My Sales Process",
+  //   buttonLink: "/services/business-growth",
+  //   isPainPoint: true,
+  // },
+
+  // Banner 6B — Solution
+  // {
+  //   image: hero12,
+  //   title: "Built to Close Deals",
+  //   subtitle:
+  //     "CRM SYSTEM • FOLLOW-UP AUTOMATION • PIPELINE MANAGEMENT",
+  //   description:
+  //     "We build a complete sales pipeline for your business — including CRM setup, automated follow-ups, lead tracking, and conversion management — so every enquiry moves systematically toward closure.",
+  //   buttonText: "Build Sales Pipeline",
+  //   buttonLink: "/services/business-growth",
+  //   isSolution: true,
+  // },
+
+  // Banner 7A — Pain Point
+  // {
+  //   image: hero13,
+  //   title: "Growth Has Stopped?",
+  //   subtitle:
+  //     "REFERRAL DEPENDENCY • GROWTH PLATEAU • NO DIGITAL PRESENCE",
+  //   description:
+  //     "Your business was built on referrals and relationships — but growth has plateaued. Without a strong digital presence and predictable lead generation system, finding new clients becomes increasingly difficult.",
+  //   buttonText: "Restart Business Growth",
+  //   buttonLink: "/services/business-growth",
+  //   isPainPoint: true,
+  // },
+
+  // Banner 7B — Solution
+  // {
+  //   image: hero14,
+  //   title: "Scale Beyond Referrals",
+  //   subtitle:
+  //     "DIGITAL BRANDING • QUALIFIED LEADS • GROWTH PARTNERSHIP",
+  //   description:
+  //     "We become your growth partner by building your digital brand, generating qualified leads through SEO and targeted campaigns, and supporting deal closures with structured sales systems designed for scale.",
+  //   buttonText: "Scale My Business",
+  //   buttonLink: "/services/business-growth",
+  //   isSolution: true,
+  // },
 ];
 
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
 
-  const next = useCallback(() => setCurrent((p) => (p + 1) % slides.length), []);
-  const prev = useCallback(() => setCurrent((p) => (p - 1 + slides.length) % slides.length), []);
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 12000);
+
     return () => clearInterval(timer);
   }, [next]);
 
@@ -41,80 +223,294 @@ const HeroSlider = () => {
 
     const handleScroll = () => {
       if (rafId !== null) return;
-      rafId = window.requestAnimationFrame(() => {
-        setOffsetY(window.scrollY * 0.35);
+
+      rafId = requestAnimationFrame(() => {
+        setOffsetY(window.scrollY * 0.3);
         rafId = null;
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (rafId !== null) {
-        window.cancelAnimationFrame(rafId);
+
+      if (rafId) {
+        cancelAnimationFrame(rafId);
       }
     };
   }, []);
 
+  const currentSlide = slides[current];
+
+  const isPain = currentSlide.isPainPoint;
+  const isSolution = currentSlide.isSolution;
+
+  // ================= CUSTOM STYLES =================
+
+  const customStyles = {
+    // Heading
+    headingColor: "text-white",
+    headingHighlight: "text-yellow-200",
+    headingFont: "'Playfair Display', serif",
+    headingShadow:
+      "0px 5px 35px rgba(0,0,0,0.95)",
+
+    // Paragraph
+    paragraphColor: "text-slate-100 ",
+    paragraphFont: "'Poppins', sans-serif",
+    paragraphShadow:
+      "0px 2px 12px rgba(0,0,0,0.85)",
+
+    // Badge
+    badgeText: "text-white",
+    badgeBg: "bg-white/10",
+    badgeBorder: "border-white/20",
+
+    // Buttons
+    primaryBtn:
+      "bg-yellow-300 hover:bg-yellow-200 text-black",
+
+    solutionBtn:
+      "bg-emerald-500 hover:bg-emerald-400 text-white",
+
+    secondaryBtn:
+      "border-white/30 text-white hover:bg-white/10 hover:border-white/60",
+
+    // Overlay
+    overlayOne: "bg-black/82",
+
+    overlayTwo:
+      "bg-gradient-to-r from-black/95 via-black/75 to-black/55",
+
+    overlayThree:
+      "bg-gradient-to-t from-black/80 via-black/20 to-black/40",
+      
+  };
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen min-h-[750px] w-full overflow-hidden">
+      {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9 }}
           className="absolute inset-0"
         >
+          {/* Background Image */}
           <img
-            src={slides[current].image}
-            alt=""
+            src={currentSlide.image}
+            alt={currentSlide.title}
             className="w-full h-full object-cover will-change-transform"
-            style={{ transform: `translateY(${offsetY}px)` }}
-            width={1920}
-            height={1080}
-            loading={current === 0 ? "eager" : "lazy"}
-            decoding="async"
+            style={{
+              transform: `translateY(${offsetY}px)`,
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/30" />
+
+          {/* Dark Premium Overlay */}
+          {/* Extra Dark Cinematic Overlay */}
+          <div className={`absolute inset-0 ${customStyles.overlayOne}`} />
+
+          <div className={`absolute inset-0 ${customStyles.overlayTwo}`} />
+
+          <div className={`absolute inset-0 ${customStyles.overlayThree}`} />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4 lg:px-8 lg:mt-28 mt-12">
+        <div className="w-full px-8 md:px-16 lg:px-24 xl:px-32">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-2xl"
+              exit={{ opacity: 0, y: -30 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.1,
+              }}
+              className="max-w-4xl pt-20"
             >
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
-                {slides[current].title}
-              </h1>
-              <p className="text-primary-foreground/80 text-base sm:text-lg mb-8 leading-relaxed">
-                {slides[current].subtitle}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
-                  className="px-8 py-4 bg-secondary text-primary-foreground font-semibold rounded-xl text-sm hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/30 hover:shadow-secondary/50 text-center focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-                  aria-label="Contact us to sell your E-Waste"
+              {/* Badge */}
+              <div className="mb-7">
+                <span
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs md:text-sm font-medium uppercase tracking-[2px] border backdrop-blur-md text-white shadow-lg ${isPain
+                      ? "bg-red-400/15 border-red-200/30"
+                      : isSolution
+                        ? "bg-emerald-300/15 border-emerald-100/30"
+                        : "bg-white/10 border-white/20"
+                    }`}
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
                 >
-                  Sell Your E-Waste
+                  {isPain && (
+                    <AlertTriangle
+                      size={18}
+                      className="text-red-200"
+                    />
+                  )}
+
+                  {isSolution && (
+                    <CheckCircle
+                      size={18}
+                      className="text-emerald-200"
+                    />
+                  )}
+
+                  {currentSlide.subtitle}
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h1
+                className="
+                  text-5xl
+                  sm:text-6xl
+                  md:text-7xl
+                  lg:text-[88px]
+                  font-bold
+                  leading-[0.95]
+                  mb-8
+                  tracking-tight
+                  text-white
+                "
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  textShadow: "0px 5px 35px rgba(0,0,0,0.95)",
+                }}
+              >
+                <span className="text-white">
+                  {currentSlide.title
+                    .split(" ")
+                    .slice(0, -1)
+                    .join(" ")}
+                </span>{" "}
+
+                <span className="text-yellow-200">
+                  {currentSlide.title.split(" ").slice(-1)}
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p
+                className={`
+    ${customStyles.paragraphColor}
+    text-lg
+    md:text-2xl
+    leading-relaxed
+    mb-12
+    max-w-3xl
+    font-light
+    tracking-wide
+  `}
+                style={{
+                  fontFamily: customStyles.paragraphFont,
+                  textShadow: customStyles.paragraphShadow,
+                  color: "#ffffff",
+                }}
+              >
+                {currentSlide.description}
+              </p>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-5">
+                {/* Primary Button */}
+                {/* Primary Button */}
+                <Link
+                  to={currentSlide.buttonLink}
+                  className={`
+    group
+    ml-2
+    px-10
+    py-5
+    rounded-2xl
+    text-lg
+    transition-all
+    duration-300
+    flex
+    items-center
+    justify-center
+    gap-3
+    shadow-[0_10px_40px_rgba(0,0,0,0.45)]
+    hover:scale-[1.04]
+    border
+    backdrop-blur-xl
+    relative
+    overflow-hidden
+    ${isSolution
+                      ? `
+          bg-gradient-to-r
+          from-emerald-400
+          via-emerald-300
+          to-cyan-300
+          hover:from-emerald-300
+          hover:via-cyan-300
+          hover:to-sky-300
+          border-white/20
+          text-white
+        `
+                      : `
+          bg-gradient-to-r
+          from-yellow-300
+          via-amber-200
+          to-orange-200
+          hover:from-yellow-200
+          hover:via-amber-100
+          hover:to-orange-100
+          border-yellow-100/40
+          text-white
+        `
+                    }
+  `}
+                  style={{
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: 700,
+                    letterSpacing: "0.5px",
+                    textShadow: isSolution
+                      ? "0px 1px 10px rgba(0,0,0,0.35)"
+                      : "0px 1px 8px rgba(255,255,255,0.2)",
+                  }}
+                >
+                  {/* Shine Effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000" />
+
+                  <span className="relative z-10">
+                    {currentSlide.buttonText}
+                  </span>
+
+                  <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
                 </Link>
+
+                {/* Secondary Button */}
                 <Link
                   to="/services"
-                  className="px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground font-semibold rounded-xl text-sm hover:bg-primary-foreground/10 transition-all text-center focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 focus:ring-offset-2"
-                  aria-label="View our services to buy certified credits"
+                  className="
+                    px-10
+                    py-5
+                    border
+                    border-white/30
+                    text-white
+                    font-semibold
+                    rounded-2xl
+                    text-lg
+                    transition-all
+                    hover:bg-white/10
+                    backdrop-blur-md
+                    hover:border-white/60
+                  "
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
                 >
-                  Buy Certified Credits
+                  View All Services
                 </Link>
               </div>
             </motion.div>
@@ -122,29 +518,83 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Left Arrow */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all"
+        
+        className={`
+          absolute
+          left-1
+          md:left-6
+          lg:left-10          
+          top-1/2
+          -translate-y-1/2
+          z-20
+          w-8
+          lg:w-14
+          h-8
+          lg:h-14
+          rounded-full
+          bg-white/10
+          backdrop-blur-md
+          border
+          border-white/20
+          flex
+          items-center
+          justify-center
+          text-white
+          hover:bg-white/20
+          transition-all
+          duration-300
+        `}
       >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all"
-      >
-        <ChevronRight size={20} />
+        <ChevronLeft size={28} />
       </button>
 
-      {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {/* Right Arrow */}
+      <button
+        onClick={next}
+        
+        className={`
+          
+          absolute
+          right-1
+          md:right-6
+          lg:right-10
+          top-1/2
+          -translate-y-1/2
+          z-20
+          w-8
+          lg:w-14
+          h-8
+          lg:h-14
+          rounded-full
+          bg-white/10
+          backdrop-blur-md
+          border
+          border-white/20
+          flex
+          items-center
+          justify-center
+          text-white
+          hover:bg-white/20
+          transition-all
+          duration-300
+        `}
+      >
+        <ChevronRight size={28} />
+      </button>
+
+      {/* Progress Dots */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === current ? "w-8 bg-secondary" : "w-2 bg-primary-foreground/40"
-            }`}
+            className={`h-3 rounded-full transition-all duration-300 ${i === current
+                ? "w-12 bg-yellow-300"
+                : "w-3 bg-white/40 hover:bg-white/70"
+              }`}
           />
         ))}
       </div>

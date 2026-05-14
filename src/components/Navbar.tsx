@@ -239,7 +239,7 @@ const Navbar = () => {
                   sideOffset={6}
                   className="min-w-[18rem]"
                 >
-                  <DropdownMenuLabel>Latest blog posts</DropdownMenuLabel>
+                  <DropdownMenuLabel>Blog Categories</DropdownMenuLabel>
                   {blogDropdown.map((item) => (
                     <DropdownMenuItem asChild key={item.path}>
                       <Link to={item.path} className="block w-full px-2 py-2 text-sm text-foreground hover:bg-accent/10">

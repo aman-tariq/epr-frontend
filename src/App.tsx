@@ -16,6 +16,7 @@ const Services = lazy(() => import("./pages/Services"));
 const ServiceDetails = lazy(() => import("./pages/ServiceDetails"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Team = lazy(() => import("./pages/Team"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -54,6 +55,7 @@ const AppContent = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceSlug" element={<ServiceDetails />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/category/:category" element={<BlogCategory />} />
           <Route path="/blog/:blogSlug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/team" element={<Team />} />

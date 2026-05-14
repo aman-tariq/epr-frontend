@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "@/components/Seo";
+import StickyContactForm from "@/components/StickyContactForm";
 import { blogPosts } from "@/lib/blog";
 
 const BlogPost = () => {
@@ -77,7 +78,7 @@ const BlogPost = () => {
 
         <section className="pb-20">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.45fr_0.85fr]">
+            <div className="grid gap-10 lg:grid-cols-[1.85fr_0.55fr]">
               <main className="space-y-10">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -163,44 +164,8 @@ const BlogPost = () => {
                 </motion.section>
               </main>
 
-              <aside className="space-y-6 lg:sticky lg:top-28">
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="rounded-[2rem] border border-border bg-card p-8 shadow-lg shadow-secondary/5"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Quick links</h3>
-                  <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-                    <Link to="/services" className="text-secondary hover:text-secondary/80">
-                      Explore EPR services
-                    </Link>
-                    <Link to="/services/epr-plastic" className="hover:text-primary-foreground">
-                      EPR Plastic service
-                    </Link>
-                    <Link to="/services/epr-battery" className="hover:text-primary-foreground">
-                      EPR Battery service
-                    </Link>
-                    <Link to="/services/epr-tyre" className="hover:text-primary-foreground">
-                      EPR Tyre service
-                    </Link>
-                    <Link to="/blog" className="hover:text-primary-foreground">
-                      Blog overview
-                    </Link>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="rounded-[2rem] border border-border bg-secondary/10 p-8 shadow-lg shadow-secondary/10"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">SEO-friendly content</h3>
-                  <p className="text-muted-foreground leading-7">
-                    Strong blog articles focus on search intent, useful formatting, and clear headings. This makes your blog easier for both users and search engines to understand.
-                  </p>
-                </motion.div>
+              <aside className="hidden lg:block sticky top-24">
+                <StickyContactForm />
               </aside>
             </div>
           </div>
