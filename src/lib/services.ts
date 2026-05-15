@@ -458,17 +458,17 @@ export const serviceDropdown = [
   { label: "EPR Metals", path: "/services/epr-metals" },
   { label: "EPR Battery", path: "/services/epr-battery" },
   { label: "EPR Lithium", path: "/services/epr-lithium" },
-  { label: "SOPs", path: "/services/sops" },
-  { label: "KPIs", path: "/services/kpis" },
-  { label: "Checklists", path: "/services/checklists" },
+  { label: "Setup & commissioning documentation", path: "/services/sops" },
+  { label: "Operation & Performance management", path: "/services/kpis" },
+  { label: "Scale and growth system", path: "/services/checklists" },
   { label: "Buy E-Waste", path: "/services/buy-ewaste" },
   { label: "Sell Batteries", path: "/services/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
-  { label: "Lithium Ion Battery", path: "/services/recycling-lithium-ion-battery" },
-  { label: "E-Waste", path: "/services/recycling-ewaste" },
-  { label: "Registered Vehicles Scraping Faculty Plant", path: "/services/recycling-vehicles-scrapping" },
-  { label: "Solar Panel", path: "/services/recycling-solar-panel" },
-  { label: "Plastic", path: "/services/recycling-plastic" },
+  { label: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
+  { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
+  { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
+  { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
+  { label: "Plastic Recycling", path: "/services/recycling-plastic" },
   { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
 ];
 
@@ -484,11 +484,11 @@ export const serviceCategoriesNav: ServiceCategory[] = [
   {
     name: "Recycling Setups",
     subcategories: [
-      { label: "Lithium Ion Battery", path: "/services/recycling-lithium-ion-battery" },
-      { label: "E-Waste", path: "/services/recycling-ewaste" },
-      { label: "Registered Vehicles Scraping Faculty Plant", path: "/services/recycling-vehicles-scrapping" },
-      { label: "Solar Panel", path: "/services/recycling-solar-panel" },
-      { label: "Plastic", path: "/services/recycling-plastic" },
+      { label: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
+      { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
+      { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
+      { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
+      { label: "Plastic Recycling", path: "/services/recycling-plastic" },
     ],
   },
   {
@@ -505,13 +505,14 @@ export const serviceCategoriesNav: ServiceCategory[] = [
     ],
   },
   {
-    name: "SOP, KPI & Checklist",
+    name: "Plant Operation Intelligence",
     subcategories: [
-      { label: "SOPs", path: "/services/sops" },
-      { label: "KPIs", path: "/services/kpis" },
-      { label: "Checklists", path: "/services/checklists" },
+      { label: "Setup & commissioning documentation", path: "/services/sops" },
+      { label: "Operation & Performance management", path: "/services/kpis" },
+      { label: "Scale and growth system", path: "/services/checklists" },
     ],
   },
+
   {
     name: "Buy & Sell Scrap",
     subcategories: [

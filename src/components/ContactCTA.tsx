@@ -26,8 +26,8 @@ const ContactCTA = () => {
             <a href="mailto:info@eprnexuss.com" className="flex items-center gap-2 text-primary-foreground/80 hover:text-secondary transition-colors">
               <Mail size={18} /> info@eprnexuss.com
             </a>
-            <a href="tel:+91 9773870268" className="flex items-center gap-2 text-primary-foreground/80 hover:text-secondary transition-colors">
-              <Phone size={18} /> +91 97738 70268
+            <a href="tel:+919289659966" className="flex items-center gap-2 text-primary-foreground/80 hover:text-secondary transition-colors">
+              <Phone size={18} /> +91 9289659966
             </a>
             <span className="flex items-center gap-2 text-primary-foreground/80">
               <Globe size={18} /> www.eprnexuss.com

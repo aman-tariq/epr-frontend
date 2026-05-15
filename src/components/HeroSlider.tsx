@@ -280,13 +280,13 @@ const HeroSlider = () => {
       "border-white/30 text-white hover:bg-white/10 hover:border-white/60",
 
     // Overlay
-    overlayOne: "bg-black/82",
+    overlayOne: "bg-white/20",
 
     overlayTwo:
-      "bg-gradient-to-r from-black/95 via-black/75 to-black/55",
+      "bg-gradient-to-r from-black/5 via-black/35 to-black/20",
 
     overlayThree:
-      "bg-gradient-to-t from-black/80 via-black/20 to-black/40",
+      "bg-gradient-to-t from-black/50 via-black/10 to-black/20",
       
   };
 
@@ -324,7 +324,7 @@ const HeroSlider = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="w-full px-8 md:px-16 lg:px-24 xl:px-32 ">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -335,7 +335,7 @@ const HeroSlider = () => {
                 duration: 0.7,
                 delay: 0.1,
               }}
-              className="max-w-4xl pt-20"
+              className="max-w-4xl"
             >
               {/* Badge */}
               <div className="mb-7">
@@ -360,7 +360,7 @@ const HeroSlider = () => {
                   {isSolution && (
                     <CheckCircle
                       size={18}
-                      className="text-emerald-200"
+                      className="text-blue-200"
                     />
                   )}
 
@@ -374,12 +374,12 @@ const HeroSlider = () => {
                   text-5xl
                   sm:text-6xl
                   md:text-7xl
-                  lg:text-[88px]
+                  lg:text-[66px]
                   font-bold
                   leading-[0.95]
                   mb-8
                   tracking-tight
-                  text-white
+                  text-white-900
                 "
                 style={{
                   fontFamily: "'Playfair Display', serif",
@@ -393,7 +393,7 @@ const HeroSlider = () => {
                     .join(" ")}
                 </span>{" "}
 
-                <span className="text-yellow-200">
+                <span className="text-green-500">
                   {currentSlide.title.split(" ").slice(-1)}
                 </span>
               </h1>
@@ -405,7 +405,7 @@ const HeroSlider = () => {
     text-lg
     md:text-2xl
     leading-relaxed
-    mb-12
+    mb-8
     max-w-3xl
     font-light
     tracking-wide
@@ -446,25 +446,25 @@ const HeroSlider = () => {
     ${isSolution
                       ? `
           bg-gradient-to-r
-          from-emerald-400
+          from-green-400
           via-emerald-300
           to-cyan-300
           hover:from-emerald-300
           hover:via-cyan-300
           hover:to-sky-300
           border-white/20
-          text-white
+          text-white-900
         `
                       : `
           bg-gradient-to-r
-          from-yellow-300
-          via-amber-200
-          to-orange-200
-          hover:from-yellow-200
-          hover:via-amber-100
-          hover:to-orange-100
+          from-blue-700
+          via-blue-500
+          to-blue-900
+          hover:from-green-200
+          hover:via-green-100
+          hover:to-green-100
           border-yellow-100/40
-          text-white
+          text-black
         `
                     }
   `}

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import companyBanner from "@/assets/company-banner.jpg";
 
 const contactInfo = [
-  { icon: Phone, label: "Phone", value: "+91 97738 70268" },
+  { icon: Phone, label: "Phone", value: "+91 9289659966" },
   { icon: Phone, label: "Landline", value: "0120-4605014" },
   { icon: Mail, label: "Email", value: "info@eprnexuss.com" },
   { icon: Globe, label: "Website", value: "www.eprnexuss.com" },

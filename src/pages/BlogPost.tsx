@@ -17,6 +17,119 @@ const BlogPost = () => {
     return <Navigate replace to="/blog" />;
   }
 
+  const getScopedBlogHtml = (html: string) => {
+    const styleMatch = html.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    const rawCss = styleMatch?.[1] ?? "";
+    const rawBody = bodyMatch?.[1] ?? html;
+
+    const normalizeSelectors = (css: string) => {
+      return css
+        .replace(/:root/g, ".embedded-blog")
+        .replace(/\bhtml\b/g, ".embedded-blog")
+        .replace(/\bbody\b/g, ".embedded-blog")
+        .replace(/\*\s*\{/g, ".embedded-blog * {");
+    };
+
+    const scopeCssRules = (css: string): string => {
+      const trimmed = css.trim();
+      const rules = trimmed.split("}");
+
+      return rules
+        .map((rule) => {
+          const parts = rule.split("{");
+          if (parts.length < 2) return "";
+
+          const selector = parts[0].trim();
+          const body = parts.slice(1).join("{").trim();
+          if (!selector || !body) return "";
+
+          if (selector.startsWith("@")) {
+            return `${selector} { ${scopeCssRules(body)} }`;
+          }
+
+          const scopedSelectors = selector
+            .split(",")
+            .map((sel) => {
+              const trimmedSelector = sel.trim();
+              if (trimmedSelector.startsWith(".embedded-blog") || trimmedSelector.startsWith("@")) {
+                return trimmedSelector;
+              }
+              return `.embedded-blog ${trimmedSelector}`;
+            })
+            .join(", ");
+
+          return `${scopedSelectors} { ${body} }`;
+        })
+        .join(" ");
+    };
+
+    const scopeCss = scopeCssRules(normalizeSelectors(rawCss));
+    const overflowFix = `
+      .embedded-blog {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      .embedded-blog *, .embedded-blog *::before, .embedded-blog *::after {
+        box-sizing: inherit;
+        min-width: 0 !important;
+      }
+      .embedded-blog .wrap,
+      .embedded-blog .blog-container,
+      .embedded-blog .page,
+      .embedded-blog .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .embedded-blog img,
+      .embedded-blog video,
+      .embedded-blog iframe,
+      .embedded-blog svg {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+      .embedded-blog table {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        table-layout: auto !important;
+      }
+      .embedded-blog .grid,
+      .embedded-blog .layout,
+      .embedded-blog .grid-2,
+      .embedded-blog .story-grid,
+      .embedded-blog .two-col,
+      .embedded-blog .flow,
+      .embedded-blog .case-grid,
+      .embedded-blog .mini-grid,
+      .embedded-blog .chart-card,
+      .embedded-blog .db-grid,
+      .embedded-blog .visual-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .embedded-blog .hero,
+      .embedded-blog .card,
+      .embedded-blog .section,
+      .embedded-blog .table-wrap,
+      .embedded-blog .card.section {
+        overflow-x: hidden !important;
+        min-width: 0 !important;
+      }
+    `;
+
+    return `<style>${scopeCss}</style><style>${overflowFix}</style><div class="embedded-blog">${rawBody}</div>`;
+  };
+
+
+  const blogHtml = post.fullContent ? getScopedBlogHtml(post.fullContent) : undefined;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -78,7 +191,7 @@ const BlogPost = () => {
 
         <section className="pb-20">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.85fr_0.55fr]">
+            <div className="grid gap-10 lg:grid-cols-[1.85fr_0fr]">
               <main className="space-y-10">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -96,27 +209,37 @@ const BlogPost = () => {
                   <p className="text-muted-foreground leading-8">{post.summary}</p>
                 </motion.div>
 
-                {post.sections.map((section) => (
-                  <motion.section
-                    key={section.title}
+                {post.fullContent ? (
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="rounded-[2rem] border border-border bg-card p-8 shadow-lg shadow-secondary/5"
-                  >
-                    <h2 className="text-3xl font-semibold text-foreground mb-4">{section.title}</h2>
-                    <p className="text-muted-foreground leading-8 mb-5">{section.body}</p>
-                    {section.bullets && (
-                      <ul className="grid gap-3 text-muted-foreground">
-                        {section.bullets.map((item) => (
-                          <li key={item} className="rounded-3xl border border-border bg-background px-5 py-4">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </motion.section>
-                ))}
+                    className="rounded-[2rem] border border-border bg-card shadow-lg shadow-secondary/5"
+                  dangerouslySetInnerHTML={{ __html: blogHtml ?? "" }}
+                  />
+                ) : (
+                  post.sections.map((section) => (
+                    <motion.section
+                      key={section.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="rounded-[2rem] border border-border bg-card p-8 shadow-lg shadow-secondary/5"
+                    >
+                      <h2 className="text-3xl font-semibold text-foreground mb-4">{section.title}</h2>
+                      <p className="text-muted-foreground leading-8 mb-5">{section.body}</p>
+                      {section.bullets && (
+                        <ul className="grid gap-3 text-muted-foreground">
+                          {section.bullets.map((item) => (
+                            <li key={item} className="rounded-3xl border border-border bg-background px-5 py-4">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </motion.section>
+                  ))
+                )}
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

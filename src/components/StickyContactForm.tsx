@@ -106,12 +106,12 @@ ${formData.message}
         <div className="form-contact-info">
 
           <a
-            href="tel:+919773870268"
+            href="tel:+919289659966"
             className="contact-link"
           >
             <Phone size={16} />
 
-            +91 97738 70268
+            +91 9289659966
           </a>
         </div>
 

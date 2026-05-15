@@ -25,11 +25,11 @@ const ChatWidget = () => {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hello EPR Nexuss, I would like to know about your services.");
-    window.open(`https://wa.me/919773870268?text=${message}`, "_blank");
+    window.open(`https://wa.me/919289659966?text=${message}`, "_blank");
   };
 
   const handleCallClick = () => {
-    window.open("tel:+919773870268", "_self");
+    window.open("tel:+919289659966", "_self");
   };
 
   return (
@@ -95,7 +95,7 @@ const ChatWidget = () => {
                 </div>
                 <div className="text-left">
                   <p className="font-semibold text-sm">Chat on WhatsApp</p>
-                  <p className="text-xs text-white/80">+91 97738 70268</p>
+                  <p className="text-xs text-white/80">+91 9289659966</p>
                 </div>
               </motion.button>
 
@@ -111,7 +111,7 @@ const ChatWidget = () => {
                 </div>
                 <div className="text-left">
                   <p className="font-semibold text-sm">Call Us</p>
-                  <p className="text-xs text-white/80">+91 97738 70268</p>
+                  <p className="text-xs text-white/80">+91 9289659966</p>
                 </div>
               </motion.button>
             </div>

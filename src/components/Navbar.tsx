@@ -44,7 +44,7 @@ const Navbar = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(["EPR Credits"]));
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const location = useLocation();
 
   const toggleCategory = (categoryName: string) => {
@@ -94,9 +94,9 @@ const Navbar = () => {
                 <Phone size={14} />
                 +91 92203 86699
               </a> */}
-              <a href="tel:+919773870268" className="flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+              <a href="tel:+919289659966" className="flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-primary-foreground transition-colors">
                 <Phone size={14} />
-                +91 97738 70268
+                +91 9289659966
               </a>
               {/* <a href="tel:01204605014" className="flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-primary-foreground transition-colors hidden xl:flex">
                 <Phone size={14} />

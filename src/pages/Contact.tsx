@@ -52,10 +52,10 @@ const Contact = () => {
         "https://script.google.com/macros/s/AKfycbxkbsNez-OY7tUV8Vb0weFImRaxs2A8O9-85H82BdLPzSL8T_jzWBrwwOQ9cCVJl0ll/exec",
         {
           method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          // mode: "no-cors",
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
           body: JSON.stringify(form),
         }
       );
@@ -99,7 +99,7 @@ Message: ${
 
     const encodedMessage = encodeURIComponent(text);
 
-    const whatsappUrl = `https://wa.me/919773870268?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/919289659966?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
   };
@@ -348,8 +348,8 @@ Message: ${
                   {
                     icon: Phone,
                     label: "Call Us",
-                    value: "+91 97738 70268",
-                    href: "tel:+919773870268",
+                    value: "+91 9289659966",
+                    href: "tel:+919289659966",
                     subValue: "0120-4605014",
                   },
                 ].map((item, i) => (

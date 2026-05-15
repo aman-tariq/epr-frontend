@@ -367,7 +367,7 @@ const VehicleScrappingBlog: React.FC = () => {
 
             <button
               className="btn-s"
-              onClick={() => window.open('tel:+919773870268')}
+              onClick={() => window.open('tel:+919289659966')}
             >
               Call Now
             </button>
