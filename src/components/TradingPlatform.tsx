@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Shield, Scale, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import tradingImage from "@/assets/epr-trading-platform.jpg";
+import tradingImage from "@/assets/home/banner-01.jpg";
 
 const features = [
   { icon: TrendingUp, title: "Real-time Trading", desc: "Live EPR credit prices and instant transactions" },
@@ -48,26 +48,30 @@ const TradingPlatform = () => {
         </motion.div>
 
         {/* Main Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative mb-12"
-        >
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl" />
-          <motion.div 
-            className="relative rounded-2xl overflow-hidden shadow-2xl border border-blue-500/20"
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.3 }}
-          >
-            <img
-              src={tradingImage}
-              alt="EPR Nexuss Trading Platform"
-              className="w-full h-auto object-cover"
-            />
-          </motion.div>
-        </motion.div>
+        {/* Optimized Banner Image */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="relative mb-12"
+>
+  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl" />
+  
+  <motion.div 
+    className="relative rounded-2xl overflow-hidden shadow-2xl border border-blue-500/20"
+    whileHover={{ scale: 1.01 }}
+    transition={{ duration: 0.3 }}
+  >
+    <div className="relative w-full aspect-[16/9] md:aspect-[21/10] lg:aspect-[2.1/1] overflow-hidden rounded-2xl">
+      <img
+        src={tradingImage}   // Use the new cropped image here
+        alt="EPR Nexuss Trading Platform"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </motion.div>
+</motion.div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">

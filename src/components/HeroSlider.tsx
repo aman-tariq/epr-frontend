@@ -371,13 +371,13 @@ const HeroSlider = () => {
               {/* Heading */}
               <h1
                 className="
-                  text-5xl
-                  sm:text-6xl
-                  md:text-7xl
+                  text-3xl
+                  sm:text-4xl
+                  md:text-6xl
                   lg:text-[66px]
                   font-bold
                   leading-[0.95]
-                  mb-8
+                  mb-6 md:mb-8
                   tracking-tight
                   text-white-900
                 "
@@ -402,10 +402,12 @@ const HeroSlider = () => {
               <p
                 className={`
     ${customStyles.paragraphColor}
-    text-lg
-    md:text-2xl
+    text-sm
+sm:text-base
+md:text-xl
+lg:text-2xl
     leading-relaxed
-    mb-8
+    mb-5 md:mb-8
     max-w-3xl
     font-light
     tracking-wide
@@ -427,10 +429,16 @@ const HeroSlider = () => {
                   className={`
     group
     ml-2
-    px-10
-    py-5
-    rounded-2xl
-    text-lg
+    px-6
+sm:px-8
+md:px-10
+py-3
+md:py-5
+rounded-xl
+md:rounded-2xl
+text-sm
+sm:text-base
+md:text-lg
     transition-all
     duration-300
     flex
@@ -493,14 +501,19 @@ const HeroSlider = () => {
                 <Link
                   to="/services"
                   className="
-                    px-10
-                    py-5
+                    px-6
+                sm:px-8
+                md:px-10
+                py-3
+                md:py-5
+                text-sm
+                sm:text-base
+                md:text-lg
                     border
                     border-white/30
                     text-white
                     font-semibold
                     rounded-2xl
-                    text-lg
                     transition-all
                     hover:bg-white/10
                     backdrop-blur-md

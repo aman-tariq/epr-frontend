@@ -22,7 +22,7 @@ export interface BlogPost {
   keywords: string[];
   metaDescription: string;
   sections?: BlogPostSection[];
-  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "epr-elv" | "e-waste" | "solar-panel";
+  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "epr-elv" | "e-waste" | "solar-panel" | "sops-kpis-checklists";
   previewContent?: string;
   fullContent?: string;
 }
@@ -3539,6 +3539,456 @@ export const blogPosts: BlogPost[] = [
   </section>
 
 </div>
+</body>
+</html>`,
+  },
+  {
+    slug: "operation-performance-management",
+    path: "/blog/operation-performance-management",
+    title: "Operation and Performance Management",
+    summary: "Great businesses grow when operations stay organized, performance stays visible, and every team knows exactly what success looks like.",
+    date: "May 16, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Operations", "Performance", "KPI", "Management", "Business Growth"],
+    keywords: ["operation management", "performance tracking", "KPI monitoring", "process control", "business efficiency"],
+    metaDescription: "Master operation and performance management with KPI strategies, bottleneck control, and continuous improvement frameworks for business growth.",
+    category: "sops-kpis-checklists",
+    fullContent: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operation and Performance Management</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0e1b2d;
+      --panel-2:#12233a;
+      --text:#eaf2ff;
+      --muted:#aac0dd;
+      --accent:#6ee7ff;
+      --accent-2:#8bffb0;
+      --accent-3:#ffd36e;
+      --danger:#ff8a8a;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 16px 40px rgba(0,0,0,.28);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110,231,255,.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(139,255,176,.12), transparent 24%),
+        linear-gradient(180deg, #06101d, #091525 40%, #07111f);
+      color:var(--text);
+      line-height:1.65;
+    }
+    .wrap{max-width:1200px;margin:0 auto;padding:28px 18px 64px}
+    .hero{
+      background:linear-gradient(135deg, rgba(18,35,58,.94), rgba(8,18,31,.96));
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:auto -80px -120px auto;
+      width:280px; height:280px; border-radius:50%;
+      background:radial-gradient(circle, rgba(110,231,255,.20), transparent 68%);
+      pointer-events:none;
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(110,231,255,.12);
+      color:var(--accent);
+      font-size:13px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      border:1px solid rgba(110,231,255,.18);
+    }
+    h1{font-size:clamp(2rem,4vw,4rem); line-height:1.05; margin:16px 0 12px}
+    .sub{max-width:820px;color:var(--muted);font-size:1.08rem}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
+    .stat{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+    }
+    .stat strong{display:block;font-size:1.5rem;margin-bottom:4px}
+    .section{margin-top:22px}
+    .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:18px;align-items:start}
+    .card{
+      background:linear-gradient(180deg, rgba(18,35,58,.92), rgba(12,24,41,.92));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    h2{font-size:1.7rem;margin:0 0 12px}
+    h3{font-size:1.08rem;margin:0 0 10px;color:#f4fbff}
+    p{margin:0 0 14px;color:var(--text)}
+    .muted{color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .list{padding-left:18px;margin:0}
+    .list li{margin:8px 0;color:var(--text)}
+    .chart-box{display:grid;gap:16px}
+    .bar-group{display:grid;gap:12px}
+    .bar-row{display:grid;grid-template-columns:130px 1fr 52px;gap:12px;align-items:center}
+    .label{font-size:14px;color:var(--muted)}
+    .bar{
+      height:14px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;position:relative;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+    .fill.alt{background:linear-gradient(90deg,var(--accent-3), #ffb86e)}
+    .fill.warn{background:linear-gradient(90deg,#fca5a5,var(--danger))}
+    .pct{font-variant-numeric:tabular-nums;text-align:right;color:#fff}
+    .mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .donut-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+    }
+    .donut-wrap{display:flex;align-items:center;gap:16px}
+    .ring{
+      width:120px;height:120px;border-radius:50%;
+      background:conic-gradient(var(--accent) 0 72%, rgba(255,255,255,.08) 72% 100%);
+      display:grid;place-items:center;position:relative;flex:0 0 auto;
+    }
+    .ring::after{
+      content:"";width:78px;height:78px;border-radius:50%;background:linear-gradient(180deg, rgba(14,27,45,.98), rgba(8,18,31,.98));
+      border:1px solid var(--line);position:absolute;
+    }
+    .ring span{position:relative;z-index:1;font-size:1.4rem;font-weight:700}
+    .ring2{background:conic-gradient(var(--accent-2) 0 64%, rgba(255,255,255,.08) 64% 100%)}
+    .ring3{background:conic-gradient(var(--accent-3) 0 81%, rgba(255,255,255,.08) 81% 100%)}
+    .ring4{background:conic-gradient(var(--danger) 0 22%, rgba(255,255,255,.08) 22% 100%)}
+    .tag{display:inline-block;font-size:12px;padding:5px 10px;border-radius:999px;background:rgba(110,231,255,.12);color:var(--accent);border:1px solid rgba(110,231,255,.18)}
+    table{width:100%;border-collapse:collapse;margin-top:10px;overflow:hidden;border-radius:18px}
+    th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
+    th{color:#dff6ff;background:rgba(255,255,255,.04)}
+    td{color:var(--text)}
+    .faq details{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px 18px;
+      margin-bottom:12px;
+    }
+    .faq summary{cursor:pointer;font-weight:700;color:#f8fbff}
+    .faq p{margin-top:10px;color:var(--muted)}
+    .timeline{display:grid;gap:12px}
+    .step{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:none}
+    .num{
+      width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-weight:800;
+      background:rgba(110,231,255,.12);color:var(--accent);border:1px solid rgba(110,231,255,.2)
+    }
+    .footer-note{margin-top:18px;color:var(--muted);font-size:13px}
+    .featured-image{
+      margin:18px 0 8px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(110,231,255,.12), rgba(139,255,176,.08)),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      min-height:280px;
+      position:relative;
+    }
+    .featured-image::before{
+      content:"Featured Image Area";
+      position:absolute;
+      top:18px;
+      left:18px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(7,17,31,.55);
+      color:var(--accent);
+      font-size:12px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      border:1px solid rgba(110,231,255,.18);
+      z-index:2;
+    }
+    .featured-image::after{
+      content:"Add a hero visual, banner, or blog cover image here";
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      padding:10px 14px;
+      border-radius:16px;
+      background:rgba(7,17,31,.62);
+      color:var(--muted);
+      border:1px solid var(--line);
+      max-width:min(92%, 520px);
+      z-index:2;
+    }
+    .featured-image .image-placeholder{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,.18), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(110,231,255,.20), transparent 22%),
+        radial-gradient(circle at 50% 70%, rgba(139,255,176,.16), transparent 24%),
+        linear-gradient(135deg, rgba(11,23,39,.92), rgba(15,29,47,.84));
+      display:grid;
+      place-items:center;
+    }
+    .featured-image .image-placeholder span{
+      display:inline-block;
+      padding:14px 18px;
+      border-radius:18px;
+      border:1px dashed rgba(255,255,255,.18);
+      color:#f4fbff;
+      background:rgba(255,255,255,.04);
+      backdrop-filter: blur(4px);
+      font-weight:600;
+    }
+    @media (max-width: 900px){
+      .stats,.grid,.mini-grid{grid-template-columns:1fr}
+      .bar-row{grid-template-columns:92px 1fr 44px}
+      .hero{padding:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Business Growth Blog</span>
+      <h1>Operation and Performance Management</h1>
+      <div class="featured-image" aria-label="Featured image area">
+        <div class="image-placeholder">
+          <span>Featured Image / Blog Cover Placeholder</span>
+        </div>
+      </div>
+      <p class="sub">Great businesses do not grow by luck. They grow when operations stay organized, performance stays visible, and every team knows exactly what success looks like.</p>
+      <div class="stats">
+        <div class="stat"><strong>Faster</strong><span class="muted">Decision-making through live tracking and clear KPIs.</span></div>
+        <div class="stat"><strong>Smarter</strong><span class="muted">Teams work with data, not assumptions.</span></div>
+        <div class="stat"><strong>Lean</strong><span class="muted">Less waste, fewer delays, better resource use.</span></div>
+        <div class="stat"><strong>Scalable</strong><span class="muted">Processes stay strong as the business expands.</span></div>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <h2>Why operation and performance management matters</h2>
+        <p>Operation and performance management is the discipline that keeps a business running smoothly while helping it improve over time. It connects planning, execution, tracking, and correction into one practical system. When this system is strong, teams can spot delays early, reduce errors, improve output, and deliver better customer experiences.</p>
+        <p>It is not only about efficiency. It is also about clarity. A business may have talented people and good tools, but without a clear process for monitoring performance, progress becomes hard to measure. Operation and performance management brings structure to everyday work and turns scattered effort into repeatable results.</p>
+        <div class="chips">
+          <span class="chip">Process control</span>
+          <span class="chip">KPI monitoring</span>
+          <span class="chip">Resource planning</span>
+          <span class="chip">Continuous improvement</span>
+          <span class="chip">Quality assurance</span>
+        </div>
+      </article>
+      <aside class="card">
+        <h3>Core benefits at a glance</h3>
+        <ul class="list">
+          <li>Better visibility into daily performance</li>
+          <li>Faster response to bottlenecks and issues</li>
+          <li>Stronger accountability across teams</li>
+          <li>More consistent quality in delivery</li>
+          <li>Lower operational cost over time</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section card">
+      <h2>Major topics every strong operation should cover</h2>
+      <p class="muted">These are the building blocks that help businesses stay efficient, stable, and ready for growth.</p>
+      <div class="mini-grid">
+        <div class="donut-card">
+          <span class="tag">KPI strategy</span>
+          <h3 style="margin-top:12px">Measure what truly matters</h3>
+          <p class="muted">Choose the right indicators for speed, quality, cost, and customer experience so performance stays clear and actionable.</p>
+        </div>
+        <div class="donut-card">
+          <span class="tag">Bottleneck control</span>
+          <h3 style="margin-top:12px">Find delays early</h3>
+          <p class="muted">Spot where work slows down, why it slows down, and how to remove the block before it affects the whole process.</p>
+        </div>
+        <div class="donut-card">
+          <span class="tag">Resource planning</span>
+          <h3 style="margin-top:12px">Use people and tools wisely</h3>
+          <p class="muted">Balance labor, equipment, time, and inventory so the business does not waste capacity or miss demand.</p>
+        </div>
+        <div class="donut-card">
+          <span class="tag">Quality control</span>
+          <h3 style="margin-top:12px">Keep standards steady</h3>
+          <p class="muted">Create checks that protect output quality and reduce rework, defects, and customer complaints.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <h2>The practical side of strong operations</h2>
+        <p>Good operations are built on simple habits done well. Leaders define the goal, teams follow the process, and performance gets reviewed often enough to make real changes. This creates a loop of improvement: plan, execute, measure, improve.</p>
+        <p>In real life, this means fewer missed deadlines, cleaner handoffs between teams, better inventory movement, and sharper use of time and money. Instead of reacting to problems after they grow, managers can address issues at the source.</p>
+        <h3>What high-performing teams usually do</h3>
+        <ul class="list">
+          <li>Set clear targets for speed, quality, and output</li>
+          <li>Track performance every day or every shift</li>
+          <li>Review root causes instead of only symptoms</li>
+          <li>Train people around standard workflows</li>
+          <li>Use dashboards to keep progress visible</li>
+        </ul>
+      </article>
+      <aside class="card">
+        <h3>Simple improvement loop</h3>
+        <div class="timeline">
+          <div class="step"><div class="num">1</div><div><strong>Plan</strong><div class="muted">Set targets, rules, and expected outcomes.</div></div></div>
+          <div class="step"><div class="num">2</div><div><strong>Execute</strong><div class="muted">Run the process consistently across teams.</div></div></div>
+          <div class="step"><div class="num">3</div><div><strong>Measure</strong><div class="muted">Track performance through dashboards and reports.</div></div></div>
+          <div class="step"><div class="num">4</div><div><strong>Improve</strong><div class="muted">Fix bottlenecks and repeat what works.</div></div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <h2>Performance dashboard</h2>
+        <p class="muted">This visual section shows how a well-managed operation can translate business activity into clear, measurable outcomes.</p>
+        <div class="chart-box">
+          <div class="bar-group">
+            <div class="bar-row"><div class="label">On-time delivery</div><div class="bar"><div class="fill" style="width:92%"></div></div><div class="pct">92%</div></div>
+            <div class="bar-row"><div class="label">Process efficiency</div><div class="bar"><div class="fill alt" style="width:84%"></div></div><div class="pct">84%</div></div>
+            <div class="bar-row"><div class="label">Quality consistency</div><div class="bar"><div class="fill" style="width:88%"></div></div><div class="pct">88%</div></div>
+            <div class="bar-row"><div class="label">Waste reduction</div><div class="bar"><div class="fill warn" style="width:67%"></div></div><div class="pct">67%</div></div>
+          </div>
+          <div class="mini-grid">
+            <div class="donut-card">
+              <span class="tag">Output utilization</span>
+              <div class="donut-wrap" style="margin-top:12px">
+                <div class="ring"><span>72%</span></div>
+                <div>
+                  <strong>Capacity use</strong>
+                  <p class="muted">A healthy system keeps equipment, people, and time working near the right level.</p>
+                </div>
+              </div>
+            </div>
+            <div class="donut-card">
+              <span class="tag">Team reliability</span>
+              <div class="donut-wrap" style="margin-top:12px">
+                <div class="ring ring2"><span>64%</span></div>
+                <div>
+                  <strong>Task completion</strong>
+                  <p class="muted">Reliable execution means fewer handoff delays and fewer surprises at the end of the day.</p>
+                </div>
+              </div>
+            </div>
+            <div class="donut-card">
+              <span class="tag">Customer impact</span>
+              <div class="donut-wrap" style="margin-top:12px">
+                <div class="ring ring3"><span>81%</span></div>
+                <div>
+                  <strong>Satisfaction score</strong>
+                  <p class="muted">When operations are stable, customers feel it through faster and cleaner service.</p>
+                </div>
+              </div>
+            </div>
+            <div class="donut-card">
+              <span class="tag">Risk indicator</span>
+              <div class="donut-wrap" style="margin-top:12px">
+                <div class="ring ring4"><span>22%</span></div>
+                <div>
+                  <strong>Delay risk</strong>
+                  <p class="muted">Lower risk means the process is easier to predict and manage.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside class="card">
+        <h2>Database snapshot</h2>
+        <p class="muted">A simple operations database keeps performance visible and easy to review.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Current</th>
+              <th>Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cycle time</td><td>18 min</td><td>15 min</td></tr>
+            <tr><td>Order accuracy</td><td>97%</td><td>99%</td></tr>
+            <tr><td>Idle time</td><td>6%</td><td>3%</td></tr>
+            <tr><td>Rework rate</td><td>4%</td><td>2%</td></tr>
+            <tr><td>Service response</td><td>11 min</td><td>8 min</td></tr>
+          </tbody>
+        </table>
+        <p class="footer-note">This table acts like a mini control room. It helps leaders compare actual performance with the target and act quickly.</p>
+      </aside>
+    </section>
+
+    <section class="section grid">
+      <article class="card">
+        <h2>Case study: how a mid-size operation improved performance</h2>
+        <p><strong>Company profile:</strong> A mid-size manufacturing business was facing late deliveries, frequent rework, and rising costs. The team was busy every day, but the results were still uneven.</p>
+        <p><strong>What changed:</strong> The company introduced a simple performance management system with daily KPIs, shift dashboards, weekly review meetings, and a clear root-cause process. Managers stopped guessing and started using data to guide action.</p>
+        <p><strong>Results after three months:</strong> On-time delivery improved from 76% to 92%. Rework dropped by 35%. Team leaders reported fewer last-minute fire drills because problems were detected earlier. The biggest win was not only higher output, but also a calmer, more predictable workplace.</p>
+      </article>
+      <aside class="card">
+        <h3>Case study takeaways</h3>
+        <ul class="list">
+          <li>Visibility creates accountability.</li>
+          <li>Small daily checks prevent bigger failures.</li>
+          <li>Clear KPIs align teams around one goal.</li>
+          <li>Data-backed reviews make improvement faster.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section card faq">
+      <h2>FAQs</h2>
+      <details>
+        <summary>What is operation and performance management?</summary>
+        <p>It is the process of running daily work efficiently while measuring results and improving them over time. It links planning, execution, reporting, and continuous improvement.</p>
+      </details>
+      <details>
+        <summary>Why is it important for growing businesses?</summary>
+        <p>Because growth brings more work, more complexity, and more pressure on teams. Strong management keeps quality stable even when demand increases.</p>
+      </details>
+      <details>
+        <summary>Which KPIs matter most?</summary>
+        <p>The best KPIs depend on the business, but common ones include cycle time, on-time delivery, accuracy, productivity, cost per unit, and customer satisfaction.</p>
+      </details>
+      <details>
+        <summary>How often should performance be reviewed?</summary>
+        <p>Fast-moving teams may review daily. Others may review weekly or monthly. The key is to review often enough to correct problems before they spread.</p>
+      </details>
+    </section>
+
+    <section class="section card">
+      <h2>Final thought</h2>
+      <p>Operation and performance management is not a theory for boardrooms only. It is a practical business habit that keeps teams focused, reduces waste, and supports long-term growth. When a company can see its work clearly, it can improve it quickly. That is how steady operations become strong performance—and strong performance becomes business growth.</p>
+    </section>
+  </div>
 </body>
 </html>`,
   },
