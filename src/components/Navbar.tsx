@@ -17,14 +17,15 @@ import { serviceDropdown, serviceCategoriesNav } from "@/lib/services";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Contact", path: "/contact" },
+  {name: "About us", path: "/about#company"}
 ];
 
-const aboutDropdown = [
-  { label: "About Company", path: "/about#company" },
-  { label: "EPR", path: "/about#epr" },
-  { label: "Waste Management", path: "/about#waste" },
-  { label: "Team", path: "/team" },
-];
+// const aboutDropdown = [
+//   { label: "About Company", path: "/about#company" },
+//   { label: "EPR", path: "/about#epr" },
+//   { label: "Waste Management", path: "/about#waste" },
+//   { label: "Team", path: "/team" },
+// ];
 
 // ==================== BLOG CATEGORIES ====================
 const blogDropdown = [
@@ -195,7 +196,7 @@ const Navbar = () => {
               ))}
 
               {/* About Dropdown */}
-              <div
+              {/* <div
                 {...(isDesktop && { onMouseEnter: () => setIsAboutOpen(true), onMouseLeave: () => setIsAboutOpen(false) })}
                 className="relative"
               >
@@ -214,7 +215,7 @@ const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </div>
+              </div> */}
 
               {/* Blog Dropdown - With New Categories */}
               <div
@@ -469,7 +470,7 @@ const Navbar = () => {
                 ))}
 
                 {/* Mobile About */}
-                <div className="border-t border-primary-foreground/10 pt-3 mt-3">
+                {/* <div className="border-t border-primary-foreground/10 pt-3 mt-3">
                   <button
                     onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                     className="w-full px-4 py-3 flex items-center justify-between rounded-lg text-sm font-medium transition-all text-primary-foreground/80 hover:bg-primary-foreground/10"
@@ -493,7 +494,7 @@ const Navbar = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </div> */}
 
                 {/* Mobile Blog */}
                 <div className="border-t border-primary-foreground/10 pt-3 mt-3">

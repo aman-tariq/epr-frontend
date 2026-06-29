@@ -14,6 +14,11 @@
   import SetupCommissioningDocumentation from "./services/SetupCommissioningDocumentation";
   import ScaleAndGrowthSystems from "./services/ScaleAndGrowthSystems";import OperationPerformanceManagement from "./services/OperationPerformanceManagement";  import StickyContactForm from "@/components/StickyContactForm";
 import BusinessGrowthAndLeadGeneration from "./services/BusinessGrowthAndLeadGeneration/BusinessGrowthAndLeadGeneration";
+import EprElv from "../components/services/epr credits/EprElv"
+import EprCreditsMetalsBlog from "@/components/services/epr credits/EprMetals";
+import EprCreditsPlasticsBlog from "@/components/services/epr credits/EprPlastic";
+import EprCreditsTyreWasteBlog from "@/components/services/epr credits/EprTyre";
+import EprUsedOilBlog from "@/components/services/epr credits/EprUsedOil";
   const ServiceDetails = () => {
     const { serviceSlug } = useParams();
     const service = services.find((item) => item.slug === serviceSlug);
@@ -28,6 +33,34 @@ import BusinessGrowthAndLeadGeneration from "./services/BusinessGrowthAndLeadGen
     }
 
     if (service.slug === "recycling-ewaste") {
+      return <EWasteBlog />;
+    }
+
+    if (service.slug === "epr-plastic") {
+      return <EprCreditsPlasticsBlog />;
+    }
+
+    if (service.slug === "epr-electronic") {
+      return <EWasteBlog />;
+    }
+
+    if (service.slug === "epr-tyre") {
+      return <EprCreditsTyreWasteBlog />;
+    }
+
+    if (service.slug === "epr-elv") {
+      return <EprElv />;
+    }
+
+    if (service.slug === "epr-used-oil") {
+      return <EprUsedOilBlog />;
+    }
+
+    if (service.slug === "epr-metals") {
+      return <EprCreditsMetalsBlog/>;
+    }
+
+    if (service.slug === "epr-battery") {
       return <EWasteBlog />;
     }
 
