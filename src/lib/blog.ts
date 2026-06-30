@@ -4770,6 +4770,33 @@ export const blogCategories: BlogCategory[] = [
     image: cpcbImage,
     tagLine: "Automotive Recycling & Recovery",
   },
+  {
+    id: "lithium",
+    slug: "lithium",
+    name: "lithium",
+    path: "/blog/category/lithium",
+    description: "Learn what lithium is, its applications, extraction methods, environmental impact, recycling process, and why it is essential for batteries and the clean energy future.",
+    image: cpcbImage,
+    tagLine: "Lithium Recycling & Recovery",
+  },
+  {
+    id: "tyre",
+    slug: "tyre",
+    name: "tyre",
+    path: "/blog/category/tyre",
+    description: "Learn about tyre waste management, recycling methods, environmental impact, and the importance of responsible tyre disposal for a sustainable future.",
+    image: cpcbImage,
+    tagLine: "Tyre Recycling & Recovery",
+  },
+  {
+    id: "plastic",
+    slug: "plastic",
+    name: "plastic",
+    path: "/blog/category/plastic",
+    description: "Learn about plastic waste management, recycling methods, environmental impact, and sustainable solutions for reducing plastic pollution.",
+    image: cpcbImage,
+    tagLine: "Plastic Recycling & Recovery",
+  },
 ];
 
 
