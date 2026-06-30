@@ -22,7 +22,7 @@ export interface BlogPost {
   keywords: string[];
   metaDescription: string;
   sections?: BlogPostSection[];
-  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre";
+  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre" | "setup-commissioning-documentation" | "operation-performance-management" | "scale-and-growth-systems";
   previewContent?: string;
   fullContent?: string;
 }
@@ -4811,6 +4811,265 @@ export const blogPosts: BlogPost[] = [
 </body>
 </html>`,
   },
+  // ===== SETUP COMMISSIONING DOCUMENTATION BLOGS =====
+  {
+    slug: "role-of-setup-documentation-in-plant-operation-intelligence",
+    path: "/blog/role-of-setup-documentation-in-plant-operation-intelligence",
+    title: "The Role of Setup Documentation in Plant Operation Intelligence",
+    summary:
+      "Why setup and commissioning documentation forms the foundation of reliable plant operation intelligence, and how to build it right from day one.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Setup Documentation", "Commissioning", "Plant Operations"],
+    keywords: ["setup documentation", "commissioning documentation", "plant operation intelligence"],
+    metaDescription:
+      "Why setup and commissioning documentation forms the foundation of reliable plant operation intelligence, and how to build it right from day one.",
+    category: "setup-commissioning-documentation",
+  },
+  {
+    slug: "common-documentation-gaps",
+    path: "/blog/common-documentation-gaps",
+    title: "Common Documentation Gaps That Delay Commissioning",
+    summary:
+      "The most frequent documentation gaps that slow down plant commissioning, and practical steps to close them before they cause costly delays.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Commissioning", "Documentation Gaps", "Plant Setup"],
+    keywords: ["documentation gaps", "commissioning delays", "plant setup documentation"],
+    metaDescription:
+      "The most frequent documentation gaps that slow down plant commissioning, and practical steps to close them before they cause costly delays.",
+    category: "setup-commissioning-documentation",
+  },
+  {
+    slug: "commissioning-records",
+    path: "/blog/commissioning-records",
+    title: "Your Plant Has a Memory. Are You Listening to It?",
+    summary:
+      "Why commissioning records are the hidden engine behind every high-performing industrial operation — and what happens when you ignore them.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Commissioning Records", "Plant Documentation"],
+    keywords: ["commissioning records", "plant memory", "industrial documentation"],
+    metaDescription:
+      "Why commissioning records are the hidden engine behind every high-performing industrial operation — and what happens when you ignore them.",
+    category: "setup-commissioning-documentation",
+  },
+  {
+    slug: "plant-startup-documentation",
+    path: "/blog/plant-startup-documentation",
+    title: "No Document, No Startup. It's That Simple.",
+    summary:
+      "Every plant shutdown traced to a missing record, every delayed startup caused by an incomplete checklist — all of it was preventable.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Plant Startup", "Documentation", "Checklists"],
+    keywords: ["plant startup documentation", "startup checklist", "commissioning readiness"],
+    metaDescription:
+      "Every plant shutdown traced to a missing record, every delayed startup caused by an incomplete checklist — all of it was preventable.",
+    category: "setup-commissioning-documentation",
+  },
+  {
+    slug: "commissioning-checklists-readiness",
+    path: "/blog/commissioning-checklists-readiness",
+    title: "How Commissioning Checklists Improve Operational Readiness",
+    summary:
+      "How structured commissioning checklists reduce risk, prevent missed steps, and improve overall operational readiness before plant startup.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Commissioning Checklists", "Operational Readiness"],
+    keywords: ["commissioning checklists", "operational readiness", "plant startup checklist"],
+    metaDescription:
+      "How structured commissioning checklists reduce risk, prevent missed steps, and improve overall operational readiness before plant startup.",
+    category: "setup-commissioning-documentation",
+  },
+  {
+    slug: "plant-setup-handover-best-practices",
+    path: "/blog/plant-setup-handover-best-practices",
+    title: "Best Practices for Organizing Plant Setup and Handover Files",
+    summary:
+      "Practical best practices for organizing plant setup and handover documentation so nothing gets lost between commissioning teams and operations.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Plant Handover", "Documentation Best Practices"],
+    keywords: ["plant handover files", "setup documentation best practices", "commissioning handover"],
+    metaDescription:
+      "Practical best practices for organizing plant setup and handover documentation so nothing gets lost between commissioning teams and operations.",
+    category: "setup-commissioning-documentation",
+  },
+  // ===== OPERATION & PERFORMANCE MANAGEMENT BLOGS =====
+  {
+    slug: "kpis-in-plant-performance-management",
+    path: "/blog/kpis-in-plant-performance-management",
+    title: "The Role of KPIs in Plant Operation Performance Management",
+    summary:
+      "The numbers do not lie — the right KPIs turn plant performance into clear action. Here's how to choose and track the KPIs that matter.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["KPIs", "Plant Performance", "Operations"],
+    keywords: ["plant KPIs", "performance management", "operational KPIs"],
+    metaDescription:
+      "The numbers do not lie — the right KPIs turn plant performance into clear action. Here's how to choose and track the KPIs that matter.",
+    category: "operation-performance-management",
+  },
+  {
+    slug: "performance-management-strategies",
+    path: "/blog/performance-management-strategies",
+    title: "Key Performance Management Strategies for Modern Plant Operations",
+    summary:
+      "Turn daily plant activity into measurable wins — faster decisions, fewer delays, tighter control, and stronger output.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Performance Management", "Plant Operations", "Strategy"],
+    keywords: ["performance management strategies", "plant operations", "operational efficiency"],
+    metaDescription:
+      "Turn daily plant activity into measurable wins — faster decisions, fewer delays, tighter control, and stronger output.",
+    category: "operation-performance-management",
+  },
+  {
+    slug: "plant-operation-intelligence",
+    path: "/blog/plant-operation-intelligence",
+    title: "How Plant Operation Intelligence Improves Daily Operational Control",
+    summary:
+      "Plant operation intelligence gives teams a clearer view of what is happening, what is changing, and what needs attention right now.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Plant Operation Intelligence", "Operational Control"],
+    keywords: ["plant operation intelligence", "operational control", "daily plant management"],
+    metaDescription:
+      "Plant operation intelligence gives teams a clearer view of what is happening, what is changing, and what needs attention right now.",
+    category: "operation-performance-management",
+  },
+  {
+    slug: "real-time-monitoring-reduce-delays",
+    path: "/blog/real-time-monitoring-reduce-delays",
+    title: "How Real-Time Monitoring Helps Reduce Operational Delays",
+    summary:
+      "The fastest way to cut delays is to see them early, understand them clearly, and act before they spread.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Real-Time Monitoring", "Operational Delays"],
+    keywords: ["real-time monitoring", "reduce operational delays", "plant monitoring"],
+    metaDescription:
+      "The fastest way to cut delays is to see them early, understand them clearly, and act before they spread.",
+    category: "operation-performance-management",
+  },
+  {
+    slug: "using-data-to-improve-plant-efficiency",
+    path: "/blog/using-data-to-improve-plant-efficiency",
+    title: "Using Data to Track and Improve Plant Efficiency",
+    summary:
+      "Turn plant data into better efficiency, faster decisions, and cleaner margins.",
+    date: "May 22, 2026",
+    readingTime: "6 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Plant Data", "Efficiency", "Operations"],
+    keywords: ["plant efficiency data", "data-driven operations", "plant performance data"],
+    metaDescription:
+      "Turn plant data into better efficiency, faster decisions, and cleaner margins.",
+    category: "operation-performance-management",
+  },
+  // ===== SCALE AND GROWTH SYSTEMS BLOGS =====
+  {
+    slug: "digital-infrastructure-for-plant-expansion",
+    path: "/blog/digital-infrastructure-for-plant-expansion",
+    title: "The Role of Digital Infrastructure in Plant Expansion",
+    summary:
+      "Expansion does not fail because the plant is too small — it fails when the information backbone cannot grow with it.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Digital Infrastructure", "Plant Expansion", "Scaling"],
+    keywords: ["digital infrastructure", "plant expansion", "scaling plant operations"],
+    metaDescription:
+      "Expansion does not fail because the plant is too small — it fails when the information backbone cannot grow with it.",
+    category: "scale-and-growth-systems",
+  },
+  {
+    slug: "multi-plant-growth-playbook",
+    path: "/blog/multi-plant-growth-playbook",
+    title: "Scale Faster When Every Plant Runs on the Same Playbook",
+    summary:
+      "Using data-driven systems to support multi-plant growth — because expansion should feel structured, not chaotic.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Multi-Plant Growth", "Scaling Systems"],
+    keywords: ["multi-plant growth", "growth playbook", "scaling operations"],
+    metaDescription:
+      "Using data-driven systems to support multi-plant growth — because expansion should feel structured, not chaotic.",
+    category: "scale-and-growth-systems",
+  },
+  {
+    slug: "plant-efficiency-documentation-systems",
+    path: "/blog/plant-efficiency-documentation-systems",
+    title: "Build Systems That Help Plants Grow Without Losing Efficiency",
+    summary:
+      "The smartest plants do not simply expand output — they protect uptime, keep teams aligned, and turn every workflow into a repeatable advantage.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Plant Efficiency", "Documentation Systems", "Growth"],
+    keywords: ["plant efficiency documentation", "scaling without losing efficiency", "growth systems"],
+    metaDescription:
+      "The smartest plants do not simply expand output — they protect uptime, keep teams aligned, and turn every workflow into a repeatable advantage.",
+    category: "scale-and-growth-systems",
+  },
+  {
+    slug: "plant-operation-intelligence-for-scalable-growth",
+    path: "/blog/plant-operation-intelligence-for-scalable-growth",
+    title: "How Plant Operation Intelligence Supports Scalable Growth",
+    summary:
+      "The plants that scale smoothly are not the ones that work harder — they are the ones that see farther, using real-time visibility and predictive maintenance as a growth engine.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Plant Operation Intelligence", "Scalable Growth"],
+    keywords: ["plant operation intelligence", "scalable growth", "predictive maintenance"],
+    metaDescription:
+      "The plants that scale smoothly are not the ones that work harder — they are the ones that see farther, using real-time visibility and predictive maintenance as a growth engine.",
+    category: "scale-and-growth-systems",
+  },
+  {
+    slug: "standardize-operations-for-plant-scaling",
+    path: "/blog/standardize-operations-for-plant-scaling",
+    title: "Standardize Operations Before Your Plant Outgrows the System",
+    summary:
+      "The fastest-growing plants are not the ones that improvise better — they are the ones that standardize early, scale cleanly, and keep every team moving in the same direction.",
+    date: "May 22, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Standardization", "Plant Scaling", "Operations"],
+    keywords: ["standardize operations", "plant scaling", "operational standardization"],
+    metaDescription:
+      "The fastest-growing plants are not the ones that improvise better — they are the ones that standardize early, scale cleanly, and keep every team moving in the same direction.",
+    category: "scale-and-growth-systems",
+  },
 ];
 
 export const blogCategories: BlogCategory[] = [
@@ -4903,6 +5162,15 @@ export const blogCategories: BlogCategory[] = [
     description: "Learn about plastic waste management, recycling methods, environmental impact, and sustainable solutions for reducing plastic pollution.",
     image: cpcbImage,
     tagLine: "Plastic Recycling & Recovery",
+  },
+  {
+    id: "plant-operation-intelligence",
+    slug: "plant-operation-intelligence",
+    name: "Plant Operation Intelligence",
+    path: "/blog/category/plant-operation-intelligence",
+    description: "Practical guidance on plant setup documentation, commissioning, performance management, and the systems that help recycling plants scale without losing efficiency.",
+    image: platformImage,
+    tagLine: "Setup, Performance & Scale",
   },
 ];
 
