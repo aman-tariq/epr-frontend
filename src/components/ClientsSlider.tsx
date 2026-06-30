@@ -114,7 +114,7 @@ const ClientsSlider = () => {
                     />
                     {/* Fallback Initials (hidden by default) */}
                     <div 
-                      className="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center mb-3 hidden"
+                      className="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 items-center justify-center mb-3 hidden"
                     >
                       <span className="text-white font-bold text-lg">
                         {client.name.charAt(0)}

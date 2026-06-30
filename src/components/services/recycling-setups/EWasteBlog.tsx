@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import StickyContactForm from './StickyContactForm';
+import StickyContactForm from '../../StickyContactForm';
 
 const EWasteBlog: React.FC = () => {
   useEffect(() => {

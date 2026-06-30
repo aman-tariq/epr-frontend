@@ -22,7 +22,7 @@ export interface BlogPost {
   keywords: string[];
   metaDescription: string;
   sections?: BlogPostSection[];
-  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf";
+  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre";
   previewContent?: string;
   fullContent?: string;
 }
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn how to make your EPR ELV program CPCB-ready with audit-ready reporting, responsible dismantling and certified recovery channels.",
-    category: "rvsf",
+    category: "epr-elv",
     sections: [
       {
         title: "ELV recovery and CPCB expectations",
@@ -1117,7 +1117,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Get the complete tyre recycling plant approval guide covering Consent to Establish, Consent to Operate, and all regulatory requirements for CPCB compliance.",
-    category: "epr-tyre",
+    category: "tyre",
     previewContent:
       "A tyre recycling plant works best when approvals are planned from the start. The right sequence saves time, reduces rework, and helps the business move from concept to commercial operation smoothly.",
     sections: [
@@ -1167,7 +1167,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover strategies to optimize tyre scrap sourcing, material grading, and product sales for stronger recycling plant margins and business growth.",
-    category: "epr-tyre",
+    category: "tyre",
     previewContent:
       "In tyre recycling, profit depends on more than processing capacity. The real difference comes from buying the right scrap at the right price, maintaining quality standards, and selling products to the right buyers.",
     sections: [
@@ -1219,7 +1219,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn how to select and optimize machinery for profitable and efficient tyre recycling plant operations with proper equipment configuration.",
-    category: "epr-tyre",
+    category: "tyre",
     previewContent:
       "The right machinery transforms tyre waste into valuable products. Wrong equipment choices lead to high operating costs, poor recovery rates, and operational inefficiencies.",
     sections: [
@@ -1268,7 +1268,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover how to identify and serve target market segments in tyre recycling for sustainable growth and profitability in the circular economy.",
-    category: "epr-tyre",
+    category: "tyre",
     previewContent:
       "Tyre recycling is more than waste management—it's a growing business opportunity driven by environmental regulations, infrastructure development, and industrial demand for recycled materials.",
     sections: [
@@ -1315,7 +1315,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Master the creation of a comprehensive DPR for tyre recycling plants covering 10 TPD capacity with financial projections and implementation roadmap.",
-    category: "epr-tyre",
+    category: "tyre",
     previewContent:
       "A well-structured DPR transforms tyre recycling from concept to profitable business. This guide covers everything from market analysis to financial projections for a 10 TPD tyre recycling facility.",
     sections: [
@@ -1363,7 +1363,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Get the complete ELV recycling plant approval guide covering Consent to Establish, Consent to Operate, and all regulatory requirements for automotive waste management.",
-    category: "rvsf",
+    category: "epr-elv",
     previewContent:
       "ELV recycling requires careful regulatory navigation. The right approval strategy ensures compliance, enables operations, and positions your business as a responsible automotive waste management partner.",
     sections: [
@@ -1413,7 +1413,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover strategies to optimize ELV sourcing, component recovery, and material sales for maximum profitability in automotive recycling operations.",
-    category: "rvsf",
+    category: "epr-elv",
     previewContent:
       "ELV recycling profitability depends on efficient vehicle acquisition, systematic dismantling, and strategic sales of recovered materials to appropriate market segments.",
     sections: [
@@ -1466,7 +1466,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn how to select and optimize machinery for efficient and profitable ELV recycling operations with proper equipment configuration.",
-    category: "rvsf",
+    category: "epr-elv",
     previewContent:
       "ELV recycling requires specialized equipment for safe vehicle dismantling, component separation, and material recovery. The right machinery ensures efficiency, safety, and maximum value extraction.",
     sections: [
@@ -1516,7 +1516,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover how to identify and serve target market segments in ELV recycling for sustainable growth in the automotive circular economy.",
-    category: "rvsf",
+    category: "epr-elv",
     previewContent:
       "India's growing vehicle fleet and environmental regulations create significant opportunities in ELV recycling. Understanding market dynamics is key to building a profitable automotive waste management business.",
     sections: [
@@ -1564,7 +1564,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Master the creation of a comprehensive DPR for ELV recycling plants covering facility design, financial projections, and implementation roadmap.",
-    category: "rvsf",
+    category: "epr-elv",
     previewContent:
       "A comprehensive ELV recycling DPR provides the roadmap for establishing a compliant and profitable automotive waste management facility in India's growing circular economy.",
     sections: [
@@ -1593,6 +1593,113 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  // ===== RVSF (REGISTERED VEHICLE SCRAPPING FACILITY) BLOGS =====
+  {
+    slug: "rvsf-approvals",
+    path: "/blog/rvsf-approvals",
+    title: "RVSF Approvals Guide 2026 — How to Get Registered Vehicle Scrapping Facility Approval",
+    summary:
+      "Complete guide on Registered Vehicle Scrapping Facility (RVSF) approvals, requirements, documentation, and how to set up a profitable scrapping plant in India as per CPCB & MoRTH guidelines.",
+    date: "May 20, 2026",
+    readingTime: "9 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["RVSF", "Approvals", "CPCB", "MoRTH", "Compliance"],
+    keywords: [
+      "RVSF approvals",
+      "RVSF setup",
+      "ELV scrapping",
+      "CPCB RVSF guidelines",
+      "RVSF documentation",
+    ],
+    metaDescription:
+      "Complete guide on Registered Vehicle Scrapping Facility (RVSF) approvals, requirements, documentation, and how to set up a profitable scrapping plant in India as per CPCB & MoRTH guidelines.",
+    category: "rvsf",
+  },
+  {
+    slug: "rvsf-buy-selling",
+    path: "/blog/rvsf-buy-selling",
+    title: "How to Buy and Sell Scrap at a Registered Vehicle Scrapping Facility (RVSF) — Complete Guide",
+    summary:
+      "Learn the complete buying and selling process at a Registered Vehicle Scrapping Facility (RVSF), covering scrap purchase, reusable parts selling, documentation, and pricing.",
+    date: "May 20, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["RVSF", "Scrap Trading", "Buying & Selling", "Compliance"],
+    keywords: [
+      "RVSF buying and selling",
+      "vehicle scrap purchase",
+      "reusable parts selling",
+      "RVSF pricing",
+    ],
+    metaDescription:
+      "Learn the complete buying and selling process at a Registered Vehicle Scrapping Facility (RVSF), including documentation, pricing, and maximizing profit in vehicle scrapping business.",
+    category: "rvsf",
+  },
+  {
+    slug: "rvsf-machinery",
+    path: "/blog/rvsf-machinery",
+    title: "RVSF Machinery Support & Maintenance Services in India — Shredder, Baler & Plant Reliability",
+    summary:
+      "Specialized machinery maintenance and support for Registered Vehicle Scrapping Facilities (RVSF), covering preventive maintenance, emergency breakdown support, and IoT monitoring.",
+    date: "May 20, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["RVSF", "Machinery", "Maintenance", "Plant Reliability"],
+    keywords: [
+      "RVSF machinery",
+      "shredder maintenance",
+      "baler maintenance",
+      "RVSF plant reliability",
+    ],
+    metaDescription:
+      "Specialized machinery maintenance and support for Registered Vehicle Scrapping Facilities (RVSF). Preventive maintenance, emergency breakdown support, and compliance-ready service.",
+    category: "rvsf",
+  },
+  {
+    slug: "rvsf-market-analysis",
+    path: "/blog/rvsf-market-analysis",
+    title: "RVSF Market Analysis 2026 — Target Segments, Buyer Demand & Growth Strategy",
+    summary:
+      "Complete market analysis for Registered Vehicle Scrapping Facilities (RVSF), covering target customer segments, regional demand, and data-driven growth strategies.",
+    date: "May 20, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["RVSF", "Market Analysis", "Growth Strategy"],
+    keywords: [
+      "RVSF market analysis",
+      "RVSF target segments",
+      "vehicle scrapping demand",
+      "RVSF growth strategy",
+    ],
+    metaDescription:
+      "Complete market analysis for Registered Vehicle Scrapping Facilities (RVSF). Learn target customer segments, regional demand, and data-driven strategies to grow your scrapping business in India.",
+    category: "rvsf",
+  },
+  {
+    slug: "rvsf-dpr",
+    path: "/blog/rvsf-dpr",
+    title: "Detailed Project Report (DPR) for Registered Vehicle Scrapping Facility (RVSF) — Complete Guide 2026",
+    summary:
+      "Complete guide on preparing a Detailed Project Report (DPR) for an RVSF, including financial model, compliance roadmap, and implementation plan for RVSF setup in India.",
+    date: "May 20, 2026",
+    readingTime: "9 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["RVSF", "DPR", "Financial Model", "Compliance"],
+    keywords: [
+      "RVSF DPR",
+      "RVSF detailed project report",
+      "RVSF financial model",
+      "RVSF setup in India",
+    ],
+    metaDescription:
+      "Complete guide on preparing a Detailed Project Report (DPR) for a Registered Vehicle Scrapping Facility (RVSF). Includes financial model, compliance roadmap, and implementation plan.",
+    category: "rvsf",
+  },
   {
     slug: "plastic-approvals",
     path: "/blog/plastic-approvals",
@@ -1612,7 +1719,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Get a complete plastic recycling plant approval guide covering Consent to Establish, Consent to Operate, and all regulatory requirements.",
-    category: "epr-plastic",
+    category: "plastic",
     previewContent:
       "A plastic recycling plant works best when the approvals are planned early. The right sequence saves time, avoids rework, and helps the business move from idea to operation with confidence.",
     sections: [
@@ -1660,7 +1767,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover strategies to improve plastic scrap sourcing, material grading, and buyer matching for stronger recycling plant margins.",
-    category: "epr-plastic",
+    category: "plastic",
     previewContent:
       "In a plastic recycling plant, profit depends on more than machinery. The real difference comes from buying the right scrap, keeping quality under control, and selling the final product to the right buyer at the right value.",
     sections: [
@@ -1712,7 +1819,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn how to select and optimize machinery for profitable and efficient plastic recycling plant operations.",
-    category: "epr-plastic",
+    category: "plastic",
     previewContent:
       "The right machinery does more than process waste. It improves quality, reduces downtime, lowers operating cost, and helps your recycling business grow with confidence.",
     sections: [
@@ -1760,7 +1867,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover how to identify and serve target market segments in plastic recycling for sustainable growth and profitability.",
-    category: "epr-plastic",
+    category: "plastic",
     previewContent:
       "Plastic recycling is no longer just a compliance story. It is a growing business built on steady scrap supply, rising recycled-content demand, and brands that need a cleaner material story.",
     sections: [
@@ -1807,7 +1914,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn the complete plastic recycling process, profitability strategies, and how to build a sustainable circular business model.",
-    category: "epr-plastic",
+    category: "plastic",
     previewContent:
       "Plastic recycling is not only a waste solution—it is a business that turns discarded material into valuable supply chain assets and creates steady revenue.",
     sections: [
@@ -1855,7 +1962,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Get the complete lithium battery recycling plant approval guide with 8-month parallel filing roadmap and all regulatory requirements.",
-    category: "epr-battery",
+    category: "lithium",
     previewContent:
       "India generated around 50,000 metric tonnes of lithium-ion battery waste in 2023. By 2030, that number will exceed 180,000 MT. The entrepreneurs who move through the regulatory process quickly and correctly will be the ones who build the most profitable green businesses.",
     sections: [
@@ -1904,7 +2011,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover how to optimize lithium battery scrap buying, material grading, and buyer matching for stronger recycling business margins.",
-    category: "epr-battery",
+    category: "lithium",
     previewContent:
       "In the lithium-ion battery recycling business, value is not only hidden inside the material. It is also hidden in the way you source it, sell it, and move it. The right trading partner can help you reduce friction, get better pricing, and build a supply chain that feels reliable.",
     sections: [
@@ -1944,7 +2051,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Master the creation of a comprehensive DPR for lithium battery recycling plants covering 5 TPD mechanical and 2 TPD hydromet processing.",
-    category: "epr-battery",
+    category: "lithium",
     previewContent:
       "An integrated recycling facility processing 5 tons per day battery material into black mass, followed by 2 TPD hydrometallurgical refining to extract high-purity lithium, cobalt, nickel, manganese and graphite.",
     sections: [
@@ -1993,7 +2100,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Learn how to select and optimize machinery for profitable and efficient lithium battery recycling plant operations.",
-    category: "epr-battery",
+    category: "lithium",
     previewContent:
       "The right machinery does more than process battery waste. It saves time, improves safety, increases recovery, and helps your plant run like a real business.",
     sections: [
@@ -2040,7 +2147,7 @@ export const blogPosts: BlogPost[] = [
     ],
     metaDescription:
       "Discover how to identify and serve present battery recycling markets while preparing for future EV battery recycling opportunities.",
-    category: "epr-battery",
+    category: "lithium",
     previewContent:
       "The strongest recycling businesses are built on what is already moving through the market today. Mobile batteries, e-rickshaw batteries, and car batteries create the real collection base for a practical plant, while EV batteries remain the future opportunity.",
     sections: [

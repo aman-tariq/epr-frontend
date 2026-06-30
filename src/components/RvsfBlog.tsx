@@ -1,5 +1,5 @@
 import React from 'react';
-import VehicleScrappingBlog from './VehicleScrappingBlog';
+import VehicleScrappingBlog from './services/recycling-setups/VehicleScrappingBlog';
 
 // RVSF category wrapper — reuse VehicleScrappingBlog for now.
 const RvsfBlog: React.FC = () => {

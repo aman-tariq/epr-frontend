@@ -104,7 +104,7 @@ const PlasticRecyclingBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="wrap mt-4 plastic-wrap has-sticky">
+    <div className="wrap mt-6 pt-2 plastic-wrap has-sticky">
       <style>{staticStyles}</style>
       <div className="page-body">
         <div className="topbar mt-4">
