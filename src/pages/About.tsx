@@ -25,6 +25,8 @@ import dilshad from "@/assets/dilshad.jpeg";
 import sakib from "@/assets/sakib.jpg";
 import ceoPhoto from "@/assets/gallery-5.jpg"; 
 import mdPhoto from "@/assets/gallery-5.jpg";
+import affan from "@/assets/affan.jpg"
+import user from "@/assets/user.png"
 
 const stats = [
   { value: "500+", label: "Manufacturers & Importers Served" },
@@ -91,9 +93,9 @@ const executiveTeam = [
 
 const carouselTeam = [
   { name: "Aman Tariq", designation: "Digital Marketing Head / Senior Web Developer", image: aman, details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
-  { name: "Bhanu", designation: "Sales Head", image: ceoPhoto, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
-  { name: "Affan Aziz", designation: "Social Media Executive", image: ceoPhoto, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
-  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
+  { name: "Bhanu", designation: "Sales Head", image: user, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
+  { name: "Affan Aziz", designation: "Social Media Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", twitter: "#" } },
+  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "www.linkedin.com/in/sakib-khan-8484462b4", instagram: "https://www.instagram.com/sakibxrajput", twitter: "#" } },
   { name: "Rajendra Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", twitter: "#" } },
   { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", twitter: "#" } },
   { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#", instagram: "https://www.instagram.com/__alina_siddiqui__?igsh=aDh2ZnVjaTVrMXF1", twitter: "#" } }

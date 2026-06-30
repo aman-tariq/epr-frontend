@@ -48,12 +48,13 @@ const recyclingSetupsSubcategories = [
   { label: "RVSF Recycling Setup", path: "/blog/category/rvsf" },
   { label: "Solar Panel Recycling Setup", path: "/blog/category/solar-panel" },
   { label: "Plastic Recycling Setup", path: "/blog/category/plastic"},
+  { label: "Tyre Recycling Setup", path: "/blog/category/tyre"},
 ];
 
 const eprCreditsSubcategories = [
   { label: "EPR Plastic", path: "/blog/category/epr-plastic" },
   { label: "EPR Electronic", path: "/blog/category/epr-electronic"},
-  { label: "EPR Tyre", path: "/blog/category/epr-tyre" },
+  { label: "EPR Tyre", path: "/blog/category/tyre" },
   { label: "EPR ELV", path: "/blog/category/epr-elv" },
   { label: "EPR Used Oil", path: "/blog/category/epr-used-oil" },
   { label: "EPR Metals", path: "/blog/category/epr-metals" },

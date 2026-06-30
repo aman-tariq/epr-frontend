@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import Loader from "@/components/Loader";
-import BusinessGrowthAndLeadGeneration from './pages/services/BusinessGrowthAndLeadGeneration/BusinessGrowthAndLeadGeneration';
+import BusinessGrowthAndLeadGeneration from './components/services/business growth and lead generation/BusinessGrowthAndLeadGeneration';
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));

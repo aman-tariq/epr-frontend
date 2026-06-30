@@ -5,15 +5,15 @@
   import serviceBanner from "@/assets/epr-services-banner.jpg";
   import recyclingProcess from "@/assets/recycling-process.jpg";
   import { services } from "@/lib/services";
-  import LithiumBatteryBlog from "@/components/LithiumBatteryBlog";
-  import EWasteBlog from "@/components/EWasteBlog";
-  import VehicleScrappingBlog from "@/components/VehicleScrappingBlog";
-  import SolarPanelBlog from "@/components/SolarPanelBlog";
+  import LithiumBatteryBlog from "@/components/services/recycling-setups/LithiumBatteryBlog";
+  import EWasteBlog from "@/components/services/recycling-setups/EWasteBlog";
+  import VehicleScrappingBlog from "@/components/services/recycling-setups/VehicleScrappingBlog";
+  import SolarPanelBlog from "@/components/services/recycling-setups/SolarPanelBlog";
   import PlasticRecyclingBlog from "@/components/PlasticRecyclingBlog";
   import BusinessGrowth from "./BusinessGrowth";
-  import SetupCommissioningDocumentation from "./services/SetupCommissioningDocumentation";
-  import ScaleAndGrowthSystems from "./services/ScaleAndGrowthSystems";import OperationPerformanceManagement from "./services/OperationPerformanceManagement";  import StickyContactForm from "@/components/StickyContactForm";
-import BusinessGrowthAndLeadGeneration from "./services/BusinessGrowthAndLeadGeneration/BusinessGrowthAndLeadGeneration";
+  import SetupCommissioningDocumentation from "../components/services/plant operation intelligence/SetupCommissioningDocumentation";
+  import ScaleAndGrowthSystems from "../components/services/plant operation intelligence/ScaleAndGrowthSystems";import OperationPerformanceManagement from "../components/services/plant operation intelligence/OperationPerformanceManagement";  import StickyContactForm from "@/components/StickyContactForm";
+import BusinessGrowthAndLeadGeneration from "../components/services/business growth and lead generation/BusinessGrowthAndLeadGeneration";
 import EprElv from "../components/services/epr credits/EprElv"
 import EprCreditsMetalsBlog from "@/components/services/epr credits/EprMetals";
 import EprCreditsPlasticsBlog from "@/components/services/epr credits/EprPlastic";

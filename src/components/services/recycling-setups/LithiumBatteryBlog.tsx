@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import StickyContactForm from './StickyContactForm';
+import StickyContactForm from '../../StickyContactForm';
 
 const LithiumBatteryBlog: React.FC = () => {
   useEffect(() => {

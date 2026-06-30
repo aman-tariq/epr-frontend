@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import StickyContactForm from './StickyContactForm';
+import StickyContactForm from '../../StickyContactForm';
 
 const VehicleScrappingBlog: React.FC = () => {
   // --- Static Data Definitions ---
