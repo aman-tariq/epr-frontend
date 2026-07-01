@@ -1,14 +1,76 @@
-﻿import platformImage from "@/assets/recycling-process.jpg";
-import cpcbImage from "@/assets/epr-company-banner.jpg";
-import batteryImage from "@/assets/epr-services-banner.jpg";
-import tyreImage from "@/assets/company-banner.jpg";
+﻿// =============================================================================
+// FILE: src/lib/blog.ts
+// PURPOSE: This is the SINGLE SOURCE OF TRUTH for all blog data in the project.
+//
+// HOW IT WORKS:
+//   1. BlogPost objects below are picked up by BlogPost.tsx (the individual
+//      post page at /blog/:slug). The "slug" field in each object must exactly
+//      match the key in src/lib/blog-components.tsx so the right React component
+//      loads. If the slug has no component, it falls back to sections[] or fullContent.
+//
+//   2. BlogCategory objects (at the bottom of this file) power the category
+//      listing pages at /blog/category/:slug. Each post's "category" field
+//      must exactly match one of these category slugs, otherwise the post
+//      won't appear on any category page.
+//
+//   3. The blogPosts array order matters — index [0] is always the FEATURED
+//      post shown at the top of the /blog listing page. Move a post to the
+//      top of the array to feature it.
+//
+// HOW TO ADD A NEW POST:
+//   Step 1 → Add a BlogPost object in the correct section below (e.g. tyre, e-waste)
+//   Step 2 → Register the slug in src/lib/blog-components.tsx pointing to your component
+//   Step 3 → Build the component in src/components/blogs/<category-folder>/
+//
+// HOW TO EDIT AN EXISTING POST:
+//   - Title / summary / date / tags → edit the object fields below
+//   - Body content → find the slug in blog-components.tsx → edit that component file
+//   - If the post has fullContent (raw HTML) → edit the HTML string directly below
+// =============================================================================
 
+// -----------------------------------------------------------------------------
+// IMAGES
+// Each image variable is reused across many posts. To swap an image for a whole
+// section of posts, just change the import path here.
+// -----------------------------------------------------------------------------
+import platformImage from "@/assets/recycling-process.jpg";   // used for setup/operations/scale posts
+import cpcbImage from "@/assets/epr-company-banner.jpg";        // used for EPR credit and ELV posts
+import batteryImage from "@/assets/epr-services-banner.jpg";    // used for lithium/battery/operations posts
+import tyreImage from "@/assets/company-banner.jpg";            // used for tyre and scale-and-growth posts
+
+// -----------------------------------------------------------------------------
+// TYPE: BlogPostSection
+// Used only when a post has NO dedicated component and NO fullContent HTML.
+// In that case, BlogPost.tsx renders these sections as plain styled blocks.
+// Each section has a title, a body paragraph, and optional bullet points.
+// -----------------------------------------------------------------------------
 export interface BlogPostSection {
   title: string;
   body: string;
   bullets?: string[];
 }
 
+// -----------------------------------------------------------------------------
+// TYPE: BlogPost
+// Every blog post in the system is one object of this type.
+// Fields explained:
+//   slug          → the URL identifier e.g. "tyre-approvals" → /blog/tyre-approvals
+//   path          → full URL path for <Link to={post.path}> in cards and nav
+//   title         → shown on the post page header and in listing cards
+//   summary       → short description shown on listing cards and in SEO
+//   date          → display-only, does not auto-sort (keep it consistent)
+//   readingTime   → display-only estimate shown on post header
+//   author        → shown on post header
+//   image         → thumbnail shown on listing cards
+//   tags          → displayed as badges on listing cards
+//   keywords      → for SEO meta tags (not shown to users)
+//   metaDescription → for SEO <meta description> tag (not shown to users)
+//   category      → MUST match a blogCategories slug below, otherwise the post
+//                   won't appear on its category page
+//   sections      → fallback content if no component and no fullContent
+//   previewContent → optional short HTML snippet (rarely used)
+//   fullContent    → full raw HTML string for posts without a React component
+// -----------------------------------------------------------------------------
 export interface BlogPost {
   slug: string;
   path: string;
@@ -22,11 +84,24 @@ export interface BlogPost {
   keywords: string[];
   metaDescription: string;
   sections?: BlogPostSection[];
-  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre" | "setup-commissioning-documentation" | "operation-performance-management" | "scale-and-growth-systems";
+  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre" | "setup-commissioning-documentation" | "operation-performance-management" | "scale-and-growth-systems" | "epr-electronic" | "epr-lithium" | "epr-metals" | "epr-used-oil" | "buy-e-waste" | "sell-batteries" | "buy-and-sell-metals" | "business-growth-and-lead-generation";
+  // ↑ To add a new category: add a new string here AND add a BlogCategory object at the bottom of this file
   previewContent?: string;
   fullContent?: string;
 }
 
+// -----------------------------------------------------------------------------
+// TYPE: BlogCategory
+// These objects power the /blog/category/:slug listing pages.
+// Each category tile on the /blog page links to one of these.
+//   id    → internal identifier (usually same as slug)
+//   slug  → MUST match the "category" field used in BlogPost objects above
+//   name  → display name shown on the category tile
+//   path  → URL for the category page e.g. /blog/category/tyre
+//   description → shown on the category listing page header
+//   image → banner image for the category listing page
+//   tagLine → short subtitle shown on category tiles on the /blog page
+// -----------------------------------------------------------------------------
 export interface BlogCategory {
   id: string;
   slug: string;
@@ -37,7 +112,35 @@ export interface BlogCategory {
   tagLine: string;
 }
 
+// =============================================================================
+// BLOG POSTS ARRAY
+// This is the master list of every blog post. Order matters:
+//   → The FIRST item becomes the FEATURED post on the /blog homepage.
+//   → To feature a different post, move its object to position [0].
+//
+// SECTIONS INSIDE THIS ARRAY (in order):
+//   1. EPR General Posts       (general compliance posts, no dedicated component)
+//   2. E-Waste Posts           (slug: e-waste-*, component in blogs/e-waste/)
+//   3. Tyre Posts              (slug: tyre-*, component in blogs/tyre/)
+//   4. ELV Posts               (slug: elv-*, category: epr-elv)
+//   5. RVSF Posts              (slug: rvsf-*, component in blogs/rvsf/)
+//   6. Plastic Posts           (slug: plastic-*, component in blogs/plastic/)
+//   7. Lithium Battery Posts   (slug: lithium-battery-*, component in blogs/battery/)
+//   8. Solar Panel Posts       (slug: solar-panel-*, large fullContent HTML)
+//   9. SOPs / KPIs Post        (slug: operation-performance-management, fullContent HTML)
+//  10. Setup Commissioning     (slug: role-of-setup-*, etc. → component in blogs/setup-commissioning-documentation/)
+//  11. Operation & Performance (slug: kpis-in-plant-*, etc. → component in blogs/operation-performance-management/)
+//  12. Scale & Growth Systems  (slug: digital-infrastructure-*, etc. → component in blogs/scale-and-growth-systems/)
+// =============================================================================
 export const blogPosts: BlogPost[] = [
+
+  // ===========================================================================
+  // SECTION 1: EPR GENERAL POSTS
+  // These are general EPR compliance articles. They use the "sections[]" fallback
+  // (no dedicated React component, no fullContent HTML).
+  // Category page → /blog/category/epr-plastic or /blog/category/epr-elv
+  // To edit content → edit the sections[] array inside each object below.
+  // ===========================================================================
   {
     slug: "epr-plastic-compliance-trends",
     path: "/blog/epr-plastic-compliance-trends",
@@ -114,6 +217,15 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  // ===========================================================================
+  // SECTION 2: E-WASTE POSTS
+  // 5 posts covering Approvals, Buying/Selling, Market Analysis, Machinery, DPR.
+  // Category page → /blog/category/e-waste
+  // These posts use fullContent HTML loaded from src/lib/blog-content.ts
+  // (the eWasteBlogContent object). BlogPost.tsx injects that HTML via
+  // dangerouslySetInnerHTML after scoping its CSS so it doesn't leak.
+  // To edit content → edit eWasteBlogContent in src/lib/blog-content.ts.
+  // ===========================================================================
   {
     slug: "e-waste-buying-selling",
     path: "/blog/e-waste-buying-selling",
@@ -1097,7 +1209,15 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
-  // ===== TYRE RECYCLING BLOGS =====
+  // ===========================================================================
+  // SECTION 3: TYRE RECYCLING POSTS
+  // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, DPR.
+  // Category page → /blog/category/tyre  (also linked in Navbar Recycling Setups)
+  // These posts have DEDICATED React components in src/components/blogs/tyre/
+  // The slug must match the key in src/lib/blog-components.tsx.
+  // To edit content → go to src/components/blogs/tyre/<filename>.tsx
+  // To edit title/summary/date → edit the fields in the objects below.
+  // ===========================================================================
   {
     slug: "tyre-approvals",
     path: "/blog/tyre-approvals",
@@ -1343,7 +1463,16 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
-  // ===== ELV RECYCLING BLOGS =====
+  // ===========================================================================
+  // SECTION 4: ELV (END-OF-LIFE VEHICLE) POSTS
+  // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, DPR.
+  // Category page → /blog/category/epr-elv
+  // These slugs (elv-approvals, elv-buy-selling etc.) do NOT have dedicated
+  // React components in blog-components.tsx — they use the sections[] fallback.
+  // NOTE: The general audit-readiness post (epr-elv-audit-readiness) is in
+  // SECTION 1 above with category "epr-elv" — it also appears on this category page.
+  // To edit content → edit the sections[] array inside each object below.
+  // ===========================================================================
   {
     slug: "elv-approvals",
     path: "/blog/elv-approvals",
@@ -1593,7 +1722,16 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
-  // ===== RVSF (REGISTERED VEHICLE SCRAPPING FACILITY) BLOGS =====
+  // ===========================================================================
+  // SECTION 5: RVSF (REGISTERED VEHICLE SCRAPPING FACILITY) POSTS
+  // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, DPR.
+  // Category page → /blog/category/rvsf  (also in Navbar Recycling Setups)
+  // These posts have DEDICATED React components in src/components/blogs/rvsf/
+  // Their slugs (rvsf-approvals etc.) must match keys in blog-components.tsx.
+  // Titles and SEO data in this file come from the <h1> and <meta> tags
+  // already inside those component files.
+  // To edit content → go to src/components/blogs/rvsf/<filename>.tsx
+  // ===========================================================================
   {
     slug: "rvsf-approvals",
     path: "/blog/rvsf-approvals",
@@ -1700,6 +1838,19 @@ export const blogPosts: BlogPost[] = [
       "Complete guide on preparing a Detailed Project Report (DPR) for a Registered Vehicle Scrapping Facility (RVSF). Includes financial model, compliance roadmap, and implementation plan.",
     category: "rvsf",
   },
+
+  // ===========================================================================
+  // SECTION 6: PLASTIC RECYCLING POSTS
+  // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, Recycling.
+  // Category page → /blog/category/plastic  (also in Navbar Recycling Setups)
+  // NOTE: The general compliance post (epr-plastic-compliance-trends) is in
+  // SECTION 1 above with category "epr-plastic" — separate from these.
+  // These 5 posts have DEDICATED React components in src/components/blogs/plastic/
+  // (wait — check blog-components.tsx to confirm their keys, as the component
+  // folder may be named differently from "plastic").
+  // To edit content → go to the matching component file.
+  // To edit title/summary/date → edit the fields below.
+  // ===========================================================================
   {
     slug: "plastic-approvals",
     path: "/blog/plastic-approvals",
@@ -1942,7 +2093,16 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
-  // ===== LITHIUM BATTERY RECYCLING BLOGS =====
+  // ===========================================================================
+  // SECTION 7: LITHIUM BATTERY RECYCLING POSTS
+  // 5 posts covering Approvals, Buying/Selling, DPR, Machinery, Market Analysis.
+  // Category page → /blog/category/lithium  (also in Navbar Recycling Setups)
+  // These posts have DEDICATED React components in src/components/blogs/battery/
+  // (note: the folder is "battery" but slugs start with "lithium-battery-")
+  // Slugs must match keys in src/lib/blog-components.tsx.
+  // To edit content → go to src/components/blogs/battery/<filename>.tsx
+  // To edit title/summary/date → edit the fields in the objects below.
+  // ===========================================================================
   {
     slug: "lithium-battery-approvals",
     path: "/blog/lithium-battery-approvals",
@@ -2173,6 +2333,17 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  // ===========================================================================
+  // SECTION 8: SOLAR PANEL RECYCLING POSTS
+  // 5 posts covering Approvals, Buying/Selling, DPR, Market Analysis, Machinery.
+  // Category page → /blog/category/solar-panel  (also in Navbar Recycling Setups)
+  // IMPORTANT: These posts are the LARGEST in the file. They do NOT use React
+  // components — instead they store a long raw HTML string in "fullContent".
+  // BlogPost.tsx injects this HTML after scoping its CSS.
+  // WARNING: Each fullContent block is hundreds of lines of HTML. Scroll carefully.
+  // To edit content → find the fullContent field inside the object and edit the HTML.
+  // To edit just the title/summary/SEO → edit only the fields above fullContent.
+  // ===========================================================================
   {
     slug: "solar-panel-recycling-approvals",
     path: "/blog/solar-panel-recycling-approvals",
@@ -4361,6 +4532,13 @@ export const blogPosts: BlogPost[] = [
 </body>
 </html>`,
   },
+  // ===========================================================================
+  // SECTION 9: SOPs / KPIs / CHECKLISTS POST
+  // A single standalone post about operations and performance management.
+  // Category page → /blog/category/sops-kpis-checklists
+  // This post also uses a long fullContent HTML string (no React component).
+  // To edit → find the fullContent field below and edit the HTML.
+  // ===========================================================================
   {
     slug: "operation-performance-management",
     path: "/blog/operation-performance-management",
@@ -4811,7 +4989,17 @@ export const blogPosts: BlogPost[] = [
 </body>
 </html>`,
   },
-  // ===== SETUP COMMISSIONING DOCUMENTATION BLOGS =====
+  // ===========================================================================
+  // SECTION 10: SETUP & COMMISSIONING DOCUMENTATION POSTS
+  // 6 posts about plant setup, commissioning records, and documentation gaps.
+  // Category page → /blog/category/setup-commissioning-documentation
+  //   (accessible via Navbar → Plant Operation Intelligence → Setup Commissioning)
+  // These posts have DEDICATED React components in:
+  //   src/components/blogs/setup-commissioning-documentation/
+  // Slug → component mapping is in src/lib/blog-components.tsx (look for these slugs).
+  // To edit content → go to the matching component file in the folder above.
+  // To edit title/summary/date/tags → edit the fields in the objects below.
+  // ===========================================================================
   {
     slug: "role-of-setup-documentation-in-plant-operation-intelligence",
     path: "/blog/role-of-setup-documentation-in-plant-operation-intelligence",
@@ -4908,7 +5096,16 @@ export const blogPosts: BlogPost[] = [
       "Practical best practices for organizing plant setup and handover documentation so nothing gets lost between commissioning teams and operations.",
     category: "setup-commissioning-documentation",
   },
-  // ===== OPERATION & PERFORMANCE MANAGEMENT BLOGS =====
+  // ===========================================================================
+  // SECTION 11: OPERATION & PERFORMANCE MANAGEMENT POSTS
+  // 5 posts about KPIs, performance strategies, plant intelligence, monitoring.
+  // Category page → /blog/category/operation-performance-management
+  //   (accessible via Navbar → Plant Operation Intelligence → Operation & Performance)
+  // These posts have DEDICATED React components in:
+  //   src/components/blogs/operation-performance-management/
+  // Slug → component mapping is in src/lib/blog-components.tsx.
+  // To edit content → go to the matching component file in the folder above.
+  // ===========================================================================
   {
     slug: "kpis-in-plant-performance-management",
     path: "/blog/kpis-in-plant-performance-management",
@@ -4989,7 +5186,16 @@ export const blogPosts: BlogPost[] = [
       "Turn plant data into better efficiency, faster decisions, and cleaner margins.",
     category: "operation-performance-management",
   },
-  // ===== SCALE AND GROWTH SYSTEMS BLOGS =====
+  // ===========================================================================
+  // SECTION 12: SCALE & GROWTH SYSTEMS POSTS
+  // 5 posts about digital infrastructure, multi-plant growth, standardization.
+  // Category page → /blog/category/scale-and-growth-systems
+  //   (accessible via Navbar → Plant Operation Intelligence → Scale And Growth Systems)
+  // These posts have DEDICATED React components in:
+  //   src/components/blogs/scale-and-growth-systems/
+  // Slug → component mapping is in src/lib/blog-components.tsx.
+  // To edit content → go to the matching component file in the folder above.
+  // ===========================================================================
   {
     slug: "digital-infrastructure-for-plant-expansion",
     path: "/blog/digital-infrastructure-for-plant-expansion",
@@ -5070,9 +5276,897 @@ export const blogPosts: BlogPost[] = [
       "The fastest-growing plants are not the ones that improvise better — they are the ones that standardize early, scale cleanly, and keep every team moving in the same direction.",
     category: "scale-and-growth-systems",
   },
+
+  // ===========================================================================
+  // SECTION 13: EPR CREDITS POSTS (Battery, Electronic, ELV, Lithium, Metals,
+  // Plastic, Tyre, Used Oil) — components in src/components/blogs/epr-credits/
+  // ===========================================================================
+  {
+    slug: "epr-battery-analysis",
+    path: "/blog/epr-battery-analysis",
+    title: "EPR Battery Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Battery", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Battery analysis", "EPR battery analysis India", "EPR Battery EPR guide"],
+    metaDescription: "EPR Battery Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-battery",
+  },
+  {
+    slug: "epr-battery-approvals",
+    path: "/blog/epr-battery-approvals",
+    title: "EPR Battery Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Battery", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Battery approvals", "EPR battery approvals India", "EPR Battery EPR guide"],
+    metaDescription: "EPR Battery Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-battery",
+  },
+  {
+    slug: "epr-battery-dpr",
+    path: "/blog/epr-battery-dpr",
+    title: "EPR Battery Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Battery", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Battery dpr", "EPR battery dpr India", "EPR Battery EPR guide"],
+    metaDescription: "EPR Battery Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-battery",
+  },
+  {
+    slug: "epr-battery-machinery",
+    path: "/blog/epr-battery-machinery",
+    title: "EPR Battery Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Battery", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Battery machinery", "EPR battery machinery India", "EPR Battery EPR guide"],
+    metaDescription: "EPR Battery Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-battery",
+  },
+  {
+    slug: "epr-battery-trading",
+    path: "/blog/epr-battery-trading",
+    title: "EPR Battery Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Battery", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Battery trading", "EPR battery trading India", "EPR Battery EPR guide"],
+    metaDescription: "EPR Battery Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-battery",
+  },
+  {
+    slug: "epr-electronic-analysis",
+    path: "/blog/epr-electronic-analysis",
+    title: "EPR Electronic Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Electronic", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Electronic analysis", "EPR electronic (WEEE) analysis India", "EPR Electronic EPR guide"],
+    metaDescription: "EPR Electronic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-electronic",
+  },
+  {
+    slug: "epr-electronic-approvals",
+    path: "/blog/epr-electronic-approvals",
+    title: "EPR Electronic Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Electronic", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Electronic approvals", "EPR electronic (WEEE) approvals India", "EPR Electronic EPR guide"],
+    metaDescription: "EPR Electronic Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-electronic",
+  },
+  {
+    slug: "epr-electronic-dpr",
+    path: "/blog/epr-electronic-dpr",
+    title: "EPR Electronic Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Electronic", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Electronic dpr", "EPR electronic (WEEE) dpr India", "EPR Electronic EPR guide"],
+    metaDescription: "EPR Electronic Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-electronic",
+  },
+  {
+    slug: "epr-electronic-machinery",
+    path: "/blog/epr-electronic-machinery",
+    title: "EPR Electronic Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Electronic", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Electronic machinery", "EPR electronic (WEEE) machinery India", "EPR Electronic EPR guide"],
+    metaDescription: "EPR Electronic Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-electronic",
+  },
+  {
+    slug: "epr-electronic-trading",
+    path: "/blog/epr-electronic-trading",
+    title: "EPR Electronic Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Electronic", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Electronic trading", "EPR electronic (WEEE) trading India", "EPR Electronic EPR guide"],
+    metaDescription: "EPR Electronic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-electronic",
+  },
+  {
+    slug: "epr-elv-analysis",
+    path: "/blog/epr-elv-analysis",
+    title: "EPR ELV Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR ELV", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR ELV analysis", "EPR end-of-life vehicle (ELV) analysis India", "EPR ELV EPR guide"],
+    metaDescription: "EPR ELV Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-elv",
+  },
+  {
+    slug: "epr-elv-approvals",
+    path: "/blog/epr-elv-approvals",
+    title: "EPR ELV Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR ELV", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR ELV approvals", "EPR end-of-life vehicle (ELV) approvals India", "EPR ELV EPR guide"],
+    metaDescription: "EPR ELV Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-elv",
+  },
+  {
+    slug: "epr-elv-dpr",
+    path: "/blog/epr-elv-dpr",
+    title: "EPR ELV Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR ELV", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR ELV dpr", "EPR end-of-life vehicle (ELV) dpr India", "EPR ELV EPR guide"],
+    metaDescription: "EPR ELV Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-elv",
+  },
+  {
+    slug: "epr-elv-machinery",
+    path: "/blog/epr-elv-machinery",
+    title: "EPR ELV Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR ELV", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR ELV machinery", "EPR end-of-life vehicle (ELV) machinery India", "EPR ELV EPR guide"],
+    metaDescription: "EPR ELV Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-elv",
+  },
+  {
+    slug: "epr-elv-trading",
+    path: "/blog/epr-elv-trading",
+    title: "EPR ELV Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR ELV", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR ELV trading", "EPR end-of-life vehicle (ELV) trading India", "EPR ELV EPR guide"],
+    metaDescription: "EPR ELV Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-elv",
+  },
+  {
+    slug: "epr-lithium-analysis",
+    path: "/blog/epr-lithium-analysis",
+    title: "EPR Lithium Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Lithium", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Lithium analysis", "EPR lithium battery analysis India", "EPR Lithium EPR guide"],
+    metaDescription: "EPR Lithium Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-lithium",
+  },
+  {
+    slug: "epr-lithium-approvals",
+    path: "/blog/epr-lithium-approvals",
+    title: "EPR Lithium Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Lithium", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Lithium approvals", "EPR lithium battery approvals India", "EPR Lithium EPR guide"],
+    metaDescription: "EPR Lithium Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-lithium",
+  },
+  {
+    slug: "epr-lithium-dpr",
+    path: "/blog/epr-lithium-dpr",
+    title: "EPR Lithium Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Lithium", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Lithium dpr", "EPR lithium battery dpr India", "EPR Lithium EPR guide"],
+    metaDescription: "EPR Lithium Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-lithium",
+  },
+  {
+    slug: "epr-lithium-machinery",
+    path: "/blog/epr-lithium-machinery",
+    title: "EPR Lithium Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Lithium", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Lithium machinery", "EPR lithium battery machinery India", "EPR Lithium EPR guide"],
+    metaDescription: "EPR Lithium Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-lithium",
+  },
+  {
+    slug: "epr-lithium-trading",
+    path: "/blog/epr-lithium-trading",
+    title: "EPR Lithium Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: cpcbImage,
+    tags: ["EPR Lithium", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Lithium trading", "EPR lithium battery trading India", "EPR Lithium EPR guide"],
+    metaDescription: "EPR Lithium Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-lithium",
+  },
+  {
+    slug: "epr-metals-analysis",
+    path: "/blog/epr-metals-analysis",
+    title: "EPR Metals Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Metals", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Metals analysis", "EPR metal scrap analysis India", "EPR Metals EPR guide"],
+    metaDescription: "EPR Metals Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-metals",
+  },
+  {
+    slug: "epr-metals-approvals",
+    path: "/blog/epr-metals-approvals",
+    title: "EPR Metals Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Metals", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Metals approvals", "EPR metal scrap approvals India", "EPR Metals EPR guide"],
+    metaDescription: "EPR Metals Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-metals",
+  },
+  {
+    slug: "epr-metals-dpr",
+    path: "/blog/epr-metals-dpr",
+    title: "EPR Metals Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Metals", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Metals dpr", "EPR metal scrap dpr India", "EPR Metals EPR guide"],
+    metaDescription: "EPR Metals Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-metals",
+  },
+  {
+    slug: "epr-metals-machinery",
+    path: "/blog/epr-metals-machinery",
+    title: "EPR Metals Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Metals", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Metals machinery", "EPR metal scrap machinery India", "EPR Metals EPR guide"],
+    metaDescription: "EPR Metals Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-metals",
+  },
+  {
+    slug: "epr-metals-trading",
+    path: "/blog/epr-metals-trading",
+    title: "EPR Metals Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Metals", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Metals trading", "EPR metal scrap trading India", "EPR Metals EPR guide"],
+    metaDescription: "EPR Metals Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-metals",
+  },
+  {
+    slug: "epr-plastic-analysis",
+    path: "/blog/epr-plastic-analysis",
+    title: "EPR Plastic Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["EPR Plastic", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Plastic analysis", "EPR plastic analysis India", "EPR Plastic EPR guide"],
+    metaDescription: "EPR Plastic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "epr-plastic-approvals",
+    path: "/blog/epr-plastic-approvals",
+    title: "EPR Plastic Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["EPR Plastic", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Plastic approvals", "EPR plastic approvals India", "EPR Plastic EPR guide"],
+    metaDescription: "EPR Plastic Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "epr-plastic-dpr",
+    path: "/blog/epr-plastic-dpr",
+    title: "EPR Plastic Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["EPR Plastic", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Plastic dpr", "EPR plastic dpr India", "EPR Plastic EPR guide"],
+    metaDescription: "EPR Plastic Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "epr-plastic-machinery",
+    path: "/blog/epr-plastic-machinery",
+    title: "EPR Plastic Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["EPR Plastic", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Plastic machinery", "EPR plastic machinery India", "EPR Plastic EPR guide"],
+    metaDescription: "EPR Plastic Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "epr-plastic-trading",
+    path: "/blog/epr-plastic-trading",
+    title: "EPR Plastic Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["EPR Plastic", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Plastic trading", "EPR plastic trading India", "EPR Plastic EPR guide"],
+    metaDescription: "EPR Plastic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "epr-tyre-analysis",
+    path: "/blog/epr-tyre-analysis",
+    title: "EPR Tyre Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Tyre", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Tyre analysis", "EPR tyre analysis India", "EPR Tyre EPR guide"],
+    metaDescription: "EPR Tyre Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-tyre",
+  },
+  {
+    slug: "epr-tyre-approvals",
+    path: "/blog/epr-tyre-approvals",
+    title: "EPR Tyre Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Tyre", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Tyre approvals", "EPR tyre approvals India", "EPR Tyre EPR guide"],
+    metaDescription: "EPR Tyre Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-tyre",
+  },
+  {
+    slug: "epr-tyre-dpr",
+    path: "/blog/epr-tyre-dpr",
+    title: "EPR Tyre Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Tyre", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Tyre dpr", "EPR tyre dpr India", "EPR Tyre EPR guide"],
+    metaDescription: "EPR Tyre Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-tyre",
+  },
+  {
+    slug: "epr-tyre-machinery",
+    path: "/blog/epr-tyre-machinery",
+    title: "EPR Tyre Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Tyre", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Tyre machinery", "EPR tyre machinery India", "EPR Tyre EPR guide"],
+    metaDescription: "EPR Tyre Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-tyre",
+  },
+  {
+    slug: "epr-tyre-trading",
+    path: "/blog/epr-tyre-trading",
+    title: "EPR Tyre Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["EPR Tyre", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Tyre trading", "EPR tyre trading India", "EPR Tyre EPR guide"],
+    metaDescription: "EPR Tyre Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-tyre",
+  },
+  {
+    slug: "epr-used-oil-analysis",
+    path: "/blog/epr-used-oil-analysis",
+    title: "EPR Used Oil Credits: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Used Oil", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["EPR Used Oil analysis", "EPR used oil analysis India", "EPR Used Oil EPR guide"],
+    metaDescription: "EPR Used Oil Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-used-oil",
+  },
+  {
+    slug: "epr-used-oil-approvals",
+    path: "/blog/epr-used-oil-approvals",
+    title: "EPR Used Oil Credits: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Used Oil", "Approvals", "CPCB", "EPR India"],
+    keywords: ["EPR Used Oil approvals", "EPR used oil approvals India", "EPR Used Oil EPR guide"],
+    metaDescription: "EPR Used Oil Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-used-oil",
+  },
+  {
+    slug: "epr-used-oil-dpr",
+    path: "/blog/epr-used-oil-dpr",
+    title: "EPR Used Oil Credits: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Used Oil", "DPR", "CPCB", "EPR India"],
+    keywords: ["EPR Used Oil dpr", "EPR used oil dpr India", "EPR Used Oil EPR guide"],
+    metaDescription: "EPR Used Oil Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-used-oil",
+  },
+  {
+    slug: "epr-used-oil-machinery",
+    path: "/blog/epr-used-oil-machinery",
+    title: "EPR Used Oil Credits: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Used Oil", "Machinery", "CPCB", "EPR India"],
+    keywords: ["EPR Used Oil machinery", "EPR used oil machinery India", "EPR Used Oil EPR guide"],
+    metaDescription: "EPR Used Oil Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-used-oil",
+  },
+  {
+    slug: "epr-used-oil-trading",
+    path: "/blog/epr-used-oil-trading",
+    title: "EPR Used Oil Credits: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["EPR Used Oil", "Trading", "CPCB", "EPR India"],
+    keywords: ["EPR Used Oil trading", "EPR used oil trading India", "EPR Used Oil EPR guide"],
+    metaDescription: "EPR Used Oil Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "epr-used-oil",
+  },
+  {
+    slug: "buy-e-waste-analysis",
+    path: "/blog/buy-e-waste-analysis",
+    title: "Buy E-Waste: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Buy E-Waste", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["Buy E-Waste analysis", "buying e-waste scrap analysis India", "Buy E-Waste EPR guide"],
+    metaDescription: "Buy E-Waste: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "buy-e-waste-approvals",
+    path: "/blog/buy-e-waste-approvals",
+    title: "Buy E-Waste: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Buy E-Waste", "Approvals", "CPCB", "EPR India"],
+    keywords: ["Buy E-Waste approvals", "buying e-waste scrap approvals India", "Buy E-Waste EPR guide"],
+    metaDescription: "Buy E-Waste: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "buy-e-waste-dpr",
+    path: "/blog/buy-e-waste-dpr",
+    title: "Buy E-Waste: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Buy E-Waste", "DPR", "CPCB", "EPR India"],
+    keywords: ["Buy E-Waste dpr", "buying e-waste scrap dpr India", "Buy E-Waste EPR guide"],
+    metaDescription: "Buy E-Waste: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "buy-e-waste-machinery",
+    path: "/blog/buy-e-waste-machinery",
+    title: "Buy E-Waste: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Buy E-Waste", "Machinery", "CPCB", "EPR India"],
+    keywords: ["Buy E-Waste machinery", "buying e-waste scrap machinery India", "Buy E-Waste EPR guide"],
+    metaDescription: "Buy E-Waste: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "buy-e-waste-trading",
+    path: "/blog/buy-e-waste-trading",
+    title: "Buy E-Waste: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Buy E-Waste", "Trading", "CPCB", "EPR India"],
+    keywords: ["Buy E-Waste trading", "buying e-waste scrap trading India", "Buy E-Waste EPR guide"],
+    metaDescription: "Buy E-Waste: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "sell-batteries-analysis",
+    path: "/blog/sell-batteries-analysis",
+    title: "Sell Batteries: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Sell Batteries", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["Sell Batteries analysis", "selling battery scrap analysis India", "Sell Batteries EPR guide"],
+    metaDescription: "Sell Batteries: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "sell-batteries-approvals",
+    path: "/blog/sell-batteries-approvals",
+    title: "Sell Batteries: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Sell Batteries", "Approvals", "CPCB", "EPR India"],
+    keywords: ["Sell Batteries approvals", "selling battery scrap approvals India", "Sell Batteries EPR guide"],
+    metaDescription: "Sell Batteries: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "sell-batteries-dpr",
+    path: "/blog/sell-batteries-dpr",
+    title: "Sell Batteries: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Sell Batteries", "DPR", "CPCB", "EPR India"],
+    keywords: ["Sell Batteries dpr", "selling battery scrap dpr India", "Sell Batteries EPR guide"],
+    metaDescription: "Sell Batteries: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "sell-batteries-machinery",
+    path: "/blog/sell-batteries-machinery",
+    title: "Sell Batteries: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Sell Batteries", "Machinery", "CPCB", "EPR India"],
+    keywords: ["Sell Batteries machinery", "selling battery scrap machinery India", "Sell Batteries EPR guide"],
+    metaDescription: "Sell Batteries: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "sell-batteries-trading",
+    path: "/blog/sell-batteries-trading",
+    title: "Sell Batteries: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: batteryImage,
+    tags: ["Sell Batteries", "Trading", "CPCB", "EPR India"],
+    keywords: ["Sell Batteries trading", "selling battery scrap trading India", "Sell Batteries EPR guide"],
+    metaDescription: "Sell Batteries: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "buy-sell-metals-analysis",
+    path: "/blog/buy-sell-metals-analysis",
+    title: "Buy & Sell Metals: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Buy & Sell Metals", "Market Analysis", "CPCB", "EPR India"],
+    keywords: ["Buy & Sell Metals analysis", "buying and selling metal scrap analysis India", "Buy & Sell Metals EPR guide"],
+    metaDescription: "Buy & Sell Metals: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "buy-sell-metals-approvals",
+    path: "/blog/buy-sell-metals-approvals",
+    title: "Buy & Sell Metals: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Buy & Sell Metals", "Approvals", "CPCB", "EPR India"],
+    keywords: ["Buy & Sell Metals approvals", "buying and selling metal scrap approvals India", "Buy & Sell Metals EPR guide"],
+    metaDescription: "Buy & Sell Metals: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "buy-sell-metals-dpr",
+    path: "/blog/buy-sell-metals-dpr",
+    title: "Buy & Sell Metals: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Buy & Sell Metals", "DPR", "CPCB", "EPR India"],
+    keywords: ["Buy & Sell Metals dpr", "buying and selling metal scrap dpr India", "Buy & Sell Metals EPR guide"],
+    metaDescription: "Buy & Sell Metals: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "buy-sell-metals-machinery",
+    path: "/blog/buy-sell-metals-machinery",
+    title: "Buy & Sell Metals: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Buy & Sell Metals", "Machinery", "CPCB", "EPR India"],
+    keywords: ["Buy & Sell Metals machinery", "buying and selling metal scrap machinery India", "Buy & Sell Metals EPR guide"],
+    metaDescription: "Buy & Sell Metals: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "buy-sell-metals-trading",
+    path: "/blog/buy-sell-metals-trading",
+    title: "Buy & Sell Metals: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: tyreImage,
+    tags: ["Buy & Sell Metals", "Trading", "CPCB", "EPR India"],
+    keywords: ["Buy & Sell Metals trading", "buying and selling metal scrap trading India", "Buy & Sell Metals EPR guide"],
+    metaDescription: "Buy & Sell Metals: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+
+  // ===========================================================================
+  // SECTION 14: BUSINESS GROWTH & LEAD GENERATION POSTS
+  // components in src/components/blogs/business-growth-and-lead-generation/
+  // ===========================================================================
+  {
+    slug: "business-growth-analysis",
+    path: "/blog/business-growth-analysis",
+    title: "Business Growth & Lead Generation: Market Analysis & Business Opportunity",
+    summary: "A practical, step-by-step guide covering market analysis & business opportunity for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 8, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Business Growth & Lead Generation", "Market Analysis", "Growth", "EPR India"],
+    keywords: ["Business Growth & Lead Generation analysis", "business growth and lead generation analysis India", "Business Growth & Lead Generation guide"],
+    metaDescription: "Business Growth & Lead Generation: Market Analysis & Business Opportunity. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "business-growth-approvals",
+    path: "/blog/business-growth-approvals",
+    title: "Business Growth & Lead Generation: Approvals, Registration & Compliance Roadmap",
+    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 15, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Business Growth & Lead Generation", "Approvals", "Growth", "EPR India"],
+    keywords: ["Business Growth & Lead Generation approvals", "business growth and lead generation approvals India", "Business Growth & Lead Generation guide"],
+    metaDescription: "Business Growth & Lead Generation: Approvals, Registration & Compliance Roadmap. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "business-growth-dpr",
+    path: "/blog/business-growth-dpr",
+    title: "Business Growth & Lead Generation: Detailed Project Report (DPR) Essentials",
+    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 22, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Business Growth & Lead Generation", "DPR", "Growth", "EPR India"],
+    keywords: ["Business Growth & Lead Generation dpr", "business growth and lead generation dpr India", "Business Growth & Lead Generation guide"],
+    metaDescription: "Business Growth & Lead Generation: Detailed Project Report (DPR) Essentials. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "business-growth-machinery",
+    path: "/blog/business-growth-machinery",
+    title: "Business Growth & Lead Generation: Machinery, Setup & Operations Guide",
+    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "June 29, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Business Growth & Lead Generation", "Machinery", "Growth", "EPR India"],
+    keywords: ["Business Growth & Lead Generation machinery", "business growth and lead generation machinery India", "Business Growth & Lead Generation guide"],
+    metaDescription: "Business Growth & Lead Generation: Machinery, Setup & Operations Guide. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "business-growth-trading",
+    path: "/blog/business-growth-trading",
+    title: "Business Growth & Lead Generation: Credit Trading & Marketplace Guide",
+    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    date: "July 6, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: platformImage,
+    tags: ["Business Growth & Lead Generation", "Trading", "Growth", "EPR India"],
+    keywords: ["Business Growth & Lead Generation trading", "business growth and lead generation trading India", "Business Growth & Lead Generation guide"],
+    metaDescription: "Business Growth & Lead Generation: Credit Trading & Marketplace Guide. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+
 ];
 
+// =============================================================================
+// BLOG CATEGORIES ARRAY
+//
+// These are the category "tiles" shown on the /blog listing page.
+// Each tile links to a category listing page at /blog/category/:slug
+//
+// HOW IT CONNECTS TO POSTS:
+//   Every BlogPost object above has a "category" field.
+//   BlogCategory.tsx does: blogPosts.filter(p => p.category === categorySlug)
+//   So the "slug" here MUST EXACTLY MATCH the "category" field on your posts.
+//
+// HOW TO ADD A NEW CATEGORY:
+//   Step 1 → Add a new object here with a unique slug
+//   Step 2 → Add that slug as a new string in the BlogPost "category" type above
+//   Step 3 → Tag your post objects with category: "your-new-slug"
+//   Step 4 → (Optional) Add it to the Navbar dropdown in src/components/Navbar.tsx
+//
+// CURRENT CATEGORIES:
+//   "e-waste"                        → E-Waste recycling setup posts
+//   "epr-plastic"                    → General EPR plastic compliance post
+//   "epr-battery"                    → General EPR battery compliance posts
+//   "epr-tyre"                       → General EPR tyre compliance (currently no posts)
+//   "epr-elv"                        → ELV-specific posts (elv-approvals etc.)
+//   "solar-panel"                    → Solar panel recycling posts
+//   "rvsf"                           → RVSF recycling setup posts
+//   "lithium"                        → Lithium battery recycling setup posts
+//   "tyre"                           → Tyre recycling setup posts
+//   "plastic"                        → Plastic recycling setup posts
+//   "plant-operation-intelligence"   → Parent category for the 3 sub-categories below
+//   "setup-commissioning-documentation"    → Plant setup & commissioning posts
+//   "operation-performance-management"     → KPIs & performance management posts
+//   "scale-and-growth-systems"             → Scale & growth systems posts
+//   "sops-kpis-checklists"           → SOPs/KPIs post (operation-performance-management slug)
+// =============================================================================
 export const blogCategories: BlogCategory[] = [
+  // ── Recycling Setup Categories ──────────────────────────────────────────────
+  // These appear under "Recycling Setups" in the Navbar dropdown.
+  // Each has a dedicated set of 5 posts (Approvals, Buy/Sell, Machinery, Market, DPR).
   {
     id: "e-waste",
     slug: "e-waste",
@@ -5082,9 +6176,12 @@ export const blogCategories: BlogCategory[] = [
     image: platformImage,
     tagLine: "E-Waste Recycling & Plant Management",
   },
+  // ── EPR Credit Categories ────────────────────────────────────────────────────
+  // These appear under "EPR Credits" in the Navbar dropdown.
+  // They hold general compliance posts, NOT the recycling-setup posts.
   {
     id: "epr-plastic",
-    slug: "epr-plastic",
+    slug: "epr-plastic",   // posts tagged category:"epr-plastic" appear here (currently: epr-plastic-compliance-trends)
     name: "EPR Plastic",
     path: "/blog/category/epr-plastic",
     description: "Learn about EPR plastic compliance, collection systems, and CPCB-aligned recycling strategies.",
@@ -5093,7 +6190,7 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "epr-battery",
-    slug: "epr-battery",
+    slug: "epr-battery",   // posts tagged category:"epr-battery" appear here (currently: none — lithium posts moved to "lithium")
     name: "EPR Battery",
     path: "/blog/category/epr-battery",
     description: "Discover best practices for battery waste management, safe recycling, and lithium-ion recovery.",
@@ -5102,7 +6199,7 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "epr-tyre",
-    slug: "epr-tyre",
+    slug: "epr-tyre",      // posts tagged category:"epr-tyre" appear here (currently: none — tyre posts moved to "tyre")
     name: "EPR Tyre",
     path: "/blog/category/epr-tyre",
     description: "Explore tyre waste management, recovery strategies, and sustainable reuse practices.",
@@ -5111,16 +6208,17 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "epr-elv",
-    slug: "epr-elv",
+    slug: "epr-elv",       // posts tagged category:"epr-elv" appear here (elv-approvals, elv-buy-selling, elv-machinery, elv-market-analysis, elv-dpr, epr-elv-audit-readiness)
     name: "EPR ELV",
     path: "/blog/category/epr-elv",
     description: "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
     image: cpcbImage,
     tagLine: "Automotive Recycling & Recovery",
   },
+  // ── More Recycling Setup Categories ─────────────────────────────────────────
   {
     id: "solar-panel",
-    slug: "solar-panel",
+    slug: "solar-panel",   // posts tagged category:"solar-panel" appear here (5 solar-panel-* posts with fullContent HTML)
     name: "Solar Panel",
     path: "/blog/category/solar-panel",
     description: "Explore solar panel recycling plant setup, approvals, market analysis, machinery, and project planning for sustainable energy waste management.",
@@ -5129,7 +6227,7 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "rvsf",
-    slug: "rvsf",
+    slug: "rvsf",          // posts tagged category:"rvsf" appear here (rvsf-approvals, rvsf-buy-selling, rvsf-machinery, rvsf-market-analysis, rvsf-dpr)
     name: "EPR ELV / RVSF",
     path: "/blog/category/rvsf",
     description: "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
@@ -5138,7 +6236,7 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "lithium",
-    slug: "lithium",
+    slug: "lithium",       // posts tagged category:"lithium" appear here (lithium-battery-approvals, lithium-battery-buy-selling, lithium-battery-dpr, lithium-battery-machinery, lithium-battery-market-analysis)
     name: "lithium",
     path: "/blog/category/lithium",
     description: "Learn what lithium is, its applications, extraction methods, environmental impact, recycling process, and why it is essential for batteries and the clean energy future.",
@@ -5147,7 +6245,7 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "tyre",
-    slug: "tyre",
+    slug: "tyre",          // posts tagged category:"tyre" appear here (tyre-approvals, tyre-buy-selling, tyre-machinery, tyre-market-analysis, tyre-dpr)
     name: "tyre",
     path: "/blog/category/tyre",
     description: "Learn about tyre waste management, recycling methods, environmental impact, and the importance of responsible tyre disposal for a sustainable future.",
@@ -5156,25 +6254,113 @@ export const blogCategories: BlogCategory[] = [
   },
   {
     id: "plastic",
-    slug: "plastic",
+    slug: "plastic",       // posts tagged category:"plastic" appear here (plastic-approvals, plastic-buy-selling, plastic-machinery, plastic-market-analysis, plastic-recycling)
     name: "plastic",
     path: "/blog/category/plastic",
     description: "Learn about plastic waste management, recycling methods, environmental impact, and sustainable solutions for reducing plastic pollution.",
     image: cpcbImage,
     tagLine: "Plastic Recycling & Recovery",
   },
+  // ── Plant Operation Intelligence Categories ──────────────────────────────────
+  // "plant-operation-intelligence" is the PARENT category. Its page shows all
+  // posts from all 3 sub-categories (BlogCategory.tsx has special logic for this).
+  // The 3 sub-category slugs below must match the "category" field on their posts.
+  // ⚠️ NOTE: There are NO separate blogCategory objects for the 3 sub-categories
+  // because they are handled by BlogCategory.tsx's subcategory URL logic:
+  //   /blog/category/plant-operation-intelligence/setup-commissioning-documentation
+  //   /blog/category/plant-operation-intelligence/operation-performance-management
+  //   /blog/category/plant-operation-intelligence/scale-and-growth-systems
   {
     id: "plant-operation-intelligence",
-    slug: "plant-operation-intelligence",
+    slug: "plant-operation-intelligence",  // parent category — shows all 16 posts across 3 sub-categories
     name: "Plant Operation Intelligence",
     path: "/blog/category/plant-operation-intelligence",
     description: "Practical guidance on plant setup documentation, commissioning, performance management, and the systems that help recycling plants scale without losing efficiency.",
     image: platformImage,
     tagLine: "Setup, Performance & Scale",
   },
+  // ── More EPR Credit Categories ──────────────────────────────────────────────
+  {
+    id: "epr-electronic",
+    slug: "epr-electronic",
+    name: "EPR Electronic",
+    path: "/blog/category/epr-electronic",
+    description: "Understand EPR obligations for electronics and WEEE (e-waste), producer registration, and CPCB-aligned recovery targets.",
+    image: cpcbImage,
+    tagLine: "Electronics & WEEE Compliance",
+  },
+  {
+    id: "epr-lithium",
+    slug: "epr-lithium",
+    name: "EPR Lithium",
+    path: "/blog/category/epr-lithium",
+    description: "Guidance on EPR credits and compliance for lithium-ion battery producers, importers, and recyclers.",
+    image: cpcbImage,
+    tagLine: "Lithium Battery Credit Compliance",
+  },
+  {
+    id: "epr-metals",
+    slug: "epr-metals",
+    name: "EPR Metals",
+    path: "/blog/category/epr-metals",
+    description: "Learn how EPR credits apply to metal scrap recovery, producer obligations, and authorised recycler partnerships.",
+    image: tyreImage,
+    tagLine: "Metal Scrap Credit Compliance",
+  },
+  {
+    id: "epr-used-oil",
+    slug: "epr-used-oil",
+    name: "EPR Used Oil",
+    path: "/blog/category/epr-used-oil",
+    description: "Explore EPR credit requirements for used oil collection, safe disposal, and CPCB-compliant recovery programs.",
+    image: batteryImage,
+    tagLine: "Used Oil Credit Compliance",
+  },
+  // ── Buy & Sell Scrap Categories ─────────────────────────────────────────────
+  {
+    id: "buy-e-waste",
+    slug: "buy-e-waste",
+    name: "Buy E-Waste",
+    path: "/blog/category/buy-e-waste",
+    description: "Practical guidance on sourcing, pricing, and buying e-waste scrap safely and profitably.",
+    image: platformImage,
+    tagLine: "Buy E-Waste Scrap",
+  },
+  {
+    id: "sell-batteries",
+    slug: "sell-batteries",
+    name: "Sell Batteries",
+    path: "/blog/category/sell-batteries",
+    description: "Learn how to sell battery scrap the right way — pricing, buyers, documentation, and compliance.",
+    image: batteryImage,
+    tagLine: "Sell Battery Scrap",
+  },
+  {
+    id: "buy-and-sell-metals",
+    slug: "buy-and-sell-metals",
+    name: "Buy & Sell Metals",
+    path: "/blog/category/buy-and-sell-metals",
+    description: "Everything you need to know about trading metal scrap — sourcing, pricing, buyers, and documentation.",
+    image: tyreImage,
+    tagLine: "Metal Scrap Trading",
+  },
+  {
+    id: "business-growth-and-lead-generation",
+    slug: "business-growth-and-lead-generation",
+    name: "Business Growth & Lead Generation",
+    path: "/blog/category/business-growth-and-lead-generation",
+    description: "Practical strategies for recycling and EPR businesses to build visibility, convert leads, and scale predictably.",
+    image: platformImage,
+    tagLine: "Visibility, Conversion & Scale",
+  },
 ];
 
-
+// =============================================================================
+// BLOG DROPDOWN
+// This auto-generates the nav dropdown labels from blogCategories above.
+// You DO NOT need to edit this — it always stays in sync with blogCategories.
+// The Navbar.tsx file uses this array to build the Blog menu items.
+// =============================================================================
 export const blogDropdown = blogCategories.map((category) => ({
   label: category.name,
   path: category.path,

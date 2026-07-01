@@ -1,7 +1,53 @@
-// Full HTML content for E-Waste blogs
-// This file stores the complete HTML content for each e-waste blog post
+// =============================================================================
+// FILE: src/lib/blog-content.ts
+// PURPOSE: Stores the FULL HTML content for E-Waste blog posts.
+//
+// WHY THIS FILE EXISTS:
+//   The 5 E-Waste posts in blog.ts are too large to store their HTML inline
+//   inside each BlogPost object. So the HTML lives here in a separate exported
+//   object (eWasteBlogContent) and each E-Waste post in blog.ts references it
+//   via its "fullContent" field.
+//
+// HOW IT CONNECTS TO THE REST OF THE APP:
+//   → blog.ts sets  fullContent: eWasteBlogContent["e-waste-approvals"].content
+//     on each E-Waste BlogPost object.
+//   → BlogPost.tsx (src/pages/BlogPost.tsx) reads post.fullContent and renders
+//     it with dangerouslySetInnerHTML after scoping the CSS so styles don't
+//     leak onto the rest of the site.
+//   → BlogPreviewModal.tsx (src/components/BlogPreviewModal.tsx) also imports
+//     this file to show a quick-preview of these posts inside a modal.
+//
+// HOW TO EDIT A POST'S CONTENT:
+//   Find the matching key below (e.g. "e-waste-approvals") and edit the HTML
+//   string inside the backtick template literal (` ... `).
+//   The HTML is SELF-CONTAINED — it has its own <style> block, layout classes,
+//   and structure. Do NOT wrap it in <html>/<head>/<body> tags.
+//
+// HOW TO ADD A NEW E-WASTE POST:
+//   Step 1 → Add a new key here following the same pattern as the 5 below.
+//   Step 2 → In src/lib/blog.ts, set the matching BlogPost's:
+//              fullContent: eWasteBlogContent["your-new-key"].content
+//
+// CURRENT POSTS IN THIS FILE (5 total):
+//   "e-waste-buying-selling"   → How we help clients buy & sell scrap
+//   "e-waste-approvals"        → Approvals for setting up an E-Waste plant
+//   "e-waste-market-analysis"  → Market analysis & target segments
+//   "e-waste-machinery"        → Machinery support & client help
+//   "e-waste-dpr"              → Creating a Detailed Project Report (DPR)
+// =============================================================================
 
 export const eWasteBlogContent = {
+
+  // ---------------------------------------------------------------------------
+  // POST 1 OF 5 — E-WASTE BUYING & SELLING
+  // Slug in blog.ts:  "e-waste-buying-selling"
+  // URL on site:      /blog/e-waste-buying-selling
+  // Category page:    /blog/category/e-waste
+  //
+  // To edit this post's title/tags/summary → go to blog.ts and find:
+  //   slug: "e-waste-buying-selling"
+  // To edit the actual page content → edit the HTML below.
+  // ---------------------------------------------------------------------------
   "e-waste-buying-selling": {
     title: "How We Help Clients Buy and Sell Scrap and Products in E-Waste Recycling Plant",
     content: `
@@ -122,6 +168,13 @@ export const eWasteBlogContent = {
     `
   },
 
+  // ---------------------------------------------------------------------------
+  // POST 2 OF 5 — E-WASTE APPROVALS
+  // Slug in blog.ts:  "e-waste-approvals"
+  // URL on site:      /blog/e-waste-approvals
+  // Category page:    /blog/category/e-waste
+  // To edit content → edit the HTML template literal below.
+  // ---------------------------------------------------------------------------
   "e-waste-approvals": {
     title: "Approvals on E-Waste Recycling Plant",
     content: `
@@ -201,6 +254,13 @@ export const eWasteBlogContent = {
     `
   },
 
+  // ---------------------------------------------------------------------------
+  // POST 3 OF 5 — E-WASTE MARKET ANALYSIS
+  // Slug in blog.ts:  "e-waste-market-analysis"
+  // URL on site:      /blog/e-waste-market-analysis
+  // Category page:    /blog/category/e-waste
+  // To edit content → edit the HTML template literal below.
+  // ---------------------------------------------------------------------------
   "e-waste-market-analysis": {
     title: "Market Analysis and Target Market Segments in E-Waste Recycling Plant",
     content: `
@@ -276,6 +336,13 @@ export const eWasteBlogContent = {
     `
   },
 
+  // ---------------------------------------------------------------------------
+  // POST 4 OF 5 — E-WASTE MACHINERY
+  // Slug in blog.ts:  "e-waste-machinery"
+  // URL on site:      /blog/e-waste-machinery
+  // Category page:    /blog/category/e-waste
+  // To edit content → edit the HTML template literal below.
+  // ---------------------------------------------------------------------------
   "e-waste-machinery": {
     title: "How We Help Clients Choose the Right Machinery in E-Waste Recycling Plant",
     content: `
@@ -361,6 +428,13 @@ export const eWasteBlogContent = {
     `
   },
 
+  // ---------------------------------------------------------------------------
+  // POST 5 OF 5 — E-WASTE DPR (DETAILED PROJECT REPORT)
+  // Slug in blog.ts:  "e-waste-dpr"
+  // URL on site:      /blog/e-waste-dpr
+  // Category page:    /blog/category/e-waste
+  // To edit content → edit the HTML template literal below.
+  // ---------------------------------------------------------------------------
   "e-waste-dpr": {
     title: "How Can We Help Clients in Creating a Detailed Project Report File for E-Waste Recycling Plant",
     content: `
