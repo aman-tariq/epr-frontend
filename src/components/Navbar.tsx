@@ -63,7 +63,7 @@ const eprCreditsSubcategories = [
 ];
 
 const buyAndSellScrapSubcategories = [
-  { label: "Buy E-Waste", path: "/blog/category/buy-e-waste"},
+  { label: "Buy E-Waste", path: "/blog/category/buy-sell-ewaste"},
   { label: "Sell Batteries", path: "/blog/category/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/blog/category/buy-and-sell-metals" },
 

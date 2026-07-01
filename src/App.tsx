@@ -15,6 +15,9 @@ import BusinessGrowthAndLeadGeneration from './components/services/business grow
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
+const BuySellEWaste = lazy(() => import("./components/services/buy-sell-scrap/buy-sell-ewaste"));
+const BuySellMetals = lazy(() => import("./components/services/buy-sell-scrap/buy-sell-metals"));
+const SellBatteries = lazy(() => import("./components/services/buy-sell-scrap/sell-batteries"));
 const ServiceDetails = lazy(() => import("./pages/ServiceDetails"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -55,6 +58,9 @@ const AppContent = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/buy-sell-ewaste" element={<BuySellEWaste />} />
+          <Route path="/services/buy-sell-metals" element={<BuySellMetals />} />
+          <Route path="/services/sell-batteries" element={<SellBatteries />} />
           <Route path="/services/:serviceSlug" element={<ServiceDetails />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/category/:category/:subcategory" element={<BlogCategory />} />

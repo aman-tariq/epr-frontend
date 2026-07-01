@@ -462,14 +462,14 @@ export const services: ServiceItem[] = [
     subcategory: "Scale & Growth Systems",
   },
   {
-    slug: "buy-ewaste",
-    title: "Buy E-Waste",
-    subtitle: "Purchase certified e-waste for material recovery and recycling.",
+    slug: "buy-sell-ewaste",
+    title: "Buy & Sell E-Waste",
+    subtitle: "Purchase and sell certified e-waste for material recovery and recycling.",
     desc: "Access quality e-waste streams directly from our verified network of collection centers for your recycling and material recovery operations.",
     details: "We connect buyers with certified e-waste sources, ensuring material quality, traceability, and compliance with all environmental standards.",
     features: ["Certified sources", "Quality assurance", "Reliable supply"],
     highlights: ["Verified quality", "Traceable sourcing", "Competitive pricing"],
-    path: "/services/buy-ewaste",
+    path: "/services/buy-sell-ewaste",
     category: "buy-sell",
     subcategory: "E-Waste",
   },
@@ -623,6 +623,28 @@ export const services: ServiceItem[] = [
     category: "business-growth-lead-generation",
     subcategory: "Business Growth & Lead Generation",
   },
+    {
+    slug: "buy-sell-ewaste",
+    title: "Buy & Sell E-Waste Scrap",
+    subtitle: "Transform electronic scrap into sustainable business value.",
+    desc: "Professional platform for buying and selling e-waste scrap including IT equipment, cables, PCBs, and mixed electronic waste.",
+    details: "EPR Nexuss helps businesses buy and sell e-waste scrap responsibly through organized recycling support, transparent processes, and value-driven handling.",
+    features: [
+      "Scrap Evaluation",
+      "Buyer & Seller Support",
+      "Responsible Recycling",
+      "Business Transparency"
+    ],
+    highlights: [
+      "Certified e-waste handling",
+      "Transparent pricing",
+      "Responsible recycling",
+      "Material recovery focus"
+    ],
+    path: "/services/buy-sell-ewaste",
+    category: "buy-sell",
+    subcategory: "E-Waste",
+  },
 ];
 
 export const serviceDropdown = [
@@ -637,7 +659,7 @@ export const serviceDropdown = [
   { label: "Setup & commissioning documentation", path: "/services/setup-and-commissioning-documentation" },
   { label: "Operation & Performance management", path: "/services/operationperformancemanagement" },
   { label: "Scale and Growth Systems", path: "/services/scale-and-growth-systems" },
-  { label: "Buy E-Waste", path: "/services/buy-ewaste" },
+  { label: "Buy E-Waste", path: "/services/buy-sell-ewaste" },
   { label: "Sell Batteries", path: "/services/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
   { label: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
@@ -692,7 +714,7 @@ export const serviceCategoriesNav: ServiceCategory[] = [
   {
     name: "Buy & Sell Scrap",
     subcategories: [
-      { label: "Buy E-Waste", path: "/services/buy-ewaste" },
+      { label: "Buy E-Waste", path: "/services/buy-sell-ewaste" },
       { label: "Sell Batteries", path: "/services/sell-batteries" },
       { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
     ],
@@ -703,4 +725,5 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
     ],
   },
+  
 ];
