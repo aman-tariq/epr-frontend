@@ -34,7 +34,7 @@ const SetupCommissioningDocumentation = () => {
           <div className="space-y-8 lg:space-y-12">
 
             {/* Hero Section */}
-            <section className="bg-white border border-blue-100 rounded-3xl p-2 lg:p-6 md:p-10 lg:p-12 shadow-2xl shadow-blue-100/50">
+            <section className="bg-white border border-blue-100 rounded-3xl p-2 lg:p-12 md:p-10  shadow-2xl shadow-blue-100/50">
               <span className="inline-block px-6 py-2.5 bg-blue-50 text-blue-700 text-xs font-bold tracking-widest rounded-full border border-blue-100">
                 Documentation That Builds Trust
               </span>
@@ -157,7 +157,7 @@ const SetupCommissioningDocumentation = () => {
 
             {/* Workflow Section */}
             <section id="workflow" className="space-y-8">
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800">Important Topics</h2>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {[
@@ -176,7 +176,7 @@ const SetupCommissioningDocumentation = () => {
                 </div>
               </div>
 
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2  md:p-10 shadow-xl">
                 <h3 className="font-semibold text-2xl mb-6 text-slate-700">Typical document flow</h3>
                 <div className="space-y-6">
                   {[
@@ -200,7 +200,7 @@ const SetupCommissioningDocumentation = () => {
 
             {/* Roles & Risks */}
             <section id="roles" className="space-y-8">
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2  md:p-10 shadow-xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800">How a strong setup team works</h2>
                 <p className="text-[17px] text-slate-700 mb-5">A good project team does not rely on memory. It uses structured documents, routine checks, and simple accountability.</p>
                 <p className="text-[17px] text-slate-700 mb-8">It also reduces stress. When the team knows where records live, who owns each task, and what still needs approval, the project feels more manageable.</p>
@@ -211,7 +211,7 @@ const SetupCommissioningDocumentation = () => {
                 </div>
               </div>
 
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl" id="risks">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl" id="risks">
                 <h3 className="font-semibold text-xl mb-6 text-slate-700">Roles usually involved</h3>
                 <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-10">
                   <li>Project manager</li>
@@ -233,14 +233,14 @@ const SetupCommissioningDocumentation = () => {
 
             {/* Case Study */}
             <section id="case-study" className="space-y-8">
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800">Case study: from delayed handover to smooth startup</h2>
                 <p><strong>Company profile:</strong> A medium-sized industrial project team was preparing to hand over a newly installed system, but key files were scattered across emails, spreadsheets, and paper notes.</p>
                 <p className="mt-5"><strong>What changed:</strong> The team introduced a single commissioning document pack with standard checklists, a digital issue log, signed test forms, and a final handover summary. Each department worked from the same source of truth.</p>
                 <p className="mt-5"><strong>Results:</strong> Handover time dropped by 30%. Missing information was reduced sharply, and startup became easier for the operations team. The biggest improvement was confidence: people knew exactly what had been tested, what still needed attention, and who owned each next step.</p>
               </div>
 
-              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+              <div className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl">
                 <h3 className="font-semibold text-xl mb-6 text-slate-700">Case study takeaways</h3>
                 <ul className="list-disc pl-6 space-y-3 text-slate-700">
                   <li>Standard documents reduce confusion.</li>
@@ -253,7 +253,7 @@ const SetupCommissioningDocumentation = () => {
             </section>
 
             {/* FAQ */}
-            <section id="faq" className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+            <section id="faq" className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800">FAQs</h2>
               <div className="space-y-4">
                 {[
@@ -272,7 +272,7 @@ const SetupCommissioningDocumentation = () => {
             </section>
 
             {/* Final Thought */}
-            <section className="bg-white border border-blue-100 rounded-3xl p-2 md:p-6 md:p-10 shadow-xl">
+            <section className="bg-white border border-blue-100 rounded-3xl p-2 md:p-10 shadow-xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800">Final thought</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Setup and commissioning documentation is more than paperwork. It is the proof of a job done properly, the bridge between installation and operation, and the foundation of a reliable handover. When the records are clear, the project becomes easier to manage, easier to trust, and easier to support for the long run.
