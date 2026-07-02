@@ -667,6 +667,7 @@ export const serviceDropdown = [
   { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
   { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
   { label: "Plastic Recycling", path: "/services/recycling-plastic" },
+  { label: "Tyre Recycling", path: "/services/recycling-tyre" },
   { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
 ];
 
@@ -687,6 +688,21 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
       { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
       { label: "Plastic Recycling", path: "/services/recycling-plastic" },
+      { label: "Tyre Recycling", path: "/services/recycling-tyre" },
+    ],
+  },
+  {
+    name: "Plant Operation Intelligence",
+    subcategories: [
+      { label: "Setup & commissioning documentation", path: "/services/setup-and-commissioning-documentation" },
+      { label: "Operation & Performance management", path: "/services/operationperformancemanagement" },
+      { label: "Scale and Growth Systems", path: "/services/scale-and-growth-systems" },
+    ],
+  },
+  {
+    name: "Business Growth & Lead Generation",
+    subcategories: [
+      { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
     ],
   },
   {
@@ -698,18 +714,10 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "EPR ELV", path: "/services/epr-elv" },
       { label: "EPR Used Oil", path: "/services/epr-used-oil" },
       { label: "EPR Metals", path: "/services/epr-metals" },
-      { label: "EPR Battery", path: "/services/epr-battery" },
-      { label: "EPR Lithium", path: "/services/epr-lithium" },
+      { label: "EPR Lithium Battery", path: "/services/epr-lithium" },
     ],
   },
-  {
-    name: "Plant Operation Intelligence",
-    subcategories: [
-      { label: "Setup & commissioning documentation", path: "/services/setup-and-commissioning-documentation" },
-      { label: "Operation & Performance management", path: "/services/operationperformancemanagement" },
-      { label: "Scale and Growth Systems", path: "/services/scale-and-growth-systems" },
-    ],
-  },
+  
 
   {
     name: "Buy & Sell Scrap",
@@ -719,11 +727,6 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
     ],
   },
-  {
-    name: "Business Growth & Lead Generation",
-    subcategories: [
-      { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
-    ],
-  },
+  
   
 ];
