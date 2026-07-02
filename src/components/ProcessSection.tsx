@@ -20,7 +20,7 @@ const ProcessSection = () => {
         >
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">How It Works</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Our Process
+            Our Strategy of Work
           </h2>
         </motion.div>
 

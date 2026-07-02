@@ -30,9 +30,9 @@ const slides = [
     subtitle:
       "CPCB APPROVALS • PROCESS DESIGN • MACHINERY SELECTION • DPR",
     description:
-      "You have ₹2–10 crore ready to invest in a recycling plant — but CPCB norms, SPCB approvals, hydrometallurgy process design and machinery selection are keeping you stuck at square one.",
+      "You have capital ready to invest in a recycling plant—but CPCB norms, SPCB approvals, hydrometallurgy process design, and machinery selection are keeping you stuck at square one.",
     buttonText: "See How We Solve It",
-    buttonLink: "/services/recycling-setups",
+    buttonLink: "/services/business-growth",
     isPainPoint: true,
   },
   {
@@ -43,7 +43,7 @@ const slides = [
     description:
       "We deliver bank-approved DPRs, CPCB & SPCB clearances, BATX-grade machinery commissioning, and live digital dashboards — from groundbreaking to first production batch.",
     buttonText: "Get Plant Setup Services",
-    buttonLink: "/services/recycling-setups",
+    buttonLink: "/services/recycling-lithium-ion-battery",
     isSolution: true,
   },
   // Banner 2A — Pain
@@ -55,7 +55,7 @@ const slides = [
     description:
       "Your plant is running — but yield is inconsistent, shift teams operate differently, energy costs are unclear, and nobody can tell you in real time whether today's production is on target or bleeding margin.",
     buttonText: "Fix Plant Operations",
-    buttonLink: "/services/operations-management",
+    buttonLink: "/services/operationperformancemanagement",
     isPainPoint: true,
   },
 
@@ -68,7 +68,7 @@ const slides = [
     description:
       "We install digital display boards showing live KPIs — daily throughput, yield percentage, energy cost per tonne, and shift-wise performance — backed by role-specific SOPs and commissioning checklists your team actually follows.",
     buttonText: "Optimize Operations",
-    buttonLink: "/services/operations-management",
+    buttonLink: "/services/operationperformancemanagement",
     isSolution: true,
   },
   // Banner 3A — Pain Point
@@ -80,7 +80,7 @@ const slides = [
     description:
       "Your brand has mandatory EPR targets under plastic, e-waste or battery rules — but CPCB's credit portal is complex, verified recyclers are hard to find, and one wrong filing can lead to heavy penalties and operational risk.",
     buttonText: "Fix Compliance Issues",
-    buttonLink: "/services/epr-services",
+    buttonLink: "/services/epr-plastic",
     isPainPoint: true,
   },
 
@@ -93,7 +93,7 @@ const slides = [
     description:
       "We manage EPR credits across plastic, e-waste, battery and tyre categories — connecting you with CPCB-registered recyclers, handling annual return filings, and providing a live compliance dashboard for complete transparency.",
     buttonText: "Get EPR Support",
-    buttonLink: "/services/epr-services",
+    buttonLink: "/services/epr-electronic",
     isSolution: true,
   },
   // Banner 4A — Pain Point
@@ -105,7 +105,7 @@ const slides = [
     description:
       "Your hydrometallurgy or e-waste shredding line has the capacity — but operations are running below potential because feedstock is inconsistent, aggregators are unreliable, and there is no visibility into daily inflow versus production demand.",
     buttonText: "Stabilize Material Supply",
-    buttonLink: "/services/e-waste-battery-trading",
+    buttonLink: "/services/sell-batteries",
     isPainPoint: true,
   },
 
@@ -118,7 +118,7 @@ const slides = [
     description:
       "We supply e-waste and battery waste through a trusted network built over 20 years — with live procurement tracking, inbound tonnage visibility, material grade updates, and landed cost forecasting to maintain consistent plant utilisation.",
     buttonText: "Secure Feedstock Supply",
-    buttonLink: "/services/e-waste-battery-trading",
+    buttonLink: "/services/buy-sell-ewaste",
     isSolution: true,
   },
   // Banner 5A — Pain Point
@@ -202,6 +202,7 @@ const slides = [
 
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [offsetY, setOffsetY] = useState(0);
 
   const next = useCallback(() => {
@@ -213,11 +214,27 @@ const HeroSlider = () => {
   }, []);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(next, 12000);
 
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, isPaused]);
+  const handleInteraction = () => {
+    setIsPaused(true);
+  };
+  useEffect(() => {
+    if (!isPaused) return;
 
+    const resumeTimer = setTimeout(() => {
+      setIsPaused(false);
+    }, 8000); // Resume after 8 seconds
+
+    return () => clearTimeout(resumeTimer);
+  }, [isPaused]);
+
+  // Also support hover (recommended for desktop)
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
   useEffect(() => {
     let rafId: number | null = null;
 
@@ -287,11 +304,11 @@ const HeroSlider = () => {
 
     overlayThree:
       "bg-gradient-to-t from-black/50 via-black/10 to-black/20",
-      
+
   };
 
   return (
-    <section className="relative h-screen min-h-[750px] w-full overflow-hidden">
+    <section className="relative h-screen min-h-[750px] w-full overflow-hidden" onClick={handleInteraction} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -341,10 +358,10 @@ const HeroSlider = () => {
               <div className="mb-7">
                 <span
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs md:text-sm font-medium uppercase tracking-[2px] border backdrop-blur-md text-white shadow-lg ${isPain
-                      ? "bg-red-400/15 border-red-200/30"
-                      : isSolution
-                        ? "bg-emerald-300/15 border-emerald-100/30"
-                        : "bg-white/10 border-white/20"
+                    ? "bg-red-400/15 border-red-200/30"
+                    : isSolution
+                      ? "bg-emerald-300/15 border-emerald-100/30"
+                      : "bg-white/10 border-white/20"
                     }`}
                   style={{
                     fontFamily: "'Poppins', sans-serif",
@@ -534,7 +551,7 @@ md:text-lg
       {/* Left Arrow */}
       <button
         onClick={prev}
-        
+
         className={`
           absolute
           left-1
@@ -567,7 +584,7 @@ md:text-lg
       {/* Right Arrow */}
       <button
         onClick={next}
-        
+
         className={`
           
           absolute
@@ -603,14 +620,24 @@ md:text-lg
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrent(i);
+            }}
             className={`h-3 rounded-full transition-all duration-300 ${i === current
-                ? "w-12 bg-yellow-300"
-                : "w-3 bg-white/40 hover:bg-white/70"
+              ? "w-12 bg-yellow-300"
+              : "w-3 bg-white/40 hover:bg-white/70"
               }`}
           />
         ))}
       </div>
+      {/* Paused Indicator */}
+      {isPaused && (
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 bg-black/70 text-white text-sm px-5 py-2.5 rounded-full backdrop-blur-md flex items-center gap-2">
+          <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full animate-pulse" />
+          Slide paused • Click anywhere to resume
+        </div>
+      )}
     </section>
   );
 };
