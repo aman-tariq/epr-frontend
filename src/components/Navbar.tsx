@@ -54,12 +54,12 @@ const recyclingSetupsSubcategories = [
 const eprCreditsSubcategories = [
   { label: "EPR Plastic", path: "/blog/category/epr-plastic" },
   { label: "EPR Electronic", path: "/blog/category/epr-electronic"},
-  { label: "EPR Tyre", path: "/blog/category/tyre" },
+  { label: "EPR Tyre", path: "/blog/category/epr-tyre" },
   { label: "EPR ELV", path: "/blog/category/epr-elv" },
   { label: "EPR Used Oil", path: "/blog/category/epr-used-oil" },
   { label: "EPR Metals", path: "/blog/category/epr-metals" },
   { label: "EPR Battery", path: "/blog/category/epr-battery" },
-  { label: "EPR Lithium", path: "/blog/category/epr-Lithium" },
+  { label: "EPR Lithium", path: "/blog/category/epr-lithium" },
 ];
 
 const buyAndSellScrapSubcategories = [
