@@ -141,82 +141,82 @@ export const blogPosts: BlogPost[] = [
   // Category page → /blog/category/epr-plastic or /blog/category/epr-elv
   // To edit content → edit the sections[] array inside each object below.
   // ===========================================================================
-  {
-    slug: "epr-plastic-compliance-trends",
-    path: "/blog/epr-plastic-compliance-trends",
-    title: "EPR Plastic Compliance Trends: CPCB Guidance for 2026",
-    summary:
-      "Explore the latest CPCB-aligned EPR practices for plastic waste management, regulatory reporting, and producer responsibility in India.",
-    date: "April 16, 2026",
-    readingTime: "6 min read",
-    author: "EPR Nexuss Team",
-    image: platformImage,
-    tags: ["EPR Plastic", "CPCB", "Waste Management", "Recycling"],
-    keywords: [
-      "EPR plastic compliance",
-      "CPCB plastic waste rules",
-      "plastic recycling India",
-      "extended producer responsibility",
-    ],
-    metaDescription:
-      "Discover practical CPCB-aligned EPR plastic compliance strategies, collection systems, recycling channels, and reporting best practices for Indian producers.",
-    category: "epr-plastic",
-    sections: [
-      {
-        title: "Key compliance trends for plastic producers",
-        body:
-          "Producers must align with CPCB's evolving EPR framework by registering on the portal, setting collection targets, and reporting annually. Partnering with authorized recyclers and maintaining documentation are essential steps.",
-        bullets: [
-          "Register on the CPCB EPR portal",
-          "Meet annual collection targets",
-          "Partner with authorized plastic recyclers",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "epr-elv-audit-readiness",
-    path: "/blog/epr-elv-audit-readiness",
-    title: "EPR ELV Audit Readiness: CPCB Reporting and Recovery Strategy",
-    summary:
-      "Prepare for CPCB ELV audits with clear EPR reporting, vehicle recycling workflows, and accountable end-of-life recovery programs.",
-    date: "April 16, 2026",
-    readingTime: "6 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "Automotive Recycling", "CPCB", "Compliance"],
-    keywords: [
-      "EPR ELV compliance",
-      "CPCB ELV audit",
-      "end-of-life vehicle recycling",
-      "ELV waste management",
-    ],
-    metaDescription:
-      "Learn how to make your EPR ELV program CPCB-ready with audit-ready reporting, responsible dismantling and certified recovery channels.",
-    category: "epr-elv",
-    sections: [
-      {
-        title: "ELV recovery and CPCB expectations",
-        body:
-          "End-of-life vehicles require careful dismantling and material recovery. CPCB promotes systems that maximize reuse of steel, plastics and rubber while ensuring hazardous parts are handled by authorised facilities.",
-      },
-      {
-        title: "How to stay audit-ready",
-        body:
-          "Maintain an accessible EPR file with transport manifests, disposal certificates, and evidence of recovery. Prepared producers can respond quickly to CPCB or state board queries with validated data and authorised partner records.",
-        bullets: [
-          "Document each ELV intake, transport and processing step",
-          "Capture proof of recycling or reuse for metal, plastic and battery components",
-          "Retain clearance certificates from authorised recyclers",
-        ],
-      },
-      {
-        title: "Using blog content to support your EPR brand",
-        body:
-          "A blog that explains ELV audit readiness and recovery systems helps search engines understand your authority. Use clear headings, FAQs and case examples to reach producers searching for compliance guidance.",
-      },
-    ],
-  },
+  // {
+  //   slug: "epr-plastic-compliance-trends",
+  //   path: "/blog/epr-plastic-compliance-trends",
+  //   title: "EPR Plastic Compliance Trends: CPCB Guidance for 2026",
+  //   summary:
+  //     "Explore the latest CPCB-aligned EPR practices for plastic waste management, regulatory reporting, and producer responsibility in India.",
+  //   date: "April 16, 2026",
+  //   readingTime: "6 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: platformImage,
+  //   tags: ["EPR Plastic", "CPCB", "Waste Management", "Recycling"],
+  //   keywords: [
+  //     "EPR plastic compliance",
+  //     "CPCB plastic waste rules",
+  //     "plastic recycling India",
+  //     "extended producer responsibility",
+  //   ],
+  //   metaDescription:
+  //     "Discover practical CPCB-aligned EPR plastic compliance strategies, collection systems, recycling channels, and reporting best practices for Indian producers.",
+  //   category: "epr-plastic",
+  //   sections: [
+  //     {
+  //       title: "Key compliance trends for plastic producers",
+  //       body:
+  //         "Producers must align with CPCB's evolving EPR framework by registering on the portal, setting collection targets, and reporting annually. Partnering with authorized recyclers and maintaining documentation are essential steps.",
+  //       bullets: [
+  //         "Register on the CPCB EPR portal",
+  //         "Meet annual collection targets",
+  //         "Partner with authorized plastic recyclers",
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: "epr-elv-audit-readiness",
+  //   path: "/blog/epr-elv-audit-readiness",
+  //   title: "EPR ELV Audit Readiness: CPCB Reporting and Recovery Strategy",
+  //   summary:
+  //     "Prepare for CPCB ELV audits with clear EPR reporting, vehicle recycling workflows, and accountable end-of-life recovery programs.",
+  //   date: "April 16, 2026",
+  //   readingTime: "6 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "Automotive Recycling", "CPCB", "Compliance"],
+  //   keywords: [
+  //     "EPR ELV compliance",
+  //     "CPCB ELV audit",
+  //     "end-of-life vehicle recycling",
+  //     "ELV waste management",
+  //   ],
+  //   metaDescription:
+  //     "Learn how to make your EPR ELV program CPCB-ready with audit-ready reporting, responsible dismantling and certified recovery channels.",
+  //   category: "epr-elv",
+  //   sections: [
+  //     {
+  //       title: "ELV recovery and CPCB expectations",
+  //       body:
+  //         "End-of-life vehicles require careful dismantling and material recovery. CPCB promotes systems that maximize reuse of steel, plastics and rubber while ensuring hazardous parts are handled by authorised facilities.",
+  //     },
+  //     {
+  //       title: "How to stay audit-ready",
+  //       body:
+  //         "Maintain an accessible EPR file with transport manifests, disposal certificates, and evidence of recovery. Prepared producers can respond quickly to CPCB or state board queries with validated data and authorised partner records.",
+  //       bullets: [
+  //         "Document each ELV intake, transport and processing step",
+  //         "Capture proof of recycling or reuse for metal, plastic and battery components",
+  //         "Retain clearance certificates from authorised recyclers",
+  //       ],
+  //     },
+  //     {
+  //       title: "Using blog content to support your EPR brand",
+  //       body:
+  //         "A blog that explains ELV audit readiness and recovery systems helps search engines understand your authority. Use clear headings, FAQs and case examples to reach producers searching for compliance guidance.",
+  //     },
+  //   ],
+  // },
   // ===========================================================================
   // SECTION 2: E-WASTE POSTS
   // 5 posts covering Approvals, Buying/Selling, Market Analysis, Machinery, DPR.
@@ -1473,255 +1473,255 @@ export const blogPosts: BlogPost[] = [
   // SECTION 1 above with category "epr-elv" — it also appears on this category page.
   // To edit content → edit the sections[] array inside each object below.
   // ===========================================================================
-  {
-    slug: "elv-approvals",
-    path: "/blog/elv-approvals",
-    title: "ELV Recycling Plant Approvals — Complete Compliance Roadmap",
-    summary:
-      "Master the approval process for end-of-life vehicle recycling plants with CTE, CTO, and all required environmental clearances.",
-    date: "May 13, 2026",
-    readingTime: "9 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "Approvals", "CPCB", "Compliance"],
-    keywords: [
-      "ELV recycling approvals",
-      "automotive recycling licenses",
-      "CPCB ELV compliance",
-      "vehicle dismantling approvals",
-    ],
-    metaDescription:
-      "Get the complete ELV recycling plant approval guide covering Consent to Establish, Consent to Operate, and all regulatory requirements for automotive waste management.",
-    category: "epr-elv",
-    previewContent:
-      "ELV recycling requires careful regulatory navigation. The right approval strategy ensures compliance, enables operations, and positions your business as a responsible automotive waste management partner.",
-    sections: [
-      {
-        title: "Why ELV Approvals are Complex",
-        body:
-          "End-of-life vehicles contain multiple waste streams including hazardous batteries, oils, and fluids. CPCB regulations require specialized handling, storage, and disposal procedures that must be approved before operations begin.",
-      },
-      {
-        title: "Complete Approval Framework",
-        body:
-          "An ELV recycling facility typically requires 7-9 approvals from different authorities. Proper sequencing and parallel processing can complete the approval cycle in 6-8 months.",
-        bullets: [
-          "Consent to Establish (CTE) for facility setup",
-          "Consent to Operate (CTO) for commercial operations",
-          "Hazardous Waste Authorization for batteries and fluids",
-          "Factory Licence under Industrial Act",
-          "Fire Safety NOC from local authorities",
-          "Building and land use clearances",
-          "EPR Registration on CPCB portal",
-          "Pollution control equipment approvals",
-        ],
-      },
-      {
-        title: "Critical Success Factors",
-        body:
-          "Prepare detailed facility layout plans showing segregated storage areas for different waste streams. Ensure all equipment meets CPCB emission and safety standards before applying for CTO.",
-      },
-    ],
-  },
-  {
-    slug: "elv-buy-selling",
-    path: "/blog/elv-buy-selling",
-    title: "ELV Scrap Trading — Optimize Vehicle Acquisition and Material Sales",
-    summary:
-      "Learn strategies for sourcing end-of-life vehicles, component recovery, and selling recycled automotive materials.",
-    date: "May 13, 2026",
-    readingTime: "8 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "Business", "Scrap Trading", "Automotive"],
-    keywords: [
-      "ELV scrap trading",
-      "automotive recycling business",
-      "vehicle dismantling profitability",
-      "ELV material sales",
-    ],
-    metaDescription:
-      "Discover strategies to optimize ELV sourcing, component recovery, and material sales for maximum profitability in automotive recycling operations.",
-    category: "epr-elv",
-    previewContent:
-      "ELV recycling profitability depends on efficient vehicle acquisition, systematic dismantling, and strategic sales of recovered materials to appropriate market segments.",
-    sections: [
-      {
-        title: "Vehicle Acquisition Strategies",
-        body:
-          "Build relationships with insurance companies, fleet operators, and individual owners. Focus on complete vehicles rather than individual components to maximize recovery value.",
-        bullets: [
-          "Partner with insurance companies for totaled vehicles",
-          "Establish contracts with fleet operators for end-of-life vehicles",
-          "Create consumer take-back programs for branded vehicles",
-          "Monitor auction markets for bulk vehicle purchases",
-        ],
-      },
-      {
-        title: "Material Recovery and Sales",
-        body:
-          "Implement systematic dismantling procedures to maximize value recovery from different vehicle components and materials.",
-        bullets: [
-          "Sell ferrous metals to steel mills and foundries",
-          "Market non-ferrous metals (aluminum, copper) to specialized recyclers",
-          "Supply plastic components to automotive parts manufacturers",
-          "Sell recovered oils and fluids to re-refining facilities",
-          "Market batteries to authorized battery recyclers",
-        ],
-      },
-      {
-        title: "Pricing and Margin Optimization",
-        body:
-          "Track material prices daily and adjust collection strategies accordingly. Focus on high-value components while ensuring proper disposal of hazardous materials.",
-      },
-    ],
-  },
-  {
-    slug: "elv-machinery",
-    path: "/blog/elv-machinery",
-    title: "ELV Recycling Equipment — Right Tools for Automotive Dismantling",
-    summary:
-      "Select optimal machinery for ELV recycling including dismantling equipment, shredders, and material separation systems.",
-    date: "May 13, 2026",
-    readingTime: "8 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "Machinery", "Equipment", "Automotive"],
-    keywords: [
-      "ELV recycling machinery",
-      "automotive dismantling equipment",
-      "vehicle shredder systems",
-      "ELV processing technology",
-    ],
-    metaDescription:
-      "Learn how to select and optimize machinery for efficient and profitable ELV recycling operations with proper equipment configuration.",
-    category: "epr-elv",
-    previewContent:
-      "ELV recycling requires specialized equipment for safe vehicle dismantling, component separation, and material recovery. The right machinery ensures efficiency, safety, and maximum value extraction.",
-    sections: [
-      {
-        title: "Equipment Selection Criteria",
-        body:
-          "ELV facilities need equipment that can handle diverse vehicle types, ensure worker safety, and maximize material recovery while minimizing environmental impact.",
-      },
-      {
-        title: "Essential Equipment Components",
-        body:
-          "A complete ELV recycling facility includes vehicle handling, dismantling, shredding, and separation equipment.",
-        bullets: [
-          "Vehicle lifting and positioning equipment",
-          "Manual dismantling stations with safety equipment",
-          "Engine and transmission removal tools",
-          "Fluid drainage and collection systems",
-          "Battery and hazardous material handling equipment",
-          "Shredder for remaining vehicle hulks",
-          "Magnetic and eddy current separators",
-          "Material sorting and baling equipment",
-        ],
-      },
-      {
-        title: "Safety and Environmental Considerations",
-        body:
-          "All equipment must include safety features for handling hazardous materials. Ensure proper ventilation, spill containment, and emergency response systems are integrated with machinery selection.",
-      },
-    ],
-  },
-  {
-    slug: "elv-market-analysis",
-    path: "/blog/elv-market-analysis",
-    title: "ELV Recycling Market Analysis — Automotive Waste Management Opportunities",
-    summary:
-      "Understand the ELV recycling market landscape, identify target segments, and build a sustainable automotive recycling business.",
-    date: "May 13, 2026",
-    readingTime: "7 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "Market Analysis", "Automotive", "Business Strategy"],
-    keywords: [
-      "ELV recycling market",
-      "automotive waste management",
-      "vehicle recycling business",
-      "ELV market analysis",
-    ],
-    metaDescription:
-      "Discover how to identify and serve target market segments in ELV recycling for sustainable growth in the automotive circular economy.",
-    category: "epr-elv",
-    previewContent:
-      "India's growing vehicle fleet and environmental regulations create significant opportunities in ELV recycling. Understanding market dynamics is key to building a profitable automotive waste management business.",
-    sections: [
-      {
-        title: "Market Size and Growth Drivers",
-        body:
-          "India's vehicle fleet exceeds 300 million vehicles with annual growth of 8-10%. EPR regulations and environmental concerns drive demand for responsible ELV management and recycling.",
-      },
-      {
-        title: "Key Market Segments",
-        body:
-          "Target segments include OEMs, insurance companies, fleet operators, and individual vehicle owners seeking compliant disposal solutions.",
-        bullets: [
-          "OEMs requiring take-back and recycling services",
-          "Insurance companies for totaled vehicle disposal",
-          "Fleet operators for end-of-life vehicle management",
-          "Individual owners seeking responsible disposal",
-          "Metal recyclers for ferrous and non-ferrous materials",
-          "Auto parts manufacturers for reusable components",
-        ],
-      },
-      {
-        title: "Competitive Advantages",
-        body:
-          "Differentiate through comprehensive service offerings, regulatory compliance, transparent pricing, and partnerships with OEMs for authorized recycling status.",
-      },
-    ],
-  },
-  {
-    slug: "elv-dpr",
-    path: "/blog/elv-dpr",
-    title: "ELV Recycling DPR — Complete Project Report for Automotive Waste Facility",
-    summary:
-      "Create a comprehensive Detailed Project Report for ELV recycling plants covering planning, finance, and regulatory compliance.",
-    date: "May 13, 2026",
-    readingTime: "11 min read",
-    author: "EPR Nexuss Team",
-    image: cpcbImage,
-    tags: ["EPR ELV", "DPR", "Project Planning", "Finance"],
-    keywords: [
-      "ELV recycling DPR",
-      "automotive recycling project",
-      "ELV plant finance",
-      "vehicle dismantling DPR",
-    ],
-    metaDescription:
-      "Master the creation of a comprehensive DPR for ELV recycling plants covering facility design, financial projections, and implementation roadmap.",
-    category: "epr-elv",
-    previewContent:
-      "A comprehensive ELV recycling DPR provides the roadmap for establishing a compliant and profitable automotive waste management facility in India's growing circular economy.",
-    sections: [
-      {
-        title: "Project Rationale and Market Opportunity",
-        body:
-          "India's 300+ million vehicle fleet generates significant ELV waste annually. EPR regulations and environmental mandates create strong demand for authorized recycling facilities.",
-      },
-      {
-        title: "Facility Design and Equipment",
-        body:
-          "An ELV recycling facility requires 10,000-20,000 sq ft of covered area with specialized equipment for safe vehicle dismantling and material recovery.",
-        bullets: [
-          "Vehicle reception and inspection area",
-          "Dismantling bays with safety equipment",
-          "Fluid collection and treatment systems",
-          "Shredding and separation equipment",
-          "Storage areas for different material streams",
-          "Administrative and documentation facilities",
-        ],
-      },
-      {
-        title: "Financial Model and Projections",
-        body:
-          "Total project investment of ₹250-400 lakhs with projected annual revenue of ₹400-600 lakhs through diversified material sales and service fees.",
-      },
-    ],
-  },
+  // {
+  //   slug: "elv-approvals",
+  //   path: "/blog/elv-approvals",
+  //   title: "ELV Recycling Plant Approvals — Complete Compliance Roadmap",
+  //   summary:
+  //     "Master the approval process for end-of-life vehicle recycling plants with CTE, CTO, and all required environmental clearances.",
+  //   date: "May 13, 2026",
+  //   readingTime: "9 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "Approvals", "CPCB", "Compliance"],
+  //   keywords: [
+  //     "ELV recycling approvals",
+  //     "automotive recycling licenses",
+  //     "CPCB ELV compliance",
+  //     "vehicle dismantling approvals",
+  //   ],
+  //   metaDescription:
+  //     "Get the complete ELV recycling plant approval guide covering Consent to Establish, Consent to Operate, and all regulatory requirements for automotive waste management.",
+  //   category: "epr-elv",
+  //   previewContent:
+  //     "ELV recycling requires careful regulatory navigation. The right approval strategy ensures compliance, enables operations, and positions your business as a responsible automotive waste management partner.",
+  //   sections: [
+  //     {
+  //       title: "Why ELV Approvals are Complex",
+  //       body:
+  //         "End-of-life vehicles contain multiple waste streams including hazardous batteries, oils, and fluids. CPCB regulations require specialized handling, storage, and disposal procedures that must be approved before operations begin.",
+  //     },
+  //     {
+  //       title: "Complete Approval Framework",
+  //       body:
+  //         "An ELV recycling facility typically requires 7-9 approvals from different authorities. Proper sequencing and parallel processing can complete the approval cycle in 6-8 months.",
+  //       bullets: [
+  //         "Consent to Establish (CTE) for facility setup",
+  //         "Consent to Operate (CTO) for commercial operations",
+  //         "Hazardous Waste Authorization for batteries and fluids",
+  //         "Factory Licence under Industrial Act",
+  //         "Fire Safety NOC from local authorities",
+  //         "Building and land use clearances",
+  //         "EPR Registration on CPCB portal",
+  //         "Pollution control equipment approvals",
+  //       ],
+  //     },
+  //     {
+  //       title: "Critical Success Factors",
+  //       body:
+  //         "Prepare detailed facility layout plans showing segregated storage areas for different waste streams. Ensure all equipment meets CPCB emission and safety standards before applying for CTO.",
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: "elv-buy-selling",
+  //   path: "/blog/elv-buy-selling",
+  //   title: "ELV Scrap Trading — Optimize Vehicle Acquisition and Material Sales",
+  //   summary:
+  //     "Learn strategies for sourcing end-of-life vehicles, component recovery, and selling recycled automotive materials.",
+  //   date: "May 13, 2026",
+  //   readingTime: "8 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "Business", "Scrap Trading", "Automotive"],
+  //   keywords: [
+  //     "ELV scrap trading",
+  //     "automotive recycling business",
+  //     "vehicle dismantling profitability",
+  //     "ELV material sales",
+  //   ],
+  //   metaDescription:
+  //     "Discover strategies to optimize ELV sourcing, component recovery, and material sales for maximum profitability in automotive recycling operations.",
+  //   category: "epr-elv",
+  //   previewContent:
+  //     "ELV recycling profitability depends on efficient vehicle acquisition, systematic dismantling, and strategic sales of recovered materials to appropriate market segments.",
+  //   sections: [
+  //     {
+  //       title: "Vehicle Acquisition Strategies",
+  //       body:
+  //         "Build relationships with insurance companies, fleet operators, and individual owners. Focus on complete vehicles rather than individual components to maximize recovery value.",
+  //       bullets: [
+  //         "Partner with insurance companies for totaled vehicles",
+  //         "Establish contracts with fleet operators for end-of-life vehicles",
+  //         "Create consumer take-back programs for branded vehicles",
+  //         "Monitor auction markets for bulk vehicle purchases",
+  //       ],
+  //     },
+  //     {
+  //       title: "Material Recovery and Sales",
+  //       body:
+  //         "Implement systematic dismantling procedures to maximize value recovery from different vehicle components and materials.",
+  //       bullets: [
+  //         "Sell ferrous metals to steel mills and foundries",
+  //         "Market non-ferrous metals (aluminum, copper) to specialized recyclers",
+  //         "Supply plastic components to automotive parts manufacturers",
+  //         "Sell recovered oils and fluids to re-refining facilities",
+  //         "Market batteries to authorized battery recyclers",
+  //       ],
+  //     },
+  //     {
+  //       title: "Pricing and Margin Optimization",
+  //       body:
+  //         "Track material prices daily and adjust collection strategies accordingly. Focus on high-value components while ensuring proper disposal of hazardous materials.",
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: "elv-machinery",
+  //   path: "/blog/elv-machinery",
+  //   title: "ELV Recycling Equipment — Right Tools for Automotive Dismantling",
+  //   summary:
+  //     "Select optimal machinery for ELV recycling including dismantling equipment, shredders, and material separation systems.",
+  //   date: "May 13, 2026",
+  //   readingTime: "8 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "Machinery", "Equipment", "Automotive"],
+  //   keywords: [
+  //     "ELV recycling machinery",
+  //     "automotive dismantling equipment",
+  //     "vehicle shredder systems",
+  //     "ELV processing technology",
+  //   ],
+  //   metaDescription:
+  //     "Learn how to select and optimize machinery for efficient and profitable ELV recycling operations with proper equipment configuration.",
+  //   category: "epr-elv",
+  //   previewContent:
+  //     "ELV recycling requires specialized equipment for safe vehicle dismantling, component separation, and material recovery. The right machinery ensures efficiency, safety, and maximum value extraction.",
+  //   sections: [
+  //     {
+  //       title: "Equipment Selection Criteria",
+  //       body:
+  //         "ELV facilities need equipment that can handle diverse vehicle types, ensure worker safety, and maximize material recovery while minimizing environmental impact.",
+  //     },
+  //     {
+  //       title: "Essential Equipment Components",
+  //       body:
+  //         "A complete ELV recycling facility includes vehicle handling, dismantling, shredding, and separation equipment.",
+  //       bullets: [
+  //         "Vehicle lifting and positioning equipment",
+  //         "Manual dismantling stations with safety equipment",
+  //         "Engine and transmission removal tools",
+  //         "Fluid drainage and collection systems",
+  //         "Battery and hazardous material handling equipment",
+  //         "Shredder for remaining vehicle hulks",
+  //         "Magnetic and eddy current separators",
+  //         "Material sorting and baling equipment",
+  //       ],
+  //     },
+  //     {
+  //       title: "Safety and Environmental Considerations",
+  //       body:
+  //         "All equipment must include safety features for handling hazardous materials. Ensure proper ventilation, spill containment, and emergency response systems are integrated with machinery selection.",
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: "elv-market-analysis",
+  //   path: "/blog/elv-market-analysis",
+  //   title: "ELV Recycling Market Analysis — Automotive Waste Management Opportunities",
+  //   summary:
+  //     "Understand the ELV recycling market landscape, identify target segments, and build a sustainable automotive recycling business.",
+  //   date: "May 13, 2026",
+  //   readingTime: "7 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "Market Analysis", "Automotive", "Business Strategy"],
+  //   keywords: [
+  //     "ELV recycling market",
+  //     "automotive waste management",
+  //     "vehicle recycling business",
+  //     "ELV market analysis",
+  //   ],
+  //   metaDescription:
+  //     "Discover how to identify and serve target market segments in ELV recycling for sustainable growth in the automotive circular economy.",
+  //   category: "epr-elv",
+  //   previewContent:
+  //     "India's growing vehicle fleet and environmental regulations create significant opportunities in ELV recycling. Understanding market dynamics is key to building a profitable automotive waste management business.",
+  //   sections: [
+  //     {
+  //       title: "Market Size and Growth Drivers",
+  //       body:
+  //         "India's vehicle fleet exceeds 300 million vehicles with annual growth of 8-10%. EPR regulations and environmental concerns drive demand for responsible ELV management and recycling.",
+  //     },
+  //     {
+  //       title: "Key Market Segments",
+  //       body:
+  //         "Target segments include OEMs, insurance companies, fleet operators, and individual vehicle owners seeking compliant disposal solutions.",
+  //       bullets: [
+  //         "OEMs requiring take-back and recycling services",
+  //         "Insurance companies for totaled vehicle disposal",
+  //         "Fleet operators for end-of-life vehicle management",
+  //         "Individual owners seeking responsible disposal",
+  //         "Metal recyclers for ferrous and non-ferrous materials",
+  //         "Auto parts manufacturers for reusable components",
+  //       ],
+  //     },
+  //     {
+  //       title: "Competitive Advantages",
+  //       body:
+  //         "Differentiate through comprehensive service offerings, regulatory compliance, transparent pricing, and partnerships with OEMs for authorized recycling status.",
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: "elv-dpr",
+  //   path: "/blog/elv-dpr",
+  //   title: "ELV Recycling DPR — Complete Project Report for Automotive Waste Facility",
+  //   summary:
+  //     "Create a comprehensive Detailed Project Report for ELV recycling plants covering planning, finance, and regulatory compliance.",
+  //   date: "May 13, 2026",
+  //   readingTime: "11 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: cpcbImage,
+  //   tags: ["EPR ELV", "DPR", "Project Planning", "Finance"],
+  //   keywords: [
+  //     "ELV recycling DPR",
+  //     "automotive recycling project",
+  //     "ELV plant finance",
+  //     "vehicle dismantling DPR",
+  //   ],
+  //   metaDescription:
+  //     "Master the creation of a comprehensive DPR for ELV recycling plants covering facility design, financial projections, and implementation roadmap.",
+  //   category: "epr-elv",
+  //   previewContent:
+  //     "A comprehensive ELV recycling DPR provides the roadmap for establishing a compliant and profitable automotive waste management facility in India's growing circular economy.",
+  //   sections: [
+  //     {
+  //       title: "Project Rationale and Market Opportunity",
+  //       body:
+  //         "India's 300+ million vehicle fleet generates significant ELV waste annually. EPR regulations and environmental mandates create strong demand for authorized recycling facilities.",
+  //     },
+  //     {
+  //       title: "Facility Design and Equipment",
+  //       body:
+  //         "An ELV recycling facility requires 10,000-20,000 sq ft of covered area with specialized equipment for safe vehicle dismantling and material recovery.",
+  //       bullets: [
+  //         "Vehicle reception and inspection area",
+  //         "Dismantling bays with safety equipment",
+  //         "Fluid collection and treatment systems",
+  //         "Shredding and separation equipment",
+  //         "Storage areas for different material streams",
+  //         "Administrative and documentation facilities",
+  //       ],
+  //     },
+  //     {
+  //       title: "Financial Model and Projections",
+  //       body:
+  //         "Total project investment of ₹250-400 lakhs with projected annual revenue of ₹400-600 lakhs through diversified material sales and service fees.",
+  //     },
+  //   ],
+  // },
   // ===========================================================================
   // SECTION 5: RVSF (REGISTERED VEHICLE SCRAPPING FACILITY) POSTS
   // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, DPR.
@@ -6073,13 +6073,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-growth-approvals",
     path: "/blog/business-growth-approvals",
-    title: "Business Growth & Lead Generation: Approvals, Registration & Compliance Roadmap",
-    summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    title: "Business Growth & Lead Generation: The Complete EPR Compliance Checklist Every Business Should Follow in 2026",
+    summary: "Staying compliant with EPR regulations can be challenging without a clear roadmap. This guide walks businesses through every essential step, from registration and documentation to recycling partnerships and annual reporting, helping them stay compliant and avoid costly mistakes.",
     date: "June 15, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: platformImage,
-    tags: ["Business Growth & Lead Generation", "Approvals", "Growth", "EPR India"],
+    tags: ["Business Growth & Lead Generation", "EPR compliance", "Growth", "EPR India"],
     keywords: ["Business Growth & Lead Generation approvals", "business growth and lead generation approvals India", "Business Growth & Lead Generation guide"],
     metaDescription: "Business Growth & Lead Generation: Approvals, Registration & Compliance Roadmap. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
     category: "business-growth-and-lead-generation",
@@ -6087,13 +6087,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-growth-dpr",
     path: "/blog/business-growth-dpr",
-    title: "Business Growth & Lead Generation: Detailed Project Report (DPR) Essentials",
-    summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    title: "Business Growth & Lead Generation: Why More Businesses Are Outsourcing EPR Compliance to Industry Experts",
+    summary: "Managing EPR compliance internally can consume valuable time and resources. Learn why businesses are increasingly partnering with EPR consultants to simplify compliance, reduce operational risks, stay updated with changing regulations, and focus on their core business objectives.",
     date: "June 22, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: platformImage,
-    tags: ["Business Growth & Lead Generation", "DPR", "Growth", "EPR India"],
+    tags: ["Business Growth & Lead Generation", "EPR consulting services", "Growth", "EPR India"],
     keywords: ["Business Growth & Lead Generation dpr", "business growth and lead generation dpr India", "Business Growth & Lead Generation guide"],
     metaDescription: "Business Growth & Lead Generation: Detailed Project Report (DPR) Essentials. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
     category: "business-growth-and-lead-generation",
@@ -6101,13 +6101,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-growth-machinery",
     path: "/blog/business-growth-machinery",
-    title: "Business Growth & Lead Generation: Machinery, Setup & Operations Guide",
-    summary: "A practical, step-by-step guide covering machinery, setup & operations guide for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    title: "Business Growth & Lead Generation: Common EPR Compliance Mistakes That Could Cost Your Business Thousands",
+    summary: "Many businesses unknowingly make compliance errors that lead to penalties, delays, and operational setbacks. This blog highlights the most common EPR mistakes, explains their consequences, and shares practical strategies to ensure your business remains fully compliant.",
     date: "June 29, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: platformImage,
-    tags: ["Business Growth & Lead Generation", "Machinery", "Growth", "EPR India"],
+    tags: ["Business Growth & Lead Generation", "EPR registration mistakes", "Growth", "EPR India"],
     keywords: ["Business Growth & Lead Generation machinery", "business growth and lead generation machinery India", "Business Growth & Lead Generation guide"],
     metaDescription: "Business Growth & Lead Generation: Machinery, Setup & Operations Guide. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
     category: "business-growth-and-lead-generation",
@@ -6115,13 +6115,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-growth-trading",
     path: "/blog/business-growth-trading",
-    title: "Business Growth & Lead Generation: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for business growth and lead generation — built for recyclers and EPR businesses looking to scale. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    title: "Business Growth & Lead Generation: How Sustainable Business Practices Generate More Leads and Strengthen Brand Value",
+    summary: "Sustainability is no longer just an environmental initiative—it’s a competitive business strategy. Explore how adopting responsible waste management and EPR compliance can improve your brand image, attract environmentally conscious customers, strengthen B2B relationships, and support long-term business growth.",
     date: "July 6, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: platformImage,
-    tags: ["Business Growth & Lead Generation", "Trading", "Growth", "EPR India"],
+    tags: ["Business Growth & Lead Generation", "lead generation strategies", "Growth", "EPR India"],
     keywords: ["Business Growth & Lead Generation trading", "business growth and lead generation trading India", "Business Growth & Lead Generation guide"],
     metaDescription: "Business Growth & Lead Generation: Credit Trading & Marketplace Guide. Learn what recycling and EPR businesses need to know about business growth and lead generation — practical, India-focused guidance from EPR Nexuss.",
     category: "business-growth-and-lead-generation",

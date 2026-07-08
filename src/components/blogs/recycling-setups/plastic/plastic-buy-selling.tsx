@@ -816,8 +816,6 @@ const PlasticBuySelling: React.FC = () => {
 					*/}
 					<aside className="hidden lg:block lg:col-span-1 h-full w-full min-w-0">
 						<div className="sticky top-28 self-start w-full bg-white/80 p-6 rounded-3xl border border-border shadow-sm backdrop-blur-md">
-							<h3 className="text-xl font-bold text-slate-900 mb-1 break-words">Connect With Our Experts</h3>
-							<p className="text-xs text-muted-foreground mb-6 break-words">Have questions regarding scrap sourcing, sales strategies, or market deployment?</p>
 							<div className="w-full max-w-full">
 								<StickyContactForm />
 							</div>

@@ -1,29 +1,30 @@
-import React, { useEffect } from 'react';
-import StickyContactForm from '../../StickyContactForm';
+import React, { useEffect } from "react";
+import StickyContactForm from "../../StickyContactForm";
+import Seo from "@/components/Seo";
 
 const SolarPanelBlog: React.FC = () => {
   useEffect(() => {
     const wasteData = [
-      { y: '2025', v: 0.4, t: 'Current' },
-      { y: '2026', v: 0.55, t: 'Current' },
-      { y: '2027', v: 0.8, t: 'Current' },
-      { y: '2028', v: 1.15, t: 'Projected' },
-      { y: '2029', v: 1.6, t: 'Projected' },
-      { y: '2030', v: 2.2, t: 'Projected' },
-      { y: '2031', v: 2.9, t: 'Projected' },
-      { y: '2032', v: 3.6, t: 'Projected' },
+      { y: "2025", v: 0.4, t: "Current" },
+      { y: "2026", v: 0.55, t: "Current" },
+      { y: "2027", v: 0.8, t: "Current" },
+      { y: "2028", v: 1.15, t: "Projected" },
+      { y: "2029", v: 1.6, t: "Projected" },
+      { y: "2030", v: 2.2, t: "Projected" },
+      { y: "2031", v: 2.9, t: "Projected" },
+      { y: "2032", v: 3.6, t: "Projected" },
     ];
 
-    const wasteChart = document.getElementById('wasteChart');
+    const wasteChart = document.getElementById("wasteChart");
     if (wasteChart && wasteChart.children.length === 0) {
       const wasteMax = 3.6;
       wasteData.forEach((d) => {
-        const col = document.createElement('div');
-        col.className = 'bar-col';
+        const col = document.createElement("div");
+        col.className = "bar-col";
         const h = Math.max(26, Math.round((d.v / wasteMax) * 170));
         col.innerHTML = `
           <div class="bar-top">${d.v}M</div>
-          <div class="bar ${d.t === 'Projected' ? 'alt' : ''}" style="height:${h}px"></div>
+          <div class="bar ${d.t === "Projected" ? "alt" : ""}" style="height:${h}px"></div>
           <div class="bar-label">${d.y}</div>
         `;
         wasteChart.appendChild(col);
@@ -31,19 +32,19 @@ const SolarPanelBlog: React.FC = () => {
     }
 
     const dbData = [
-      { name: 'Glass', score: 96, value: '₹0.42 L/T' },
-      { name: 'Aluminium', score: 92, value: '₹0.95 L/T' },
-      { name: 'Copper', score: 86, value: '₹1.20 L/T' },
-      { name: 'Silver', score: 73, value: '₹1.85 L/T' },
-      { name: 'Silicon fraction', score: 64, value: '₹0.60 L/T' },
-      { name: 'Polymers / EVA', score: 55, value: '₹0.18 L/T' },
-      { name: 'Frames & steel', score: 88, value: '₹0.25 L/T' },
+      { name: "Glass", score: 96, value: "₹0.42 L/T" },
+      { name: "Aluminium", score: 92, value: "₹0.95 L/T" },
+      { name: "Copper", score: 86, value: "₹1.20 L/T" },
+      { name: "Silver", score: 73, value: "₹1.85 L/T" },
+      { name: "Silicon fraction", score: 64, value: "₹0.60 L/T" },
+      { name: "Polymers / EVA", score: 55, value: "₹0.18 L/T" },
+      { name: "Frames & steel", score: 88, value: "₹0.25 L/T" },
     ];
-    const valueDb = document.getElementById('valueDb');
+    const valueDb = document.getElementById("valueDb");
     if (valueDb && valueDb.children.length === 0) {
       dbData.forEach((item) => {
-        const row = document.createElement('div');
-        row.className = 'db-row';
+        const row = document.createElement("div");
+        row.className = "db-row";
         row.innerHTML = `
           <div class="db-name">${item.name}</div>
           <div class="db-bar"><div class="db-fill" style="width:${item.score}%"></div></div>
@@ -54,20 +55,21 @@ const SolarPanelBlog: React.FC = () => {
     }
 
     const capexData = [
-      { label: 'Machinery', value: 4.8 },
-      { label: 'Civil works', value: 2.3 },
-      { label: 'Safety / ETP', value: 1.6 },
-      { label: 'Working capital', value: 1.2 },
-      { label: 'Licensing', value: 0.7 },
+      { label: "Machinery", value: 4.8 },
+      { label: "Civil works", value: 2.3 },
+      { label: "Safety / ETP", value: 1.6 },
+      { label: "Working capital", value: 1.2 },
+      { label: "Licensing", value: 0.7 },
     ];
-    const capexChart = document.getElementById('capexChart');
+    const capexChart = document.getElementById("capexChart");
     if (capexChart && capexChart.children.length === 0) {
       const capexMax = 4.8;
       capexData.forEach((d, idx) => {
-        const col = document.createElement('div');
-        col.className = 'bar-col';
+        const col = document.createElement("div");
+        col.className = "bar-col";
         const h = Math.max(26, Math.round((d.value / capexMax) * 170));
-        const classes = idx % 3 === 0 ? 'bar soft' : idx % 2 === 0 ? 'bar alt' : 'bar';
+        const classes =
+          idx % 3 === 0 ? "bar soft" : idx % 2 === 0 ? "bar alt" : "bar";
         col.innerHTML = `
           <div class="bar-top">₹${d.value} Cr</div>
           <div class="${classes}" style="height:${h}px"></div>
@@ -81,357 +83,603 @@ const SolarPanelBlog: React.FC = () => {
   return (
     <div className="wrap solar-wrap has-sticky">
       <style>{staticStyles}</style>
+      <Seo
+        title="Solar Panel Recycling Plant Setup Services | Build a Profitable Solar Recycling Business"
+        description="Set up a compliant and profitable solar panel recycling plant in India. Learn about DPRs, approvals, machinery, land requirements, CPCB compliance, operations, and business opportunities in the growing solar recycling industry."
+        keywords={[
+          "Solar Panel Recycling Plant",
+          "Solar Panel Recycling",
+          "Solar Recycling Business",
+          "PV Panel Recycling",
+          "Solar Waste Management",
+          "Solar Panel Recycling Plant Setup",
+          "Solar Recycling Machinery",
+          "Solar Panel Waste Recycling",
+          "Solar Recycling Business India",
+          "Solar Recycling Investment",
+          "Detailed Project Report",
+          "Solar Panel Recycling Approvals",
+          "CPCB Compliance",
+          "Renewable Energy Recycling",
+          "Circular Economy",
+          "How to start a solar panel recycling plant?",
+          "Solar panel recycling plant setup cost in India",
+          "How to get approval for a solar recycling plant?",
+          "Documents required for a solar panel recycling plant",
+          "Solar panel recycling business opportunities",
+          "Best solar recycling consultants in India",
+          "Solar panel recycling machinery guide",
+          "Solar waste recycling solutions",
+          "Solar recycling plant investment",
+          "Solar panel recycling business guide 2026",
+        ]}
+        url="https://eprnexuss.com/services/recycling-solar-panel"
+        type="article"
+      />
 
       <div className="page-body">
         <div className="topline">
-        <div className="chip">EPR Nexuss</div>
-        <div className="chip">Solar Panel Recycling Plant</div>
-        <div className="chip">Content + Data Dashboard Style</div>
-        <div className="chip">2026 Business Blueprint</div>
-      </div>
-
-      <section className="hero">
-        <div className="eyebrow">Turning end-of-life modules into a high-value circular business</div>
-        <h1>
-          From <em>waste</em> to wealth — build a solar recycling plant that is compliant, scalable, and future-ready.
-        </h1>
-        <p>
-          Solar growth is creating a new wave of recoverable materials. With the right land, licences, equipment, and reverse-logistics plan, a solar panel recycling plant can become a profitable industrial asset instead of a storage problem.
-        </p>
-
-        <div className="hero-grid">
-          <div className="stat">
-            <div className="v">2030+</div>
-            <div className="l">Expected rise in end-of-life solar modules</div>
-          </div>
-          <div className="stat">
-            <div className="v">5+</div>
-            <div className="l">Core compliance steps for a launch-ready plant</div>
-          </div>
-          <div className="stat">
-            <div className="v">2–5 Acres</div>
-            <div className="l">Practical land range for a mid-scale setup</div>
-          </div>
-          <div className="stat">
-            <div className="v">6–18 mo</div>
-            <div className="l">Planning window for a disciplined project build</div>
-          </div>
+          <div className="chip">EPR Nexuss</div>
+          <div className="chip">Solar Panel Recycling Plant</div>
+          <div className="chip">Content + Data Dashboard Style</div>
+          <div className="chip">2026 Business Blueprint</div>
         </div>
-      </section>
 
-      <div className="meta">
-        <span>
-          By <span className="brand">EPR Nexuss Team</span>
-        </span>
-        <span>April 2026</span>
-        <span>Business Blog + Feasibility Guide</span>
-      </div>
-
-      <div className="grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
-        <section className="card">
-          <h2 className="section-title">Why this business matters now</h2>
-          <p className="section-sub">
-            Solar panels do not disappear after use. They become a recoverable material stream containing glass, aluminium, copper, silver, silicon fractions, polymers, and safety-related residues.
-          </p>
+        <section className="hero">
+          <div className="eyebrow">
+            Turning end-of-life modules into a high-value circular business
+          </div>
+          <h1>
+            From <em>waste</em> to wealth — build a solar recycling plant that
+            is compliant, scalable, and future-ready.
+          </h1>
           <p>
-            That means the right recycling model can earn from two sides at once: recovery of valuable fractions and service income from collection, dismantling, and compliance operations. For investors, the opportunity is not just in recycling; it is in owning the infrastructure that supports India’s solar economy for the long term.
+            Solar growth is creating a new wave of recoverable materials. With
+            the right land, licences, equipment, and reverse-logistics plan, a
+            solar panel recycling plant can become a profitable industrial asset
+            instead of a storage problem.
           </p>
-          <div className="punch">
-            Punch line: The next solar boom will not only need installers — it will need recyclers who can unlock value at the end of the panel’s life.
-          </div>
-          <div className="pill-row">
-            <span className="pill">Material recovery</span>
-            <span className="pill">EPR alignment</span>
-            <span className="pill">Industrial compliance</span>
-            <span className="pill">Long-term feedstock</span>
+
+          <div className="hero-grid">
+            <div className="stat">
+              <div className="v">2030+</div>
+              <div className="l">
+                Expected rise in end-of-life solar modules
+              </div>
+            </div>
+            <div className="stat">
+              <div className="v">5+</div>
+              <div className="l">
+                Core compliance steps for a launch-ready plant
+              </div>
+            </div>
+            <div className="stat">
+              <div className="v">2–5 Acres</div>
+              <div className="l">
+                Practical land range for a mid-scale setup
+              </div>
+            </div>
+            <div className="stat">
+              <div className="v">6–18 mo</div>
+              <div className="l">
+                Planning window for a disciplined project build
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="card">
-          <h2 className="section-title">Business snapshot</h2>
-          <div className="mini-grid">
-            <div className="mini">
-              <div className="icon">📦</div>
-              <h3>Feedstock base</h3>
-              <p>Damaged, rejected, and retired modules from EPC contractors, solar parks, rooftops, and storage yards.</p>
+        <div className="meta">
+          <span>
+            By <span className="brand">EPR Nexuss Team</span>
+          </span>
+          <span>April 2026</span>
+          <span>Business Blog + Feasibility Guide</span>
+        </div>
+
+        <div className="grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
+          <section className="card">
+            <h2 className="section-title">Why this business matters now</h2>
+            <p className="section-sub">
+              Solar panels do not disappear after use. They become a recoverable
+              material stream containing glass, aluminium, copper, silver,
+              silicon fractions, polymers, and safety-related residues.
+            </p>
+            <p>
+              That means the right recycling model can earn from two sides at
+              once: recovery of valuable fractions and service income from
+              collection, dismantling, and compliance operations. For investors,
+              the opportunity is not just in recycling; it is in owning the
+              infrastructure that supports India’s solar economy for the long
+              term.
+            </p>
+            <div className="punch">
+              Punch line: The next solar boom will not only need installers — it
+              will need recyclers who can unlock value at the end of the panel’s
+              life.
             </div>
-            <div className="mini">
-              <div className="icon">⚙️</div>
-              <h3>Plant role</h3>
-              <p>Receiving, dismantling, segregation, safe processing, and output preparation for downstream buyers.</p>
+            <div className="pill-row">
+              <span className="pill">Material recovery</span>
+              <span className="pill">EPR alignment</span>
+              <span className="pill">Industrial compliance</span>
+              <span className="pill">Long-term feedstock</span>
             </div>
-            <div className="mini">
-              <div className="icon">🧾</div>
-              <h3>Compliance focus</h3>
-              <p>Portal registration, pollution-control approvals, hazardous handling, fire safety, and factory operations.</p>
+          </section>
+
+          <section className="card">
+            <h2 className="section-title">Business snapshot</h2>
+            <div className="mini-grid">
+              <div className="mini">
+                <div className="icon">📦</div>
+                <h3>Feedstock base</h3>
+                <p>
+                  Damaged, rejected, and retired modules from EPC contractors,
+                  solar parks, rooftops, and storage yards.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">⚙️</div>
+                <h3>Plant role</h3>
+                <p>
+                  Receiving, dismantling, segregation, safe processing, and
+                  output preparation for downstream buyers.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">🧾</div>
+                <h3>Compliance focus</h3>
+                <p>
+                  Portal registration, pollution-control approvals, hazardous
+                  handling, fire safety, and factory operations.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">💡</div>
+                <h3>Revenue logic</h3>
+                <p>
+                  Combine material sales with recovery services, logistics
+                  support, and authorized processing fees.
+                </p>
+              </div>
             </div>
-            <div className="mini">
-              <div className="icon">💡</div>
-              <h3>Revenue logic</h3>
-              <p>Combine material sales with recovery services, logistics support, and authorized processing fees.</p>
+          </section>
+        </div>
+
+        <section className="section">
+          <div className="chart-box">
+            <div className="chart-head">
+              <div>
+                <h3>Projected solar waste inflow</h3>
+                <p>
+                  Illustrative growth path for planning a mid-scale recycling
+                  facility
+                </p>
+              </div>
+              <p>Units shown in million panels / equivalent waste flow</p>
+            </div>
+            <div className="bar-wrap" id="wasteChart"></div>
+          </div>
+
+          <div className="chart-box">
+            <div className="chart-head">
+              <div>
+                <h3>Recoverable material value database</h3>
+                <p>
+                  Quick-view recovery model for plant economics and buyer
+                  conversations
+                </p>
+              </div>
+              <p>Recovery score and value estimate</p>
+            </div>
+            <div className="database" id="valueDb"></div>
+          </div>
+
+          <div className="chart-box">
+            <div className="chart-head">
+              <div>
+                <h3>Typical solar panel composition</h3>
+                <p>Useful for process design, sorting, and output estimation</p>
+              </div>
+            </div>
+            <div className="table-wrap">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Approx. share</th>
+                    <th>Planning note</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Glass</td>
+                    <td>
+                      <span className="badge">45%</span>
+                    </td>
+                    <td>
+                      Main recovered fraction; large volume, lower processing
+                      complexity.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Aluminium frame</td>
+                    <td>
+                      <span className="badge">25%</span>
+                    </td>
+                    <td>High-value metal stream with strong resale demand.</td>
+                  </tr>
+                  <tr>
+                    <td>Polymers / backsheet / EVA</td>
+                    <td>
+                      <span className="badge">15%</span>
+                    </td>
+                    <td>Needs controlled handling and residue management.</td>
+                  </tr>
+                  <tr>
+                    <td>Silicon, copper, silver</td>
+                    <td>
+                      <span className="badge">10%</span>
+                    </td>
+                    <td>
+                      Smaller volume, but the most strategic recovery stream.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Others</td>
+                    <td>
+                      <span className="badge">5%</span>
+                    </td>
+                    <td>
+                      Trace materials, labels, junction box parts, and residues.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
-      </div>
 
-      <section className="section">
-        <div className="chart-box">
+        <section className="grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
+          <section className="card">
+            <h2 className="section-title">Land and site requirements</h2>
+            <p className="section-sub">
+              A recycling plant works best on industrial land with road access,
+              utility support, and enough room for safe storage, vehicle
+              movement, and future expansion.
+            </p>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Requirement</th>
+                  <th>Preferred specification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Zoning</td>
+                  <td>Industrial, manufacturing, or approved recycling use</td>
+                </tr>
+                <tr>
+                  <td>Road access</td>
+                  <td>Wider approach road for truck movement and unloading</td>
+                </tr>
+                <tr>
+                  <td>Covered space</td>
+                  <td>
+                    Receiving bay, storage yard, and material segregation area
+                  </td>
+                </tr>
+                <tr>
+                  <td>Power</td>
+                  <td>
+                    3-phase industrial connection for equipment and utilities
+                  </td>
+                </tr>
+                <tr>
+                  <td>Safety</td>
+                  <td>
+                    Fire lane, emergency exits, and buffer from sensitive zones
+                  </td>
+                </tr>
+                <tr>
+                  <td>Expansion</td>
+                  <td>
+                    Reserve land for additional processing or storage capacity
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="card">
+            <h2 className="section-title">Land size guide</h2>
+            <p className="section-sub">
+              Choose the scale according to capacity, feedstock strategy, and
+              automation level.
+            </p>
+            <div className="mini-grid">
+              <div className="mini">
+                <div className="icon">🏢</div>
+                <h3>Small setup</h3>
+                <p>
+                  0.5–1 acre for collection, sorting, and pre-processing
+                  support.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">⭐</div>
+                <h3>Mid-scale sweet spot</h3>
+                <p>
+                  2–5 acres for the most practical balance of storage,
+                  dismantling, and logistics.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">🏭</div>
+                <h3>Large integrated plant</h3>
+                <p>
+                  6+ acres for advanced separation, higher throughput, and
+                  expansion capacity.
+                </p>
+              </div>
+              <div className="mini">
+                <div className="icon">🛣️</div>
+                <h3>Location advantage</h3>
+                <p>
+                  Near solar corridors, EPC clusters, industrial belts, and
+                  strong transport access.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section className="chart-box">
           <div className="chart-head">
             <div>
-              <h3>Projected solar waste inflow</h3>
-              <p>Illustrative growth path for planning a mid-scale recycling facility</p>
-            </div>
-            <p>Units shown in million panels / equivalent waste flow</p>
-          </div>
-          <div className="bar-wrap" id="wasteChart"></div>
-        </div>
-
-        <div className="chart-box">
-          <div className="chart-head">
-            <div>
-              <h3>Recoverable material value database</h3>
-              <p>Quick-view recovery model for plant economics and buyer conversations</p>
-            </div>
-            <p>Recovery score and value estimate</p>
-          </div>
-          <div className="database" id="valueDb"></div>
-        </div>
-
-        <div className="chart-box">
-          <div className="chart-head">
-            <div>
-              <h3>Typical solar panel composition</h3>
-              <p>Useful for process design, sorting, and output estimation</p>
+              <h3>Approval and licence roadmap</h3>
+              <p>
+                A clean structure for building the project without compliance
+                surprises
+              </p>
             </div>
           </div>
-          <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Component</th>
-                <th>Approx. share</th>
-                <th>Planning note</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Glass</td>
-                <td><span className="badge">45%</span></td>
-                <td>Main recovered fraction; large volume, lower processing complexity.</td>
-              </tr>
-              <tr>
-                <td>Aluminium frame</td>
-                <td><span className="badge">25%</span></td>
-                <td>High-value metal stream with strong resale demand.</td>
-              </tr>
-              <tr>
-                <td>Polymers / backsheet / EVA</td>
-                <td><span className="badge">15%</span></td>
-                <td>Needs controlled handling and residue management.</td>
-              </tr>
-              <tr>
-                <td>Silicon, copper, silver</td>
-                <td><span className="badge">10%</span></td>
-                <td>Smaller volume, but the most strategic recovery stream.</td>
-              </tr>
-              <tr>
-                <td>Others</td>
-                <td><span className="badge">5%</span></td>
-                <td>Trace materials, labels, junction box parts, and residues.</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
-        <section className="card">
-          <h2 className="section-title">Land and site requirements</h2>
-          <p className="section-sub">A recycling plant works best on industrial land with road access, utility support, and enough room for safe storage, vehicle movement, and future expansion.</p>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Requirement</th>
-                <th>Preferred specification</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Zoning</td><td>Industrial, manufacturing, or approved recycling use</td></tr>
-              <tr><td>Road access</td><td>Wider approach road for truck movement and unloading</td></tr>
-              <tr><td>Covered space</td><td>Receiving bay, storage yard, and material segregation area</td></tr>
-              <tr><td>Power</td><td>3-phase industrial connection for equipment and utilities</td></tr>
-              <tr><td>Safety</td><td>Fire lane, emergency exits, and buffer from sensitive zones</td></tr>
-              <tr><td>Expansion</td><td>Reserve land for additional processing or storage capacity</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section className="card">
-          <h2 className="section-title">Land size guide</h2>
-          <p className="section-sub">Choose the scale according to capacity, feedstock strategy, and automation level.</p>
-          <div className="mini-grid">
-            <div className="mini">
-              <div className="icon">🏢</div>
-              <h3>Small setup</h3>
-              <p>0.5–1 acre for collection, sorting, and pre-processing support.</p>
+          <div className="timeline">
+            <div className="step">
+              <div className="num">1</div>
+              <div>
+                <h4>EPR / portal registration</h4>
+                <p>
+                  Register the operation and maintain inventory, tracking, and
+                  reporting records for solar-related waste handling.
+                </p>
+                <span className="time">Early-stage compliance</span>
+              </div>
             </div>
-            <div className="mini">
-              <div className="icon">⭐</div>
-              <h3>Mid-scale sweet spot</h3>
-              <p>2–5 acres for the most practical balance of storage, dismantling, and logistics.</p>
+            <div className="step">
+              <div className="num">2</div>
+              <div>
+                <h4>Consent to Establish</h4>
+                <p>
+                  Secure pollution-control approval before civil work, layout
+                  finalisation, and equipment installation.
+                </p>
+                <span className="time">Before construction</span>
+              </div>
             </div>
-            <div className="mini">
-              <div className="icon">🏭</div>
-              <h3>Large integrated plant</h3>
-              <p>6+ acres for advanced separation, higher throughput, and expansion capacity.</p>
+            <div className="step">
+              <div className="num">3</div>
+              <div>
+                <h4>Factory and fire approvals</h4>
+                <p>
+                  Prepare the plant for worker safety, evacuation planning,
+                  emergency response, and equipment operation.
+                </p>
+                <span className="time">Before commissioning</span>
+              </div>
             </div>
-            <div className="mini">
-              <div className="icon">🛣️</div>
-              <h3>Location advantage</h3>
-              <p>Near solar corridors, EPC clusters, industrial belts, and strong transport access.</p>
+            <div className="step">
+              <div className="num">4</div>
+              <div>
+                <h4>Consent to Operate</h4>
+                <p>
+                  Open the facility for production after the site inspection
+                  confirms readiness and compliance.
+                </p>
+                <span className="time">Launch phase</span>
+              </div>
+            </div>
+            <div className="step">
+              <div className="num">5</div>
+              <div>
+                <h4>Hazardous waste authorisation</h4>
+                <p>
+                  Manage residues, contaminated fractions, and by-products with
+                  approved storage, handling, and disposal flow.
+                </p>
+                <span className="time">Ongoing requirement</span>
+              </div>
             </div>
           </div>
         </section>
-      </section>
 
-      <section className="chart-box">
-        <div className="chart-head">
-          <div>
-            <h3>Approval and licence roadmap</h3>
-            <p>A clean structure for building the project without compliance surprises</p>
-          </div>
-        </div>
-        <div className="timeline">
-          <div className="step">
-            <div className="num">1</div>
+        <section className="chart-box">
+          <div className="chart-head">
             <div>
-              <h4>EPR / portal registration</h4>
-              <p>Register the operation and maintain inventory, tracking, and reporting records for solar-related waste handling.</p>
-              <span className="time">Early-stage compliance</span>
+              <h3>Typical investment split</h3>
+              <p>
+                Illustrative capex mix for a mid-scale solar recycling project
+              </p>
             </div>
           </div>
-          <div className="step">
-            <div className="num">2</div>
-            <div>
-              <h4>Consent to Establish</h4>
-              <p>Secure pollution-control approval before civil work, layout finalisation, and equipment installation.</p>
-              <span className="time">Before construction</span>
-            </div>
-          </div>
-          <div className="step">
-            <div className="num">3</div>
-            <div>
-              <h4>Factory and fire approvals</h4>
-              <p>Prepare the plant for worker safety, evacuation planning, emergency response, and equipment operation.</p>
-              <span className="time">Before commissioning</span>
-            </div>
-          </div>
-          <div className="step">
-            <div className="num">4</div>
-            <div>
-              <h4>Consent to Operate</h4>
-              <p>Open the facility for production after the site inspection confirms readiness and compliance.</p>
-              <span className="time">Launch phase</span>
-            </div>
-          </div>
-          <div className="step">
-            <div className="num">5</div>
-            <div>
-              <h4>Hazardous waste authorisation</h4>
-              <p>Manage residues, contaminated fractions, and by-products with approved storage, handling, and disposal flow.</p>
-              <span className="time">Ongoing requirement</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="bar-wrap" id="capexChart"></div>
+        </section>
 
-      <section className="chart-box">
-        <div className="chart-head">
-          <div>
-            <h3>Typical investment split</h3>
-            <p>Illustrative capex mix for a mid-scale solar recycling project</p>
+        <section className="case">
+          <div className="case-head">
+            <div className="tag">Case study</div>
+            <h3>
+              How a Gujarat-based promoter turned a solar recycling concept into
+              a working business
+            </h3>
           </div>
-        </div>
-        <div className="bar-wrap" id="capexChart"></div>
-      </section>
-
-      <section className="case">
-        <div className="case-head">
-          <div className="tag">Case study</div>
-          <h3>How a Gujarat-based promoter turned a solar recycling concept into a working business</h3>
-        </div>
-        <div className="case-body">
-          <div className="kpis">
-            <div className="kpi"><div className="v">2,800 TPA</div><div className="l">Processing capacity</div></div>
-            <div className="kpi"><div className="v">18 Months</div><div className="l">Concept to first batch</div></div>
-            <div className="kpi"><div className="v">₹10.8 Cr</div><div className="l">Illustrative project capex</div></div>
-          </div>
-
-          <div className="cols">
-            <div>
-              <h3 className="section-title" style={{ fontSize: '18px', marginBottom: '10px' }}>What the promoter needed</h3>
-              <ul className="list">
-                <li>No licensed land or compliant site layout</li>
-                <li>No established reverse-logistics network</li>
-                <li>Need for a structured recovery model with strong approvals</li>
-                <li>Safe handling for glass, aluminium, and mixed material fractions</li>
-              </ul>
+          <div className="case-body">
+            <div className="kpis">
+              <div className="kpi">
+                <div className="v">2,800 TPA</div>
+                <div className="l">Processing capacity</div>
+              </div>
+              <div className="kpi">
+                <div className="v">18 Months</div>
+                <div className="l">Concept to first batch</div>
+              </div>
+              <div className="kpi">
+                <div className="v">₹10.8 Cr</div>
+                <div className="l">Illustrative project capex</div>
+              </div>
             </div>
-            <div>
-              <h3 className="section-title" style={{ fontSize: '18px', marginBottom: '10px' }}>What the project achieved</h3>
-              <ul className="list">
-                <li>Industrial land identified in a suitable zone</li>
-                <li>Licensing roadmap arranged around pollution-control and fire safety</li>
-                <li>Collection tie-ups formed with EPC and solar-park partners</li>
-                <li>Operating flow built for sorting, dismantling, and recovery</li>
-              </ul>
+
+            <div className="cols">
+              <div>
+                <h3
+                  className="section-title"
+                  style={{ fontSize: "18px", marginBottom: "10px" }}
+                >
+                  What the promoter needed
+                </h3>
+                <ul className="list">
+                  <li>No licensed land or compliant site layout</li>
+                  <li>No established reverse-logistics network</li>
+                  <li>
+                    Need for a structured recovery model with strong approvals
+                  </li>
+                  <li>
+                    Safe handling for glass, aluminium, and mixed material
+                    fractions
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3
+                  className="section-title"
+                  style={{ fontSize: "18px", marginBottom: "10px" }}
+                >
+                  What the project achieved
+                </h3>
+                <ul className="list">
+                  <li>Industrial land identified in a suitable zone</li>
+                  <li>
+                    Licensing roadmap arranged around pollution-control and fire
+                    safety
+                  </li>
+                  <li>
+                    Collection tie-ups formed with EPC and solar-park partners
+                  </li>
+                  <li>
+                    Operating flow built for sorting, dismantling, and recovery
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            <table className="profit">
+              <thead>
+                <tr>
+                  <th>Revenue / Cost Head</th>
+                  <th>Year 1</th>
+                  <th>Year 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Recovered glass sales</td>
+                  <td className="pos">₹210 L</td>
+                  <td className="pos">₹340 L</td>
+                </tr>
+                <tr>
+                  <td>Aluminium frame sales</td>
+                  <td className="pos">₹160 L</td>
+                  <td className="pos">₹260 L</td>
+                </tr>
+                <tr>
+                  <td>Copper / wire recovery</td>
+                  <td className="pos">₹95 L</td>
+                  <td className="pos">₹145 L</td>
+                </tr>
+                <tr>
+                  <td>Silver / silicon fractions</td>
+                  <td className="pos">₹120 L</td>
+                  <td className="pos">₹185 L</td>
+                </tr>
+                <tr>
+                  <td>Service and dismantling fees</td>
+                  <td className="pos">₹135 L</td>
+                  <td className="pos">₹205 L</td>
+                </tr>
+                <tr>
+                  <td>Operating and logistics costs</td>
+                  <td className="neg">-₹310 L</td>
+                  <td className="neg">-₹390 L</td>
+                </tr>
+                <tr>
+                  <td>Compliance and admin</td>
+                  <td className="neg">-₹55 L</td>
+                  <td className="neg">-₹65 L</td>
+                </tr>
+                <tr>
+                  <td>Net result</td>
+                  <td className="pos">₹355 L</td>
+                  <td className="pos">₹680 L</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </section>
 
-          <table className="profit">
-            <thead>
-              <tr><th>Revenue / Cost Head</th><th>Year 1</th><th>Year 2</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Recovered glass sales</td><td className="pos">₹210 L</td><td className="pos">₹340 L</td></tr>
-              <tr><td>Aluminium frame sales</td><td className="pos">₹160 L</td><td className="pos">₹260 L</td></tr>
-              <tr><td>Copper / wire recovery</td><td className="pos">₹95 L</td><td className="pos">₹145 L</td></tr>
-              <tr><td>Silver / silicon fractions</td><td className="pos">₹120 L</td><td className="pos">₹185 L</td></tr>
-              <tr><td>Service and dismantling fees</td><td className="pos">₹135 L</td><td className="pos">₹205 L</td></tr>
-              <tr><td>Operating and logistics costs</td><td className="neg">-₹310 L</td><td className="neg">-₹390 L</td></tr>
-              <tr><td>Compliance and admin</td><td className="neg">-₹55 L</td><td className="neg">-₹65 L</td></tr>
-              <tr><td>Net result</td><td className="pos">₹355 L</td><td className="pos">₹680 L</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <div className="cta-main">
-          <div className="cta-eyebrow">⚡ EPR Nexuss — India's Complete Solar Panel Recycling Partner</div>
-          <div className="cta-h">You Now Have The Blueprint.<br /><em>Let EPR Nexuss Build It With You.</em></div>
-          <div className="cta-sub">Licences. Land. Technology. Collection. EPR certificates. We handle every step — so you focus on building the most profitable green business of the decade. First consultation is completely free.</div>
+        <div className="cta-main">
+          <div className="cta-eyebrow">
+            ⚡ EPR Nexuss — India's Complete Solar Panel Recycling Partner
+          </div>
+          <div className="cta-h">
+            You Now Have The Blueprint.
+            <br />
+            <em>Let EPR Nexuss Build It With You.</em>
+          </div>
+          <div className="cta-sub">
+            Licences. Land. Technology. Collection. EPR certificates. We handle
+            every step — so you focus on building the most profitable green
+            business of the decade. First consultation is completely free.
+          </div>
           <div className="cta-btns">
             <button
               className="btn-p"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => (window.location.href = "/contact")}
             >
               Book Free Consultation ↗
             </button>
 
             <button
               className="btn-s"
-              onClick={() => window.open('tel:+919289659966')}
+              onClick={() => window.open("tel:+919289659966")}
             >
               Call Now
             </button>
           </div>
           <div className="cta-trust">
-            <span className="cta-ti"><span className="ck">✓</span> Free consultation</span>
-            <span className="cta-ti"><span className="ck">✓</span> End-to-end licensing</span>
-            <span className="cta-ti"><span className="ck">✓</span> Technology partners</span>
-            <span className="cta-ti"><span className="ck">✓</span> EPR certificate guaranteed</span>
-            <span className="cta-ti"><span className="ck">✓</span> Pan-India coverage</span>
+            <span className="cta-ti">
+              <span className="ck">✓</span> Free consultation
+            </span>
+            <span className="cta-ti">
+              <span className="ck">✓</span> End-to-end licensing
+            </span>
+            <span className="cta-ti">
+              <span className="ck">✓</span> Technology partners
+            </span>
+            <span className="cta-ti">
+              <span className="ck">✓</span> EPR certificate guaranteed
+            </span>
+            <span className="cta-ti">
+              <span className="ck">✓</span> Pan-India coverage
+            </span>
           </div>
         </div>
       </div>

@@ -298,7 +298,6 @@ const SolarPanelMachinery: React.FC = () => {
 
           {/* DESKTOP STICKY SIDEBAR CONTAINER */}
           <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px] h-fit will-change-transform z-20 bg-white p-6 rounded-[26px] shadow-xl border border-gray-200">
-            <h3 className="text-xl font-bold mb-4 text-[#0f172a]">Connect With Our Experts</h3>
             <StickyContactForm />
           </aside>
 

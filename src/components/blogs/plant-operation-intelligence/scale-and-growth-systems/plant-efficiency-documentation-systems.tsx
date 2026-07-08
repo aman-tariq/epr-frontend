@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import StickyContactForm from "@/components/StickyContactForm";
 
 const PlantEfficiencyBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -11,6 +12,8 @@ const PlantEfficiencyBlog = () => {
 
   return (
     <div className="min-h-screen bg-[#07111f] text-[#eef5ff] font-sans">
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex-1 min-w-0">
       {/* HERO */}
       <header className="pt-8 pb-6 px-6 max-w-7xl mx-auto">
         <div className="bg-gradient-to-br from-[#0f2038] to-[#0a1424] border border-white/10 rounded-[34px] shadow-2xl overflow-hidden relative">
@@ -329,6 +332,13 @@ const PlantEfficiencyBlog = () => {
         </div>
       </main>
     </div>
+        </div>
+        <aside className="hidden lg:block shrink-0">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
+      </div>
   );
 };
 

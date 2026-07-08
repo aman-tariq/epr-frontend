@@ -1,41 +1,103 @@
 "use client";
 
-import React from 'react';
+import Seo from "@/components/Seo";
+import React from "react";
+import StickyContactForm from "@/components/StickyContactForm";
 
 const KPIsInPlantPerformance: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f4f8fb] text-[#10253d] font-sans">
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex-1 min-w-0">
       <div className="max-w-[1240px] mx-auto px-6 py-12">
+        <Seo
+          title="The Role of KPIs in Plant Operation Performance Management"
+          description="Learn how Key Performance Indicators (KPIs) improve plant operation performance management by measuring efficiency, productivity, quality, compliance, and operational excellence across industrial facilities."
+          keywords={[
+            "Plant Performance Management",
+            "Plant KPIs",
+            "Key Performance Indicators",
+            "Plant Operations",
+            "Operational Performance",
+            "Manufacturing KPIs",
+            "Industrial Performance",
+            "Plant Efficiency",
+            "Operational Excellence",
+            "Production Metrics",
+            "Manufacturing Performance",
+            "Process Optimization",
+            "Industrial Analytics",
+            "Performance Monitoring",
+            "Continuous Improvement",
+            "What are KPIs in plant operations?",
+            "How to measure plant performance?",
+            "Best KPIs for manufacturing plants",
+            "How to improve plant operational efficiency?",
+            "Plant performance management strategies",
+            "How to track production KPIs?",
+            "Industrial KPI dashboard",
+            "Operational performance metrics guide",
+            "Plant productivity improvement",
+            "Manufacturing KPIs guide 2026",
+          ]}
+          url="https://eprnexuss.com/blog/kpis-in-plant-performance-management"
+          type="article"
+        />
         {/* Hero */}
         <section className="hero bg-white border border-[#10253d]/10 rounded-3xl p-8 md:p-14 relative overflow-hidden shadow-xl">
           <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#1dbf73] rounded-full opacity-10 blur-3xl" />
           <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-[#1677ff] rounded-full opacity-10 blur-3xl" />
 
           <div className="badge-row flex flex-wrap gap-3 mb-8">
-            {["Plant Operation Intelligence", "Performance Management", "KPI Dashboard", "Operational Excellence"].map((b, i) => (
-              <span key={i} className="badge px-5 py-2 bg-[#10253d]/5 border border-[#10253d]/10 rounded-full text-sm text-[#29435c]">{b}</span>
+            {[
+              "Plant Operation Intelligence",
+              "Performance Management",
+              "KPI Dashboard",
+              "Operational Excellence",
+            ].map((b, i) => (
+              <span
+                key={i}
+                className="badge px-5 py-2 bg-[#10253d]/5 border border-[#10253d]/10 rounded-full text-sm text-[#29435c]"
+              >
+                {b}
+              </span>
             ))}
           </div>
 
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-3">
               <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tighter">
-                The Role of <span className="text-[#1677ff]">KPIs</span> in Plant Operation Performance Management
+                The Role of <span className="text-[#1677ff]">KPIs</span> in
+                Plant Operation Performance Management
               </h1>
               <p className="punch text-xl md:text-2xl mt-8 text-[#35516b]">
-                The numbers do not lie — the right KPIs turn plant performance into clear action.
+                The numbers do not lie — the right KPIs turn plant performance
+                into clear action.
               </p>
               <p className="mt-8 text-lg text-[#5f7488]">
-                When production stalls, maintenance slips, or energy costs rise, strong teams don’t guess — they track the right KPIs and act with confidence.
+                When production stalls, maintenance slips, or energy costs rise,
+                strong teams don’t guess — they track the right KPIs and act
+                with confidence.
               </p>
             </div>
 
             <div className="md:col-span-2">
               <div className="side-panel p-8 rounded-3xl">
-                <div className="ring mx-auto mb-6" style={{ background: 'conic-gradient(#1dbf73 0deg 259deg, #f59e0b 259deg 360deg)' }}>
-                  <div className="w-36 h-36 bg-white rounded-full mx-auto mt-6 flex items-center justify-center text-4xl font-bold text-[#10253d]">92%</div>
+                <div
+                  className="ring mx-auto mb-6"
+                  style={{
+                    background:
+                      "conic-gradient(#1dbf73 0deg 259deg, #f59e0b 259deg 360deg)",
+                  }}
+                >
+                  <div className="w-36 h-36 bg-white rounded-full mx-auto mt-6 flex items-center justify-center text-4xl font-bold text-[#10253d]">
+                    92%
+                  </div>
                 </div>
-                <p className="text-center text-[#29435c] font-medium">Performance visibility improves when KPI signals are reviewed daily.</p>
+                <p className="text-center text-[#29435c] font-medium">
+                  Performance visibility improves when KPI signals are reviewed
+                  daily.
+                </p>
               </div>
             </div>
           </div>
@@ -44,12 +106,20 @@ const KPIsInPlantPerformance: React.FC = () => {
         {/* Why KPIs Matter */}
         <section className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
-            <h2 className="text-3xl font-bold mb-6">Why KPIs matter in plant operation performance management</h2>
-            <p className="text-[#5f7488]">KPIs give plant leaders a shared language for production output, machine availability, maintenance planning, energy efficiency, quality rate, throughput, downtime, and process optimization.</p>
+            <h2 className="text-3xl font-bold mb-6">
+              Why KPIs matter in plant operation performance management
+            </h2>
+            <p className="text-[#5f7488]">
+              KPIs give plant leaders a shared language for production output,
+              machine availability, maintenance planning, energy efficiency,
+              quality rate, throughput, downtime, and process optimization.
+            </p>
           </div>
 
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
-            <h3 className="text-xl font-semibold mb-4 text-[#1677ff]">What KPIs Reveal</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#1677ff]">
+              What KPIs Reveal
+            </h3>
             <ul className="space-y-4 text-[#5f7488]">
               <li>Bottlenecks and recurring downtime</li>
               <li>Slow changeovers and quality losses</li>
@@ -58,10 +128,24 @@ const KPIsInPlantPerformance: React.FC = () => {
           </div>
 
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
-            <h3 className="text-xl font-semibold mb-4 text-[#1dbf73]">What Improves Fastest</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#1dbf73]">
+              What Improves Fastest
+            </h3>
             <div className="flex flex-wrap gap-3">
-              {["OEE", "Uptime", "MTBF", "MTTR", "Yield", "Energy Efficiency"].map((kpi, i) => (
-                <span key={i} className="px-5 py-2 bg-[#1677ff]/10 text-[#1677ff] rounded-full text-sm border border-[#1677ff]/20">{kpi}</span>
+              {[
+                "OEE",
+                "Uptime",
+                "MTBF",
+                "MTTR",
+                "Yield",
+                "Energy Efficiency",
+              ].map((kpi, i) => (
+                <span
+                  key={i}
+                  className="px-5 py-2 bg-[#1677ff]/10 text-[#1677ff] rounded-full text-sm border border-[#1677ff]/20"
+                >
+                  {kpi}
+                </span>
               ))}
             </div>
           </div>
@@ -83,9 +167,17 @@ const KPIsInPlantPerformance: React.FC = () => {
                   <div key={i} className="flex items-center gap-6">
                     <div className="w-40 font-medium">{bar.label}</div>
                     <div className="flex-1 h-4 bg-[#e6eef7] rounded-full overflow-hidden">
-                      <div className="h-full rounded-full" style={{ width: `${bar.value}%`, background: bar.color }} />
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${bar.value}%`,
+                          background: bar.color,
+                        }}
+                      />
                     </div>
-                    <div className="font-mono font-bold w-12 text-right">{bar.value}%</div>
+                    <div className="font-mono font-bold w-12 text-right">
+                      {bar.value}%
+                    </div>
                   </div>
                 ))}
               </div>
@@ -94,10 +186,18 @@ const KPIsInPlantPerformance: React.FC = () => {
             <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
               <h3 className="font-semibold mb-6">How to read this dashboard</h3>
               <ul className="space-y-6 text-[#5f7488]">
-                <li><strong>OEE</strong> — Overall plant effectiveness</li>
-                <li><strong>Uptime</strong> — Equipment availability</li>
-                <li><strong>Yield</strong> — Quality without rework</li>
-                <li><strong>Downtime</strong> — Hidden production losses</li>
+                <li>
+                  <strong>OEE</strong> — Overall plant effectiveness
+                </li>
+                <li>
+                  <strong>Uptime</strong> — Equipment availability
+                </li>
+                <li>
+                  <strong>Yield</strong> — Quality without rework
+                </li>
+                <li>
+                  <strong>Downtime</strong> — Hidden production losses
+                </li>
               </ul>
             </div>
           </div>
@@ -105,7 +205,9 @@ const KPIsInPlantPerformance: React.FC = () => {
 
         {/* KPI Database */}
         <section className="mt-16">
-          <h2 className="text-3xl font-bold mb-8">Practical KPI Database for Plant Managers</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Practical KPI Database for Plant Managers
+          </h2>
           <div className="bg-white border border-[#10253d]/10 rounded-3xl overflow-hidden">
             <table className="w-full">
               <thead>
@@ -118,11 +220,36 @@ const KPIsInPlantPerformance: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-[#10253d]/10">
                 {[
-                  ["OEE", "Measures plant effectiveness", "75% - 85%+", "Review if below target"],
-                  ["Uptime", "Shows equipment availability", "85% - 95%", "Investigate drops"],
-                  ["MTBF", "Reveals reliability", "Rising trend", "Watch for decline"],
-                  ["First-pass yield", "Quality without rework", "95%+", "Investigate downward trends"],
-                  ["Energy per unit", "Energy efficiency", "Lower trend", "Cost pressure alert"],
+                  [
+                    "OEE",
+                    "Measures plant effectiveness",
+                    "75% - 85%+",
+                    "Review if below target",
+                  ],
+                  [
+                    "Uptime",
+                    "Shows equipment availability",
+                    "85% - 95%",
+                    "Investigate drops",
+                  ],
+                  [
+                    "MTBF",
+                    "Reveals reliability",
+                    "Rising trend",
+                    "Watch for decline",
+                  ],
+                  [
+                    "First-pass yield",
+                    "Quality without rework",
+                    "95%+",
+                    "Investigate downward trends",
+                  ],
+                  [
+                    "Energy per unit",
+                    "Energy efficiency",
+                    "Lower trend",
+                    "Cost pressure alert",
+                  ],
                 ].map((row, i) => (
                   <tr key={i}>
                     <td className="p-6 font-semibold">{row[0]}</td>
@@ -139,13 +266,26 @@ const KPIsInPlantPerformance: React.FC = () => {
         {/* Case Study */}
         <section className="mt-16 grid md:grid-cols-2 gap-8">
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
-            <h2 className="text-3xl font-bold mb-6">Case Study: How KPI discipline changed plant performance</h2>
-            <p>A manufacturing plant struggled with repeated downtime and uneven throughput. They introduced daily KPI reviews covering OEE, uptime, MTBF, MTTR, yield, and energy efficiency.</p>
-            <p className="mt-6"><strong>Result:</strong> Downtime dropped, output rose, and performance became more predictable.</p>
+            <h2 className="text-3xl font-bold mb-6">
+              Case Study: How KPI discipline changed plant performance
+            </h2>
+            <p>
+              A manufacturing plant struggled with repeated downtime and uneven
+              throughput. They introduced daily KPI reviews covering OEE,
+              uptime, MTBF, MTTR, yield, and energy efficiency.
+            </p>
+            <p className="mt-6">
+              <strong>Result:</strong> Downtime dropped, output rose, and
+              performance became more predictable.
+            </p>
           </div>
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
             <h3 className="font-semibold mb-6">What the plant learned</h3>
-            <p>The biggest change was turning performance tracking into a daily habit. Once everyone could see the same numbers, decisions became clearer and faster.</p>
+            <p>
+              The biggest change was turning performance tracking into a daily
+              habit. Once everyone could see the same numbers, decisions became
+              clearer and faster.
+            </p>
           </div>
         </section>
 
@@ -154,12 +294,26 @@ const KPIsInPlantPerformance: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8">FAQs</h2>
           <div className="space-y-4">
             {[
-              { q: "What are the most important KPIs for a plant?", a: "OEE, uptime, downtime, MTBF, MTTR, yield, energy efficiency, and schedule adherence." },
-              { q: "How often should KPIs be reviewed?", a: "Daily for operations, weekly for patterns, and monthly for strategic adjustments." },
-              { q: "Why do KPIs help performance management?", a: "They turn plant work into measurable facts and create a shared version of truth." },
+              {
+                q: "What are the most important KPIs for a plant?",
+                a: "OEE, uptime, downtime, MTBF, MTTR, yield, energy efficiency, and schedule adherence.",
+              },
+              {
+                q: "How often should KPIs be reviewed?",
+                a: "Daily for operations, weekly for patterns, and monthly for strategic adjustments.",
+              },
+              {
+                q: "Why do KPIs help performance management?",
+                a: "They turn plant work into measurable facts and create a shared version of truth.",
+              },
             ].map((faq, i) => (
-              <details key={i} className="bg-white border border-[#10253d]/10 rounded-3xl p-8">
-                <summary className="font-semibold cursor-pointer text-lg">{faq.q}</summary>
+              <details
+                key={i}
+                className="bg-white border border-[#10253d]/10 rounded-3xl p-8"
+              >
+                <summary className="font-semibold cursor-pointer text-lg">
+                  {faq.q}
+                </summary>
                 <p className="mt-6 text-[#5f7488]">{faq.a}</p>
               </details>
             ))}
@@ -168,19 +322,42 @@ const KPIsInPlantPerformance: React.FC = () => {
 
         {/* Keyword Cloud */}
         <section className="mt-20">
-          <h3 className="text-center text-[#5f7488] mb-6">Common Search Terms Covered</h3>
+          <h3 className="text-center text-[#5f7488] mb-6">
+            Common Search Terms Covered
+          </h3>
           <div className="flex flex-wrap gap-3 justify-center">
-            {["plant operation performance management", "KPI tracking", "OEE improvement", "downtime reduction", "operational visibility", "process optimization", "data-driven decisions"].map((kw, i) => (
-              <span key={i} className="px-6 py-3 bg-white border border-[#10253d]/10 rounded-full text-sm text-[#29435c]">{kw}</span>
+            {[
+              "plant operation performance management",
+              "KPI tracking",
+              "OEE improvement",
+              "downtime reduction",
+              "operational visibility",
+              "process optimization",
+              "data-driven decisions",
+            ].map((kw, i) => (
+              <span
+                key={i}
+                className="px-6 py-3 bg-white border border-[#10253d]/10 rounded-full text-sm text-[#29435c]"
+              >
+                {kw}
+              </span>
             ))}
           </div>
         </section>
 
         <div className="text-center text-[#5f7488] mt-20 text-sm">
-          Designed for modern plant teams that want measurable performance and operational excellence.
+          Designed for modern plant teams that want measurable performance and
+          operational excellence.
         </div>
       </div>
     </div>
+        </div>
+        <aside className="hidden lg:block shrink-0">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
+      </div>
   );
 };
 

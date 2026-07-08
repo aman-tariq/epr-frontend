@@ -684,8 +684,6 @@ const PlasticApprovals: React.FC = () => {
 
           {/* RIGHT COLUMN: DESKTOP STICKY SIDEBAR AREA */}
           <aside className="hidden lg:block lg:col-span-1 sticky top-24 self-start h-fit will-change-transform z-30 w-full min-w-0 bg-background/60 p-6 rounded-3xl border border-border shadow-sm">
-            <h3 className="text-xl font-bold mb-1 text-foreground">Connect With Our Experts</h3>
-            <p className="text-xs text-muted-foreground mb-6">Have questions regarding approvals or your compliance roadmap?</p>
             <StickyContactForm />
           </aside>
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import StickyContactForm from "@/components/StickyContactForm";
 
 const MultiPlantGrowthBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -108,6 +109,8 @@ const MultiPlantGrowthBlog = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#1e2d3a] font-sans">
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex-1 min-w-0">
       {/* HERO */}
       <header className="relative overflow-hidden bg-gradient-to-br from-white via-[#eef8ff] to-white border-b border-[#d9eaf7] py-20 px-6 text-center">
         <div className="max-w-5xl mx-auto">
@@ -315,6 +318,13 @@ const MultiPlantGrowthBlog = () => {
         </div>
       </main>
     </div>
+        </div>
+        <aside className="hidden lg:block shrink-0">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
+      </div>
   );
 };
 

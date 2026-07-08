@@ -16,17 +16,17 @@ import ClientsSlider from "../components/ClientsSlider";
 
 import gallery5 from "@/assets/gallery-5.jpg";
 import recyclingProcess from "@/assets/recycling-process.jpg";
-import aina from "@/assets/aina.jpg";
-import rajendra from "@/assets/rajendra.jpeg";
-import swati from "@/assets/swati.jpeg";
-import tabish from "@/assets/tabish.jpg";
-import aman from "@/assets/aman.jpeg";
-import dilshad from "@/assets/dilshad.jpeg";
-import sakib from "@/assets/sakib.jpg";
+import aina from "@/assets/team/aina.jpg";
+import rajendra from "@/assets/team/rajendra.jpeg";
+import swati from "@/assets/team/swati.jpeg";
+import tabish from "@/assets/team/tabish.jpg";
+import aman from "@/assets/team/aman.jpeg";
+import dilshad from "@/assets/team/dilshad.jpeg";
+import sakib from "@/assets/team/sakib.jpg";
 import ceoPhoto from "@/assets/gallery-5.jpg"; 
 import mdPhoto from "@/assets/gallery-5.jpg";
-import affan from "@/assets/affan.jpg"
-import user from "@/assets/user.png"
+import affan from "@/assets/team/affan.jpg"
+import user from "@/assets/team/user.png"
 
 const stats = [
   { value: "500+", label: "Manufacturers & Importers Served" },
@@ -288,7 +288,7 @@ const About = () => {
       </section>
 
       {/* SECTION 2: WHO WE ARE (Corporate Genesis Section) */}
-      <section id="company" className="py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 relative">

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import StickyContactForm from "@/components/StickyContactForm";
 
 const DigitalInfrastructureBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -111,6 +112,8 @@ const DigitalInfrastructureBlog = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#17212b] font-sans">
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex-1 min-w-0">
       <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#f9fcff] to-white border-b border-[#dbe6f2] py-20 px-6 text-center">
         <div className="max-w-5xl mx-auto relative">
           <div className="inline-flex items-center gap-3 px-6 py-3 border border-[#dbe6f2] bg-white rounded-full text-[#195d7a] text-xs font-bold tracking-widest shadow">
@@ -355,6 +358,13 @@ const DigitalInfrastructureBlog = () => {
         </div>
       </div>
     </div>
+        </div>
+        <aside className="hidden lg:block shrink-0">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
+      </div>
   );
 };
 

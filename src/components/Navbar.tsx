@@ -17,7 +17,7 @@ import { serviceDropdown, serviceCategoriesNav } from "@/lib/services";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Contact", path: "/contact" },
-  {name: "About us", path: "/about#company"}
+  {name: "About us", path: "/about"}
 ];
 
 // const aboutDropdown = [
@@ -63,7 +63,7 @@ const eprCreditsSubcategories = [
 ];
 
 const buyAndSellScrapSubcategories = [
-  { label: "Buy E-Waste", path: "/blog/category/buy-sell-ewaste"},
+  { label: "Buy E-Waste", path: "/blog/category/buy-e-waste"},
   { label: "Sell Batteries", path: "/blog/category/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/blog/category/buy-and-sell-metals" },
 
