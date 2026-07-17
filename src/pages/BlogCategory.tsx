@@ -65,7 +65,7 @@ const BlogCategoryPage = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-primary to-secondary text-white">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_35%)]" />
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-1 lg:px-1 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ const BlogCategoryPage = () => {
 
       {/* Blog Posts */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-1 lg:px-1">
           {categoryPosts.length > 0 ? (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {categoryPosts.map((post, index) => (

@@ -144,7 +144,7 @@ const styles = `
   .container {
     margin: 0 auto;
     padding: 0 16px;
-    max-width: 1200px;
+    max-width: 1900px;
     width: 100%;
   }
 

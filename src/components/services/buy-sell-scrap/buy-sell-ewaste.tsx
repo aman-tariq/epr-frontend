@@ -1,6 +1,7 @@
   import React, { useEffect } from 'react';
   import Chart from 'chart.js/auto';
   import Seo from "@/components/Seo";
+import StickyContactForm from '@/components/StickyContactForm';
 
   const BuySellEWaste: React.FC = () => {
     useEffect(() => {
@@ -56,7 +57,9 @@
           type="article"
         />
 
-        <div className="font-sans bg-[#f3f6f5] text-[#1f2937] overflow-x-hidden">
+        <div className="font-sans bg-[#f3f6f5] text-[#1f2937] mt-[50px] overflow-x-hidden md:overflow-x-visible ">
+          <div className="flex flex-col lg:flex-row gap-0 items-stretch">
+            <div className="container">
           {/* HERO SECTION */}
           <section className="relative min-h-[92vh] flex items-center bg-cover bg-center px-6 md:px-8 py-20"
             style={{
@@ -139,7 +142,7 @@
                 <h2 className="text-4xl md:text-5xl font-bold mt-4 text-[#10231c]">E-waste scrap analysis and recovery potential</h2>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-2 gap-8 overflow-x-scroll">
                 <div className="bg-white rounded-3xl p-8 shadow-lg">
                   <h3 className="text-2xl font-semibold mb-6 text-[#10231c]">E-Waste Material Composition</h3>
                   <canvas id="pieChart" className="w-full h-[380px]"></canvas>
@@ -251,10 +254,14 @@
               </div>
             </div>
           </section>
+          </div>
+          <aside className="hidden lg:block shrink-0 w-[340px]">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
+            </div>
+          </aside>
 
-          <footer className="text-center py-10 text-[#6c7b75] border-t border-gray-200">
-            © EPR Nexuss • Premium Corporate E-Waste Scrap Blog Design
-          </footer>
+          </div>
         </div>
       </>
     );

@@ -16,17 +16,19 @@ import ClientsSlider from "../components/ClientsSlider";
 
 import gallery5 from "@/assets/gallery-5.jpg";
 import recyclingProcess from "@/assets/recycling-process.jpg";
-import aina from "@/assets/aina.jpg";
-import rajendra from "@/assets/rajendra.jpeg";
-import swati from "@/assets/swati.jpeg";
-import tabish from "@/assets/tabish.jpg";
-import aman from "@/assets/aman.jpeg";
-import dilshad from "@/assets/dilshad.jpeg";
-import sakib from "@/assets/sakib.jpg";
+import aina from "@/assets/team/aina.jpg";
+import rajendra from "@/assets/team/rajendra.jpeg";
+import swati from "@/assets/team/swati.jpeg";
+import tabish from "@/assets/team/tabish.jpg";
+import aman from "@/assets/team/aman.jpeg";
+import dilshad from "@/assets/team/dilshad.jpeg";
+import sakib from "@/assets/team/sakib.jpg";
 import ceoPhoto from "@/assets/gallery-5.jpg"; 
 import mdPhoto from "@/assets/gallery-5.jpg";
-import affan from "@/assets/affan.jpg"
-import user from "@/assets/user.png"
+import affan from "@/assets/team/affan.jpg"
+import user from "@/assets/team/user.png"
+import bhanu from "@/assets/Team/bhanu.jpg"
+import anjali from "@/assets/Team/anjali.jpg"
 
 const stats = [
   { value: "500+", label: "Manufacturers & Importers Served" },
@@ -92,12 +94,22 @@ const executiveTeam = [
 ];
 const carouselTeam = [
   { name: "Aman Tariq", designation: "Digital Marketing Head / Senior Web Developer", image: aman, details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", socials: { linkedin: "https://www.linkedin.com/in/aman-tariq-27611227b", instagram: "https://www.instagram.com/aman._tariq/", Facebook: "https://www.facebook.com/shams.aman.35" } },
+<<<<<<< HEAD
   { name: "Bhanu", designation: "Sales Head", image: user, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
   { name: "Affan Aziz", designation: "Digital Marketing Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
   { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios", instagram: "https://www.instagram.com/sakibxrajput", Facebook: "#" } },
   { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
   { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
   { name: "Aina Marziya", designation: "Business Development Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#", instagram: "https://www.instagram.com/__alina_siddiqui__?igsh=aDh2ZnVjaTVrMXF1", Facebook: "#" } }
+=======
+  { name: "Bhanu", designation: "Sales Head", image: bhanu, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
+  { name: "Affan Aziz", designation: "Social Media Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
+  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios", instagram: "https://www.instagram.com/sakibxrajput", Facebook: "#" } },
+  { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
+  { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
+  { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#", instagram: "https://www.instagram.com/__alina_siddiqui__?igsh=aDh2ZnVjaTVrMXF1", Facebook: "#" } },
+  { name: "Anjali", designation: "Business Developement Executive", image: anjali, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } }
+>>>>>>> sakib-blog
 ];
 
 const servicesData = [
@@ -287,7 +299,7 @@ const About = () => {
       </section>
 
       {/* SECTION 2: WHO WE ARE (Corporate Genesis Section) */}
-      <section id="company" className="py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 relative">
@@ -615,8 +627,11 @@ const About = () => {
         </div>
       </section>
 
+
+      {/* Teams Section */}
+
       {/* Executive Leadership & Corrected Multi-Card Team Carousel Section */}
-      <section className="py-24 bg-muted/40 border-t border-border overflow-hidden">
+      <section id="team"  className="py-24 bg-muted/40 border-t border-border overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-20">

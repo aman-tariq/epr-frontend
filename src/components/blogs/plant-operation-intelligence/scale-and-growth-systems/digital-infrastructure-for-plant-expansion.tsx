@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import StickyContactForm from "@/components/StickyContactForm";
 
 const DigitalInfrastructureBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -111,8 +112,10 @@ const DigitalInfrastructureBlog = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#17212b] font-sans">
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#f9fcff] to-white border-b border-[#dbe6f2] py-20 px-6 text-center">
-        <div className="max-w-5xl mx-auto relative">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch mt-10">
+        <div className="flex-1 min-w-0">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#f9fcff] to-white border-b border-[#dbe6f2] py-20 px-2 text-center">
+        <div className="max-w-8xl mx-auto relative">
           <div className="inline-flex items-center gap-3 px-6 py-3 border border-[#dbe6f2] bg-white rounded-full text-[#195d7a] text-xs font-bold tracking-widest shadow">
             <div className="w-2 h-2 bg-[#2d8f9f] rounded-full" /> White Paper Style Blog
           </div>
@@ -176,7 +179,7 @@ const DigitalInfrastructureBlog = () => {
           <h2 className="text-4xl font-serif font-bold tracking-tight">How Digital Infrastructure Improves Expansion Performance</h2>
           <p className="mt-6 text-[#243241]">Digital infrastructure helps teams reduce waiting time between construction and startup.</p>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <div className="grid md:grid-cols-2 gap-8 mt-12 overflow-x-scroll">
             <div className="bg-white border border-[#dbe6f2] rounded-2xl p-8 shadow">
               <div className="uppercase text-xs tracking-widest text-[#5d6b7a] font-bold mb-4">Expansion outcomes by infrastructure maturity</div>
               <div className="h-[300px]"><canvas ref={chart1Ref} /></div>
@@ -193,10 +196,10 @@ const DigitalInfrastructureBlog = () => {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-20 overflow-x-scroll">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">Digital infrastructure database</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">Reference Database for a Plant Expansion Program</h2>
-          <div className="bg-white border border-[#dbe6f2] rounded-2xl overflow-hidden shadow mt-8">
+          <div className="bg-white border border-[#dbe6f2] rounded-2xl overflow-x-scroll shadow mt-8">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-[#f7f9fc]">
@@ -212,43 +215,43 @@ const DigitalInfrastructureBlog = () => {
                   <td className="p-5 font-medium">Document Control System</td>
                   <td className="p-5 text-[#5d6b7a]">Single source for setup and commissioning documentation</td>
                   <td className="p-5 text-[#5d6b7a]">Commissioning documentation, commissioning report, as-built documentation</td>
-                  <td className="p-5">Project Controls</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
+                  <td className="p-2">Project Controls</td>
+                  <td className="p-2"><span className="px-3 py-1 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
                 </tr>
                 <tr>
                   <td className="p-5 font-medium">Asset Information Platform</td>
                   <td className="p-5 text-[#5d6b7a]">Protect asset history through each plant expansion</td>
                   <td className="p-5 text-[#5d6b7a]">Mechanical completion, installation verification, engineering turnover package</td>
-                  <td className="p-5">Engineering</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
+                  <td className="p-2">Engineering</td>
+                  <td className="p-2"><span className="px-3 py-1 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
                 </tr>
                 <tr>
                   <td className="p-5 font-medium">Workflow Automation</td>
                   <td className="p-5 text-[#5d6b7a]">Track approvals and closure in real time</td>
                   <td className="p-5 text-[#5d6b7a]">Commissioning checklist, pre-commissioning checklist, acceptance testing</td>
-                  <td className="p-5">Commissioning</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-800">High Value</span></td>
+                  <td className="p-2">Commissioning</td>
+                  <td className="p-2"><span className="px-1 py-1 text-[10px] font-bold rounded-full bg-blue-100 text-blue-800">High Value</span></td>
                 </tr>
                 <tr>
                   <td className="p-5 font-medium">Training Repository</td>
                   <td className="p-5 text-[#5d6b7a]">Prepare teams for industrial plant startup</td>
                   <td className="p-5 text-[#5d6b7a]">Operator training manuals, startup documentation, startup and shutdown procedures</td>
-                  <td className="p-5">Operations</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
+                  <td className="p-2">Operations</td>
+                  <td className="p-2"><span className="px-3 py-1 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
                 </tr>
                 <tr>
                   <td className="p-5 font-medium">Compliance Archive</td>
                   <td className="p-5 text-[#5d6b7a]">Maintain audit-ready project closeout documentation</td>
                   <td className="p-5 text-[#5d6b7a]">Compliance documentation, quality assurance documentation, commissioning standards</td>
-                  <td className="p-5">HSE / QA</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Critical</span></td>
+                  <td className="p-2">HSE / QA</td>
+                  <td className="p-2"><span className="px-3 py-1 text-[10px] font-bold rounded-full bg-amber-100 text-amber-800">Critical</span></td>
                 </tr>
                 <tr>
                   <td className="p-5 font-medium">Operations Knowledge Base</td>
                   <td className="p-5 text-[#5d6b7a]">Support long-term plant operations documentation</td>
                   <td className="p-5 text-[#5d6b7a]">O&M documentation, O&M manuals for commissioning projects, plant operations documentation</td>
-                  <td className="p-5">Operations</td>
-                  <td className="p-5"><span className="px-4 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
+                  <td className="p-2">Operations</td>
+                  <td className="p-2"><span className="px-3 py-1 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800">Core</span></td>
                 </tr>
               </tbody>
             </table>
@@ -337,7 +340,7 @@ const DigitalInfrastructureBlog = () => {
           </div>
         </div>
 
-        <div className="mt-20">
+        {/* <div className="mt-20">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">Keyword coverage</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">Keywords Included Throughout the Blog</h2>
           <div className="flex flex-wrap gap-3 mt-10">
@@ -347,12 +350,19 @@ const DigitalInfrastructureBlog = () => {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="mt-20 bg-gradient-to-b from-white to-[#f9fcff] border border-[#dbe6f2] rounded-3xl p-16 text-center shadow">
           <h2 className="text-4xl font-serif font-bold">Build expansion on a digital foundation</h2>
           <p className="max-w-2xl mx-auto mt-6 text-[#5d6b7a]">Plant expansion moves faster when the documentation, workflow, training, compliance, and commissioning records all live in one connected system. That is how digital infrastructure protects performance, supports handover, and makes the next expansion easier than the last.</p>
         </div>
+      </div>
+    </div>
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
       </div>
     </div>
   );
@@ -376,39 +386,39 @@ const faqData = [
   { question: 'What is operational readiness in commissioning?', answer: 'Operational readiness is the point where the plant, the systems, and the operating team are all prepared for safe service.' }
 ];
 
-const keywords = [
-  { text: 'setup and commissioning documentation', primary: true },
-  { text: 'commissioning documentation', primary: true },
-  { text: 'commissioning checklist', primary: true },
-  { text: 'commissioning plan', primary: true },
-  { text: 'startup documentation', primary: true },
-  { text: 'pre-commissioning checklist', primary: true },
-  { text: 'handover documentation', primary: true },
-  { text: 'commissioning report', primary: true },
-  { text: 'O&M documentation', primary: true },
-  { text: 'as-built documentation', primary: true },
-  { text: 'mechanical completion' },
-  { text: 'FAT testing' },
-  { text: 'SAT testing' },
-  { text: 'acceptance testing' },
-  { text: 'operational readiness' },
-  { text: 'installation verification' },
-  { text: 'performance verification' },
-  { text: 'project closeout documentation' },
-  { text: 'operator training manuals' },
-  { text: 'turnover package' },
-  { text: 'startup and shutdown procedures' },
-  { text: 'commissioning workflow' },
-  { text: 'commissioning deliverables' },
-  { text: 'plant startup checklist' },
-  { text: 'engineering documentation' },
-  { text: 'industrial commissioning' },
-  { text: 'EPC project documentation' },
-  { text: 'plant commissioning process' },
-  { text: 'digital documentation workflow' },
-  { text: 'commissioning management system' },
-  { text: 'compliance documentation' },
-  { text: 'plant operations documentation' }
-];
+// const keywords = [
+//   { text: 'setup and commissioning documentation', primary: true },
+//   { text: 'commissioning documentation', primary: true },
+//   { text: 'commissioning checklist', primary: true },
+//   { text: 'commissioning plan', primary: true },
+//   { text: 'startup documentation', primary: true },
+//   { text: 'pre-commissioning checklist', primary: true },
+//   { text: 'handover documentation', primary: true },
+//   { text: 'commissioning report', primary: true },
+//   { text: 'O&M documentation', primary: true },
+//   { text: 'as-built documentation', primary: true },
+//   { text: 'mechanical completion' },
+//   { text: 'FAT testing' },
+//   { text: 'SAT testing' },
+//   { text: 'acceptance testing' },
+//   { text: 'operational readiness' },
+//   { text: 'installation verification' },
+//   { text: 'performance verification' },
+//   { text: 'project closeout documentation' },
+//   { text: 'operator training manuals' },
+//   { text: 'turnover package' },
+//   { text: 'startup and shutdown procedures' },
+//   { text: 'commissioning workflow' },
+//   { text: 'commissioning deliverables' },
+//   { text: 'plant startup checklist' },
+//   { text: 'engineering documentation' },
+//   { text: 'industrial commissioning' },
+//   { text: 'EPC project documentation' },
+//   { text: 'plant commissioning process' },
+//   { text: 'digital documentation workflow' },
+//   { text: 'commissioning management system' },
+//   { text: 'compliance documentation' },
+//   { text: 'plant operations documentation' }
+// ];
 
 export default DigitalInfrastructureBlog;

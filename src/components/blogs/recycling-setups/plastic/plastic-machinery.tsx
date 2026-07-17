@@ -148,7 +148,7 @@ const PlasticMachinery: React.FC = () => (
         {/* Sticky Sidebar Column */}
         <aside className="hidden lg:block sticky top-24 self-start h-fit will-change-transform z-30">
           <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
-            <h3 className="text-xl font-bold mb-4">Connect With Our Experts</h3>
+            
             <StickyContactForm />
           </div>
         </aside>

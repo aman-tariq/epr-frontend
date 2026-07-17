@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import Seo from "@/components/Seo";
+import StickyContactForm from '@/components/StickyContactForm';
 
 const SellLithiumBattery = () => {
   useEffect(() => {
@@ -59,8 +60,10 @@ const SellLithiumBattery = () => {
       />
 
       <div className="font-sans bg-[#f4fff4] text-[#16301a]">
+        <div className="flex flex-col lg:flex-row gap-4 mt-10 items-stretch">
+            <div className="container">
         {/* HERO */}
-        <section className="relative bg-gradient-to-br from-[#e7fbe7] to-[#f8fff8] border border-[#cfe6cf] rounded-3xl overflow-hidden px-6 md:px-12 py-16 md:py-20 mx-4 md:mx-auto max-w-[1180px] shadow-xl">
+        <section className="relative bg-gradient-to-br from-[#e7fbe7] to-[#f8fff8] border border-[#cfe6cf] rounded-3xl overflow-hidden md:overflow-visible px-6 md:px-12 py-16 md:py-20 mx-4 md:mx-auto max-w-[1180px] shadow-xl">
           <div className="max-w-4xl">
             <span className="inline-block bg-[#edfced] border border-[#d7f0d7] text-[#29662e] px-5 py-2 rounded-full text-sm font-bold tracking-widest">Buy & Sell Lithium Battery in India</span>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mt-6 mb-6">
@@ -71,7 +74,7 @@ const SellLithiumBattery = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             {[
               { value: "₹12,000+", label: "Typical entry-level trading value for small packs" },
               { value: "₹65,000+", label: "Common price range for higher-capacity battery packs" },
@@ -113,13 +116,13 @@ const SellLithiumBattery = () => {
         {/* Charts */}
         <section className="bg-white py-16">
           <div className="max-w-[1180px] mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-12">Visual comparison of pricing and demand</h2>
+            <h2 className="text-3xl font-bold text-center mb-12 ">Visual comparison of pricing and demand</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white border border-[#cfe6cf] rounded-3xl p-8">
+              <div className="bg-white border border-[#cfe6cf] rounded-3xl p-8  overflow-x-scroll">
                 <h3 className="text-xl font-semibold mb-6">Indicative Price by Battery Type</h3>
                 <canvas id="priceChart" className="w-full h-80"></canvas>
               </div>
-              <div className="bg-white border border-[#cfe6cf] rounded-3xl p-8">
+              <div className="bg-white border border-[#cfe6cf] rounded-3xl p-8  overflow-x-scroll">
                 <h3 className="text-xl font-semibold mb-6">Market Demand by Use Case</h3>
                 <canvas id="demandChart" className="w-full h-80"></canvas>
               </div>
@@ -187,10 +190,17 @@ const SellLithiumBattery = () => {
             </div>
           </div>
         </section>
+                </div>
+        <aside className="hidden lg:block shrink-0 w-[340px]">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
+            </div>
+          </aside>
 
-        <footer className="text-center py-12 text-[#4f6b54]">
-          © EPR Nexuss • Buy and Sell Lithium Battery Guide
-        </footer>
+
+        </div>
+
+     
       </div>
     </>
   );

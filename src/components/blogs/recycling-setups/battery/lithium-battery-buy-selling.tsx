@@ -27,11 +27,11 @@ const LithiumBatteryBuySelling: React.FC = () => {
       />
       <div className="min-h-screen bg-[#f8fafc] text-[#1f2937] font-sans pb-12">
         {/* HERO */}
-        <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0f766e] to-[#2563eb] text-white rounded-3xl mx-4 md:mx-auto max-w-5xl mt-8 px-8 md:px-12 py-16 md:py-20 shadow-2xl">
+        <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0f766e] to-[#2563eb] text-white rounded-3xl mx-4 md:mx-auto max-w-8xl mt-10 px-8 md:px-12 py-16 md:py-20 shadow-2xl">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
           
           <div className="relative z-10 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
               ⚡ Turn Scrap into Strategy — Make Lithium Battery Trading More Profitable, Predictable, and Human
             </h1>
             <p className="text-lg md:text-xl leading-relaxed opacity-95">
@@ -42,17 +42,17 @@ const LithiumBatteryBuySelling: React.FC = () => {
         </section>
 
         {/* Two-Column Layout Container */}
-        <div className="max-w-6xl mx-auto px-6 py-12 lg:flex lg:gap-10 lg:items-start">
-          
+        <div className="max-w-8xl mx-auto px-1 py-12 lg:flex lg:gap-4 lg:items-start">
+
           {/* Main Content Column */}
           <div className="flex-1 space-y-16">
 
             {/* Main Grid - Two Cards */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               
               {/* Left Card - How we help */}
-              <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6">How we help clients buy and sell scrap</h2>
+              <div className="bg-white border border-gray-200 rounded-3xl p-4 shadow-sm">
+                <h2 className="md:text-3xl text-xl font-bold mb-6">How we help clients buy and sell scrap</h2>
                 <p className="text-[#334155] mb-6">
                   Buying and selling lithium-ion battery scrap should feel like a business decision, not a guessing game. 
                   We connect sellers with genuine buyers and help buyers access trusted scrap sources.
@@ -73,7 +73,7 @@ const LithiumBatteryBuySelling: React.FC = () => {
                   ))}
                 </ul>
 
-                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6">
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-2">
                   <p><span className="font-semibold text-emerald-700">Our goal:</span> help sellers achieve stronger value and help buyers secure reliable material without delays, confusion, or unnecessary middlemen.</p>
                 </div>
 
@@ -85,7 +85,7 @@ const LithiumBatteryBuySelling: React.FC = () => {
 
               {/* Right Card - Market Worth Attention */}
               <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6">What makes this market worth attention</h2>
+                <h2 className="md:text-3xl text-xl font-bold mb-6">What makes this market worth attention</h2>
                 <p className="text-[#334155] mb-6">
                   The lithium-ion battery recycling market is being shaped by rising EV adoption, portable electronics waste, and the growing need for critical minerals such as lithium, nickel, cobalt, and manganese.
                 </p>
@@ -115,7 +115,7 @@ const LithiumBatteryBuySelling: React.FC = () => {
 
             {/* Price Optimization Snapshot */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-              <h2 className="text-3xl font-bold mb-6">Price Optimization Snapshot</h2>
+              <h2 className="md:text-3xl text-xl font-bold mb-6">Price Optimization Snapshot</h2>
               <p className="text-gray-600 mb-6">Illustrative comparison of average realization per ton.</p>
 
               <div className="overflow-x-auto rounded-2xl border border-gray-200 mb-8">
@@ -168,10 +168,10 @@ const LithiumBatteryBuySelling: React.FC = () => {
             </div>
 
             {/* Process + Case Study */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               {/* How the Process Works */}
               <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6">How the Process Works</h2>
+                <h2 className="md:text-3xl text-xl font-bold mb-6">How the Process Works</h2>
                 <p className="mb-8">We keep the trading flow simple and easy to follow.</p>
 
                 <div className="flex flex-wrap gap-3">
@@ -199,8 +199,8 @@ const LithiumBatteryBuySelling: React.FC = () => {
 
               {/* Case Study */}
               <div className="bg-white border-l-4 border-amber-500 rounded-3xl p-8 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6">Case Study: EV Battery Distributor, Delhi NCR</h2>
-                
+                <h2 className="md:text-3xl text-xl font-bold mb-6">Case Study: EV Battery Distributor, Delhi NCR</h2>
+
                 <div className="space-y-6">
                   <p><strong>Problem:</strong> The client was selling scrap at low rates, had no direct buyer access, and faced payment delays.</p>
                   <p><strong>Our Approach:</strong> Connected the client with verified recyclers, created competitive bidding, and supported logistics & compliance.</p>
@@ -225,7 +225,7 @@ const LithiumBatteryBuySelling: React.FC = () => {
 
             {/* Why This Business Feels Human */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-              <h2 className="text-3xl font-bold mb-6">Why this business feels more human when done right</h2>
+              <h2 className="md:text-3xl text-xl font-bold mb-6">Why this business feels more human when done right</h2>
               <p className="mb-6">
                 Behind every scrap deal is a real person trying to save time, reduce losses, and make a sensible business decision.
               </p>
@@ -249,7 +249,7 @@ const LithiumBatteryBuySelling: React.FC = () => {
 
             {/* Extra Value Drivers */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-              <h2 className="text-3xl font-bold mb-6">Extra Value Drivers in Lithium Battery Recycling</h2>
+              <h2 className="md:text-3xl text-xl font-bold mb-6">Extra Value Drivers in Lithium Battery Recycling</h2>
               <p className="mb-8">
                 Beyond basic buying and selling, the strongest recycling businesses pay attention to quality control, market timing, and material traceability.
               </p>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import Seo from "@/components/Seo";
+import StickyContactForm from '@/components/StickyContactForm';
 
 const BuySellScrapMetals = () => {
   useEffect(() => {
@@ -61,7 +62,9 @@ const BuySellScrapMetals = () => {
         type="article"
       />
 
-      <div className="font-sans bg-[#f3f6f4] text-[#10231d] overflow-x-hidden">
+      <div className="font-sans bg-[#f3f6f4] text-[#10231d] overflow-x-hidden md:overflow-x-visible">
+         <div className="flex flex-col lg:flex-row gap-2 mt-10 items-stretch">
+            <div className="container">
         {/* HERO */}
         <section className="relative min-h-[88vh] flex items-center bg-cover bg-center px-6 md:px-12 py-20"
           style={{
@@ -136,7 +139,7 @@ const BuySellScrapMetals = () => {
         </section>
 
         {/* Charts Section */}
-        <section className="bg-[#edf4f1] py-20">
+        <section className="bg-[#edf4f1] py-20 overflow-x-scroll">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <span className="text-[#0f766e] uppercase font-bold tracking-widest">Visual Insights</span>
@@ -253,10 +256,15 @@ const BuySellScrapMetals = () => {
             </div>
           </div>
         </section>
+        </div>
+        <aside className="hidden lg:block shrink-0 w-[340px]">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
+            </div>
+          </aside>
 
-        <footer className="text-center py-10 text-[#687772]">
-          © EPR Nexuss • Premium Corporate Buying and Selling Scrap Metals Blog
-        </footer>
+
+        </div>
       </div>
     </>
   );

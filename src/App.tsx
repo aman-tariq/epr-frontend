@@ -23,7 +23,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Team = lazy(() => import("./pages/Team"));
+const Team = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -67,7 +67,7 @@ const AppContent = () => (
           <Route path="/blog/category/:category" element={<BlogCategory />} />
           <Route path="/blog/:blogSlug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/team" element={<Team />} />
+          <Route path="/team" element={<About />} />
           <Route path="*" element={<NotFound />} />
           <Route path="test" element={<BusinessGrowthAndLeadGeneration/>} /> 
         </Routes>

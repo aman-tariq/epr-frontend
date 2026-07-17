@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import StickyContactForm from '@/components/StickyContactForm'
+import StickyContactForm from "@/components/StickyContactForm";
+import Seo from "@/components/Seo";
 
 const PlasticRecyclingBlog: React.FC = () => {
   useEffect(() => {
@@ -25,7 +26,7 @@ const PlasticRecyclingBlog: React.FC = () => {
         const h = Math.round((d.v / wasteMax) * 160);
         col.innerHTML = `
           <div class="bar-val">${d.v.toFixed(1)}M</div>
-          <div class="bar-rect" style="height:${h}px;background:${d.a ? 'linear-gradient(180deg,#1e7a4c,#2ea66a)' : 'linear-gradient(180deg,#8fd3a6,#cfeeda)'}"></div>
+          <div class="bar-rect" style="height:${h}px;background:${d.a ? "linear-gradient(180deg,#1e7a4c,#2ea66a)" : "linear-gradient(180deg,#8fd3a6,#cfeeda)"}"></div>
           <div class="bar-name">${d.y}</div>
         `;
         wasteEl.appendChild(col);
@@ -33,12 +34,36 @@ const PlasticRecyclingBlog: React.FC = () => {
     }
 
     const investData = [
-      { name: "Machinery", value: 2.4, color: "linear-gradient(180deg,#1e7a4c,#2ea66a)" },
-      { name: "Civil Works", value: 1.5, color: "linear-gradient(180deg,#2ea66a,#8fd3a6)" },
-      { name: "ETP & Safety", value: 0.9, color: "linear-gradient(180deg,#d99b2b,#efc26a)" },
-      { name: "Working Capital", value: 0.7, color: "linear-gradient(180deg,#173224,#29513d)" },
-      { name: "Licensing", value: 0.3, color: "linear-gradient(180deg,#99bfa8,#d5eadc)" },
-      { name: "QC / Tools", value: 0.2, color: "linear-gradient(180deg,#6ca487,#bfe8cb)" },
+      {
+        name: "Machinery",
+        value: 2.4,
+        color: "linear-gradient(180deg,#1e7a4c,#2ea66a)",
+      },
+      {
+        name: "Civil Works",
+        value: 1.5,
+        color: "linear-gradient(180deg,#2ea66a,#8fd3a6)",
+      },
+      {
+        name: "ETP & Safety",
+        value: 0.9,
+        color: "linear-gradient(180deg,#d99b2b,#efc26a)",
+      },
+      {
+        name: "Working Capital",
+        value: 0.7,
+        color: "linear-gradient(180deg,#173224,#29513d)",
+      },
+      {
+        name: "Licensing",
+        value: 0.3,
+        color: "linear-gradient(180deg,#99bfa8,#d5eadc)",
+      },
+      {
+        name: "QC / Tools",
+        value: 0.2,
+        color: "linear-gradient(180deg,#6ca487,#bfe8cb)",
+      },
     ];
 
     const invEl = document.getElementById("investChart");
@@ -57,10 +82,26 @@ const PlasticRecyclingBlog: React.FC = () => {
     }
 
     const revData = [
-      { name: "Pellet Sales", value: 100, color: "linear-gradient(180deg,#1e7a4c,#2ea66a)" },
-      { name: "Processing Fees", value: 72, color: "linear-gradient(180deg,#2ea66a,#8fd3a6)" },
-      { name: "Compliance Services", value: 58, color: "linear-gradient(180deg,#173224,#29513d)" },
-      { name: "Residue Handling", value: 35, color: "linear-gradient(180deg,#d99b2b,#efc26a)" },
+      {
+        name: "Pellet Sales",
+        value: 100,
+        color: "linear-gradient(180deg,#1e7a4c,#2ea66a)",
+      },
+      {
+        name: "Processing Fees",
+        value: 72,
+        color: "linear-gradient(180deg,#2ea66a,#8fd3a6)",
+      },
+      {
+        name: "Compliance Services",
+        value: 58,
+        color: "linear-gradient(180deg,#173224,#29513d)",
+      },
+      {
+        name: "Residue Handling",
+        value: 35,
+        color: "linear-gradient(180deg,#d99b2b,#efc26a)",
+      },
     ];
 
     const revEl = document.getElementById("revChart");
@@ -79,13 +120,55 @@ const PlasticRecyclingBlog: React.FC = () => {
     }
 
     const timelineData = [
-      { label: "Land finalisation", start: 0, width: 18, cls: "dark", note: "Month 1–2" },
-      { label: "Approvals & applications", start: 12, width: 26, cls: "soft", note: "Month 2–5" },
-      { label: "Civil work", start: 26, width: 28, cls: "green", note: "Month 4–8" },
-      { label: "Machine procurement", start: 22, width: 34, cls: "gold", note: "Month 4–9" },
-      { label: "Installation", start: 48, width: 18, cls: "green", note: "Month 8–10" },
-      { label: "Trial production", start: 64, width: 10, cls: "soft", note: "Month 11" },
-      { label: "Commercial launch", start: 74, width: 24, cls: "dark", note: "Month 12+" },
+      {
+        label: "Land finalisation",
+        start: 0,
+        width: 18,
+        cls: "dark",
+        note: "Month 1–2",
+      },
+      {
+        label: "Approvals & applications",
+        start: 12,
+        width: 26,
+        cls: "soft",
+        note: "Month 2–5",
+      },
+      {
+        label: "Civil work",
+        start: 26,
+        width: 28,
+        cls: "green",
+        note: "Month 4–8",
+      },
+      {
+        label: "Machine procurement",
+        start: 22,
+        width: 34,
+        cls: "gold",
+        note: "Month 4–9",
+      },
+      {
+        label: "Installation",
+        start: 48,
+        width: 18,
+        cls: "green",
+        note: "Month 8–10",
+      },
+      {
+        label: "Trial production",
+        start: 64,
+        width: 10,
+        cls: "soft",
+        note: "Month 11",
+      },
+      {
+        label: "Commercial launch",
+        start: 74,
+        width: 24,
+        cls: "dark",
+        note: "Month 12+",
+      },
     ];
 
     const tl = document.getElementById("timeline");
@@ -106,6 +189,39 @@ const PlasticRecyclingBlog: React.FC = () => {
   return (
     <div className="wrap mt-6 pt-2 plastic-wrap has-sticky">
       <style>{staticStyles}</style>
+      <Seo
+        title="Plastic Recycling Plant Setup Services | Build a Profitable Recycling Business"
+        description="Start a profitable plastic recycling plant in India with expert guidance. Learn about plant setup, machinery, DPRs, approvals, CPCB compliance, investments, operations, and business opportunities in plastic recycling."
+        keywords={[
+          "Plastic Recycling Plant",
+          "Plastic Recycling",
+          "Plastic Recycling Business",
+          "Plastic Recycling Plant Setup",
+          "Plastic Waste Management",
+          "Plastic Waste Recycling",
+          "Plastic Recycling Machinery",
+          "Plastic Recycling Business India",
+          "Plastic Recycling Investment",
+          "CPCB Plastic Recycling",
+          "Plastic EPR Compliance",
+          "Detailed Project Report",
+          "Plastic Recycling Plant Approvals",
+          "Circular Economy",
+          "Recycling Plant Consulting",
+          "How to start a plastic recycling plant?",
+          "Plastic recycling plant setup cost in India",
+          "How to get approval for a plastic recycling plant?",
+          "Documents required for a plastic recycling plant",
+          "Plastic recycling business opportunities",
+          "Best plastic recycling consultants in India",
+          "Plastic recycling machinery guide",
+          "Plastic recycling plant investment",
+          "Plastic waste recycling solutions",
+          "Plastic recycling business guide 2026",
+        ]}
+        url="https://eprnexuss.com/services/recycling-plastic"
+        type="article"
+      />
       <div className="page-body">
         <div className="topbar mt-4">
           <span className="badge green">EPR Nexuss Solutions</span>
@@ -122,10 +238,17 @@ const PlasticRecyclingBlog: React.FC = () => {
               </div>
               <h1>
                 Plastic Waste Is Not the End of the Story.
-                <span className="h1-em">It Is the Start of a Profitable Industry.</span>
+                <span className="h1-em">
+                  It Is the Start of a Profitable Industry.
+                </span>
               </h1>
               <p>
-                A well-planned plastic recycling plant turns discarded packaging into commercial output, compliance value, and long-term industrial growth. This guide is designed for investors, manufacturers, and entrepreneurs who want a practical roadmap for setting up a plant with clarity, structure, and business potential.
+                A well-planned plastic recycling plant turns discarded packaging
+                into commercial output, compliance value, and long-term
+                industrial growth. This guide is designed for investors,
+                manufacturers, and entrepreneurs who want a practical roadmap
+                for setting up a plant with clarity, structure, and business
+                potential.
               </p>
               {/* <p>
               Below you will find a simplified explanation of the opportunity, a clean breakdown of land and licence needs, a database-style equipment list, visual charts, and a sample operating model.
@@ -151,15 +274,26 @@ const PlasticRecyclingBlog: React.FC = () => {
               <div className="stat-grid">
                 <div className="stat">
                   <div className="num">3.5M+</div>
-                  <div className="lbl">tonnes of plastic waste generated annually in India, creating a large recovery opportunity</div>
+                  <div className="lbl">
+                    tonnes of plastic waste generated annually in India,
+                    creating a large recovery opportunity
+                  </div>
                 </div>
                 <div className="stat">
                   <div className="num">70%</div>
-                  <div className="lbl">of value often remains untapped when waste is not sorted and processed efficiently</div>
+                  <div className="lbl">
+                    of value often remains untapped when waste is not sorted and
+                    processed efficiently
+                  </div>
                 </div>
                 <div className="stat big">
-                  <div className="num">Recycling plant = processing + compliance + revenue</div>
-                  <div className="lbl">The business works best when collection, segregation, machinery, and approvals move together.</div>
+                  <div className="num">
+                    Recycling plant = processing + compliance + revenue
+                  </div>
+                  <div className="lbl">
+                    The business works best when collection, segregation,
+                    machinery, and approvals move together.
+                  </div>
                 </div>
               </div>
               {/* <div className="mini-note">
@@ -176,7 +310,11 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="section-head">
               <div>
                 <h2 className="section-title">Why This Plant Model Matters</h2>
-                <p className="section-sub">Plastic recycling is more than machinery. It is a structured industrial system that depends on feedstock sourcing, process control, legal approvals, and buyer demand.</p>
+                <p className="section-sub">
+                  Plastic recycling is more than machinery. It is a structured
+                  industrial system that depends on feedstock sourcing, process
+                  control, legal approvals, and buyer demand.
+                </p>
               </div>
             </div>
 
@@ -184,10 +322,15 @@ const PlasticRecyclingBlog: React.FC = () => {
               <div className="card dark">
                 <h3>The business logic</h3>
                 <p>
-                  A recycling plant can create value from PET, HDPE, PP, and mixed plastic streams by sorting, washing, shredding, and converting material into reusable output. When operated correctly, the plant becomes a supply partner for packaging, moulding, and downstream manufacturers.
+                  A recycling plant can create value from PET, HDPE, PP, and
+                  mixed plastic streams by sorting, washing, shredding, and
+                  converting material into reusable output. When operated
+                  correctly, the plant becomes a supply partner for packaging,
+                  moulding, and downstream manufacturers.
                 </p>
                 <p className="muted">
-                  Strong systems reduce waste loss, improve product quality, and make the unit easier to scale over time.
+                  Strong systems reduce waste loss, improve product quality, and
+                  make the unit easier to scale over time.
                 </p>
               </div>
               <div className="card">
@@ -203,7 +346,9 @@ const PlasticRecyclingBlog: React.FC = () => {
             </div>
 
             <div className="quote">
-              “The strongest recycling projects are not built on hype. They are built on land discipline, process discipline, and compliance discipline.”
+              “The strongest recycling projects are not built on hype. They are
+              built on land discipline, process discipline, and compliance
+              discipline.”
             </div>
           </div>
         </section>
@@ -213,12 +358,18 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="section-head">
               <div>
                 <h2 className="section-title">Market Movement in One Chart</h2>
-                <p className="section-sub">A simple view of how plastic waste generation can rise over time, which increases the need for formal recycling capacity.</p>
+                <p className="section-sub">
+                  A simple view of how plastic waste generation can rise over
+                  time, which increases the need for formal recycling capacity.
+                </p>
               </div>
             </div>
             <div className="chart-wrap">
               <div className="chart-title">Plastic Waste Growth Trend</div>
-              <div className="chart-sub">Illustrative growth pattern showing the long-term need for more organised recycling plants.</div>
+              <div className="chart-sub">
+                Illustrative growth pattern showing the long-term need for more
+                organised recycling plants.
+              </div>
               <div className="bar-chart" id="wasteChart" />
               <div className="pill-row">
                 <span className="pill">Actual period</span>
@@ -232,8 +383,14 @@ const PlasticRecyclingBlog: React.FC = () => {
           <div className="section-inner">
             <div className="section-head">
               <div>
-                <h2 className="section-title">Land Requirements and Site Fit</h2>
-                <p className="section-sub">The right land is not only about area. It should support movement of raw material, segregation space, storage, utilities, and future scaling.</p>
+                <h2 className="section-title">
+                  Land Requirements and Site Fit
+                </h2>
+                <p className="section-sub">
+                  The right land is not only about area. It should support
+                  movement of raw material, segregation space, storage,
+                  utilities, and future scaling.
+                </p>
               </div>
             </div>
 
@@ -241,22 +398,34 @@ const PlasticRecyclingBlog: React.FC = () => {
               <div className="mini">
                 <div className="icon">📍</div>
                 <h4>Industrial zoning</h4>
-                <p>Choose land that is permitted for industrial use and suitable for waste-processing activities.</p>
+                <p>
+                  Choose land that is permitted for industrial use and suitable
+                  for waste-processing activities.
+                </p>
               </div>
               <div className="mini">
                 <div className="icon">🚚</div>
                 <h4>Logistics access</h4>
-                <p>Wide approach roads and truck movement space improve collection efficiency and dispatch speed.</p>
+                <p>
+                  Wide approach roads and truck movement space improve
+                  collection efficiency and dispatch speed.
+                </p>
               </div>
               <div className="mini">
                 <div className="icon">💧</div>
                 <h4>Water and drainage</h4>
-                <p>Washing lines need reliable water supply, drainage planning, and effluent treatment space.</p>
+                <p>
+                  Washing lines need reliable water supply, drainage planning,
+                  and effluent treatment space.
+                </p>
               </div>
               <div className="mini">
                 <div className="icon">⚡</div>
                 <h4>Power readiness</h4>
-                <p>Shredders, washers, dryers, and extrusion systems need steady three-phase electrical support.</p>
+                <p>
+                  Shredders, washers, dryers, and extrusion systems need steady
+                  three-phase electrical support.
+                </p>
               </div>
             </div>
 
@@ -273,29 +442,60 @@ const PlasticRecyclingBlog: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Plot size</strong></td>
-                    <td>Small unit: 3,000–8,000 sq ft<br />Mid-scale unit: 15,000–30,000 sq ft<br />Large unit: 40,000+ sq ft</td>
-                    <td>Space must support sorting, storage, machinery, utilities, and movement corridors.</td>
+                    <td>
+                      <strong>Plot size</strong>
+                    </td>
+                    <td>
+                      Small unit: 3,000–8,000 sq ft
+                      <br />
+                      Mid-scale unit: 15,000–30,000 sq ft
+                      <br />
+                      Large unit: 40,000+ sq ft
+                    </td>
+                    <td>
+                      Space must support sorting, storage, machinery, utilities,
+                      and movement corridors.
+                    </td>
                   </tr>
                   <tr>
-                    <td><strong>Zone type</strong></td>
+                    <td>
+                      <strong>Zone type</strong>
+                    </td>
                     <td>Industrial land preferred</td>
-                    <td>Helps avoid approval complications and makes plant planning easier.</td>
+                    <td>
+                      Helps avoid approval complications and makes plant
+                      planning easier.
+                    </td>
                   </tr>
                   <tr>
-                    <td><strong>Storage area</strong></td>
+                    <td>
+                      <strong>Storage area</strong>
+                    </td>
                     <td>Covered and protected shed space</td>
-                    <td>Plastic waste should be stored neatly and safely before processing.</td>
+                    <td>
+                      Plastic waste should be stored neatly and safely before
+                      processing.
+                    </td>
                   </tr>
                   <tr>
-                    <td><strong>Water management</strong></td>
+                    <td>
+                      <strong>Water management</strong>
+                    </td>
                     <td>ETP-friendly layout with drainage</td>
-                    <td>Wash water and wastewater handling must be planned from the beginning.</td>
+                    <td>
+                      Wash water and wastewater handling must be planned from
+                      the beginning.
+                    </td>
                   </tr>
                   <tr>
-                    <td><strong>Road access</strong></td>
+                    <td>
+                      <strong>Road access</strong>
+                    </td>
                     <td>Truck-friendly approach road</td>
-                    <td>Collection and dispatch vehicles need smooth entry and exit.</td>
+                    <td>
+                      Collection and dispatch vehicles need smooth entry and
+                      exit.
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -308,14 +508,39 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="section-head">
               <div>
                 <h2 className="section-title">Licence and Approval Roadmap</h2>
-                <p className="section-sub">A plastic recycling plant usually passes through pollution control approvals, labour compliance, safety approvals, and business registrations before commercial operations begin.</p>
+                <p className="section-sub">
+                  A plastic recycling plant usually passes through pollution
+                  control approvals, labour compliance, safety approvals, and
+                  business registrations before commercial operations begin.
+                </p>
               </div>
             </div>
 
             <div className="metric-grid">
-              <div className="metric"><div className="mnum">1</div><div className="mlbl"><strong>Consent to Establish</strong><br />Needed before construction and installation start.</div></div>
-              <div className="metric"><div className="mnum">2</div><div className="mlbl"><strong>Consent to Operate</strong><br />Required once the plant is built and ready for inspection.</div></div>
-              <div className="metric"><div className="mnum">3</div><div className="mlbl"><strong>PWM / waste authorisation</strong><br />Supports legal handling and processing of plastic waste.</div></div>
+              <div className="metric">
+                <div className="mnum">1</div>
+                <div className="mlbl">
+                  <strong>Consent to Establish</strong>
+                  <br />
+                  Needed before construction and installation start.
+                </div>
+              </div>
+              <div className="metric">
+                <div className="mnum">2</div>
+                <div className="mlbl">
+                  <strong>Consent to Operate</strong>
+                  <br />
+                  Required once the plant is built and ready for inspection.
+                </div>
+              </div>
+              <div className="metric">
+                <div className="mnum">3</div>
+                <div className="mlbl">
+                  <strong>PWM / waste authorisation</strong>
+                  <br />
+                  Supports legal handling and processing of plastic waste.
+                </div>
+              </div>
             </div>
 
             <div style={{ height: 16 }} />
@@ -323,20 +548,60 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="databox">
               <div className="db">
                 <div className="db-head">Regulatory Database</div>
-                <div className="db-row"><span>Consent to Establish</span><span>State Pollution Control Board</span><span>Build approval</span></div>
-                <div className="db-row"><span>Consent to Operate</span><span>State Pollution Control Board</span><span>Start operations</span></div>
-                <div className="db-row"><span>PWM Authorisation</span><span>Pollution Control Authority</span><span>Plastic handling</span></div>
-                <div className="db-row"><span>Factory / labour registration</span><span>Labour Department</span><span>Workforce safety</span></div>
-                <div className="db-row"><span>Fire and safety NOC</span><span>Fire Department</span><span>Risk control</span></div>
+                <div className="db-row">
+                  <span>Consent to Establish</span>
+                  <span>State Pollution Control Board</span>
+                  <span>Build approval</span>
+                </div>
+                <div className="db-row">
+                  <span>Consent to Operate</span>
+                  <span>State Pollution Control Board</span>
+                  <span>Start operations</span>
+                </div>
+                <div className="db-row">
+                  <span>PWM Authorisation</span>
+                  <span>Pollution Control Authority</span>
+                  <span>Plastic handling</span>
+                </div>
+                <div className="db-row">
+                  <span>Factory / labour registration</span>
+                  <span>Labour Department</span>
+                  <span>Workforce safety</span>
+                </div>
+                <div className="db-row">
+                  <span>Fire and safety NOC</span>
+                  <span>Fire Department</span>
+                  <span>Risk control</span>
+                </div>
               </div>
 
               <div className="db">
                 <div className="db-head">Time Window Overview</div>
-                <div className="db-row"><span>Initial approvals</span><span>30–90 days</span><span>Planning stage</span></div>
-                <div className="db-row"><span>Civil work</span><span>60–120 days</span><span>Plant build</span></div>
-                <div className="db-row"><span>Machine installation</span><span>30–60 days</span><span>Setup stage</span></div>
-                <div className="db-row"><span>Trial runs</span><span>15–30 days</span><span>Quality checks</span></div>
-                <div className="db-row"><span>Commercial start</span><span>After clearance</span><span>Go-live</span></div>
+                <div className="db-row">
+                  <span>Initial approvals</span>
+                  <span>30–90 days</span>
+                  <span>Planning stage</span>
+                </div>
+                <div className="db-row">
+                  <span>Civil work</span>
+                  <span>60–120 days</span>
+                  <span>Plant build</span>
+                </div>
+                <div className="db-row">
+                  <span>Machine installation</span>
+                  <span>30–60 days</span>
+                  <span>Setup stage</span>
+                </div>
+                <div className="db-row">
+                  <span>Trial runs</span>
+                  <span>15–30 days</span>
+                  <span>Quality checks</span>
+                </div>
+                <div className="db-row">
+                  <span>Commercial start</span>
+                  <span>After clearance</span>
+                  <span>Go-live</span>
+                </div>
               </div>
             </div>
           </div>
@@ -346,8 +611,14 @@ const PlasticRecyclingBlog: React.FC = () => {
           <div className="section-inner">
             <div className="section-head">
               <div>
-                <h2 className="section-title">Machine Stack and Plant Infrastructure</h2>
-                <p className="section-sub">A good plant is built around smooth material flow: receiving, sorting, shredding, washing, drying, extrusion, and final testing.</p>
+                <h2 className="section-title">
+                  Machine Stack and Plant Infrastructure
+                </h2>
+                <p className="section-sub">
+                  A good plant is built around smooth material flow: receiving,
+                  sorting, shredding, washing, drying, extrusion, and final
+                  testing.
+                </p>
               </div>
             </div>
 
@@ -380,8 +651,13 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div style={{ height: 16 }} />
 
             <div className="chart-wrap">
-              <div className="chart-title">Sample Cost Split for a Mid-Scale Plant</div>
-              <div className="chart-sub">A simple visual breakdown of where the money typically goes in a setup model.</div>
+              <div className="chart-title">
+                Sample Cost Split for a Mid-Scale Plant
+              </div>
+              <div className="chart-sub">
+                A simple visual breakdown of where the money typically goes in a
+                setup model.
+              </div>
               <div className="bar-chart" id="investChart" />
             </div>
           </div>
@@ -392,7 +668,10 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="section-head">
               <div>
                 <h2 className="section-title">Project Timeline at a Glance</h2>
-                <p className="section-sub">This sample timeline shows how a plant can move from idea to production in stages, rather than all at once.</p>
+                <p className="section-sub">
+                  This sample timeline shows how a plant can move from idea to
+                  production in stages, rather than all at once.
+                </p>
               </div>
             </div>
 
@@ -404,8 +683,14 @@ const PlasticRecyclingBlog: React.FC = () => {
           <div className="section-inner">
             <div className="section-head">
               <div>
-                <h2 className="section-title">Illustrative Financial Database</h2>
-                <p className="section-sub">This is a sample operating model for presentation use. It helps explain how revenue streams can be split across pellets, services, and by-product handling.</p>
+                <h2 className="section-title">
+                  Illustrative Financial Database
+                </h2>
+                <p className="section-sub">
+                  This is a sample operating model for presentation use. It
+                  helps explain how revenue streams can be split across pellets,
+                  services, and by-product handling.
+                </p>
               </div>
             </div>
 
@@ -419,10 +704,38 @@ const PlasticRecyclingBlog: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td><strong>Recycled pellet sales</strong></td><td>Primary income</td><td>Main product line after washing and extrusion</td></tr>
-                  <tr><td><strong>Waste processing service</strong></td><td>Secondary income</td><td>Processing material for outside clients or aggregators</td></tr>
-                  <tr><td><strong>EPR-linked services</strong></td><td>Strategic income</td><td>Supports compliance-driven partnerships</td></tr>
-                  <tr><td><strong>Rejected material handling</strong></td><td>Support income</td><td>Mixed residue may be routed to other approved channels</td></tr>
+                  <tr>
+                    <td>
+                      <strong>Recycled pellet sales</strong>
+                    </td>
+                    <td>Primary income</td>
+                    <td>Main product line after washing and extrusion</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Waste processing service</strong>
+                    </td>
+                    <td>Secondary income</td>
+                    <td>
+                      Processing material for outside clients or aggregators
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>EPR-linked services</strong>
+                    </td>
+                    <td>Strategic income</td>
+                    <td>Supports compliance-driven partnerships</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Rejected material handling</strong>
+                    </td>
+                    <td>Support income</td>
+                    <td>
+                      Mixed residue may be routed to other approved channels
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -431,7 +744,10 @@ const PlasticRecyclingBlog: React.FC = () => {
 
             <div className="chart-wrap">
               <div className="chart-title">Revenue Mix Comparison</div>
-              <div className="chart-sub">A bar view that helps explain which income line usually drives the plant most strongly.</div>
+              <div className="chart-sub">
+                A bar view that helps explain which income line usually drives
+                the plant most strongly.
+              </div>
               <div className="bar-chart" id="revChart" />
             </div>
           </div>
@@ -442,7 +758,10 @@ const PlasticRecyclingBlog: React.FC = () => {
             <div className="section-head">
               <div>
                 <h2 className="section-title">Sample Case Study</h2>
-                <p className="section-sub">A presentation-friendly example showing how a mid-scale project may move from setup to stable operations.</p>
+                <p className="section-sub">
+                  A presentation-friendly example showing how a mid-scale
+                  project may move from setup to stable operations.
+                </p>
               </div>
             </div>
 
@@ -453,16 +772,53 @@ const PlasticRecyclingBlog: React.FC = () => {
               </div>
               <div className="case-body">
                 <div className="case-stats">
-                  <div className="s"><div className="v">4 TPD</div><div className="l">Planned processing capacity</div></div>
-                  <div className="s"><div className="v">16 months</div><div className="l">Setup-to-startup window</div></div>
-                  <div className="s"><div className="v">₹4.8 Cr</div><div className="l">Illustrative project budget</div></div>
+                  <div className="s">
+                    <div className="v">4 TPD</div>
+                    <div className="l">Planned processing capacity</div>
+                  </div>
+                  <div className="s">
+                    <div className="v">16 months</div>
+                    <div className="l">Setup-to-startup window</div>
+                  </div>
+                  <div className="s">
+                    <div className="v">₹4.8 Cr</div>
+                    <div className="l">Illustrative project budget</div>
+                  </div>
                 </div>
 
                 <div className="checks">
-                  <div className="check"><span className="dot">✓</span><div><strong>Challenge:</strong> The promoter needed a full plant roadmap, including land planning, approvals, machine selection, and buyer alignment.</div></div>
-                  <div className="check"><span className="dot">✓</span><div><strong>Solution:</strong> The project was organised step-by-step, from documentation and site planning to installation, testing, and launch.</div></div>
-                  <div className="check"><span className="dot">✓</span><div><strong>Result:</strong> The plant entered operations with a more structured supply chain and clearer product positioning.</div></div>
-                  <div className="check"><span className="dot">✓</span><div><strong>Outcome:</strong> Better planning improved decision-making, plant readiness, and presentation to partners.</div></div>
+                  <div className="check">
+                    <span className="dot">✓</span>
+                    <div>
+                      <strong>Challenge:</strong> The promoter needed a full
+                      plant roadmap, including land planning, approvals, machine
+                      selection, and buyer alignment.
+                    </div>
+                  </div>
+                  <div className="check">
+                    <span className="dot">✓</span>
+                    <div>
+                      <strong>Solution:</strong> The project was organised
+                      step-by-step, from documentation and site planning to
+                      installation, testing, and launch.
+                    </div>
+                  </div>
+                  <div className="check">
+                    <span className="dot">✓</span>
+                    <div>
+                      <strong>Result:</strong> The plant entered operations with
+                      a more structured supply chain and clearer product
+                      positioning.
+                    </div>
+                  </div>
+                  <div className="check">
+                    <span className="dot">✓</span>
+                    <div>
+                      <strong>Outcome:</strong> Better planning improved
+                      decision-making, plant readiness, and presentation to
+                      partners.
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -472,19 +828,23 @@ const PlasticRecyclingBlog: React.FC = () => {
         <section className="cta" id="contact">
           <h2>Turn the Idea Into a Plant That Works.</h2>
           <p>
-            Whether you are starting with a small recycling setup or planning a larger industrial unit, the winning formula stays the same: right land, right approvals, right equipment, and right operating structure. EPR Nexuss can help you present that story clearly and professionally.
+            Whether you are starting with a small recycling setup or planning a
+            larger industrial unit, the winning formula stays the same: right
+            land, right approvals, right equipment, and right operating
+            structure. EPR Nexuss can help you present that story clearly and
+            professionally.
           </p>
           <div className="cta-btns">
             <button
               className="btn-p"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => (window.location.href = "/contact")}
             >
               Book Free Consultation ↗
             </button>
 
             <button
               className="btn-s"
-              onClick={() => window.open('tel:+919289659966')}
+              onClick={() => window.open("tel:+919289659966")}
             >
               Call Now
             </button>

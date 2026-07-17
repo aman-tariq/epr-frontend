@@ -19,6 +19,8 @@ import EprCreditsMetalsBlog from "@/components/services/epr credits/EprMetals";
 import EprCreditsPlasticsBlog from "@/components/services/epr credits/EprPlastic";
 import EprCreditsTyreWasteBlog from "@/components/services/epr credits/EprTyre";
 import EprUsedOilBlog from "@/components/services/epr credits/EprUsedOil";
+import EprElectronic from "@/components/services/epr credits/EprElectronic";
+import EprBattery from "@/components/services/epr credits/EprBattery";
   const ServiceDetails = () => {
     const { serviceSlug } = useParams();
     const service = services.find((item) => item.slug === serviceSlug);
@@ -41,7 +43,7 @@ import EprUsedOilBlog from "@/components/services/epr credits/EprUsedOil";
     }
 
     if (service.slug === "epr-electronic") {
-      return <EWasteBlog />;
+      return <EprElectronic />;
     }
 
     if (service.slug === "epr-tyre") {
@@ -61,7 +63,7 @@ import EprUsedOilBlog from "@/components/services/epr credits/EprUsedOil";
     }
 
     if (service.slug === "epr-battery") {
-      return <EWasteBlog />;
+      return <EprBattery />;
     }
 
     if (service.slug === "recycling-vehicles-scrapping") {

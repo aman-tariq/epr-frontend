@@ -32,6 +32,7 @@ import {
   Legend,
   CartesianGrid,
 } from "recharts";
+import StickyContactForm from "@/components/StickyContactForm";
 
 const financialData = [
   { year: "Year 1", Revenue: 360, EBITDA: 110, Profit: 52 },
@@ -130,6 +131,9 @@ const PlasticRecycling: React.FC = () => {
     `}</style>
 
     <article className="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 bg-white">
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="container">
+      
 
       {/* HERO SECTION */}
       <section className="rounded-[32px] border border-slate-200 bg-white p-6 md:p-10 shadow-sm mb-10">
@@ -820,6 +824,15 @@ const PlasticRecycling: React.FC = () => {
           recycling business.
         </p>
       </section>
+      </div>
+      {/* Side form */}
+      <aside className="hidden lg:block shrink-0 w-[320px]">
+        <div className="sticky top-28 px-2">
+          <StickyContactForm/>
+        </div>
+      </aside>
+      
+      </div>
     </article>
     </>
   );

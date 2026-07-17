@@ -162,8 +162,8 @@ const BlogPost = () => {
 
       <article className="relative bg-background">
         <div className="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-secondary/15 to-transparent pointer-events-none" />
-        <section className="relative pt-32 pb-16">
-          <div className="container mx-auto px-4 lg:px-8">
+        {/* <section className="relative pt-32 pb-16">
+          <div className="container mx-auto px-1 lg:px-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -190,13 +190,14 @@ const BlogPost = () => {
               </div>
             </motion.div>
           </div>
-        </section>
+        </section> */}
 
         <section className="pb-20">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.85fr_0fr] min-w-0">
+          <div className="container mx-auto px-1 lg:px-1">
+            <div className="grid lg:grid-cols-[1.85fr_0fr] min-w-0">
               <main className="space-y-10 min-w-0">
-                <motion.div
+                {/* default page subheading with title */}
+                {/* <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -210,7 +211,7 @@ const BlogPost = () => {
                     ))}
                   </div>
                   <p className="text-muted-foreground leading-8">{post.summary}</p>
-                </motion.div>
+                </motion.div> */}
 
                 {MappedComponent ? (
                   <motion.div
@@ -253,7 +254,7 @@ const BlogPost = () => {
                   ))
                 )}
 
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -272,7 +273,7 @@ const BlogPost = () => {
                   >
                     Request a custom EPR plan
                   </Link>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.section
                   initial={{ opacity: 0, y: 20 }}

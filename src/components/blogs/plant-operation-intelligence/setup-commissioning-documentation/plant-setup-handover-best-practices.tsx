@@ -1,11 +1,48 @@
-'use client';
+"use client";
 
-import React from 'react';
+import Seo from "@/components/Seo";
+import React from "react";
+import StickyContactForm from "@/components/StickyContactForm";
 
 const PlantSetupHandoverBestPractices: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-[#10233f] font-sans">
-      <div className="max-w-[1240px] mx-auto px-5 py-12">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
+        <div className="flex-1 min-w-0">
+      <div className="max-w-8xl mx-auto px-2 py-12">
+        <Seo
+          title="How Commissioning Checklists Improve Operational Readiness"
+          description="Discover how commissioning checklists improve operational readiness by ensuring compliance, verifying equipment performance, reducing startup risks, and enabling smooth, efficient plant operations."
+          keywords={[
+            "Commissioning Checklists",
+            "Operational Readiness",
+            "Plant Commissioning",
+            "Startup Checklist",
+            "Plant Operations",
+            "Commissioning Documentation",
+            "Operational Excellence",
+            "Plant Compliance",
+            "Industrial Operations",
+            "Equipment Verification",
+            "Manufacturing Operations",
+            "Standard Operating Procedures",
+            "Plant Startup",
+            "Project Commissioning",
+            "Regulatory Compliance",
+            "What is a commissioning checklist?",
+            "How do commissioning checklists improve operational readiness?",
+            "Plant commissioning checklist for industrial facilities",
+            "How to prepare for plant startup?",
+            "Best practices for commissioning checklists",
+            "How to reduce startup risks?",
+            "Plant startup documentation guide",
+            "Operational readiness checklist",
+            "Industrial commissioning best practices",
+            "Commissioning checklist template",
+          ]}
+          url="https://eprnexuss.com/blog/commissioning-checklists-readiness"
+          type="article"
+        />
         {/* Hero */}
         <section className="bg-gradient-to-br from-white via-[#f8fbff] to-white border border-[#10233f]/10 rounded-3xl p-10 md:p-16 relative overflow-hidden shadow-xl">
           <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-[#d4a74c] rounded-full opacity-10 blur-3xl" />
@@ -20,22 +57,32 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
           </h1>
 
           <p className="text-[#5f6f87] text-lg max-w-4xl">
-            A plant handover should never feel like a scramble. When setup files, commissioning records, drawings, test reports, punch lists, SOPs, and approvals are organized properly, the handover becomes faster, cleaner, and far easier for operations to trust.
+            A plant handover should never feel like a scramble. When setup
+            files, commissioning records, drawings, test reports, punch lists,
+            SOPs, and approvals are organized properly, the handover becomes
+            faster, cleaner, and far easier for operations to trust.
           </p>
 
           <div className="mt-8 bg-[#d4a74c]/10 border-l-4 border-[#d4a74c] p-6 rounded-2xl font-semibold">
-            A well-organized handover file system does more than store documents — it protects startup speed, operational confidence, and long-term plant performance.
+            A well-organized handover file system does more than store documents
+            — it protects startup speed, operational confidence, and long-term
+            plant performance.
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
             {[
-              { num: '↑', lbl: 'Document clarity' },
-              { num: '↓', lbl: 'Handover delays' },
-              { num: '↑', lbl: 'Team trust' },
-              { num: '↓', lbl: 'Missing records' },
+              { num: "↑", lbl: "Document clarity" },
+              { num: "↓", lbl: "Handover delays" },
+              { num: "↑", lbl: "Team trust" },
+              { num: "↓", lbl: "Missing records" },
             ].map((stat, i) => (
-              <div key={i} className="bg-white border border-[#10233f]/10 rounded-2xl p-6 text-center shadow">
-                <div className="text-4xl font-bold text-[#0f4c81]">{stat.num}</div>
+              <div
+                key={i}
+                className="bg-white border border-[#10233f]/10 rounded-2xl p-6 text-center shadow"
+              >
+                <div className="text-4xl font-bold text-[#0f4c81]">
+                  {stat.num}
+                </div>
                 <div className="text-sm text-[#5f6f87] mt-2">{stat.lbl}</div>
               </div>
             ))}
@@ -45,20 +92,43 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
         {/* Why It Matters */}
         <div className="grid md:grid-cols-5 gap-6 mt-12">
           <div className="md:col-span-3 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-            <h2 className="text-3xl font-bold mb-6">Why plant setup and handover files matter</h2>
-            <p className="mb-6">Plant setup files are the backbone of commissioning, handover, and early operations. They include the evidence that a system was installed correctly, tested properly, and approved for use.</p>
-            <p className="mb-6">Without a clear file structure, critical information gets buried. Organized files reduce risk and create a stronger handover experience.</p>
+            <h2 className="text-3xl font-bold mb-6">
+              Why plant setup and handover files matter
+            </h2>
+            <p className="mb-6">
+              Plant setup files are the backbone of commissioning, handover, and
+              early operations. They include the evidence that a system was
+              installed correctly, tested properly, and approved for use.
+            </p>
+            <p className="mb-6">
+              Without a clear file structure, critical information gets buried.
+              Organized files reduce risk and create a stronger handover
+              experience.
+            </p>
 
             <div className="bg-[#1f7ae0]/10 border-l-4 border-[#1f7ae0] p-6 rounded-2xl my-8">
-              <strong>Operational reality:</strong> a plant is only as ready as its records. If the paperwork is incomplete, the handover is incomplete.
+              <strong>Operational reality:</strong> a plant is only as ready as
+              its records. If the paperwork is incomplete, the handover is
+              incomplete.
             </div>
           </div>
 
           <div className="md:col-span-2 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-            <h3 className="text-2xl font-semibold mb-6">What well-organized files help with</h3>
+            <h3 className="text-2xl font-semibold mb-6">
+              What well-organized files help with
+            </h3>
             <div className="flex flex-wrap gap-3">
-              {['Faster sign-off', 'Better traceability', 'Easy audits', 'Safer startup', 'Stronger compliance'].map((tag, i) => (
-                <span key={i} className="px-5 py-2.5 bg-[#0f4c81]/10 text-[#0f4c81] rounded-full text-sm border border-[#0f4c81]/20">
+              {[
+                "Faster sign-off",
+                "Better traceability",
+                "Easy audits",
+                "Safer startup",
+                "Stronger compliance",
+              ].map((tag, i) => (
+                <span
+                  key={i}
+                  className="px-5 py-2.5 bg-[#0f4c81]/10 text-[#0f4c81] rounded-full text-sm border border-[#0f4c81]/20"
+                >
                   {tag}
                 </span>
               ))}
@@ -68,34 +138,63 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
 
         {/* Best Practices */}
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-          <h2 className="text-3xl font-bold mb-8">Best practices for organizing setup and handover files</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Best practices for organizing setup and handover files
+          </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-10">
               <div>
-                <h3 className="font-semibold text-xl mb-3">1) Create one master structure</h3>
-                <p className="text-[#5f6f87]">Use a standard folder hierarchy for every project so the file system is predictable.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  1) Create one master structure
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Use a standard folder hierarchy for every project so the file
+                  system is predictable.
+                </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xl mb-3">2) Name files consistently</h3>
-                <p className="text-[#5f6f87]">Include system name, document type, revision, and date.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  2) Name files consistently
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Include system name, document type, revision, and date.
+                </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xl mb-3">3) Separate active and closed items</h3>
-                <p className="text-[#5f6f87]">Keep pending items separate from finished files.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  3) Separate active and closed items
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Keep pending items separate from finished files.
+                </p>
               </div>
             </div>
             <div className="space-y-10">
               <div>
-                <h3 className="font-semibold text-xl mb-3">4) Add ownership to every record</h3>
-                <p className="text-[#5f6f87]">Every checklist and report should have a responsible person.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  4) Add ownership to every record
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Every checklist and report should have a responsible person.
+                </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xl mb-3">5) Use version control</h3>
-                <p className="text-[#5f6f87]">Make sure teams always know which version is the latest approved one.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  5) Use version control
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Make sure teams always know which version is the latest
+                  approved one.
+                </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xl mb-3">6) Store evidence with the file</h3>
-                <p className="text-[#5f6f87]">Link photos, test results, and sign-offs directly to documents.</p>
+                <h3 className="font-semibold text-xl mb-3">
+                  6) Store evidence with the file
+                </h3>
+                <p className="text-[#5f6f87]">
+                  Link photos, test results, and sign-offs directly to
+                  documents.
+                </p>
               </div>
             </div>
           </div>
@@ -103,17 +202,40 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
 
         {/* File Categories */}
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-          <h2 className="text-3xl font-bold mb-8">Simple file categories every plant should have</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Simple file categories every plant should have
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'Technical documents', desc: 'Drawings, P&IDs, manuals, datasheets, design references.' },
-              { title: 'Commissioning records', desc: 'Checklists, test sheets, punch lists, inspections.' },
-              { title: 'Operations handover', desc: 'SOPs, training records, maintenance plans.' },
-              { title: 'Safety and compliance', desc: 'Permits, HSE sign-offs, risk assessments.' },
-              { title: 'Asset and maintenance', desc: 'Asset register, warranty papers, spare parts lists.' },
-              { title: 'Final closure files', desc: 'Handover certificates, closeout summaries.' },
+              {
+                title: "Technical documents",
+                desc: "Drawings, P&IDs, manuals, datasheets, design references.",
+              },
+              {
+                title: "Commissioning records",
+                desc: "Checklists, test sheets, punch lists, inspections.",
+              },
+              {
+                title: "Operations handover",
+                desc: "SOPs, training records, maintenance plans.",
+              },
+              {
+                title: "Safety and compliance",
+                desc: "Permits, HSE sign-offs, risk assessments.",
+              },
+              {
+                title: "Asset and maintenance",
+                desc: "Asset register, warranty papers, spare parts lists.",
+              },
+              {
+                title: "Final closure files",
+                desc: "Handover certificates, closeout summaries.",
+              },
             ].map((cat, i) => (
-              <div key={i} className="bg-gradient-to-b from-white to-[#f8fbff] border border-[#10233f]/10 rounded-2xl p-7 shadow">
+              <div
+                key={i}
+                className="bg-gradient-to-b from-white to-[#f8fbff] border border-[#10233f]/10 rounded-2xl p-7 shadow"
+              >
                 <strong className="block text-lg mb-3">{cat.title}</strong>
                 <p className="text-[#5f6f87] text-sm">{cat.desc}</p>
               </div>
@@ -123,16 +245,20 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
 
         {/* Visual View - Bars */}
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-          <h2 className="text-3xl font-bold mb-2">Visual view: where good file organization adds value</h2>
-          <p className="text-[#5f6f87] mb-8">Most visible benefits of a structured handover file system</p>
+          <h2 className="text-3xl font-bold mb-2">
+            Visual view: where good file organization adds value
+          </h2>
+          <p className="text-[#5f6f87] mb-8">
+            Most visible benefits of a structured handover file system
+          </p>
 
           <div className="space-y-6">
             {[
-              { label: 'Faster document retrieval', val: 93 },
-              { label: 'Cleaner handover process', val: 88 },
-              { label: 'Fewer missing records', val: 85 },
-              { label: 'Stronger audit readiness', val: 90 },
-              { label: 'Better team confidence', val: 87 },
+              { label: "Faster document retrieval", val: 93 },
+              { label: "Cleaner handover process", val: 88 },
+              { label: "Fewer missing records", val: 85 },
+              { label: "Stronger audit readiness", val: 90 },
+              { label: "Better team confidence", val: 87 },
             ].map((bar, i) => (
               <div key={i} className="flex items-center gap-6">
                 <div className="w-64 font-medium text-sm">{bar.label}</div>
@@ -151,7 +277,9 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
         {/* Database Tracker */}
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           <div className="bg-white border border-[#10233f]/10 rounded-3xl p-10">
-            <h2 className="text-3xl font-bold mb-6">Database-style handover tracker</h2>
+            <h2 className="text-3xl font-bold mb-6">
+              Database-style handover tracker
+            </h2>
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-[#eef5fc]">
@@ -163,17 +291,39 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
               </thead>
               <tbody className="divide-y">
                 {[
-                  ['Electrical', 'Motor test report', 'Electrical team', 'Approved'],
-                  ['Mechanical', 'Installation checklist', 'Mechanical team', 'Complete'],
-                  ['Instrumentation', 'Calibration certificate', 'Instrumentation', 'Pending review'],
-                  ['Operations', 'SOP training record', 'Operations lead', 'In progress'],
+                  [
+                    "Electrical",
+                    "Motor test report",
+                    "Electrical team",
+                    "Approved",
+                  ],
+                  [
+                    "Mechanical",
+                    "Installation checklist",
+                    "Mechanical team",
+                    "Complete",
+                  ],
+                  [
+                    "Instrumentation",
+                    "Calibration certificate",
+                    "Instrumentation",
+                    "Pending review",
+                  ],
+                  [
+                    "Operations",
+                    "SOP training record",
+                    "Operations lead",
+                    "In progress",
+                  ],
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-[#f8fbff]">
                     <td className="p-4 font-medium">{row[0]}</td>
                     <td className="p-4">{row[1]}</td>
                     <td className="p-4 text-[#5f6f87]">{row[2]}</td>
                     <td className="p-4">
-                      <span className="px-4 py-1 text-xs rounded-full bg-green-100 text-green-700">{row[3]}</span>
+                      <span className="px-4 py-1 text-xs rounded-full bg-green-100 text-green-700">
+                        {row[3]}
+                      </span>
                     </td>
                   </tr>
                 ))}
@@ -182,33 +332,55 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
           </div>
 
           <div className="bg-white border border-[#10233f]/10 rounded-3xl p-10">
-            <h2 className="text-3xl font-bold mb-6">What a database approach solves</h2>
-            <p className="mb-6">Teams can filter by system, owner, or status instead of hunting through folders.</p>
+            <h2 className="text-3xl font-bold mb-6">
+              What a database approach solves
+            </h2>
+            <p className="mb-6">
+              Teams can filter by system, owner, or status instead of hunting
+              through folders.
+            </p>
             <div className="bg-[#1f7ae0]/10 border-l-4 border-[#1f7ae0] p-6 rounded-2xl">
-              <strong>Best practice:</strong> Every key file should have a status, owner, revision, and linked evidence.
+              <strong>Best practice:</strong> Every key file should have a
+              status, owner, revision, and linked evidence.
             </div>
           </div>
         </div>
 
         {/* Case Study */}
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-          <h2 className="text-3xl font-bold mb-6">Case study: how a structured file system improved handover</h2>
-          <p className="mb-4"><strong>Situation:</strong> Scattered versions and no standard structure caused confusion during handover.</p>
-          <p className="mb-4"><strong>Action:</strong> Implemented standardized folder structure, naming rules, and a master tracker.</p>
-          <p><strong>Result:</strong> Faster document access, cleaner handover, and higher confidence for the operations team.</p>
+          <h2 className="text-3xl font-bold mb-6">
+            Case study: how a structured file system improved handover
+          </h2>
+          <p className="mb-4">
+            <strong>Situation:</strong> Scattered versions and no standard
+            structure caused confusion during handover.
+          </p>
+          <p className="mb-4">
+            <strong>Action:</strong> Implemented standardized folder structure,
+            naming rules, and a master tracker.
+          </p>
+          <p>
+            <strong>Result:</strong> Faster document access, cleaner handover,
+            and higher confidence for the operations team.
+          </p>
         </section>
 
         {/* Workflow Stages */}
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
-          <h2 className="text-3xl font-bold mb-8">Understanding the handover workflow in simple stages</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Understanding the handover workflow in simple stages
+          </h2>
           <div className="grid md:grid-cols-2 gap-10">
             {[
-              ['Stage 1: Collect', 'Gather all technical, safety, and operations documents.'],
-              ['Stage 2: Classify', 'Sort files into clear categories.'],
-              ['Stage 3: Verify', 'Check completeness and approvals.'],
-              ['Stage 4: Control', 'Apply version control and ownership.'],
-              ['Stage 5: Transfer', 'Deliver final package to operations.'],
-              ['Stage 6: Maintain', 'Keep system updated after handover.'],
+              [
+                "Stage 1: Collect",
+                "Gather all technical, safety, and operations documents.",
+              ],
+              ["Stage 2: Classify", "Sort files into clear categories."],
+              ["Stage 3: Verify", "Check completeness and approvals."],
+              ["Stage 4: Control", "Apply version control and ownership."],
+              ["Stage 5: Transfer", "Deliver final package to operations."],
+              ["Stage 6: Maintain", "Keep system updated after handover."],
             ].map(([title, desc], i) => (
               <div key={i}>
                 <h3 className="font-semibold mb-2">{title}</h3>
@@ -223,12 +395,26 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8">FAQs</h2>
           <div className="space-y-4">
             {[
-              { q: 'What should be included in plant handover files?', a: 'Technical drawings, commissioning records, SOPs, training records, safety documents, and maintenance references.' },
-              { q: 'Why is file organization important during handover?', a: 'It prevents delays, confusion, and missing records for the operations team.' },
-              { q: 'Is a digital handover database better than folders alone?', a: 'Yes. It adds visibility, searchability, and accountability.' },
+              {
+                q: "What should be included in plant handover files?",
+                a: "Technical drawings, commissioning records, SOPs, training records, safety documents, and maintenance references.",
+              },
+              {
+                q: "Why is file organization important during handover?",
+                a: "It prevents delays, confusion, and missing records for the operations team.",
+              },
+              {
+                q: "Is a digital handover database better than folders alone?",
+                a: "Yes. It adds visibility, searchability, and accountability.",
+              },
             ].map((faq, i) => (
-              <details key={i} className="bg-[#fbfdff] border border-[#10233f]/10 rounded-2xl p-6">
-                <summary className="font-semibold cursor-pointer">{faq.q}</summary>
+              <details
+                key={i}
+                className="bg-[#fbfdff] border border-[#10233f]/10 rounded-2xl p-6"
+              >
+                <summary className="font-semibold cursor-pointer">
+                  {faq.q}
+                </summary>
                 <p className="mt-4 text-[#5f6f87]">{faq.a}</p>
               </details>
             ))}
@@ -239,9 +425,19 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
         <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-12 text-center">
           <h2 className="text-3xl font-bold mb-6">Final Thought</h2>
           <p className="max-w-3xl mx-auto text-lg text-[#5f6f87]">
-            Organizing plant setup and handover files is part of operational readiness. A strong file system helps the project hand over cleaner, the operations team take over faster, and the business protect performance from day one.
+            Organizing plant setup and handover files is part of operational
+            readiness. A strong file system helps the project hand over cleaner,
+            the operations team take over faster, and the business protect
+            performance from day one.
           </p>
         </section>
+      </div>
+    </div>
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
       </div>
     </div>
   );

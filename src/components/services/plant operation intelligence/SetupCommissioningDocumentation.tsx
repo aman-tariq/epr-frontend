@@ -27,8 +27,8 @@ const SetupCommissioningDocumentation = () => {
         type="article"
       />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50/70 font-sans pt-8 md:pt-20">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-20 mt-12">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_300px]">
+      <main className="max-w-8xl mx-auto px-1 sm:px-2 pb-20 mt-12">
+        <div className="grid gap-4 lg:grid-cols-[1.05fr_300px]">
           
           {/* ==================== MAIN CONTENT ==================== */}
           <div className="space-y-8 lg:space-y-12">
@@ -277,7 +277,6 @@ const SetupCommissioningDocumentation = () => {
               <p className="text-lg text-slate-700 leading-relaxed">
                 Setup and commissioning documentation is more than paperwork. It is the proof of a job done properly, the bridge between installation and operation, and the foundation of a reliable handover. When the records are clear, the project becomes easier to manage, easier to trust, and easier to support for the long run.
               </p>
-              <p className="text-slate-500 text-sm mt-8">A WordPress-style structure with navigation, author info, and featured media makes the blog feel more polished and client-ready.</p>
             </section>
 
           </div>

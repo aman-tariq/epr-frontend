@@ -110,7 +110,7 @@ const styles = `
   }
 
   .wrap {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 16px;
     width: 100%;
@@ -722,10 +722,7 @@ const RVSFDPRBlog: React.FC = () => {
             <div className="side-card hidden lg:block">
               <StickyContactForm />
             </div>
-            <div className="side-card">
-              <h3 style={{ margin: '0 0 10px', fontSize: '16px', color: 'var(--ink)' }}>Report overview</h3>
-              <p style={{ fontSize: '13px', margin: 0, color: 'var(--muted)' }}>A strong report maps risks honestly, designs clean facility footprints, tracks cash positions accurately, and makes project paths completely verifiable.</p>
-            </div>
+           
           </aside>
 
         </div>
