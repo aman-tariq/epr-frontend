@@ -19,8 +19,8 @@ const LithiumBatteryDpr: React.FC = () => {
     }, []);
 
     const initializeCharts = () => {
-        const gridColor = 'rgba(34,52,83,0.6)';
-        const textColor = '#a8b6d3';
+        const gridColor = 'rgba(15,23,42,0.08)';
+        const textColor = '#5B6B7A';
 
         // Financial Bar Chart
         new (window as any).Chart(document.getElementById('financialBar'), {
@@ -28,9 +28,9 @@ const LithiumBatteryDpr: React.FC = () => {
             data: {
                 labels: ['Year 1', 'Year 3', 'Year 5'],
                 datasets: [
-                    { label: 'Revenue', data: [420, 675, 890], backgroundColor: '#38bdf8', borderRadius: 8 },
-                    { label: 'EBITDA', data: [155, 295, 415], backgroundColor: '#22c55e', borderRadius: 8 },
-                    { label: 'Profit After Tax', data: [82, 178, 268], backgroundColor: '#f59e0b', borderRadius: 8 }
+                    { label: 'Revenue', data: [420, 675, 890], backgroundColor: '#3B82F6', borderRadius: 8 },
+                    { label: 'EBITDA', data: [155, 295, 415], backgroundColor: '#5AC361', borderRadius: 8 },
+                    { label: 'Profit After Tax', data: [82, 178, 268], backgroundColor: '#F59E0B', borderRadius: 8 }
                 ]
             },
             options: {
@@ -51,8 +51,8 @@ const LithiumBatteryDpr: React.FC = () => {
                 labels: ['Land & Site Dev.', 'Building & Civil', 'Plant & Machinery', 'ETP & Pollution Ctrl', 'Electricals', 'Pre-op', 'Working Capital'],
                 datasets: [{
                     data: [75, 85, 210, 38, 32, 15, 40],
-                    backgroundColor: ['#38bdf8', '#22c55e', '#f59e0b', '#a855f7', '#ef4444', '#14b8a6', '#f97316'],
-                    borderColor: '#0b1729',
+                    backgroundColor: ['#3B82F6', '#5AC361', '#F59E0B', '#A855F7', '#EF4444', '#14B8A6', '#F97316'],
+                    borderColor: '#ffffff',
                     borderWidth: 3
                 }]
             },
@@ -66,15 +66,15 @@ const LithiumBatteryDpr: React.FC = () => {
             }
         });
 
-        // py Pie
+        // Recovery Pie
         new (window as any).Chart(document.getElementById('recoveryPie'), {
             type: 'pie',
             data: {
                 labels: ['Lithium', 'Cobalt', 'Nickel', 'Manganese', 'Graphite', 'Copper & Aluminium'],
                 datasets: [{
                     data: [22, 28, 20, 10, 12, 8],
-                    backgroundColor: ['#38bdf8', '#22c55e', '#f59e0b', '#a855f7', '#14b8a6', '#f97316'],
-                    borderColor: '#0b1729',
+                    backgroundColor: ['#3B82F6', '#5AC361', '#F59E0B', '#A855F7', '#14B8A6', '#F97316'],
+                    borderColor: '#ffffff',
                     borderWidth: 3
                 }]
             },
@@ -95,7 +95,7 @@ const LithiumBatteryDpr: React.FC = () => {
                 datasets: [{
                     label: '₹ Lakhs',
                     data: [123.75, 321.75, 49.5],
-                    backgroundColor: ['#22c55e', '#38bdf8', '#f59e0b'],
+                    backgroundColor: ['#5AC361', '#3B82F6', '#F59E0B'],
                     borderRadius: 8
                 }]
             },
@@ -135,33 +135,33 @@ const LithiumBatteryDpr: React.FC = () => {
         url="https://eprnexuss.com/blog/lithium-battery-dpr"
         type="article"
       />
-        <div className="min-h-screen bg-[#07111f] text-[#e8f0ff] font-sans">
-            <div className="max-w-6xl mx-auto px-2 md:px-6 py-2 md:py-12">
+        <div className="min-h-screen bg-background text-foreground font-sans">
+            <div className="max-w-8xl mt-10 mx-auto px-2 md:px-2 py-2 md:py-12">
 
                 {/* HERO */}
-                <div className="hero bg-gradient-to-br from-[#0f1c33] to-[#111f38] border border-[#38bdf8]/30 rounded-3xl p-4 md:p-10 md:p-16 mb-12 relative overflow-hidden">
-                    <div className="badge inline-block bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] px-4 md:px-6 py-2 rounded-full text-sm font-medium mb-6">
+                <div className="hero bg-gradient-to-br from-[#EEF6FF] to-[#F3FBF3] border border-border rounded-3xl p-4 md:p-10 md:p-16 mb-12 relative overflow-hidden shadow-sm">
+                    <div className="badge inline-block bg-[#3B82F6]/10 border border-[#3B82F6]/30 text-[#2563EB] px-4 md:px-6 py-2 rounded-full text-sm font-medium mb-6">
                         🔋 Detailed Project Report | Lithium-Ion Battery Recycling Plant
                     </div>
-                    <h1 className="text-xl md:text-5xl md:text-6xl font-bold leading-tight mb-8">
+                    <h1 className="font-display text-xl md:text-5xl md:text-6xl font-bold leading-tight mb-8 text-[#10241A]">
                         Turning Battery Waste into High-Value Resources:<br />
-                        <span className="text-[#38bdf8]">5 TPD Black Mass + 2 TPD Hydromet Plant</span>
+                        <span className="text-brandGreen">5 TPD Black Mass + 2 TPD Hydromet Plant</span>
                     </h1>
-                    <p className="text-[#d1e2ff] max-w-3xl">
+                    <p className="text-muted-foreground max-w-3xl">
                         An integrated, CPCB-aligned recycling facility designed to recover Lithium, Cobalt, Nickel, Manganese & Graphite.
                     </p>
                 </div>
 
                 {/* Two-Column Layout Wrapper */}
-                <div className="lg:flex lg:gap-10 lg:items-start">
+                <div className="lg:flex lg:gap-4 lg:items-start">
                     
                     {/* Main Content Column */}
-                    <div className="flex-1 space-y-12 overflow-hidden">
+                    <div className="flex-1 min-w-0 space-y-12 overflow-hidden">
                         
                         {/* How EPR Nexuss Helps */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-4xl font-bold mb-6">How EPR Nexuss Can Help Create a Detailed Project Report</h2>
-                            <p className="text-[#a8b6d3] leading-relaxed text-lg">
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-4xl font-bold mb-6 text-[#10241A]">How EPR Nexuss Can Help Create a Detailed Project Report</h2>
+                            <p className="text-muted-foreground leading-relaxed text-lg">
                                 EPR Nexuss helps clients create a detailed project report by turning a complex idea into a clear, practical, and business-ready plan.
                                 From plant capacity and machinery needs to raw material sourcing, approvals, utilities, layout, cost structure, and expected returns —
                                 we cover every aspect so you can make confident decisions and present a bankable project to lenders and regulators.
@@ -169,19 +169,19 @@ const LithiumBatteryDpr: React.FC = () => {
                         </div>
 
                         {/* Project Backbone */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-6">🏭 Project Backbone: Green Permits Consulting & G.Kumar Electro Pvt Ltd</h2>
-                            <p className="text-[#a8b6d3] mb-6">
-                                <strong>G.Kumar Electro Private Limited</strong> (Lucknow) is the driving force behind this initiative.
-                                With <strong>Green Permits Consulting</strong>, we bring unmatched expertise in recycling plant design, regulatory navigation, and end-to-end execution.
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">🏭 Project Backbone: Green Permits Consulting & G.Kumar Electro Pvt Ltd</h2>
+                            <p className="text-muted-foreground mb-6">
+                                <strong className="text-[#10241A]">G.Kumar Electro Private Limited</strong> (Lucknow) is the driving force behind this initiative.
+                                With <strong className="text-[#10241A]">Green Permits Consulting</strong>, we bring unmatched expertise in recycling plant design, regulatory navigation, and end-to-end execution.
                             </p>
                         </div>
 
                         {/* Executive Snapshot */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-6">📌 Executive Snapshot: Why This Plant Matters</h2>
-                            <p className="text-[#a8b6d3] mb-8">
-                                The facility processes <strong>5 tons per day</strong> of end-of-life batteries into black mass, followed by <strong>2 TPD hydrometallurgical refining</strong>.
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📌 Executive Snapshot: Why This Plant Matters</h2>
+                            <p className="text-muted-foreground mb-8">
+                                The facility processes <strong className="text-[#10241A]">5 tons per day</strong> of end-of-life batteries into black mass, followed by <strong className="text-[#10241A]">2 TPD hydrometallurgical refining</strong>.
                             </p>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                                 {[
@@ -190,9 +190,9 @@ const LithiumBatteryDpr: React.FC = () => {
                                     { num: "95%+", label: "Target recovery efficiency" },
                                     { num: "2022", label: "Compliant with Battery Waste Rules" }
                                 ].map((stat, i) => (
-                                    <div key={i} className="bg-[#111f38] border border-[#223453] rounded-2xl p-4 md:p-6 text-center">
-                                        <div className="text-lg md:text-4xl font-bold text-[#38bdf8] mb-2">{stat.num}</div>
-                                        <div className="text-xs md:text-sm text-[#a8b6d3]">{stat.label}</div>
+                                    <div key={i} className="bg-muted/50 border border-border rounded-2xl p-4 md:p-6 text-center">
+                                        <div className="text-lg md:text-4xl font-bold text-brandGreen mb-2">{stat.num}</div>
+                                        <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
                                     </div>
                                 ))}
                             </div>
@@ -200,9 +200,9 @@ const LithiumBatteryDpr: React.FC = () => {
 
                         {/* Technology & Equipment + ETP */}
                         <div className="grid md:grid-cols-2 gap-8">
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">⚙️ Technology & Equipment</h2>
-                                <ul className="space-y-4 text-[#a8b6d3]">
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">⚙️ Technology & Equipment</h2>
+                                <ul className="space-y-4 text-muted-foreground">
                                     {[
                                         "Battery discharge station",
                                         "Primary & secondary shredders (5 TPD)",
@@ -218,9 +218,9 @@ const LithiumBatteryDpr: React.FC = () => {
                                 </ul>
                             </div>
 
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">💧 ETP & Pollution Control</h2>
-                                <ul className="space-y-4 text-[#a8b6d3]">
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">💧 ETP & Pollution Control</h2>
+                                <ul className="space-y-4 text-muted-foreground">
                                     {[
                                         "Multi-stage Effluent Treatment Plant (ETP)",
                                         "Air pollution control (bag filters + scrubbers)",
@@ -236,18 +236,18 @@ const LithiumBatteryDpr: React.FC = () => {
 
                         {/* Subsidies + Raw Material */}
                         <div className="grid md:grid-cols-2 gap-8">
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">💰 Subsidies & Incentives</h2>
-                                <ul className="space-y-3 text-[#a8b6d3]">
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">💰 Subsidies & Incentives</h2>
+                                <ul className="space-y-3 text-muted-foreground">
                                     <li>• State capital subsidy (15-25%)</li>
                                     <li>• SIDBI Green Finance interest subvention</li>
                                     <li>• Priority sector lending</li>
                                     <li>• Waste to Wealth Mission support</li>
                                 </ul>
                             </div>
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">📦 Raw Material Procurement</h2>
-                                <ul className="space-y-3 text-[#a8b6d3]">
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📦 Raw Material Procurement</h2>
+                                <ul className="space-y-3 text-muted-foreground">
                                     <li>• EV OEM & e-rickshaw manufacturers</li>
                                     <li>• EPR Producer tie-ups</li>
                                     <li>• E-waste aggregators in NCR & UP</li>
@@ -257,14 +257,14 @@ const LithiumBatteryDpr: React.FC = () => {
                         </div>
 
                         {/* Visual Dashboard */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-8 text-center md:text-left">📊 At-a-Glance Visual Dashboard</h2>
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-8 text-center md:text-left text-[#10241A]">📊 At-a-Glance Visual Dashboard</h2>
 
                             <div className="space-y-12">
                                 {/* Financial Projections */}
                                 <div>
-                                    <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Financial Projections (₹ Lakhs)</h3>
-                                    <div className="bg-[#111f38] rounded-2xl p-4 md:p-6">
+                                    <h3 className="text-xl font-semibold mb-4 text-center md:text-left text-[#10241A]">Financial Projections (₹ Lakhs)</h3>
+                                    <div className="bg-muted/40 rounded-2xl p-4 md:p-6">
                                         <div className="h-72 md:h-80 relative w-full">
                                             <canvas id="financialBar" className="w-full h-full" />
                                         </div>
@@ -273,8 +273,8 @@ const LithiumBatteryDpr: React.FC = () => {
 
                                 {/* Project Cost Breakdown */}
                                 <div>
-                                    <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Project Cost Breakdown</h3>
-                                    <div className="bg-[#111f38] rounded-2xl p-4 md:p-6">
+                                    <h3 className="text-xl font-semibold mb-4 text-center md:text-left text-[#10241A]">Project Cost Breakdown</h3>
+                                    <div className="bg-muted/40 rounded-2xl p-4 md:p-6">
                                         <div className="flex justify-center">
                                             <div className="w-full max-w-[280px] sm:max-w-[450px] h-80 relative">
                                                 <canvas id="costDonut" className="w-full h-full" />
@@ -287,10 +287,10 @@ const LithiumBatteryDpr: React.FC = () => {
 <div className="grid md:grid-cols-2 gap-8">
     {/* Recovery Pie */}
     <div className="min-w-0"> {/* min-w-0 ensures grid item boundaries are strictly respected */}
-        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center md:text-left break-words whitespace-normal">
+        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center md:text-left break-words whitespace-normal text-[#10241A]">
             Recovered Output Composition (% by value)
         </h3>
-        <div className="bg-[#111f38] rounded-2xl p-4 md:p-6">
+        <div className="bg-muted/40 rounded-2xl p-4 md:p-6">
             <div className="flex justify-center">
                 <div className="w-full max-w-[280px] sm:max-w-[320px] h-80 relative">
                     <canvas id="recoveryPie" className="w-full h-full" />
@@ -301,10 +301,10 @@ const LithiumBatteryDpr: React.FC = () => {
 
     {/* Means of Finance */}
     <div className="min-w-0">
-        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center md:text-left break-words whitespace-normal">
+        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center md:text-left break-words whitespace-normal text-[#10241A]">
             Means of Finance
         </h3>
-        <div className="bg-[#111f38] rounded-2xl p-4 md:p-6">
+        <div className="bg-muted/40 rounded-2xl p-4 md:p-6">
             <div className="h-72 relative w-full">
                 <canvas id="financeBar" className="w-full h-full" />
             </div>
@@ -315,12 +315,12 @@ const LithiumBatteryDpr: React.FC = () => {
                         </div>
 
                         {/* CAPITAL OUTLAY & FINANCIAL PLAN */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-6">📊 Capital Outlay Estimates & Financial Plan</h2>
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📊 Capital Outlay Estimates & Financial Plan</h2>
 
-                            <p className="text-xl font-semibold mb-6 text-[#38bdf8]">Project Cost (₹ Lakhs)</p>
+                            <p className="text-xl font-semibold mb-6 text-brandGreen">Project Cost (₹ Lakhs)</p>
 
-                            <ul className="space-y-4 text-[#a8b6d3] mb-8">
+                            <ul className="space-y-4 text-muted-foreground mb-8">
                                 <li>• Land & site development (owned by client) — ₹75 Lakhs</li>
                                 <li>• Building & civil works (plant shed, office, stores) — ₹85 Lakhs</li>
                                 <li>• Plant & machinery (mechanical + hydromet line) — ₹210 Lakhs</li>
@@ -330,42 +330,42 @@ const LithiumBatteryDpr: React.FC = () => {
                                 <li>• Working capital margin — ₹40 Lakhs</li>
                             </ul>
 
-                            <p className="text-2xl font-bold mb-6">
-                                Total Project Outlay: <span className="text-[#38bdf8]">₹495 Lakhs (₹4.95 Cr)</span>
+                            <p className="text-2xl font-bold mb-6 text-[#10241A]">
+                                Total Project Outlay: <span className="text-brandGreen">₹495 Lakhs (₹4.95 Cr)</span>
                             </p>
 
-                            <div className="bg-[#111f38] border-l-4 border-[#f59e0b] p-6 rounded-2xl mb-10">
-                                <strong className="text-[#f59e0b]">Means of Finance:</strong> Promoter contribution 25% (~₹1.24 Cr) + Term loan 65% + state subsidy 10%.
-                                Projected IRR: 22-25% | Payback: ~4.5 years.
+                            <div className="bg-[#FFFBEB] border-l-4 border-[#F59E0B] p-6 rounded-2xl mb-10">
+                                <strong className="text-[#B45309]">Means of Finance:</strong> <span className="text-[#78350F]">Promoter contribution 25% (~₹1.24 Cr) + Term loan 65% + state subsidy 10%.
+                                Projected IRR: 22-25% | Payback: ~4.5 years.</span>
                             </div>
 
-                            <h3 className="text-2xl font-semibold mb-4">📈 Financial Projections (Year 1-5)</h3>
-                            <div className="overflow-x-auto rounded-2xl border border-[#223453] mb-8">
+                            <h3 className="text-2xl font-semibold mb-4 text-[#10241A]">📈 Financial Projections (Year 1-5)</h3>
+                            <div className="overflow-x-auto rounded-2xl border border-border mb-8">
                                 <table className="w-full min-w-[500px]">
                                     <thead>
-                                        <tr className="bg-[#111f38]">
-                                            <th className="text-left p-4 border-b border-[#223453]">Particulars (₹ Lakhs)</th>
-                                            <th className="text-center p-4 border-b border-[#223453]">Year 1</th>
-                                            <th className="text-center p-4 border-b border-[#223453]">Year 3</th>
-                                            <th className="text-center p-4 border-b border-[#223453]">Year 5</th>
+                                        <tr className="bg-muted/50">
+                                            <th className="text-left p-4 border-b border-border text-[#10241A]">Particulars (₹ Lakhs)</th>
+                                            <th className="text-center p-4 border-b border-border text-[#10241A]">Year 1</th>
+                                            <th className="text-center p-4 border-b border-border text-[#10241A]">Year 3</th>
+                                            <th className="text-center p-4 border-b border-border text-[#10241A]">Year 5</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="text-[#a8b6d3]">
-                                        <tr className="border-b border-[#223453]"><td className="p-4">Revenue</td><td className="text-center p-4">420</td><td className="text-center p-4">675</td><td className="text-center p-4">890</td></tr>
-                                        <tr className="border-b border-[#223453]"><td className="p-4">Operating Expenses</td><td className="text-center p-4">265</td><td className="text-center p-4">380</td><td className="text-center p-4">475</td></tr>
-                                        <tr className="border-b border-[#223453]"><td className="p-4 font-semibold text-[#38bdf8]">EBITDA</td><td className="text-center p-4 font-semibold">155</td><td className="text-center p-4 font-semibold">295</td><td className="text-center p-4 font-semibold">415</td></tr>
-                                        <tr><td className="p-4 font-semibold text-[#22c55e]">Profit After Tax</td><td className="text-center p-4 font-semibold">82</td><td className="text-center p-4 font-semibold">178</td><td className="text-center p-4 font-semibold">268</td></tr>
+                                    <tbody className="text-muted-foreground">
+                                        <tr className="border-b border-border"><td className="p-4">Revenue</td><td className="text-center p-4">420</td><td className="text-center p-4">675</td><td className="text-center p-4">890</td></tr>
+                                        <tr className="border-b border-border"><td className="p-4">Operating Expenses</td><td className="text-center p-4">265</td><td className="text-center p-4">380</td><td className="text-center p-4">475</td></tr>
+                                        <tr className="border-b border-border"><td className="p-4 font-semibold text-[#2563EB]">EBITDA</td><td className="text-center p-4 font-semibold">155</td><td className="text-center p-4 font-semibold">295</td><td className="text-center p-4 font-semibold">415</td></tr>
+                                        <tr><td className="p-4 font-semibold text-brandGreen">Profit After Tax</td><td className="text-center p-4 font-semibold">82</td><td className="text-center p-4 font-semibold">178</td><td className="text-center p-4 font-semibold">268</td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <p className="text-[#a8b6d3]">CMA Data highlights: DSCR &gt; 1.85, comfortable liquidity. The project is highly bankable.</p>
+                            <p className="text-muted-foreground">CMA Data highlights: DSCR &gt; 1.85, comfortable liquidity. The project is highly bankable.</p>
                         </div>
 
                         {/* Project Execution Strategy + Process Flow */}
                         <div className="grid md:grid-cols-2 gap-8">
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">📅 Project Execution Strategy (Phased)</h2>
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📅 Project Execution Strategy (Phased)</h2>
                                 <div className="flex flex-wrap gap-3 mb-8">
                                     {[
                                         "Phase 1: Site selection & lease",
@@ -375,44 +375,44 @@ const LithiumBatteryDpr: React.FC = () => {
                                         "Phase 5: Trial runs & CPCB consent",
                                         "Phase 6: Commercial operations"
                                     ].map((phase, i) => (
-                                        <div key={i} className="bg-[#111f38] px-5 py-3 rounded-full text-sm border border-[#223453]">
+                                        <div key={i} className="bg-muted/50 px-5 py-3 rounded-full text-sm border border-border text-[#2C3B33]">
                                             {phase}
                                         </div>
                                     ))}
                                 </div>
-                                <p className="text-[#a8b6d3]">Total timeline: <strong>10-12 months</strong> from approval.</p>
+                                <p className="text-muted-foreground">Total timeline: <strong className="text-[#10241A]">10-12 months</strong> from approval.</p>
                             </div>
 
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">🔄 Process Flow (Mechanical + Hydromet)</h2>
-                                <ol className="space-y-4 text-[#a8b6d3]">
-                                    <li><strong>Step 1:</strong> Battery collection & sorting → Discharge</li>
-                                    <li><strong>Step 2:</strong> Dismantling & de-casing → Shredding</li>
-                                    <li><strong>Step 3:</strong> Sieving, magnetic & eddy current separation → Black mass</li>
-                                    <li><strong>Step 4:</strong> Black mass to hydromet → Leaching</li>
-                                    <li><strong>Step 5:</strong> Solvent extraction (Co, Ni, Mn)</li>
-                                    <li><strong>Step 6:</strong> Lithium precipitation & crystallization</li>
-                                    <li><strong>Step 7:</strong> Drying & packing of final products</li>
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">🔄 Process Flow (Mechanical + Hydromet)</h2>
+                                <ol className="space-y-4 text-muted-foreground">
+                                    <li><strong className="text-[#10241A]">Step 1:</strong> Battery collection & sorting → Discharge</li>
+                                    <li><strong className="text-[#10241A]">Step 2:</strong> Dismantling & de-casing → Shredding</li>
+                                    <li><strong className="text-[#10241A]">Step 3:</strong> Sieving, magnetic & eddy current separation → Black mass</li>
+                                    <li><strong className="text-[#10241A]">Step 4:</strong> Black mass to hydromet → Leaching</li>
+                                    <li><strong className="text-[#10241A]">Step 5:</strong> Solvent extraction (Co, Ni, Mn)</li>
+                                    <li><strong className="text-[#10241A]">Step 6:</strong> Lithium precipitation & crystallization</li>
+                                    <li><strong className="text-[#10241A]">Step 7:</strong> Drying & packing of final products</li>
                                 </ol>
                             </div>
                         </div>
 
                         {/* Regulatory Compliance + Hazardous Waste */}
                         <div className="grid md:grid-cols-2 gap-8">
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">📜 Regulatory Compliance Requirements</h2>
-                                <ul className="space-y-4 text-[#a8b6d3]">
-                                    <li><strong>Battery Waste Management Rules, 2022</strong> – CPCB Recycler Registration</li>
-                                    <li><strong>Hazardous Waste Rules, 2016</strong> – Authorisation for storage & processing</li>
-                                    <li><strong>CTE & CTO</strong> from State Pollution Control Board</li>
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📜 Regulatory Compliance Requirements</h2>
+                                <ul className="space-y-4 text-muted-foreground">
+                                    <li><strong className="text-[#10241A]">Battery Waste Management Rules, 2022</strong> – CPCB Recycler Registration</li>
+                                    <li><strong className="text-[#10241A]">Hazardous Waste Rules, 2016</strong> – Authorisation for storage & processing</li>
+                                    <li><strong className="text-[#10241A]">CTE & CTO</strong> from State Pollution Control Board</li>
                                     <li>Factory License, Fire NOC, Public Liability Insurance</li>
                                     <li>ISO 14001 & 45001 recommended</li>
                                 </ul>
                             </div>
 
-                            <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                                <h2 className="text-lg md:text-3xl font-bold mb-6">⚠️ Hazardous Waste Handling & Safety Plan</h2>
-                                <ul className="space-y-4 text-[#a8b6d3]">
+                            <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                                <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">⚠️ Hazardous Waste Handling & Safety Plan</h2>
+                                <ul className="space-y-4 text-muted-foreground">
                                     <li>Climate-controlled storage with fire suppression</li>
                                     <li>Emergency response for thermal runaway</li>
                                     <li>Proper labelling and manifest system</li>
@@ -423,43 +423,43 @@ const LithiumBatteryDpr: React.FC = () => {
                         </div>
 
                         {/* Waste Management & Circular Economy */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-6">♻️ Waste Management & Circular Economy Approach</h2>
-                            <p className="text-[#a8b6d3] mb-6">
-                                The plant ensures <strong>zero hazardous landfilling</strong>. All outputs (metals, graphite, copper, aluminium) are sent to secondary industries.
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">♻️ Waste Management & Circular Economy Approach</h2>
+                            <p className="text-muted-foreground mb-6">
+                                The plant ensures <strong className="text-[#10241A]">zero hazardous landfilling</strong>. All outputs (metals, graphite, copper, aluminium) are sent to secondary industries.
                             </p>
-                            <p className="text-[#a8b6d3] mb-8">
+                            <p className="text-muted-foreground mb-8">
                                 Collection network includes authorized centres across Uttar Pradesh & NCR and EPR tie-ups with producers.
                             </p>
-                            <div className="bg-[#111f38] border-l-4 border-[#22c55e] p-6 rounded-2xl">
-                                🌱 Every ton of recycled Li-ion battery saves 5 tons of CO₂ compared to virgin mining and strengthens India’s critical mineral security.
+                            <div className="bg-[#F3FBF3] border-l-4 border-brandGreen p-6 rounded-2xl text-[#2C3B33]">
+                                🌱 Every ton of recycled Li-ion battery saves 5 tons of CO₂ compared to virgin mining and strengthens India's critical mineral security.
                             </div>
                         </div>
 
                         {/* References & Conclusion */}
-                        <div className="card bg-[#0f1c33] border border-[#223453] rounded-3xl p-4 md:p-10">
-                            <h2 className="text-lg md:text-3xl font-bold mb-6">📚 References & Conclusion</h2>
-                            <p className="text-[#a8b6d3] mb-6">
+                        <div className="card bg-card border border-border rounded-3xl p-4 md:p-10 shadow-sm">
+                            <h2 className="font-display text-lg md:text-3xl font-bold mb-6 text-[#10241A]">📚 References & Conclusion</h2>
+                            <p className="text-muted-foreground mb-6">
                                 Prepared using Battery Waste Management Rules 2022, CPCB guidelines, and international best practices.
                             </p>
-                            <p className="text-[#a8b6d3] leading-relaxed mb-8">
+                            <p className="text-muted-foreground leading-relaxed mb-8">
                                 The proposed 5 TPD mechanical + 2 TPD hydromet Lithium-Ion Battery Recycling Plant is technically feasible, commercially viable, and environmentally responsible.
                                 This DPR serves as a ready-to-execute blueprint for entrepreneurs and investors.
                             </p>
-                            <p className="italic text-[#94bbff]">Prepared by Green Permits Consulting & G.Kumar Electro Private Limited — A bankable, future-ready recycling model.</p>
+                            <p className="italic text-[#2563EB]">Prepared by Green Permits Consulting & G.Kumar Electro Private Limited — A bankable, future-ready recycling model.</p>
                         </div>
 
                         {/* Footer Note */}
-                        <div className="text-center text-[#a8b6d3] text-sm py-8 border-t border-[#223453]">
+                        <div className="text-center text-muted-foreground text-sm py-8 border-t border-border">
                             📍 Detailed Project Report – Complete version includes all technical, financial, legal, and operational data.
                             For funding or partnership inquiries, reach out to G.Kumar Electro Pvt Ltd, Lucknow.
                         </div>
 
                         {/* Final CTA */}
-                        <div className="bg-gradient-to-br from-[#38bdf8] to-[#22c55e] text-[#07111f] rounded-3xl p-4 md:p-12 text-center">
-                            <h2 className="text-xl md:text-4xl font-bold mb-6">Ready to Build Your Battery Recycling Plant?</h2>
-                            <p className="text-lg md:text-xl mb-8">Get a complete bankable DPR with technical, financial, and regulatory support.</p>
-                            <button className="bg-white hover:bg-gray-100 text-[#07111f] font-bold px-12 py-5 rounded-2xl text-lg transition">
+                        <div className="bg-gradient-to-br from-brandGreen to-[#3FA24A] text-white rounded-3xl p-4 md:p-12 text-center shadow-sm">
+                            <h2 className="font-display text-xl md:text-4xl font-bold mb-6">Ready to Build Your Battery Recycling Plant?</h2>
+                            <p className="text-lg md:text-xl mb-8 text-white/90">Get a complete bankable DPR with technical, financial, and regulatory support.</p>
+                            <button className="bg-white hover:bg-gray-100 text-[#10241A] font-bold px-12 py-5 rounded-2xl text-lg transition shadow-sm">
                                 Request Full DPR Consultation
                             </button>
                         </div>

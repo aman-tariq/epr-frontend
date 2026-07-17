@@ -1,972 +1,464 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, animate, type Variants } from "framer-motion";
-import {
-  BatteryCharging,
-  Recycle,
-  TrendingUp,
-  ShieldCheck,
-  Factory,
-  Truck,
-  Zap,
-  Building2,
-  FileCheck2,
-  Handshake,
-  Layers,
-  ArrowRight,
-  Leaf,
-  FlaskConical,
-  Flame,
-  ClipboardCheck,
-  Gauge,
-  MapPin,
-} from "lucide-react";
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Cell,
-} from "recharts";
 import StickyContactForm from "@/components/StickyContactForm";
-import Seo from "@/components/Seo";
-
-/* ------------------------------------------------------------------ */
-/*  Shared motion helpers                                              */
-/* ------------------------------------------------------------------ */
+import { motion, Variants } from "framer-motion";
+import {
+  ShieldCheck,
+  AlertTriangle,
+  FileCheck2,
+  Battery,
+  BatteryCharging,
+  ClipboardCheck,
+  Truck,
+  Scale,
+  XCircle,
+  CheckCircle2,
+  ArrowRight,
+  Landmark,
+  Warehouse,
+  Recycle,
+  HelpCircle,
+  Gauge,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.06, ease: "easeOut" },
+  }),
 };
 
-const staggerParent: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-function Reveal({
-  children,
-  className = "",
-  delay = 0,
+function SectionHeading({
+  eyebrow,
+  title,
+  icon: Icon,
 }: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
+  eyebrow: string;
+  title: string;
+  icon: LucideIcon;
 }) {
-  const revealVariants: Variants = {
-    hidden: { opacity: 0, y: 28 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut", delay },
-    },
-  };
-
   return (
-    <motion.div
-      className={className}
+    <div className="flex items-start gap-4 mb-6">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brandGreen/10 text-brandGreen">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-brandGreen">
+          {eyebrow}
+        </p>
+        <h2 className="font-display text-2xl sm:text-3xl font-semibold text-foreground mt-1">
+          {title}
+        </h2>
+      </div>
+    </div>
+  );
+}
+
+function Section({
+  id,
+  children,
+  index,
+}: {
+  id: string;
+  children: React.ReactNode;
+  index: number;
+}) {
+  return (
+    <motion.section
+      id={id}
+      className="scroll-mt-24"
       initial="hidden"
-      whileInView="show"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={revealVariants}
+      custom={index}
+      variants={fadeUp}
     >
       {children}
-    </motion.div>
+    </motion.section>
   );
 }
 
-/* Animated count-up number, triggers once when scrolled into view */
-function Counter({
-  to,
-  prefix = "",
-  suffix = "",
-  decimals = 0,
-}: {
-  to: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [display, setDisplay] = useState("0");
-
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, {
-      duration: 1.6,
-      ease: "easeOut",
-      onUpdate: (v) => setDisplay(v.toFixed(decimals)),
-    });
-    return () => controls.stop();
-  }, [inView, to, decimals]);
-
-  return (
-    <span ref={ref}>
-      {prefix}
-      {display}
-      {suffix}
-    </span>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Data — sourced from IMARC Group, Fortune Business Insights,        */
-/*  P&S Intelligence, IndexBox and CPCB / BWMR 2022 public reporting.   */
-/*  See "Sources" note at the bottom of the page.                      */
-/* ------------------------------------------------------------------ */
-
-const marketGrowthData = [
-  { year: "2020", value: 398.8 },
-  { year: "2025", value: 603.9 },
-  { year: "2030", value: 914.5 },
-  { year: "2034", value: 1323.4 },
+const storageRisks = [
+  {
+    icon: AlertTriangle,
+    title: "Unlabeled or mixed chemistries",
+    body: "Lead-acid and lithium-ion cells stored together without clear labeling create fire and acid-leak risks, and make it impossible for a registered recycler to quote an accurate price.",
+  },
+  {
+    icon: Warehouse,
+    title: "No secondary containment",
+    body: "Battery Waste Management Rules, 2022 requires waste batteries to be stored in a manner that prevents damage, leakage, and environmental contamination before collection.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Missing waste inventory records",
+    body: "Auditors and recyclers both expect a running log of battery type, quantity, and date of decommissioning. Without it, buyers discount your offer to cover their own compliance risk.",
+  },
 ];
 
-const chemistryShareData = [
-  { name: "Lead-Acid", value: 46.8 },
-  { name: "Other chemistries", value: 53.2 },
+const complianceChecklist = [
+  "Segregate lead-acid, lithium-ion, and other chemistries in clearly marked, ventilated storage areas",
+  "Keep terminals insulated or capped to prevent short circuits during storage and transport",
+  "Maintain a battery waste register with acquisition date, chemistry, weight, and condition",
+  "Store away from heat sources, direct sunlight, and incompatible chemicals",
+  "Use spill trays or acid-resistant flooring for lead-acid battery storage",
+  "Verify the buyer's CPCB or State Pollution Control Board registration before releasing stock",
+  "Insist on a manifest or transport document for every outbound consignment",
+  "Retain copies of EPR-linked recycling certificates issued after the sale",
 ];
 
-const feedstockGapData = [
-  { name: "Available Li-ion feedstock", tonnes: 30000 },
-  { name: "Processed by formal recyclers", tonnes: 15000 },
+const sellSteps = [
+  {
+    title: "Audit your inventory",
+    body: "Count units by chemistry, capacity, and condition. A clean inventory sheet is the single biggest driver of a fast, fair quote.",
+  },
+  {
+    title: "Confirm the buyer's registration",
+    body: "Only sell to entities registered as recyclers or refurbishers under the Battery Waste Management Rules, 2022. Ask for their CPCB registration number directly.",
+  },
+  {
+    title: "Request a documented quote",
+    body: "A credible buyer prices lead-acid by weight and lithium-ion by chemistry, capacity, and residual charge, and puts the basis of the quote in writing.",
+  },
+  {
+    title: "Arrange compliant transport",
+    body: "Batteries are transported as hazardous waste under manifest documentation, with proper packaging to prevent short-circuit or leakage in transit.",
+  },
+  {
+    title: "Collect your EPR certificate",
+    body: "Once processed, a registered recycler can issue documentation confirming the battery waste was recycled, which your company can retain for its own compliance records.",
+  },
 ];
 
-const CHART_GREEN = "#5AC361";
-const CHART_MUTED = "#B7C3B9";
+const nonComplianceRisks = [
+  {
+    icon: Scale,
+    title: "Environmental compensation",
+    body: "Selling to unregistered dealers can expose a company to environmental compensation and enforcement action under the Environment (Protection) Act, 1986.",
+  },
+  {
+    icon: XCircle,
+    title: "Loss of EPR credit",
+    body: "Waste sold outside the formal system generates no EPR certificate, which means the producer or brand owner up the chain cannot claim recycling credit for it.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Workplace safety incidents",
+    body: "Improperly stored or handled lithium-ion waste is a documented fire risk; damaged cells can go into thermal runaway even while idle in a warehouse.",
+  },
+];
 
-/* ------------------------------------------------------------------ */
-/*  1. Hero                                                             */
-/* ------------------------------------------------------------------ */
+const faqs = [
+  {
+    q: "Can any scrap dealer legally buy our industrial batteries?",
+    a: "No. Under the Battery Waste Management Rules, 2022, waste batteries can only be handed over to entities registered as recyclers, refurbishers, or authorised collection agents. A generic scrap dealer without this registration is not a compliant outlet, even if they offer a competitive price.",
+  },
+  {
+    q: "Do lithium-ion and lead-acid batteries follow the same disposal process?",
+    a: "Both fall under the same rulebook, but they are handled differently in practice. Lead-acid batteries are valued largely by lead content and weight, while lithium-ion batteries are assessed by chemistry, cell health, and recoverable metals such as cobalt, nickel, and lithium.",
+  },
+  {
+    q: "What paperwork should we receive after the sale?",
+    a: "At minimum, expect a signed transport manifest and, once processing is complete, documentation from the recycler confirming the batch was recycled. Keep both with your internal compliance records.",
+  },
+  {
+    q: "How long can we store used batteries before selling them?",
+    a: "The rules do not fix a single universal holding period, but batteries should not be stockpiled indefinitely in conditions that risk leakage, corrosion, or fire. Selling in planned batches to a registered recycler is safer than long-term accumulation.",
+  },
+];
 
-function HeroSection() {
+export default function LegallySellIndustrialBatteriesBlog() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/5 via-background to-brandGreen/10 px-6 py-14 sm:px-10 sm:py-20">
-      {/* ambient decorative circuit-style svg, not a photo */}
-      <svg
-        className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 opacity-[0.07] sm:h-96 sm:w-96"
-        viewBox="0 0 200 200"
-        fill="none"
-      >
-        <circle
-          cx="100"
-          cy="100"
-          r="90"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="text-brandGreen"
-        />
-        <circle
-          cx="100"
-          cy="100"
-          r="60"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="text-primary"
-        />
-        <circle
-          cx="100"
-          cy="100"
-          r="30"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="text-brandGreen"
-        />
-        <path
-          d="M100 10V190M10 100H190"
-          stroke="currentColor"
-          strokeWidth="1"
-          className="text-primary"
-        />
-      </svg>
-
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={staggerParent}
-        className="relative max-w-3xl"
-      >
-        <motion.span
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-brandGreen/30 bg-brandGreen/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brandGreen"
-        >
-          <Recycle className="h-3.5 w-3.5" />
-          Battery Scrap &amp; EPR Insight
-        </motion.span>
-
-        <motion.h1
-          variants={fadeUp}
-          className="mt-6 font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl"
-        >
-          Sell Batteries: Market Analysis &amp; Business Opportunity
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          A practical, step-by-step look at the market and business case for
-          battery scrap — built for{" "}
-          <span className="font-semibold text-foreground">producers</span>,{" "}
-          <span className="font-semibold text-foreground">recyclers</span>, and{" "}
-          <span className="font-semibold text-foreground">
-            PROs (Producer Responsibility Organisations)
-          </span>{" "}
-          navigating India&apos;s Battery Waste Management Rules, 2022.
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-8 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Talk to our team
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <span className="text-sm text-muted-foreground">
-            Our full deep-dive report is in final review — reach out for
-            immediate guidance in the meantime.
-          </span>
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  2. Market snapshot — animated stat cards                           */
-/* ------------------------------------------------------------------ */
-
-function MarketSnapshotSection() {
-  const stats = [
-    {
-      icon: TrendingUp,
-      value: <Counter to={603.9} prefix="$" suffix="M" decimals={1} />,
-      label: "India battery recycling market size, 2025",
-      sub: "Growing at ~8.65% CAGR through 2034",
-    },
-    {
-      icon: Factory,
-      value: <Counter to={670} suffix="+" />,
-      label: "CPCB-authorised lead-acid recyclers in India",
-      sub: "Combined capacity of 3.5M+ tonnes per annum",
-    },
-    {
-      icon: ShieldCheck,
-      value: <Counter to={90} suffix="%" />,
-      label: "Mandatory material recovery for EV batteries",
-      sub: "Required by FY 2026–27 under CPCB norms",
-    },
-    {
-      icon: Gauge,
-      value: <Counter to={99} suffix="%" />,
-      label: "Recycling rate of lead-acid batteries",
-      sub: "In mature closed-loop markets like the US",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          The market, in numbers
-        </h2>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          Real figures from current industry reporting — no projections dressed
-          up as facts.
-        </p>
-      </Reveal>
-
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={staggerParent}
-        className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {stats.map((s, i) => (
+    <div className="bg-background min-h-screen">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-border mt-[60px]">
+        <div className="absolute inset-0 bg-gradient-to-br from-brandGreen/10 via-background to-secondary/10" />
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
           <motion.div
-            key={i}
-            variants={fadeUp}
-            className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            <s.icon className="h-6 w-6 text-brandGreen" />
-            <div className="mt-4 font-display text-3xl font-bold text-foreground">
-              {s.value}
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-4">
+              <span>Sell Batteries</span>
+              <span>/</span>
+              <span className="text-brandGreen">Compliance Guide</span>
             </div>
-            <p className="mt-2 text-sm font-medium text-foreground">
-              {s.label}
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Is Your Stored Lead-Acid and Lithium Waste Compliant? How to
+              Legally Sell Industrial Batteries for Maximum Returns
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+              Every pallet of spent industrial batteries sitting in a
+              warehouse is both a liability and an asset. Sell it the wrong
+              way and you risk penalties and safety incidents. Sell it the
+              right way and you turn hazardous waste into documented,
+              audit-ready revenue.
             </p>
-            <p className="mt-1 text-xs text-muted-foreground">{s.sub}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  3. Growth chart — India market trajectory                          */
-/* ------------------------------------------------------------------ */
-
-function GrowthChartSection() {
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="grid grid-cols-1 gap-8 lg:grid-cols-5">
-        <div className="lg:col-span-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-brandGreen">
-            Trajectory
-          </span>
-          <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
-            India&apos;s battery recycling market is on a decade-long climb
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Market value has grown from roughly $398.8M in 2020 to $603.9M in
-            2025, and is projected to reach $1,323.4M by 2034 — driven by EV
-            retirements, EPR enforcement under BWMR 2022, and demand for
-            domestically recovered critical minerals.
-          </p>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Source: IMARC Group, 2026
-          </p>
-        </div>
-        <div className="h-72 rounded-2xl border border-border bg-card p-4 lg:col-span-3">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={marketGrowthData}
-              margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                className="stroke-border"
-              />
-              <XAxis
-                dataKey="year"
-                tick={{ fontSize: 12 }}
-                stroke="currentColor"
-                className="text-muted-foreground"
-              />
-              <YAxis
-                tick={{ fontSize: 12 }}
-                stroke="currentColor"
-                className="text-muted-foreground"
-              />
-              <Tooltip
-                formatter={(v: number) => [`$${v}M`, "Market size"]}
-                contentStyle={{
-                  borderRadius: 12,
-                  border: "1px solid hsl(var(--border))",
-                }}
-              />
-              <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                {marketGrowthData.map((_, i) => (
-                  <Cell
-                    key={i}
-                    fill={
-                      i === marketGrowthData.length - 1
-                        ? CHART_GREEN
-                        : "hsl(var(--primary))"
-                    }
-                  />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  4. Chemistry & feedstock breakdown                                 */
-/* ------------------------------------------------------------------ */
-
-function SegmentBreakdownSection() {
-  return (
-    <section className="py-12 sm:py-16">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <Reveal className="rounded-2xl border border-border bg-card p-6">
-          <span className="text-xs font-semibold uppercase tracking-wide text-brandGreen">
-            By chemistry
-          </span>
-          <h3 className="mt-2 font-display text-xl font-bold text-foreground">
-            Lead-acid still leads, for now
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Lead-acid holds 46.8% of India&apos;s battery recycling market
-            (2025), backed by mature collection networks. Lithium-ion is the
-            fastest-growing chemistry as EV fleets retire.
-          </p>
-          <div className="mt-5 h-40">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={chemistryShareData}
-                layout="vertical"
-                margin={{ left: 10 }}
-              >
-                <XAxis
-                  type="number"
-                  domain={[0, 100]}
-                  tick={{ fontSize: 11 }}
-                  hide
-                />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  tick={{ fontSize: 12 }}
-                  width={140}
-                  stroke="currentColor"
-                  className="text-muted-foreground"
-                />
-                <Tooltip formatter={(v: number) => [`${v}%`, "Share"]} />
-                <Bar dataKey="value" radius={[0, 8, 8, 0]}>
-                  <Cell fill={CHART_GREEN} />
-                  <Cell fill={CHART_MUTED} />
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Source: IMARC Group, 2025
-          </p>
-        </Reveal>
-
-        <Reveal
-          delay={0.1}
-          className="rounded-2xl border border-border bg-card p-6"
-        >
-          <span className="text-xs font-semibold uppercase tracking-wide text-brandGreen">
-            The formal-vs-informal gap
-          </span>
-          <h3 className="mt-2 font-display text-xl font-bold text-foreground">
-            Half of lithium-ion scrap still goes untracked
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Of the estimated 25,000–35,000 tonnes of Li-ion battery waste
-            available in India in 2026, only 12,000–18,000 tonnes reach formal,
-            CPCB-compliant recyclers. The rest is handled informally or
-            stockpiled — a direct opportunity for compliant operators.
-          </p>
-          <div className="mt-5 h-40">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={feedstockGapData}
-                margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-              >
-                <XAxis
-                  dataKey="name"
-                  tick={{ fontSize: 10 }}
-                  interval={0}
-                  stroke="currentColor"
-                  className="text-muted-foreground"
-                />
-                <YAxis
-                  tick={{ fontSize: 11 }}
-                  stroke="currentColor"
-                  className="text-muted-foreground"
-                />
-                <Tooltip
-                  formatter={(v: number) => [
-                    `${v.toLocaleString()} t`,
-                    "Tonnes",
-                  ]}
-                />
-                <Bar dataKey="tonnes" radius={[8, 8, 0, 0]}>
-                  <Cell fill="hsl(var(--primary))" />
-                  <Cell fill={CHART_GREEN} />
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Source: IndexBox, 2026
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  5. Why now — growth drivers                                        */
-/* ------------------------------------------------------------------ */
-
-function WhyNowSection() {
-  const drivers = [
-    {
-      icon: Zap,
-      title: "EV retirements are accelerating",
-      body: "Electric two- and three-wheelers sold between 2018–2022 begin reaching end-of-life after 2028, pushing annual feedstock past 120,000 tonnes by 2030.",
-    },
-    {
-      icon: FileCheck2,
-      title: "EPR enforcement has teeth",
-      body: "Hard compliance targets under the BWMR 2022 Second Amendment take effect from 2027–28, formalising demand for verified recyclers and PROs.",
-    },
-    {
-      icon: FlaskConical,
-      title: "Hydrometallurgy is scaling up",
-      body: "Over 70–80% of new organised recycling capacity uses hydrometallurgical routes, recovering 95%+ of materials including battery-grade lithium carbonate.",
-    },
-    {
-      icon: Leaf,
-      title: "Critical minerals, sourced locally",
-      body: "Recovering lithium, cobalt, nickel, and lead domestically reduces import dependence and supports India\u2019s battery manufacturing push.",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Why the opportunity is opening up now
-        </h2>
-      </Reveal>
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={staggerParent}
-        className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2"
-      >
-        {drivers.map((d, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            className="flex gap-4 rounded-2xl border border-border bg-card p-6"
-          >
-            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brandGreen/10">
-              <d.icon className="h-5 w-5 text-brandGreen" />
-            </div>
-            <div>
-              <h3 className="font-display font-semibold text-foreground">
-                {d.title}
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground">{d.body}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  6. EPR / PRO compliance workflow                                   */
-/* ------------------------------------------------------------------ */
-
-function EPRComplianceSection() {
-  const steps = [
-    {
-      title: "Register with CPCB",
-      body: "Producers and brand owners register on the centralised CPCB EPR portal, declaring battery categories placed on the market.",
-    },
-    {
-      title: "Meet progressive targets",
-      body: "Collection and recycling targets rise each year; EV batteries must hit 90% material recovery by FY 2026–27.",
-    },
-    {
-      title: "Partner or build capacity",
-      body: "Producers either set up their own recycling infrastructure or contract registered recyclers — this is where PROs add the most value.",
-    },
-    {
-      title: "Trade EPR certificates",
-      body: "Verified recycling generates tradeable EPR certificates, letting recyclers monetise compliance and producers close gaps efficiently.",
-    },
-    {
-      title: "Report annually",
-      body: "Annual compliance reports go to CPCB; non-compliance draws environmental compensation penalties.",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="max-w-2xl">
-        <span className="text-xs font-semibold uppercase tracking-wide text-brandGreen">
-          BWMR 2022 · EPR framework
-        </span>
-        <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
-          How the EPR compliance cycle actually works
-        </h2>
-        <p className="mt-3 text-muted-foreground">
-          This is the real sequence PROs help producers and recyclers navigate,
-          from registration to certificate settlement.
-        </p>
-      </Reveal>
-
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-        {steps.map((s, i) => (
-          <Reveal key={i} delay={i * 0.06}>
-            <div className="relative h-full rounded-2xl border border-border bg-card p-5">
-              <span className="font-display text-sm font-bold text-brandGreen">
-                0{i + 1}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                <ShieldCheck className="h-4 w-4" /> EPR Compliant Process
               </span>
-              <h3 className="mt-3 font-display text-base font-semibold text-foreground">
-                {s.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
-              {i < steps.length - 1 && (
-                <ArrowRight className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-border lg:block" />
-              )}
+              <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
+                <BatteryCharging className="h-4 w-4" /> Lead-Acid &amp;
+                Lithium-Ion
+              </span>
             </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  7. Who this is built for                                           */
-/* ------------------------------------------------------------------ */
-
-function AudienceSection() {
-  const audiences = [
-    {
-      icon: Building2,
-      title: "Producers & brand owners",
-      points: [
-        "Meet rising EPR collection & recovery targets without building your own plant",
-        "Source verified EPR certificates instead of absorbing penalty costs",
-        "Get ahead of hard compliance deadlines from 2027–28",
-      ],
-    },
-    {
-      icon: Factory,
-      title: "Recyclers",
-      points: [
-        "Tap a widening feedstock gap — only ~50% of Li-ion scrap reaches formal recyclers",
-        "Move up the value chain with hydrometallurgical processing",
-        "Sell certified EPR certificates as a second revenue stream",
-      ],
-    },
-    {
-      icon: Handshake,
-      title: "PROs",
-      points: [
-        "Aggregate scrap volumes across fragmented informal networks",
-        "Bridge producers with CPCB-authorised recyclers at scale",
-        "Build long-term contracts as enforcement tightens",
-      ],
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Built for every seat at the table
-        </h2>
-      </Reveal>
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={staggerParent}
-        className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3"
-      >
-        {audiences.map((a, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            className="rounded-2xl border border-border bg-card p-6"
-          >
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-              <a.icon className="h-5 w-5 text-primary" />
-            </div>
-            <h3 className="mt-4 font-display text-lg font-semibold text-foreground">
-              {a.title}
-            </h3>
-            <ul className="mt-3 space-y-2">
-              {a.points.map((p, j) => (
-                <li
-                  key={j}
-                  className="flex gap-2 text-sm text-muted-foreground"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brandGreen" />
-                  {p}
-                </li>
-              ))}
-            </ul>
           </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  8. Technology & battery lifecycle                                  */
-/* ------------------------------------------------------------------ */
-
-function TechnologyLifecycleSection() {
-  const lifecycle = [
-    { icon: Zap, label: "Primary use in EV", sub: "8–10 years" },
-    {
-      icon: Layers,
-      label: "Second-life in stationary storage",
-      sub: "6–10 more years",
-    },
-    {
-      icon: Recycle,
-      label: "Recycling & material recovery",
-      sub: "Full recovery cycle",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          One battery, three life stages
-        </h2>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          The economic case for recycling gets stronger when scrap is captured
-          at the right stage of a battery&apos;s life, not just at the very end.
-        </p>
-      </Reveal>
-
-      <div className="mt-8 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-3">
-        {lifecycle.map((l, i) => (
-          <Reveal key={i} delay={i * 0.1}>
-            <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-card p-6 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brandGreen/10">
-                <l.icon className="h-6 w-6 text-brandGreen" />
-              </div>
-              <h3 className="mt-4 font-display font-semibold text-foreground">
-                {l.label}
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground">{l.sub}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Reveal className="rounded-2xl border border-border bg-card p-6">
-          <div className="flex items-center gap-3">
-            <FlaskConical className="h-5 w-5 text-brandGreen" />
-            <h3 className="font-display font-semibold text-foreground">
-              Hydrometallurgical
-            </h3>
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Chemical leaching and precipitation. Now 70–80% of new Indian
-            recycling capacity, with 95%+ material recovery including
-            battery-grade lithium carbonate.
-          </p>
-        </Reveal>
-        <Reveal
-          delay={0.1}
-          className="rounded-2xl border border-border bg-card p-6"
-        >
-          <div className="flex items-center gap-3">
-            <Flame className="h-5 w-5 text-muted-foreground" />
-            <h3 className="font-display font-semibold text-foreground">
-              Pyrometallurgical
-            </h3>
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            High-temperature smelting. Once the default route; declining in
-            share as lithium loss makes it less economical against
-            hydrometallurgical alternatives.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  9. Market players                                                  */
-/* ------------------------------------------------------------------ */
-
-function MarketPlayersSection() {
-  const players = [
-    {
-      name: "Lohum Cleantech",
-      fact: "~70% share of India\u2019s formal lithium-ion recycling segment",
-    },
-    {
-      name: "Attero Recycling",
-      fact: "Committed $361.5M over 5 years toward capacity expansion",
-    },
-    {
-      name: "Gravita India",
-      fact: "Leads the organised lead-acid recycling segment",
-    },
-    {
-      name: "Exide Industries",
-      fact: "Extending its dealer network into lithium-ion collection",
-    },
-    {
-      name: "Amara Raja Energy & Mobility",
-      fact: "Leveraging 12,000+ dealer touchpoints for reverse logistics",
-    },
-    {
-      name: "RecycleKaro & Rubamin",
-      fact: "Among the few producing battery-grade output domestically",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Who&apos;s already building this market
-        </h2>
-      </Reveal>
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={staggerParent}
-        className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {players.map((p, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            className="rounded-2xl border border-border bg-card p-5"
-          >
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-brandGreen" />
-              <h3 className="font-display font-semibold text-foreground">
-                {p.name}
-              </h3>
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground">{p.fact}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  10. Final CTA                                                       */
-/* ------------------------------------------------------------------ */
-
-function FinalCTASection() {
-  return (
-    <section id="contact" className="py-12 sm:py-16">
-      <Reveal className="relative overflow-hidden rounded-3xl bg-primary px-6 py-12 text-primary-foreground sm:px-12 sm:py-16">
-        <div className="relative max-w-2xl">
-          <div className="flex items-center gap-2 text-sm font-medium opacity-90">
-            <BatteryCharging className="h-4 w-4" />
-            Deep-dive report in progress
-          </div>
-          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">
-            Our full market deep-dive is being finalised
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed opacity-90 sm:text-base">
-            In the meantime, our team can walk you through EPR compliance
-            timelines, recycler partnerships, or feedstock sourcing specific to
-            your business — as a producer, recycler, or PRO.
-          </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-background px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Get immediate guidance
-            <ArrowRight className="h-4 w-4" />
-          </a>
         </div>
-        <ClipboardCheck className="pointer-events-none absolute -right-6 -bottom-6 h-40 w-40 opacity-10 sm:h-48 sm:w-48" />
-      </Reveal>
+      </section>
 
-      <p className="mt-8 text-center text-xs text-muted-foreground">
-        Sources: IMARC Group · Fortune Business Insights · P&amp;S Intelligence
-        · Mordor Intelligence · IndexBox · Global Market Insights · CPCB /
-        Battery Waste Management Rules, 2022. Figures reflect the most recent
-        public reporting available as of 2026 and are subject to revision as new
-        data is published.
-      </p>
-    </section>
-  );
-}
+      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 py-12">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <main className="flex-1 min-w-0 space-y-16">
+            <Section id="intro" index={0}>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Industrial and commercial operations across India accumulate
+                used batteries faster than most facilities managers realise:
+                UPS banks reach end of life, forklift and telecom batteries
+                are swapped out, and decommissioned equipment leaves lithium
+                packs behind. The Battery Waste Management Rules, 2022
+                brought all of this under a single Extended Producer
+                Responsibility framework, which means the way you store,
+                document, and sell this waste is no longer a back-office
+                detail. It is a compliance obligation with real financial
+                upside when done correctly.
+              </p>
+            </Section>
 
-/* ------------------------------------------------------------------ */
-/*  Page composition                                                    */
-/* ------------------------------------------------------------------ */
+            <Section id="why-compliance-matters" index={1}>
+              <SectionHeading
+                eyebrow="Regulatory context"
+                title="Why battery compliance is now a boardroom issue"
+                icon={Landmark}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Before 2022, waste battery management in India was governed
+                by rules dating back to 2001, written for a market with far
+                less lithium-ion penetration. The Battery Waste Management
+                Rules, 2022, notified by the Ministry of Environment, Forest
+                and Climate Change, replaced that framework and extended
+                Extended Producer Responsibility to cover portable,
+                automotive, industrial, and electric vehicle batteries alike.
+                For any company generating battery waste, this means the
+                counterparty you sell to, and the paper trail you keep, are
+                now directly tied to national recycling targets.
+              </p>
+            </Section>
 
-export default function SellBatteriesBlog() {
-  return (
-    <div className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 lg:flex-row lg:gap-10">
-          {/* Main content column */}
-          <Seo
-            title="Sell Batteries: Market Analysis & Business Opportunity"
-            description="Explore the growing battery recycling and resale market with detailed market analysis, business opportunities, demand trends, pricing insights, and profitable strategies for selling batteries in India."
-            keywords={[
-              "Sell Batteries",
-              "Battery Market Analysis",
-              "Battery Business Opportunity",
-              "Battery Recycling",
-              "Used Battery Buyers",
-              "Battery Waste Management",
-              "Battery Trading",
-              "Lead Acid Battery Recycling",
-              "Lithium Ion Battery Recycling",
-              "Battery Scrap Business",
-              "Battery Collection",
-              "Battery Market Trends",
-              "Circular Economy",
-              "Battery Recycling Business",
-              "Battery Trading India",
-              "How to sell used batteries?",
-              "Is the battery recycling business profitable?",
-              "How to start a battery recycling business?",
-              "Where to sell battery scrap in India?",
-              "How to identify profitable battery markets?",
-              "Battery business opportunities in India",
-              "How to earn from battery recycling?",
-              "Battery market trends 2026",
-              "Best battery buyers in India",
-              "How to grow a battery trading business?",
-            ]}
-            url="https://eprnexuss.com/blog/sell-batteries-analysis"
-            type="article"
-          />
-          <main className="min-w-0 flex-1">
-            <HeroSection />
-            <MarketSnapshotSection />
-            <GrowthChartSection />
-            <SegmentBreakdownSection />
-            <WhyNowSection />
-            <EPRComplianceSection />
-            <AudienceSection />
-            <TechnologyLifecycleSection />
-            <MarketPlayersSection />
-            <FinalCTASection />
+            <Section id="storage-risks" index={2}>
+              <SectionHeading
+                eyebrow="Before the sale"
+                title="Common storage mistakes that create compliance risk"
+                icon={Warehouse}
+              />
+              <div className="grid sm:grid-cols-2 gap-5 mt-2">
+                {storageRisks.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-border bg-card p-5 hover:border-brandGreen/40 transition-colors"
+                  >
+                    <item.icon className="h-5 w-5 text-brandGreen mb-3" />
+                    <h3 className="font-display font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="chemistry-differences" index={3}>
+              <SectionHeading
+                eyebrow="Know your waste"
+                title="Lead-acid vs. lithium-ion: different risks, different value"
+                icon={Battery}
+              />
+              <div className="grid sm:grid-cols-2 gap-5 mt-2">
+                <div className="rounded-2xl bg-primary/5 border border-primary/20 p-6">
+                  <h3 className="font-display font-semibold text-foreground mb-2">
+                    Lead-acid batteries
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Heavy, corrosive, and highly recyclable, lead-acid
+                    batteries are valued primarily on weight and lead
+                    content. Nearly all of the lead and plastic casing in a
+                    properly processed unit can be recovered, which is why
+                    formal recyclers can offer stable, predictable pricing.
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-secondary/10 border border-secondary/30 p-6">
+                  <h3 className="font-display font-semibold text-foreground mb-2">
+                    Lithium-ion batteries
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Valued for recoverable cobalt, nickel, copper, and
+                    lithium, but priced with more variability, since state
+                    of health, cell swelling, and chemistry (LFP vs NMC, for
+                    example) all change what a recycler can safely extract.
+                  </p>
+                </div>
+              </div>
+            </Section>
+
+            <Section id="checklist" index={4}>
+              <SectionHeading
+                eyebrow="Get audit-ready"
+                title="The pre-sale compliance checklist"
+                icon={ClipboardCheck}
+              />
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <ul className="space-y-3">
+                  {complianceChecklist.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brandGreen shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground/90 leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Section>
+
+            <Section id="how-to-sell" index={5}>
+              <SectionHeading
+                eyebrow="Step by step"
+                title="How to legally sell industrial battery waste"
+                icon={Truck}
+              />
+              <div className="space-y-4 mt-2">
+                {sellSteps.map((step, idx) => (
+                  <div
+                    key={step.title}
+                    className="flex gap-4 rounded-2xl border border-border bg-card p-5"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brandGreen text-white font-display font-semibold text-sm">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-display font-semibold text-foreground">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                        {step.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="risks" index={6}>
+              <SectionHeading
+                eyebrow="What's at stake"
+                title="The real cost of selling to unregistered buyers"
+                icon={AlertTriangle}
+              />
+              <div className="grid sm:grid-cols-3 gap-5 mt-2">
+                {nonComplianceRisks.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-destructive/20 bg-destructive/5 p-5"
+                  >
+                    <item.icon className="h-5 w-5 text-destructive mb-3" />
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="maximise-returns" index={7}>
+              <SectionHeading
+                eyebrow="Get the best price"
+                title="How to maximise returns without cutting corners"
+                icon={Gauge}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Compliance and profitability are not competing goals. A
+                registered recycler needs accurate volume and chemistry data
+                to plan logistics and processing, so a well-documented,
+                pre-sorted consignment consistently attracts a better quote
+                than a mixed, undocumented pile. Selling in consolidated
+                batches, keeping cells uncontaminated by moisture or
+                physical damage, and negotiating directly with a registered
+                processor instead of a middleman all protect your margin.
+              </p>
+            </Section>
+
+            <Section id="how-epr-nexuss-helps" index={8}>
+              <SectionHeading
+                eyebrow="Where we fit in"
+                title="How EPR Nexuss simplifies the process"
+                icon={Recycle}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                EPR Nexuss works with verified, registered recyclers across
+                India to help businesses move stored battery waste through a
+                documented, compliant channel. Instead of chasing down
+                registration certificates yourself, you get connected to a
+                vetted recycling partner, along with the paperwork trail
+                your compliance and finance teams will ask for later.
+              </p>
+            </Section>
+
+            <Section id="faqs" index={9}>
+              <SectionHeading
+                eyebrow="Questions we hear often"
+                title="Frequently asked questions"
+                icon={HelpCircle}
+              />
+              <div className="space-y-4">
+                {faqs.map((item) => (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-border bg-card p-5"
+                  >
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.q}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="conclusion" index={10}>
+              <div className="rounded-2xl bg-primary text-primary-foreground p-8">
+                <h2 className="font-display text-2xl font-semibold">
+                  Ready to clear your battery inventory the right way?
+                </h2>
+                <p className="mt-3 text-primary-foreground/90 leading-relaxed">
+                  Talk to EPR Nexuss about connecting your stored lead-acid
+                  and lithium-ion batteries with a registered recycler, so
+                  you get a fair, documented price and stay on the right
+                  side of the Battery Waste Management Rules, 2022.
+                </p>
+                <a href="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-white text-primary px-5 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors">
+                  Get a compliant quote <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </Section>
           </main>
 
-          {/* Sticky contact form — desktop/tablet only, scrolls with page then sticks */}
-          <aside
-            id="contact-form"
-            className="hidden w-full flex-none lg:block lg:w-80 xl:w-96"
-          >
-            <div className="sticky top-28">
+          <aside className="w-full lg:w-[320px] lg:shrink-0">
+            <div className="lg:sticky lg:top-24">
               <StickyContactForm />
             </div>
           </aside>
-        </div>
-
-        {/* Mobile inline form fallback — sticky sidebar isn't usable on small screens */}
-        <div className="mt-10 lg:hidden">
-          <StickyContactForm />
         </div>
       </div>
     </div>

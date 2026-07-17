@@ -1,938 +1,419 @@
 "use client";
 
-import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from "recharts";
-import {
-  Handshake,
-  Clock,
+  LineChart,
   ShieldCheck,
-  TrendingUp,
-  Users,
-  FileCheck2,
-  Recycle,
-  AlertTriangle,
-  ArrowRight,
-  Layers,
-  Building2,
-  BadgeCheck,
+  Globe2,
+  Users2,
+  Repeat,
+  BarChart3,
+  Compass,
+  Sparkles,
 } from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
 
-/* ------------------------------------------------------------------ */
-/*  Shared animation variants                                          */
-/* ------------------------------------------------------------------ */
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
 };
 
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-/* ------------------------------------------------------------------ */
-/*  Illustrations — custom vector art, no stock photography            */
-/* ------------------------------------------------------------------ */
-
-/** Hero illustration: a business handing off compliance workload to a
- *  specialist partner, freeing the business to keep growing. */
-function DelegationIllustration() {
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
   return (
-    <svg
-      viewBox="0 0 520 340"
-      className="w-full h-full max-h-96"
-      role="img"
-      aria-label="Illustration of a business delegating compliance paperwork to a specialist partner while its own growth curve rises"
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
     >
-      {/* your business node */}
-      <g transform="translate(110,170)">
-        <circle r="62" fill="hsl(var(--card))" stroke="hsl(var(--border))" />
-        <path
-          d="M-26 18 L-10 -6 L6 6 L26 -22"
-          stroke="hsl(var(--primary))"
-          strokeWidth="5"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M14 -22 L26 -22 L26 -10"
-          stroke="hsl(var(--primary))"
-          strokeWidth="5"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <text
-          x="0"
-          y="46"
-          textAnchor="middle"
-          fontSize="12"
-          fill="hsl(var(--muted-foreground))"
-          fontFamily="sans-serif"
-        >
-          Your business
-        </text>
-      </g>
+      {children}
+    </motion.div>
+  );
+}
 
-      {/* partner node */}
-      <g transform="translate(410,170)">
-        <circle r="62" fill="#5AC361" />
-        <path
-          d="M-16 0 L-4 12 L20 -16"
-          stroke="white"
-          strokeWidth="6"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+function BarRow({ label, width, delay }: { label: string; width: string; delay: number }) {
+  return (
+    <div className="grid items-center gap-3" style={{ gridTemplateColumns: "minmax(0,1fr) minmax(0,2fr) 56px" }}>
+      <div className="text-gray-800 text-[14.5px] font-semibold">{label}</div>
+      <div className="h-4 rounded-full overflow-hidden bg-gray-100">
+        <motion.div
+          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
+          initial={{ width: 0 }}
+          whileInView={{ width }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay }}
         />
-        <text
-          x="0"
-          y="46"
-          textAnchor="middle"
-          fontSize="12"
-          fill="hsl(var(--muted-foreground))"
-          fontFamily="sans-serif"
-        >
-          EPR partner
-        </text>
-      </g>
+      </div>
+      <div className="text-right font-extrabold text-gray-900 text-[14px]">{width}</div>
+    </div>
+  );
+}
 
-      {/* handoff path */}
-      <path
-        d="M172 160 C 250 110, 330 110, 350 158"
-        stroke="hsl(var(--border))"
-        strokeWidth="2"
-        strokeDasharray="4 6"
-        fill="none"
+export default function MarketTrendsBlog() {
+  return (
+    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+      <Seo
+        title="Top Recycling & Compliance Market Trends Shaping Business Today"
+        description="A look at the key recycling, EPR, and sustainability market trends reshaping how businesses compete — and what to do to stay ahead of them."
+        keywords={[
+          "EPR market trends",
+          "recycling industry trends India",
+          "ESG business trends",
+          "circular economy business",
+          "extended producer responsibility trends",
+          "sustainability trends 2026",
+          "EPR Nexuss",
+        ]}
+        url="https://eprnexuss.com/blog/recycling-compliance-market-trends"
+        type="article"
       />
-      {[0.25, 0.5, 0.75].map((t, i) => {
-        const x = 172 + (350 - 172) * t;
-        const y = 160 - Math.sin(t * Math.PI) * 45;
-        return (
-          <g key={i} transform={`translate(${x}, ${y})`}>
-            <rect
-              x="-9"
-              y="-7"
-              width="18"
-              height="14"
-              rx="2"
-              fill="hsl(var(--primary))"
-              opacity={0.55 + i * 0.15}
-            />
-            <path
-              d="M-5 -2 L5 -2 M-5 2 L2 2"
-              stroke="white"
-              strokeWidth="1.4"
-            />
-          </g>
-        );
-      })}
 
-      {/* growth line above business node */}
-      <g transform="translate(60,40)">
-        <polyline
-          points="0,60 30,45 60,52 90,20 120,0"
-          fill="none"
-          stroke="hsl(var(--primary))"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="120" cy="0" r="5" fill="hsl(var(--primary))" />
-      </g>
-    </svg>
-  );
-}
-
-/** "Hidden cost" illustration: one person facing six separate portal
- *  windows — the operational sprawl of managing every stream in-house. */
-function OverloadIllustration() {
-  const portals = [
-    { x: 40, y: 30 },
-    { x: 170, y: 10 },
-    { x: 300, y: 30 },
-    { x: 40, y: 140 },
-    { x: 170, y: 160 },
-    { x: 300, y: 140 },
-  ];
-  return (
-    <svg
-      viewBox="0 0 400 260"
-      className="w-full h-full max-h-96"
-      role="img"
-      aria-label="Illustration of six separate compliance portal windows stacked up, representing operational overload"
-    >
-      {portals.map((p, i) => (
-        <g key={i} transform={`translate(${p.x}, ${p.y})`}>
-          <rect
-            width="80"
-            height="60"
-            rx="8"
-            fill="hsl(var(--card))"
-            stroke="hsl(var(--border))"
-          />
-          <rect
-            width="80"
-            height="14"
-            rx="7"
-            fill={i % 2 === 0 ? "hsl(var(--primary))" : "#5AC361"}
-          />
-          <rect
-            x="10"
-            y="26"
-            width="50"
-            height="6"
-            rx="3"
-            fill="hsl(var(--muted-foreground))"
-            opacity="0.35"
-          />
-          <rect
-            x="10"
-            y="38"
-            width="34"
-            height="6"
-            rx="3"
-            fill="hsl(var(--muted-foreground))"
-            opacity="0.25"
-          />
-        </g>
-      ))}
-      {/* clock in the middle to show time pressure */}
-      <g transform="translate(200,130)">
-        <circle
-          r="34"
-          fill="hsl(var(--background))"
-          stroke="hsl(var(--destructive))"
-          strokeWidth="4"
-        />
-        <line
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="-18"
-          stroke="hsl(var(--destructive))"
-          strokeWidth="4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="0"
-          y1="0"
-          x2="14"
-          y2="8"
-          stroke="hsl(var(--destructive))"
-          strokeWidth="4"
-          strokeLinecap="round"
-        />
-      </g>
-    </svg>
-  );
-}
-
-/** "ROI" illustration: an hourglass tipping into an upward-trending chart —
- *  time reclaimed from compliance becomes time spent on growth. */
-function ReclaimedTimeIllustration() {
-  return (
-    <svg
-      viewBox="0 0 420 300"
-      className="w-full h-full max-h-96"
-      role="img"
-      aria-label="Illustration of an hourglass turning into an upward growth chart, representing time reclaimed for business growth"
-    >
-      <g transform="translate(90,60)">
-        <path
-          d="M-30 -40 L30 -40 L4 0 L30 40 L-30 40 L-4 0 Z"
-          fill="none"
-          stroke="hsl(var(--border))"
-          strokeWidth="4"
-        />
-        <path d="M-22 -32 L22 -32 L2 0 Z" fill="#5AC361" opacity="0.6" />
-        <path
-          d="M-22 32 L22 32 L2 4 Z"
-          fill="hsl(var(--primary))"
-          opacity="0.5"
-        />
-      </g>
-      <g transform="translate(230,40)">
-        <polyline
-          points="0,140 40,110 80,120 120,70 160,90 190,20"
-          fill="none"
-          stroke="hsl(var(--primary))"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="190" cy="20" r="7" fill="#5AC361" />
-        <line
-          x1="0"
-          y1="140"
-          x2="190"
-          y2="140"
-          stroke="hsl(var(--border))"
-          strokeWidth="2"
-        />
-      </g>
-      <path
-        d="M120 100 C 150 100, 170 90, 190 80"
-        stroke="hsl(var(--border))"
-        strokeWidth="2"
-        strokeDasharray="3 5"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Data — grounded in current market research, not invented figures   */
-/* ------------------------------------------------------------------ */
-
-const marketData = [
-  { year: "2024", value: 13.45 },
-  { year: "2026", value: 16.05 },
-  { year: "2029", value: 21.7 },
-  { year: "2033", value: 29.2 },
-];
-
-const timingData = [
-  { scenario: "Clean application", days: 17.5 },
-  { scenario: "With CPCB queries", days: 37.5 },
-];
-
-const partnerServices = [
-  {
-    icon: Layers,
-    title: "Category & stream mapping",
-    body: "Working out exactly which of the six EPR streams — plastic, e-waste, battery, tyre, used oil, or C&D — apply to your products before anything is filed.",
-  },
-  {
-    icon: FileCheck2,
-    title: "Registration & documentation",
-    body: "Handling PAN, GST, authorisation letters and category selection, so the most common cause of application rejection never reaches your desk.",
-  },
-  {
-    icon: Recycle,
-    title: "Recycler & certificate sourcing",
-    body: "Maintaining live relationships with CPCB-registered recyclers and processors, so certificates are verified before purchase, not after an audit flags them.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Audit-ready record keeping",
-    body: "Reconciling invoices and certificates continuously, in step with the invoice-level verification that Registered Environment Auditors now expect.",
-  },
-  {
-    icon: Clock,
-    title: "Quarterly & annual filing",
-    body: "Tracking every due date across every stream, so a NIL return or a quarterly filing never quietly slips past a deadline.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Regulatory change monitoring",
-    body: "Following amendments as they land — like 2025's battery marking update or 2026's plastic certificate verification rules — so your compliance plan doesn't age out mid-year.",
-  },
-];
-
-const comparison = [
-  {
-    inhouse:
-      "One or more staff hours spent tracking six separate CPCB portals and their filing calendars.",
-    outsourced:
-      "A single point of contact who already tracks all six portals for multiple clients.",
-  },
-  {
-    inhouse:
-      "Category-selection mistakes discovered only when the application is rejected.",
-    outsourced:
-      "Category and documentation checked against CPCB requirements before submission.",
-  },
-  {
-    inhouse:
-      "Recycler relationships built and vetted from scratch, with no way to verify registration in bulk.",
-    outsourced:
-      "Existing, verified recycler and processor network ready to fulfil targets immediately.",
-  },
-  {
-    inhouse:
-      "Regulatory amendments tracked reactively, often after a deadline has already moved.",
-    outsourced:
-      "Amendments monitored as part of the service, with your compliance plan updated proactively.",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Page                                                               */
-/* ------------------------------------------------------------------ */
-export default function EPROutsourcingBlog() {
-  return (
-    <div className="w-full bg-background text-foreground pt-24 md:pt-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
-          <Seo
-            title="Why More Businesses Are Outsourcing EPR Compliance to Industry Experts"
-            description="Discover why businesses are outsourcing EPR compliance to industry experts to reduce compliance risks, save time, ensure regulatory compliance, and focus on sustainable business growth."
-            keywords={[
-              "EPR Compliance",
-              "EPR Consulting",
-              "EPR Compliance Services",
-              "Outsourced EPR Compliance",
-              "Extended Producer Responsibility",
-              "Business Growth",
-              "Lead Generation",
-              "Environmental Compliance",
-              "CPCB EPR Registration",
-              "EPR Consultants India",
-              "Waste Management Compliance",
-              "Regulatory Compliance",
-              "Business Compliance Solutions",
-              "Sustainability Consulting",
-              "EPR Management",
-              "Why outsource EPR compliance?",
-              "How can EPR consultants help businesses?",
-              "Who needs EPR compliance services?",
-              "How to simplify EPR compliance?",
-              "Benefits of outsourcing EPR compliance",
-              "How to stay compliant with EPR regulations?",
-              "How to reduce EPR compliance risks?",
-              "Best EPR compliance consultants in India",
-              "How to save time with EPR compliance?",
-              "Why businesses choose EPR experts?",
-            ]}
-            url="https://eprnexuss.com/blog/business-growth-dpr"
-            type="article"
-          />
-          {/* ============================================================ */}
-          {/*  MAIN CONTENT                                                 */}
-          {/* ============================================================ */}
-          <main className="flex-1 min-w-0 pb-24">
-            {/* 1. HERO ------------------------------------------------- */}
-            <motion.section
-              initial="hidden"
-              animate="show"
-              variants={stagger}
-              className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-background to-brandGreen/10 p-6 sm:p-10 md:p-14"
+      <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
+        {/* Banner */}
+        <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-secondary/80 to-secondary shadow-lg">
+          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
+          <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
+          <div className="relative z-10 px-6 sm:px-16 py-16 sm:py-24 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 mb-6"
             >
-              <motion.span
-                variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full bg-brandGreen/15 px-4 py-1.5 text-xs font-medium text-brandGreen"
-              >
-                <Handshake className="h-3.5 w-3.5" />
-                Business growth & lead generation
-              </motion.span>
-
-              <motion.h1
-                variants={fadeUp}
-                className="font-display mt-6 text-3xl sm:text-4xl md:text-6xl font-semibold leading-[1.1] tracking-tight"
-              >
-                Why More Businesses Are Outsourcing{" "}
-                <span className="text-primary">EPR Compliance</span> to Industry
-                Experts
-              </motion.h1>
-
-              <motion.p
-                variants={fadeUp}
-                className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground"
-              >
-                Managing EPR internally means tracking six regulatory streams,
-                multiple CPCB portals, and a calendar of filings that changes
-                every year. Here's why a growing number of businesses are
-                handing that workload to specialists instead — and what it
-                actually frees them up to do.
-              </motion.p>
-
-              <motion.div
-                variants={fadeUp}
-                className="mt-8 flex flex-wrap gap-3"
-              >
-                <a
-                  href="#services"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  See what a partner handles
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href="#comparison"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-medium text-foreground hover:bg-muted"
-                >
-                  In-house vs outsourced
-                </a>
-              </motion.div>
-
-              <motion.div
-                variants={fadeUp}
-                className="mt-10 overflow-hidden rounded-2xl border border-border bg-muted/20 flex items-center justify-center py-6"
-              >
-                <DelegationIllustration />
-              </motion.div>
-            </motion.section>
-
-            {/* 2. QUICK STATS -------------------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4"
+              <LineChart className="w-8 h-8 text-white" />
+            </motion.div>
+            <div className="inline-block px-3 py-1.5 rounded-full text-[13px] font-bold tracking-wide mb-5 text-white bg-white/15 border border-white/20">
+              Business Growth &amp; Lead Generation
+            </div>
+            <h1
+              className="font-display font-extrabold text-white mb-4 tracking-tight"
+              style={{ fontSize: "clamp(28px, 4.2vw, 50px)", lineHeight: 1.1 }}
             >
-              {[
-                {
-                  value: "$29.2B",
-                  label:
-                    "Projected outsourced compliance services market by 2033",
-                },
-                {
-                  value: "90%",
-                  label:
-                    "Of compliance leaders expect operating costs to keep rising",
-                },
-                {
-                  value: "74%",
-                  label:
-                    "Of companies outsource mainly for specialised expertise",
-                },
-                {
-                  value: "6",
-                  label:
-                    "Separate EPR streams a business may need to track at once",
-                },
-              ].map((s) => (
-                <motion.div
-                  key={s.label}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-border bg-card p-5 text-center"
-                >
-                  <div className="font-display text-2xl sm:text-3xl font-semibold text-primary">
-                    {s.value}
-                  </div>
-                  <div className="mt-2 text-xs sm:text-sm text-muted-foreground">
-                    {s.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.section>
+              Top Recycling &amp; Compliance
+              <br className="hidden sm:block" /> Market Trends Shaping Business Today
+            </h1>
+            <p className="mx-auto text-white/90 max-w-[700px]" style={{ fontSize: "clamp(15px, 1.4vw, 19px)" }}>
+              The rules around waste and responsibility are shifting fast —
+              here's what every business should be watching right now.
+            </p>
+          </div>
+        </section>
 
-            {/* 3. HIDDEN COST OF IN-HOUSE ---------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="mt-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center"
-            >
-              <motion.div
-                variants={fadeUp}
-                className="order-2 md:order-1 overflow-hidden rounded-2xl border border-border bg-muted/20 flex items-center justify-center py-4"
-              >
-                <OverloadIllustration />
-              </motion.div>
-              <motion.div variants={fadeUp} className="order-1 md:order-2">
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold">
-                  The real cost of managing EPR in-house
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div className="flex-1 min-w-0 w-full">
+            {/* 1. Why trends matter */}
+            <Reveal>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px] mb-3">
+                  1. Why market trends around recycling matter for every business
                 </h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  On paper, EPR looks like a registration and a few annual
-                  filings. In practice, it means someone on your team monitoring
-                  up to six separate CPCB portals, each with its own targets,
-                  deadlines, and amendment history — on top of their actual job.
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Waste and compliance regulations used to move slowly.
+                  That's changed. New rules, buyer expectations, and
+                  reporting standards are arriving faster than most internal
+                  compliance calendars are built for. Businesses that track
+                  these shifts early adapt smoothly; those that don't often
+                  find themselves reacting under pressure — during an audit,
+                  a tender deadline, or a client's due-diligence review.
                 </p>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  Industry research shows compliance leaders broadly expect
-                  their operating costs to keep climbing, which is exactly why
-                  outsourced compliance services are one of the faster-growing
-                  categories in business services right now. The teams handling
-                  this internally tend to notice the cost only after a rejected
-                  application or a missed filing, not before.
-                </p>
-              </motion.div>
-            </motion.section>
+              </section>
+            </Reveal>
 
-            {/* 4. MARKET GROWTH CHART --------------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="mt-20 rounded-3xl border border-border bg-card p-6 sm:p-10"
-            >
-              <motion.h2
-                variants={fadeUp}
-                className="font-display text-2xl sm:text-3xl font-semibold"
-              >
-                Outsourced compliance is one of the fastest-growing categories
-                in business services
-              </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="mt-3 text-muted-foreground max-w-2xl"
-              >
-                The global outsourced compliance service market was valued at
-                roughly $13.45B in 2024 and is projected to more than double by
-                2033 — a sign of how many businesses are making the same call.
-              </motion.p>
-
-              <motion.div
-                variants={fadeUp}
-                className="mt-8 h-72 sm:h-80 w-full"
-              >
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={marketData}
-                    margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-                  >
-                    <CartesianGrid
-                      strokeDasharray="4 4"
-                      className="stroke-border"
-                    />
-                    <XAxis
-                      dataKey="year"
-                      tick={{ fontSize: 12 }}
-                      stroke="hsl(var(--muted-foreground))"
-                    />
-                    <YAxis
-                      tick={{ fontSize: 12 }}
-                      stroke="hsl(var(--muted-foreground))"
-                      unit="B"
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        borderRadius: 12,
-                        border: "1px solid hsl(var(--border))",
-                        background: "hsl(var(--popover))",
-                        color: "hsl(var(--popover-foreground))",
-                        fontSize: 13,
-                      }}
-                      formatter={(v: number) => [`$${v}B`, "Market size"]}
-                    />
-                    <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                      {marketData.map((_, i) => (
-                        <Cell
-                          key={i}
-                          fill="#5AC361"
-                          fillOpacity={0.55 + i * 0.13}
-                        />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
-              </motion.div>
-              <motion.p
-                variants={fadeUp}
-                className="mt-4 text-xs text-muted-foreground"
-              >
-                Source: outsourced compliance service market sizing, 2024–2033,
-                CAGR ≈9.2% from 2026.
-              </motion.p>
-            </motion.section>
-
-            {/* 5. WHAT A PARTNER HANDLES ------------------------------------ */}
-            <motion.section
-              id="services"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={stagger}
-              className="mt-20 scroll-mt-28"
-            >
-              <motion.div variants={fadeUp} className="flex items-center gap-3">
-                <Users className="h-6 w-6 text-primary" />
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold">
-                  What a good EPR partner actually handles
-                </h2>
-              </motion.div>
-              <motion.p
-                variants={fadeUp}
-                className="mt-3 text-muted-foreground max-w-2xl"
-              >
-                Not just registration — the full lifecycle, across every stream
-                that applies to your business.
-              </motion.p>
-
-              <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {partnerServices.map((s) => (
-                  <motion.div
-                    key={s.title}
-                    variants={fadeUp}
-                    whileHover={{ y: -4 }}
-                    className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <s.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-4 font-display font-semibold">
-                      {s.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                      {s.body}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* 6. IN-HOUSE VS OUTSOURCED ------------------------------------ */}
-            <motion.section
-              id="comparison"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={stagger}
-              className="mt-20 scroll-mt-28"
-            >
-              <motion.h2
-                variants={fadeUp}
-                className="font-display text-2xl sm:text-3xl font-semibold"
-              >
-                In-house vs. outsourced, side by side
-              </motion.h2>
-
-              <div className="mt-10 overflow-hidden rounded-2xl border border-border">
-                <div className="grid grid-cols-2 bg-muted/40 text-sm font-semibold">
-                  <div className="p-4 border-r border-border">
-                    Managed in-house
+            {/* 2. Trend 1: ESG stricter */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <ShieldCheck className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="p-4 text-brandGreen">
-                    Managed by a partner
-                  </div>
-                </div>
-                {comparison.map((row, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className={`grid grid-cols-2 text-sm ${i % 2 === 0 ? "bg-card" : "bg-background"}`}
-                  >
-                    <div className="p-4 border-r border-t border-border text-muted-foreground leading-relaxed">
-                      {row.inhouse}
-                    </div>
-                    <div className="p-4 border-t border-border leading-relaxed flex gap-2">
-                      <BadgeCheck className="h-4 w-4 text-brandGreen shrink-0 mt-0.5" />
-                      <span>{row.outsourced}</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* 7. PROCESSING TIME CHART -------------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="mt-20 grid md:grid-cols-2 gap-8 items-start"
-            >
-              <motion.div variants={fadeUp}>
-                <div className="flex items-center gap-3">
-                  <AlertTriangle className="h-6 w-6 text-destructive" />
-                  <h2 className="font-display text-2xl sm:text-3xl font-semibold">
-                    A clean application clears in half the time
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    2. Trend 1 — Corporate ESG requirements are getting stricter
                   </h2>
                 </div>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  A complete EPR application, filed correctly the first time,
-                  typically clears CPCB review in 15–20 working days.
-                  Applications that draw follow-up queries — often because of an
-                  avoidable documentation or category error — can stretch to
-                  35–40 working days.
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Large corporations are tightening their own ESG reporting,
+                  and that pressure flows directly down to their vendors.
+                  Where a basic compliance certificate once sufficed,
+                  companies are now being asked for detailed data — recycling
+                  volumes, material recovery rates, and year-over-year
+                  progress — as part of standard supplier evaluation.
                 </p>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
-                  That gap is largely a function of experience: a partner who
-                  files applications every week catches the errors a business
-                  filing once a year is more likely to miss.
+              </section>
+            </Reveal>
+
+            {/* 3. Trend 2: EPR expanding */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <Globe2 className="w-5 h-5 text-secondary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    3. Trend 2 — Extended Producer Responsibility scope is expanding
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  EPR obligations, once mostly associated with electronics
+                  and batteries, are steadily expanding to cover more
+                  product categories including packaging and certain
+                  plastics. Businesses that assume their current product
+                  line falls outside EPR scope should revisit that
+                  assumption regularly, since coverage tends to widen rather
+                  than shrink over time.
                 </p>
-              </motion.div>
+              </section>
+            </Reveal>
 
-              <motion.div
-                variants={fadeUp}
-                className="h-64 sm:h-72 rounded-2xl border border-border bg-card p-6"
-              >
-                <p className="text-sm font-medium mb-4">
-                  Average CPCB processing time (working days)
+            {/* 4. Trend 3: Consumers */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Users2 className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    4. Trend 3 — Consumers are actively seeking sustainable brands
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  Beyond corporate buyers, everyday consumers are increasingly
+                  factoring sustainability into purchase decisions — checking
+                  packaging claims, researching brands, and favouring
+                  companies that visibly manage their environmental impact.
                 </p>
-                <ResponsiveContainer width="100%" height="80%">
-                  <BarChart
-                    data={timingData}
-                    layout="vertical"
-                    margin={{ left: 10 }}
-                  >
-                    <CartesianGrid
-                      strokeDasharray="4 4"
-                      className="stroke-border"
-                      horizontal={false}
-                    />
-                    <XAxis
-                      type="number"
-                      tick={{ fontSize: 11 }}
-                      stroke="hsl(var(--muted-foreground))"
-                    />
-                    <YAxis
-                      type="category"
-                      dataKey="scenario"
-                      tick={{ fontSize: 11 }}
-                      stroke="hsl(var(--muted-foreground))"
-                      width={130}
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        borderRadius: 12,
-                        border: "1px solid hsl(var(--border))",
-                        background: "hsl(var(--popover))",
-                        color: "hsl(var(--popover-foreground))",
-                        fontSize: 13,
-                      }}
-                      formatter={(v: number) => [
-                        `${v} days`,
-                        "Avg. processing",
-                      ]}
-                    />
-                    <Bar
-                      dataKey="days"
-                      radius={[0, 8, 8, 0]}
-                      fill="hsl(var(--primary))"
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
-              </motion.div>
-            </motion.section>
+                <div className="flex flex-wrap gap-2">
+                  {["Package recyclability", "Brand sustainability pages", "Take-back programs", "Public compliance reporting"].map((t) => (
+                    <span key={t} className="px-3 py-1.5 rounded-full text-[13px] font-semibold text-primary bg-primary/10 border border-primary/20">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
 
-            {/* 8. REGULATORY CHANGE MONITORING ------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={stagger}
-              className="mt-20"
-            >
-              <motion.h2
-                variants={fadeUp}
-                className="font-display text-2xl sm:text-3xl font-semibold"
-              >
-                The rules keep moving — someone needs to keep up
-              </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="mt-3 text-muted-foreground max-w-2xl"
-              >
-                Recent amendments show how often the ground shifts under EPR
-                compliance:
-              </motion.p>
+            {/* 5. Chart */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <BarChart3 className="w-5 h-5 text-secondary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    5. How fast these trends are gaining ground
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-5">
+                  A general view of how much weight each trend currently
+                  carries in business decision-making.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <BarRow label="Stricter ESG vendor checks" width="86%" delay={0} />
+                  <BarRow label="Expanding EPR categories" width="74%" delay={0.1} />
+                  <BarRow label="Consumer sustainability demand" width="81%" delay={0.2} />
+                  <BarRow label="Circular economy adoption" width="70%" delay={0.3} />
+                </div>
+              </section>
+            </Reveal>
 
-              <div className="mt-10 grid sm:grid-cols-2 gap-5">
-                {[
-                  {
-                    title: "2024 — recycled-content mandates",
-                    body: "Minimum recycled-content obligations began phasing in for plastic packaging, alongside a government floor price for e-waste certificates.",
-                  },
-                  {
-                    title: "2025 — audit and marking updates",
-                    body: "Environment Audit Rules introduced Registered Environment Auditors, while battery labelling rules gained QR-code and brochure alternatives.",
-                  },
-                  {
-                    title: "2026 — verification tightens further",
-                    body: "Plastic certificate verification moved to Registered Environment Auditors, and e-waste recycling targets stepped up to 70%.",
-                  },
-                  {
-                    title: "2026 — construction waste joins EPR",
-                    body: "Construction and Demolition Waste Rules bring large projects into an EPR-style regime from April, a stream many businesses haven't tracked before.",
-                  },
-                ].map((c) => (
-                  <motion.div
-                    key={c.title}
-                    variants={fadeUp}
-                    className="rounded-2xl border border-border bg-card p-6"
-                  >
-                    <h3 className="font-semibold text-sm sm:text-base">
-                      {c.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                      {c.body}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
+            {/* 6. Trend 4: circular economy */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Repeat className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    6. Trend 4 — Circular economy models replacing linear supply chains
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Instead of the traditional make-use-dispose model,
+                  businesses are increasingly designing supply chains where
+                  materials are recovered and reused rather than discarded.
+                  This shift is being driven both by regulation and by cost —
+                  recovered material is often cheaper than sourcing new raw
+                  material, especially as commodity prices fluctuate.
+                </p>
+              </section>
+            </Reveal>
 
-            {/* 9. TIME RECLAIMED FOR GROWTH ---------------------------------- */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="mt-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center"
-            >
-              <motion.div variants={fadeUp}>
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold">
-                  What that reclaimed time is actually worth
+            {/* 7. Future-proofing with EPR Nexuss */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-secondary/20 bg-secondary/[0.06] mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-brandGreen/15 flex items-center justify-center flex-shrink-0">
+                    <Compass className="w-5 h-5 text-brandGreen" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    7. How to future-proof your business against these trends
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  We help businesses stay ahead of these shifts rather than
+                  reacting to them — monitoring regulatory changes, keeping
+                  documentation current, and advising on where your product
+                  categories may fall under expanding EPR requirements.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    "Ongoing regulatory monitoring on your behalf",
+                    "Early guidance as EPR scope expands",
+                    "Support building circular-economy practices",
+                    "Reporting that keeps pace with tightening ESG asks",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5">
+                      <Sparkles className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-gray-700 text-[13.5px]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* 8. Trend 5: digital reporting */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <BarChart3 className="w-5 h-5 text-secondary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    8. Trend 5 — Digital reporting and real-time compliance tracking
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Regulatory bodies and corporate buyers alike are moving
+                  away from static, once-a-year compliance paperwork toward
+                  digital portals and dashboards that reflect real-time
+                  status. Businesses relying on manual, spreadsheet-based
+                  tracking increasingly find themselves scrambling to match
+                  the pace of digital verification systems that buyers and
+                  regulators now expect as standard.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* 9. Trend 6: green financing */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    9. Trend 6 — The rise of green financing and sustainability-linked terms
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Some lenders and investors now offer better terms to
+                  businesses that meet defined sustainability benchmarks,
+                  including waste management and compliance standards. As
+                  this becomes more common, a business's environmental
+                  track record starts to influence not just its customer
+                  base, but its access to capital and the terms attached to it.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* 10. Internal monitoring process */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px] mb-4">
+                  10. Building an internal process for monitoring these trends
                 </h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  The point of outsourcing was never just cost. Across
-                  outsourcing generally, businesses increasingly cite access to
-                  specialised expertise — not price — as the main reason they
-                  hand a function off, and EPR is a clear case of that: the
-                  expertise involved is narrow, technical, and easy to get wrong
-                  without daily practice.
+                <p className="text-gray-600 text-[15px] mb-4">
+                  Rather than reacting to each regulatory update as it
+                  appears, businesses benefit from a lightweight, ongoing
+                  monitoring habit.
                 </p>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  Every hour not spent decoding a CPCB circular is an hour
-                  available for the things that actually grow a business — sales
-                  conversations, product development, or the next campaign.
-                  Compliance still gets done; it just isn't the thing pulling
-                  your attention away from clients.
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { title: "Quarterly compliance review", text: "A short internal check-in to confirm nothing has changed in your regulatory obligations." },
+                    { title: "Assign clear ownership", text: "One person or team responsible for tracking updates, rather than leaving it to whoever notices first." },
+                    { title: "Subscribe to regulatory updates", text: "Following relevant government and industry bulletins catches changes earlier than word of mouth." },
+                    { title: "Partner-based monitoring", text: "A compliance partner can flag relevant changes as part of an ongoing engagement, reducing internal workload." },
+                  ].map(({ title, text }) => (
+                    <div key={title} className="rounded-2xl border border-gray-200 p-5 bg-gray-50">
+                      <h4 className="text-gray-900 text-[15px] font-bold mb-1.5">{title}</h4>
+                      <p className="text-gray-600 text-[14px] m-0">{text}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* 11. Industry-specific implications */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px] mb-4">
+                  11. What these trends mean for different industries
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { title: "Electronics", text: "Faces the widest existing EPR obligations, with growing pressure around battery and component recovery specifically." },
+                    { title: "Packaging", text: "Plastic packaging rules are tightening quickly, with more categories being brought under mandatory recovery targets." },
+                    { title: "Manufacturing", text: "Increasingly expected to demonstrate circular sourcing, not just end-of-life disposal compliance." },
+                  ].map(({ title, text }) => (
+                    <div key={title} className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+                      <h4 className="text-gray-900 text-[14.5px] font-bold mb-1">{title}</h4>
+                      <p className="text-gray-600 text-[13.5px] m-0">{text}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* 12. Building a 3-year roadmap */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-secondary/20 bg-secondary/[0.06] mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-brandGreen/15 flex items-center justify-center flex-shrink-0">
+                    <Compass className="w-5 h-5 text-brandGreen" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    12. Preparing a forward-looking roadmap aligned with these trends
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  A useful exercise is mapping out where your business
+                  expects to be over the next few years against each of
+                  these trends — which categories might come under EPR next,
+                  what digital reporting tools you may need to adopt, and
+                  how your compliance story should evolve as buyer
+                  expectations rise. Businesses that plan ahead this way
+                  rarely find themselves caught off guard when a new
+                  requirement becomes mandatory.
                 </p>
-              </motion.div>
-              <motion.div
-                variants={fadeUp}
-                className="overflow-hidden rounded-2xl border border-border bg-muted/20 flex items-center justify-center py-4"
-              >
-                <ReclaimedTimeIllustration />
-              </motion.div>
-            </motion.section>
+              </section>
+            </Reveal>
 
-            {/* 10. FINAL CTA ------------------------------------------------ */}
-            <motion.section
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={fadeUp}
-              className="mt-20 rounded-3xl bg-primary text-primary-foreground p-8 sm:p-12 text-center overflow-hidden relative"
-            >
-              <Building2 className="h-8 w-8 mx-auto opacity-80" />
-              <h2 className="font-display mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold">
-                Let your team focus on clients — we'll handle CPCB
-              </h2>
-              <p className="mt-4 max-w-xl mx-auto text-primary-foreground/85">
-                Tell us which product categories and packaging you sell, and
-                we'll map out exactly which EPR streams apply and what handing
-                them off would look like.
-              </p>
-              <a
-                href="/services"
-                className="mt-7 inline-flex items-center gap-2 rounded-lg bg-background text-foreground px-6 py-3 text-sm font-medium hover:bg-muted transition-colors"
-              >
-                Talk to our compliance team
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </motion.section>
-          </main>
+            {/* Closing CTA */}
+            <Reveal delay={0.05}>
+              <section className="text-center rounded-[32px] px-6 sm:px-10 py-12 sm:py-16 border border-primary/10 bg-gradient-to-br from-primary to-secondary shadow-lg">
+                <h2 className="font-display font-extrabold text-white mb-3" style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}>
+                  Stay ahead of what's coming next
+                </h2>
+                <p className="max-w-[640px] mx-auto text-white/90 text-[15px] mb-0">
+                  Talk to us about how these trends apply to your specific
+                  industry and product lines.
+                </p>
+              </section>
+            </Reveal>
+          </div>
 
-          {/* ============================================================ */}
-          {/*  STICKY CONTACT FORM — right rail, scrolls with the page      */}
-          {/* ============================================================ */}
-          <aside className="hidden lg:block lg:w-80 xl:w-96 shrink-0">
-            <div className="sticky top-28">
-              <StickyContactForm />
-            </div>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+            <StickyContactForm />
           </aside>
         </div>
       </div>

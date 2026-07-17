@@ -210,36 +210,36 @@ function HeroSection() {
    2. COMING SOON BANNER
 ============================================================================ */
 
-function ComingSoonBanner() {
-  return (
-    <Reveal>
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-start gap-3 sm:items-center">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
-            <Sparkles className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              The full DPR deep-dive is on its way
-            </p>
-            <p className="mt-0.5 text-sm text-muted-foreground">
-              Our team is finalizing a downloadable DPR template with worked
-              financial models. In the meantime, this overview and our team can
-              get you moving.
-            </p>
-          </div>
-        </div>
-        <a
-          href="#contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
-        >
-          Get Guidance Now
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </Reveal>
-  );
-}
+// function ComingSoonBanner() {
+//   return (
+//     <Reveal>
+//       <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+//         <div className="flex items-start gap-3 sm:items-center">
+//           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
+//             <Sparkles className="h-5 w-5" />
+//           </div>
+//           <div>
+//             <p className="text-sm font-semibold text-foreground">
+//               The full DPR deep-dive is on its way
+//             </p>
+//             <p className="mt-0.5 text-sm text-muted-foreground">
+//               Our team is finalizing a downloadable DPR template with worked
+//               financial models. In the meantime, this overview and our team can
+//               get you moving.
+//             </p>
+//           </div>
+//         </div>
+//         <a
+//           href="#contact"
+//           className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
+//         >
+//           Get Guidance Now
+//           <ArrowRight className="h-4 w-4" />
+//         </a>
+//       </div>
+//     </Reveal>
+//   );
+// }
 
 /* ============================================================================
    3. QUICK STATS BAR
@@ -726,16 +726,15 @@ function FinalCTA() {
           <FileText className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full DPR Deep-Dive Is Coming
+          Get Your DPR Right the First Time
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing a downloadable DPR template with worked financial
-          models and a state-wise land and layout checklist. Talk to our team
+          Talk to our team
           now for guidance tailored to your project.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-xl bg-brandGreen px-5 py-3 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
           >
             Talk to Our Team
@@ -792,7 +791,7 @@ export default function EPRELVCreditsDPREssentials() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
       <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT */}
           <main className="min-w-0 space-y-16 sm:space-y-20">
             <Seo
@@ -830,7 +829,7 @@ export default function EPRELVCreditsDPREssentials() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+            {/* <ComingSoonBanner /> */}
 
             <QuickStatsBar />
 
@@ -848,14 +847,14 @@ export default function EPRELVCreditsDPREssentials() {
               <WhyItMattersSection />
             </BlogSection>
 
-            <BlogSection
+            {/* <BlogSection
               id="capex"
               eyebrow="Planning the Numbers"
               title="What a Typical Capex Plan Looks Like"
               intro="Financial projections are one of the sections reviewers scrutinize hardest. Here's an indicative allocation to sanity-check your own numbers against."
             >
               <CapexChart />
-            </BlogSection>
+            </BlogSection> */}
 
             <BlogSection
               id="dpr-essentials"
@@ -895,7 +894,7 @@ export default function EPRELVCreditsDPREssentials() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and reflects
               publicly reported practice around DPRs for ELV recycling
               facilities in India — it isn't legal, financial, or investment
@@ -903,7 +902,7 @@ export default function EPRELVCreditsDPREssentials() {
               project scale, so confirm current requirements with your state
               authorities and a qualified compliance or financial professional
               before acting.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR */}

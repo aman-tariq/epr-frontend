@@ -57,7 +57,7 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-[#fcfaf6] via-[#faf7f2] to-[#f5f2ea] text-slate-800 font-[Poppins] overflow-x-hidden">
+    <div className="w-full bg-gradient-to-b from-[#fcfaf6] via-[#faf7f2] to-[#f5f2ea] text-slate-800 font-[Poppins] ">
       <Seo
         title="Market Analysis and Target Segments in Solar Panel Recycling"
         description="Explore the solar panel recycling market with detailed analysis, target customer segments, industry trends, demand forecasts, and business opportunities. Learn how to identify profitable markets and grow a sustainable solar recycling business."
@@ -93,7 +93,7 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
       />
 
       {/* 3-COLUMN DESKTOP CONTENT GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="max-w-8xl mt-10 mx-auto flex flex-col lg:flex-row gap-4 items-stretch px-4 sm:px-6 lg:px-2 py-8  grid-cols-1 lg:grid-cols-3">
         {/* LEFT & CENTER COLUMNS: PRIMARY MAIN CONTENT FLOW */}
         <main className="lg:col-span-2 w-full min-w-0 flex flex-col gap-8">
           {/* Why market analysis matters */}
@@ -140,20 +140,6 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
               ))}
             </div>
           </section>
-
-          {/* MOBILE ONLY CONTACT FORM PLACEMENT (Only displays on small screen breakpoints, hidden on desktop) */}
-          <div className="block lg:hidden w-full">
-            <div className="bg-white rounded-3xl p-6 shadow-xl border border-slate-200">
-              <h3 className="text-xl font-bold mb-2 text-indigo-950">
-                Connect With Our Experts
-              </h3>
-              <p className="text-xs text-slate-500 mb-4">
-                Have questions regarding target segments or your solar recycling
-                roadmap?
-              </p>
-              <StickyContactForm />
-            </div>
-          </div>
 
           {/* What the market is really looking for */}
           <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
@@ -561,17 +547,12 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
           </section>
         </main>
 
-        {/* RIGHT COLUMN: DESKTOP STATIC CARD SIDEBAR (Stays firmly in the grid flow, completely non-sticky) */}
-        <aside className="hidden lg:block lg:col-span-1 w-full h-auto bg-white p-6 rounded-[26px] shadow-xl border border-gray-200">
-          <h3 className="text-xl font-bold mb-2 text-indigo-950">
-            Connect With Our Experts
-          </h3>
-          <p className="text-sm text-slate-500 mb-6">
-            Have questions regarding target segments or your solar recycling
-            roadmap?
-          </p>
+       {/* Sticky form  */}
+       <aside className="hidden lg:block shrink-0 w-[320px] ">
+        <div className="sticky top-28 px-2">
           <StickyContactForm />
-        </aside>
+        </div>
+       </aside>
       </div>
     </div>
   );

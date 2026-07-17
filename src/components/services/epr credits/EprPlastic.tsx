@@ -218,7 +218,7 @@ export default function EprCreditsPlasticsBlog() {
       </nav> */}
 
       {/* Main Grid Architecture */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-2 lg:px-2 relative grid grid-cols-1 lg:grid-cols-4 gap-4">
         {/* Editorial Left Content Column */}
         <div className="lg:col-span-3 space-y-16 py-12">
           {/* Main Hero Header Visual */}
@@ -967,18 +967,7 @@ export default function EprCreditsPlasticsBlog() {
       </div>
 
       {/* Embedded Mini Foot-strip Info Banner */}
-      <div className="border-t border-[#e8edf4] bg-white/80 py-10 mt-12 text-center text-sm text-[#5c6675]">
-        <div className="max-w-7xl mx-auto px-4">
-          <strong className="text-[#141414] font-bold block mb-1">
-            EPR Plastic Compliance & Sustainable Waste Management
-          </strong>
-          <p className="max-w-xl mx-auto text-xs leading-relaxed">
-            Premium white-theme content designed to explain EPR credits, plastic
-            recycling, compliance tracking, and sustainability strategy in a
-            client-ready format.
-          </p>
-        </div>
-      </div>
+      
     </div>
   );
 }

@@ -266,7 +266,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
 
   return (
     <div className="w-full bg-background pt-28 md:pt-32 pb-24 font-sans text-foreground">
-      <div className="md:container grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-10 xl:gap-16">
+      <div className="md:container grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-10 xl:gap-4">
         {/* ============================================================ */}
         {/* MAIN CONTENT COLUMN                                          */}
         {/* ============================================================ */}
@@ -336,10 +336,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
                   See the setup roadmap
                   <ArrowRight className="h-4 w-4" />
                 </a>
-                <span className="text-sm text-muted-foreground">
-                  Our team is finalizing the full deep-dive — reach out for
-                  immediate guidance in the meantime.
-                </span>
+               
               </div>
             </motion.div>
 
@@ -489,7 +486,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
           </section>
 
           {/* ---------- 6. SETUP TIMELINE CHART (horizontal bars) ---------- */}
-          <Reveal className="mt-20">
+          {/* <Reveal className="mt-20">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Where the setup time typically goes
             </h2>
@@ -541,7 +538,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
               Illustrative only — confirm current timelines with your equipment
               vendor and site engineer before planning around them.
             </p>
-          </Reveal>
+          </Reveal> */}
 
           {/* ---------- 7. SETUP CHECKLIST ---------- */}
           <Reveal className="mt-20">
@@ -562,7 +559,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
           </Reveal>
 
           {/* ---------- 8. THROUGHPUT SHARE CHART (vertical bars) ---------- */}
-          <Reveal className="mt-20">
+          {/* <Reveal className="mt-20">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               How the line's output typically breaks down
             </h2>
@@ -605,7 +602,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
               Illustrative example — actual throughput share depends on your
               specific machinery models and feedstock mix.
             </p>
-          </Reveal>
+          </Reveal> */}
 
           {/* ---------- 9. FAQ (plain +/- style) ---------- */}
           <Reveal className="mt-20">
@@ -661,7 +658,7 @@ export default function EPRPlasticCreditsMachineryBlog() {
                   Setting up a line and want it audit-ready from day one?
                 </h3>
                 <p className="mt-2 max-w-xl text-sm text-primary-foreground/80 sm:text-base">
-                  Our team is finalizing the complete guide. Reach out now and
+                  Reach out now and
                   we'll walk through machinery, setup, and operations directly.
                 </p>
               </div>

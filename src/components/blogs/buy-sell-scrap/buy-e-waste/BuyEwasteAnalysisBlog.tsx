@@ -1,753 +1,362 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import {
   Recycle,
-  TrendingUp,
-  Factory,
-  Users,
-  ShieldCheck,
-  ArrowRight,
-  ChevronDown,
-  BarChart3,
-  Gem,
-  Building2,
+  AlertTriangle,
+  Banknote,
   Leaf,
-  Info,
-  Clock,
-  Smartphone,
-  Globe2,
-  Warehouse,
-  Truck,
+  ShieldCheck,
+  Battery,
+  Droplets,
+  TrendingUp,
+  CheckCircle2,
 } from "lucide-react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-} from "recharts";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
 
-/* ------------------------------------------------------------------ */
-/* Scroll-reveal hook                                                   */
-/* ------------------------------------------------------------------ */
-function useInView<T extends HTMLElement>(threshold = 0.15) {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, inView };
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
 
 function Reveal({
   children,
-  className = "",
+  className,
   delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Real-world data                                                      */
-/* Sources: Global E-waste Monitor 2024 (ITU/UNITAR); CPCB (via IMARC   */
-/* Group market analysis, 2025); PIB.                                   */
-/* ------------------------------------------------------------------ */
-const tickerFacts = [
-  { label: "Global e-waste generated (2022)", value: "62 Mt", trend: "up" },
-  { label: "Formally recycled worldwide", value: "22.3%", trend: "down" },
-  { label: "Raw material value embedded", value: "$91B", trend: "up" },
-  { label: "India's global rank, e-waste", value: "#3", trend: "up" },
-  {
-    label: "Gold content in circuit boards",
-    value: "250–300 g/t",
-    trend: "up",
-  },
-  { label: "India market CAGR to 2034", value: "11.6%", trend: "up" },
-];
-
-const globalGapData = [
-  { year: "2010", generated: 34, recycled: 8 },
-  { year: "2022", generated: 62, recycled: 13.8 },
-  { year: "2030 (proj.)", generated: 82, recycled: 16.4 },
-];
-
-const indiaMarketData = [
-  { year: "2020", value: 1.92 },
-  { year: "2025", value: 3.32 },
-  { year: "2030 (proj.)", value: 5.74 },
-  { year: "2034 (proj.)", value: 9.95 },
-];
-
-const indiaStats = [
-  {
-    icon: Warehouse,
-    value: "1.40 Mt",
-    label: "E-waste generated in India, FY2024-25 (CPCB)",
-  },
-  {
-    icon: Building2,
-    value: "~450",
-    label: "CPCB-authorised recycling facilities (2024-25)",
-  },
-  {
-    icon: Globe2,
-    value: "3rd",
-    label: "India's rank among global e-waste generators",
-  },
-  {
-    icon: TrendingUp,
-    value: "11.6%",
-    label: "Projected India market CAGR through 2034",
-  },
-];
-
-const opportunityPoints = [
-  {
-    icon: Gem,
-    title: "Precious metals are concentrated, not scattered",
-    body: "Gold in printed circuit boards runs 250-300 grams per tonne — roughly 60 times richer than typical mined ore — which is what makes buying and refining scrap economically attractive at any scale.",
-  },
-  {
-    icon: Smartphone,
-    title: "Small devices, real recovery",
-    body: "Industry recovery data puts roughly 34 kg of gold, 350 kg of silver, and 15 kg of palladium recoverable from every one million mobile phones processed responsibly.",
-  },
-  {
-    icon: BarChart3,
-    title: "Formal recycling is catching up fast",
-    body: "India's formally recycled share rose from about 22% in FY2019-20 to over 70% in FY2024-25 as EPR enforcement tightened — a structural shift that keeps rewarding buyers who can prove compliant sourcing.",
-  },
-];
-
-const buyingModels = [
-  {
-    icon: Truck,
-    title: "Doorstep take-back platforms",
-    body: "Consumer-facing pickup services quote a fair market price, collect the device, and issue certified data-wiping proof — a model recyclers have scaled through direct-to-consumer apps since 2024.",
-  },
-  {
-    icon: BarChart3,
-    title: "Digital scrap marketplaces",
-    body: "Platforms now match unorganised scrap sellers with authorised buyers using live, AI-assisted pricing, moving what used to be a phone-and-handshake trade onto a transparent order book.",
-  },
-  {
-    icon: Factory,
-    title: "OEM-tied collection contracts",
-    body: "Producers under EPR obligations increasingly sign exclusive take-back agreements with authorised recyclers, guaranteeing feedstock volume in exchange for compliance documentation.",
-  },
-];
-
-const audiences = [
-  {
-    icon: Factory,
-    title: "Producers & Brand Owners",
-    body: "Understand where scrap volumes are concentrated so your EPR collection targets are met through real supply, not just paperwork.",
-  },
-  {
-    icon: Recycle,
-    title: "Recyclers & Processors",
-    body: "See where formal buyers are winning volume away from informal channels, and what price and service levels it takes to compete.",
-  },
-  {
-    icon: Building2,
-    title: "PROs & Aggregators",
-    body: "Get the market context to structure sourcing partnerships and defend the pricing you offer to producer members.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Is buying e-waste scrap actually profitable?",
-    a: "Margins come mainly from precious-metal recovery — gold, silver, palladium and copper — rather than the plastics or glass fraction. Profitability depends heavily on sourcing cost, processing scale, and whether recovery is done in-house or contracted to a licensed refiner.",
-  },
-  {
-    q: "Do I need a CPCB authorisation to buy e-waste in India?",
-    a: "Any entity dismantling, recycling, or refurbishing notified e-waste categories in India needs to operate under the E-Waste (Management) Rules framework and register with the CPCB or relevant State Pollution Control Board.",
-  },
-  {
-    q: "Why is the informal sector still such a large share of the market?",
-    a: "Historically, informal scrap dealers offered faster payment and simpler pickup than formal channels. That gap has been narrowing as digital marketplaces and EPR-linked contracts make formal buying more competitive on both price and convenience.",
-  },
-  {
-    q: "Which categories carry the most recoverable value?",
-    a: "Printed circuit boards and connectors from IT hardware and telecom equipment carry the highest precious-metal concentration by weight, even though consumer electronics contribute the largest volume overall.",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/* Small building blocks                                                */
-/* ------------------------------------------------------------------ */
-function SectionEyebrow({ children }: { children: React.ReactNode }) {
+export default function WhySellEwasteBlog() {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-brandGreen/30 bg-brandGreen/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brandGreen">
-      <Leaf className="h-3.5 w-3.5" />
-      {children}
-    </span>
-  );
-}
-
-function StatCard({
-  value,
-  label,
-  icon: Icon,
-}: {
-  value: string;
-  label: string;
-  icon: React.ElementType;
-}) {
-  return (
-    <div className="flex flex-col items-start gap-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <div className="rounded-xl bg-primary/10 p-2.5 text-primary">
-        <Icon className="h-5 w-5" />
-      </div>
-      <div className="font-display text-3xl font-semibold text-foreground">
-        {value}
-      </div>
-      <p className="text-sm text-muted-foreground">{label}</p>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Main component                                                       */
-/* ------------------------------------------------------------------ */
-export default function BuyEWasteBlog() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  return (
-    <div className="relative w-full bg-background">
-      <style>{`
-        @keyframes ticker-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .ticker-track {
-          animation: ticker-scroll 30s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .ticker-track { animation: none; }
-        }
-      `}</style>
-
+    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
-        title="Buy E-Waste: Market Analysis & Business Opportunity"
-        description="Explore the growing e-waste market, emerging business opportunities, pricing trends, and profitable strategies for buying e-waste responsibly while supporting recycling and the circular economy."
+        title="Why You Should Sell Your E-Waste Instead of Throwing It Away"
+        description="Learn why selling your old electronics to a certified e-waste buyer is safer, greener, and more rewarding than throwing them in the trash."
         keywords={[
-          "Buy E-Waste",
-          "E-Waste Market Analysis",
-          "E-Waste Business Opportunity",
-          "Electronic Waste Recycling",
-          "E-Waste Management",
-          "E-Waste Trading",
-          "Scrap Electronics",
-          "E-Waste Buyers",
-          "E-Waste Collection",
-          "Circular Economy",
-          "Electronic Scrap",
-          "E-Waste Business",
-          "Recycling Business",
-          "E-Waste Pricing",
-          "Sustainable Recycling",
-          "How to buy e-waste legally?",
-          "Is the e-waste business profitable?",
-          "How to start an e-waste business?",
-          "Where to buy electronic scrap in India?",
-          "How to identify valuable e-waste?",
-          "What is the e-waste market size in India?",
-          "How to earn from e-waste recycling?",
-          "Best opportunities in the e-waste industry",
-          "How to sell and buy e-waste?",
-          "E-waste market trends 2026",
+          "sell e-waste",
+          "buy e-waste",
+          "e-waste recycling",
+          "why recycle electronics",
+          "e-waste disposal India",
+          "certified e-waste buyer",
+          "old electronics pickup",
+          "scrap electronics value",
         ]}
-        url="https://eprnexuss.com/blog/buy-e-waste-analysis"
+        url="https://eprnexuss.com/blog/why-sell-e-waste"
         type="article"
       />
 
-      {/* Extra clearance so a fixed/pre-built navbar never collides with content */}
-      <div className="pt-24 md:pt-32">
-        <div className="md:mx-auto mx-0 my-0 grid max-w-7xl grid-cols-1 gap-10 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12 lg:px-8">
-          {/* ============================================================ */}
-          {/* MAIN CONTENT COLUMN                                          */}
-          {/* ============================================================ */}
-          <main className="min-w-0">
-            {/* 1. HERO */}
-            <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-background to-brandGreen/10 px-6 py-14 sm:px-10 sm:py-20">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brandGreen/20 blur-3xl"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-primary/10 blur-3xl"
-              />
-              <div className="relative animate-fade-in">
-                <SectionEyebrow>
-                  Market Analysis &amp; Business Opportunity
-                </SectionEyebrow>
-                <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-                  Buy e-waste: the{" "}
-                  <span className="bg-gradient-to-r from-brandGreen to-primary bg-clip-text text-transparent">
-                    market opportunity
-                  </span>{" "}
-                  behind the scrap
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-                  A practical, data-backed look at the market for buying e-waste
-                  scrap — built for producers, recyclers, and PROs weighing
-                  where the real recoverable value sits.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#opportunity"
-                    className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
-                  >
-                    See the opportunity
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4" />
-                    Full deep-dive guide in progress
-                  </span>
-                </div>
-              </div>
-            </section>
+      <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
+        {/* Banner */}
+        <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-primary/90 to-secondary shadow-lg">
+          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
+          <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
+          <div className="relative z-10 px-6 sm:px-16 py-16 sm:py-24 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 mb-6"
+            >
+              <Recycle className="w-8 h-8 text-white" />
+            </motion.div>
+            <div className="inline-block px-3 py-1.5 rounded-full text-[13px] font-bold tracking-wide mb-5 text-white bg-white/15 border border-white/20">
+              Buy &amp; Sell Scrap &middot; Buy E-Waste
+            </div>
+            <h1
+              className="font-display font-extrabold text-white mb-4 tracking-tight"
+              style={{ fontSize: "clamp(30px, 4.5vw, 54px)", lineHeight: 1.08 }}
+            >
+              Why You Should Sell Your E-Waste
+              <br className="hidden sm:block" /> Instead of Throwing It Away
+            </h1>
+            <p className="mx-auto text-white/90 max-w-[680px]" style={{ fontSize: "clamp(15px, 1.4vw, 19px)" }}>
+              That old phone, laptop, or fan in your storeroom is worth more
+              than a spot in the bin — for your wallet, and for the planet.
+            </p>
+          </div>
+        </section>
 
-            {/* 2. LIVE FACT TICKER — signature element, real figures only */}
-            <Reveal className="mt-10">
-              <div className="overflow-hidden rounded-2xl border border-border bg-foreground/95 py-4">
-                <div className="ticker-track flex w-max gap-10 px-6">
-                  {[...tickerFacts, ...tickerFacts].map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex shrink-0 items-center gap-3 whitespace-nowrap text-sm"
-                    >
-                      <span className="font-medium text-background/90">
-                        {item.label}
-                      </span>
-                      <span className="font-display font-semibold text-brandGreen">
-                        {item.value}
-                      </span>
-                      <TrendingUp
-                        className={`h-3.5 w-3.5 ${
-                          item.trend === "up"
-                            ? "text-brandGreen"
-                            : "rotate-180 text-destructive"
-                        }`}
-                      />
+        {/* Content + Sticky Sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div className="flex-1 min-w-0 w-full">
+            {/* Intro */}
+            <Reveal>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <p className="text-gray-600 text-[16px] mb-4">
+                  Every year, households and offices across India quietly
+                  throw away tonnes of old electronics — broken chargers, dead
+                  batteries, retired laptops, unused phones. It feels harmless.
+                  It isn't.
+                </p>
+                <p className="text-gray-600 text-[16px] mb-0">
+                  Electronic waste is one of the fastest-growing waste
+                  streams in the world, and most of it is completely
+                  recoverable. When you sell your e-waste to a certified
+                  buyer instead of tossing it in the trash, you turn clutter
+                  into cash and keep hazardous material out of landfills. Here
+                  is why that choice matters.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* Problem section */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-red-100 bg-red-50/50 mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-5 h-5 text-red-500" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px]">
+                    What happens when e-waste is thrown away?
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  Old electronics contain lead, mercury, cadmium, and other
+                  toxic elements. When dumped in regular trash, these
+                  materials leak into soil and groundwater as devices break
+                  down over time.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { icon: Droplets, text: "Toxic metals contaminate soil and water sources near landfills." },
+                    { icon: Battery, text: "Damaged batteries can leak, corrode, or catch fire in waste piles." },
+                    { icon: AlertTriangle, text: "Valuable materials like copper and gold are lost forever." },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <div key={i} className="rounded-2xl bg-white border border-red-100 p-4">
+                      <Icon className="w-5 h-5 text-red-400 mb-2" />
+                      <p className="text-gray-600 text-[13.5px] m-0">{text}</p>
                     </div>
                   ))}
                 </div>
-              </div>
-              <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <Info className="h-3.5 w-3.5" />
-                Source: Global E-waste Monitor 2024 (ITU/UNITAR); CPCB, via
-                IMARC Group market analysis.
-              </p>
+              </section>
             </Reveal>
 
-            {/* 3. INDIA STATS BAR */}
-            <Reveal
-              className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4"
-              delay={50}
-            >
-              {indiaStats.map((s) => (
-                <StatCard
-                  key={s.label}
-                  icon={s.icon}
-                  value={s.value}
-                  label={s.label}
-                />
-              ))}
-            </Reveal>
-
-            {/* 4. GLOBAL GENERATED VS RECYCLED — bar chart */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>The global gap</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Generation is outrunning recycling
+            {/* Benefits grid */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-2">
+                  What you gain by selling instead
                 </h2>
-                <p className="mt-3 max-w-2xl text-muted-foreground">
-                  E-waste generated worldwide nearly doubled between 2010 and
-                  2022, while the formally recycled share barely moved — every
-                  tonne of that widening gap is scrap someone still has to buy,
-                  sort, and process.
+                <p className="text-gray-600 text-[15px] mb-5">
+                  Selling e-waste to a certified buyer replaces every one of
+                  those risks with a real benefit.
                 </p>
-              </Reveal>
-              <Reveal
-                delay={100}
-                className="mt-8 rounded-2xl border border-border bg-card p-4 sm:p-6"
-              >
-                <div className="h-72 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={globalGapData}
-                      margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    {
+                      icon: Banknote,
+                      title: "You earn money back",
+                      text: "Copper, aluminium, and precious metals inside your old devices have real resale value — money that otherwise goes straight into a bin.",
+                    },
+                    {
+                      icon: Leaf,
+                      title: "You reduce environmental harm",
+                      text: "Certified recycling recovers materials safely instead of letting them leach into landfills, cutting the plant's need for fresh mining.",
+                    },
+                    {
+                      icon: ShieldCheck,
+                      title: "You stay compliant",
+                      text: "Selling through a registered buyer means your disposal is documented and legal, which matters for businesses under EPR rules.",
+                    },
+                    {
+                      icon: TrendingUp,
+                      title: "You support the circular economy",
+                      text: "Recovered metals and plastics go back into making new electronics, reducing overall demand for virgin raw material.",
+                    },
+                  ].map(({ icon: Icon, title, text }, i) => (
+                    <motion.div
+                      key={title}
+                      whileHover={{ y: -4 }}
+                      transition={{ duration: 0.2 }}
+                      className="rounded-2xl border border-gray-200 p-5 bg-gradient-to-br from-primary/[0.04] to-secondary/[0.04]"
                     >
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        vertical={false}
-                        stroke="hsl(var(--border))"
-                      />
-                      <XAxis
-                        dataKey="year"
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={{ stroke: "hsl(var(--border))" }}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={false}
-                        tickLine={false}
-                        label={{
-                          value: "Million tonnes",
-                          angle: -90,
-                          position: "insideLeft",
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                      />
-                      <Tooltip
-                        cursor={{ fill: "hsl(var(--muted))" }}
-                        contentStyle={{
-                          background: "hsl(var(--popover))",
-                          border: "1px solid hsl(var(--border))",
-                          borderRadius: "0.75rem",
-                          color: "hsl(var(--popover-foreground))",
-                          fontSize: "0.85rem",
-                        }}
-                      />
-                      <Legend wrapperStyle={{ fontSize: "0.8rem" }} />
-                      <Bar
-                        dataKey="generated"
-                        name="Generated"
-                        fill="hsl(var(--primary))"
-                        fillOpacity={0.55}
-                        radius={[8, 8, 0, 0]}
-                      />
-                      <Bar
-                        dataKey="recycled"
-                        name="Formally recycled"
-                        fill="#5AC361"
-                        radius={[8, 8, 0, 0]}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h4 className="text-gray-900 text-[16px] font-bold mb-1.5">{title}</h4>
+                      <p className="text-gray-600 text-[14px] m-0">{text}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                <p className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Info className="h-3.5 w-3.5" />
-                  Source: Global E-waste Monitor 2024 (ITU/UNITAR). 2030 figures
-                  are the report's business-as-usual projection.
-                </p>
-              </Reveal>
-            </section>
-
-            {/* 5. WHY IT'S A BUSINESS OPPORTUNITY */}
-            <section id="opportunity" className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Where the value sits</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Why buying scrap pencils out
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {opportunityPoints.map((p, i) => (
-                  <Reveal key={p.title} delay={i * 80}>
-                    <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-card p-6">
-                      <div className="w-fit rounded-xl bg-brandGreen/15 p-2.5 text-brandGreen">
-                        <p.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {p.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{p.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* 6. INDIA MARKET SIZE — area chart */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Market trajectory</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  India's e-waste management market is scaling fast
-                </h2>
-                <p className="mt-3 max-w-2xl text-muted-foreground">
-                  Market size has nearly doubled since 2020 and is projected to
-                  keep compounding as EPR enforcement pushes more volume into
-                  formal, buyable channels.
-                </p>
-              </Reveal>
-              <Reveal
-                delay={100}
-                className="mt-8 rounded-2xl border border-border bg-card p-4 sm:p-6"
-              >
-                <div className="h-64 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart
-                      data={indiaMarketData}
-                      margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-                    >
-                      <defs>
-                        <linearGradient
-                          id="marketFill"
-                          x1="0"
-                          y1="0"
-                          x2="0"
-                          y2="1"
-                        >
-                          <stop
-                            offset="0%"
-                            stopColor="#5AC361"
-                            stopOpacity={0.5}
-                          />
-                          <stop
-                            offset="100%"
-                            stopColor="#5AC361"
-                            stopOpacity={0.02}
-                          />
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        vertical={false}
-                        stroke="hsl(var(--border))"
-                      />
-                      <XAxis
-                        dataKey="year"
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={{ stroke: "hsl(var(--border))" }}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={false}
-                        tickLine={false}
-                        label={{
-                          value: "USD Billion",
-                          angle: -90,
-                          position: "insideLeft",
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                      />
-                      <Tooltip
-                        contentStyle={{
-                          background: "hsl(var(--popover))",
-                          border: "1px solid hsl(var(--border))",
-                          borderRadius: "0.75rem",
-                          color: "hsl(var(--popover-foreground))",
-                          fontSize: "0.85rem",
-                        }}
-                      />
-                      <Area
-                        type="monotone"
-                        dataKey="value"
-                        name="Market size"
-                        stroke="#5AC361"
-                        strokeWidth={2.5}
-                        fill="url(#marketFill)"
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-                <p className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Info className="h-3.5 w-3.5" />
-                  Source: IMARC Group, India E-Waste Management Market analysis
-                  (2025 report cycle).
-                </p>
-              </Reveal>
-            </section>
-
-            {/* 7. BUYING MODELS */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>How buying happens</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Three channels sourcing scrap today
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {buyingModels.map((m, i) => (
-                  <Reveal key={m.title} delay={i * 80}>
-                    <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-card p-6 transition hover:border-brandGreen/50 hover:shadow-md">
-                      <div className="w-fit rounded-xl bg-secondary p-2.5 text-secondary-foreground">
-                        <m.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {m.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{m.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* 8. WHO THIS IS FOR */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Built for your role</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Whichever seat you sit in at the table
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {audiences.map((a, i) => (
-                  <Reveal key={a.title} delay={i * 80}>
-                    <div className="flex h-full flex-col gap-3 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent p-6">
-                      <div className="w-fit rounded-xl bg-primary/10 p-2.5 text-primary">
-                        <a.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {a.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{a.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* 9. FAQ ACCORDION */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Common questions</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Before you start buying
-                </h2>
-              </Reveal>
-              <Reveal
-                delay={80}
-                className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card"
-              >
-                {faqs.map((item, i) => {
-                  const open = openFaq === i;
-                  return (
-                    <div key={item.q}>
-                      <button
-                        onClick={() => setOpenFaq(open ? null : i)}
-                        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                        aria-expanded={open}
-                      >
-                        <span className="font-medium text-foreground">
-                          {item.q}
-                        </span>
-                        <ChevronDown
-                          className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
-                            open ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      <div
-                        className={`grid overflow-hidden transition-all duration-300 ease-out ${
-                          open
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
-                        }`}
-                      >
-                        <div className="min-h-0 px-6 pb-5 text-sm text-muted-foreground">
-                          {item.a}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </Reveal>
-            </section>
-
-            {/* 10. COMING SOON / CTA BANNER */}
-            <Reveal className="mt-20 mb-16">
-              <div className="relative overflow-hidden rounded-3xl bg-foreground px-6 py-12 text-center sm:px-12">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-brandGreen/25 blur-3xl"
-                />
-                <Leaf className="mx-auto h-8 w-8 text-brandGreen" />
-                <h2 className="mt-4 font-display text-2xl font-bold text-background sm:text-3xl">
-                  The full deep-dive is on its way
-                </h2>
-                <p className="mx-auto mt-3 max-w-xl text-sm text-background/70">
-                  Our team is finalizing the complete guide to buying e-waste
-                  scrap and building a sourcing business around it. Need
-                  guidance on a sourcing deal today? Reach out and we'll walk
-                  you through it directly.
-                </p>
-                <a
-                  href="#contact"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-brandGreen px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90"
-                >
-                  Talk to our team
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+              </section>
             </Reveal>
-          </main>
 
-          {/* ============================================================ */}
-          {/* STICKY CONTACT FORM — right rail, scrolls with the page       */}
-          {/* ============================================================ */}
-          <aside id="contact" className="hidden lg:block">
-            <div className="sticky top-28">
-              <StickyContactForm />
-            </div>
+            {/* Common items list */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-4">
+                  Everyday items worth selling, not binning
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {[
+                    "Old smartphones", "Laptops & desktops", "Chargers & cables",
+                    "Dead batteries", "Routers & modems", "Printers & scanners",
+                    "Old televisions", "Air conditioners", "Kitchen appliances",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-gray-700 text-[13.5px]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Hidden value inside devices */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Battery className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px]">
+                    The hidden value sitting inside your old devices
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  Most people look at a dead laptop or a broken television
+                  and see only trash. In reality, that same device is a
+                  small deposit of recoverable material. A single laptop can
+                  contain copper wiring, aluminium from its casing, and a
+                  circuit board with trace amounts of gold and silver used
+                  for conductivity. A washing machine carries a copper motor
+                  winding worth far more than the plastic drum around it.
+                  None of that value disappears when the device stops
+                  working — it just sits unused until someone recovers it.
+                </p>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  Certified buyers price these materials individually rather
+                  than guessing a flat rate for "old electronics," which is
+                  exactly why selling almost always beats throwing away: you
+                  are being paid for what is genuinely inside the product,
+                  not for how it looks on the outside.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* Myths section */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-5">
+                  Common myths that stop people from selling
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {[
+                    {
+                      myth: "\"It's broken, so it's worthless.\"",
+                      truth: "Broken devices are still recycled for their metal and component content — condition affects the price, not whether we buy it at all.",
+                    },
+                    {
+                      myth: "\"It's too small a quantity to bother with.\"",
+                      truth: "Even a single old phone or a bag of cables is worth something, and pickups are arranged for small lots too, not just bulk orders.",
+                    },
+                    {
+                      myth: "\"My data isn't safe if I hand over my old phone or laptop.\"",
+                      truth: "A certified buyer follows proper data-wiping and destruction steps for storage devices before recycling, which an informal scrap dealer typically will not.",
+                    },
+                    {
+                      myth: "\"Recycling centres are far and inconvenient.\"",
+                      truth: "Most certified buyers, including us, offer doorstep pickup so you never have to transport anything yourself.",
+                    },
+                  ].map(({ myth, truth }) => (
+                    <div key={myth} className="rounded-2xl border border-gray-200 p-5 bg-gray-50">
+                      <p className="text-gray-900 text-[15px] font-bold mb-1.5">{myth}</p>
+                      <p className="text-gray-600 text-[14px] m-0">{truth}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Callout */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-secondary/20 bg-secondary/[0.06] mb-6">
+                <div className="flex gap-4 items-start">
+                  <div className="w-11 h-11 rounded-xl bg-brandGreen/15 flex items-center justify-center flex-shrink-0">
+                    <Leaf className="w-5 h-5 text-brandGreen" />
+                  </div>
+                  <div>
+                    <h3 className="text-gray-900 text-[17px] font-bold mb-1.5">
+                      A small habit, a big collective impact
+                    </h3>
+                    <p className="text-gray-600 text-[14.5px] m-0">
+                      If every household sold its retired electronics instead
+                      of discarding them, the reduction in landfill toxins and
+                      raw-material demand would be enormous. It starts with
+                      one drawer of old gadgets at a time.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </Reveal>
+
+            {/* FAQ */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-5">
+                  Frequently asked questions
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {[
+                    {
+                      q: "Do I need to clean or prepare my devices before selling?",
+                      a: "No preparation is required. You can hand over devices exactly as they are — dusty, broken, or incomplete — and they'll still be evaluated fairly.",
+                    },
+                    {
+                      q: "What if I only have one or two small items?",
+                      a: "That's completely fine. Pickups are arranged for any quantity, from a single old phone to a full room of equipment.",
+                    },
+                    {
+                      q: "Will selling my e-waste really make a difference environmentally?",
+                      a: "Yes. Every device recycled through a certified channel is one less source of toxic leakage into soil and water, and one less demand on newly mined raw material.",
+                    },
+                  ].map(({ q, a }) => (
+                    <div key={q} className="rounded-2xl px-5 py-4 border border-gray-200 bg-gray-50">
+                      <h4 className="text-gray-900 text-[15.5px] font-bold mb-1.5">{q}</h4>
+                      <p className="text-gray-600 text-[14px] m-0">{a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Closing CTA */}
+            <Reveal delay={0.05}>
+              <section className="text-center rounded-[32px] px-6 sm:px-10 py-12 sm:py-16 border border-primary/10 bg-gradient-to-br from-primary to-secondary shadow-lg">
+                <h2 className="font-display font-extrabold text-white mb-3" style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}>
+                  Turn your old electronics into value today
+                </h2>
+                <p className="max-w-[640px] mx-auto text-white/90 text-[15px] mb-0">
+                  We buy e-waste directly from households and businesses, with
+                  fair pricing and fully compliant, documented disposal. Reach
+                  out to schedule a pickup near you.
+                </p>
+              </section>
+            </Reveal>
+          </div>
+
+          {/* Sticky Sidebar */}
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+            <StickyContactForm />
           </aside>
-        </div>
-
-        {/* Mobile fallback so the form is still reachable on small screens */}
-        <div className="mx-auto mt-4 max-w-7xl px-4 pb-16 sm:px-6 lg:hidden">
-          <StickyContactForm />
         </div>
       </div>
     </div>

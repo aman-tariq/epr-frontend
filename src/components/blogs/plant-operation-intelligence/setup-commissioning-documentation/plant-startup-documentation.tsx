@@ -278,7 +278,7 @@ const PlantStartupDocumentation: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#F9FAFD] text-[#1A1A2E] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 mt-10 items-stretch">
         <div className="flex-1 min-w-0">
       <Seo
         title="How Commissioning Checklists Improve Operational Readiness"
@@ -314,7 +314,7 @@ const PlantStartupDocumentation: React.FC = () => {
         type="article"
       />
       {/* Hero */}
-      <div className="bg-[#0C1F3F] text-white py-20 px-6 text-center relative overflow-hidden">
+      <div className="bg-[#0C1F3F] text-white py-20 px-2 text-center relative overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1A4FA0] via-[#3A7DD4] to-[#F5C97A]" />
         <div className="relative max-w-4xl mx-auto">
           <div className="inline-block bg-[#1A4FA0] text-xs tracking-[3px] px-6 py-2 rounded font-bold mb-6">
@@ -339,7 +339,7 @@ const PlantStartupDocumentation: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-[880px] mx-auto px-6 py-16">
+      <div className="max-w-8xl mx-auto px-6 py-16">
         {/* Lead */}
         <p className="text-[18px] leading-relaxed border-l-4 border-[#3A7DD4] pl-6 text-[#0C1F3F] mb-12 font-serif">
           Across Indian and global industrial projects, the single most
@@ -765,13 +765,13 @@ const PlantStartupDocumentation: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

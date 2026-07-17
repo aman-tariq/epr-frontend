@@ -144,7 +144,7 @@ const EWasteApprovalsBlog: React.FC = () => {
       />
 
       {/* ── OUTER PAGE WRAPPER ── */}
-      <div className="w-full max-w-[1380px] mx-auto px-1 lg:px-8 py-[34px] pb-[60px]">
+      <div className=" max-w-8xl mx-auto px-1 lg:px-8 py-[34px] pb-[60px]">
         {/* ── HERO: full width above two-col layout ── */}
         <section
           className="relative overflow-hidden text-white px-5 sm:px-[42px] py-12 sm:py-[78px] rounded-[30px] mb-[30px]"

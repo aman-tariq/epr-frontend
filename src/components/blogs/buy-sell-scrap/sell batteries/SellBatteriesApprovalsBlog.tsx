@@ -1,842 +1,417 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import {
-  FileText,
-  ShieldAlert,
-  ClipboardList,
-  ClipboardCheck,
-  Building2,
-  Factory,
-  Handshake,
-  ChevronDown,
-  Landmark,
-  Timer,
-  AlertTriangle,
-  CheckCircle2,
-  BadgeCheck,
-  CalendarClock,
-  Stamp,
-} from "lucide-react";
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Cell,
-} from "recharts";
 import StickyContactForm from "@/components/StickyContactForm";
-import Seo from "@/components/Seo";
-
-/* ------------------------------------------------------------------ */
-/*  Shared motion helpers                                              */
-/* ------------------------------------------------------------------ */
+import { motion, Variants } from "framer-motion";
+import {
+  Coins,
+  TrendingUp,
+  BatteryCharging,
+  Layers,
+  Gauge,
+  AlertTriangle,
+  FileCheck2,
+  Globe,
+  Leaf,
+  HelpCircle,
+  ArrowRight,
+  ShieldCheck,
+  BarChart3,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.06, ease: "easeOut" },
+  }),
 };
 
-const staggerParent: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-function Reveal({
-  children,
-  className = "",
-  delay = 0,
+function SectionHeading({
+  eyebrow,
+  title,
+  icon: Icon,
 }: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
+  eyebrow: string;
+  title: string;
+  icon: LucideIcon;
 }) {
-  const variants: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.55, ease: "easeOut", delay },
-    },
-  };
   return (
-    <motion.div
-      className={className}
+    <div className="flex items-start gap-4 mb-6">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brandGreen/10 text-brandGreen">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-brandGreen">
+          {eyebrow}
+        </p>
+        <h2 className="font-display text-2xl sm:text-3xl font-semibold text-foreground mt-1">
+          {title}
+        </h2>
+      </div>
+    </div>
+  );
+}
+
+function Section({
+  id,
+  children,
+  index,
+}: {
+  id: string;
+  children: React.ReactNode;
+  index: number;
+}) {
+  return (
+    <motion.section
+      id={id}
+      className="scroll-mt-24"
       initial="hidden"
-      whileInView="show"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={variants}
+      custom={index}
+      variants={fadeUp}
     >
       {children}
-    </motion.div>
+    </motion.section>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Data — CPCB Battery Waste Management (BWM) Rules, 2022 and the      */
-/*  eprbatterycpcb.in portal. See "Sources" note at the page footer.   */
-/* ------------------------------------------------------------------ */
-
-const approvalTimelineData = [
-  { name: "Battery registration (CPCB decision)", days: 15 },
-  { name: "Registration renewal (5-yr cycle)", days: 15 },
-  { name: "SPCB Consent to Establish / Operate", days: 60 },
-];
-
-const roadmapMilestones = [
+const valueDrivers = [
   {
-    tag: "Rule",
-    title: "BWM Rules, 2022 notified",
-    body: "The Ministry of Environment, Forest and Climate Change notified the Battery Waste Management Rules on 22 August 2022, creating EPR obligations for every battery chemistry.",
-    icon: Landmark,
+    icon: Layers,
+    title: "Chemistry",
+    body: "LFP (lithium iron phosphate), NMC (nickel manganese cobalt), and LCO cells recover different materials in different proportions, so chemistry is the first thing a recycler checks, not the last.",
   },
   {
-    tag: "Step 1",
-    title: "Secure your consents",
-    body: "Producers with manufacturing units and all recyclers need Consent to Establish and Consent to Operate from the SPCB/PCC under the Air and Water Acts before applying for EPR registration.",
-    icon: Stamp,
+    icon: Gauge,
+    title: "State of health",
+    body: "A pack with high remaining capacity may be a better candidate for refurbishment or second-life use than for recycling, which usually commands a different price than pure material recovery.",
   },
   {
-    tag: "Step 2",
-    title: "Apply on the CPCB portal",
-    body: "Producers file Form 1(A) with a six-part application — general details, battery type, sales data, battery material, documents, and fees. Recyclers file a parallel six-part form with the SPCB/PCC via the same centralised portal.",
-    icon: ClipboardList,
+    icon: BatteryCharging,
+    title: "Form factor",
+    body: "Cylindrical cells, prismatic cells, and pouch cells are dismantled differently. Uniform, well-labelled packs are faster and cheaper for a recycler to process than mixed, unlabelled lots.",
   },
   {
-    tag: "Step 3",
-    title: "Registration decision",
-    body: "CPCB grants or rejects the application within 15 working days of a complete submission. Approved entities receive a registration valid for five years.",
-    icon: Timer,
-  },
-  {
-    tag: "Step 4",
-    title: "Submit your EPR plan",
-    body: "Producers file Form 1(C), setting out how they will meet collection and recycling targets under Schedule II for the batteries they place on the market.",
-    icon: FileText,
-  },
-  {
-    tag: "Step 5",
-    title: "File on schedule, ongoing",
-    body: "Producers file Form 3 annually; recyclers and refurbishers file Form 4 quarterly. Certificates traded against these filings settle EPR obligations.",
-    icon: ClipboardCheck,
-  },
-  {
-    tag: "Step 6",
-    title: "Renew before expiry",
-    body: "Apply for renewal 60 days before the five-year registration lapses. CPCB processes complete renewal filings within 15 working days.",
-    icon: BadgeCheck,
+    icon: ShieldCheck,
+    title: "Physical condition",
+    body: "Swollen, punctured, or visibly damaged cells require specialised handling and safe discharge before processing, which adds cost and can lower the price a recycler is willing to offer.",
   },
 ];
 
-const checklistItems = [
+const marketForces = [
   {
-    q: "For producers: what goes into the application?",
-    a: 'Entity and GST/PAN details, categorised battery chemistry (lead-acid, Li-ion, Ni-Cd, Ni-MH declared separately — "lithium" alone is rejected), sales/import volumes matched to customs bills of entry, CTE/CTO where a manufacturing unit exists, and the application fee.',
+    title: "Global commodity cycles",
+    body: "Lithium carbonate, cobalt, and nickel are traded on global markets, and their prices move with EV demand, mining output, and battery manufacturing capacity worldwide. Recycled scrap value tracks these cycles with a lag.",
   },
   {
-    q: "For recyclers: what does the SPCB/PCC ask for?",
-    a: "General facility details, the battery types and chemistries handled, geo-tagged images of the recycling site, documented recycling capacity, supporting consents, and the applicable fee.",
+    title: "Domestic recycling capacity",
+    body: "As more CPCB-registered recycling facilities come online in India, competition for feedstock increases, which can improve the price sellers receive for consistent, well-documented volumes.",
   },
   {
-    q: "What are the most common rejection reasons?",
-    a: "Undeclared battery chemistry, sales volumes that don\u2019t reconcile with customs records, illegible scanned documents, and legal-name mismatches against PAN or GST records.",
-  },
-  {
-    q: "What happens if we miss a filing?",
-    a: "Portal accounts can be suspended pending overdue returns — you can\u2019t file or trade certificates while suspended — and Environmental Compensation is levied on top of the underlying obligation, which still carries forward to the next cycle.",
+    title: "EPR obligations of producers",
+    body: "Because battery producers must meet Extended Producer Responsibility recycling obligations, registered recyclers have a standing need for consistent volumes of end-of-life battery waste, not just a one-time spot demand.",
   },
 ];
 
-const CHART_SECONDARY = "hsl(var(--secondary))";
-const CHART_MUTED = "#B7C3B9";
+const undervalueMistakes = [
+  "Selling mixed chemistries in a single unsorted lot",
+  "Storing damaged or swollen cells alongside healthy ones without separation",
+  "Skipping a written quote and accepting a verbal, unverifiable price",
+  "Selling in small, irregular batches instead of consolidated volumes",
+  "Not asking whether the buyer is a registered recycler or an unregistered aggregator",
+  "Failing to disclose known damage, which erodes trust and future pricing",
+];
 
-/* ------------------------------------------------------------------ */
-/*  1. Hero — dossier / certificate motif, secondary-led palette        */
-/* ------------------------------------------------------------------ */
+const faqs = [
+  {
+    q: "Is there a fixed market rate for lithium-ion scrap in India?",
+    a: "No single published rate applies everywhere. Pricing depends on chemistry, condition, volume, and the recycler's current processing capacity, and it moves with global commodity prices for lithium, cobalt, and nickel. Any quote should be treated as time-bound and specific to your batch.",
+  },
+  {
+    q: "Do damaged or swollen batteries still have scrap value?",
+    a: "Often yes, but less than healthy cells, and they require careful, compliant handling to prevent fire risk. A registered recycler will usually still take them, but expect a lower per-unit price to cover the extra safety measures involved.",
+  },
+  {
+    q: "Does selling in bulk get a better price than selling piecemeal?",
+    a: "Generally yes. Consolidated, well-documented volumes reduce a recycler's collection and processing overhead, which is typically reflected in a more competitive quote compared to frequent small pickups.",
+  },
+  {
+    q: "How can we get an accurate, current quote?",
+    a: "Share an inventory breakdown by chemistry, approximate weight or unit count, and condition with a registered recycler or a platform like EPR Nexuss, and ask for a written quote tied to that specific batch rather than a generic per-kilogram figure.",
+  },
+];
 
-function HeroSection() {
+export default function ScrapValueLithiumIonBlog() {
   return (
-    <section className="overflow-hidden rounded-3xl border-2 border-dashed border-secondary/40 bg-secondary/5 px-6 py-14 sm:px-10 sm:py-20">
-      <div className="absolute right-6 top-6 hidden rotate-6 items-center gap-1.5 rounded-md border border-brandGreen/40 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brandGreen sm:flex">
-        <BadgeCheck className="h-3 w-3" />
-        BWMR 2022
-      </div>
-
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={staggerParent}
-        className="relative max-w-3xl"
-      >
-        <motion.span
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-secondary"
-        >
-          <Stamp className="h-3.5 w-3.5" />
-          Approval Dossier
-        </motion.span>
-
-        <motion.h1
-          variants={fadeUp}
-          className="mt-6 font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl"
-        >
-          Sell Batteries: Approvals, Registration &amp; Compliance Roadmap
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          A practical, step-by-step route through registration, consents, and
-          ongoing filings for battery scrap — mapped for{" "}
-          <span className="font-semibold text-foreground">producers</span>,{" "}
-          <span className="font-semibold text-foreground">recyclers</span>, and{" "}
-          <span className="font-semibold text-foreground">PROs</span> working
-          under India&apos;s Battery Waste Management Rules, 2022.
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-8 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
+    <div className="bg-background min-h-screen">
+      <section className="relative overflow-hidden border-b border-border mt-[60px]">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-brandGreen/10" />
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            Get compliance guidance
-          </a>
-          <span className="text-sm text-muted-foreground">
-            Our full deep-dive report is in final review — reach out for
-            immediate guidance in the meantime.
-          </span>
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  2. Compliance ticker — horizontal stat strip, not cards             */
-/* ------------------------------------------------------------------ */
-
-function ComplianceTickerSection() {
-  const items = [
-    { label: "Registration decision window", value: "15 working days" },
-    { label: "Registration validity", value: "5 years" },
-    { label: "Renew before expiry", value: "60 days prior" },
-    { label: "CPCB-registered recyclers", value: "252+" },
-  ];
-  return (
-    <section className="border-y border-border py-6">
-      <Reveal className="flex flex-wrap divide-x divide-border">
-        {items.map((it, i) => (
-          <div
-            key={i}
-            className="flex-1 min-w-[45%] px-4 py-2 sm:min-w-0 sm:px-6"
-          >
-            <div className="font-display text-xl font-bold text-primary sm:text-2xl">
-              {it.value}
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-4">
+              <span>Sell Batteries</span>
+              <span>/</span>
+              <span className="text-brandGreen">Scrap Value</span>
             </div>
-            <div className="mt-1 text-xs text-muted-foreground">{it.label}</div>
-          </div>
-        ))}
-      </Reveal>
-    </section>
-  );
-}
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Are You Missing Out on Cash? What Is the Current Scrap Value of
+              Commercial Lithium-Ion Batteries?
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+              Lithium-ion scrap value is not a fixed number you can look up
+              once and forget. It shifts with commodity markets, battery
+              condition, and how well your batch is sorted and documented.
+              Here is what actually moves the price.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                <TrendingUp className="h-4 w-4" /> Market-linked pricing
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
+                <Coins className="h-4 w-4" /> No fixed rate — get a real quote
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-/* ------------------------------------------------------------------ */
-/*  3. Signature element — scroll-animated vertical roadmap timeline    */
-/* ------------------------------------------------------------------ */
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-2 py-12">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <main className="flex-1 min-w-0 space-y-16">
+            <Section id="intro" index={0}>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                If your business is sitting on retired UPS packs, telecom
+                batteries, EV fleet cells, or industrial energy storage
+                units, a natural question comes up fast: what are they
+                actually worth? The honest answer is that scrap value for
+                commercial lithium-ion batteries is a moving target, driven
+                by global metal markets and the specific condition of your
+                batch, not a single published price list.
+              </p>
+            </Section>
 
-function RoadmapTimelineSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 0.8", "end 0.4"],
-  });
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+            <Section id="why-fluctuates" index={1}>
+              <SectionHeading
+                eyebrow="Set expectations"
+                title="Why lithium-ion scrap value changes constantly"
+                icon={TrendingUp}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Unlike lead-acid batteries, where lead content gives buyers a
+                fairly stable pricing benchmark, lithium-ion packs contain a
+                mix of recoverable materials, cobalt, nickel, copper, and
+                lithium itself, whose prices are set on international
+                commodity markets. When demand for electric vehicles or grid
+                storage shifts globally, the price recyclers can afford to
+                pay for scrap shifts with it. Treat any number you hear as a
+                snapshot, not a permanent rate.
+              </p>
+            </Section>
 
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="max-w-2xl">
-        <span className="text-xs font-semibold uppercase tracking-wide text-secondary-foreground">
-          The roadmap
-        </span>
-        <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
-          From notification to renewal, in order
-        </h2>
-        <p className="mt-3 text-muted-foreground">
-          This is the real sequence — no step can be skipped, and the clock on
-          each one starts the moment the previous one is filed.
-        </p>
-      </Reveal>
-
-      <div ref={containerRef} className="relative mt-10">
-        {/* track */}
-        <div className="absolute left-4 top-0 h-full w-px bg-border sm:left-1/2" />
-        {/* animated progress line */}
-        <motion.div
-          style={{ height: lineHeight }}
-          className="absolute left-4 top-0 w-px bg-brandGreen sm:left-1/2"
-        />
-
-        <div className="space-y-10">
-          {roadmapMilestones.map((m, i) => {
-            const isRight = i % 2 === 0;
-            return (
-              <Reveal key={i} delay={i * 0.05}>
-                <div
-                  className={`relative flex flex-col gap-4 pl-12 sm:flex-row sm:pl-0 ${
-                    isRight ? "sm:justify-start" : "sm:justify-end"
-                  }`}
-                >
-                  {/* node */}
-                  <div className="absolute left-4 top-1 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-brandGreen bg-background sm:left-1/2" />
-
+            <Section id="value-drivers" index={2}>
+              <SectionHeading
+                eyebrow="What actually sets the price"
+                title="The four biggest drivers of scrap value"
+                icon={BarChart3}
+              />
+              <div className="grid sm:grid-cols-2 gap-5 mt-2">
+                {valueDrivers.map((item) => (
                   <div
-                    className={`w-full rounded-2xl border border-border bg-card p-5 sm:w-[calc(50%-2rem)] ${
-                      isRight ? "sm:mr-auto" : "sm:ml-auto"
-                    }`}
+                    key={item.title}
+                    className="rounded-2xl border border-border bg-card p-5 hover:border-brandGreen/40 transition-colors"
                   >
-                    <div className="flex items-center gap-2">
-                      <m.icon className="h-4 w-4 text-secondary-foreground" />
-                      <span className="text-[11px] font-bold uppercase tracking-wide text-secondary-foreground">
-                        {m.tag}
-                      </span>
-                    </div>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
-                      {m.title}
+                    <item.icon className="h-5 w-5 text-brandGreen mb-3" />
+                    <h3 className="font-display font-semibold text-foreground">
+                      {item.title}
                     </h3>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {m.body}
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.body}
                     </p>
                   </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  4. Document checklist — accordion, not cards                       */
-/* ------------------------------------------------------------------ */
-
-function DocumentChecklistSection() {
-  const [open, setOpen] = useState<number | null>(0);
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="max-w-2xl">
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          What the application actually asks for
-        </h2>
-        <p className="mt-2 text-muted-foreground">
-          The questions we hear most before filing.
-        </p>
-      </Reveal>
-
-      <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
-        {checklistItems.map((item, i) => {
-          const isOpen = open === i;
-          return (
-            <div key={i}>
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-              >
-                <span className="font-display text-sm font-semibold text-foreground sm:text-base">
-                  {item.q}
-                </span>
-                <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <ChevronDown className="h-4 w-4 flex-none text-muted-foreground" />
-                </motion.span>
-              </button>
-              <motion.div
-                initial={false}
-                animate={{
-                  height: isOpen ? "auto" : 0,
-                  opacity: isOpen ? 1 : 0,
-                }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <p className="px-5 pb-5 text-sm text-muted-foreground">
-                  {item.a}
-                </p>
-              </motion.div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  5. Registration paths — comparison table                           */
-/* ------------------------------------------------------------------ */
-
-function RegistrationPathsTable() {
-  const rows = [
-    {
-      who: "Producers (manufacturers, importers)",
-      authority: "CPCB, centralised portal",
-      form: "Form 1(A) + Form 1(C) EPR plan",
-      ongoing: "Form 3, annually",
-    },
-    {
-      who: "Recyclers",
-      authority: "SPCB/PCC via CPCB portal",
-      form: "Six-part recycler application",
-      ongoing: "Form 4, quarterly",
-    },
-    {
-      who: "Refurbishers",
-      authority: "SPCB/PCC via CPCB portal",
-      form: "Refurbisher sign-up form",
-      ongoing: "Form 4, quarterly",
-    },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Who registers where
-        </h2>
-      </Reveal>
-      <Reveal
-        delay={0.05}
-        className="mt-8 overflow-x-auto rounded-2xl border border-border"
-      >
-        <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-          <thead>
-            <tr className="bg-secondary/10">
-              <th className="px-5 py-3 font-display font-semibold text-foreground">
-                Entity
-              </th>
-              <th className="px-5 py-3 font-display font-semibold text-foreground">
-                Registers with
-              </th>
-              <th className="px-5 py-3 font-display font-semibold text-foreground">
-                Initial filing
-              </th>
-              <th className="px-5 py-3 font-display font-semibold text-foreground">
-                Ongoing return
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r, i) => (
-              <tr key={i} className="border-t border-border">
-                <td className="px-5 py-4 font-medium text-foreground">
-                  {r.who}
-                </td>
-                <td className="px-5 py-4 text-muted-foreground">
-                  {r.authority}
-                </td>
-                <td className="px-5 py-4 text-muted-foreground">{r.form}</td>
-                <td className="px-5 py-4 text-muted-foreground">{r.ongoing}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Reveal>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  6. Approval timeline chart                                          */
-/* ------------------------------------------------------------------ */
-
-function ApprovalTimelineChartSection() {
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="grid grid-cols-1 gap-8 lg:grid-cols-5">
-        <div className="lg:col-span-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-secondary-foreground">
-            Plan your runway
-          </span>
-          <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
-            How long each approval actually takes
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            CPCB commits to a 15 working-day decision on battery registration
-            and renewal once your file is complete. Consents from the SPCB/PCC
-            run longer and should be started first, since they\u2019re often a
-            prerequisite for the EPR filing itself.
-          </p>
-        </div>
-        <div className="h-64 rounded-2xl border border-border bg-card p-4 lg:col-span-3">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={approvalTimelineData}
-              layout="vertical"
-              margin={{ left: 10, right: 20 }}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                horizontal={false}
-                className="stroke-border"
-              />
-              <XAxis
-                type="number"
-                tick={{ fontSize: 12 }}
-                stroke="currentColor"
-                className="text-muted-foreground"
-              />
-              <YAxis
-                type="category"
-                dataKey="name"
-                width={190}
-                tick={{ fontSize: 11 }}
-                stroke="currentColor"
-                className="text-muted-foreground"
-              />
-              <Tooltip
-                formatter={(v: number) => [`${v} days`, "Typical window"]}
-              />
-              <Bar dataKey="days" radius={[0, 8, 8, 0]}>
-                {approvalTimelineData.map((_, i) => (
-                  <Cell
-                    key={i}
-                    fill={
-                      i === approvalTimelineData.length - 1
-                        ? CHART_MUTED
-                        : CHART_SECONDARY
-                    }
-                  />
                 ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  7. Filing calendar — horizontal cadence strip                       */
-/* ------------------------------------------------------------------ */
-
-function FilingCalendarSection() {
-  const cadence = [
-    {
-      icon: FileText,
-      title: "Form 1(A)",
-      sub: "Producer registration, one-time",
-    },
-    {
-      icon: ClipboardList,
-      title: "Form 1(C)",
-      sub: "EPR plan, after registration",
-    },
-    { icon: CalendarClock, title: "Form 3", sub: "Producers, filed annually" },
-    {
-      icon: CalendarClock,
-      title: "Form 4",
-      sub: "Recyclers/refurbishers, quarterly",
-    },
-    { icon: BadgeCheck, title: "Renewal", sub: "60 days before 5-year expiry" },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          The filing cadence, once you\u2019re registered
-        </h2>
-      </Reveal>
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-5">
-        {cadence.map((c, i) => (
-          <Reveal key={i} delay={i * 0.05}>
-            <div className="flex h-full flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center">
-              <c.icon className="h-5 w-5 text-secondary-foreground" />
-              <span className="font-display text-sm font-bold text-foreground">
-                {c.title}
-              </span>
-              <span className="text-xs text-muted-foreground">{c.sub}</span>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  8. Penalties — destructive-accented warning section                 */
-/* ------------------------------------------------------------------ */
-
-function PenaltiesSection() {
-  const tiers = [
-    { label: "First default", amount: "₹20,000" },
-    { label: "Second default", amount: "₹40,000" },
-    { label: "Third default", amount: "₹80,000" },
-  ];
-
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal className="rounded-3xl border border-destructive/30 bg-destructive/5 p-6 sm:p-10">
-        <div className="flex items-center gap-2 text-destructive">
-          <ShieldAlert className="h-5 w-5" />
-          <span className="text-xs font-bold uppercase tracking-wide">
-            Non-compliance is not a flat fee
-          </span>
-        </div>
-        <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Environmental Compensation escalates with repeat defaults
-        </h2>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
-          CPCB&apos;s Environmental Compensation guidelines penalise procedural
-          violations on an escalating scale, separate from EC charged on unmet
-          EPR recycling targets — which is calculated per kilogram of
-          unfulfilled obligation, weighted by battery chemistry.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {tiers.map((t, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-destructive/20 bg-background p-5"
-            >
-              <AlertTriangle className="h-4 w-4 text-destructive" />
-              <div className="mt-3 font-display text-2xl font-bold text-foreground">
-                {t.amount}
               </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                {t.label}
+            </Section>
+
+            <Section id="how-evaluated" index={3}>
+              <SectionHeading
+                eyebrow="Behind the quote"
+                title="How a registered recycler actually evaluates your batteries"
+                icon={Gauge}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Before quoting a price, a credible recycler typically wants
+                to know the chemistry breakdown of your lot, approximate
+                total weight or unit count, whether packs are intact or
+                damaged, and whether battery management systems are still
+                attached. This is not bureaucracy for its own sake, it
+                directly affects how much material can be safely and
+                economically recovered, which is what the price is based on.
+              </p>
+            </Section>
+
+            <Section id="market-forces" index={4}>
+              <SectionHeading
+                eyebrow="Bigger picture"
+                title="The market forces behind today's pricing"
+                icon={Globe}
+              />
+              <div className="space-y-4 mt-2">
+                {marketForces.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-border bg-card p-5"
+                  >
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
+            </Section>
 
-        <p className="mt-5 text-sm text-muted-foreground">
-          Paying the compensation doesn&apos;t clear the underlying obligation —
-          it still rolls into the following cycle, on top of a fresh target.
-        </p>
-      </Reveal>
-    </section>
-  );
-}
+            <Section id="damage-condition" index={5}>
+              <SectionHeading
+                eyebrow="Handle with care"
+                title="How damage and poor storage quietly erode value"
+                icon={AlertTriangle}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                A swollen or punctured lithium-ion cell is not just worth
+                less, it is genuinely more dangerous to store and transport.
+                Moisture exposure, physical crushing, and prolonged storage
+                in high heat all degrade cells further and add safety
+                handling costs that a recycler will factor into the price
+                they can offer. Careful storage from day one protects both
+                safety and resale value.
+              </p>
+            </Section>
 
-/* ------------------------------------------------------------------ */
-/*  9. Roles — interactive tabs, not static cards                       */
-/* ------------------------------------------------------------------ */
+            <Section id="mistakes" index={6}>
+              <SectionHeading
+                eyebrow="Avoid these"
+                title="Common mistakes that leave money on the table"
+                icon={FileCheck2}
+              />
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <ul className="space-y-3">
+                  {undervalueMistakes.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="h-1.5 w-1.5 rounded-full bg-brandGreen mt-2 shrink-0" />
+                      <span className="text-sm text-foreground/90 leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Section>
 
-function RolesTabsSection() {
-  const roles = {
-    producer: {
-      icon: Building2,
-      label: "Producers",
-      points: [
-        "Secure CTE/CTO first if you run a manufacturing unit — it\u2019s a prerequisite for registration",
-        "File Form 1(A), then Form 1(C) with your EPR plan once approved",
-        "Buy EPR certificates from registered recyclers to close any collection gap",
-      ],
-    },
-    recycler: {
-      icon: Factory,
-      label: "Recyclers",
-      points: [
-        "Register with your SPCB/PCC through the same centralised CPCB portal",
-        "Keep geo-tagged site images and recycling capacity documentation current",
-        "File Form 4 every quarter to keep certificates flowing to producers",
-      ],
-    },
-    pro: {
-      icon: Handshake,
-      label: "PROs",
-      points: [
-        "Help producers navigate consent requirements before the EPR filing clock starts",
-        "Aggregate scrap volumes and match them to verified, registered recyclers",
-        "Track renewal windows across a portfolio so no client\u2019s registration lapses",
-      ],
-    },
-  };
+            <Section id="getting-a-quote" index={7}>
+              <SectionHeading
+                eyebrow="Do this instead"
+                title="How to get a realistic, current quote"
+                icon={Coins}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Prepare a simple inventory: chemistry type, approximate
+                weight or cell count, general condition, and whether the
+                units are intact packs or loose cells. Share this with a
+                registered recycler or through EPR Nexuss's network, and ask
+                for a written quote tied specifically to that batch. Compare
+                more than one quote where possible, since pricing can vary
+                between recyclers based on their current processing
+                capacity and material needs.
+              </p>
+            </Section>
 
-  const [active, setActive] = useState<keyof typeof roles>("producer");
-  const current = roles[active];
+            <Section id="beyond-price" index={8}>
+              <SectionHeading
+                eyebrow="It's not only about cash"
+                title="The value beyond the invoice"
+                icon={Leaf}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Recycling lithium-ion batteries through a registered
+                channel recovers materials like cobalt and nickel that
+                would otherwise need fresh mining, and keeps hazardous
+                waste out of informal, unsafe recycling operations. For
+                many businesses, documented, compliant disposal also
+                supports internal ESG and sustainability reporting
+                alongside the direct cash return.
+              </p>
+            </Section>
 
-  return (
-    <section className="py-12 sm:py-16">
-      <Reveal>
-        <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-          Your role changes what comes first
-        </h2>
-      </Reveal>
+            <Section id="how-we-help" index={9}>
+              <SectionHeading
+                eyebrow="Where EPR Nexuss fits"
+                title="Getting the best price without the guesswork"
+                icon={ShieldCheck}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                EPR Nexuss connects businesses with vetted, registered
+                recyclers and helps structure your inventory for the best
+                possible quote, so you are not negotiating blind or
+                relying on a single buyer's number. You get transparent
+                pricing logic and the compliance paperwork to go with it.
+              </p>
+            </Section>
 
-      <Reveal delay={0.05} className="mt-8">
-        <div className="inline-flex flex-wrap gap-2 rounded-xl border border-border bg-card p-1.5">
-          {(Object.keys(roles) as Array<keyof typeof roles>).map((key) => {
-            const r = roles[key];
-            const isActive = key === active;
-            return (
-              <button
-                key={key}
-                onClick={() => setActive(key)}
-                className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
-                  isActive
-                    ? "bg-secondary text-secondary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <r.icon className="h-4 w-4" />
-                {r.label}
-              </button>
-            );
-          })}
-        </div>
+            <Section id="faqs" index={10}>
+              <SectionHeading
+                eyebrow="Questions we hear often"
+                title="Frequently asked questions"
+                icon={HelpCircle}
+              />
+              <div className="space-y-4">
+                {faqs.map((item) => (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-border bg-card p-5"
+                  >
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.q}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
 
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="mt-6 rounded-2xl border border-border bg-card p-6"
-        >
-          <ul className="space-y-3">
-            {current.points.map((p, i) => (
-              <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brandGreen" />
-                {p}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </Reveal>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  10. Final CTA — bordered dossier card, not a solid gradient banner  */
-/* ------------------------------------------------------------------ */
-
-function FinalCTASection() {
-  return (
-    <section id="contact" className="py-12 sm:py-16">
-      <Reveal className="grid grid-cols-1 gap-8 rounded-3xl border-2 border-dashed border-secondary/40 bg-secondary/5 p-6 sm:p-10 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <div className="flex items-center gap-2 text-sm font-medium text-secondary-foreground">
-            <Stamp className="h-4 w-4" />
-            Deep-dive report in progress
-          </div>
-          <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Our full compliance deep-dive is being finalised
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            In the meantime, our team can walk through your specific
-            registration path — consents, forms, and filing cadence — whether
-            you&apos;re a producer, recycler, or PRO.
-          </p>
-        </div>
-        <div className="flex items-center lg:col-span-2 lg:justify-end">
-          <a
-            href="#contact-form"
-            className="inline-flex items-center gap-2 rounded-xl bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Get immediate guidance
-          </a>
-        </div>
-      </Reveal>
-
-      <p className="mt-8 text-center text-xs text-muted-foreground">
-        Sources: Battery Waste Management Rules, 2022 (MoEFCC) · CPCB EPR Portal
-        for Battery Waste Management (eprbatterycpcb.in) · CPCB Standard
-        Operating Procedures for Producer and Recycler Registration · CPCB
-        Environmental Compensation guidelines, September 2024. Figures reflect
-        the most recent public reporting available as of 2026 and are subject to
-        revision as CPCB updates its rules and portal processes.
-      </p>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Page composition                                                    */
-/* ------------------------------------------------------------------ */
-
-export default function SellBatteriesComplianceRoadmap() {
-  return (
-    <div className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 lg:flex-row lg:gap-10">
-          {/* Main content column */}
-          <Seo
-            title="Sell Batteries: Approvals, Registration & Compliance Roadmap"
-            description="Learn the approvals, registrations, and compliance requirements for selling batteries in India. Follow a complete roadmap covering Battery Waste Management Rules, CPCB guidelines, documentation, and legal obligations."
-            keywords={[
-              "Sell Batteries",
-              "Battery Waste Management",
-              "Battery Waste Management Rules",
-              "Battery Registration",
-              "Battery Compliance",
-              "Battery EPR",
-              "CPCB Battery Registration",
-              "Battery Recycling",
-              "Battery Trading",
-              "Battery Business India",
-              "Battery Waste Compliance",
-              "Environmental Compliance",
-              "Business Registration",
-              "Battery Collection",
-              "Regulatory Compliance",
-              "How to sell batteries legally in India?",
-              "How to get battery EPR registration?",
-              "What licenses are required for battery trading?",
-              "How to comply with Battery Waste Management Rules?",
-              "Who needs battery EPR registration?",
-              "Documents required for battery registration",
-              "Battery compliance checklist",
-              "How to avoid battery compliance penalties?",
-              "Battery registration process in India",
-              "Battery business compliance guide",
-            ]}
-            url="https://eprnexuss.com/blog/sell-batteries-approvals"
-            type="article"
-          />
-          <main className="min-w-0 flex-1">
-            <HeroSection />
-            <ComplianceTickerSection />
-            <RoadmapTimelineSection />
-            <DocumentChecklistSection />
-            <RegistrationPathsTable />
-            <ApprovalTimelineChartSection />
-            <FilingCalendarSection />
-            <PenaltiesSection />
-            <RolesTabsSection />
-            <FinalCTASection />
+            <Section id="conclusion" index={11}>
+              <div className="rounded-2xl bg-primary text-primary-foreground p-8">
+                <h2 className="font-display text-2xl font-semibold">
+                  Find out what your battery inventory is really worth
+                </h2>
+                <p className="mt-3 text-primary-foreground/90 leading-relaxed">
+                  Share your inventory details with EPR Nexuss and get a
+                  current, batch-specific quote from a registered recycler,
+                  not a guess based on an outdated number.
+                </p>
+                <a href="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-white text-primary px-5 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors">
+                  Request a live quote <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </Section>
           </main>
 
-          {/* Sticky contact form — desktop/tablet only, scrolls with page then sticks */}
-          <aside
-            id="contact-form"
-            className="hidden w-full flex-none lg:block lg:w-80 xl:w-96"
-          >
-            <div className="sticky top-28">
+          <aside className="w-full lg:w-[320px] lg:shrink-0">
+            <div className="lg:sticky lg:top-24">
               <StickyContactForm />
             </div>
           </aside>
-        </div>
-
-        {/* Mobile inline form fallback — sticky sidebar isn't usable on small screens */}
-        <div className="mt-10 lg:hidden">
-          <StickyContactForm />
         </div>
       </div>
     </div>

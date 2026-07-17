@@ -1,896 +1,429 @@
 "use client";
 
-/**
- * Buy & Sell Metals: Detailed Project Report (DPR) Essentials
- * -------------------------------------------------------------
- * Single-file blog page for a producer/recycler/PRO audience preparing a
- * bank-ready DPR for a metal scrap trading or processing business.
- *
- * Ten content sections + a persistent sticky contact form.
- * Uses the project's existing design tokens (primary / secondary /
- * brandGreen, hsl(var(--...)) system).
- *
- * Requires: framer-motion, recharts, lucide-react.
- *
- * Navbar/footer are assumed to already exist in the layout — this file is
- * content only, with top padding reserved so it never collapses under a
- * fixed/sticky navbar.
- */
-
-import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import {
-  FileText,
-  UserCheck,
-  LineChart as LineChartIcon,
-  Cog,
-  Wallet,
-  Landmark,
-  ClipboardCheck,
-  Gauge,
-  Percent,
-  TrendingDown,
-  ChevronDown,
-  AlertOctagon,
-  FileWarning,
-  ScanLine,
-  Building2,
-  Receipt,
-} from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
-import Seo from "@/components/Seo";
+import { motion, Variants } from "framer-motion";
+import {
+  Landmark,
+  ShieldCheck,
+  FileCheck2,
+  Ship,
+  Factory,
+  ClipboardCheck,
+  Scale,
+  CheckCircle2,
+  AlertTriangle,
+  HelpCircle,
+  ArrowRight,
+  Recycle,
+  CalendarClock,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/* Shared bits                                                          */
-/* ------------------------------------------------------------------ */
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brandGreen">
-      <span className="h-1.5 w-1.5 rounded-full bg-brandGreen" />
-      {children}
-    </span>
-  );
-}
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.06, ease: "easeOut" },
+  }),
+};
 
 function SectionHeading({
   eyebrow,
   title,
-  description,
+  icon: Icon,
 }: {
   eyebrow: string;
   title: string;
-  description?: string;
+  icon: LucideIcon;
 }) {
   return (
-    <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          {description}
+    <div className="flex items-start gap-4 mb-6">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brandGreen/10 text-brandGreen">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-brandGreen">
+          {eyebrow}
         </p>
-      )}
+        <h2 className="font-display text-2xl sm:text-3xl font-semibold text-foreground mt-1">
+          {title}
+        </h2>
+      </div>
     </div>
   );
 }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
-
-/* ------------------------------------------------------------------ */
-/* 1. Hero                                                              */
-/* ------------------------------------------------------------------ */
-
-function Hero() {
-  const stats = [
-    {
-      label: "India scrap & recycling industry, projected 2026",
-      value: "₹60,000 cr",
-      source: "Industry estimates",
-    },
-    {
-      label: "Minimum DSCR banks look for",
-      value: "1.5×",
-      source: "Standard bank appraisal norms",
-    },
-    {
-      label: "Typical promoter contribution required",
-      value: "15–33%",
-      source: "SBI / bank credit policy",
-    },
-  ];
-
+function Section({
+  id,
+  children,
+  index,
+}: {
+  id: string;
+  children: React.ReactNode;
+  index: number;
+}) {
   return (
-    <section className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      />
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-4 md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:pb-24 md:pt-8">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <Eyebrow>Detailed Project Report · Essentials</Eyebrow>
-          <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground md:text-5xl">
-            Buy &amp; sell metals: DPR essentials for a bankable scrap business
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            What actually needs to be in a Detailed Project Report before a bank
-            will fund your scrap trading or processing venture — not a generic
-            template, but what credit officers are really checking for.
-          </p>
-          <div className="mt-6 rounded-xl border border-border bg-muted/40 p-4">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">
-                Our team is finalizing the full deep-dive.
-              </span>{" "}
-              Reach out for immediate guidance in the meantime — the form on
-              this page reaches a live specialist, not a queue.
-            </p>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#structure"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
-            >
-              See the DPR structure
-            </a>
-            <a
-              href="#ratios"
-              className="rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-muted"
-            >
-              Check the bank's ratios
-            </a>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-          className="grid grid-cols-1 gap-3 self-start rounded-2xl border border-border bg-card p-4 shadow-sm sm:grid-cols-3 md:grid-cols-1"
-        >
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-xl bg-muted/40 p-4 transition hover:bg-muted/70"
-            >
-              <div className="font-display text-2xl font-bold text-brandGreen md:text-3xl">
-                {s.value}
-              </div>
-              <div className="mt-1 text-sm font-medium text-foreground">
-                {s.label}
-              </div>
-              <div className="mt-1 text-xs text-muted-foreground">
-                {s.source}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 2. DPR structure roadmap (signature element)                        */
-/* ------------------------------------------------------------------ */
-
-const dprSections = [
-  {
-    icon: FileText,
-    title: "Executive summary",
-    detail:
-      "4–6 pages: promoter background, project cost, means of finance, IRR, payback period — all in one place.",
-  },
-  {
-    icon: UserCheck,
-    title: "Promoter background",
-    detail:
-      "Qualifications, experience, and financial standing — banks weigh this heavily for first-time applicants.",
-  },
-  {
-    icon: LineChartIcon,
-    title: "Market analysis",
-    detail:
-      "Demand and industry trends backed by real facts, not generic industry averages copy-pasted across states.",
-  },
-  {
-    icon: Cog,
-    title: "Technical feasibility",
-    detail:
-      "Machinery list, raw material flow, utilities, and manpower — proof the production process is realistic.",
-  },
-  {
-    icon: Wallet,
-    title: "Financial projections",
-    detail:
-      "Revenue, cost of production, and P&L for the full loan tenure — minimum 5 years for term loans.",
-  },
-  {
-    icon: Landmark,
-    title: "Means of finance",
-    detail:
-      "Own contribution plus bank loan, broken down clearly — 100% bank funding with zero promoter stake is a red flag.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Statutory permits",
-    detail:
-      "GST, Udyam, environmental consents, and licenses relevant to your specific scrap category and scale.",
-  },
-  {
-    icon: Gauge,
-    title: "Ratios & risk",
-    detail:
-      "DSCR, IRR, and break-even worked out explicitly — this is what the credit officer checks first, not last.",
-  },
-];
-
-function DPRStructure() {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <section
-      id="structure"
-      className="border-y border-border bg-muted/30 py-16 md:py-20"
+    <motion.section
+      id={id}
+      className="scroll-mt-24"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      custom={index}
+      variants={fadeUp}
     >
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading
-          eyebrow="The eight sections that matter"
-          title="What a bank-ready DPR actually contains"
-          description="This is the standard format adopted by Indian banks, SIDBI, and government agencies — credit officers can spot a generic report within minutes, so each section needs to hold up on its own."
-        />
-
-        <div className="relative">
-          <div className="absolute left-0 right-0 top-[38px] hidden h-[3px] overflow-hidden rounded-full bg-border lg:block">
-            <motion.div
-              className="h-full w-full"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, #5AC361 15%, hsl(var(--primary)) 50%, #5AC361 85%, transparent)",
-                backgroundSize: "200% 100%",
-              }}
-              animate={
-                reduceMotion ? {} : { backgroundPositionX: ["0%", "200%"] }
-              }
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-            />
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-            {dprSections.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}
-                  className="relative flex flex-col items-center text-center lg:items-start lg:text-left"
-                >
-                  <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border-2 border-brandGreen bg-brandGreen/10 bg-background text-brandGreen">
-                    <Icon className="h-6 w-6" />
-                    <span className="absolute -top-2 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-[11px] font-bold text-background">
-                      {i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 font-display text-sm font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {step.detail}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
+      {children}
+    </motion.section>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* 3. Bank ratios cards                                                 */
-/* ------------------------------------------------------------------ */
-
-function BankRatios() {
-  const ratios = [
-    {
-      icon: Gauge,
-      stat: "> 1.5×",
-      label: "Debt Service Coverage Ratio (DSCR)",
-      copy: "The standard minimum banks look for — it tells them your projected cash flow comfortably covers loan repayment.",
-    },
-    {
-      icon: TrendingDown,
-      stat: "< 60%",
-      label: "Break-even capacity utilisation",
-      copy: "Banks prefer projects that turn profitable well before you're running at full installed capacity.",
-    },
-    {
-      icon: LineChartIcon,
-      stat: "~15%+",
-      label: "Internal Rate of Return (IRR)",
-      copy: "A rough benchmark for whether the project's return justifies the capital and risk involved.",
-    },
-    {
-      icon: Percent,
-      stat: "15–33%",
-      label: "Promoter contribution",
-      copy: "Your own stake in the project cost — the exact figure varies by bank and loan product, but zero contribution is always a red flag.",
-    },
-  ];
-
-  return (
-    <section id="ratios" className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-      <SectionHeading
-        eyebrow="What the credit officer checks first"
-        title="The four numbers that decide your appraisal"
-        description="Get these right and the rest of the DPR mostly needs to support them — get them wrong and no amount of formatting fixes it."
-      />
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {ratios.map((r) => {
-          const Icon = r.icon;
-          return (
-            <div
-              key={r.label}
-              className="rounded-2xl border border-border bg-card p-6"
-            >
-              <Icon className="h-6 w-6 text-brandGreen" />
-              <div className="mt-4 font-display text-2xl font-bold text-foreground">
-                {r.stat}
-              </div>
-              <h3 className="mt-1 text-sm font-semibold text-foreground">
-                {r.label}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {r.copy}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 4. Loan scheme chart                                                 */
-/* ------------------------------------------------------------------ */
-
-const loanSchemes = [
-  { scheme: "Mudra — Shishu", ceiling: 0.5 },
-  { scheme: "Mudra — Kishor", ceiling: 5 },
-  { scheme: "Mudra — Tarun", ceiling: 10 },
-  { scheme: "PMEGP (manufacturing)", ceiling: 50 },
-  { scheme: "Stand-Up India", ceiling: 100 },
-  { scheme: "CGTMSE guarantee cover", ceiling: 500 },
-];
-
-function LoanSchemeChart() {
-  return (
-    <section className="border-y border-border bg-muted/30 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading
-          eyebrow="Match the scheme to your scale"
-          title="What each government-linked scheme actually covers"
-          description="Picking the right scheme upfront changes what your DPR needs to prove — a Mudra Shishu pitch and a CGTMSE-backed term loan pitch are different documents."
-        />
-        <div className="rounded-2xl border border-border bg-card p-6">
-          <div className="mb-1 flex items-center gap-2">
-            <Landmark className="h-4 w-4 text-brandGreen" />
-            <h3 className="font-display text-lg font-semibold text-foreground">
-              Indicative ceiling per scheme (₹ lakh)
-            </h3>
-          </div>
-          <div className="h-72 w-full">
-            <ResponsiveContainer>
-              <BarChart
-                data={loanSchemes}
-                layout="vertical"
-                margin={{ left: 10 }}
-              >
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                  stroke="hsl(var(--border))"
-                />
-                <XAxis
-                  type="number"
-                  tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
-                  axisLine={false}
-                  tickLine={false}
-                  unit="L"
-                />
-                <YAxis
-                  type="category"
-                  dataKey="scheme"
-                  width={180}
-                  tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip
-                  formatter={(v: number) => [`₹${v} lakh`, "Ceiling"]}
-                  contentStyle={{
-                    background: "hsl(var(--popover))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: 8,
-                    fontSize: 12,
-                  }}
-                />
-                <Bar
-                  dataKey="ceiling"
-                  fill="hsl(var(--primary))"
-                  radius={[0, 6, 6, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Source: Pradhan Mantri Mudra Yojana (PMMY) category limits; PMEGP
-            manufacturing-unit ceiling; Stand-Up India loan range; CGTMSE
-            per-borrower guarantee cover (raised from ₹2 crore to ₹5 crore).
-            Figures shown in ₹ lakh for comparability; confirm current limits
-            with your lending bank before applying.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 5. Prep timeline chart                                               */
-/* ------------------------------------------------------------------ */
-
-const prepTimeline = [
-  { size: "Scheme-specific (PMEGP/KVIC)", days: 8.5 },
-  { size: "Small-scale (project cost < ₹2 cr)", days: 15 },
-  { size: "Medium & large projects", days: 47.5 },
-];
-
-function PrepTimelineChart() {
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-      <SectionHeading
-        eyebrow="Build your timeline backwards from this"
-        title="How long a professionally prepared DPR takes"
-        description="If you're chasing a specific disbursement date, this is the lead time to plan around — before bank appraisal even begins."
-      />
-      <div className="rounded-2xl border border-border bg-card p-6">
-        <div className="h-64 w-full">
-          <ResponsiveContainer>
-            <BarChart data={prepTimeline} margin={{ left: -18 }}>
-              <CartesianGrid
-                strokeDasharray="3 3"
-                stroke="hsl(var(--border))"
-              />
-              <XAxis
-                dataKey="size"
-                tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
-                axisLine={false}
-                tickLine={false}
-                unit="d"
-              />
-              <Tooltip
-                formatter={(v: number) => [
-                  `~${v} working days`,
-                  "Typical prep time",
-                ]}
-                contentStyle={{
-                  background: "hsl(var(--popover))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: 8,
-                  fontSize: 12,
-                }}
-              />
-              <Bar dataKey="days" fill="#5AC361" radius={[6, 6, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-        <p className="mt-3 text-xs text-muted-foreground">
-          Source: NIIR Project Consultancy, "Detailed Project Report: Format,
-          Cost & Bank Loan Guide," 2026. Ranges midpoint-plotted from published
-          windows (scheme-specific: 7–10 days; small-scale: 10–20 days;
-          medium/large: 35–60 days).
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 6. Document checklist                                                */
-/* ------------------------------------------------------------------ */
-
-const checklist = [
+const registrationSteps = [
   {
-    icon: UserCheck,
-    item: "Identity & address proof",
-    detail: "Aadhaar, PAN, and address proof of all promoters.",
+    title: "Confirm which role you hold",
+    body: "The framework separately defines producers, manufacturers, importers, recyclers, refurbishers, and collection agents. A single company can fall under more than one definition and must register under each that applies.",
   },
   {
-    icon: Receipt,
-    item: "Business registration",
-    detail:
-      "Udyam or GST registration, plus partnership/company documents where applicable.",
+    title: "Register on the CPCB portal",
+    body: "The Central Pollution Control Board maintains the centralised online portal where all stakeholders in the non-ferrous metal scrap chain must register before undertaking regulated activity.",
   },
   {
-    icon: Building2,
-    item: "Financial history",
-    detail:
-      "Recent bank statements and past ITRs — critical for existing businesses, optional for new ones.",
+    title: "Understand your specific obligation",
+    body: "Producers generally owe a recycling obligation tied to the quantity of designated products placed on the market, while importers are typically expected to account for the full quantity of non-ferrous metal they bring into the country.",
   },
   {
-    icon: Cog,
-    item: "Machinery quotations",
-    detail:
-      "Formal quotes for shredders, balers, weighbridges, or shears — used to build the technical feasibility section.",
+    title: "Plan your certificate strategy",
+    body: "Decide whether you will meet obligations by recycling directly, purchasing EPR certificates from registered recyclers, or using refurbish certificates for products that get a second life.",
   },
   {
-    icon: FileText,
-    item: "Project cost breakdown",
-    detail:
-      "Fixed assets, working capital, and total estimated project cost, split by source of finance.",
-  },
-  {
-    icon: ClipboardCheck,
-    item: "Site & lease documents",
-    detail:
-      "Ownership or lease agreement for the proposed project location, plus space/area details.",
+    title: "File returns on schedule",
+    body: "Stakeholders are required to file periodic returns, generally covering the first half of the financial year by October 31 and the full preceding year by June 30, so returns tracking needs to be built into your compliance calendar.",
   },
 ];
 
-function DocumentChecklist() {
-  return (
-    <section className="border-y border-border bg-muted/30 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading
-          eyebrow="Before you start drafting"
-          title="What you'll be asked to hand over"
-          description="Gathering these upfront is what separates a 7-day scheme-specific DPR from a 20-day back-and-forth."
-        />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {checklist.map((c) => {
-            const Icon = c.icon;
-            return (
-              <div
-                key={c.item}
-                className="flex gap-3 rounded-xl border border-border bg-card p-4"
-              >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brandGreen/10 text-brandGreen">
-                  <Icon className="h-4.5 w-4.5" />
-                </div>
-                <div>
-                  <h3 className="font-display text-sm font-semibold text-foreground">
-                    {c.item}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {c.detail}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
+const importerNotes = [
+  {
+    icon: Ship,
+    title: "Importers face a distinct standard",
+    body: "Unlike domestic producers, whose obligation is generally tied to products placed on the market, importers are expected to account for the full quantity of non-ferrous metals or scrap they import in the relevant year.",
+  },
+  {
+    icon: Factory,
+    title: "Downstream manufacturers are not exempt",
+    body: "Businesses that manufacture finished products using imported or domestically produced non-ferrous metal still carry recycled-content and reporting obligations tied to what they place on the market.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Dual registration can apply",
+    body: "A company that both imports raw non-ferrous metal and manufactures finished products from it may need to register under more than one stakeholder category on the CPCB portal.",
+  },
+];
 
-/* ------------------------------------------------------------------ */
-/* 7. Common mistakes                                                   */
-/* ------------------------------------------------------------------ */
-
-function CommonMistakes() {
-  const mistakes = [
-    {
-      icon: FileWarning,
-      title: "Generic, copy-pasted market data",
-      copy: "A significant share of DPRs submitted for MSME loans duplicate industry averages with no local analysis — credit officers recognise a generic report within minutes.",
-    },
-    {
-      icon: ScanLine,
-      title: "Inconsistent cost ratios across years",
-      copy: "Raw material as a percentage of revenue, for instance, shouldn't swing wildly year to year without a clearly stated reason — appraisers cross-check this against your stated production capacity.",
-    },
-    {
-      icon: AlertOctagon,
-      title: "Zero or unrealistic promoter contribution",
-      copy: "A DPR showing 100% bank funding with no promoter stake is treated as a red flag, regardless of how strong the rest of the projections look.",
-    },
-  ];
-
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-      <SectionHeading
-        eyebrow="What gets a DPR rejected"
-        title="The mistakes that show up most often"
-      />
-      <div className="grid gap-5 md:grid-cols-3">
-        {mistakes.map((m) => {
-          const Icon = m.icon;
-          return (
-            <div
-              key={m.title}
-              className="rounded-2xl border border-border bg-card p-6"
-            >
-              <Icon className="h-6 w-6 text-brandGreen" />
-              <h3 className="mt-4 font-display text-base font-semibold text-foreground">
-                {m.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {m.copy}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 8. Who needs a full DPR                                              */
-/* ------------------------------------------------------------------ */
-
-function WhoNeedsFullDPR() {
-  const rows = [
-    {
-      profile: "Loan below ₹10 lakh (Mudra Shishu/Kishor)",
-      requirement:
-        "Banks may accept a simplified project summary rather than a full DPR.",
-    },
-    {
-      profile: "Loan above ₹10 lakh, especially manufacturing",
-      requirement: "A formal, bank-format DPR is mandatory for appraisal.",
-    },
-    {
-      profile: "PMEGP, SFURTI, Stand-Up India, or CGTMSE-linked financing",
-      requirement:
-        "A full DPR is non-negotiable, regardless of the loan amount requested.",
-    },
-    {
-      profile: "Existing business seeking expansion",
-      requirement:
-        "DPR combines actual past performance with future projections, rather than projections alone.",
-    },
-  ];
-
-  return (
-    <section className="border-y border-border bg-muted/30 py-16 md:py-20">
-      <div className="mx-auto max-w-5xl px-4">
-        <SectionHeading
-          eyebrow="Match your situation"
-          title="Do you actually need a full DPR?"
-          description="Not every scrap business needs the same depth of documentation — this is where the line typically falls."
-        />
-        <div className="overflow-x-auto rounded-2xl border border-border bg-card">
-          <table className="w-full min-w-[560px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-border bg-muted/50">
-                <th className="px-5 py-4 font-display font-semibold text-foreground">
-                  Your situation
-                </th>
-                <th className="px-5 py-4 font-display font-semibold text-foreground">
-                  What's required
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr key={r.profile} className={i % 2 ? "bg-muted/20" : ""}>
-                  <td className="px-5 py-4 align-top font-medium text-foreground">
-                    {r.profile}
-                  </td>
-                  <td className="px-5 py-4 align-top text-muted-foreground">
-                    {r.requirement}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 9. FAQ                                                               */
-/* ------------------------------------------------------------------ */
+const avoidPenaltyChecklist = [
+  "Register every applicable entity and role on the CPCB portal well before the compliance deadline",
+  "Build an internal tracking system for quantities placed on the market or imported each year",
+  "Source EPR certificates only from recyclers who are themselves registered under the framework",
+  "File half-yearly and annual returns on time, every time",
+  "Keep documentation for every scrap transaction that supports your recycling or certificate claims",
+  "Review recycled-content requirements annually, since obligations are designed to increase over time",
+];
 
 const faqs = [
   {
-    q: "Can I prepare the DPR myself instead of hiring a consultant?",
-    a: "For very small loan applications, yes. But a self-prepared DPR rarely survives bank appraisal for loans above ₹10 lakh — banks look for specific financial modelling, regulatory compliance mapping, and market data sourcing that typically requires sector expertise.",
+    q: "What is the difference between an EPR certificate and a refurbish certificate?",
+    a: "An EPR certificate is issued to registered recyclers based on the quantity of non-ferrous metal they have recycled, and can be purchased by producers to offset their own recycling obligation. A refurbish certificate is issued when a specified product is repaired and given extended life by a registered refurbisher, and can also be used to offset part of a producer's obligation, subject to conditions.",
   },
   {
-    q: "What's the single biggest factor banks weigh in a scrap-business DPR?",
-    a: "Repayment capacity — demonstrated through DSCR, realistic break-even projections, and a promoter contribution that shows you have skin in the game. Market demand and machinery details matter, but they support the numbers rather than replace them.",
+    q: "Do importers have a heavier compliance burden than domestic producers?",
+    a: "In practical terms, yes, since importers are generally expected to account for the full quantity of non-ferrous metal they bring into the country in a given year, rather than an obligation scaled to what is eventually sold.",
   },
   {
-    q: "Does a scrap trading business need the same DPR depth as a processing unit?",
-    a: "Not necessarily. A pure trading operation has a lighter technical feasibility section (no machinery, minimal utilities), while a shredding, baling, or smelting unit needs full detail on equipment, capacity, and manpower to satisfy the technical feasibility review.",
+    q: "What triggers environmental compensation under this framework?",
+    a: "Environmental compensation can be imposed by the Central Pollution Control Board, after due process, when non-compliance results in or risks environmental or public health harm. It is a penalty layered on top of the underlying recycling shortfall, not a substitute for meeting it.",
   },
   {
-    q: "How much of the project cost do I need to fund myself?",
-    a: "Bank credit policy typically expects a promoter contribution somewhere between 15% and 33% of total project cost, depending on the lender and loan product. Showing zero own contribution is one of the fastest ways to get a DPR rejected.",
+    q: "Can we carry forward a recycling shortfall to a future year?",
+    a: "Recycling shortfalls can generally be carried forward for a limited number of years, but this is a deferral mechanism, not a way to avoid the obligation permanently, and repeated shortfalls still carry compliance risk.",
   },
 ];
 
-function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
+export default function NavigatingNonFerrousEprFrameworkBlog() {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 md:py-20">
-      <SectionHeading eyebrow="Common questions" title="Before you reach out" />
-      <div className="space-y-3">
-        {faqs.map((f, i) => {
-          const isOpen = open === i;
-          return (
-            <div key={f.q} className="rounded-xl border border-border bg-card">
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-              >
-                <span className="font-display text-sm font-semibold text-foreground">
-                  {f.q}
-                </span>
-                <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {isOpen && (
-                <div className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* 10. Final CTA                                                        */
-/* ------------------------------------------------------------------ */
-
-function FinalCTA() {
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-      <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-14 text-center md:px-16">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "radial-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "18px 18px",
-          }}
-        />
-        <h2 className="relative font-display text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
-          Full DPR essentials deep-dive coming soon
-        </h2>
-        <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/85">
-          We're finalizing downloadable DPR templates, scheme-by-scheme
-          checklists, and sample financial models built specifically for scrap
-          trading and processing. Producers, recyclers, and PROs who need
-          guidance now don't have to wait for the full guide — talk to our team
-          today.
-        </p>
-        <div className="relative mt-8 flex justify-center">
-          <a
-            href="/contact"
-            className="rounded-full bg-background px-7 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:opacity-90"
+    <div className="bg-background min-h-screen">
+      <section className="relative overflow-hidden border-b border-border mt-[60px]">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-brandGreen/10" />
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            Get immediate guidance
-          </a>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-4">
+              <span>Buy &amp; Sell Metals</span>
+              <span>/</span>
+              <span className="text-brandGreen">Compliance Guide</span>
+            </div>
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              Navigating the Non-Ferrous Metal EPR Framework: How Importers
+              and Producers Can Avoid Environmental Compensation Penalties
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+              The rules for aluminium, copper, and zinc producers and
+              importers are more specific than most companies realise, and
+              the obligations differ depending on which role you actually
+              hold in the supply chain.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                <Landmark className="h-4 w-4" /> Producers &amp; Importers
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
+                <ShieldCheck className="h-4 w-4" /> Avoid environmental
+                compensation
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 py-12">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <main className="flex-1 min-w-0 space-y-16">
+            <Section id="intro" index={0}>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Producers and importers of aluminium, copper, zinc, and their
+                alloys are now stepping into one of India's newest Extended
+                Producer Responsibility regimes. Unlike more established EPR
+                frameworks for e-waste or plastic packaging, this one is
+                still new enough that many obligated companies have not yet
+                built the internal processes to comply with it properly.
+                Getting the basics right early avoids both compensation
+                penalties and a scramble closer to the enforcement date.
+              </p>
+            </Section>
+
+            <Section id="framework-overview" index={1}>
+              <SectionHeading
+                eyebrow="The framework"
+                title="What the non-ferrous metal EPR framework actually covers"
+                icon={Landmark}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Introduced as a new chapter under the Hazardous and Other
+                Wastes (Management and Transboundary Movement) Rules, the
+                framework applies to scrap of aluminium, copper, zinc, and
+                their alloys, and to products manufactured from them. It
+                sets recycled-content requirements for new products, creates
+                a market for tradeable EPR and refurbish certificates, and
+                centralises registration and reporting through a CPCB
+                portal.
+              </p>
+            </Section>
+
+            <Section id="registration-steps" index={2}>
+              <SectionHeading
+                eyebrow="Getting compliant"
+                title="The registration and compliance process, step by step"
+                icon={ClipboardCheck}
+              />
+              <div className="space-y-4 mt-2">
+                {registrationSteps.map((step, idx) => (
+                  <div
+                    key={step.title}
+                    className="flex gap-4 rounded-2xl border border-border bg-card p-5"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brandGreen text-white font-display font-semibold text-sm">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-display font-semibold text-foreground">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                        {step.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="importer-specifics" index={3}>
+              <SectionHeading
+                eyebrow="Importers, read this closely"
+                title="Why importers face a different compliance standard"
+                icon={Ship}
+              />
+              <div className="grid sm:grid-cols-3 gap-5 mt-2">
+                {importerNotes.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-border bg-card p-5"
+                  >
+                    <item.icon className="h-5 w-5 text-brandGreen mb-3" />
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="recycled-content" index={4}>
+              <SectionHeading
+                eyebrow="What producers must do"
+                title="Recycled-content obligations for new products"
+                icon={Recycle}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Producers manufacturing new products from aluminium, copper,
+                or zinc are required to incorporate a minimum proportion of
+                recycled material, with that minimum designed to increase
+                over successive years. Because the exact schedule differs by
+                metal and product category, producers should check the
+                current notification and its schedules directly rather than
+                relying on a single flat figure.
+              </p>
+            </Section>
+
+            <Section id="certificates" index={5}>
+              <SectionHeading
+                eyebrow="How obligations are met"
+                title="EPR certificates and refurbish certificates explained"
+                icon={FileCheck2}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Producers do not have to recycle metal themselves. They can
+                purchase EPR certificates from registered recyclers,
+                reflecting metal that has genuinely been recycled, or
+                refurbish certificates from registered refurbishers, when a
+                product's life is extended through repair rather than being
+                scrapped. Both instruments are tracked and traded through
+                the CPCB portal, which is what makes them auditable.
+              </p>
+            </Section>
+
+            <Section id="returns-timeline" index={6}>
+              <SectionHeading
+                eyebrow="Don't miss these"
+                title="Returns filing: a compliance calendar you need to track"
+                icon={CalendarClock}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                Stakeholders across the chain are expected to file periodic
+                returns, generally a half-yearly filing covering April to
+                September, and an annual filing covering the full preceding
+                financial year. Missing these deadlines is one of the more
+                avoidable ways a compliant company ends up flagged for
+                enforcement action.
+              </p>
+            </Section>
+
+            <Section id="avoiding-penalties" index={7}>
+              <SectionHeading
+                eyebrow="The checklist"
+                title="How to actually avoid environmental compensation"
+                icon={ShieldCheck}
+              />
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <ul className="space-y-3">
+                  {avoidPenaltyChecklist.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brandGreen shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground/90 leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Section>
+
+            <Section id="common-mistakes" index={8}>
+              <SectionHeading
+                eyebrow="What trips companies up"
+                title="Mistakes that turn a manageable obligation into a penalty"
+                icon={AlertTriangle}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                The most common failure point is not malicious
+                non-compliance, it is simply treating this as a future
+                problem. Companies that wait until close to the enforcement
+                date to register, that source certificates from
+                unregistered recyclers, or that lack internal systems to
+                track import and production volumes, end up exposed even
+                when their underlying intent was to comply.
+              </p>
+            </Section>
+
+            <Section id="how-we-help" index={9}>
+              <SectionHeading
+                eyebrow="Where EPR Nexuss fits"
+                title="Sourcing certificates and material from verified partners"
+                icon={Factory}
+              />
+              <p className="text-muted-foreground leading-relaxed">
+                EPR Nexuss helps producers and importers connect with
+                CPCB-registered recyclers and refurbishers for both sourcing
+                verified scrap and structuring EPR certificate purchases, so
+                your compliance strategy is built on documented,
+                audit-ready relationships rather than a scramble to find a
+                registered partner at the last minute.
+              </p>
+            </Section>
+
+            <Section id="faqs" index={10}>
+              <SectionHeading
+                eyebrow="Questions we hear often"
+                title="Frequently asked questions"
+                icon={HelpCircle}
+              />
+              <div className="space-y-4">
+                {faqs.map((item) => (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-border bg-card p-5"
+                  >
+                    <h3 className="font-display font-semibold text-foreground text-sm">
+                      {item.q}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="conclusion" index={11}>
+              <div className="rounded-2xl bg-primary text-primary-foreground p-8">
+                <h2 className="font-display text-2xl font-semibold">
+                  Get your compliance strategy in place before 2026
+                </h2>
+                <p className="mt-3 text-primary-foreground/90 leading-relaxed">
+                  Talk to EPR Nexuss about registration, certificate
+                  sourcing, and building a documented, compliant metal
+                  supply chain.
+                </p>
+                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-white text-primary px-5 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors">
+                  Talk to a compliance specialist{" "}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </Section>
+          </main>
+
+          <aside className="w-full lg:w-[320px] lg:shrink-0">
+            <div className="lg:sticky lg:top-24">
+              <StickyContactForm />
+            </div>
+          </aside>
         </div>
       </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Page                                                                 */
-/* ------------------------------------------------------------------ */
-
-export default function BuySellMetalsDPRGuide() {
-  return (
-    <main className="bg-background pt-24 md:pt-32">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 px-0 lg:grid-cols-[1fr_340px] lg:gap-6 lg:px-6">
-        {/* Main content column */}
-        <Seo
-          title="Buy & Sell Metals: Detailed Project Report (DPR) Essentials"
-          description="Learn how to prepare a Detailed Project Report (DPR) for a metal trading business. Explore project planning, market analysis, financial projections, compliance requirements, and operational strategies for long-term success."
-          keywords={[
-            "Buy and Sell Metals",
-            "Metal Trading DPR",
-            "Detailed Project Report",
-            "Metal Business Plan",
-            "Metal Trading Project Report",
-            "Scrap Metal Business",
-            "Metal Recycling Business",
-            "Industrial Metal Trading",
-            "Metal Market Analysis",
-            "Business Project Report",
-            "Financial Projections",
-            "Metal Trading Investment",
-            "Business Feasibility Report",
-            "Metal Business Setup",
-            "Project Planning",
-            "How to prepare a metal trading DPR?",
-            "What is included in a metal trading project report?",
-            "How to start a metal trading business?",
-            "Documents required for a metal trading DPR",
-            "Why is a DPR important for metal businesses?",
-            "Metal trading business feasibility report",
-            "How to create a business project report?",
-            "Best practices for a metal trading DPR",
-            "Metal trading business planning guide",
-            "Metal business project report format",
-          ]}
-          url="https://eprnexuss.com/blog/buy-sell-metals-dpr"
-          type="article"
-        />
-        <div className="min-w-0">
-          <Hero />
-          <DPRStructure />
-          <BankRatios />
-          <LoanSchemeChart />
-          <PrepTimelineChart />
-          <DocumentChecklist />
-          <CommonMistakes />
-          <WhoNeedsFullDPR />
-          <FAQ />
-
-          {/* Contact form inline for mobile / tablet, where the sticky sidebar is hidden */}
-          <div id="contact" className="mx-auto max-w-6xl px-4 pt-4 lg:hidden">
-            <StickyContactForm />
-          </div>
-
-          <FinalCTA />
-        </div>
-
-        {/* Sticky sidebar column — desktop only */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-28 px-2">
-            <StickyContactForm />
-          </div>
-        </aside>
-      </div>
-    </main>
+    </div>
   );
 }

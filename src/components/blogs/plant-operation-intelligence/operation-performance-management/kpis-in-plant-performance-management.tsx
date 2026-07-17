@@ -7,9 +7,9 @@ import StickyContactForm from "@/components/StickyContactForm";
 const KPIsInPlantPerformance: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f4f8fb] text-[#10253d] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
-      <div className="max-w-[1240px] mx-auto px-6 py-12">
+      <div className="max-w-8xl mx-auto px-2 py-12">
         <Seo
           title="The Role of KPIs in Plant Operation Performance Management"
           description="Learn how Key Performance Indicators (KPIs) improve plant operation performance management by measuring efficiency, productivity, quality, compliance, and operational excellence across industrial facilities."
@@ -64,7 +64,7 @@ const KPIsInPlantPerformance: React.FC = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-5 gap-12 items-center">
+          <div className="grid md:grid-cols-5 gap-4 items-center">
             <div className="md:col-span-3">
               <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tighter">
                 The Role of <span className="text-[#1677ff]">KPIs</span> in
@@ -104,7 +104,7 @@ const KPIsInPlantPerformance: React.FC = () => {
         </section>
 
         {/* Why KPIs Matter */}
-        <section className="mt-16 grid md:grid-cols-3 gap-8">
+        <section className="mt-16 grid md:grid-cols-3 gap-2">
           <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Why KPIs matter in plant operation performance management
@@ -154,7 +154,7 @@ const KPIsInPlantPerformance: React.FC = () => {
         {/* Visual KPI Snapshot */}
         <section className="mt-16">
           <h2 className="text-3xl font-bold mb-8">Visual KPI Snapshot</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-2">
             <div className="bg-white border border-[#10253d]/10 rounded-3xl p-10">
               <h3 className="font-semibold mb-8">Monthly KPI Trend</h3>
               <div className="space-y-8">
@@ -351,13 +351,13 @@ const KPIsInPlantPerformance: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

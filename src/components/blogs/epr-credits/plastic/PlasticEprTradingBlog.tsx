@@ -245,7 +245,7 @@ export default function EPRPlasticCreditsBlog() {
 
       {/* Extra clearance so fixed/pre-built navbar never collides with content */}
       <div className="pt-24 md:pt-32">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12 lg:px-8">
+        <div className="mx-auto grid max-w-8xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-4 lg:px-8">
           {/* ============================================================ */}
           {/* MAIN CONTENT COLUMN                                          */}
           {/* ============================================================ */}
@@ -318,10 +318,6 @@ export default function EPRPlasticCreditsBlog() {
                     See how trading works
                     <ArrowRight className="h-4 w-4" />
                   </a>
-                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4" />
-                    Full deep-dive guide in progress
-                  </span>
                 </div>
               </div>
             </section>
@@ -698,11 +694,10 @@ export default function EPRPlasticCreditsBlog() {
                 />
                 <Leaf className="mx-auto h-8 w-8 text-brandGreen" />
                 <h2 className="mt-4 font-display text-2xl font-bold text-background sm:text-3xl">
-                  The full deep-dive is on its way
+                  Want to learn more?
                 </h2>
                 <p className="mx-auto mt-3 max-w-xl text-sm text-background/70">
-                  Our team is finalizing the complete guide to EPR plastic
-                  credit trading and marketplace mechanics. Need guidance on a
+                 Need guidance on a
                   live filing or a trade today? Reach out and we'll walk you
                   through it directly.
                 </p>

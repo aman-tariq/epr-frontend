@@ -805,7 +805,7 @@ export default function ELVRecyclingApprovalsBlog() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
       <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT */}
           <main className="min-w-0 space-y-16 sm:space-y-20">
             <Seo
@@ -900,14 +900,14 @@ export default function ELVRecyclingApprovalsBlog() {
               <RegulatoryLandscape />
             </BlogSection>
 
-            <BlogSection
+            {/* <BlogSection
               id="timeline"
               eyebrow="Plan Your Runway"
               title="How Long Approvals Usually Take"
               intro="No two states move at the same pace, but these indicative timelines help you build a realistic project schedule."
             >
               <ApprovalTimelineChart />
-            </BlogSection>
+            </BlogSection> */}
 
             <BlogSection
               id="cte-roadmap"
@@ -956,13 +956,13 @@ export default function ELVRecyclingApprovalsBlog() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This article is for general informational purposes and reflects a
               typical approval sequence — it isn't legal advice. Requirements,
               forms, and timelines vary by state and change over time, so
               confirm current procedures with your State Pollution Control Board
               and a qualified compliance professional before acting.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR */}

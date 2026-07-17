@@ -128,7 +128,7 @@ export default function EprUsedOilBlog() {
 
   return (
     <div
-      className="min-h-screen text-[#12301f] font-sans selection:bg-[#b9e6c2] px-4 sm:px-6 lg:px-8 pt-28 pb-12"
+      className="min-h-screen text-[#12301f] font-sans selection:bg-[#b9e6c2] px-1 sm:px-2 lg:px-2 pt-28 pb-12 mt-10"
       style={{
         background: `radial-gradient(circle at top right, rgba(47, 158, 87, 0.08), transparent 30%), linear-gradient(180deg, #ffffff 0%, #f6fbf7 45%, #f5faf6 100%)`,
       }}
@@ -167,12 +167,12 @@ export default function EprUsedOilBlog() {
         type="article"
       />
       {/* 2-Column Grid Workspace Layout */}
-      <div className="max-w-[1260px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-8xl px-1 md:px-2 flex flex-col lg:flex-row gap-4 items-stretch">
         {/* Main Content Area */}
         <main className="lg:col-span-8 space-y-16 w-full">
           {/* Header Section */}
-          <header className="space-y-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#dceadf] bg-white text-[#2f9e57] text-xs sm:text-sm font-extrabold shadow-sm">
+          <header className="space-y-6 border border-border shadow-lg rounded-lg p-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary bg-white text-[#2f9e57] text-xs sm:text-sm font-extrabold shadow-sm">
               <i className="fa-solid fa-seedling"></i> Compliance meets circular
               economy
             </div>
@@ -409,8 +409,11 @@ export default function EprUsedOilBlog() {
         </main>
 
         {/* Clean Sticky Sidebar Container containing only the form component */}
-        <aside className="lg:col-span-4 lg:sticky lg:top-24 w-full">
-          <StickyContactForm />
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+               <StickyContactForm />
+          </div>
+         
         </aside>
       </div>
     </div>

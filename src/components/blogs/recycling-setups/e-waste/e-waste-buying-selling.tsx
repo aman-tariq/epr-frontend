@@ -48,7 +48,7 @@ export default function EWasteBuyingSellingBlog() {
         type="article"
       />
       {/* Blog Container */}
-      <div className="w-full max-w-[1180px] mx-auto px-1 pt-[34px] pb-[60px]">
+      <div className="w-full max-w-8xl mx-auto px-1 pt-[34px] pb-[60px]">
         {/* Hero */}
         <section
           className="relative overflow-hidden text-white px-1 sm:px-[20px] py-12 sm:py-[78px] rounded-[30px] mb-[30px]"
@@ -914,7 +914,7 @@ export default function EWasteBuyingSellingBlog() {
 
           {/* Sticky Sidebar */}
           <aside
-            className="hidden lg:block w-[280px] flex-shrink-0 self-start"
+            className="hidden lg:block w-[320px] flex-shrink-0 self-start"
             style={{ position: "sticky", top: "7rem" }}
           >
             <StickyContactForm />

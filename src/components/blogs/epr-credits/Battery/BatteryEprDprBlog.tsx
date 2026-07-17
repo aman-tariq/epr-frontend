@@ -625,11 +625,10 @@ function CTABanner() {
             DPR-07 / NEXT STEP
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-semibold max-w-xl">
-            The full deep-dive report is still being finalized.
+            What are the next steps?
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
-            If you're drafting a DPR now and need it review-ready sooner than
-            the published version, talk to our team for guidance specific to
+            talk to our team for guidance specific to
             your project scale and chemistry.
           </p>
           <a

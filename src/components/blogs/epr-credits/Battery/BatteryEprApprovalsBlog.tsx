@@ -250,8 +250,7 @@ function Hero() {
       <Reveal delay={0.15} className="max-w-2xl">
         <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
           A practical, step-by-step guide covering approvals, registration, and
-          the compliance roadmap for EPR battery — built for producers,
-          recyclers, and PROs. Our team is finalizing the full deep-dive; reach
+          the compliance roadmap for EPR battery — built for producers and recyclers. Our team is finalizing the full deep-dive; reach
           out for immediate guidance in the meantime.
         </p>
       </Reveal>
@@ -590,11 +589,10 @@ function CTABanner() {
             EPR-A7 / NEXT STEP
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-semibold max-w-xl">
-            The full deep-dive report is still being finalized.
+            Next steps for your application
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
-            If you're preparing an application now and can't wait on the
-            published version, talk to our team for step-by-step guidance on
+            talk to our team for step-by-step guidance on
             your specific registration.
           </p>
           <a
@@ -671,7 +669,7 @@ export default function EPRBatteryApprovalsRoadmap() {
     <div className="bg-background min-h-screen">
       <RoadmapRail />
       <div className="w-full md:mr-auto md:ml-auto md-pr-2rem md-pl-2rem pt-28 sm:pt-32 pb-24">
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-14">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-4">
           <main className="min-w-0">
             <Seo
               title="EPR Battery Credits: Approvals, Registration & Compliance Roadmap"

@@ -54,8 +54,8 @@ const ScaleAndGrowthSystems = () => {
     <div className="min-h-screen bg-[#f6fbf7] text-[#17311f] font-sans">
      
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 mt-12 md:mt-36">
-        <div className="grid gap-8 lg:grid-cols-[1.65fr_300px]">
+      <main className="max-w-8xl mx-auto px-1 sm:px-2 md:px-2 py-8 sm:py-12 mt-12 md:mt-36">
+        <div className="grid gap-4 lg:grid-cols-[1.65fr_300px]">
           
           <div className="space-y-8 lg:space-y-12">
 

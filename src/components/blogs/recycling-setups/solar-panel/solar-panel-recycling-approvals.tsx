@@ -42,11 +42,11 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
       />
 
       {/* HERO SECTION */}
-      <section className="hero relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-12 py-16 md:py-20 mx-4 my-6 shadow-2xl">
+      <section className="hero relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-2 py-16 md:py-20 mx-4 my-6 shadow-2xl">
         <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20 pointer-events-none" />
         <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12 pointer-events-none" />
 
-        <div className="hero-inner relative z-10 text-center max-w-4xl mx-auto">
+        <div className="hero-inner relative z-10 text-center max-w-8xl mx-auto">
           <div className="eyebrow inline-block px-4 py-2 rounded-full border border-white/20 bg-white/10 text-xs md:text-sm font-semibold tracking-widest mb-6 max-w-full break-words">
             Solar Panel Recycling | Approvals, Licensing & Project Planning
           </div>
@@ -71,7 +71,7 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
 
       {/* THREE-COLUMN LAYOUT MAIN WRAPPER */}
       {/* items-start is strictly required here so the column heights remain independent */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="max-w-9xl mx-auto px-1 sm:px-6 lg:px-2 flex flex-col lg:flex-row gap-2 items-stretch">
         {/* LEFT & CENTER COLUMNS: PRIMARY MAIN ARTICLE FLOW */}
         <main className="lg:col-span-2 w-full min-w-0 flex flex-col gap-8">
           {/* Why approvals matter before plant setup */}
@@ -596,8 +596,11 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
 
         {/* RIGHT COLUMN: DESKTOP STICKY SIDEBAR */}
         {/* Added "sticky top-28 self-start" for guaranteed sliding behavior inside the grid layout */}
-        <aside className="hidden lg:block lg:col-span-1 sticky top-28 self-start h-fit will-change-transform z-30 w-full min-w-0 bg-white p-6 rounded-[26px] shadow-xl">
-          <StickyContactForm />
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+              <StickyContactForm />
+          </div>
+          
         </aside>
       </div>
     </div>

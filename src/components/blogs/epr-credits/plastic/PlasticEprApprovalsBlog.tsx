@@ -84,12 +84,12 @@ const audience = [
   },
 ];
 
-const timelineData = [
-  { stage: "Documentation", weeks: 2 },
-  { stage: "Portal Filing", weeks: 3 },
-  { stage: "Verification", weeks: 4 },
-  { stage: "Approval", weeks: 3 },
-];
+// const timelineData = [
+//   { stage: "Documentation", weeks: 2 },
+//   { stage: "Portal Filing", weeks: 3 },
+//   { stage: "Verification", weeks: 4 },
+//   { stage: "Approval", weeks: 3 },
+// ];
 
 const stakeholderData = [
   { name: "Producers", touchpoints: 6 },
@@ -330,7 +330,7 @@ export default function EPRPlasticCreditsBlog() {
               <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
                 A practical, step-by-step guide covering approvals,
                 registration, and the compliance roadmap for EPR plastic — built
-                for producers, recyclers, and PROs who need clarity, not more
+                for producers and recyclers. who need clarity, not more
                 paperwork.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -341,10 +341,10 @@ export default function EPRPlasticCreditsBlog() {
                   See the roadmap
                   <ArrowRight className="h-4 w-4" />
                 </a>
-                <span className="text-sm text-muted-foreground">
+                {/* <span className="text-sm text-muted-foreground">
                   Our team is finalizing the full deep-dive — reach out for
                   immediate guidance in the meantime.
-                </span>
+                </span> */}
               </div>
             </motion.div>
 
@@ -360,7 +360,7 @@ export default function EPRPlasticCreditsBlog() {
                   label: "Packaging Categories",
                   value: "Rigid · Flexible · MLP · Other",
                 },
-                { label: "Key Roles", value: "Producer · Recycler · PRO" },
+                { label: "Key Roles", value: "Producer · Recycler" },
                 { label: "Filing Cycle", value: "Annual" },
               ].map((f) => (
                 <div key={f.label} className="text-center">
@@ -466,7 +466,7 @@ export default function EPRPlasticCreditsBlog() {
             </div>
           </section>
 
-          {/* ---------- 6. TIMELINE CHART ---------- */}
+          {/* ---------- 6. TIMELINE CHART ----------
           <Reveal className="mt-20">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Where the time typically goes
@@ -524,7 +524,7 @@ export default function EPRPlasticCreditsBlog() {
               Illustrative only — confirm current timelines with your PRO or the
               CPCB/SPCB portal before planning around them.
             </p>
-          </Reveal>
+          </Reveal> */}
 
           {/* ---------- 7. REGISTRATION CHECKLIST ---------- */}
           <Reveal className="mt-20">
@@ -649,16 +649,16 @@ export default function EPRPlasticCreditsBlog() {
                     Full deep-dive in progress
                   </div>
                   <h3 className="mt-3 font-display text-2xl font-bold sm:text-3xl">
-                    Need guidance before the full guide drops?
+                    Need guidance?
                   </h3>
                   <p className="mt-2 max-w-xl text-sm text-primary-foreground/80 sm:text-base">
-                    Our team is finalizing the complete roadmap. Reach out now
+                    Reach out now
                     and we'll walk you through approvals, registration, and
                     compliance directly.
                   </p>
                 </div>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-transform hover:scale-[1.03]"
                 >
                   <Users className="h-4 w-4" />

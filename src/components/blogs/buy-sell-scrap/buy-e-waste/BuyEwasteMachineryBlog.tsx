@@ -1,824 +1,364 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import {
-  Recycle,
-  Factory,
-  Users,
-  ArrowRight,
-  ChevronDown,
-  Building2,
-  Leaf,
-  Info,
-  Clock,
-  Cog,
-  Gauge,
-  Zap,
-  Wind,
-  Magnet,
-  Wrench,
-  Droplets,
+  Scale,
+  Gavel,
   ShieldCheck,
-  Flame,
-  FileCheck2,
-  CalendarDays,
-  CalendarRange,
-  CalendarClock,
+  FileText,
+  Ban,
+  BadgeCheck,
+  Building2,
+  Users,
+  AlertCircle,
 } from "lucide-react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from "recharts";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
 
-/* ------------------------------------------------------------------ */
-/* Scroll-reveal hook                                                   */
-/* ------------------------------------------------------------------ */
-function useInView<T extends HTMLElement>(threshold = 0.15) {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, inView };
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
 
 function Reveal({
   children,
-  className = "",
+  className,
   delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Real-world data                                                      */
-/* Sources: Green Permits "E-Waste Recycling Plant Cost in India" (2025);*/
-/* Accio/marketplace pricing for e-waste machinery; IndiaMART machinery */
-/* listings (shredder capacity/price); DOING & ResposeIndia equipment   */
-/* descriptions for the PCB recovery process.                          */
-/* ------------------------------------------------------------------ */
-const setupTiers = [
-  { tier: "Manual disassembly", cost: 15 },
-  { tier: "Semi-automated", cost: 125 },
-  { tier: "Fully automated", cost: 500 },
-];
-
-const shredderPricing = [
-  { capacity: "200 kg/hr", price: 3.5 },
-  { capacity: "400 kg/hr", price: 5 },
-  { capacity: "750 kg/hr", price: 9 },
-];
-
-const processFlow = [
-  {
-    icon: FileCheck2,
-    title: "Collection & sorting",
-    body: "Incoming scrap is logged, weighed, and sorted by EEE category before it ever reaches a machine.",
-  },
-  {
-    icon: Wrench,
-    title: "Dismantling & depopulation",
-    body: "Manual dismantling lines and depopulator machines strip components and remove solder-mounted parts from PCBs.",
-  },
-  {
-    icon: Cog,
-    title: "Shredding",
-    body: "Double-shaft shredders reduce dismantled material to a uniform size, making downstream separation possible.",
-  },
-  {
-    icon: Magnet,
-    title: "Magnetic separation",
-    body: "Magnetic separators pull ferrous metal — the largest fraction by weight — out of the shredded stream first.",
-  },
-  {
-    icon: Wind,
-    title: "Air & electrostatic separation",
-    body: "Air separators split materials by density (up to 99% separation on well-differentiated fractions), while electrostatic separators use conductivity to split remaining metal from plastic and fibre.",
-  },
-  {
-    icon: Droplets,
-    title: "Dust control & effluent treatment",
-    body: "Dust collectors and an effluent treatment plant (ETP) handle particulates and wastewater before anything leaves the site.",
-  },
-];
-
-const machinerySpecs = [
-  {
-    icon: Wrench,
-    name: "Dismantling line",
-    note: "Manual/semi-automated strip-down of casings, batteries, and boards before shredding.",
-  },
-  {
-    icon: Cog,
-    name: "Double-shaft shredder",
-    note: "Handles mixed cable, PCB, and casing scrap; throughput scales from ~200 kg/hr upward.",
-  },
-  {
-    icon: Magnet,
-    name: "Magnetic separator",
-    note: "Recovers ferrous metal (iron/steel) from the shredded stream ahead of finer sorting.",
-  },
-  {
-    icon: Wind,
-    name: "Air separator",
-    note: "Density-based sorting; effective on materials with a large density gap between fractions.",
-  },
-  {
-    icon: Zap,
-    name: "Electrostatic separator",
-    note: "Splits conductive metal from non-conductive plastic and fibre inside a high-voltage field.",
-  },
-  {
-    icon: Droplets,
-    name: "Dust collector & ETP",
-    note: "Captures particulate emissions and treats process wastewater before discharge.",
-  },
-];
-
-const approvals = [
-  { icon: ShieldCheck, label: "SPCB CTE/CTO" },
-  { icon: Building2, label: "CPCB Authorisation" },
-  { icon: Flame, label: "Fire NOC" },
-  { icon: FileCheck2, label: "Factory License" },
-  { icon: Recycle, label: "Hazardous Waste Approval" },
-];
-
-const opsSchedules: Record<string, string[]> = {
-  Daily: [
-    "Weigh and log incoming scrap against purchase records",
-    "Check shredder blades and separator belts before the first run",
-    "Monitor dust-collector filters and ETP inlet readings",
-    "Record recovered-material output by category",
-  ],
-  Weekly: [
-    "Reconcile recovered-material stock against sales dispatch",
-    "Inspect PPE stock and safety-signage condition",
-    "Clean and calibrate magnetic and electrostatic separators",
-    "Review near-miss and incident log with floor supervisors",
-  ],
-  Monthly: [
-    "File CPCB portal returns for the recycling period",
-    "Audit hazardous-waste storage against authorised limits",
-    "Service conveyor motors and shredder gearboxes",
-    "Reconcile EPR certificate generation against actual throughput",
-  ],
-};
-
-const audiences = [
-  {
-    icon: Factory,
-    title: "Producers & Brand Owners",
-    body: "Understand the machinery and process a recycler needs in place before you rely on their throughput claims.",
-  },
-  {
-    icon: Recycle,
-    title: "Recyclers & Processors",
-    body: "Benchmark your machinery stack and daily operating discipline against what a well-run line actually looks like.",
-  },
-  {
-    icon: Users,
-    title: "PROs & Aggregators",
-    body: "Get a working vocabulary for the equipment and process behind the recyclers you route member volumes to.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Do I need every machine on day one?",
-    a: "No. Many operators start with manual dismantling and a shredder, then add magnetic and air separation as volumes justify the investment — the Green Permits cost tiers reflect exactly this staged path.",
-  },
-  {
-    q: "What's the realistic timeline to get a plant running?",
-    a: "Setup typically takes three to six months from site readiness to commissioning, largely driven by SPCB/CPCB inspection scheduling rather than machinery lead time.",
-  },
-  {
-    q: "Why does electrostatic separation matter for PCBs?",
-    a: "PCBs mix conductive metal with non-conductive plastic and fibre at a very fine scale after shredding — electrostatic separation, which sorts by conductivity in a high-voltage field, is what makes clean metal recovery possible at that scale.",
-  },
-  {
-    q: "What's the single biggest operational risk?",
-    a: "Feedstock inconsistency. Machinery is tuned to expected input; scrap that's poorly sorted before it reaches the shredder degrades separation efficiency across the whole line.",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/* Small building blocks                                                */
-/* ------------------------------------------------------------------ */
-function SectionEyebrow({ children }: { children: React.ReactNode }) {
+export default function IsSellingEwasteLegalBlog() {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-brandGreen/30 bg-brandGreen/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brandGreen">
-      <Cog className="h-3.5 w-3.5" />
-      {children}
-    </span>
-  );
-}
+    <div className="font-sans bg-gradient-to-b from-white via-secondary/[0.03] to-primary/[0.05] text-gray-800 leading-[1.75]">
+      <Seo
+        title="Is Selling E-Waste Legal in India? What You Should Know"
+        description="A clear explanation of India's E-Waste (Management) Rules, who they apply to, and how selling to a certified buyer keeps you fully compliant."
+        keywords={[
+          "e-waste rules India",
+          "is selling e-waste legal",
+          "e-waste management rules",
+          "EPR compliance e-waste",
+          "certified e-waste recycler India",
+          "e-waste disposal law",
+          "sell e-waste legally",
+        ]}
+        url="https://eprnexuss.com/blog/is-selling-e-waste-legal"
+        type="article"
+      />
 
-/* ------------------------------------------------------------------ */
-/* Main component                                                       */
-/* ------------------------------------------------------------------ */
-export default function BuyEWasteMachineryBlog() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [activeSchedule, setActiveSchedule] = useState<
-    "Daily" | "Weekly" | "Monthly"
-  >("Daily");
-
-  return (
-    <div className="relative w-full bg-background">
-      <style>{`
-        @keyframes pulse-down {
-          0% { top: 0%; opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { top: 100%; opacity: 0; }
-        }
-        .flow-pulse {
-          animation: pulse-down 4s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .flow-pulse { animation: none; }
-        }
-      `}</style>
-
-      {/* Extra clearance so a fixed/pre-built navbar never collides with content */}
-      <div className="pt-24 md:pt-32">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12 lg:px-8">
-          {/* ============================================================ */}
-          {/* MAIN CONTENT COLUMN                                          */}
-          {/* ============================================================ */}
-          <Seo
-            title="Buy E-Waste: Machinery, Setup & Operations Guide"
-            description="Discover the essential machinery, facility setup, operational processes, and compliance requirements for starting a successful e-waste buying business in India. Learn best practices to improve efficiency, profitability, and regulatory compliance."
-            keywords={[
-              "Buy E-Waste",
-              "E-Waste Machinery",
-              "E-Waste Business Setup",
-              "E-Waste Operations",
-              "Electronic Waste Management",
-              "E-Waste Collection Center",
-              "E-Waste Recycling Equipment",
-              "E-Waste Processing",
-              "E-Waste Business",
-              "Waste Management Machinery",
-              "CPCB E-Waste Compliance",
-              "E-Waste Infrastructure",
-              "Recycling Plant Setup",
-              "E-Waste Business India",
-              "Circular Economy",
-              "What machinery is required for an e-waste business?",
-              "How to set up an e-waste buying business?",
-              "How to start an e-waste collection center?",
-              "Essential equipment for e-waste management",
-              "How to operate an e-waste business efficiently?",
-              "E-waste facility setup guide",
-              "How to manage e-waste operations?",
-              "Best machinery for e-waste processing",
-              "E-waste business setup cost in India",
-              "E-waste operations and compliance guide",
-            ]}
-            url="https://eprnexuss.com/blog/buy-e-waste-machinery"
-            type="article"
-          />
-          <main className="min-w-0">
-            {/* 1. HERO — dark industrial panel with floating spec card */}
-            <section className="relative overflow-hidden rounded-3xl bg-foreground px-6 py-14 sm:px-10 sm:py-20">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-[0.07]"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 1px, transparent 14px)",
-                  color: "hsl(var(--background))",
-                }}
-              />
-              <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-                <div className="animate-fade-in">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-brandGreen/40 bg-brandGreen/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brandGreen">
-                    <Cog className="h-3.5 w-3.5" />
-                    Machinery, Setup &amp; Operations Guide
-                  </span>
-                  <h1 className="mt-6 font-display text-4xl font-bold leading-tight text-background sm:text-5xl">
-                    What it actually takes to{" "}
-                    <span className="bg-gradient-to-r from-brandGreen to-primary bg-clip-text text-transparent">
-                      run the line
-                    </span>
-                  </h1>
-                  <p className="mt-6 max-w-xl text-lg text-background/70">
-                    A grounded look at the machinery, process flow, and daily
-                    operating discipline behind buying and processing e-waste
-                    scrap — built for producers, recyclers, and PROs.
-                  </p>
-                  <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <a
-                      href="#process"
-                      className="inline-flex items-center gap-2 rounded-full bg-brandGreen px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:opacity-90"
-                    >
-                      Walk the process line
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                    <span className="inline-flex items-center gap-2 text-sm text-background/60">
-                      <Clock className="h-4 w-4" />
-                      Full deep-dive guide in progress
-                    </span>
-                  </div>
-                </div>
-
-                <Reveal delay={100}>
-                  <div className="rounded-2xl border border-background/10 bg-background/5 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-background/50">
-                      Entry-point spec
-                    </p>
-                    <div className="mt-3 flex items-center gap-3">
-                      <div className="rounded-xl bg-brandGreen/15 p-2.5 text-brandGreen">
-                        <Gauge className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="font-display text-2xl font-semibold text-background">
-                          ₹15L–₹5Cr+
-                        </p>
-                        <p className="text-xs text-background/50">
-                          Manual → fully automated setup cost
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mt-4 h-px bg-background/10" />
-                    <div className="mt-4 flex items-center gap-3">
-                      <div className="rounded-xl bg-primary/15 p-2.5 text-primary">
-                        <CalendarClock className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="font-display text-2xl font-semibold text-background">
-                          3–6 months
-                        </p>
-                        <p className="text-xs text-background/50">
-                          Typical setup-to-commissioning timeline
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              </div>
-            </section>
-
-            {/* 2. SETUP COST TIERS — horizontal bar chart */}
-            <section className="mt-16">
-              <Reveal>
-                <SectionEyebrow>Choosing your entry point</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Three ways to start, three cost floors
-                </h2>
-                <p className="mt-3 max-w-2xl text-muted-foreground">
-                  Automation level is the single biggest lever on setup cost —
-                  and the biggest lever on how much metal you actually recover
-                  per tonne.
-                </p>
-              </Reveal>
-              <Reveal
-                delay={100}
-                className="mt-8 rounded-2xl border border-border bg-card p-4 sm:p-6"
-              >
-                <div className="h-56 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={setupTiers}
-                      layout="vertical"
-                      margin={{ top: 10, right: 30, left: 10, bottom: 0 }}
-                    >
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        horizontal={false}
-                        stroke="hsl(var(--border))"
-                      />
-                      <XAxis
-                        type="number"
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={{ stroke: "hsl(var(--border))" }}
-                        tickLine={false}
-                        unit="L"
-                      />
-                      <YAxis
-                        dataKey="tier"
-                        type="category"
-                        width={130}
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <Tooltip
-                        cursor={{ fill: "hsl(var(--muted))" }}
-                        formatter={(v: number) => [
-                          `₹${v} lakh${v >= 500 ? "+" : ""}`,
-                          "Setup cost",
-                        ]}
-                        contentStyle={{
-                          background: "hsl(var(--popover))",
-                          border: "1px solid hsl(var(--border))",
-                          borderRadius: "0.75rem",
-                          color: "hsl(var(--popover-foreground))",
-                          fontSize: "0.85rem",
-                        }}
-                      />
-                      <Bar dataKey="cost" radius={[0, 8, 8, 0]}>
-                        {setupTiers.map((_, i) => (
-                          <Cell
-                            key={i}
-                            fill={i === 2 ? "#5AC361" : "hsl(var(--primary))"}
-                            fillOpacity={i === 2 ? 1 : 0.4 + i * 0.2}
-                          />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-                <p className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Info className="h-3.5 w-3.5" />
-                  Source: Green Permits, "E-Waste Recycling Plant Cost in India"
-                  (2025). Figures in ₹ lakh; fully automated setups commonly
-                  exceed ₹5 crore.
-                </p>
-              </Reveal>
-            </section>
-
-            {/* 3. PROCESS FLOW — animated vertical line, signature element */}
-            <section id="process" className="mt-20">
-              <Reveal>
-                <SectionEyebrow>The process line</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  From incoming scrap to sorted material
-                </h2>
-                <p className="mt-3 max-w-2xl text-muted-foreground">
-                  Six stages, in order — each one depends on the last being done
-                  properly, which is why sorting at intake matters as much as
-                  the machinery further down the line.
-                </p>
-              </Reveal>
-
-              <div className="relative mt-10 pl-10">
-                <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-border">
-                  <div className="flow-pulse absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-brandGreen shadow-[0_0_10px_2px] shadow-brandGreen/50" />
-                </div>
-                <div className="space-y-6">
-                  {processFlow.map((step, i) => (
-                    <Reveal key={step.title} delay={i * 70}>
-                      <div className="relative">
-                        <span className="absolute -left-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-background bg-card ring-2 ring-border">
-                          <step.icon className="h-4 w-4 text-brandGreen" />
-                        </span>
-                        <div className="rounded-2xl border border-border bg-card p-5">
-                          <h3 className="font-display text-lg font-semibold text-foreground">
-                            {i + 1}. {step.title}
-                          </h3>
-                          <p className="mt-1.5 text-sm text-muted-foreground">
-                            {step.body}
-                          </p>
-                        </div>
-                      </div>
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* 4. MACHINERY SPEC CARDS */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>The core machinery</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Six machines behind every process stage
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {machinerySpecs.map((m, i) => (
-                  <Reveal key={m.name} delay={i * 60}>
-                    <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-brandGreen/40 hover:shadow-md">
-                      <div className="w-fit rounded-xl bg-primary/10 p-2.5 text-primary">
-                        <m.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-display text-base font-semibold text-foreground">
-                        {m.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{m.note}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* 5. MACHINERY PRICE VS CAPACITY — bar chart */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Sizing your shredder</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Price scales with throughput, not linearly
-                </h2>
-                <p className="mt-3 max-w-2xl text-muted-foreground">
-                  Doubling shredder capacity doesn't double the price tag —
-                  which is exactly why right-sizing your first machine against
-                  real (not hoped-for) volumes matters.
-                </p>
-              </Reveal>
-              <Reveal
-                delay={100}
-                className="mt-8 rounded-2xl border border-border bg-card p-4 sm:p-6"
-              >
-                <div className="h-64 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={shredderPricing}
-                      margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-                    >
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        vertical={false}
-                        stroke="hsl(var(--border))"
-                      />
-                      <XAxis
-                        dataKey="capacity"
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={{ stroke: "hsl(var(--border))" }}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        tick={{
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                        axisLine={false}
-                        tickLine={false}
-                        label={{
-                          value: "₹ lakh",
-                          angle: -90,
-                          position: "insideLeft",
-                          fill: "hsl(var(--muted-foreground))",
-                          fontSize: 12,
-                        }}
-                      />
-                      <Tooltip
-                        cursor={{ fill: "hsl(var(--muted))" }}
-                        formatter={(v: number) => [
-                          `₹${v} lakh`,
-                          "Indicative price",
-                        ]}
-                        contentStyle={{
-                          background: "hsl(var(--popover))",
-                          border: "1px solid hsl(var(--border))",
-                          borderRadius: "0.75rem",
-                          color: "hsl(var(--popover-foreground))",
-                          fontSize: "0.85rem",
-                        }}
-                      />
-                      <Bar
-                        dataKey="price"
-                        name="Indicative price"
-                        fill="hsl(var(--primary))"
-                        radius={[8, 8, 0, 0]}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-                <p className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Info className="h-3.5 w-3.5" />
-                  Source: representative e-waste shredder listings on IndiaMART.
-                  Actual pricing varies by vendor, build quality, and
-                  specification.
-                </p>
-              </Reveal>
-            </section>
-
-            {/* 6. APPROVALS — compact chip row */}
-            <Reveal className="mt-16 rounded-2xl border border-dashed border-border bg-card p-6">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-5 w-5 text-brandGreen" />
-                <h3 className="font-display text-lg font-semibold text-foreground">
-                  Before you commission any machinery
-                </h3>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                These approvals need to be in hand — commissioning ahead of them
-                is one of the most common causes of forced shutdowns.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2.5">
-                {approvals.map((a) => (
-                  <span
-                    key={a.label}
-                    className="inline-flex items-center gap-2 rounded-full bg-secondary/40 px-3.5 py-1.5 text-sm font-medium text-secondary-foreground"
-                  >
-                    <a.icon className="h-3.5 w-3.5" />
-                    {a.label}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-
-            {/* 7. OPERATIONS SCHEDULE — tabbed toggle, new interactive component */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Keeping the line running</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Operations don't stop at commissioning
-                </h2>
-              </Reveal>
-              <Reveal
-                delay={100}
-                className="mt-8 rounded-2xl border border-border bg-card p-4 sm:p-6"
-              >
-                <div className="flex flex-wrap gap-2">
-                  {(["Daily", "Weekly", "Monthly"] as const).map((tab) => {
-                    const Icon =
-                      tab === "Daily"
-                        ? CalendarDays
-                        : tab === "Weekly"
-                          ? CalendarRange
-                          : CalendarClock;
-                    const active = activeSchedule === tab;
-                    return (
-                      <button
-                        key={tab}
-                        onClick={() => setActiveSchedule(tab)}
-                        className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${
-                          active
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted text-muted-foreground hover:bg-secondary/50"
-                        }`}
-                      >
-                        <Icon className="h-4 w-4" />
-                        {tab}
-                      </button>
-                    );
-                  })}
-                </div>
-                <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  {opsSchedules[activeSchedule].map((task) => (
-                    <li
-                      key={task}
-                      className="flex items-start gap-2.5 rounded-xl bg-muted/50 p-4 text-sm text-foreground"
-                    >
-                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brandGreen" />
-                      {task}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </section>
-
-            {/* 8. WHO THIS IS FOR */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Built for your role</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Whichever seat you sit in at the table
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {audiences.map((a, i) => (
-                  <Reveal key={a.title} delay={i * 80}>
-                    <div className="flex h-full flex-col gap-3 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent p-6">
-                      <div className="w-fit rounded-xl bg-primary/10 p-2.5 text-primary">
-                        <a.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {a.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{a.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* 9. FAQ */}
-            <section className="mt-20">
-              <Reveal>
-                <SectionEyebrow>Common questions</SectionEyebrow>
-                <h2 className="mt-4 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                  Before you order machinery
-                </h2>
-              </Reveal>
-              <Reveal
-                delay={80}
-                className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card"
-              >
-                {faqs.map((item, i) => {
-                  const open = openFaq === i;
-                  return (
-                    <div key={item.q}>
-                      <button
-                        onClick={() => setOpenFaq(open ? null : i)}
-                        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                        aria-expanded={open}
-                      >
-                        <span className="font-medium text-foreground">
-                          {item.q}
-                        </span>
-                        <ChevronDown
-                          className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
-                            open ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      <div
-                        className={`grid overflow-hidden transition-all duration-300 ease-out ${
-                          open
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
-                        }`}
-                      >
-                        <div className="min-h-0 px-6 pb-5 text-sm text-muted-foreground">
-                          {item.a}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </Reveal>
-            </section>
-
-            {/* 10. CTA BANNER */}
-            <Reveal className="mt-16 mb-16">
-              <div className="relative overflow-hidden rounded-3xl bg-foreground px-6 py-12 text-center sm:px-12">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-brandGreen/25 blur-3xl"
-                />
-                <Leaf className="mx-auto h-8 w-8 text-brandGreen" />
-                <h2 className="mt-4 font-display text-2xl font-bold text-background sm:text-3xl">
-                  Planning a plant setup right now?
-                </h2>
-                <p className="mx-auto mt-3 max-w-xl text-sm text-background/70">
-                  Our team is finalizing the complete guide to machinery
-                  selection and daily operations. Need guidance on a purchase or
-                  a process bottleneck today? Reach out and we'll walk you
-                  through it directly.
-                </p>
-                <a
-                  href="#contact"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-brandGreen px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90"
-                >
-                  Talk to our team
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </Reveal>
-          </main>
-
-          {/* ============================================================ */}
-          {/* STICKY CONTACT FORM — right rail, scrolls with the page       */}
-          {/* ============================================================ */}
-          <aside id="contact" className="hidden lg:block">
-            <div className="sticky top-28">
-              <StickyContactForm />
+      <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
+        {/* Banner */}
+        <section className="relative overflow-hidden rounded-[32px] mb-7 border border-secondary/10 bg-gradient-to-br from-secondary via-primary/80 to-primary shadow-lg">
+          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
+          <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
+          <div className="relative z-10 px-6 sm:px-16 py-16 sm:py-24 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 mb-6"
+            >
+              <Scale className="w-8 h-8 text-white" />
+            </motion.div>
+            <div className="inline-block px-3 py-1.5 rounded-full text-[13px] font-bold tracking-wide mb-5 text-white bg-white/15 border border-white/20">
+              Buy &amp; Sell Scrap &middot; Buy E-Waste
             </div>
-          </aside>
-        </div>
+            <h1
+              className="font-display font-extrabold text-white mb-4 tracking-tight"
+              style={{ fontSize: "clamp(30px, 4.5vw, 54px)", lineHeight: 1.08 }}
+            >
+              Is Selling E-Waste Legal in India?
+            </h1>
+            <p className="mx-auto text-white/90 max-w-[680px]" style={{ fontSize: "clamp(15px, 1.4vw, 19px)" }}>
+              Yes — but only when it's done through the right channel. Here's
+              what the rules actually say, in plain language.
+            </p>
+          </div>
+        </section>
 
-        {/* Mobile fallback so the form is still reachable on small screens */}
-        <div className="mx-auto mt-4 max-w-7xl px-4 pb-16 sm:px-6 lg:hidden">
-          <StickyContactForm />
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div className="flex-1 min-w-0 w-full">
+            {/* Intro */}
+            <Reveal>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <p className="text-gray-600 text-[16px] mb-4">
+                  Selling your old electronics is completely legal in India —
+                  the law doesn't stop people from doing it. What it does
+                  regulate is <strong className="text-gray-900">who</strong>{" "}
+                  is allowed to collect, dismantle, and recycle that waste,
+                  and how the transaction gets recorded.
+                </p>
+                <p className="text-gray-600 text-[16px] mb-0">
+                  This is where the E-Waste (Management) Rules come in, and
+                  why it matters whether you sell to a certified buyer or an
+                  unregistered scrap dealer.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* The rules explained */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Gavel className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px]">
+                    What the E-Waste Rules actually cover
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  India's E-Waste (Management) Rules place responsibility on
+                  manufacturers, producers, and recyclers to ensure
+                  electronic waste is collected and processed through
+                  authorised channels, rather than left to informal,
+                  unregulated scrap handling.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    {
+                      icon: Building2,
+                      title: "Producers & manufacturers",
+                      text: "Required to meet Extended Producer Responsibility (EPR) targets for collecting back end-of-life products.",
+                    },
+                    {
+                      icon: BadgeCheck,
+                      title: "Authorised recyclers",
+                      text: "Must hold valid registration to legally dismantle, process, and recover materials from e-waste.",
+                    },
+                    {
+                      icon: Users,
+                      title: "Bulk consumers",
+                      text: "Businesses generating e-waste in volume must maintain records and route disposal through registered recyclers.",
+                    },
+                    {
+                      icon: Ban,
+                      title: "Informal scrap handling",
+                      text: "Selling to unregistered dealers who dismantle waste unsafely falls outside the compliant, legal channel.",
+                    },
+                  ].map(({ icon: Icon, title, text }) => (
+                    <div key={title} className="rounded-2xl border border-gray-200 p-5 bg-gray-50">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h4 className="text-gray-900 text-[15.5px] font-bold mb-1.5">{title}</h4>
+                      <p className="text-gray-600 text-[14px] m-0">{text}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Table: certified vs informal */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px] mb-4">
+                  Certified buyer vs. informal scrap dealer
+                </h2>
+                <div className="overflow-x-auto rounded-2xl border border-gray-200">
+                  <table className="w-full border-collapse bg-white" style={{ minWidth: 640 }}>
+                    <thead>
+                      <tr>
+                        {["Aspect", "Certified buyer", "Informal dealer"].map((h) => (
+                          <th key={h} className="text-gray-900 text-left px-4 py-3 text-[13.5px] border-b border-gray-200 bg-secondary/5">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ["Documentation", "Receipt & compliance record provided", "Usually none"],
+                        ["Handling of hazardous parts", "Safe, regulated dismantling", "Often unsafe, manual breakdown"],
+                        ["Pricing transparency", "Category-wise, weighed rates", "Negotiated, inconsistent"],
+                        ["Legal standing", "Fully compliant with e-waste rules", "Falls outside the regulated channel"],
+                      ].map((row, i) => (
+                        <tr key={i} className="hover:bg-secondary/[0.03]">
+                          {row.map((cell, j) => (
+                            <td key={j} className="border-t border-gray-200 px-4 py-3 text-[14px] text-gray-700 align-top">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Why it matters for businesses */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 text-secondary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    Why this matters more for businesses
+                  </h2>
+                </div>
+                <p className="text-gray-600 text-[15px] mb-0">
+                  For individuals, selling to a certified buyer is simply the
+                  safer, cleaner choice. For businesses, it's often a
+                  compliance requirement — bulk consumers and producers
+                  need documented proof that their e-waste was disposed of
+                  through an authorised channel, which only a registered
+                  buyer or recycler can provide.
+                </p>
+              </section>
+            </Reveal>
+
+            {/* Risks of informal disposal */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-4">
+                  What can go wrong with informal disposal
+                </h2>
+                <p className="text-gray-600 text-[15px] mb-4">
+                  Selling to an unregistered scrap dealer isn't illegal for
+                  you as an individual, but it does carry real downsides
+                  that most people don't think about until it's too late.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { title: "Unsafe dismantling", text: "Informal handling often involves burning or acid-stripping components, releasing toxic fumes and residue." },
+                    { title: "No accountability", text: "Without registration or a receipt, there's no record of where your data-bearing devices actually ended up." },
+                    { title: "No compliance proof", text: "Businesses in particular can face difficulty demonstrating proper disposal during audits or inspections." },
+                  ].map(({ title, text }) => (
+                    <div key={title} className="rounded-2xl border border-gray-200 p-4 bg-gray-50">
+                      <h4 className="text-gray-900 text-[14.5px] font-bold mb-1">{title}</h4>
+                      <p className="text-gray-600 text-[13.5px] m-0">{text}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Responsibilities by user type */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-secondary" />
+                  </div>
+                  <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
+                    What compliance looks like for different sellers
+                  </h2>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="rounded-2xl border border-primary/20 p-5 bg-primary/[0.05]">
+                    <h4 className="text-gray-900 text-[15.5px] font-bold mb-1.5">Individuals & households</h4>
+                    <p className="text-gray-600 text-[14px] m-0">
+                      No formal paperwork is required from you — simply
+                      choosing a certified buyer is enough to ensure your
+                      e-waste is handled legally and safely from that point
+                      onward.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-secondary/20 p-5 bg-secondary/[0.05]">
+                    <h4 className="text-gray-900 text-[15.5px] font-bold mb-1.5">Businesses & bulk consumers</h4>
+                    <p className="text-gray-600 text-[14px] m-0">
+                      You're generally expected to maintain records of how
+                      e-waste is disposed of, which is why a documented
+                      receipt from a registered recycler is important for
+                      your own compliance file.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Callout */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-primary/20 bg-primary/[0.06] mb-6">
+                <div className="flex gap-4 items-start">
+                  <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                    <AlertCircle className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-gray-900 text-[17px] font-bold mb-1.5">
+                      A quick way to check
+                    </h3>
+                    <p className="text-gray-600 text-[14.5px] m-0">
+                      Ask any buyer for their registration details and a
+                      receipt before handing over your e-waste. A legitimate,
+                      certified buyer will always provide both without
+                      hesitation.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </Reveal>
+
+            {/* FAQ */}
+            <Reveal delay={0.05}>
+              <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
+                <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-5">
+                  Frequently asked questions
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {[
+                    {
+                      q: "Do I personally need any registration to sell my old electronics?",
+                      a: "No. Individuals and households don't need any registration — the compliance requirement sits with the recycler and any bulk-consumer businesses, not with everyday sellers.",
+                    },
+                    {
+                      q: "What proof should I ask for when selling e-waste?",
+                      a: "A receipt or transaction record showing the buyer's registration is a reasonable thing to request, and any certified buyer will provide it without issue.",
+                    },
+                    {
+                      q: "Are there penalties for improper e-waste disposal in India?",
+                      a: "The rules primarily place obligations and penalties on producers, recyclers, and bulk consumers who fail to meet compliance requirements, rather than on individual sellers.",
+                    },
+                    {
+                      q: "How do I know if a recycler is genuinely certified?",
+                      a: "A certified recycler should be able to share their registration details on request. If a buyer hesitates or can't provide this, that's a sign to look elsewhere.",
+                    },
+                  ].map(({ q, a }) => (
+                    <div key={q} className="rounded-2xl px-5 py-4 border border-gray-200 bg-gray-50">
+                      <h4 className="text-gray-900 text-[15.5px] font-bold mb-1.5">{q}</h4>
+                      <p className="text-gray-600 text-[14px] m-0">{a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            {/* Closing CTA */}
+            <Reveal delay={0.05}>
+              <section className="text-center rounded-[32px] px-6 sm:px-10 py-12 sm:py-16 border border-secondary/10 bg-gradient-to-br from-secondary to-primary shadow-lg">
+                <h2 className="font-display font-extrabold text-white mb-3" style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}>
+                  Sell with full peace of mind
+                </h2>
+                <p className="max-w-[640px] mx-auto text-white/90 text-[15px] mb-0">
+                  We are a certified e-waste buyer, and every transaction
+                  comes with proper documentation — so you stay compliant,
+                  and the planet stays a little cleaner.
+                </p>
+              </section>
+            </Reveal>
+          </div>
+
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+            <StickyContactForm />
+          </aside>
         </div>
       </div>
     </div>

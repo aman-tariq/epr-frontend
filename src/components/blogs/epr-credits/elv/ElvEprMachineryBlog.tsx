@@ -211,36 +211,36 @@ function HeroSection() {
    2. COMING SOON BANNER
 ============================================================================ */
 
-function ComingSoonBanner() {
-  return (
-    <Reveal>
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-start gap-3 sm:items-center">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
-            <Sparkles className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              The full machinery deep-dive is on its way
-            </p>
-            <p className="mt-0.5 text-sm text-muted-foreground">
-              Our team is finalizing detailed equipment specs, vendor
-              shortlists, and throughput benchmarks. In the meantime, this
-              overview and our team can get you moving.
-            </p>
-          </div>
-        </div>
-        <a
-          href="#contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
-        >
-          Get Guidance Now
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </Reveal>
-  );
-}
+// function ComingSoonBanner() {
+//   return (
+//     <Reveal>
+//       <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+//         <div className="flex items-start gap-3 sm:items-center">
+//           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
+//             <Sparkles className="h-5 w-5" />
+//           </div>
+//           <div>
+//             <p className="text-sm font-semibold text-foreground">
+//               The full machinery deep-dive is on its way
+//             </p>
+//             <p className="mt-0.5 text-sm text-muted-foreground">
+//               Our team is finalizing detailed equipment specs, vendor
+//               shortlists, and throughput benchmarks. In the meantime, this
+//               overview and our team can get you moving.
+//             </p>
+//           </div>
+//         </div>
+//         <a
+//           href="#contact"
+//           className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
+//         >
+//           Get Guidance Now
+//           <ArrowRight className="h-4 w-4" />
+//         </a>
+//       </div>
+//     </Reveal>
+//   );
+// }
 
 /* ============================================================================
    3. QUICK STATS BAR
@@ -369,93 +369,93 @@ function EquipmentSection() {
    5. CAPACITY BENCHMARK CHART
 ============================================================================ */
 
-function ChartTooltip({ active, payload, label }: any) {
-  if (!active || !payload?.length) return null;
-  return (
-    <div className="rounded-lg border border-border bg-popover px-3 py-2 text-xs shadow-md">
-      <p className="font-medium text-popover-foreground">
-        {label?.replace("\n", " ")}
-      </p>
-      <p className="text-brandGreen">
-        {payload[0].value.toLocaleString()} vehicles / year
-      </p>
-    </div>
-  );
-}
+// function ChartTooltip({ active, payload, label }: any) {
+//   if (!active || !payload?.length) return null;
+//   return (
+//     <div className="rounded-lg border border-border bg-popover px-3 py-2 text-xs shadow-md">
+//       <p className="font-medium text-popover-foreground">
+//         {label?.replace("\n", " ")}
+//       </p>
+//       <p className="text-brandGreen">
+//         {payload[0].value.toLocaleString()} vehicles / year
+//       </p>
+//     </div>
+//   );
+// }
 
-function CapacityChart() {
-  const { ref, visible } = useReveal<HTMLDivElement>();
-  return (
-    <div
-      ref={ref}
-      className="rounded-2xl border border-border bg-card p-6 sm:p-8"
-    >
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="font-display text-lg font-semibold text-foreground">
-            Facility Scale vs. Annual Capacity
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Indicative processing volumes reported at operating facilities of
-            different sizes — useful for sizing your own equipment and layout
-            plan.
-          </p>
-        </div>
-        <Gauge className="hidden h-8 w-8 shrink-0 text-brandGreen/40 sm:block" />
-      </div>
+// function CapacityChart() {
+//   const { ref, visible } = useReveal<HTMLDivElement>();
+//   return (
+//     <div
+//       ref={ref}
+//       className="rounded-2xl border border-border bg-card p-6 sm:p-8"
+//     >
+//       <div className="mb-6 flex items-start justify-between gap-4">
+//         <div>
+//           <h3 className="font-display text-lg font-semibold text-foreground">
+//             Facility Scale vs. Annual Capacity
+//           </h3>
+//           <p className="mt-1 text-sm text-muted-foreground">
+//             Indicative processing volumes reported at operating facilities of
+//             different sizes — useful for sizing your own equipment and layout
+//             plan.
+//           </p>
+//         </div>
+//         <Gauge className="hidden h-8 w-8 shrink-0 text-brandGreen/40 sm:block" />
+//       </div>
 
-      <div className="h-72 w-full sm:h-80">
-        {visible && (
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={CAPACITY_DATA}
-              margin={{ top: 8, right: 8, left: 8, bottom: 8 }}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                className="stroke-border"
-              />
-              <XAxis
-                dataKey="name"
-                tick={{ fontSize: 12, fill: "currentColor" }}
-                className="text-muted-foreground"
-              />
-              <YAxis
-                tick={{ fontSize: 11, fill: "currentColor" }}
-                className="text-muted-foreground"
-                label={{
-                  value: "Vehicles / Year",
-                  angle: -90,
-                  position: "insideLeft",
-                  fontSize: 11,
-                }}
-              />
-              <Tooltip
-                content={<ChartTooltip />}
-                cursor={{ fill: "rgba(90,195,97,0.08)" }}
-              />
-              <Bar
-                dataKey="vehicles"
-                radius={[6, 6, 0, 0]}
-                animationDuration={1200}
-              >
-                {CAPACITY_DATA.map((entry) => (
-                  <Cell key={entry.name} fill={entry.fill} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        )}
-      </div>
-      <p className="mt-4 text-xs text-muted-foreground">
-        * Indicative benchmarks drawn from publicly reported facility
-        capacities, not a guaranteed output for any given site — actual
-        throughput depends on equipment, staffing, and ELV inflow.
-      </p>
-    </div>
-  );
-}
+//       <div className="h-72 w-full sm:h-80">
+//         {visible && (
+//           <ResponsiveContainer width="100%" height="100%">
+//             <BarChart
+//               data={CAPACITY_DATA}
+//               margin={{ top: 8, right: 8, left: 8, bottom: 8 }}
+//             >
+//               <CartesianGrid
+//                 strokeDasharray="3 3"
+//                 vertical={false}
+//                 className="stroke-border"
+//               />
+//               <XAxis
+//                 dataKey="name"
+//                 tick={{ fontSize: 12, fill: "currentColor" }}
+//                 className="text-muted-foreground"
+//               />
+//               <YAxis
+//                 tick={{ fontSize: 11, fill: "currentColor" }}
+//                 className="text-muted-foreground"
+//                 label={{
+//                   value: "Vehicles / Year",
+//                   angle: -90,
+//                   position: "insideLeft",
+//                   fontSize: 11,
+//                 }}
+//               />
+//               <Tooltip
+//                 content={<ChartTooltip />}
+//                 cursor={{ fill: "rgba(90,195,97,0.08)" }}
+//               />
+//               <Bar
+//                 dataKey="vehicles"
+//                 radius={[6, 6, 0, 0]}
+//                 animationDuration={1200}
+//               >
+//                 {CAPACITY_DATA.map((entry) => (
+//                   <Cell key={entry.name} fill={entry.fill} />
+//                 ))}
+//               </Bar>
+//             </BarChart>
+//           </ResponsiveContainer>
+//         )}
+//       </div>
+//       <p className="mt-4 text-xs text-muted-foreground">
+//         * Indicative benchmarks drawn from publicly reported facility
+//         capacities, not a guaranteed output for any given site — actual
+//         throughput depends on equipment, staffing, and ELV inflow.
+//       </p>
+//     </div>
+//   );
+// }
 
 /* ============================================================================
    6. OPERATIONS FLOW (signature element)
@@ -672,16 +672,15 @@ function FinalCTA() {
           <Factory className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full Machinery Deep-Dive Is Coming
+          Ready to Set Up Your ELV Recycling Facility?
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing detailed equipment specifications, vendor shortlists,
-          and throughput benchmarks by facility scale. Talk to our team now for
+         Talk to our team now for
           guidance tailored to your setup.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-xl bg-brandGreen px-5 py-3 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
           >
             Talk to Our Team
@@ -738,7 +737,7 @@ export default function EPRELVCreditsMachinerySetupOperations() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
       <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT */}
           <main className="min-w-0 space-y-16 sm:space-y-20">
             <Seo
@@ -776,7 +775,7 @@ export default function EPRELVCreditsMachinerySetupOperations() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+            {/* <ComingSoonBanner /> */}
 
             <QuickStatsBar />
 
@@ -794,14 +793,14 @@ export default function EPRELVCreditsMachinerySetupOperations() {
               <EquipmentSection />
             </BlogSection>
 
-            <BlogSection
+            {/* <BlogSection
               id="capacity"
               eyebrow="Sizing Your Setup"
               title="How Facility Scale Shapes Equipment Needs"
               intro="Throughput ambitions drive equipment choice as much as compliance does. Here's how reported capacity scales with facility size."
             >
               <CapacityChart />
-            </BlogSection>
+            </BlogSection> */}
 
             <BlogSection
               id="operations-flow"
@@ -832,7 +831,7 @@ export default function EPRELVCreditsMachinerySetupOperations() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and reflects
               publicly reported practice around ELV recycling plant equipment
               and operations in India — it isn't legal, financial, or
@@ -840,7 +839,7 @@ export default function EPRELVCreditsMachinerySetupOperations() {
               vary by state and change over time, so confirm current
               requirements with your state authorities and a qualified
               compliance or technical professional before acting.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR */}

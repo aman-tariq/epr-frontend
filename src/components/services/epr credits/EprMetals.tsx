@@ -153,7 +153,7 @@ export default function EprCreditsMetalsBlog() {
   }, []);
 
   return (
-    <div className="min-h-screen text-[#24163d] mt-20 bg-gradient-to-b from-white via-[#fbf9ff] to-[#f6f0ff] selection:bg-purple-200 antialiased">
+    <div className="min-h-screen text-[#24163d] mt-20 bg-gradient-to-b from-white via-[#fbf9ff] to-[#f6f0ff] selection:bg-green-200 antialiased">
       <Seo
         title="EPR Credits for Metals | Buy & Sell Metal EPR Credits in India"
         description="Buy, sell, and manage Metal EPR Credits in India. Meet CPCB compliance requirements, support certified metal recycling, fulfill Extended Producer Responsibility obligations, and strengthen your sustainability strategy."
@@ -189,30 +189,30 @@ export default function EprCreditsMetalsBlog() {
       />
 
       {/* Sub-Navigation Links
-      <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-purple-100 shadow-sm">
+      <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-green-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-purple-600 to-indigo-500 shadow-lg shadow-purple-500/20">
+            <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-green-600 to-indigo-500 shadow-lg shadow-green-500/20">
               <Cylinder className="w-5 h-5" />
             </div>
             <div>
               <div className="font-black text-lg tracking-tight">EPR Metals Registry</div>
-              <small className="text-[#65567d] font-semibold block -mt-1">Premium purple tracking blog</small>
+              <small className="text-[#65567d] font-semibold block -mt-1">Premium green tracking blog</small>
             </div>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[#65567d] font-bold text-sm">
-            <a href="#overview" className="hover:text-purple-600 transition-colors">Overview</a>
-            <a href="#process" className="hover:text-purple-600 transition-colors">Process</a>
-            <a href="#benefits" className="hover:text-purple-600 transition-colors">Benefits</a>
-            <a href="#database" className="hover:text-purple-600 transition-colors">Database</a>
-            <a href="#case-study" className="hover:text-purple-600 transition-colors">Case Study</a>
-            <a href="#faq" className="hover:text-purple-600 transition-colors">FAQs</a>
+            <a href="#overview" className="hover:text-green-600 transition-colors">Overview</a>
+            <a href="#process" className="hover:text-green-600 transition-colors">Process</a>
+            <a href="#benefits" className="hover:text-green-600 transition-colors">Benefits</a>
+            <a href="#database" className="hover:text-green-600 transition-colors">Database</a>
+            <a href="#case-study" className="hover:text-green-600 transition-colors">Case Study</a>
+            <a href="#faq" className="hover:text-green-600 transition-colors">FAQs</a>
           </div>
         </div>
       </nav> */}
 
       {/* Main Grid Architecture */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 relative grid grid-cols-1 lg:grid-cols-4 gap-4 top-10">
         {/* Editorial Left Content Column */}
         <div className="lg:col-span-3 space-y-16 py-12">
           {/* Main Hero Header Visual */}
@@ -220,12 +220,12 @@ export default function EprCreditsMetalsBlog() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-gradient-to-b from-white to-[#faf7ff] border border-purple-100 rounded-[34px] p-6 sm:p-10 shadow-xl shadow-purple-950/5 relative overflow-hidden"
+            className="bg-gradient-to-b from-white to-[#faf7ff] border border-green-100 rounded-[34px] p-6 sm:p-10 shadow-xl shadow-green-950/5 relative overflow-hidden"
           >
-            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-purple-400/10 pointer-events-none animate-pulse" />
+            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-green-400/10 pointer-events-none animate-pulse" />
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100/60 border border-purple-200/50 text-purple-600 text-xs font-extrabold mb-6 relative z-10">
-              <Star className="w-3.5 h-3.5 fill-purple-500 text-purple-500" />{" "}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100/60 border border-green-200/50 text-green-600 text-xs font-extrabold mb-6 relative z-10">
+              <Star className="w-3.5 h-3.5 fill-green-500 text-green-500" />{" "}
               Premium Metal Recycling & Value Protection
             </div>
 
@@ -244,13 +244,13 @@ export default function EprCreditsMetalsBlog() {
             <div className="flex flex-wrap gap-3 mb-8 relative z-10">
               <a
                 href="#overview"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white bg-gradient-to-br from-purple-600 to-purple-500 shadow-lg shadow-purple-500/20 hover:scale-[1.02] transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-black bg-gradient-to-br from-white-600 to-green-500 shadow-lg shadow-green-500/20 hover:scale-[1.02] transition-all"
               >
                 <ArrowRight className="w-4 h-4" /> View compliance metrics
               </a>
               <a
                 href="#database"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-[#24163d] bg-white border border-purple-100 hover:scale-[1.02] transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-[#24163d] bg-white border border-green-100 hover:scale-[1.02] transition-all"
               >
                 <Table className="w-4 h-4" /> Open data ledgers
               </a>
@@ -267,16 +267,16 @@ export default function EprCreditsMetalsBlog() {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full bg-white border border-purple-100 text-[#543b78] font-bold text-xs shadow-sm"
+                  className="px-3 py-1 rounded-full bg-white border border-green-100 text-[#543b78] font-bold text-xs shadow-sm"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-[28px] bg-gradient-to-br from-purple-50/50 to-purple-100/40 border border-purple-100 shadow-sm relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-[28px] bg-gradient-to-br from-green-50/50 to-green-100/40 border border-green-100 shadow-sm relative z-10">
               <div className="flex gap-3 items-center">
-                <Recycle className="w-5 h-5 text-purple-500 shrink-0" />
+                <Recycle className="w-5 h-5 text-green-500 shrink-0" />
                 <div>
                   <strong className="block text-sm font-bold">
                     Traceable Extraction
@@ -287,7 +287,7 @@ export default function EprCreditsMetalsBlog() {
                 </div>
               </div>
               <div className="flex gap-3 items-center">
-                <FileCheck2 className="w-5 h-5 text-purple-500 shrink-0" />
+                <FileCheck2 className="w-5 h-5 text-green-500 shrink-0" />
                 <div>
                   <strong className="block text-sm font-bold">
                     Pre-Audited Transfers
@@ -298,7 +298,7 @@ export default function EprCreditsMetalsBlog() {
                 </div>
               </div>
               <div className="flex gap-3 items-center">
-                <Leaf className="w-5 h-5 text-purple-500 shrink-0" />
+                <Leaf className="w-5 h-5 text-green-500 shrink-0" />
                 <div>
                   <strong className="block text-sm font-bold">
                     Circularity Assurance
@@ -326,8 +326,8 @@ export default function EprCreditsMetalsBlog() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              <div className="p-8 rounded-[34px] border border-purple-100 shadow-md bg-gradient-to-b from-white to-[#fbf8ff]">
-                <div className="w-16 h-1.5 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 mb-6" />
+              <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-gradient-to-b from-white to-[#fbf8ff]">
+                <div className="w-16 h-1.5 rounded-full bg-gradient-to-r from-green-600 to-green-400 mb-6" />
                 <h3 className="text-xl font-bold mb-3">
                   Why operations monitor industrial metal metrics
                 </h3>
@@ -355,16 +355,16 @@ export default function EprCreditsMetalsBlog() {
                   ].map((chip) => (
                     <span
                       key={chip}
-                      className="px-3 py-1 rounded-full bg-white border border-purple-100 text-xs font-bold text-[#4c356e]"
+                      className="px-3 py-1 rounded-full bg-white border border-green-100 text-xs font-bold text-[#4c356e]"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 rounded-[34px] border border-purple-100 shadow-md bg-white h-72 relative">
+              <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
                 <div className="flex items-center gap-2 mb-3 text-sm font-bold">
-                  <BarChart3 className="w-4 h-4 text-purple-500" /> Active
+                  <BarChart3 className="w-4 h-4 text-green-500" /> Active
                   Tonnage Generation
                 </div>
                 <div className="w-full h-56">
@@ -416,9 +416,9 @@ export default function EprCreditsMetalsBlog() {
               ].map((step, idx) => (
                 <div
                   key={idx}
-                  className="p-5 bg-white border border-purple-100 rounded-2xl shadow-sm hover:border-purple-300 transition-all"
+                  className="p-5 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-300 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/40 mb-4 text-lg font-mono">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-green-600 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/40 mb-4 text-lg font-mono">
                     {step.n}
                   </div>
                   <h4 className="font-bold text-sm mb-1.5">{step.title}</h4>
@@ -430,16 +430,16 @@ export default function EprCreditsMetalsBlog() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              <div className="p-6 rounded-[34px] border border-purple-100 shadow-md bg-white h-72 relative">
+              <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
                 <div className="flex items-center gap-2 mb-3 text-sm font-bold">
-                  <TrendingUp className="w-4 h-4 text-purple-500" /> Tonnage vs
+                  <TrendingUp className="w-4 h-4 text-green-500" /> Tonnage vs
                   Transferred Volumes
                 </div>
                 <div className="w-full h-56">
                   <canvas ref={comparisonChartRef}></canvas>
                 </div>
               </div>
-              <div className="p-8 rounded-[34px] border border-purple-100 shadow-md bg-white">
+              <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-white">
                 <h3 className="text-xl font-bold mb-3">
                   Audit Transparency Built-in
                 </h3>
@@ -458,7 +458,7 @@ export default function EprCreditsMetalsBlog() {
                   ].map((chip) => (
                     <span
                       key={chip}
-                      className="px-3 py-1 rounded-full bg-white border border-purple-100 text-xs font-bold text-[#4c356e]"
+                      className="px-3 py-1 rounded-full bg-white border border-green-100 text-xs font-bold text-[#4c356e]"
                     >
                       {chip}
                     </span>
@@ -480,24 +480,24 @@ export default function EprCreditsMetalsBlog() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-purple-100 shadow-sm">
-                <Scale className="w-8 h-8 text-purple-500 mb-4" />
+              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm">
+                <Scale className="w-8 h-8 text-green-500 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Audit Safety</h3>
                 <p className="text-sm text-[#65567d] leading-relaxed">
                   Ensure structural ledgers are pre-vetted against regional
                   pollution board queries immediately.
                 </p>
               </div>
-              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-purple-100 shadow-sm">
-                <Handshake className="w-8 h-8 text-purple-500 mb-4" />
+              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm">
+                <Handshake className="w-8 h-8 text-green-500 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Corporate Alignment</h3>
                 <p className="text-sm text-[#65567d] leading-relaxed">
                   Provide verification evidence directly to institutional board
                   rooms and ESG audit panels.
                 </p>
               </div>
-              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-purple-100 shadow-sm">
-                <Globe className="w-8 h-8 text-purple-500 mb-4" />
+              <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm">
+                <Globe className="w-8 h-8 text-green-500 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Supply Continuity</h3>
                 <p className="text-sm text-[#65567d] leading-relaxed">
                   Reintroduce processed heavy materials cleanly back into
@@ -519,11 +519,11 @@ export default function EprCreditsMetalsBlog() {
               </p>
             </div>
 
-            <div className="border border-purple-100 rounded-3xl shadow-sm overflow-hidden bg-white mb-6">
+            <div className="border border-green-100 rounded-3xl shadow-sm overflow-hidden bg-white mb-6">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold text-sm">
+                    <tr className="bg-gradient-to-r from-green-600 to-green-500 text-white font-bold text-sm">
                       <th className="p-4">Reporting Window</th>
                       <th className="p-4">Metal Ingest (MT)</th>
                       <th className="p-4">Certified Yield (MT)</th>
@@ -531,7 +531,7 @@ export default function EprCreditsMetalsBlog() {
                       <th className="p-4">Audit Status</th>
                     </tr>
                   </thead>
-                  <tbody className="text-sm divide-y divide-purple-50 font-medium text-[#46375c]">
+                  <tbody className="text-sm divide-y divide-green-50 font-medium text-[#46375c]">
                     {[
                       { m: "January", c: 60, r: 42, g: 38, s: "Verified" },
                       { m: "February", c: 68, r: 49, g: 45, s: "Verified" },
@@ -543,7 +543,7 @@ export default function EprCreditsMetalsBlog() {
                     ].map((row, i) => (
                       <tr
                         key={i}
-                        className="hover:bg-purple-50/30 transition-colors"
+                        className="hover:bg-green-50/30 transition-colors"
                       >
                         <td className="p-4 font-bold">{row.m}</td>
                         <td className="p-4 font-mono">{row.c}</td>
@@ -553,7 +553,7 @@ export default function EprCreditsMetalsBlog() {
                           <span
                             className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
                               row.s === "Outstanding"
-                                ? "bg-purple-50 text-purple-700 border border-purple-100"
+                                ? "bg-green-50 text-green-700 border border-green-100"
                                 : "bg-indigo-50 text-indigo-700 border border-indigo-100"
                             }`}
                           >
@@ -568,7 +568,7 @@ export default function EprCreditsMetalsBlog() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              <div className="p-8 rounded-[34px] border border-purple-100 shadow-md bg-white">
+              <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-white">
                 <h3 className="text-xl font-bold mb-3">
                   Data Consolidation Advantages
                 </h3>
@@ -586,16 +586,16 @@ export default function EprCreditsMetalsBlog() {
                   ].map((chip) => (
                     <span
                       key={chip}
-                      className="px-3 py-1 rounded-full bg-white border border-purple-100 text-xs font-bold text-[#4c356e]"
+                      className="px-3 py-1 rounded-full bg-white border border-green-100 text-xs font-bold text-[#4c356e]"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 rounded-[34px] border border-purple-100 shadow-md bg-white h-72 relative">
+              <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
                 <div className="flex items-center gap-2 mb-3 text-sm font-bold">
-                  <Database className="w-4 h-4 text-purple-500" /> Historical
+                  <Database className="w-4 h-4 text-green-500" /> Historical
                   Trend Layout
                 </div>
                 <div className="w-full h-56">
@@ -617,24 +617,24 @@ export default function EprCreditsMetalsBlog() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-2xl border border-purple-100 bg-white shadow-sm hover:border-purple-300 transition-all">
-                <Factory className="w-8 h-8 text-purple-500 mb-3" />
+              <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all">
+                <Factory className="w-8 h-8 text-green-500 mb-3" />
                 <h3 className="font-bold mb-1.5">Automotive Units</h3>
                 <p className="text-xs text-[#65567d] leading-relaxed">
                   Streamlined compliance mapping for heavy chassis and casting
                   infrastructure segments.
                 </p>
               </div>
-              <div className="p-6 rounded-2xl border border-purple-100 bg-white shadow-sm hover:border-purple-300 transition-all">
-                <Briefcase className="w-8 h-8 text-purple-500 mb-3" />
+              <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all">
+                <Briefcase className="w-8 h-8 text-green-500 mb-3" />
                 <h3 className="font-bold mb-1.5">Appliance Importers</h3>
                 <p className="text-xs text-[#65567d] leading-relaxed">
                   Bulk validation handling for imported white goods component
                   batches and bulk metal casings.
                 </p>
               </div>
-              <div className="p-6 rounded-2xl border border-purple-100 bg-white shadow-sm hover:border-purple-300 transition-all">
-                <Layers className="w-8 h-8 text-purple-500 mb-3" />
+              <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all">
+                <Layers className="w-8 h-8 text-green-500 mb-3" />
                 <h3 className="font-bold mb-1.5">Smelting Networks</h3>
                 <p className="text-xs text-[#65567d] leading-relaxed">
                   Integrated processing data workflows connecting refining
@@ -656,10 +656,10 @@ export default function EprCreditsMetalsBlog() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white to-[#f4efff] border border-purple-100 rounded-[36px] p-6 sm:p-10 shadow-lg">
+            <div className="bg-gradient-to-br from-white to-[#f4efff] border border-green-100 rounded-[36px] p-6 sm:p-10 shadow-lg">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
                 <div>
-                  <div className="w-16 h-1.5 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 mb-4" />
+                  <div className="w-16 h-1.5 rounded-full bg-gradient-to-r from-green-600 to-green-400 mb-4" />
                   <h3 className="text-2xl font-black mb-3">
                     Transitioning to unified metal stream balance processing
                   </h3>
@@ -677,7 +677,7 @@ export default function EprCreditsMetalsBlog() {
                     a few weeks.
                   </p>
                 </div>
-                <div className="p-6 bg-gradient-to-b from-white to-[#faf7ff] border border-purple-100 rounded-3xl shadow-sm text-sm space-y-3 text-[#65567d] font-medium">
+                <div className="p-6 bg-gradient-to-b from-white to-[#faf7ff] border border-green-100 rounded-3xl shadow-sm text-sm space-y-3 text-[#65567d] font-medium">
                   <h4 className="font-bold text-[#24163d] mb-2">
                     Measurable operational upgrades:
                   </h4>
@@ -705,9 +705,9 @@ export default function EprCreditsMetalsBlog() {
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="bg-white border border-purple-100 rounded-2xl p-4 text-center shadow-sm"
+                    className="bg-white border border-green-100 rounded-2xl p-4 text-center shadow-sm"
                   >
-                    <strong className="block text-2xl font-black text-purple-600 mb-0.5 font-serif">
+                    <strong className="block text-2xl font-black text-green-600 mb-0.5 font-serif">
                       {stat.val}
                     </strong>
                     <span className="text-xs text-[#65567d] font-bold">
@@ -755,26 +755,26 @@ export default function EprCreditsMetalsBlog() {
               ].map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-purple-100 rounded-2xl overflow-hidden shadow-sm"
+                  className="bg-white border border-green-100 rounded-2xl overflow-hidden shadow-sm"
                 >
                   <button
                     onClick={() =>
                       setOpenFaqIndex(openFaqIndex === idx ? null : idx)
                     }
-                    className="w-full flex justify-between items-center text-left p-5 text-sm font-bold text-[#24163d] hover:bg-purple-50/40 transition focus:outline-none"
+                    className="w-full flex justify-between items-center text-left p-5 text-sm font-bold text-[#24163d] hover:bg-green-50/40 transition focus:outline-none"
                   >
                     <span className="flex items-center gap-2.5">
-                      <HelpCircle className="w-4 h-4 text-purple-500 shrink-0" />{" "}
+                      <HelpCircle className="w-4 h-4 text-green-500 shrink-0" />{" "}
                       {faq.q}
                     </span>
                     <span
-                      className={`text-xs text-purple-500 transition-transform duration-300 ${openFaqIndex === idx ? "rotate-180" : ""}`}
+                      className={`text-xs text-green-500 transition-transform duration-300 ${openFaqIndex === idx ? "rotate-180" : ""}`}
                     >
                       ▼
                     </span>
                   </button>
                   <div
-                    className={`transition-all duration-300 overflow-hidden ${openFaqIndex === idx ? "max-h-[300px] border-t border-purple-50 bg-purple-50/20 p-5" : "max-h-0"}`}
+                    className={`transition-all duration-300 overflow-hidden ${openFaqIndex === idx ? "max-h-[300px] border-t border-green-50 bg-green-50/20 p-5" : "max-h-0"}`}
                   >
                     <p className="text-xs text-[#65567d] leading-relaxed pl-6">
                       {faq.a}
@@ -787,7 +787,7 @@ export default function EprCreditsMetalsBlog() {
 
           {/* Bottom Action Callout Block */}
           <section>
-            <div className="bg-gradient-to-br from-white via-[#f7f3ff] to-white border border-purple-100 rounded-[36px] p-8 sm:p-12 text-center shadow-md">
+            <div className="bg-gradient-to-br from-white via-[#f7f3ff] to-white border border-green-100 rounded-[36px] p-8 sm:p-12 text-center shadow-md">
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-3">
                 Optimize Your Metal Compliance Portfolio Today
               </h2>
@@ -798,13 +798,13 @@ export default function EprCreditsMetalsBlog() {
               <div className="flex flex-wrap justify-center gap-3">
                 <a
                   href="#overview"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white bg-gradient-to-br from-purple-600 to-purple-500 shadow-md hover:scale-[1.02] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white bg-gradient-to-br from-green-600 to-green-500 shadow-md hover:scale-[1.02] transition-all"
                 >
                   <ArrowUpRight className="w-4 h-4" /> Review metrics again
                 </a>
                 <a
                   href="#database"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-[#24163d] bg-white border border-purple-100 hover:scale-[1.02] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-[#24163d] bg-white border border-green-100 hover:scale-[1.02] transition-all"
                 >
                   <Table className="w-4 h-4" /> Open logs
                 </a>
@@ -813,19 +813,8 @@ export default function EprCreditsMetalsBlog() {
           </section>
         </div>
 
-        <aside className="lg:col-span-1 py-12">
-          <div className="sticky top-28 space-y-6">
-            {/* Quick Informational Meta Widget
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100/40 border border-purple-100 p-6 rounded-3xl shadow-sm">
-              <h3 className="font-black text-base mb-1">Operational Summary</h3>
-              <p className="text-xs text-[#65567d] leading-relaxed mb-4">
-                Managing metal scrap through a single ledger reduces reporting overhead and provides clear visibility for internal stakeholders.
-              </p>
-              <div className="grid grid-cols-2 gap-2 text-center font-bold">
-                <div className="bg-white p-3 rounded-xl border border-purple-200/40"><span className="block font-black text-lg text-purple-600 leading-none">94%</span><span className="text-[10px] text-[#65567d] block mt-0.5 font-sans uppercase">Precision</span></div>
-                <div className="bg-white p-3 rounded-xl border border-purple-200/40"><span className="block font-black text-lg text-purple-600 leading-none">24h</span><span className="text-[10px] text-[#65567d] block mt-0.5 font-sans uppercase">SLA Sync</span></div>
-              </div>
-            </div> */}
+        <aside className="hidden lg:block w-[320px] shrink-0">
+          <div className="sticky top-28 px-2">
 
             {/* Imported Prebuilt Shared Component Trigger Entry */}
             <StickyContactForm />
@@ -833,19 +822,7 @@ export default function EprCreditsMetalsBlog() {
         </aside>
       </div>
 
-      {/* Embedded Mini Foot-strip Info Banner */}
-      <div className="border-t border-purple-100 bg-white/80 py-10 mt-12 text-center text-sm text-[#65567d]">
-        <div className="max-w-7xl mx-auto px-4">
-          <strong className="text-[#24163d] font-bold block mb-1">
-            EPR Metal Ledger Allocation Strategy
-          </strong>
-          <p className="max-w-xl mx-auto text-xs leading-relaxed">
-            Premium purple enterprise layout focused on industrial metallurgical
-            ledger balances, cross-facility data mapping, and streamlined
-            compliance logging.
-          </p>
-        </div>
-      </div>
+      
     </div>
   );
 }

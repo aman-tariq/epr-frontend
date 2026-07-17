@@ -87,8 +87,8 @@ export default function EprCreditsElv() {
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-green-200/50 to-emerald-100/40 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-emerald-200/30 blur-2xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
+        <div className="max-w-8xl mx-auto px-4 md:px-[300px] relative z-10">
+          <div className="max-w-6xl">
             <div className="inline-flex items-center gap-2 bg-white border border-green-300 rounded-full px-4 py-1.5 text-xs font-bold text-green-700 tracking-wider uppercase shadow-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               EPR End-of-Life Vehicle Compliance
@@ -123,8 +123,8 @@ export default function EprCreditsElv() {
       </section>
 
       {/* MAIN CONTENT SPLIT LAYOUT */}
-      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+      <div className="max-w-8xl mx-auto px-1 md:px-2 py-12 lg:py-16">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           {/* LEFT CONTENT AREA */}
           <div className="lg:col-span-2 space-y-20">
             {/* INTRO: WHAT IS EPR */}
@@ -670,8 +670,10 @@ export default function EprCreditsElv() {
           </div>
 
           {/* DESKTOP STICKY SIDEBAR */}
-          <aside className="hidden lg:block sticky top-28 self-start lg:col-span-1">
-            <StickyContactForm />
+          <aside className="hidden lg:block w-[320px] shrink-0">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
+              </div>
           </aside>
         </div>
       </div>

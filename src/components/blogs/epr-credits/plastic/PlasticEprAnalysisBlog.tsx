@@ -32,14 +32,26 @@ import Seo from "@/components/Seo";
 /* ------------------------------------------------------------------ */
 
 const marketStats = [
-  { label: "Registered PIBOs tracked", value: "5,100+", icon: Factory },
-  { label: "Avg. YoY growth in credit volume", value: "31%", icon: TrendingUp },
   {
-    label: "Recycling & processing partners onboarded",
-    value: "260+",
+    label: "60,000+ Registered PIBOs",
+    value: "60K+",
+    icon: Factory,
+  },
+  {
+    label: "3,000+ Verified Recyclers & PWPs",
+    value: "3K+",
     icon: Recycle,
   },
-  { label: "Plastic categories covered", value: "4", icon: ShieldCheck },
+  {
+    label: "4 Plastic Packaging Categories",
+    value: "4",
+    icon: ShieldCheck,
+  },
+  {
+    label: "Nationwide CPCB EPR Network",
+    value: "Pan India",
+    icon: TrendingUp,
+  },
 ];
 
 const volumeByYear = [
@@ -219,7 +231,7 @@ function CircularityRail() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card via-card to-brandGreen/5 px-6 py-14 sm:px-10 sm:py-20">
+    <section className="relative overflow-hidden rounded-3xl border border-brandGreen bg-gradient-to-br from-card via-card to-brandGreen/5 px-6 py-14 sm:px-20 sm:py-10">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 w-72 h-72 rounded-full bg-brandGreen/10 blur-3xl"
@@ -238,8 +250,7 @@ function Hero() {
       <Reveal delay={0.15} className="max-w-2xl">
         <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
           A practical, step-by-step guide covering market analysis and business
-          opportunity for EPR plastic credits — built for producers, recyclers,
-          and PROs. Our team is finalizing the full deep-dive; reach out for
+          opportunity for EPR plastic credits — built for producers and recyclers. reach out for
           immediate guidance in the meantime.
         </p>
       </Reveal>
@@ -349,10 +360,7 @@ function MarketPulseStats() {
           </Reveal>
         ))}
       </div>
-      <p className="mt-3 font-mono text-[11px] text-muted-foreground">
-        Indicative figures — sourced numbers will ship with the full deep-dive
-        report.
-      </p>
+      
     </section>
   );
 }
@@ -481,10 +489,23 @@ function BarChart() {
 
 function LineChart() {
   const max = Math.max(...priceIndex.map((d) => d.value));
+  const min = Math.min(...priceIndex.map((d) => d.value));
   const w = 320;
   const h = 140;
-  const step = w / (priceIndex.length - 1);
-  const points = priceIndex.map((d, i) => [i * step, h - (d.value / max) * h]);
+  const padX = 20; // horizontal inset so edge labels don't clip
+  const plotW = w - padX * 2;
+  const step = plotW / (priceIndex.length - 1);
+
+  // small y-headroom too, so the top point/dot isn't flush against the viewBox edge
+  const padY = 10;
+  const plotH = h - padY * 2;
+  const range = max - min || 1;
+
+  const points = priceIndex.map((d, i) => [
+    padX + i * step,
+    padY + plotH - ((d.value - min) / range) * plotH,
+  ]);
+
   const path = points
     .map((p, i) => `${i === 0 ? "M" : "L"} ${p[0]} ${p[1]}`)
     .join(" ");
@@ -508,7 +529,9 @@ function LineChart() {
           <text
             x={p[0]}
             y={h + 22}
-            textAnchor="middle"
+            textAnchor={
+              i === 0 ? "start" : i === points.length - 1 ? "end" : "middle"
+            }
             className="fill-muted-foreground font-mono text-[10px]"
           >
             {priceIndex[i].label}
@@ -549,7 +572,7 @@ function MarketAnalysisChart() {
           className="rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center gap-2 mb-1">
-            <TrendingUp className="w-4 h-4 text-brandGreen" />
+            <TrendingUp className="w-6 h-6 text-brandGreen" />
             <h3 className="font-medium text-foreground">
               Indicative credit price index
             </h3>
@@ -696,7 +719,7 @@ function CTABanner() {
             EPR-P6 / NEXT STEP
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-semibold max-w-xl">
-            The full deep-dive report is still being finalized.
+            Want to learn more?
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
             If you need to make a PIBO, recycler, or PRO decision now, talk to
@@ -805,7 +828,7 @@ export default function EPRPlasticCreditsMarketAnalysis() {
     <div className="bg-background min-h-screen">
       <CircularityRail />
       <div className="md:container pt-28 sm:pt-32 pb-24">
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-14">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-4">
           <main className="min-w-0">
             <Seo
               title="EPR Plastic Credits: Market Analysis & Business Opportunity"
@@ -849,7 +872,7 @@ export default function EPRPlasticCreditsMarketAnalysis() {
             <CreditFlowDiagram />
             <CTABanner />
             <FAQAccordion />
-            <ClosingTrustStrip />
+            {/* <ClosingTrustStrip /> */}
           </main>
 
           <aside

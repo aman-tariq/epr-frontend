@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Mail, Phone, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, X, Mail, Phone, NotebookTabs, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/epr-logo.jpeg";
 import {
@@ -12,20 +12,12 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { serviceDropdown, serviceCategoriesNav } from "@/lib/services";
-// import { blogCategoryGroups } from "@/lib/blog";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Contact", path: "/contact" },
-  {name: "About us", path: "/about"}
+  { name: "About us", path: "/about" }
 ];
-
-// const aboutDropdown = [
-//   { label: "About Company", path: "/about#company" },
-//   { label: "EPR", path: "/about#epr" },
-//   { label: "Waste Management", path: "/about#waste" },
-//   { label: "Team", path: "/team" },
-// ];
 
 // ==================== BLOG CATEGORIES ====================
 const blogDropdown = [
@@ -43,17 +35,17 @@ const plantOperationSubcategories: { label: string; path: string }[] = [
 ];
 
 const recyclingSetupsSubcategories = [
-  { label: "Lithium Battery Recycling Setup", path: "/blog/category/lithium"},
+  { label: "Lithium Battery Recycling Setup", path: "/blog/category/lithium" },
   { label: "E-Waste Recycling Setup", path: "/blog/category/e-waste" },
   { label: "RVSF Recycling Setup", path: "/blog/category/rvsf" },
   { label: "Solar Panel Recycling Setup", path: "/blog/category/solar-panel" },
-  { label: "Plastic Recycling Setup", path: "/blog/category/plastic"},
-  { label: "Tyre Recycling Setup", path: "/blog/category/tyre"},
+  { label: "Plastic Recycling Setup", path: "/blog/category/plastic" },
+  { label: "Tyre Recycling Setup", path: "/blog/category/tyre" },
 ];
 
 const eprCreditsSubcategories = [
   { label: "EPR Plastic", path: "/blog/category/epr-plastic" },
-  { label: "EPR Electronic", path: "/blog/category/epr-electronic"},
+  { label: "EPR Electronic", path: "/blog/category/epr-electronic" },
   { label: "EPR Tyre", path: "/blog/category/epr-tyre" },
   { label: "EPR ELV", path: "/blog/category/epr-elv" },
   { label: "EPR Used Oil", path: "/blog/category/epr-used-oil" },
@@ -63,16 +55,13 @@ const eprCreditsSubcategories = [
 ];
 
 const buyAndSellScrapSubcategories = [
-  { label: "Buy E-Waste", path: "/blog/category/buy-e-waste"},
+  { label: "Buy E-Waste", path: "/blog/category/buy-e-waste" },
   { label: "Sell Batteries", path: "/blog/category/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/blog/category/buy-and-sell-metals" },
-
 ];
 
-const businessGrowthAndLeadGenerationSubcategories= [
-  { label: "Business Growth And Lead Generation", path: "/blog/category/business-growth-and-lead-generation"},
-  
-
+const businessGrowthAndLeadGenerationSubcategories = [
+  { label: "Business Growth And Lead Generation", path: "/blog/category/business-growth-and-lead-generation" },
 ];
 
 const socialLinks = [
@@ -80,7 +69,7 @@ const socialLinks = [
   { name: "YouTube", href: "https://www.youtube.com/@eprnexuss", icon: "M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.81zM9.55 15.5V8.5l6.27 3.5-6.27 3.5z" },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/epr-nexuss/", icon: "M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2zM7.91 18.18H5.27V9.5h2.64v8.68zM6.59 8.35a1.52 1.52 0 1 1 0-3.04 1.52 1.52 0 0 1 0 3.04zM18.18 18.18h-2.64v-4.23c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.62 1.1-1.62 2.23v4.31H9.86V9.5h2.53v1.18h.04c.35-.66 1.21-1.36 2.49-1.36 2.66 0 3.15 1.75 3.15 4.03v4.83z" },
   { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61569227422407", icon: "M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.12 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" },
-  { name: "Instagram", href: "https://www.instagram.com/eprnexuss/", icon: "M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" },
+  { name: "Instagram", href: "https://www.instagram.com/eprnexuss/", icon: "M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2 01-3.58.07-4.85.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" },
 ];
 
 const Navbar = () => {
@@ -105,6 +94,16 @@ const Navbar = () => {
     }
     setExpandedCategories(newExpanded);
   };
+
+  /* ==================== CHANGE 1 START ==================== */
+  // Clear the subcategories when both main desktop dropdown menus are closed.
+  // This ensures that when you re-hover over a menu later, it starts clean.
+  useEffect(() => {
+    if (!isBlogOpen && !isServicesOpen) {
+      setExpandedCategories(new Set());
+    }
+  }, [isBlogOpen, isServicesOpen]);
+  /* ===================== CHANGE 1 END ===================== */
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -137,6 +136,10 @@ const Navbar = () => {
               <a href="tel:+919289659966" className="flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-primary-foreground transition-colors">
                 <Phone size={14} />
                 +91 9289659966
+              </a>
+              <a href="tel:01204605014" className="flex items-center gap-2 text-sm text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+                <NotebookTabs size={14} />
+                0120-4605014
               </a>
             </div>
 
@@ -196,29 +199,7 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* About Dropdown */}
-              {/* <div
-                {...(isDesktop && { onMouseEnter: () => setIsAboutOpen(true), onMouseLeave: () => setIsAboutOpen(false) })}
-                className="relative"
-              >
-                <DropdownMenu open={isAboutOpen} onOpenChange={setIsAboutOpen}>
-                  <DropdownMenuTrigger className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 inline-flex items-center gap-2 ${location.pathname === "/about" ? "bg-secondary text-primary-foreground" : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"}`}>
-                    About {isAboutOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent sideOffset={6} className="min-w-[18rem]">
-                    <DropdownMenuLabel>About Sections</DropdownMenuLabel>
-                    {aboutDropdown.map((item) => (
-                      <DropdownMenuItem asChild key={item.path}>
-                        <Link to={item.path} className="block w-full px-2 py-2 text-sm text-foreground hover:bg-accent/10">
-                          {item.label}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div> */}
-
-              {/* Blog Dropdown - With New Categories */}
+              {/* Blog Dropdown */}
               <div
                 {...(isDesktop && { onMouseEnter: () => setIsBlogOpen(true), onMouseLeave: () => setIsBlogOpen(false) })}
                 className="relative"
@@ -234,15 +215,16 @@ const Navbar = () => {
                       if (item.path === "/blog/category/plant-operation-intelligence") {
                         return (
                           <div key={item.path}>
+                            {/* CHANGE 2: Added "blog-" namespace prefix to prevent name conflict with Services */}
                             <button
-                              onClick={() => toggleCategory("Plant Operation Intelligence")}
+                              onClick={() => toggleCategory("blog-Plant Operation Intelligence")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                             >
                               <span>{item.label}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Plant Operation Intelligence") ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Plant Operation Intelligence") ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has("Plant Operation Intelligence") && (
+                              {expandedCategories.has("blog-Plant Operation Intelligence") && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {plantOperationSubcategories.map((sub) => (
                                     <DropdownMenuItem asChild key={sub.path}>
@@ -262,15 +244,16 @@ const Navbar = () => {
                       if (item.path === "/blog/category/recycling-setups") {
                         return (
                           <div key={item.path}>
+                            {/* CHANGE 2: Added "blog-" namespace prefix */}
                             <button
-                              onClick={() => toggleCategory("Recycling Setups")}
+                              onClick={() => toggleCategory("blog-Recycling Setups")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                             >
                               <span>{item.label}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Recycling Setups") ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Recycling Setups") ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has("Recycling Setups") && (
+                              {expandedCategories.has("blog-Recycling Setups") && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {recyclingSetupsSubcategories.map((sub) => (
                                     <DropdownMenuItem asChild key={sub.path}>
@@ -290,15 +273,16 @@ const Navbar = () => {
                       if (item.path === "/blog/category/epr-credits") {
                         return (
                           <div key={item.path}>
+                            {/* CHANGE 2: Added "blog-" namespace prefix */}
                             <button
-                              onClick={() => toggleCategory("EPR Credits")}
+                              onClick={() => toggleCategory("blog-EPR Credits")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                             >
                               <span>{item.label}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("EPR Credits") ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-EPR Credits") ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has("EPR Credits") && (
+                              {expandedCategories.has("blog-EPR Credits") && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {eprCreditsSubcategories.map((sub) => (
                                     <DropdownMenuItem asChild key={sub.path}>
@@ -318,15 +302,16 @@ const Navbar = () => {
                       if (item.path === "/blog/category/business-growth-and-lead-generation") {
                         return (
                           <div key={item.path}>
+                            {/* CHANGE 2: Added "blog-" namespace prefix */}
                             <button
-                              onClick={() => toggleCategory("Business Growth And Lead Generation")}
+                              onClick={() => toggleCategory("blog-Business Growth And Lead Generation")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                             >
                               <span>{item.label}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Business Growth And Lead Generation") ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Business Growth And Lead Generation") ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has("Business Growth And Lead Generation") && (
+                              {expandedCategories.has("blog-Business Growth And Lead Generation") && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {businessGrowthAndLeadGenerationSubcategories.map((sub) => (
                                     <DropdownMenuItem asChild key={sub.path}>
@@ -346,15 +331,16 @@ const Navbar = () => {
                       if (item.path === "/blog/category/buy-and-sell-scrap") {
                         return (
                           <div key={item.path}>
+                            {/* CHANGE 2: Added "blog-" namespace prefix */}
                             <button
-                              onClick={() => toggleCategory("Buy & Sell Scrap")}
+                              onClick={() => toggleCategory("blog-Buy & Sell Scrap")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                             >
                               <span>{item.label}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Buy & Sell Scrap") ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Buy & Sell Scrap") ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has("Buy & Sell Scrap") && (
+                              {expandedCategories.has("blog-Buy & Sell Scrap") && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {buyAndSellScrapSubcategories.map((sub) => (
                                     <DropdownMenuItem asChild key={sub.path}>
@@ -396,15 +382,16 @@ const Navbar = () => {
                     <DropdownMenuLabel>Service Categories</DropdownMenuLabel>
                     {serviceCategoriesNav.map((category, idx) => (
                       <div key={category.name}>
+                        {/* CHANGE 3: Added "service-" namespace prefix so identical names do not sync up */}
                         <button
-                          onClick={() => toggleCategory(category.name)}
+                          onClick={() => toggleCategory(`service-${category.name}`)}
                           className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
                         >
                           <span>{category.name}</span>
-                          <ChevronDown size={14} className={`transition-transform ${expandedCategories.has(category.name) ? "rotate-180" : ""}`} />
+                          <ChevronDown size={14} className={`transition-transform ${expandedCategories.has(`service-${category.name}`) ? "rotate-180" : ""}`} />
                         </button>
                         <AnimatePresence>
-                          {expandedCategories.has(category.name) && (
+                          {expandedCategories.has(`service-${category.name}`) && (
                             <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                               {category.subcategories.map((item) => (
                                 <DropdownMenuItem asChild key={item.path}>
@@ -470,33 +457,6 @@ const Navbar = () => {
                   </Link>
                 ))}
 
-                {/* Mobile About */}
-                {/* <div className="border-t border-primary-foreground/10 pt-3 mt-3">
-                  <button
-                    onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                    className="w-full px-4 py-3 flex items-center justify-between rounded-lg text-sm font-medium transition-all text-primary-foreground/80 hover:bg-primary-foreground/10"
-                  >
-                    About
-                    <ChevronDown size={18} className={`transition-transform ${mobileAboutOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  <AnimatePresence>
-                    {mobileAboutOpen && (
-                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
-                        {aboutDropdown.map((item) => (
-                          <Link
-                            key={item.path}
-                            to={item.path}
-                            onClick={() => setIsOpen(false)}
-                            className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div> */}
-
                 {/* Mobile Blog */}
                 <div className="border-t border-primary-foreground/10 pt-3 mt-3">
                   <button
@@ -513,15 +473,16 @@ const Navbar = () => {
                           if (item.path === "/blog/category/plant-operation-intelligence") {
                             return (
                               <div key={item.path} className="pl-2">
+                                {/* CHANGE 4: Matching unique "blog-" namespace updates for the mobile structure */}
                                 <button
-                                  onClick={() => toggleCategory("Plant Operation Intelligence")}
+                                  onClick={() => toggleCategory("blog-Plant Operation Intelligence")}
                                   className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                                 >
                                   <span>{item.label}</span>
-                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Plant Operation Intelligence") ? "rotate-180" : ""}`} />
+                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Plant Operation Intelligence") ? "rotate-180" : ""}`} />
                                 </button>
                                 <AnimatePresence>
-                                  {expandedCategories.has("Plant Operation Intelligence") && (
+                                  {expandedCategories.has("blog-Plant Operation Intelligence") && (
                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                       {plantOperationSubcategories.map((sub) => (
                                         <Link key={sub.path} to={sub.path} onClick={() => setIsOpen(false)} className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10">
@@ -538,15 +499,16 @@ const Navbar = () => {
                           if (item.path === "/blog/category/recycling-setups") {
                             return (
                               <div key={item.path} className="pl-2">
+                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
-                                  onClick={() => toggleCategory("Recycling Setups")}
+                                  onClick={() => toggleCategory("blog-Recycling Setups")}
                                   className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                                 >
                                   <span>{item.label}</span>
-                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Recycling Setups") ? "rotate-180" : ""}`} />
+                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Recycling Setups") ? "rotate-180" : ""}`} />
                                 </button>
                                 <AnimatePresence>
-                                  {expandedCategories.has("Recycling Setups") && (
+                                  {expandedCategories.has("blog-Recycling Setups") && (
                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                       {recyclingSetupsSubcategories.map((sub) => (
                                         <Link key={sub.path} to={sub.path} onClick={() => setIsOpen(false)} className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10">
@@ -563,15 +525,16 @@ const Navbar = () => {
                           if (item.path === "/blog/category/epr-credits") {
                             return (
                               <div key={item.path} className="pl-2">
+                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
-                                  onClick={() => toggleCategory("EPR Credits")}
+                                  onClick={() => toggleCategory("blog-EPR Credits")}
                                   className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                                 >
                                   <span>{item.label}</span>
-                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("EPR Credits") ? "rotate-180" : ""}`} />
+                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-EPR Credits") ? "rotate-180" : ""}`} />
                                 </button>
                                 <AnimatePresence>
-                                  {expandedCategories.has("EPR Credits") && (
+                                  {expandedCategories.has("blog-EPR Credits") && (
                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                       {eprCreditsSubcategories.map((sub) => (
                                         <Link key={sub.path} to={sub.path} onClick={() => setIsOpen(false)} className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10">
@@ -588,15 +551,16 @@ const Navbar = () => {
                           if (item.path === "/blog/category/buy-and-sell-scrap") {
                             return (
                               <div key={item.path} className="pl-2">
+                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
-                                  onClick={() => toggleCategory("Buy & Sell Scrap")}
+                                  onClick={() => toggleCategory("blog-Buy & Sell Scrap")}
                                   className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                                 >
                                   <span>{item.label}</span>
-                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("Buy & Sell Scrap") ? "rotate-180" : ""}`} />
+                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Buy & Sell Scrap") ? "rotate-180" : ""}`} />
                                 </button>
                                 <AnimatePresence>
-                                  {expandedCategories.has("Buy & Sell Scrap") && (
+                                  {expandedCategories.has("blog-Buy & Sell Scrap") && (
                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                       {buyAndSellScrapSubcategories.map((sub) => (
                                         <Link key={sub.path} to={sub.path} onClick={() => setIsOpen(false)} className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10">
@@ -613,15 +577,16 @@ const Navbar = () => {
                           if (item.path === "/blog/category/business-growth-and-lead-generation") {
                             return (
                               <div key={item.path} className="pl-2">
+                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
-                                  onClick={() => toggleCategory("Business Growth And Lead Generation")}
+                                  onClick={() => toggleCategory("blog-Business Growth And Lead Generation")}
                                   className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                                 >
                                   <span>{item.label}</span>
-                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("EPR Credits") ? "rotate-180" : ""}`} />
+                                  <ChevronDown size={14} className={`transition-transform ${expandedCategories.has("blog-Business Growth And Lead Generation") ? "rotate-180" : ""}`} />
                                 </button>
                                 <AnimatePresence>
-                                  {expandedCategories.has("Business Growth And Lead Generation") && (
+                                  {expandedCategories.has("blog-Business Growth And Lead Generation") && (
                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                       {businessGrowthAndLeadGenerationSubcategories.map((sub) => (
                                         <Link key={sub.path} to={sub.path} onClick={() => setIsOpen(false)} className="block px-4 py-3 ml-2 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-primary-foreground/10">
@@ -659,15 +624,16 @@ const Navbar = () => {
                       <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                         {serviceCategoriesNav.map((category) => (
                           <div key={category.name} className="pl-2">
+                            {/* CHANGE 5: Matching unique "service-" prefix inside mobile version */}
                             <button
-                              onClick={() => toggleCategory(category.name)}
+                              onClick={() => toggleCategory(`service-${category.name}`)}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-primary-foreground/10 rounded-lg"
                             >
                               <span>{category.name}</span>
-                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has(category.name) ? "rotate-180" : ""}`} />
+                              <ChevronDown size={14} className={`transition-transform ${expandedCategories.has(`service-${category.name}`) ? "rotate-180" : ""}`} />
                             </button>
                             <AnimatePresence>
-                              {expandedCategories.has(category.name) && (
+                              {expandedCategories.has(`service-${category.name}`) && (
                                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
                                   {category.subcategories.map((item) => (
                                     <Link

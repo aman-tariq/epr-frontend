@@ -232,36 +232,34 @@ function HeroSection() {
    2. COMING SOON BANNER
 ============================================================================ */
 
-function ComingSoonBanner() {
-  return (
-    <Reveal>
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-start gap-3 sm:items-center">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
-            <Sparkles className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              The full market deep-dive is on its way
-            </p>
-            <p className="mt-0.5 text-sm text-muted-foreground">
-              Our team is finalizing verified pricing data, category-wise demand
-              forecasts, and margin benchmarks. In the meantime, this overview
-              and our team can get you moving.
-            </p>
-          </div>
-        </div>
-        <a
-          href="#contact-form"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
-        >
-          Get Guidance Now
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </Reveal>
-  );
-}
+// function ComingSoonBanner() {
+//   return (
+//     <Reveal>
+//       <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+//         <div className="flex items-start gap-3 sm:items-center">
+//           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
+//             <Sparkles className="h-5 w-5" />
+//           </div>
+//           <div>
+           
+//             <p className="mt-0.5 text-sm text-muted-foreground">
+//               Our team is finalizing verified pricing data, category-wise demand
+//               forecasts, and margin benchmarks. In the meantime, this overview
+//               and our team can get you moving.
+//             </p>
+//           </div>
+//         </div>
+//         <a
+//           href="#contact-form"
+//           className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
+//         >
+//           Get Guidance Now
+//           <ArrowRight className="h-4 w-4" />
+//         </a>
+//       </div>
+//     </Reveal>
+//   );
+// }
 
 /* ============================================================================
    3. QUICK STATS BAR
@@ -472,13 +470,13 @@ function MarketAnalysisCharts() {
         </div>
       </div>
 
-      <p className="lg:col-span-2 text-xs text-muted-foreground">
+      {/* <p className="lg:col-span-2 text-xs text-muted-foreground">
         * All figures on this page — ticker prices, category demand, and the
         price index — are illustrative placeholders built to demonstrate the
         layout. They are not sourced from a live exchange, broker feed, or
         published report. Confirm current pricing and market data with your team
         before quoting any of it externally.
-      </p>
+      </p> */}
     </div>
   );
 }
@@ -864,11 +862,10 @@ function FinalCTA() {
           <TrendingUp className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full Market Deep-Dive Is Coming
+          We're Here to Help
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing verified pricing data, demand forecasts by metal
-          category, and margin benchmarks by role. Talk to our team now for
+         Talk to our team now for
           guidance tailored to your position in the market.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -929,8 +926,8 @@ function BlogSection({
 export default function EPRMetalsCreditsMarketAnalysis() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
-      <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+      <div className="container mx-auto px-1 pb-20 sm:px-6 lg:px-4">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT — min-w-0 stops wide children (charts, ticker)
               from stretching this column and throwing off the sticky
               sidebar next to it */}
@@ -970,11 +967,11 @@ export default function EPRMetalsCreditsMarketAnalysis() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+            {/* <ComingSoonBanner /> */}
 
             <QuickStatsBar />
 
-            <PriceTicker />
+            {/* <PriceTicker /> */}
 
             {/* mobile-only contact form, appears inline (not sticky) */}
             <div id="contact-form" className="lg:hidden">
@@ -1043,14 +1040,14 @@ export default function EPRMetalsCreditsMarketAnalysis() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and does not
               reflect verified market pricing, volumes, or forecasts — it isn't
               investment, legal, or financial advice. Figures shown are
               illustrative placeholders. Confirm current market data and
               compliance requirements with your team and a qualified
               professional before acting.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR — sticky contact form, nothing else in this column */}

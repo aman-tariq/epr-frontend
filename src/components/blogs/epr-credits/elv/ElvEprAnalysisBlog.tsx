@@ -109,11 +109,11 @@ function useCountUp(end: number, active: boolean, duration = 1400) {
    SHARED DATA
 ============================================================================ */
 
-const TARGET_DATA = [
-  { name: "FY26", target: 8, fill: "#5AC361" },
-  { name: "FY27*", target: 13, fill: "#3E9A47" },
-  { name: "FY28*", target: 18, fill: "#22702D" },
-];
+// const TARGET_DATA = [
+//   { name: "FY26", target: 8, fill: "#5AC361" },
+//   { name: "FY27*", target: 8, fill: "#3E9A47" },
+//   { name: "FY28*", target: 8, fill: "#22702D" },
+// ];
 
 /* ============================================================================
    1. HERO SECTION
@@ -208,36 +208,36 @@ function HeroSection() {
    2. COMING SOON BANNER
 ============================================================================ */
 
-function ComingSoonBanner() {
-  return (
-    <Reveal>
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-start gap-3 sm:items-center">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
-            <Sparkles className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              The full deep-dive is on its way
-            </p>
-            <p className="mt-0.5 text-sm text-muted-foreground">
-              Our team is finalizing complete pricing, sizing, and state-wise
-              data. In the meantime, this overview and our team can get you
-              moving.
-            </p>
-          </div>
-        </div>
-        <a
-          href="#contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
-        >
-          Get Guidance Now
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </Reveal>
-  );
-}
+// function ComingSoonBanner() {
+//   return (
+//     <Reveal>
+//       <div className="flex flex-col items-start gap-4 rounded-2xl border border-brandGreen/25 bg-brandGreen/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+//         <div className="flex items-start gap-3 sm:items-center">
+//           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brandGreen/15 text-brandGreen">
+//             <Sparkles className="h-5 w-5" />
+//           </div>
+//           <div>
+//             <p className="text-sm font-semibold text-foreground">
+//               The full deep-dive is on its way
+//             </p>
+//             <p className="mt-0.5 text-sm text-muted-foreground">
+//               Our team is finalizing complete pricing, sizing, and state-wise
+//               data. In the meantime, this overview and our team can get you
+//               moving.
+//             </p>
+//           </div>
+//         </div>
+//         <a
+//           href="#contact"
+//           className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brandGreen px-4 py-2.5 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03]"
+//         >
+//           Get Guidance Now
+//           <ArrowRight className="h-4 w-4" />
+//         </a>
+//       </div>
+//     </Reveal>
+//   );
+// }
 
 /* ============================================================================
    3. QUICK STATS BAR
@@ -372,80 +372,80 @@ function ChartTooltip({ active, payload, label }: any) {
   );
 }
 
-function TargetEscalationChart() {
-  const { ref, visible } = useReveal<HTMLDivElement>();
-  return (
-    <div
-      ref={ref}
-      className="rounded-2xl border border-border bg-card p-6 sm:p-8"
-    >
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="font-display text-lg font-semibold text-foreground">
-            EPR Target Escalation (Indicative)
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Steel-recovery targets are reported to step up over successive years
-            — a rising bar that widens the gap between demand and available
-            certificates.
-          </p>
-        </div>
-        <TrendingUp className="hidden h-8 w-8 shrink-0 text-brandGreen/40 sm:block" />
-      </div>
+// function TargetEscalationChart() {
+//   const { ref, visible } = useReveal<HTMLDivElement>();
+//   return (
+//     <div
+//       ref={ref}
+//       className="rounded-2xl border border-border bg-card p-6 sm:p-8"
+//     >
+//       <div className="mb-6 flex items-start justify-between gap-4">
+//         <div>
+//           <h3 className="font-display text-lg font-semibold text-foreground">
+//             EPR Target Escalation (Indicative)
+//           </h3>
+//           <p className="mt-1 text-sm text-muted-foreground">
+//             Steel-recovery targets are reported to step up over successive years
+//             — a rising bar that widens the gap between demand and available
+//             certificates.
+//           </p>
+//         </div>
+//         <TrendingUp className="hidden h-8 w-8 shrink-0 text-brandGreen/40 sm:block" />
+//       </div>
 
-      <div className="h-72 w-full sm:h-80">
-        {visible && (
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={TARGET_DATA}
-              margin={{ top: 8, right: 8, left: -16, bottom: 8 }}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                className="stroke-border"
-              />
-              <XAxis
-                dataKey="name"
-                tick={{ fontSize: 12, fill: "currentColor" }}
-                className="text-muted-foreground"
-              />
-              <YAxis
-                tick={{ fontSize: 11, fill: "currentColor" }}
-                className="text-muted-foreground"
-                label={{
-                  value: "% Steel Recovery",
-                  angle: -90,
-                  position: "insideLeft",
-                  fontSize: 11,
-                }}
-              />
-              <Tooltip
-                content={<ChartTooltip />}
-                cursor={{ fill: "rgba(90,195,97,0.08)" }}
-              />
-              <Bar
-                dataKey="target"
-                radius={[6, 6, 0, 0]}
-                animationDuration={1200}
-              >
-                {TARGET_DATA.map((entry) => (
-                  <Cell key={entry.name} fill={entry.fill} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        )}
-      </div>
-      <p className="mt-4 text-xs text-muted-foreground">
-        * FY26 reflects the notified target reported at rollout. FY27/FY28
-        figures are indicative of the reported escalation path — rules have
-        already been amended once since notification, so confirm current figures
-        on the CPCB EPR portal before planning around them.
-      </p>
-    </div>
-  );
-}
+//       <div className="h-72 w-full sm:h-80">
+//         {visible && (
+//           <ResponsiveContainer width="100%" height="100%">
+//             <BarChart
+//               data={TARGET_DATA}
+//               margin={{ top: 8, right: 8, left: -16, bottom: 8 }}
+//             >
+//               <CartesianGrid
+//                 strokeDasharray="3 3"
+//                 vertical={false}
+//                 className="stroke-border"
+//               />
+//               <XAxis
+//                 dataKey="name"
+//                 tick={{ fontSize: 12, fill: "currentColor" }}
+//                 className="text-muted-foreground"
+//               />
+//               <YAxis
+//                 tick={{ fontSize: 11, fill: "currentColor" }}
+//                 className="text-muted-foreground"
+//                 label={{
+//                   value: "% Steel Recovery",
+//                   angle: -90,
+//                   position: "insideLeft",
+//                   fontSize: 11,
+//                 }}
+//               />
+//               <Tooltip
+//                 content={<ChartTooltip />}
+//                 cursor={{ fill: "rgba(90,195,97,0.08)" }}
+//               />
+//               <Bar
+//                 dataKey="target"
+//                 radius={[6, 6, 0, 0]}
+//                 animationDuration={1200}
+//               >
+//                 {TARGET_DATA.map((entry) => (
+//                   <Cell key={entry.name} fill={entry.fill} />
+//                 ))}
+//               </Bar>
+//             </BarChart>
+//           </ResponsiveContainer>
+//         )}
+//       </div>
+//       <p className="mt-4 text-xs text-muted-foreground">
+//         * FY26 reflects the notified target reported at rollout. FY27/FY28
+//         figures are indicative of the reported escalation path — rules have
+//         already been amended once since notification, so confirm current figures
+//         on the CPCB EPR portal before planning around them.
+//       </p>
+//     </div>
+//   );
+// }
 
 /* ============================================================================
    6. CREDIT FLOW (signature roadmap element)
@@ -709,11 +709,10 @@ function FinalCTA() {
           <Banknote className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full Deep-Dive Is Coming
+          Get Guidance on Your EPR ELV Credit Strategy
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing detailed pricing benchmarks, state-wise supply data,
-          and a step-by-step playbook for each stakeholder group. Talk to our
+         Talk to our
           team now for guidance tailored to where you sit in the ELV credit
           chain.
         </p>
@@ -776,7 +775,7 @@ export default function EPRELVCreditsMarketAnalysis() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
       <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT */}
           <main className="min-w-0 space-y-16 sm:space-y-20">
             <Seo
@@ -814,7 +813,7 @@ export default function EPRELVCreditsMarketAnalysis() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+         
 
             <QuickStatsBar />
 
@@ -832,14 +831,14 @@ export default function EPRELVCreditsMarketAnalysis() {
               <EcosystemSection />
             </BlogSection>
 
-            <BlogSection
+            {/* <BlogSection
               id="targets"
               eyebrow="Why the Market Is Moving"
               title="Targets Are Climbing Faster Than Supply"
               intro="Steel-recovery obligations step up year over year, while formal ELV inflow to scrapping facilities continues to lag — a gap that shapes where the business opportunity lies."
             >
-              <TargetEscalationChart />
-            </BlogSection>
+              {/* <TargetEscalationChart /> */}
+            {/* </BlogSection> */} 
 
             <BlogSection
               id="credit-flow"
@@ -879,7 +878,7 @@ export default function EPRELVCreditsMarketAnalysis() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and reflects
               publicly reported figures on India's ELV EPR framework as it
               currently stands — it isn't legal, financial, or investment
@@ -887,7 +886,7 @@ export default function EPRELVCreditsMarketAnalysis() {
               already been amended since the rules took effect and may change
               again, so confirm current details on the CPCB EPR portal or with a
               qualified compliance professional before acting.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR */}

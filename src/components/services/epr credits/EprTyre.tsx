@@ -25,7 +25,7 @@ export default function EprCreditsTyreWasteBlog() {
 
   return (
     <div className="min-h-screen text-[#163225] bg-gradient-to-b from-[#edf8f1] via-white to-[#f4faf6] selection:bg-emerald-100 antialiased mt-10 pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 grid grid-cols-1 lg:grid-cols-4 gap-4">
         <Seo
           title="EPR Credits for Tyre Waste | Buy & Sell Tyre EPR Credits in India"
           description="Buy, sell, and manage Tyre EPR Credits in India. Meet CPCB compliance requirements, fulfill Extended Producer Responsibility obligations, and simplify tyre waste management with certified EPR credit solutions."

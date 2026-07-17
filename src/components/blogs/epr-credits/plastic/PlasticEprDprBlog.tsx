@@ -267,8 +267,8 @@ export default function EPRPlasticCreditsDPRBlog() {
   const [openFaq, setOpenFaq] = React.useState<number | null>(0);
 
   return (
-    <div className="w-full bg-background pt-28 md:pt-32 pb-24 font-sans overflow-x-hidden text-foreground">
-      <div className="md:container  overflow-x-hidden grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-10 xl:gap-16">
+    <div className="w-full bg-background pt-28 md:pt-32 pb-24 font-sans text-foreground">
+      <div className="md:container flex flex-col lg:flex-row lg:grid-cols-[minmax(0,1fr)_340px] gap-10 xl:gap-4  ">
         {/* ============================================================ */}
         {/* MAIN CONTENT COLUMN                                          */}
         {/* ============================================================ */}
@@ -337,10 +337,10 @@ export default function EPRPlasticCreditsDPRBlog() {
                   See the DPR roadmap
                   <ArrowRight className="h-4 w-4" />
                 </a>
-                <span className="text-sm text-muted-foreground">
+                {/* <span className="text-sm text-muted-foreground">
                   Our team is finalizing the full deep-dive — reach out for
                   immediate guidance in the meantime.
-                </span>
+                </span> */}
               </div>
             </motion.div>
 
@@ -462,7 +462,7 @@ export default function EPRPlasticCreditsDPRBlog() {
           </section>
 
           {/* ---------- 6. TIMELINE CHART ---------- */}
-          <Reveal className="mt-20">
+          {/* <Reveal className="mt-20">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Where the drafting time typically goes
             </h2>
@@ -515,7 +515,7 @@ export default function EPRPlasticCreditsDPRBlog() {
               Illustrative only — confirm current expectations with your PRO or
               technical consultant before planning around them.
             </p>
-          </Reveal>
+          </Reveal> */}
 
           {/* ---------- 7. DPR CHECKLIST ---------- */}
           <Reveal className="mt-20">
@@ -648,10 +648,10 @@ export default function EPRPlasticCreditsDPRBlog() {
                     Full deep-dive in progress
                   </div>
                   <h3 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
-                    Need your DPR reviewed before the full guide drops?
+                    Need your DPR reviewed ?
                   </h3>
                   <p className="mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
-                    Our team is finalizing the complete guide. Reach out now and
+                    Reach out now and
                     we'll walk through scoping, technical detail, and compliance
                     directly.
                   </p>
@@ -671,8 +671,10 @@ export default function EPRPlasticCreditsDPRBlog() {
         {/* ============================================================ */}
         {/* STICKY CONTACT FORM SIDEBAR                                   */}
         {/* ============================================================ */}
-        <aside id="contact" className="lg:sticky lg:top-32 lg:h-fit">
-          <StickyContactForm />
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
         </aside>
       </div>
     </div>

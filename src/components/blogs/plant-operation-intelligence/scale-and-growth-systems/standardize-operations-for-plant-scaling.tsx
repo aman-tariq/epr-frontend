@@ -126,7 +126,7 @@ const StandardizeOperationsBlog = () => {
 
   return (
     <div className="min-h-screen bg-[#F7FBF7] text-[#173024] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 mt-10 items-stretch">
         <div className="flex-1 min-w-0">
       {/* HERO */}
       <header className="relative bg-gradient-to-br from-[#0E1F18] via-[#123525] to-[#185C3A] text-white py-20 px-6 overflow-hidden">
@@ -209,7 +209,7 @@ const StandardizeOperationsBlog = () => {
         </div>
 
         {/* TWO COLUMN - CHART 2 + DATABASE */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="grid md:grid-cols-1 gap-8 mt-12">
           <div className="bg-white border border-[#DDE8E1] rounded-2xl p-8 shadow">
             <div className="uppercase text-xs tracking-widest text-[#5D7B68] font-bold mb-4">Documentation Load Across the Commissioning Lifecycle</div>
             <div className="h-80"><canvas ref={chart2Ref} /></div>
@@ -349,13 +349,13 @@ const StandardizeOperationsBlog = () => {
         </div>
       </main>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

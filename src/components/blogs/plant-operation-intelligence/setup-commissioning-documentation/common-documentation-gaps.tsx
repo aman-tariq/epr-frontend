@@ -6,10 +6,10 @@ import StickyContactForm from "@/components/StickyContactForm";
 
 const CommonDocumentationGaps: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#faf6ef] text-[#2a2433] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-        <div className="flex-1 min-w-0">
-      <div className="max-w-[1260px] mx-auto px-5 py-12">
+    <div className="min-h-screen bg-[#faf6ef] text-[#2a2433] font-sans">  
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
+        <div className="flex-1 min-w-0">              
+      <div className="max-w-8xl mx-auto px-2 py-12">
         <Seo
           title="No Document, No Startup. It's That Simple."
           description="Learn why complete startup documentation is essential for successful plant commissioning. Discover the key documents, compliance requirements, SOPs, and best practices that prevent delays and ensure safe, efficient plant operations."
@@ -292,7 +292,7 @@ const CommonDocumentationGaps: React.FC = () => {
         </section>
 
         {/* Database Tracker */}
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
+        <div className="grid md:grid-cols-1 gap-6 mt-12">
           <div className="bg-white border border-[#2a2433]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Database-style tracker for closing gaps
@@ -361,13 +361,13 @@ const CommonDocumentationGaps: React.FC = () => {
         </section>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

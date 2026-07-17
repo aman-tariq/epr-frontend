@@ -261,7 +261,7 @@ const CommissioningRecords: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FFFEF9] text-[#1C1A14] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex max-w-8xl flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <Seo
         title="Your Plant Has a Memory. Are You Listening to It?"
@@ -322,7 +322,7 @@ const CommissioningRecords: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-[900px] mx-auto px-6 py-16">
+      <div className="max-w-8xl mx-auto px-6 py-16">
         {/* Lead */}
         <p className="text-[18px] leading-relaxed border-l-4 border-[#0A6E72] pl-6 text-[#1C1A14] mb-12 font-serif">
           Every plant has a story — told not in press releases, but in the
@@ -668,13 +668,13 @@ const CommissioningRecords: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

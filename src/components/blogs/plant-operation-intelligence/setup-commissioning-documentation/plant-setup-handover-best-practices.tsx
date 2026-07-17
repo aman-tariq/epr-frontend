@@ -7,9 +7,9 @@ import StickyContactForm from "@/components/StickyContactForm";
 const PlantSetupHandoverBestPractices: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-[#10233f] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
-      <div className="max-w-[1240px] mx-auto px-5 py-12">
+      <div className="max-w-8xl mx-auto px-2 py-12">
         <Seo
           title="How Commissioning Checklists Improve Operational Readiness"
           description="Discover how commissioning checklists improve operational readiness by ensuring compliance, verifying equipment performance, reducing startup risks, and enabling smooth, efficient plant operations."
@@ -433,13 +433,13 @@ const PlantSetupHandoverBestPractices: React.FC = () => {
         </section>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

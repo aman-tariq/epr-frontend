@@ -546,10 +546,10 @@ function DocumentsChecklist() {
           </Reveal>
         ))}
       </div>
-      <p className="mt-5 text-xs text-muted-foreground">
+      {/* <p className="mt-5 text-xs text-muted-foreground">
         * Exact requirements vary by role, state authority, and facility type —
         treat this as a starting checklist, not a final list.
-      </p>
+      </p> */}
     </div>
   );
 }
@@ -737,11 +737,10 @@ function FinalCTA() {
           <Timer className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full Compliance Deep-Dive Is Coming
+          We're Here to Help
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing document templates, state-wise checklists, and
-          renewal calendars. Talk to our team now for guidance on exactly where
+          Talk to our team now for guidance on exactly where
           your registration stands.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -802,8 +801,8 @@ function BlogSection({
 export default function EPRMetalsApprovalsRegistrationRoadmap() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
-      <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+      <div className="container mx-auto px-1 pb-20 sm:px-6 lg:px-2">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT — min-w-0 stops wide children (charts) from
               stretching this column and throwing off the sticky sidebar
               next to it */}
@@ -843,7 +842,7 @@ export default function EPRMetalsApprovalsRegistrationRoadmap() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+            {/* <ComingSoonBanner /> */}
 
             <QuickStatsBar />
 
@@ -854,14 +853,14 @@ export default function EPRMetalsApprovalsRegistrationRoadmap() {
               <StickyContactForm />
             </div>
 
-            <BlogSection
+            {/* <BlogSection
               id="timeline"
               eyebrow="Plan Ahead"
               title="How Long Approvals Typically Take"
               intro="A stage-by-stage view of indicative timing, so you can work backward from your target trading date."
             >
               <ApprovalTimelineChart />
-            </BlogSection>
+            </BlogSection> */}
 
             <BlogSection
               id="basics"
@@ -915,14 +914,14 @@ export default function EPRMetalsApprovalsRegistrationRoadmap() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and reflects a
               typical approvals sequence, not a confirmed procedure for any
               specific state or authority — it isn't legal or compliance advice.
               Timelines and document requirements shown are illustrative.
               Confirm current requirements with your team and a qualified
               compliance professional before filing.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR — sticky contact form, nothing else in this column,

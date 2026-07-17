@@ -185,7 +185,7 @@ const DetailedProjectReport: React.FC = () => {
       {/* The parent element wrapper. `items-start` prevents the aside 
         from stretching to full height, which would otherwise break stickiness.
       */}
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-start relative w-full h-full min-h-screen">
+      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-4 items-start relative w-full h-full min-h-screen">
         {/* MAIN CONTENT COLUMN */}
         <main className="flex-1 w-full min-w-0">
           {/* HERO */}
@@ -729,7 +729,7 @@ const DetailedProjectReport: React.FC = () => {
           - Used `sticky top-28` to guarantee spacing below headers.
           - Added `items-start` on the layout flex wrapper so the component has a defined bounding height to anchor along while scrolling.
         */}
-        <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px] h-fit will-change-transform z-20 bg-white p-6 rounded-3xl shadow-xl">
+        <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px]">
           <StickyContactForm />
         </aside>
       </div>

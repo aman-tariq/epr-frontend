@@ -608,7 +608,7 @@ function CTABanner() {
             OPS-07 / NEXT STEP
           </span>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-semibold max-w-xl">
-            The full deep-dive report is still being finalized.
+            Ready to set up your line and start generating EPR battery credits?
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
             If you're specifying machinery or setting up a line right now, talk
@@ -729,7 +729,7 @@ export default function EPRBatteryMachineryOperations() {
             <CoreMachinery />
             <SetupConsiderations />
             <MachineryCostChart />
-            <ShiftThroughputChart />
+            {/* <ShiftThroughputChart /> */}
             <OpsLedger />
             <MaintenanceFlags />
             <CTABanner />

@@ -293,7 +293,7 @@ function QuickStatsBar() {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-2 divide-x divide-y divide-border rounded-2xl border border-border bg-card sm:grid-cols-4 sm:divide-y-0"
+      className="grid grid-cols-2 divide-x divide-y divide-border rounded-2xl border border-border sm:grid-cols-4 sm:divide-y-0"
     >
       <StatItem end={8} suffix="" label="Core DPR Sections" active={visible} />
       <StatItem
@@ -784,11 +784,10 @@ function FinalCTA() {
           <Banknote className="h-6 w-6" />
         </div>
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
-          The Full DPR Template Is Coming
+          Need a DPR for Your Metal EPR Project?
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-          We're finalizing a downloadable template with worked financial models
-          and lender-ready formatting. Talk to our team now for guidance
+           Talk to our team now for guidance
           tailored to your project.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -849,8 +848,8 @@ function BlogSection({
 export default function EPRMetalsDPREssentials() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
-      <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+      <div className="container mx-auto px-1 pb-20 sm:px-6 lg:px-2">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT — min-w-0 stops wide children (charts) from
               stretching this column and throwing off the sticky sidebar
               next to it */}
@@ -890,7 +889,7 @@ export default function EPRMetalsDPREssentials() {
             />
             <HeroSection />
 
-            <ComingSoonBanner />
+            {/* <ComingSoonBanner /> */}
 
             <QuickStatsBar />
 
@@ -901,14 +900,14 @@ export default function EPRMetalsDPREssentials() {
               <StickyContactForm />
             </div>
 
-            <BlogSection
+            {/* <BlogSection
               id="financials"
               eyebrow="The Numbers"
               title="What the Financial Section Needs to Show"
               intro="A capex breakdown and a revenue curve — the two charts every reviewer looks for first."
             >
               <DPRCharts />
-            </BlogSection>
+            </BlogSection> */}
 
             <BlogSection
               id="basics"
@@ -954,14 +953,14 @@ export default function EPRMetalsDPREssentials() {
               <FinalCTA />
             </Reveal>
 
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            {/* <p className="text-xs leading-relaxed text-muted-foreground">
               This overview is for general informational purposes and does not
               reflect a verified or lender-approved DPR format — it isn't
               financial, legal, or investment advice. Figures shown are
               illustrative placeholders. Confirm current requirements and build
               your actual financial model with your team and a qualified
               professional before submission.
-            </p>
+            </p> */}
           </main>
 
           {/* SIDEBAR — sticky contact form, nothing else in this column,

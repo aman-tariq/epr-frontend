@@ -241,7 +241,7 @@ const CommissioningDocumentationChecklist: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FFFDF9] text-[#2C2416] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <Seo
         title="Common Documentation Gaps That Delay Plant Commissioning"
@@ -278,10 +278,10 @@ const CommissioningDocumentationChecklist: React.FC = () => {
       />
       {/* Hero */}
 
-      <div className="bg-[#1A1206] text-white py-20 md:py-24 px-6 md:px-10 text-center relative overflow-hidden">
+      <div className="bg-[#1A1206] text-white py-20 md:py-24 px-1 md:px-2 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_40px,rgba(183,65,14,.08)_40px,rgba(183,65,14,.08)_41px)]" />
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-8xl mx-auto">
           <div className="inline-block bg-[#B7410E] text-white text-[11px] tracking-[3px] px-6 py-1.5 font-semibold rounded mb-6">
             Industrial Intelligence Series
           </div>
@@ -806,13 +806,13 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

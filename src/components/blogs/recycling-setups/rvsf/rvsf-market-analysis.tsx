@@ -6,7 +6,7 @@ import StickyContactForm from '@/components/StickyContactForm';
 const styles = `
 :root{--bg:#f7fbff;--card:#ffffff;--ink:#16324f;--muted:#5f7387;--line:#dce9f7;--blue:#1e66d0;--blue-2:#4ea1ff;--blue-3:#d9eeff;--blue-4:#0e3f7a;--soft:#eef7ff;--accent:#0b5cab;--good:#1f8a5b;--warn:#b57a00;--shadow:0 16px 40px rgba(17,54,93,.10)}
 
-.market-analysis-blog-root{margin:0;font-family:Arial, Helvetica, sans-serif;background:radial-gradient(circle at top left, rgba(78,161,255,.10), transparent 28%),radial-gradient(circle at top right, rgba(30,102,208,.08), transparent 22%),var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden}
+.market-analysis-blog-root{margin:0;font-family:Arial, Helvetica, sans-serif;background:radial-gradient(circle at top left, rgba(78,161,255,.10), transparent 28%),radial-gradient(circle at top right, rgba(30,102,208,.08), transparent 22%),var(--bg);color:var(--ink);line-height:1.75}
 
 .hero{position:relative;overflow:hidden;background: linear-gradient(135deg, #0d2f5f 0%, #134a8a 45%, #2d87e8 100%);color:#fff;padding:84px 24px 68px;text-align:center}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,255,255,.06) 0 12%, transparent 12% 100%),linear-gradient(245deg, rgba(255,255,255,.05) 0 8%, transparent 8% 100%);pointer-events:none}
@@ -248,12 +248,13 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
         </div>
       </header>
 
-      <main className="wrap">
-        <div className="main-content-area">
-          {/* All your content sections are here */}
-          <section className="lead">
-            <p>For a registered vehicle scrapping facility, the real business does not begin when a vehicle arrives at the plant. It begins much earlier — when the team understands who is buying, who is selling, what each customer group values, and which locations offer the highest-volume opportunities. That is where market analysis becomes a growth tool, not just a reporting exercise. In this blog, we show how a facility can use practical data, segment-based thinking, and clear dashboards to help clients make faster, smarter decisions.</p>
-          </section>
+      <main className="container mt-10">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="content-area flex-1 min-w-0">
+            {/* All your content sections are here */}
+            <section className="lead">
+              <p>For a registered vehicle scrapping facility, the real business does not begin when a vehicle arrives at the plant. It begins much earlier — when the team understands who is buying, who is selling, what each customer group values, and which locations offer the highest-volume opportunities. That is where market analysis becomes a growth tool, not just a reporting exercise. In this blog, we show how a facility can use practical data, segment-based thinking, and clear dashboards to help clients make faster, smarter decisions.</p>
+            </section>
 
           <section className="stats">
             <div className="stat"><span className="num">6</span><div className="lbl">Core market segments</div></div>
@@ -399,10 +400,14 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
             <p>With the right analysis, your registered vehicle scrapping facility can identify high-value segments, improve conversion, and create a more reliable flow of clients and business opportunities.</p>
           </section>
         </div>
+        
 
-        <aside className="sidebar-column">
-          <StickyContactForm />
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
         </aside>
+        </div>
       </main>
 
       <style>{styles}</style>

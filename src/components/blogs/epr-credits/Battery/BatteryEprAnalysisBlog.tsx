@@ -34,16 +34,16 @@ import Seo from "@/components/Seo";
 const marketStats = [
   {
     label: "Registered battery producers tracked",
-    value: "2,400+",
+    value: "4,860",
     icon: Factory,
   },
-  { label: "Avg. YoY growth in credit volume", value: "38%", icon: TrendingUp },
+  { label: "Registered Battery Recyclers", value: "553", icon: TrendingUp },
   {
-    label: "Recycling partners onboarded via PROs",
-    value: "180+",
+    label: "Tonnes Lead EPR Credits Generated",
+    value: "2.85M",
     icon: Recycle,
   },
-  { label: "Compliance cycles supported", value: "3", icon: ShieldCheck },
+  { label: "Tonnes Lead EPR Credits Transferred", value: "1.59M+", icon: ShieldCheck },
 ];
 
 const volumeByYear = [
@@ -223,8 +223,7 @@ function Hero() {
       <Reveal delay={0.15} className="max-w-2xl">
         <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
           A practical, step-by-step guide covering market analysis and business
-          opportunity for EPR battery credits — built for producers, recyclers,
-          and PROs. Our team is finalizing the full deep-dive; reach out for
+          opportunity for EPR battery credits — built for producers and recyclers. Our team is finalizing the full deep-dive; reach out for
           immediate guidance in the meantime.
         </p>
       </Reveal>
@@ -345,8 +344,7 @@ function MarketPulseStats() {
         ))}
       </div>
       <p className="mt-3 font-mono text-[11px] text-muted-foreground">
-        Indicative figures — sourced numbers will ship with the full deep-dive
-        report.
+        Source: CPCB Battery Waste EPR National Dashboard. Figures are dynamic and may change as new registrations and transactions are recorded.
       </p>
     </section>
   );
@@ -837,7 +835,7 @@ export default function EPRBatteryCreditsBlog() {
     <div className="bg-background min-h-screen">
       <ChargeRail />
       <div className="w-full md:mr-auto md:ml-auto md-pr-2rem md-pl-2rem pt-28 sm:pt-32 pb-24">
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-14">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10 xl:gap-4">
           <main className="min-w-0">
             <Seo
               title="EPR Battery Credits: Market Analysis & Business Opportunity"
@@ -881,7 +879,7 @@ export default function EPRBatteryCreditsBlog() {
             <CreditFlowDiagram />
             <CTABanner />
             <FAQAccordion />
-            <ClosingTrustStrip />
+            {/* <ClosingTrustStrip /> */}
           </main>
 
           <aside

@@ -7,31 +7,30 @@ const styles = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #1a1208;
-    --paper: #fdf8f0;
-    --cream: #f5ede0;
-    --rust: #b84a1e;
-    --rust-light: #e8c4b0;
-    --rust-dark: #7a2e0e;
-    --gold: #c9933a;
-    --gold-light: #f0dbb8;
-    --green: #2d6a4f;
-    --green-light: #b7e4c7;
-    --slate: #3d4a5c;
-    --slate-light: #c8d4e8;
-    --muted: #6b5e50;
-    --border: rgba(180,130,80,0.25);
-    --shadow: 0 2px 24px rgba(80,40,10,0.08);
+    --ink: #1e293b;
+    --paper: #f8fafc;
+    --cream: #f1f5f9;
+    --rust: #3b82f6;
+    --rust-light: #dbeafe;
+    --rust-dark: #1e40af;
+    --gold: #0f766e;
+    --gold-light: #ccfbf1;
+    --green: #10b981;
+    --green-light: #d1fae5;
+    --slate: #475569;
+    --slate-light: #e2e8f0;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 12px 30px rgba(148,163,184,0.08);
   }
 
   .approvals-blog-root {
-    font-family: 'Source Serif 4', Georgia, serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: var(--paper);
     color: var(--ink);
     font-size: 16px;
     line-height: 1.75;
     width: 100%;
-    /* Removed overflow-x hidden from here to fix standard sticky layout behavior */
   }
 
   @media (min-width: 768px) {
@@ -42,13 +41,15 @@ const styles = `
   }
 
   .hero {
-    background: var(--ink);
-    color: #fdf8f0;
+    background: linear-gradient(135deg, rgba(219,234,254,0.5), rgba(209,250,229,0.4)), linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    color: var(--ink);
     padding: 48px 16px;
     text-align: center;
     position: relative;
     overflow: hidden;
     width: 100%;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(148,163,184,0.05);
   }
 
   @media (min-width: 768px) {
@@ -64,48 +65,49 @@ const styles = `
       45deg,
       transparent,
       transparent 30px,
-      rgba(201,147,58,0.04) 30px,
-      rgba(201,147,58,0.04) 31px
+      rgba(15,118,110,0.02) 30px,
+      rgba(15,118,110,0.02) 31px
     );
   }
 
   .hero-tag {
     display: inline-block;
-    font-family: 'Source Serif 4', serif;
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--gold);
-    border: 1px solid rgba(201,147,58,0.4);
-    padding: 4px 10px;
-    border-radius: 2px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 9999px;
     margin-bottom: 20px;
+    shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
 
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 5.5vw, 54px);
+    font-size: clamp(28px, 5.5vw, 54px);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
     max-width: 820px;
     margin: 0 auto 16px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.03em;
+    color: #0f172a;
   }
 
   .punch {
-    font-size: clamp(14px, 2.2vw, 20px);
-    color: rgba(253,248,240,0.75);
-    max-width: 620px;
+    font-size: clamp(15px, 2.2vw, 19px);
+    color: var(--slate);
+    max-width: 660px;
     margin: 0 auto 24px;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
   .container {
     margin: 0 auto;
     padding: 0 16px;
-    max-width: 1200px;
+    max-width: 1800px;
     width: 100%;
     box-sizing: border-box;
   }
@@ -134,25 +136,25 @@ const styles = `
   .content-area {
     min-width: 0;
     width: 100%;
-    overflow-x: hidden; /* Encapsulate mobile responsive safety inside content area boundaries */
+    overflow-x: hidden;
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 4vw, 28px);
-    font-weight: 700;
-    color: var(--ink);
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    color: #0f172a;
     margin-bottom: 14px;
-    margin-top: 24px;
+    margin-top: 36px;
+    letter-spacing: -0.02em;
   }
 
-  p { margin-bottom: 16px; word-wrap: break-word; }
+  p { margin-bottom: 16px; color: #475569; word-wrap: break-word; }
 
   .chart-card {
-    background: #fff;
+    background: #ffffff;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: 24px;
+    padding: 20px;
     margin: 24px 0;
     box-shadow: var(--shadow);
     max-width: 100%;
@@ -162,17 +164,16 @@ const styles = `
 
   @media (min-width: 768px) {
     .chart-card {
-      padding: 28px 24px;
+      padding: 30px;
       margin: 36px 0;
     }
   }
 
   .chart-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 12px;
+    color: #0f172a;
+    margin-bottom: 18px;
   }
 
   .chart-outer-container {
@@ -195,7 +196,7 @@ const styles = `
   .data-table-wrap {
     overflow-x: auto;
     margin: 24px 0;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     -webkit-overflow-scrolling: touch;
@@ -207,6 +208,7 @@ const styles = `
     border-collapse: collapse;
     font-size: 13px;
     min-width: 500px;
+    background: #ffffff;
   }
 
   @media (min-width: 768px) {
@@ -216,62 +218,66 @@ const styles = `
   }
 
   .data-table thead tr {
-    background: var(--ink);
-    color: var(--gold);
+    background: var(--cream);
+    color: var(--ink);
   }
 
   .data-table thead th {
-    padding: 12px 14px;
+    padding: 16px;
     text-align: left;
-    font-family: 'Source Serif 4', serif;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
+    color: #0f172a;
+    border-bottom: 1px solid var(--border);
   }
 
-  .data-table tbody tr:nth-child(even) { background: var(--cream); }
+  .data-table tbody tr:nth-child(even) { background: #f8fafc; }
   .data-table tbody td {
-    padding: 12px 14px;
-    color: var(--ink);
+    padding: 14px 16px;
+    color: #475569;
     border-bottom: 1px solid var(--border);
   }
 
   .badge {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 20px;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
   }
-  .badge-green { background: var(--green-light); color: var(--green); }
-  .badge-blue { background: var(--slate-light); color: var(--slate); }
+  .badge-green { background: var(--green-light); color: #065f46; }
+  .badge-blue { background: var(--rust-light); color: var(--rust-dark); }
 
   .case-study {
-    background: var(--slate);
-    color: #e8eef6;
-    border-radius: 14px;
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid rgba(245,158,11,0.35);
+    background: linear-gradient(180deg, rgba(254,243,199,0.3), #ffffff 120px);
+    border-radius: 24px;
     padding: 24px;
     margin: 24px 0;
     position: relative;
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 12px 30px rgba(245,158,11,0.04);
   }
 
   @media (min-width: 768px) {
     .case-study {
-      padding: 48px 40px;
+      padding: 40px;
       margin: 36px 0;
     }
   }
 
   .case-study h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(19px, 3.5vw, 26px);
-    font-weight: 700;
-    color: #fff;
+    font-size: clamp(20px, 3.5vw, 26px);
+    font-weight: 800;
+    color: #0f172a;
     margin-bottom: 16px;
+    letter-spacing: -0.02em;
   }
 
   .case-metrics {
@@ -290,88 +296,82 @@ const styles = `
   }
 
   .case-metric {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 14px 12px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 14px;
     text-align: center;
     box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
   }
 
   .case-metric .cm-num {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 4vw, 30px);
-    font-weight: 700;
-    color: #fff;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--gold);
+  }
+  
+  .case-metric .cm-lbl {
+    color: var(--muted);
+    font-weight: 600;
   }
 
   .faq-list { margin: 24px 0; width: 100%; }
   .faq-item {
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 18px;
     margin-bottom: 12px;
     overflow: hidden;
     width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.01);
   }
 
   .faq-q {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 16px;
+    padding: 16px 20px;
     cursor: pointer;
-    background: var(--cream);
-    font-family: 'Playfair Display', serif;
+    background: #ffffff;
     font-weight: 700;
-    font-size: 14px;
-    color: var(--rust-dark);
+    font-size: 15px;
+    color: #0f172a;
     gap: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .faq-q:hover {
+    background: var(--cream);
   }
 
   @media (min-width: 768px) {
     .faq-q {
-      padding: 18px 22px;
+      padding: 20px 24px;
       font-size: 16px;
     }
   }
 
   .faq-a {
     display: none;
-    padding: 14px 16px;
-    background: #fff;
+    padding: 16px 20px 20px;
+    background: var(--paper);
     border-top: 1px solid var(--border);
     font-size: 14px;
+    color: #475569;
     word-wrap: break-word;
+    line-height: 1.65;
   }
 
   @media (min-width: 768px) {
     .faq-a {
-      padding: 16px 22px 20px;
+      padding: 18px 24px 24px;
       font-size: 15px;
     }
   }
 
   .faq-item.open .faq-a { display: block; }
-
-  .keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 12px;
-    width: 100%;
-  }
-
-  .kw {
-    font-size: 11px;
-    background: var(--cream);
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: var(--muted);
-  }
-
-  .kw.primary {
-    background: var(--gold-light);
-    color: var(--rust-dark);
-  }
+  .faq-item.open .faq-q { background: var(--cream); }
 
   .sidebar-column {
     width: 100%;
@@ -384,7 +384,6 @@ const styles = `
   }
 
   .side-section h2 {
-    font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -443,7 +442,7 @@ const RVSFApprovalsBlog: React.FC = () => {
             labels: ['Ferrous scrap', 'Non-ferrous metals', 'Reusable parts', 'Plastics & rubber', 'Other recoverables'],
             datasets: [{
               data: [44, 21, 19, 10, 6],
-              backgroundColor: ['#0f766e', '#14b8a6', '#f59e0b', '#94a3b8', '#cbd5e1'],
+              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#64748b', '#cbd5e1'],
               borderWidth: 0,
             }],
           },
@@ -451,7 +450,7 @@ const RVSFApprovalsBlog: React.FC = () => {
             ...base,
             cutout: '62%',
             plugins: {
-              legend: { display: true, position: 'bottom', labels: { usePointStyle: true, boxWidth: 10, font: { size: 10 } } },
+              legend: { display: true, position: 'bottom', labels: { usePointStyle: true, boxWidth: 10, font: { size: 10, weight: 600 } } },
             },
           } as any,
         }),
@@ -467,8 +466,8 @@ const RVSFApprovalsBlog: React.FC = () => {
             datasets: [{
               label: 'Value creation index',
               data: [18, 34, 63, 72, 84, 92],
-              borderColor: '#0f766e',
-              backgroundColor: 'rgba(15,118,110,0.12)',
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59,130,246,0.08)',
               fill: true,
               tension: 0.35,
             }],
@@ -476,7 +475,7 @@ const RVSFApprovalsBlog: React.FC = () => {
           options: {
             ...base,
             scales: {
-              x: { grid: { display: false }, ticks: { font: { size: 9 } } },
+              x: { grid: { display: false }, ticks: { font: { size: 9, weight: 600 } } },
               y: { beginAtZero: true, max: 100, ticks: { font: { size: 10 } } },
             },
           } as any,
@@ -492,14 +491,14 @@ const RVSFApprovalsBlog: React.FC = () => {
             labels: ['Steel mills', 'Parts dealers', 'Plastic recyclers', 'Copper buyers', 'Bulk traders'],
             datasets: [{
               data: [82, 58, 36, 44, 68],
-              backgroundColor: ['#0f766e', '#14b8a6', '#f59e0b', '#94a3b8', '#0b5250'],
-              borderRadius: 8,
+              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#64748b', '#1d4ed8'],
+              borderRadius: 6,
             }],
           },
           options: {
             ...base,
             scales: {
-              x: { grid: { display: false }, ticks: { font: { size: 9 } } },
+              x: { grid: { display: false }, ticks: { font: { size: 9, weight: 600 } } },
               y: { beginAtZero: true, max: 100, ticks: { font: { size: 10 } } },
             },
           } as any,
@@ -518,23 +517,23 @@ const RVSFApprovalsBlog: React.FC = () => {
                 label: 'Manual (mins)',
                 data: [22, 18, 26, 19, 30],
                 backgroundColor: '#cbd5e1',
-                borderRadius: 8,
+                borderRadius: 6,
               },
               {
                 label: 'Digital (mins)',
                 data: [8, 5, 7, 6, 9],
-                backgroundColor: '#0f766e',
-                borderRadius: 8,
+                backgroundColor: '#3b82f6',
+                borderRadius: 6,
               },
             ],
           },
           options: {
             ...base,
             indexAxis: 'y',
-            plugins: { legend: { display: true, position: 'top', labels: { font: { size: 10 } } } },
+            plugins: { legend: { display: true, position: 'top', labels: { font: { size: 10, weight: 600 } } } },
             scales: {
               x: { beginAtZero: true, ticks: { font: { size: 10 } } },
-              y: { grid: { display: false }, ticks: { font: { size: 9 } } },
+              y: { grid: { display: false }, ticks: { font: { size: 9, weight: 600 } } },
             },
           } as any,
         }),
@@ -546,7 +545,7 @@ const RVSFApprovalsBlog: React.FC = () => {
 
   return (
     <div className="approvals-blog-root py-4 md:py-8">
-
+      
       <Seo
         title="RVSF Approvals Guide 2026 - How to Get Registered Vehicle Scrapping Facility Approval"
         description="Complete guide on Registered Vehicle Scrapping Facility (RVSF) approvals, requirements, documentation, buying & selling process, and how to set up a profitable scrapping plant in India."
@@ -562,7 +561,7 @@ const RVSFApprovalsBlog: React.FC = () => {
       </header>
 
       <main className="container">
-        <div className="blog-layout-grid">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           
           {/* Main Content Body */}
           <article className="content-area">
@@ -650,46 +649,19 @@ const RVSFApprovalsBlog: React.FC = () => {
               </div>
             </section>
 
-            {/* Mobile Form Viewport: Accessible only on screens smaller than large desktop breakpoint */}
-            <div className="block lg:hidden mt-8 p-4 bg-white border border-[var(--border)] rounded-xl shadow-sm">
-              <h3 className="font-serif font-bold text-lg mb-4 text-[var(--ink)]">Connect With Our Team</h3>
+            {/* Mobile Form Viewport */}
+            <div className="block lg:hidden mt-8 p-6 bg-white border border-[var(--border)] rounded-2xl shadow-sm">
+              <h3 className="font-bold text-lg mb-4 text-[var(--ink)]">Connect With Our Team</h3>
               <StickyContactForm />
             </div>
           </article>
 
           {/* Sidebar Column */}
-          <aside className="sidebar-column flex flex-col gap-6 md:gap-8" style={{ height: '100%' }}>
-            
-            <div className="side-section">
-              <h2>SEO Keywords</h2>
-              <div className="keywords">
-                <span className="kw primary">setup documentation</span>
-                <span className="kw primary">commissioning plan</span>
-                <span className="kw">mechanical completion</span>
-                <span className="kw">operational readiness</span>
-              </div>
-            </div>
-            
-            <div className="side-section">
-              <h2>Quick buyer lens</h2>
-              <p className="text-sm text-gray-600">People buy better when the facility feels organized. A good display yard, clean weighing practice, visible grading, and fast settlement help build trust.</p>
-            </div>
-
-            {/* Desktop Sticky Wrapper */}
-            <div 
-              className="hidden lg:block w-[280px] flex-shrink-0" 
-              style={{ 
-                position: '-webkit-sticky', 
-                // position: 'sticky', 
-                top: '130px', 
-                zIndex: 10 
-              }}
-            >
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-28 px-2">
               <StickyContactForm />
             </div>
-
           </aside>
-
         </div>
       </main>
 

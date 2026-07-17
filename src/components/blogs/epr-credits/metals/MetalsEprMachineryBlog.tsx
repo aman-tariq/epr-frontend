@@ -403,10 +403,11 @@ const SetupChecklist: React.FC = () => (
       2. Facility Setup Prerequisites & Site Selection
     </h2>
     <p className="text-muted-foreground leading-relaxed">
-      Siting a high-volume metal processing asset requires careful configuration
-      of logistical corridors, heavy grid connectivity, and regulatory
-      clearances. Below is the minimum operational deployment matrix:
-    </p>
+  A compliant metal recycling facility requires more than just processing
+  equipment. Proper site selection, industrial infrastructure, environmental
+  safeguards, and digital traceability are essential for meeting EPR
+  obligations and operating efficiently at commercial scale.
+</p>
 
     <div className="border border-border rounded-lg overflow-hidden bg-card">
       <table className="w-full text-left border-collapse">
@@ -418,55 +419,89 @@ const SetupChecklist: React.FC = () => (
           </tr>
         </thead>
         <tbody className="text-sm divide-y divide-border text-foreground">
-          <tr>
-            <td className="p-4 font-medium">Power Infrastructure</td>
-            <td className="p-4 text-muted-foreground">
-              Dedicated 3-Phase $440\text connection; minimum $250\text 400\text
-              capacity allocation.
-            </td>
-            <td className="p-4">
-              <span className="text-xs px-2.5 py-1 rounded bg-secondary/30 text-foreground font-medium">
-                Critical Path
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td className="p-4 font-medium">Zoning & Foundations</td>
-            <td className="p-4 text-muted-foreground">
-              Heavy industrial zone rating; $300\text reinforced anti-vibration
-              concrete beds.
-            </td>
-            <td className="p-4">
-              <span className="text-xs px-2.5 py-1 rounded bg-secondary/30 text-foreground font-medium">
-                Structural Integrity
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td className="p-4 font-medium">Environmental Controls</td>
-            <td className="p-4 text-muted-foreground">
-              Acoustic enclosures minimizing noise below $75\text localized dry
-              baghouse dust collectors.
-            </td>
-            <td className="p-4">
-              <span className="text-xs px-2.5 py-1 rounded bg-brandGreen/10 text-brandGreen font-medium">
-                SPCB Clearances
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td className="p-4 font-medium">Weighbridge Integration</td>
-            <td className="p-4 text-muted-foreground">
-              Minimum 60-Metric Ton dual-platform pitless layout; linked digital
-              API logging interfaces.
-            </td>
-            <td className="p-4">
-              <span className="text-xs px-2.5 py-1 rounded bg-brandGreen/10 text-brandGreen font-medium">
-                EPR Audit Base
-              </span>
-            </td>
-          </tr>
-        </tbody>
+  <tr>
+    <td className="p-4 font-medium">Industrial Land</td>
+    <td className="p-4 text-muted-foreground">
+      1–3 acres in an industrial zone with sufficient space for material
+      storage, machinery installation, vehicle movement, and future capacity
+      expansion.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-brandGreen/10 text-brandGreen font-medium">
+        Local Authority Approval
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td className="p-4 font-medium">Power & Utilities</td>
+    <td className="p-4 text-muted-foreground">
+      Three-phase industrial electricity, adequate transformer capacity,
+      compressed air supply, water connection, and DG backup for uninterrupted
+      processing.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-secondary/30 text-foreground font-medium">
+        Operational Requirement
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td className="p-4 font-medium">Material Handling</td>
+    <td className="p-4 text-muted-foreground">
+      EOT cranes, forklifts, hydraulic loaders, weighbridge (40–60 MT), and
+      dedicated unloading bays for efficient scrap movement.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-brandGreen/10 text-brandGreen font-medium">
+        Traceability & Inventory
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td className="p-4 font-medium">Environmental Systems</td>
+    <td className="p-4 text-muted-foreground">
+      Dust extraction units, stormwater drainage, hazardous waste storage,
+      spill containment, and noise-control measures as required by the State
+      Pollution Control Board.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-brandGreen/10 text-brandGreen font-medium">
+        SPCB Compliance
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td className="p-4 font-medium">Digital Recordkeeping</td>
+    <td className="p-4 text-muted-foreground">
+      ERP or inventory software integrated with weighbridge records, inward &
+      outward material logs, invoices, and EPR documentation for audit-ready
+      reporting.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-secondary/30 text-foreground font-medium">
+        EPR Documentation
+      </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td className="p-4 font-medium">Safety Infrastructure</td>
+    <td className="p-4 text-muted-foreground">
+      Fire protection systems, PPE stations, emergency exits, first-aid
+      facilities, and operator safety training in accordance with factory
+      regulations.
+    </td>
+    <td className="p-4">
+      <span className="text-xs px-2.5 py-1 rounded bg-secondary/30 text-foreground font-medium">
+        Factory Safety
+      </span>
+    </td>
+  </tr>
+</tbody>
       </table>
     </div>
   </section>
@@ -625,7 +660,7 @@ const ClosingNotice: React.FC = () => {
         Accelerate Your EPR Implementation Framework
       </h3>
       <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
-        Our team is finalizing the full deep-dive; reach out for immediate
+        Reach out for immediate
         guidance in the meantime. We help your operation deploy optimized
         processing lines, integrate digital scale architectures, and execute
         seamless credit compliance registration.
@@ -661,9 +696,9 @@ const ClosingNotice: React.FC = () => {
 export default function EPRMetalsCreditsGuide() {
   return (
     <main className="min-h-screen bg-background text-foreground antialiased selection:bg-brandGreen/20 pt-28 pb-16 transition-colors duration-300">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container max-w-8xl mx-auto px-1 sm:px-6 lg:px-4">
         {/* Responsive Grid System: Main content stream on the left, sticky contact form on the right */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div className="flex flex-col lg:flex-row items-stretch gap-4">
           {/* Main Article Stream (Spans 2 columns on large screens) */}
           <div className="lg:col-span-2 space-y-12 pb-12 border-b lg:border-b-0 border-border">
             <Seo
@@ -732,16 +767,9 @@ export default function EPRMetalsCreditsGuide() {
           </div>
 
           {/* Sticky Interactive Contact Form Column */}
-          <div className="lg:col-span-1 lg:sticky lg:top-32 space-y-6">
-            <div className="bg-card border border-border rounded-xl p-1 shadow-sm hover:shadow-md transition-shadow">
-              {/* <div className="p-4 bg-muted/50 rounded-t-lg border-b border-border">
-                <div className="text-xs font-bold text-brandGreen uppercase tracking-wider font-display">Direct Consultation Line</div>
-                <h3 className="font-display font-bold text-lg text-foreground">Speak with an EPR Specialist</h3>
-                <p className="text-xs text-muted-foreground mt-1">Get custom infrastructure blueprints and credit yield estimates for your recycling facility.</p>
-              </div> */}
-              <div className="p-4 bg-card rounded-b-lg">
-                <StickyContactForm />
-              </div>
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
             </div>
 
             {/* Supplementary Context Card */}
@@ -754,7 +782,7 @@ export default function EPRMetalsCreditsGuide() {
                 All data, processing parameters, and equipment profiles mirror current 2026 industrial waste regulations and CPCB/SPCB monitoring requirements.
               </p>
             </div> */}
-          </div>
+          </aside>
         </div>
       </div>
     </main>

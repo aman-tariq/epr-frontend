@@ -21,7 +21,7 @@ const styles = `
 .h-stat .lbl{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:5px}
 
 /* Two Column Layout layout */
-.container{max-width:1250px;margin:0 auto;padding:0 24px;width:100%}
+.container{max-width:1800px;margin:0 auto;padding:0 24px;width:100%}
 .main-layout{display:flex;flex-direction:column;gap:40px;margin-top:20px;width:100%}
 main{width:100%;min-width:0}
 
@@ -452,10 +452,7 @@ const RVSMachineryBlog: React.FC = () => {
             <div className="side-card hidden lg:block">
               <StickyContactForm />
             </div>
-            <div className="side-card">
-              <h3 style={{ margin: '0 0 10px', fontFamily: 'Bebas Neue', fontSize: '20px', letterSpacing: '0.5px', color: 'var(--ink)' }}>Report overview</h3>
-              <p style={{ fontSize: '13.5px', margin: 0, color: 'var(--muted)', lineHeight: '1.6' }}>A strong report maps risks honestly, designs clean facility footprints, tracks cash positions accurately, and makes project paths completely verifiable.</p>
-            </div>
+          
           </aside>
         </div>
 
@@ -463,14 +460,10 @@ const RVSMachineryBlog: React.FC = () => {
           <div className="cta-block">
             <h2>Your Machines Run 24 Hours.<br/>So Does Our Support Team.</h2>
             <p>Get a no-obligation plant machinery audit and discover exactly where your biggest risks are hiding right now.</p>
-            <a href="#" className="cta-btn">Request Your Free Plant Audit →</a>
+            <a href="/contact" className="cta-btn">Request Your Free Plant Audit →</a>
           </div>
         </section>
       </div>
-
-      <footer className="footer">
-        <p>© 2025 · Machinery Solutions for Registered Vehicle Scrapping Facilities · All data references are drawn from RVSF industry surveys and tracked client outcomes, 2022–2024.</p>
-      </footer>
 
       <style>{styles}</style>
     </div>

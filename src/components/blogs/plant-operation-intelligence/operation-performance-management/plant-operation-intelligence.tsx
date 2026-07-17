@@ -7,10 +7,10 @@ import StickyContactForm from "@/components/StickyContactForm";
 const PlantOperationIntelligence: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f5f8fc] text-[#10233f] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch mt-[80px]">
         <div className="flex-1 min-w-0">
-      <div className="max-w-[1260px] mx-auto px-6 py-8">
-        <div className="grid  gap-8">
+      <div className="max-w-8xl mx-auto px-6 py-8">
+        <div className="grid  gap-2">
           <Seo
             title="How Plant Operation Intelligence Improves Daily Operational Control"
             description="Discover how Plant Operation Intelligence improves daily operational control through real-time monitoring, KPI tracking, predictive analytics, process optimization, and data-driven decision-making for industrial plants."
@@ -422,13 +422,13 @@ const PlantOperationIntelligence: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

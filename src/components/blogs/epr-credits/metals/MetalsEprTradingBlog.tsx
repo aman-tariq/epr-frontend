@@ -663,13 +663,14 @@ const Conclusion = () => (
         you.
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-        <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-opacity w-full sm:w-auto shadow-md">
-          Open an Account
-        </button>
-        <div className="flex items-center gap-2 text-brandGreen font-bold cursor-pointer hover:underline">
+        <a href="/contact" className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-opacity w-full sm:w-auto shadow-md">
+          Contact Us
+        </a>
+     
+        {/* <div className="flex items-center gap-2 text-brandGreen font-bold cursor-pointer hover:underline">
           <span>Use the contact form to reach out</span>
           <ArrowRight className="animate-pulse" size={20} />
-        </div>
+        </div> */}
       </div>
     </div>
   </section>
@@ -680,9 +681,9 @@ export default function EprMetalsBlog() {
   return (
     // No overflow settings globally on <main> to prevent breakages of position:sticky
     <main className="min-h-screen bg-background text-foreground pt-32 pb-20 selection:bg-brandGreen selection:text-white">
-      <div className="container mx-auto px-4 md:px-8 xl:px-4 max-w-[1400px]">
+      <div className="md:container mx-auto px-4 md:px-2 xl:px-4 max-w-8xl">
         {/* Important: Removed items-start from layout grid wrapper so both columns default to equal structural height */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-4 items-stretch">
           {/* Left Column: Main Blog Content */}
           <div className="w-full lg:w-[65%] xl:w-[70%]">
             <Seo
@@ -719,33 +720,27 @@ export default function EprMetalsBlog() {
               type="article"
             />
             <HeroSection />
-            <DeepDiveNotice />
+            {/* <DeepDiveNotice /> */}
             <Introduction />
             <Stakeholders />
             <PricingModels />
-            <MarketTrends />
+            {/* <MarketTrends /> */}
             <TradingSteps />
             <PlatformFeatures />
             <CaseStudy />
             <MarketDistribution />
             <Compliance />
             <FAQ />
-            <FutureOutlook />
+            {/* <FutureOutlook /> */}
             <Conclusion />
           </div>
 
           {/* Right Column: Sticky Sidebar with Contact Form */}
-          <div className="w-full lg:w-[35%] xl:w-[30%]">
-            {/* 
-              This inner container sticks and tracks correctly across the column runtime layout length.
-              top-32 prevents any collision with your fixed navigation bar layouts.
-            */}
-            <div className="sticky top-32 z-20 w-full pb-10">
-              <div className="bg-card border border-border rounded-3xl shadow-2xl overflow-hidden">
-                <StickyContactForm />
-              </div>
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-28 px-2">
+              <StickyContactForm />
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </main>

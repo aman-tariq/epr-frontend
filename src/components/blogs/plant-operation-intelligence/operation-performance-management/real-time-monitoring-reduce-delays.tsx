@@ -7,9 +7,9 @@ import StickyContactForm from "@/components/StickyContactForm";
 const RealTimeMonitoringDelays: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f4fbf7] text-[#143123] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
-      <div className="max-w-[1180px] mx-auto px-5 py-12">
+      <div className="max-w-8xl mx-auto px-2 py-12">
         <Seo
           title="How Real-Time Monitoring Helps Reduce Operational Delays"
           description="Learn how real-time monitoring helps reduce operational delays through instant alerts, live KPI tracking, predictive maintenance, process optimization, and data-driven decision-making for industrial plants."
@@ -48,7 +48,7 @@ const RealTimeMonitoringDelays: React.FC = () => {
           <div className="absolute -right-24 -top-24 w-[420px] h-[420px] bg-[#21a366] rounded-full opacity-10 blur-3xl" />
           <div className="absolute -left-20 bottom-0 w-80 h-80 bg-[#2f80ed] rounded-full opacity-10 blur-3xl" />
 
-          <div className="hero-grid grid md:grid-cols-[1.25fr_.95fr] gap-10 items-center">
+          <div className="hero-grid grid  gap-10 items-center">
             <div>
               <div className="pill flex items-center gap-3 bg-white px-5 py-2 rounded-full text-sm font-medium border">
                 Operations Insight{" "}
@@ -121,7 +121,7 @@ const RealTimeMonitoringDelays: React.FC = () => {
         </section>
 
         {/* Why Delays Happen */}
-        <section className="mt-16 grid md:grid-cols-2 gap-8">
+        <section className="mt-16 grid md:grid-cols-1 gap-8">
           <div className="card bg-white border border-[#143123]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Why delays happen in the first place
@@ -418,13 +418,13 @@ const RealTimeMonitoringDelays: React.FC = () => {
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

@@ -144,15 +144,7 @@ function Hero() {
             producers, recyclers, and PROs navigating India's Battery Waste
             Management Rules, 2022.
           </p>
-          <div className="mt-6 rounded-xl border border-border bg-muted/40 p-4">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">
-                Our team is finalizing the full deep-dive.
-              </span>{" "}
-              Reach out for immediate guidance in the meantime — the form on
-              this page reaches a live specialist, not a queue.
-            </p>
-          </div>
+         
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#pipeline"
@@ -904,10 +896,10 @@ function FinalCTA() {
           }}
         />
         <h2 className="relative font-display text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
-          Full machinery &amp; operations deep-dive coming soon
+          Need guidance now?
         </h2>
         <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/85">
-          We're finalizing detailed specs, plant layouts, and cost breakdowns.
+          Detailed specs, plant layouts, and cost breakdowns.
           Producers, recyclers, and PROs who need guidance now don't have to
           wait for the full guide — talk to our team today.
         </p>

@@ -5,8 +5,8 @@ import Seo from "@/components/Seo";
 const OperationPerformanceManagement = () => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pt-8 md:pt-20 pb-20">
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 mt-12">
-        <div className="grid gap-8 lg:grid-cols-[1.65fr_280px]">
+      <main className="max-w-8xl mx-auto px-1 sm:px-2 md:px-2 mt-12">
+        <div className="grid gap-4 lg:grid-cols-[1.65fr_280px]">
           <div className="space-y-12">
             <Seo
               title="Setup & Commissioning Documentation Services | Plant Documentation Experts"

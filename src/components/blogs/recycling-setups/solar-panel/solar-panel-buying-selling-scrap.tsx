@@ -53,7 +53,7 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
         </section>
 
         {/* 2-Column Responsive Layout Wrapper */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-4 items-start">
           
           {/* Left Column: Main Content Area */}
           <div className="space-y-8 min-w-0">

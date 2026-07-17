@@ -23,7 +23,7 @@ const SolarPanelMachinery: React.FC = () => {
         url="https://eprnexuss.com/blog/solar-panel-machinery"
         type="article"
       />
-      <div className="wrap max-w-7xl mx-auto px-4 md:px-6 py-8">
+      <div className="wrap max-w-8xl mt-[100px] mx-auto px-2 md:px-2 py-8">
         
         {/* Main structural outer grid context */}
         <div className="flex flex-col lg:flex-row gap-8 items-start relative w-full h-full min-h-screen">
@@ -297,7 +297,7 @@ const SolarPanelMachinery: React.FC = () => {
           </main>
 
           {/* DESKTOP STICKY SIDEBAR CONTAINER */}
-          <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px] h-fit will-change-transform z-20 bg-white p-6 rounded-[26px] shadow-xl border border-gray-200">
+          <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px]">
             <StickyContactForm />
           </aside>
 

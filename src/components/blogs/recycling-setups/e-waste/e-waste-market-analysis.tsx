@@ -8,11 +8,11 @@ export default function EWasteMarketAnalysisBlog() {
         overflowX: "clip",
         fontFamily: "'Inter', sans-serif",
         background: `
-          radial-gradient(circle at top left, rgba(96,165,250,.12), transparent 28%),
-          radial-gradient(circle at top right, rgba(52,211,153,.12), transparent 28%),
-          linear-gradient(180deg, #07131f 0%, #0f1f32 100%)
+          radial-gradient(circle at top left, rgba(96,165,250,.08), transparent 35%),
+          radial-gradient(circle at top right, rgba(52,211,153,.08), transparent 35%),
+          linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)
         `,
-        color: "#e8f0fb",
+        color: "#334155",
         lineHeight: "1.75",
       }}
     >
@@ -49,16 +49,16 @@ export default function EWasteMarketAnalysisBlog() {
         url="https://eprnexuss.com/blog/e-waste-dpr"
         type="article"
       />
-      <div className="w-full max-w-[1180px] mx-auto px-1 pt-[32px] pb-[60px]">
+      <div className="w-full max-w-8xl mx-auto px-4 pt-[32px] pb-[60px]">
         {/* Hero */}
         <section
-          className="relative overflow-hidden rounded-[32px] px-5 sm:px-[42px] py-12 sm:py-[84px] mb-[26px] border border-white/[0.08]"
+          className="relative overflow-hidden rounded-[32px] px-5 sm:px-[42px] py-12 sm:py-[84px] mb-[26px] border border-slate-200/80"
           style={{
             background: `
-              linear-gradient(135deg, rgba(96,165,250,.16), rgba(52,211,153,.10)),
-              linear-gradient(135deg, #0b1728 0%, #123056 50%, #0c1725 100%)
+              linear-gradient(135deg, rgba(219,234,254,0.5), rgba(209,250,229,0.4)),
+              linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%)
             `,
-            boxShadow: "0 18px 50px rgba(0,0,0,.28)",
+            boxShadow: "0 20px 40px rgba(148,163,184,0.12)",
           }}
         >
           <span
@@ -68,7 +68,7 @@ export default function EWasteMarketAnalysisBlog() {
               height: 280,
               right: -90,
               top: -90,
-              background: "rgba(255,255,255,.06)",
+              background: "rgba(96,165,250,0.06)",
             }}
           />
           <span
@@ -78,21 +78,21 @@ export default function EWasteMarketAnalysisBlog() {
               height: 180,
               left: -60,
               bottom: -60,
-              background: "rgba(255,255,255,.06)",
+              background: "rgba(52,211,153,0.06)",
             }}
           />
           <div className="relative z-10 w-full max-w-[960px] mx-auto text-center break-words">
             <div
-              className="inline-block px-3 py-2 rounded-full text-[13px] font-bold tracking-[0.3px] mb-[18px] text-[#dbeafe] max-w-full"
+              className="inline-block px-4 py-2 rounded-full text-[13px] font-bold tracking-[0.3px] mb-[18px] text-slate-700 max-w-full shadow-sm"
               style={{
-                background: "rgba(255,255,255,.08)",
-                border: "1px solid rgba(255,255,255,.12)",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
               }}
             >
               E-Waste Recycling Plant | Market Strategy &amp; Segment Planning
             </div>
             <h1
-              className="font-extrabold mb-[18px] tracking-[-0.03em]"
+              className="font-extrabold mb-[18px] tracking-[-0.03em] text-slate-900"
               style={{ fontSize: "clamp(34px, 4.8vw, 64px)", lineHeight: 1.04 }}
             >
               Market Analysis and Target Market Segments in E-Waste Recycling
@@ -102,7 +102,7 @@ export default function EWasteMarketAnalysisBlog() {
               className="mx-auto"
               style={{
                 fontSize: "clamp(16px, 1.55vw, 20px)",
-                color: "#d9e6f7",
+                color: "#475569",
                 maxWidth: 900,
               }}
             >
@@ -115,7 +115,7 @@ export default function EWasteMarketAnalysisBlog() {
               will supply the waste, who will buy the output, and which market
               segments give the best opportunity for growth.
             </p>
-            <div className="mt-[22px] text-[16px] sm:text-[18px] font-bold text-white">
+            <div className="mt-[22px] text-[16px] sm:text-[18px] font-bold text-slate-800">
               A recycling business becomes stronger when it knows where the
               material comes from and where the value goes.
             </div>
@@ -130,16 +130,13 @@ export default function EWasteMarketAnalysisBlog() {
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
               {/* Why market analysis matters */}
               <section
-                className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+                className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
                 style={{
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                  boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
                 }}
               >
                 <h2
-                  className="font-extrabold mb-[14px] text-[#f7fbff]"
+                  className="font-extrabold mb-[14px] text-slate-900"
                   style={{
                     fontSize: "clamp(26px, 2.8vw, 40px)",
                     lineHeight: 1.12,
@@ -147,62 +144,49 @@ export default function EWasteMarketAnalysisBlog() {
                 >
                   Why market analysis matters
                 </h2>
-                <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                <p className="text-slate-600 text-[16px] mb-[14px]">
                   Market analysis gives the client a real picture of the
                   business environment. It helps answer important questions such
                   as: Is there enough material available? Who are the major
                   buyers? Which segment offers the best value? How fast can the
                   business grow?
                 </p>
-                <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                <p className="text-slate-600 text-[16px] mb-[14px]">
                   In an e-waste recycling plant, the business does not depend on
                   one single customer type. It depends on a mix of scrap
                   generators, bulk suppliers, aggregators, traders,
                   manufacturers, and downstream buyers.
                 </p>
-                <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                <p className="text-slate-600 text-[16px] mb-[14px]">
                   When these segments are understood properly, the client can
                   plan capacity, collection, sales, pricing, and expansion with
                   much more confidence.
                 </p>
                 <div
-                  className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] my-[18px]"
+                  className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
+                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
-                  <strong className="text-white">Simple idea:</strong>{" "}
-                  <span className="text-[#a8b7cc]">
+                  <strong className="text-slate-900">Simple idea:</strong>{" "}
+                  <span className="text-slate-700">
                     a good market study reduces guesswork and helps the client
                     build a recycling plant that matches real demand.
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-[8px] mt-[14px]">
                   <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-[#e8f0fb]"
-                    style={{
-                      background: "rgba(96,165,250,.10)",
-                      border: "1px solid rgba(96,165,250,.20)",
-                    }}
+                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-blue-700 bg-blue-50 border border-blue-200 shadow-sm"
                   >
                     Supply mapping
                   </span>
                   <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-[#e8f0fb]"
-                    style={{
-                      background: "rgba(52,211,153,.10)",
-                      border: "1px solid rgba(52,211,153,.20)",
-                    }}
+                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm"
                   >
                     Buyer analysis
                   </span>
                   <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-[#e8f0fb]"
-                    style={{
-                      background: "rgba(245,158,11,.10)",
-                      border: "1px solid rgba(245,158,11,.20)",
-                    }}
+                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-amber-700 bg-amber-50 border border-amber-200 shadow-sm"
                   >
                     Pricing logic
                   </span>
@@ -211,16 +195,13 @@ export default function EWasteMarketAnalysisBlog() {
 
               {/* How we help */}
               <section
-                className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+                className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
                 style={{
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                  boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
                 }}
               >
                 <h2
-                  className="font-extrabold mb-[14px] text-[#f7fbff]"
+                  className="font-extrabold mb-[14px] text-slate-900"
                   style={{
                     fontSize: "clamp(26px, 2.8vw, 40px)",
                     lineHeight: 1.12,
@@ -228,26 +209,25 @@ export default function EWasteMarketAnalysisBlog() {
                 >
                   How we help the client
                 </h2>
-                <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                <p className="text-slate-600 text-[16px] mb-[14px]">
                   We help clients understand the full market picture before the
                   project moves into execution. This includes studying waste
                   sources, demand patterns, buyer categories, and business
                   opportunities.
                 </p>
-                <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                <p className="text-slate-600 text-[16px] mb-[14px]">
                   Our support also includes segment identification, market size
                   logic, material flow understanding, and a practical view of
                   how the plant can earn money in the real market.
                 </p>
                 <div
-                  className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] my-[18px]"
+                  className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
+                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
-                  <strong className="text-white">Client benefit:</strong>{" "}
-                  <span className="text-[#a8b7cc]">
+                  <strong className="text-slate-900">Client benefit:</strong>{" "}
+                  <span className="text-slate-700">
                     when the market is clearly studied, the business model
                     becomes more realistic and more stable.
                   </span>
@@ -257,16 +237,13 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Market journey steps */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -274,7 +251,7 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 The market journey in simple steps
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-600 text-[16px] mb-[14px]">
                 Clients understand the market better when the process is shown
                 step by step.
               </p>
@@ -303,22 +280,21 @@ export default function EWasteMarketAnalysisBlog() {
                 ].map(({ num, title, text }) => (
                   <div
                     key={num}
-                    className="border border-white/[0.08] rounded-[20px] p-[18px] sm:min-h-[156px]"
-                    style={{ background: "rgba(255,255,255,.03)" }}
+                    className="border border-slate-100 rounded-[20px] p-[18px] sm:min-h-[156px] bg-slate-50/60 shadow-sm"
                   >
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-[#08111b] mb-3"
+                      className="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-slate-900 mb-3"
                       style={{
-                        background: "linear-gradient(135deg,#93c5fd,#6ee7b7)",
-                        boxShadow: "0 10px 18px rgba(96,165,250,.18)",
+                        background: "linear-gradient(135deg, #bfdbfe, #a7f3d0)",
+                        boxShadow: "0 4px 10px rgba(191,219,254,0.4)",
                       }}
                     >
                       {num}
                     </div>
-                    <h4 className="text-white text-[17px] font-bold mb-2">
+                    <h4 className="text-slate-900 text-[17px] font-bold mb-2">
                       {title}
                     </h4>
-                    <p className="text-[#a8b7cc] text-[14px] m-0">{text}</p>
+                    <p className="text-slate-600 text-[14px] m-0">{text}</p>
                   </div>
                 ))}
               </div>
@@ -326,16 +302,13 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Target segments table */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -343,15 +316,15 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 Target market segments in e-waste recycling
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-600 text-[16px] mb-[14px]">
                 A recycling plant usually serves more than one market segment.
                 The real strength of the business comes from identifying the
                 right group and serving it well.
               </p>
-              <div className="overflow-x-auto rounded-[20px] border border-white/[0.08] mt-[18px]">
+              <div className="overflow-x-auto rounded-[20px] border border-slate-200 mt-[18px] shadow-sm">
                 <table
                   className="w-full border-collapse"
-                  style={{ minWidth: 780, background: "rgba(255,255,255,.02)" }}
+                  style={{ minWidth: 780, background: "#ffffff" }}
                 >
                   <thead>
                     <tr>
@@ -362,8 +335,7 @@ export default function EWasteMarketAnalysisBlog() {
                       ].map((h) => (
                         <th
                           key={h}
-                          className="text-white text-left px-4 py-[15px] text-[14px] border-b border-white/[0.08]"
-                          style={{ background: "rgba(255,255,255,.06)" }}
+                          className="text-slate-800 text-left px-4 py-[15px] text-[14px] font-bold border-b border-slate-200 bg-slate-50"
                         >
                           {h}
                         </th>
@@ -403,13 +375,13 @@ export default function EWasteMarketAnalysisBlog() {
                         "Support long-term service-based business",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-white/[0.03]">
+                      <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                         {row.map((cell, j) => (
                           <td
                             key={j}
-                            className="border-t border-white/[0.08] px-4 py-[14px] text-[14px] text-[#c8d6e8] align-top"
+                            className="border-t border-slate-100 px-4 py-[14px] text-[14px] text-slate-700 align-top"
                           >
-                            {cell}
+                            {j === 0 ? <strong className="text-slate-900">{cell}</strong> : cell}
                           </td>
                         ))}
                       </tr>
@@ -423,18 +395,15 @@ export default function EWasteMarketAnalysisBlog() {
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mb-[22px]">
               {/* Bar graph */}
               <section
-                className="rounded-[24px] p-1 sm:p-[28px] border border-white/[0.08]"
+                className="rounded-[24px] p-5 sm:p-[28px] border border-slate-200 bg-white"
                 style={{
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                  boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
                 }}
               >
-                <h2 className="text-white font-extrabold text-[24px] mb-2">
+                <h2 className="text-slate-900 font-extrabold text-[24px] mb-2">
                   Bar graph: market opportunity by segment
                 </h2>
-                <p className="text-[#a8b7cc] text-[15px] mb-[18px]">
+                <p className="text-slate-600 text-[15px] mb-[18px]">
                   This chart gives a simple view of where the strongest
                   opportunity often sits in the e-waste business.
                 </p>
@@ -462,38 +431,37 @@ export default function EWasteMarketAnalysisBlog() {
                       key={label}
                       className="grid items-center gap-5"
                       style={{
-                        gridTemplateColumns: "minmax(0,1fr) minmax(0,2fr) 54px",
+                        gridTemplateColumns: "minmax(0,1.2fr) minmax(0,2fr) 54px",
                       }}
                     >
-                      <div className="text-[#e8f0fb] text-[10px] font-bold">
+                      <div className="text-slate-700 text-[13px] font-semibold">
                         {label}
                       </div>
                       <div
-                        className="h-4 rounded-full overflow-hidden"
-                        style={{ background: "rgba(255,255,255,.08)" }}
+                        className="h-4 rounded-full overflow-hidden bg-slate-100 shadow-inner"
                       >
                         <div
-                          className="h-full rounded-full"
+                          className="h-full rounded-full transition-all duration-500"
                           style={{
                             width,
                             background:
                               type === "blue"
-                                ? "linear-gradient(90deg,#60a5fa,#7dd3fc)"
+                                ? "linear-gradient(90deg, #3b82f6, #60a5fa)"
                                 : type === "green"
-                                  ? "linear-gradient(90deg,#34d399,#86efac)"
+                                  ? "linear-gradient(90deg, #10b981, #34d399)"
                                   : type === "amber"
-                                    ? "linear-gradient(90deg,#f59e0b,#fcd34d)"
-                                    : "linear-gradient(90deg,#60a5fa,#7dd3fc)",
+                                    ? "linear-gradient(90deg, #f59e0b, #fbbf24)"
+                                    : "linear-gradient(90deg, #64748b, #94a3b8)",
                           }}
                         />
                       </div>
-                      <div className="text-right text-[14px] font-extrabold text-white">
+                      <div className="text-right text-[14px] font-extrabold text-slate-900">
                         {width}
                       </div>
                     </div>
                   ))}
                 </div>
-                <p className="text-[13px] text-[#9db1ca] mt-[10px]">
+                <p className="text-[13px] text-slate-500 mt-[14px]">
                   Higher values show stronger opportunity, but the final
                   decision should always depend on plant size, location, and
                   material quality.
@@ -502,18 +470,15 @@ export default function EWasteMarketAnalysisBlog() {
 
               {/* Segment readiness tracker */}
               <section
-                className="rounded-[24px] p-4 sm:p-[28px] border border-white/[0.08]"
+                className="rounded-[24px] p-4 sm:p-[28px] border border-slate-200 bg-white"
                 style={{
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                  boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
                 }}
               >
-                <h2 className="text-white font-extrabold text-[24px] mb-2">
+                <h2 className="text-slate-900 font-extrabold text-[24px] mb-2">
                   Database view: segment readiness tracker
                 </h2>
-                <p className="text-[#a8b7cc] text-[15px] mb-[18px]">
+                <p className="text-slate-600 text-[15px] mb-[18px]">
                   A simple database helps the client see which segment is ready
                   to support the project and which one needs more work.
                 </p>
@@ -538,25 +503,23 @@ export default function EWasteMarketAnalysisBlog() {
                   ].map(({ title, text }) => (
                     <div
                       key={title}
-                      className="border border-white/[0.08] rounded-[18px] p-[18px]"
-                      style={{ background: "rgba(255,255,255,.03)" }}
+                      className="border border-slate-100 rounded-[18px] p-[18px] bg-slate-50/60 shadow-sm"
                     >
-                      <h4 className="text-white text-[16px] font-bold mb-2">
+                      <h4 className="text-slate-900 text-[16px] font-bold mb-2">
                         {title}
                       </h4>
-                      <p className="text-[#a8b7cc] text-[14px] m-0">{text}</p>
+                      <p className="text-slate-600 text-[14px] m-0">{text}</p>
                     </div>
                   ))}
                 </div>
                 <div
-                  className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] mt-[18px]"
+                  className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] mt-[18px]"
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
+                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
-                  <strong className="text-white">Why this helps:</strong>{" "}
-                  <span className="text-[#a8b7cc]">
+                  <strong className="text-slate-900">Why this helps:</strong>{" "}
+                  <span className="text-slate-700">
                     when the market data is organized, the client can choose the
                     right segment with more certainty.
                   </span>
@@ -566,16 +529,13 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* How we explain target market */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -583,11 +543,11 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 How we explain the target market to clients
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-600 text-[16px] mb-[14px]">
                 Many clients want the business to grow quickly, but growth works
                 better when the right segment is chosen first.
               </p>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {[
                   {
                     title: "Input side",
@@ -608,25 +568,23 @@ export default function EWasteMarketAnalysisBlog() {
                 ].map(({ title, text }) => (
                   <div
                     key={title}
-                    className="border border-white/[0.08] rounded-[18px] p-[18px]"
-                    style={{ background: "rgba(255,255,255,.03)" }}
+                    className="border border-slate-100 rounded-[18px] p-[18px] bg-slate-50/60 shadow-sm"
                   >
-                    <h4 className="text-white text-[16px] font-bold mb-[6px]">
+                    <h4 className="text-slate-900 text-[16px] font-bold mb-[6px]">
                       {title}
                     </h4>
-                    <p className="text-[#a8b7cc] text-[14px] m-0">{text}</p>
+                    <p className="text-slate-600 text-[14px] m-0">{text}</p>
                   </div>
                 ))}
               </div>
               <div
-                className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] my-[18px]"
+                className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
-                }}
+                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                  }}
               >
-                <strong className="text-white">Easy client explanation:</strong>{" "}
-                <span className="text-[#a8b7cc]">
+                <strong className="text-slate-900">Easy client explanation:</strong>{" "}
+                <span className="text-slate-700">
                   the right market segment is the one that gives steady
                   material, healthy margins, and repeat business.
                 </span>
@@ -635,31 +593,28 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Market summary table */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
                 }}
               >
-                Market analysis summary database
+                Market summary database
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-600 text-[16px] mb-[14px]">
                 This quick project database gives a snapshot of the market
                 position.
               </p>
-              <div className="overflow-x-auto rounded-[20px] border border-white/[0.08] mt-[18px]">
+              <div className="overflow-x-auto rounded-[20px] border border-slate-200 mt-[18px] shadow-sm">
                 <table
                   className="w-full border-collapse"
-                  style={{ minWidth: 780, background: "rgba(255,255,255,.02)" }}
+                  style={{ minWidth: 780, background: "#ffffff" }}
                 >
                   <thead>
                     <tr>
@@ -670,8 +625,7 @@ export default function EWasteMarketAnalysisBlog() {
                       ].map((h) => (
                         <th
                           key={h}
-                          className="text-white text-left px-4 py-[15px] text-[14px] border-b border-white/[0.08]"
-                          style={{ background: "rgba(255,255,255,.06)" }}
+                          className="text-slate-800 text-left px-4 py-[15px] text-[14px] font-bold border-b border-slate-200 bg-slate-50"
                         >
                           {h}
                         </th>
@@ -706,13 +660,13 @@ export default function EWasteMarketAnalysisBlog() {
                         "Plant can grow into a bigger market later",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-white/[0.03]">
+                      <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                         {row.map((cell, j) => (
                           <td
                             key={j}
-                            className="border-t border-white/[0.08] px-4 py-[14px] text-[14px] text-[#c8d6e8] align-top"
+                            className="border-t border-slate-100 px-4 py-[14px] text-[14px] text-slate-700 align-top"
                           >
-                            {cell}
+                            {j === 0 ? <strong className="text-slate-900">{cell}</strong> : cell}
                           </td>
                         ))}
                       </tr>
@@ -724,16 +678,15 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Case study */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border mb-[22px] bg-white"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(245,158,11,.08), rgba(255,255,255,.03))",
-                borderColor: "rgba(245,158,11,.24)",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
+                borderColor: "rgba(245,158,11,.35)",
+                background: "linear-gradient(180deg, rgba(254,243,199,0.4), #ffffff 120px)",
+                boxShadow: "0 12px 30px rgba(245,158,11,0.05)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -741,7 +694,7 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 Case study: finding the right market segment for a new plant
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-700 text-[16px] mb-[14px]">
                 A new client wanted to enter the e-waste recycling business but
                 was unsure whether to focus on scrap collection, product
                 recovery, or trading recovered fractions.
@@ -763,25 +716,23 @@ export default function EWasteMarketAnalysisBlog() {
                 ].map(({ title, text }) => (
                   <div
                     key={title}
-                    className="rounded-[18px] p-[18px] border border-white/[0.08]"
-                    style={{ background: "rgba(255,255,255,.03)" }}
+                    className="rounded-[18px] p-[18px] border border-slate-100 bg-white/80 shadow-sm"
                   >
-                    <h4 className="text-white text-[16px] font-bold mb-2">
+                    <h4 className="text-slate-900 text-[16px] font-bold mb-2">
                       {title}
                     </h4>
-                    <p className="text-[#a8b7cc] text-[14px] m-0">{text}</p>
+                    <p className="text-slate-600 text-[14px] m-0">{text}</p>
                   </div>
                 ))}
               </div>
               <div
-                className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] mt-[18px]"
+                className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] mt-[18px]"
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
+                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                 }}
               >
-                <strong className="text-white">Lesson from the case:</strong>{" "}
-                <span className="text-[#a8b7cc]">
+                <strong className="text-slate-900">Lesson from the case:</strong>{" "}
+                <span className="text-slate-700">
                   market analysis is not just research. It is a decision-making
                   tool that can shape the whole business.
                 </span>
@@ -790,16 +741,13 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Additional topics */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -807,53 +755,52 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 Additional topics that make the market study more useful
               </h2>
-              <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+              <p className="text-slate-600 text-[16px] mb-[14px]">
                 To make the blog more complete for clients, it helps to explain
                 a few practical points beyond the basic segment list.
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-[22px]">
                 <div>
-                  <h3 className="text-[#f7fbff] text-[22px] font-bold mt-[18px] mb-[10px]">
+                  <h3 className="text-slate-900 text-[22px] font-bold mt-[18px] mb-[10px]">
                     Why location matters
                   </h3>
-                  <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                  <p className="text-slate-600 text-[16px] mb-[14px]">
                     The location of the plant affects collection cost, transport
                     speed, buyer access, and the overall business reach.
                   </p>
-                  <h3 className="text-[#f7fbff] text-[22px] font-bold mt-[18px] mb-[10px]">
+                  <h3 className="text-slate-900 text-[22px] font-bold mt-[18px] mb-[10px]">
                     Why product quality matters
                   </h3>
-                  <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                  <p className="text-slate-600 text-[16px] mb-[14px]">
                     The cleaner and better-separated the output is, the easier
                     it becomes to sell and the better the price can be.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-[#f7fbff] text-[22px] font-bold mt-[18px] mb-[10px]">
+                  <h3 className="text-slate-900 text-[22px] font-bold mt-[18px] mb-[10px]">
                     Why competition matters
                   </h3>
-                  <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                  <p className="text-slate-600 text-[16px] mb-[14px]">
                     A good market analysis shows not just who is present, but
                     where the opportunity is still open.
                   </p>
-                  <h3 className="text-[#f7fbff] text-[22px] font-bold mt-[18px] mb-[10px]">
+                  <h3 className="text-slate-900 text-[22px] font-bold mt-[18px] mb-[10px]">
                     Why long-term demand matters
                   </h3>
-                  <p className="text-[#a8b7cc] text-[16px] mb-[14px]">
+                  <p className="text-slate-600 text-[16px] mb-[14px]">
                     A good segment is not just active today. It should remain
                     useful for the future of the plant as well.
                   </p>
                 </div>
               </div>
               <div
-                className="border-l-[6px] border-[#34d399] rounded-[18px] px-5 py-[18px] my-[18px]"
+                className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(96,165,250,.10), rgba(52,211,153,.10))",
+                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                 }}
               >
-                <strong className="text-white">Client-friendly point:</strong>{" "}
-                <span className="text-[#a8b7cc]">
+                <strong className="text-slate-900">Client-friendly point:</strong>{" "}
+                <span className="text-slate-700">
                   the best market strategy is the one that connects material
                   supply, buyer demand, and plant growth in one plan.
                 </span>
@@ -862,16 +809,13 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* FAQ */}
             <section
-              className="rounded-[24px] p-4 sm:p-[30px] border border-white/[0.08] mb-[22px]"
+              className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02))",
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
               }}
             >
               <h2
-                className="font-extrabold mb-[14px] text-[#f7fbff]"
+                className="font-extrabold mb-[14px] text-slate-900"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -896,13 +840,12 @@ export default function EWasteMarketAnalysisBlog() {
                 ].map(({ q, a }) => (
                   <div
                     key={q}
-                    className="border border-white/[0.08] rounded-[18px] px-5 py-[18px]"
-                    style={{ background: "rgba(255,255,255,.03)" }}
+                    className="border border-slate-100 rounded-[18px] px-5 py-[18px] bg-slate-50/60 shadow-sm"
                   >
-                    <h4 className="text-white text-[16px] font-bold mb-[6px]">
+                    <h4 className="text-slate-900 text-[16px] font-bold mb-[6px]">
                       {q}
                     </h4>
-                    <p className="text-[#a8b7cc] text-[14px] m-0">{a}</p>
+                    <p className="text-slate-600 text-[14px] m-0">{a}</p>
                   </div>
                 ))}
               </div>
@@ -910,17 +853,17 @@ export default function EWasteMarketAnalysisBlog() {
 
             {/* Closing */}
             <section
-              className="text-center text-white rounded-[32px] px-4 sm:px-[30px] py-10 sm:py-[56px] mt-6 border border-white/[0.08]"
+              className="text-center rounded-[32px] px-4 sm:px-[30px] py-10 sm:py-[56px] mt-6 border border-slate-200"
               style={{
                 background: `
-                  radial-gradient(circle at top, rgba(96,165,250,.16), transparent 34%),
-                  linear-gradient(135deg,#07131f 0%,#12345c 50%,#0f766e 100%)
+                  radial-gradient(circle at top, rgba(96,165,250,.10), transparent 40%),
+                  linear-gradient(135deg, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%)
                 `,
-                boxShadow: "0 18px 50px rgba(0,0,0,.28)",
+                boxShadow: "0 20px 40px rgba(148,163,184,0.1)",
               }}
             >
               <h2
-                className="text-white font-extrabold mb-[10px]"
+                className="text-slate-900 font-extrabold mb-[10px]"
                 style={{
                   fontSize: "clamp(26px, 2.8vw, 40px)",
                   lineHeight: 1.12,
@@ -928,17 +871,17 @@ export default function EWasteMarketAnalysisBlog() {
               >
                 Final Thoughts
               </h2>
-              <p className="max-w-[920px] mx-auto mb-3 text-[16px] text-[#dbeafe]">
+              <p className="max-w-[920px] mx-auto mb-3 text-[16px] text-slate-700">
                 Market analysis gives the e-waste recycling plant a clear
                 direction. When the client understands supply, demand, and
                 target segments, the project becomes smarter, stronger, and
                 easier to scale.
               </p>
-              <p className="max-w-[920px] mx-auto mb-3 text-[16px] text-[#dbeafe]">
+              <p className="max-w-[920px] mx-auto mb-3 text-[16px] text-slate-700">
                 The right market choice does not just support sales. It supports
                 the full journey of the plant from setup to long-term growth.
               </p>
-              <div className="text-[28px] font-extrabold mt-[18px] text-white">
+              <div className="text-[26px] font-extrabold mt-[18px] text-slate-900 tracking-tight">
                 "The right market segment turns planning into profit."
               </div>
             </section>

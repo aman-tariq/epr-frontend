@@ -49,20 +49,13 @@ const tickerItems = [
   { label: "Spot Settlement", price: "₹3,410", delta: "−1.1%", up: false },
 ];
 
-const volumeData = [
-  { category: "2-Wheelers", credits: 420 },
-  { category: "Passenger Veh.", credits: 680 },
-  { category: "Commercial Veh.", credits: 310 },
-  { category: "3-Wheelers", credits: 145 },
-];
 
-const priceTrendData = [
-  { month: "Feb", price: 3120 },
-  { month: "Mar", price: 3340 },
-  { month: "Apr", price: 3580 },
-  { month: "May", price: 3460 },
-  { month: "Jun", price: 3790 },
-  { month: "Jul", price: 4050 },
+const avgPriceData = [
+  { category: "2-Wheeler", price: 1824 },
+  { category: "LGV", price: 3132 },
+  { category: "LPV", price: 5972 },
+  { category: "HGV", price: 9351 },
+  { category: "LMV", price: 10814 },
 ];
 
 const steps = [
@@ -248,7 +241,7 @@ function Hero() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-brandGreen/30 bg-brandGreen/10 px-3 py-1 text-xs font-medium tracking-wide text-brandGreen">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brandGreen" />
-            GUIDE IN PROGRESS — TALK TO OUR TEAM NOW
+           TALK TO OUR TEAM NOW
           </span>
           <h1 className="mt-5 font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[2.75rem]">
             EPR ELV Credits: Credit Trading &amp; Marketplace Guide
@@ -466,9 +459,7 @@ function MarketSnapshot() {
           What the credit market looks like today
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Figures below are illustrative, meant to show how volume and pricing
-          typically move across vehicle categories — not a live feed. Our full
-          guide will link to verified, regularly-updated numbers.
+          The figures below are based on publicly available DigiELV and NITI Aayog data. They represent historical average Certificate of Deposit (CoD) trade prices and transaction volumes, and should be treated as reference values rather than live market prices.
         </p>
       </Reveal>
 
@@ -482,7 +473,7 @@ function MarketSnapshot() {
           </h3>
           <div className="mt-4 h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={volumeData} margin={{ left: -10 }}>
+              <BarChart data={avgPriceData} margin={{ left: -10 }}>
                 <CartesianGrid
                   strokeDasharray="3 3"
                   stroke="hsl(var(--border))"
@@ -508,63 +499,19 @@ function MarketSnapshot() {
                     fontSize: 12,
                   }}
                 />
-                <Bar dataKey="credits" fill="#5AC361" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="price" fill="#5AC361" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </Reveal>
+        <p className="text-gray-500 mt-8">
+          LGV - Light Goods Vehicle<br/>
+          LPV - Light Passenger Vehicle<br/>
+          HGV - Heavy Goods Vehicle<br/>
+          LMV - Light Motor Vehicle<br/>
+        </p>
 
-        <Reveal
-          delay={160}
-          className="rounded-2xl border border-border bg-card p-5"
-        >
-          <h3 className="font-display text-sm font-semibold text-card-foreground">
-            Average credit price trend (₹ / credit)
-          </h3>
-          <div className="mt-4 h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={priceTrendData} margin={{ left: -10 }}>
-                <defs>
-                  <linearGradient id="priceFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#E8A33D" stopOpacity={0.35} />
-                    <stop offset="100%" stopColor="#E8A33D" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                  stroke="hsl(var(--border))"
-                  vertical={false}
-                />
-                <XAxis
-                  dataKey="month"
-                  tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
-                  axisLine={{ stroke: "hsl(var(--border))" }}
-                  tickLine={false}
-                />
-                <YAxis
-                  tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "hsl(var(--popover))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: 8,
-                    fontSize: 12,
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="#E8A33D"
-                  strokeWidth={2}
-                  fill="url(#priceFill)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </Reveal>
+       
       </div>
     </section>
   );
@@ -762,10 +709,10 @@ function ComplianceTimeline() {
         <h2 className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
           A typical EPR ELV obligation year
         </h2>
-        <p className="mt-3 max-w-2xl text-white/60">
+        {/* <p className="mt-3 max-w-2xl text-white/60">
           Exact dates vary by notification and category — this is the shape of
           the cycle producers plan around.
-        </p>
+        </p> */}
       </Reveal>
 
       <div className="relative mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -858,11 +805,10 @@ function FinalCTA() {
     <section className="relative overflow-hidden rounded-3xl border border-brandGreen/30 bg-gradient-to-br from-brandGreen/10 via-card to-card p-8 text-center sm:p-12">
       <CheckCircle2 className="mx-auto h-8 w-8 text-brandGreen" />
       <h2 className="mt-4 font-display text-2xl font-semibold text-foreground sm:text-3xl">
-        The full deep-dive is on its way
+        Need help navigating your EPR ELV credit obligations?
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-        We're finalizing detailed playbooks on credit pricing, banking rules,
-        and PRO settlement flows. Until then, our team can walk you through
+        Our team can walk you through
         exactly what applies to your obligation right now.
       </p>
       <a
@@ -883,8 +829,8 @@ function FinalCTA() {
 export default function EprElvCreditsBlog() {
   return (
     <div className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32">
-      <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+      <div className="md:container mx-auto px-1 pb-20 sm:px-6 lg:px-4">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* Main content — min-w-0 stops wide children (charts, ticker,
               SVGs) from stretching this column and throwing off the
               sticky sibling next to it */}

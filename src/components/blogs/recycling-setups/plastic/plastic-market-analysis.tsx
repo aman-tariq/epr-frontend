@@ -174,6 +174,8 @@ const PlasticMarketAnalysis: React.FC = () => {
       `}</style>
 
       <article className="mx-auto max-w-7xl px-4 py-14 text-slate-900">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="container">
         {/* HERO SECTION */}
         <section className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 p-2 lg:p-14">
           <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-100 blur-3xl" />
@@ -643,25 +645,18 @@ const PlasticMarketAnalysis: React.FC = () => {
             plastic into a commercial asset.
           </p>
         </section>
+        </div>
 
-        {/* STICKY FORM LAYOUT */}
-        <div className="mt-16 lg:grid lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-8">
-            {/* All main content is above */}
-          </div>
+      
 
           {/* Desktop Sticky Sidebar */}
-          <aside className="hidden lg:block lg:col-span-4">
-            <div className="sticky top-24 self-start z-30">
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-24 px-2">
               <StickyContactForm />
             </div>
           </aside>
-        </div>
-
-        {/* Mobile Form */}
-        <section className="mt-12 block lg:hidden">
-          <StickyContactForm />
-        </section>
+          
+          </div>
       </article>
     </>
   );

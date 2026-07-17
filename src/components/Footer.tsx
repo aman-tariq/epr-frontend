@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, NotebookTabs } from "lucide-react";
 import logo from "../../public/logo/epr-logo.jpeg";
+
+
 
 const socialLinks = [
   { name: "WhatsApp", href: "https://wa.me/919289659966", icon: "M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5.01L2 22l5.09-1.35C8.47 21.51 10.18 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.64 14.3c-.18.5-.97.97-1.35 1.09-.36.11-.65.16-2.29-.48-1.94-.78-3.18-2.73-3.28-2.85-.1-.12-.79-.99-.79-1.89 0-.9.47-1.34.64-1.52.18-.18.47-.21.64-.21.16 0 .33.01.47.01.15 0 .36-.06.56.42.21.5.72 1.74.78 1.87.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.3-.36.4-.12.12-.24.24-.11.47.13.24.6 1.02 1.29 1.65.88.79 1.63 1.04 1.86 1.15.23.11.37.09.5-.06.13-.15.58-.66.73-.89.16-.23.31-.19.52-.12.21.08 1.34.64 1.57.75.23.12.38.18.44.28.06.1.04.58-.14 1.08z" },
@@ -44,7 +46,7 @@ const Footer = () => {
                 { name: "About Us", path: "/about" },
                 { name: "Services", path: "/services" },
                 { name: "Blog", path: "/blog" },
-                { name: "Founders & Team", path: "/team" },
+                { name: "Founders & Team", path: "/about" },
                 { name: "Contact", path: "/contact" },
               ].map((link) => (
                 <Link
@@ -96,9 +98,9 @@ const Footer = () => {
               <a href="tel:+919289659966" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
                 <Phone size={16} /> +91 9289659966
               </a>
-              {/* <a href="tel:01204605014" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
-                <Phone size={16} /> 0120-4605014
-              </a> */}
+              <a href="tel:01204605014" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
+                <NotebookTabs size={16} /> 0120-4605014
+              </a>
               <span className="flex items-center gap-2 text-sm text-primary-foreground/60">
                 <MapPin size={28} /> H-73, No.107, Sector-63, Noida,
 Dist. Gautam Buddha Nagar, U.P. 201301

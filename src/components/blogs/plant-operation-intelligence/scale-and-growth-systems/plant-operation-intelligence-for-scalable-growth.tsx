@@ -4,24 +4,24 @@ import StickyContactForm from "@/components/StickyContactForm";
 
 const PlantIntelligenceDashboard = () => {
   return (
-    <div className="min-h-screen bg-[#07131f] text-[#eaf3fb] font-sans">
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+    <div className="min-h-screen bg-[#f4f7fa] text-[#1e293b] font-sans">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <style>{`
         :root {
-          --bg: #07131f;
-          --bg2: #0e2233;
-          --card: #10283b;
-          --card2: #0c1d2c;
-          --line: rgba(255,255,255,.10);
-          --text: #eaf3fb;
-          --muted: #b7cad9;
-          --accent: #4dd0e1;
-          --accent2: #7c4dff;
-          --accent3: #ffb74d;
-          --good: #56d364;
-          --warn: #ffcc66;
-          --shadow: 0 18px 45px rgba(0,0,0,.28);
+          --bg: #f4f7fa;
+          --bg2: #ffffff;
+          --card: #ffffff;
+          --card2: #f8fafc;
+          --line: rgba(148, 163, 184, 0.15);
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #2563eb; /* Primary Blue */
+          --accent2: #16a34a; /* Secondary Green */
+          --accent3: #ea580c; /* Orange Accent */
+          --good: #15803d;
+          --warn: #b45309;
+          --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
           --radius: 24px;
         }
 
@@ -30,11 +30,12 @@ const PlantIntelligenceDashboard = () => {
           grid-template-columns: 1.2fr 0.8fr;
           gap: 20px;
           padding: 28px;
-          background: linear-gradient(135deg, rgba(16,40,59,.96), rgba(11,24,37,.95));
+          background: linear-gradient(135deg, #ffffff, #f8fafc);
           border: 1px solid var(--line);
           border-radius: 34px;
           box-shadow: var(--shadow);
           overflow: hidden;
+          margin-top: 60px;
         }
 
         .eyebrow {
@@ -43,8 +44,8 @@ const PlantIntelligenceDashboard = () => {
           align-items: center;
           padding: 8px 14px;
           border-radius: 999px;
-          background: rgba(77,208,225,.12);
-          color: #dffcff;
+          background: rgba(37, 99, 235, 0.08);
+          color: #1e40af;
           font-weight: 700;
           font-size: 13px;
           letter-spacing: .4px;
@@ -53,12 +54,13 @@ const PlantIntelligenceDashboard = () => {
 
         .glass {
           width: 100%;
-          background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+          background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(248,250,252,0.9));
           border: 1px solid var(--line);
           border-radius: 28px;
           padding: 20px;
           position: relative;
           overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
         .glass::before {
@@ -68,21 +70,22 @@ const PlantIntelligenceDashboard = () => {
           width: 220px;
           height: 220px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(77,208,225,.24), transparent 68%);
+          background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 68%);
         }
 
         .pill {
           padding: 8px 12px;
           border-radius: 999px;
-          background: rgba(124,77,255,.14);
-          border: 1px solid rgba(124,77,255,.25);
-          color: #efe9ff;
+          background: rgba(22, 163, 74, 0.08);
+          border: 1px solid rgba(22, 163, 74, 0.2);
+          color: #166534;
           font-size: 0.88rem;
+          font-weight: 500;
         }
 
         .section {
           margin-top: 22px;
-          background: linear-gradient(180deg, rgba(16,40,59,.85), rgba(10,22,34,.88));
+          background: #ffffff;
           border: 1px solid var(--line);
           border-radius: var(--radius);
           box-shadow: var(--shadow);
@@ -90,7 +93,7 @@ const PlantIntelligenceDashboard = () => {
         }
 
         .card {
-          background: rgba(255,255,255,.04);
+          background: #f8fafc;
           border: 1px solid var(--line);
           border-radius: 22px;
           padding: 18px;
@@ -98,21 +101,21 @@ const PlantIntelligenceDashboard = () => {
 
         .bar-track {
           height: 18px;
-          background: #0a1927;
+          background: #e2e8f0;
           border-radius: 999px;
           overflow: hidden;
-          border: 1px solid rgba(255,255,255,.08);
+          border: 1px solid rgba(0,0,0,.04);
         }
 
         .bar-fill {
           height: 100%;
           border-radius: 999px;
           background: linear-gradient(90deg, var(--accent), var(--accent2));
-          box-shadow: 0 0 28px rgba(77,208,225,.28);
+          box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
         }
 
         .bar-fill.alt {
-          background: linear-gradient(90deg, var(--accent3), #ff8a65);
+          background: linear-gradient(90deg, var(--accent3), #f97316);
         }
 
         .db table {
@@ -123,22 +126,22 @@ const PlantIntelligenceDashboard = () => {
 
         .db th, .db td {
           padding: 12px 10px;
-          border-bottom: 1px solid rgba(255,255,255,.08);
+          border-bottom: 1px solid #e2e8f0;
           text-align: left;
           vertical-align: top;
         }
 
         .db th {
-          color: #dffcff;
+          color: #1e3a8a;
           font-size: 0.92rem;
           text-transform: uppercase;
           letter-spacing: .05em;
-          background: rgba(255,255,255,.03);
+          background: #f1f5f9;
         }
 
         .metric {
-          background: linear-gradient(180deg, rgba(77,208,225,.14), rgba(124,77,255,.08));
-          border: 1px solid rgba(255,255,255,.10);
+          background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), rgba(22, 163, 74, 0.04));
+          border: 1px solid var(--line);
           border-radius: 18px;
           padding: 16px;
         }
@@ -184,22 +187,22 @@ const PlantIntelligenceDashboard = () => {
         type="article"
       />
 
-      <div className="max-w-[1180px] mx-auto px-4 py-7">
+      <div className="max-w-8xl mx-auto px-4 py-7">
         {/* HERO */}
         <section className="hero">
           <div>
             <span className="eyebrow">Plant intelligence for faster scale</span>
-            <h1 className="text-[clamp(2.1rem,4vw,4.3rem)] leading-[1.02] mt-4 mb-3.5 font-bold">
+            <h1 className="text-[clamp(2.1rem,4vw,4.3rem)] leading-[1.02] mt-4 mb-3.5 font-bold text-[#0f172a]">
               How Plant Operation Intelligence Supports Scalable Growth
             </h1>
-            <p className="text-[1.08rem] text-[#b7cad9] max-w-[60ch] mb-5">
+            <p className="text-[1.08rem] text-[#475569] max-w-[60ch] mb-5">
               The plants that scale smoothly are not the ones that work harder.
               They are the ones that see farther. With plant operation
               intelligence, leaders turn real-time production visibility, KPI
               tracking, and predictive maintenance into a practical growth
               engine.
             </p>
-            <div className="text-[1.15rem] text-white font-bold mb-3">
+            <div className="text-[1.15rem] text-[#2563eb] font-bold mb-3">
               Smarter operations today. Bigger capacity tomorrow.
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
@@ -220,28 +223,28 @@ const PlantIntelligenceDashboard = () => {
 
           <div className="hero-art">
             <div className="glass">
-              <h3 className="mb-2 text-[1.2rem] font-semibold">
+              <h3 className="mb-2 text-[1.2rem] font-semibold text-[#0f172a]">
                 What growth looks like in a connected plant
               </h3>
-              <p className="text-[#b7cad9] mb-6">
+              <p className="text-[#475569] mb-6">
                 Less downtime, better throughput, faster decisions, and a team
                 that can scale without losing control.
               </p>
 
               <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                  <div className="text-2xl font-black text-white">-32%</div>
-                  <div className="text-sm text-[#b7cad9]">
+                <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-4">
+                  <div className="text-2xl font-black text-[#dc2626]">-32%</div>
+                  <div className="text-sm text-[#475569]">
                     unplanned downtime
                   </div>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                  <div className="text-2xl font-black text-white">+21%</div>
-                  <div className="text-sm text-[#b7cad9]">throughput gain</div>
+                <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-4">
+                  <div className="text-2xl font-black text-[#16a34a]">+21%</div>
+                  <div className="text-sm text-[#475569]">throughput gain</div>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                  <div className="text-2xl font-black text-white">+18%</div>
-                  <div className="text-sm text-[#b7cad9]">
+                <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-4">
+                  <div className="text-2xl font-black text-[#2563eb]">+18%</div>
+                  <div className="text-sm text-[#475569]">
                     asset utilization
                   </div>
                 </div>
@@ -251,8 +254,9 @@ const PlantIntelligenceDashboard = () => {
                 <span
                   className="pill"
                   style={{
-                    background: "rgba(255,183,77,.14)",
-                    borderColor: "rgba(255,183,77,.24)",
+                    background: "rgba(234,88,12,0.08)",
+                    borderColor: "rgba(234,88,12,0.2)",
+                    color: "#c2410c"
                   }}
                 >
                   Dashboards
@@ -266,10 +270,10 @@ const PlantIntelligenceDashboard = () => {
 
         {/* WHY IT MATTERS */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-2">
+          <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Why plant operation intelligence matters
           </h2>
-          <p className="text-[#b7cad9] mb-8">
+          <p className="text-[#475569] mb-8">
             As plants grow, manual tracking starts to slow everything down.
             Plant operation intelligence brings machine data, production data,
             maintenance data, and quality data together so teams can act before
@@ -296,8 +300,8 @@ const PlantIntelligenceDashboard = () => {
               },
             ].map((item, i) => (
               <div key={i} className="card">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-[#b7cad9]">{item.desc}</p>
+                <h3 className="text-xl font-semibold mb-2 text-[#0f172a]">{item.title}</h3>
+                <p className="text-[#475569]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -305,10 +309,10 @@ const PlantIntelligenceDashboard = () => {
 
         {/* GROWTH BENEFITS */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-2">
+          <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Growth benefits in plain numbers
           </h2>
-          <p className="text-[#b7cad9] mb-8">
+          <p className="text-[#475569] mb-8">
             These visuals show how plant operation intelligence improves the
             numbers that matter most to leadership.
           </p>
@@ -316,16 +320,16 @@ const PlantIntelligenceDashboard = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Bar Chart */}
             <div className="card">
-              <h3 className="font-semibold mb-4">
+              <h3 className="font-semibold mb-4 text-[#0f172a]">
                 Operational performance before vs after
               </h3>
               <div className="flex gap-4 mb-6 text-sm">
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#4dd0e1]"></span>
+                <span className="flex items-center gap-1.5 text-[#475569]">
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#2563eb]"></span>
                   Before intelligence
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#ffb74d]"></span>
+                <span className="flex items-center gap-1.5 text-[#475569]">
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#ea580c]"></span>
                   After intelligence
                 </span>
               </div>
@@ -340,18 +344,18 @@ const PlantIntelligenceDashboard = () => {
                   key={i}
                   className="grid grid-cols-[140px_1fr_56px] gap-3 items-center mb-4"
                 >
-                  <div className="font-medium">{bar.label}</div>
+                  <div className="font-medium text-[#0f172a]">{bar.label}</div>
                   <div className="bar-track">
                     <div
                       className={`bar-fill ${bar.alt ? "alt" : ""}`}
                       style={{ width: bar.width }}
                     ></div>
                   </div>
-                  <div className="text-right font-semibold">{bar.val}</div>
+                  <div className="text-right font-semibold text-[#0f172a]">{bar.val}</div>
                 </div>
               ))}
 
-              <p className="text-sm text-[#b7cad9] mt-4">
+              <p className="text-sm text-[#64748b] mt-4">
                 The bars represent the growth in performance after adopting
                 KPI-driven plant operation intelligence. Higher output and lower
                 downtime create room for scale without chaos.
@@ -360,7 +364,7 @@ const PlantIntelligenceDashboard = () => {
 
             {/* Growth Levers */}
             <div className="card">
-              <h3 className="font-semibold mb-4">
+              <h3 className="font-semibold mb-4 text-[#0f172a]">
                 Growth levers that move the curve
               </h3>
               <div className="space-y-3">
@@ -378,10 +382,10 @@ const PlantIntelligenceDashboard = () => {
                     desc: "Standardize high-performing actions across lines and sites.",
                   },
                 ].map((lever, i) => (
-                  <div key={i} className="card p-4">
-                    <strong>{lever.title}</strong>
+                  <div key={i} className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+                    <strong className="text-[#2563eb]">{lever.title}</strong>
                     <br />
-                    <span className="text-[#b7cad9]">{lever.desc}</span>
+                    <span className="text-[#475569] text-sm">{lever.desc}</span>
                   </div>
                 ))}
               </div>
@@ -391,15 +395,15 @@ const PlantIntelligenceDashboard = () => {
 
         {/* KPI TABLE */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-2">
+          <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Database-style KPI view
           </h2>
-          <p className="text-[#b7cad9] mb-6">
+          <p className="text-[#475569] mb-6">
             A clean database helps teams compare shifts, lines, and plants. It
             turns raw data into a leadership-friendly story.
           </p>
 
-          <div className="db bg-[#071520] border border-white/10 rounded-3xl p-5 overflow-auto">
+          <div className="db bg-white border border-slate-200 shadow-sm rounded-3xl p-5 overflow-auto">
             <table>
               <thead>
                 <tr>
@@ -409,7 +413,7 @@ const PlantIntelligenceDashboard = () => {
                   <th>Sample improvement</th>
                 </tr>
               </thead>
-              <tbody className="text-[#b7cad9]">
+              <tbody className="text-[#475569]">
                 {[
                   [
                     "OEE",
@@ -443,10 +447,10 @@ const PlantIntelligenceDashboard = () => {
                   ],
                 ].map((row, i) => (
                   <tr key={i}>
-                    <td className="font-medium text-white">{row[0]}</td>
+                    <td className="font-semibold text-[#0f172a]">{row[0]}</td>
                     <td>{row[1]}</td>
                     <td>{row[2]}</td>
-                    <td className="font-medium text-emerald-400">{row[3]}</td>
+                    <td className="font-semibold text-emerald-600">{row[3]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -456,10 +460,10 @@ const PlantIntelligenceDashboard = () => {
 
         {/* CASE STUDY */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-3">
+          <h2 className="text-3xl font-semibold mb-3 text-[#0f172a]">
             Case study: scaling without losing efficiency
           </h2>
-          <p className="text-[#b7cad9] mb-8">
+          <p className="text-[#475569] mb-8">
             A mid-sized manufacturing plant wanted to raise output by 25% while
             keeping service levels high. Instead of adding pressure to the
             floor, the leadership team introduced plant operation intelligence
@@ -477,15 +481,15 @@ const PlantIntelligenceDashboard = () => {
               { value: "+19%", label: "better on-time order fulfillment" },
             ].map((metric, i) => (
               <div key={i} className="metric">
-                <div className="text-4xl font-black text-white">
+                <div className="text-4xl font-black text-[#1e3a8a]">
                   {metric.value}
                 </div>
-                <div className="text-[#b7cad9] mt-1">{metric.label}</div>
+                <div className="text-[#475569] mt-1 text-sm font-medium">{metric.label}</div>
               </div>
             ))}
           </div>
 
-          <p className="text-[#b7cad9]">
+          <p className="text-[#475569]">
             What changed? Teams started reviewing live KPIs every shift,
             maintenance moved from reactive to predictive, and process
             bottlenecks were resolved using trend data instead of assumptions.
@@ -496,7 +500,7 @@ const PlantIntelligenceDashboard = () => {
 
         {/* FAQ */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-6">FAQs</h2>
+          <h2 className="text-3xl font-semibold mb-6 text-[#0f172a]">FAQs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               [
@@ -517,8 +521,8 @@ const PlantIntelligenceDashboard = () => {
               ],
             ].map(([q, a], i) => (
               <div key={i} className="card p-6">
-                <strong className="block mb-3 text-lg">{q}</strong>
-                <p className="text-[#b7cad9]">{a}</p>
+                <strong className="block mb-3 text-lg text-[#0f172a]">{q}</strong>
+                <p className="text-[#475569]">{a}</p>
               </div>
             ))}
           </div>
@@ -526,31 +530,31 @@ const PlantIntelligenceDashboard = () => {
 
         {/* CLOSING */}
         <section className="section">
-          <h2 className="text-3xl font-semibold mb-4">Closing thought</h2>
-          <p className="text-[#b7cad9] mb-6">
+          <h2 className="text-3xl font-semibold mb-4 text-[#0f172a]">Closing thought</h2>
+          <p className="text-[#475569] mb-6">
             Scalable growth is not about pushing the plant harder. It is about
             building an operation that understands itself better every day. With
             plant operation intelligence, leaders gain visibility, teams gain
             clarity, and growth becomes much easier to repeat.
           </p>
-          <p className="text-xl font-bold text-white">
+          <p className="text-xl font-bold text-[#1e3a8a]">
             When the right data leads the right action, the plant stops reacting
             and starts scaling.
           </p>
         </section>
 
-        <div className="text-center text-[#b7cad9] text-sm mt-12">
-          React version • Dark tech theme with modern data storytelling
+        <div className="text-center text-[#64748b] text-sm mt-12">
+          React version • Light enterprise theme with modern data storytelling
         </div>
       </div>
     </div>
-        </div>
-        <aside className="hidden lg:block shrink-0">
+        <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
             <StickyContactForm />
           </div>
         </aside>
       </div>
+    </div>
   );
 };
 

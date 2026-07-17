@@ -267,8 +267,7 @@ function Hero() {
       <Reveal delay={0.15} className="max-w-2xl">
         <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
           A practical, step-by-step guide covering credit trading and the
-          marketplace for EPR battery — built for producers, recyclers, and
-          PROs. Our team is finalizing the full deep-dive; reach out for
+          marketplace for EPR battery — built for producers and recyclers. Our team is finalizing the full deep-dive; reach out for
           immediate guidance in the meantime.
         </p>
       </Reveal>
@@ -609,7 +608,7 @@ function CTABanner() {
             TRD-07 / NEXT STEP
           </span>
           <h2 className="mt-3 font-display md:text-2xl text-xl sm:text-3xl font-semibold max-w-xl">
-            The full deep-dive report is still being finalized.
+            Need help structuring a trade or checking a counterparty?
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
             If you're placing or receiving a trade right now, talk to our team
@@ -617,7 +616,7 @@ function CTABanner() {
             you commit.
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:scale-[1.03] transition-transform"
           >
             Reach out for guidance <ArrowRight className="w-4 h-4" />
@@ -728,7 +727,7 @@ export default function EPRBatteryTradingMarketplace() {
             <Hero />
             <TradeLifecycle />
             <WhoTrades />
-            <OrderBookChart />
+            {/* <OrderBookChart /> */}
             <PriceIndexChart />
             <ContractTypes />
             <SettlementLedger />

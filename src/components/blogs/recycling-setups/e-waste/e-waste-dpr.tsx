@@ -50,7 +50,7 @@ export default function EWasteDPRBlog() {
         type="article"
       />
       {/* Page container */}
-      <div className="w-full max-w-[1180px] mx-auto px-4 pt-[34px] pb-[60px] overflow-clip">
+      <div className=" max-w-9xl mx-auto px-1 pt-[34px] pb-[60px] overflow-clip">
         {/* Hero */}
         <section
           className="relative overflow-hidden text-white px-1 sm:px-[44px] py-12 sm:py-[82px] rounded-[34px] mb-[26px]"
