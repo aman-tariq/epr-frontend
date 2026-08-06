@@ -77,11 +77,7 @@ const audience = [
     body: "Registered recycling units that generate certificates and credits once processing is verified.",
     icon: Recycle,
   },
-  {
-    title: "PROs",
-    body: "Producer Responsibility Organisations that pool obligations and route credits between the two.",
-    icon: Building2,
-  },
+  
 ];
 
 // const timelineData = [
@@ -95,7 +91,7 @@ const stakeholderData = [
   { name: "Producers", touchpoints: 6 },
   { name: "Importers", touchpoints: 5 },
   { name: "Brand Owners", touchpoints: 5 },
-  { name: "PROs", touchpoints: 7 },
+
 ];
 
 const checklist = [
@@ -274,7 +270,7 @@ export default function EPRPlasticCreditsBlog() {
 
   return (
     <div className="w-full bg-background pt-28 md:pt-32 pb-24 font-sans text-foreground">
-      <div className="md:container grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-10 xl:gap-16">
+      <div className="md:container grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-2 xl:gap-16">
         {/* ============================================================ */}
         {/* MAIN CONTENT COLUMN                                          */}
         {/* ============================================================ */}
@@ -672,7 +668,7 @@ export default function EPRPlasticCreditsBlog() {
         {/* ============================================================ */}
         {/* STICKY CONTACT FORM SIDEBAR                                   */}
         {/* ============================================================ */}
-        <aside id="contact" className="lg:sticky lg:top-32 lg:h-fit">
+        <aside id="contact" className="lg:sticky lg:top-28 lg:h-fit">
           <StickyContactForm />
         </aside>
       </div>

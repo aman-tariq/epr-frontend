@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeInVariant: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
+};
 
 const TyreMarketAnalysis: React.FC = () => {
   useEffect(() => {
@@ -164,14 +174,19 @@ const TyreMarketAnalysis: React.FC = () => {
       />
       
       {/* Outer wrapper converted to clean light slate */}
-      <div className="min-h-screen bg-[#f8fafc] text-[#1e293b] font-sans">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8 items-start">
+      <div className="min-h-screen mt-[90px] bg-[#f8fafc] text-[#1e293b] font-sans">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-1 py-8 flex flex-col lg:flex-row gap-1 items-stretch">
           
           {/* Main Content Stream */}
           <div className="flex-1 min-w-0 w-full lg:max-w-[calc(100%-352px)]">
             
             {/* HERO — Soft light blue gradient context with clear borders */}
-            <header className="pt-12 pb-16 bg-gradient-to-br from-[#f0f6ff] via-[#f8fafc] to-[#f0f6ff] rounded-3xl px-6 sm:px-10 border border-[#d0e1f9] mb-12 shadow-sm">
+            <motion.header 
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariant}
+              className="pt-12 pb-16 bg-gradient-to-br from-[#f0f6ff] via-[#f8fafc] to-[#f0f6ff] rounded-3xl px-6 sm:px-10 border border-[#d0e1f9] mb-12 shadow-sm"
+            >
               <div className="max-w-4xl">
                 <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#27c08a]/10 border border-[#27c08a]/30 text-[#15803d] text-sm font-bold mb-6">
                   Market Analysis — Tyre Waste Recycling
@@ -213,10 +228,17 @@ const TyreMarketAnalysis: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </header>
+            </motion.header>
 
             {/* MARKET SIZE */}
-            <section id="market-size" className="py-12 border-b border-[#e2e8f0]">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="market-size" 
+              className="py-12 border-b border-[#e2e8f0]"
+            >
               <h2 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight text-[#0f172a]">Understanding the Size and Shape of the Tyre Recycling Market</h2>
               <p className="text-[#475569] text-lg mb-8 max-w-3xl">
                 The tyre waste recycling market in India is a multi-thousand-crore industry growing at double-digit rates structural shifts driven by formalisation.
@@ -260,10 +282,17 @@ const TyreMarketAnalysis: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-4 text-[#1e293b]">ELT Generation vs. Formal Recycling Capacity — India (2018–2025)</h3>
                 <canvas id="gapChart" className="w-full" height="180"></canvas>
               </div>
-            </section>
+            </motion.section>
 
             {/* TARGET SEGMENTS */}
-            <section id="segments" className="py-12 border-b border-[#e2e8f0]">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="segments" 
+              className="py-12 border-b border-[#e2e8f0]"
+            >
               <h2 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight text-[#0f172a]">The Five Target Segments Every Tyre Recycler Needs to Understand</h2>
               <p className="text-[#475569] mb-8 max-w-2xl">Each product derivative yields custom commercial end-buyer parameters, margin behaviors, and barrier-to-entry infrastructure requirements.</p>
 
@@ -282,10 +311,17 @@ const TyreMarketAnalysis: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* DEMAND DRIVERS & RESPONSIVE CHARTS MIX */}
-            <section id="demand-drivers" className="py-12 border-b border-[#e2e8f0]">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="demand-drivers" 
+              className="py-12 border-b border-[#e2e8f0]"
+            >
               <h2 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight text-[#0f172a]">What Is Driving Demand Across Every Segment</h2>
               <p className="text-[#475569] text-base mb-8 max-w-2xl">Macro trends and regulatory infrastructure adjustments supporting the rapid capital cycle evolution of structural processing infrastructure.</p>
               
@@ -361,10 +397,17 @@ const TyreMarketAnalysis: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* CASE STUDY SECTION */}
-            <section id="case-study" className="py-12 border-b border-[#e2e8f0]">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="case-study" 
+              className="py-12 border-b border-[#e2e8f0]"
+            >
               <div className="mb-8">
                 <h2 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight text-[#0f172a]">Case Study: How One Operator Found the Right Entry Point</h2>
                 <p className="text-[#475569] text-base max-w-3xl">
@@ -416,10 +459,17 @@ const TyreMarketAnalysis: React.FC = () => {
                   Market sizing operations protect corporate developers from capital deployment confirmation biases. Transitioning execution targets away from crowded local processing methods toward verified regional supply voids minimizes deployment stabilization risk factors.
                 </p>
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ SECTION */}
-            <section id="faq" className="py-12">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="faq" 
+              className="py-12"
+            >
               <h2 className="text-2xl sm:text-4xl font-bold mb-6 tracking-tight text-center text-[#0f172a]">Frequently Asked Questions</h2>
               <div className="max-w-3xl mx-auto space-y-4">
                 {[
@@ -445,22 +495,29 @@ const TyreMarketAnalysis: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* CTA */}
-            <section id="contact" className="bg-gradient-to-br from-white via-[#f0f6ff] to-[#e0ffd0]/50 text-[#0f172a] border-2 border-[#27c08a] p-8 sm:p-12 rounded-3xl text-center mt-12 shadow-sm">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              id="contact" 
+              className="bg-gradient-to-br from-white via-[#f0f6ff] to-[#e0ffd0]/50 text-[#0f172a] border-2 border-[#27c08a] p-8 sm:p-12 rounded-3xl text-center mt-12 shadow-sm"
+            >
               <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">Ready to Find Your Place in the Tyre Recycling Market?</h2>
               <p className="text-[#334155] text-sm sm:text-base max-w-xl mx-auto mb-6 font-medium">
                 Do not base multi-crore machinery acquisitions on assumptions. Acquire localized supply and baseline off-take tracking metrics tailored specifically to your geographical zone.
               </p>
               <a href="mailto:info@eprnexuss.com" className="inline-block px-8 py-4 bg-[#0f172a] text-white font-bold text-base rounded-xl hover:bg-[#1e293b] transition-colors shadow-lg">Request a Market Analysis</a>
-            </section>
+            </motion.section>
 
           </div>
 
           {/* STICKY SIDEBAR COLUMN — Coordinated with Light blue borders */}
           <aside className="hidden lg:block shrink-0 w-[320px] sticky top-24">
-            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-1 shadow-sm">
+            <div className="sticky top-28 px-2">
               <StickyContactForm />
             </div>
           </aside>

@@ -1,6 +1,35 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function EprTyreCreditDashboard() {
   const pieChartRef = useRef<HTMLCanvasElement | null>(null);
@@ -127,13 +156,18 @@ export default function EprTyreCreditDashboard() {
   return (
     <div
       style={bodyBackgroundStyle}
-      className="max-w-8xl text-[#0f172a] font-sans antialiased selection:bg-[#5AC361]/30 scroll-smooth"
+      className="max-w-8xl  text-[#0f172a] font-sans antialiased selection:bg-[#5AC361]/30 scroll-smooth"
     >
-      <main className="max-w-8xl">
+      <main className="max-w-8xl mt-[50px]">
         <div className="flex flex-col lg:flex-row gap-0 items-stretch">
           <div className="container mt-10 ">
         
-        <header className="container mx-auto px-1 pt-8 pb-10">
+        <motion.header
+        initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }} 
+        className="container mx-auto px-1 pt-8 pb-10">
           <div className={`${glassClass} rounded-[2rem] overflow-hidden`}>
             <div className="p-6 md:p-10 lg:p-14">
               <div className="flex flex-wrap items-center gap-3 mb-6 justify-center">
@@ -204,9 +238,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </header>
+        </motion.header>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <article
               className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8 animate-[fade-in_0.6s_ease-out_forwards]`}
@@ -258,9 +292,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -283,9 +317,9 @@ export default function EprTyreCreditDashboard() {
               </p>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -300,9 +334,9 @@ export default function EprTyreCreditDashboard() {
               milestones.
             </p>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <article
               className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
@@ -392,9 +426,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -440,9 +474,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -470,9 +504,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -526,9 +560,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -568,9 +602,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -638,9 +672,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -668,9 +702,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -717,9 +751,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-8">
           <div className="grid grid-cols-1 xl:grid-cols-1 gap-6">
             <article
               className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
@@ -774,9 +808,9 @@ export default function EprTyreCreditDashboard() {
               </div>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
-        <section className="container mx-auto px-1 pb-10">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-1 pb-10">
           <div
             className={`${sectionCardClass} ${glassClass} rounded-[2rem] p-6 md:p-8`}
           >
@@ -828,10 +862,10 @@ export default function EprTyreCreditDashboard() {
               </details>
             </div>
           </div>
-        </section>
+        </section> </Reveal>
         </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">
-          <div className="sticky top-28 px-2">
+          <div className="sticky top-[140px] px-2">
             <StickyContactForm />
           </div>
         </aside>

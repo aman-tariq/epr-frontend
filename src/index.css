@@ -141,3 +141,24 @@
     min-width: 0 !important;
   }
 }
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(8px);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-scrollWheel {
+  animation: scrollWheel 1.8s ease-in-out infinite;
+}

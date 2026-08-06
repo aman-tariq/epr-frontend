@@ -45,7 +45,7 @@ function Reveal({
 
 export default function HowPricingIsCalculatedBlog() {
   return (
-    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="font-sans mt-[100px] bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="How Is the Price of Your E-Waste Calculated?"
         description="Understand exactly how e-waste pricing works — from weight and material composition to market rates — so you know what to expect before you sell."
@@ -63,7 +63,11 @@ export default function HowPricingIsCalculatedBlog() {
       />
 
       <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
-        {/* Banner */}
+       
+
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+             {/* Banner */}
         <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-secondary/85 to-secondary shadow-lg">
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
@@ -92,8 +96,6 @@ export default function HowPricingIsCalculatedBlog() {
             </p>
           </div>
         </section>
-
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
           <div className="flex-1 min-w-0 w-full">
             {/* Intro */}
             <Reveal>
@@ -215,15 +217,11 @@ export default function HowPricingIsCalculatedBlog() {
                     <Calculator className="w-5 h-5 text-primary" />
                   </div>
                   <h2 className="font-display font-extrabold text-gray-900 text-[22px] sm:text-[26px]">
-                    How we turn this into a quote
+                    How We Prepare Your Proposal
                   </h2>
                 </div>
                 <p className="text-gray-600 text-[15px] mb-0">
-                  We give you an approximate estimate over call or message
-                  based on item type and rough quantity. The final price is
-                  confirmed on the spot during pickup, once your items are
-                  weighed and inspected in front of you — so there are no
-                  surprises between the estimate and the payment.
+                  After understanding your business requirements, compliance obligations, and project scope, our experts assess your needs and prepare a tailored proposal. We provide transparent recommendations, estimated timelines, and cost details before execution—ensuring complete clarity with no hidden surprises.
                 </p>
               </section>
             </Reveal>
@@ -361,8 +359,9 @@ export default function HowPricingIsCalculatedBlog() {
               </section>
             </Reveal>
           </div>
+          </div>
 
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "5.5rem" }}>
             <StickyContactForm />
           </aside>
         </div>

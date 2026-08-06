@@ -50,11 +50,7 @@ const eligibility = [
     title: "Recyclers",
     body: "Authorisation requires demonstrated processing capacity and environmentally sound handling — approval is tied to facility capability, not just paperwork.",
   },
-  {
-    icon: Landmark,
-    title: "PROs",
-    body: "Producer Responsibility Organisations register separately and must show they can aggregate, verify, and report on behalf of the producers they serve.",
-  },
+  
 ];
 
 const checklist = [
@@ -332,7 +328,7 @@ function EligibilityCards() {
           Registration isn't one-size-fits-all
         </h2>
       </Reveal>
-      <div className="mt-8 grid sm:grid-cols-3 gap-5">
+      <div className="mt-8 grid sm:grid-cols-2 gap-5">
         {eligibility.map((s, i) => (
           <Reveal key={s.title} delay={i * 0.1}>
             <div className="h-full rounded-2xl border border-border bg-card p-6 flex flex-col hover:-translate-y-1 transition-transform">

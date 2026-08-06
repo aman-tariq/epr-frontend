@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion } from "framer-motion"
 
 Chart.register(...registerables);
 
@@ -277,8 +278,8 @@ const PlantStartupDocumentation: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F9FAFD] text-[#1A1A2E] font-sans">
-      <div className="flex flex-col lg:flex-row gap-2 mt-10 items-stretch">
+    <div className="min-h-screen bg-[#F9FAFD] mt-[120px] text-[#1A1A2E] font-sans">
+      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <Seo
         title="How Commissioning Checklists Improve Operational Readiness"
@@ -314,7 +315,10 @@ const PlantStartupDocumentation: React.FC = () => {
         type="article"
       />
       {/* Hero */}
-      <div className="bg-[#0C1F3F] text-white py-20 px-2 text-center relative overflow-hidden">
+      <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#0C1F3F] text-white py-20 px-2 text-center relative overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1A4FA0] via-[#3A7DD4] to-[#F5C97A]" />
         <div className="relative max-w-4xl mx-auto">
           <div className="inline-block bg-[#1A4FA0] text-xs tracking-[3px] px-6 py-2 rounded font-bold mb-6">
@@ -337,18 +341,24 @@ const PlantStartupDocumentation: React.FC = () => {
             <span>🇮🇳 INR figures throughout</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="max-w-8xl mx-auto px-6 py-16">
         {/* Lead */}
-        <p className="text-[18px] leading-relaxed border-l-4 border-[#3A7DD4] pl-6 text-[#0C1F3F] mb-12 font-serif">
+        <motion.p initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="text-[18px] leading-relaxed border-l-4 border-[#3A7DD4] pl-6 text-[#0C1F3F] mb-12 font-serif">
           Across Indian and global industrial projects, the single most
           consistent cause of delayed plant startups is not engineering failure
           — it is documentation failure.
-        </p>
+        </motion.p>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
           {[
             { n: "₹40 Cr+", l: "Average cost of one delayed startup week" },
             { n: "44%", l: "Of first-year plant failures linked to doc gaps" },
@@ -373,7 +383,7 @@ const PlantStartupDocumentation: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
           <div className="flex-1 h-px bg-[#DDE3F0]" /> Why It Matters{" "}
@@ -385,7 +395,10 @@ const PlantStartupDocumentation: React.FC = () => {
         </h2>
 
         {/* Chart 1 */}
-        <div className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
           <div className="text-xs font-bold tracking-widest text-[#6B7290] mb-4">
             Root causes of delayed plant startups — Indian EPC projects (% of
             surveyed projects)
@@ -393,7 +406,7 @@ const PlantStartupDocumentation: React.FC = () => {
           <div className="h-[300px]">
             <canvas ref={c1Ref} />
           </div>
-        </div>
+        </motion.div>
 
         <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
           <div className="flex-1 h-px bg-[#DDE3F0]" /> The Essential Documents{" "}
@@ -404,7 +417,10 @@ const PlantStartupDocumentation: React.FC = () => {
           Five Categories of Documents Required Before Plant Startup
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {[
             {
               num: "01",
@@ -448,10 +464,13 @@ const PlantStartupDocumentation: React.FC = () => {
               <p className="text-sm">{item.desc}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Chart 2 */}
-        <div className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
           <div className="text-xs font-bold tracking-widest text-[#6B7290] mb-4">
             Document readiness vs. startup risk — correlation across 140
             industrial projects
@@ -459,20 +478,26 @@ const PlantStartupDocumentation: React.FC = () => {
           <div className="h-[280px]">
             <canvas ref={c2Ref} />
           </div>
-        </div>
+        </motion.div>
 
         {/* Mechanical Completion Section */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
           <div className="flex-1 h-px bg-[#DDE3F0]" /> Mechanical Completion{" "}
           <div className="flex-1 h-px bg-[#DDE3F0]" />
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-8">
           Mechanical Completion: The Foundation Everything Else Rests On
         </h2>
 
         {/* Chart 3 */}
-        <div className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-12">
           <div className="text-xs font-bold tracking-widest text-[#6B7290] mb-4">
             Mechanical completion punch list — category distribution
           </div>
@@ -497,10 +522,13 @@ const PlantStartupDocumentation: React.FC = () => {
               Deferred items (19%)
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Table */}
-        <div className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-16 overflow-x-auto">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#DDE3F0] rounded-2xl p-8 mb-16 overflow-x-auto">
           <div className="text-xs font-bold tracking-widest text-[#6B7290] mb-6">
             Essential documents required before plant startup
           </div>
@@ -605,10 +633,13 @@ const PlantStartupDocumentation: React.FC = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
 
         {/* Case Study */}
-        <div className="bg-[#0C1F3F] text-white rounded-3xl p-12 mb-16 relative">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#0C1F3F] text-white rounded-3xl p-12 mb-16 relative">
           <div className="uppercase text-xs tracking-widest bg-[#1A4FA0] inline-block px-6 py-1 mb-6">
             Real-World Case Study
           </div>
@@ -642,13 +673,16 @@ const PlantStartupDocumentation: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Best Practices */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
           <div className="flex-1 h-px bg-[#DDE3F0]" /> Best Practices{" "}
           <div className="flex-1 h-px bg-[#DDE3F0]" />
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-8">
           Eight Practices That Ensure Document Readiness Before Startup
@@ -678,16 +712,22 @@ const PlantStartupDocumentation: React.FC = () => {
         </ol>
 
         {/* FAQ */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#6B7290] my-12">
           <div className="flex-1 h-px bg-[#DDE3F0]" /> FAQ{" "}
           <div className="flex-1 h-px bg-[#DDE3F0]" />
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-10">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-8 divide-y divide-[#DDE3F0]">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="space-y-8 divide-y divide-[#DDE3F0]">
           {[
             {
               q: "What documents are required before plant startup?",
@@ -725,7 +765,7 @@ const PlantStartupDocumentation: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Keywords */}
         <div className="flex flex-wrap gap-3 mt-20">
@@ -753,7 +793,10 @@ const PlantStartupDocumentation: React.FC = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className="bg-[#0C1F3F] text-white rounded-3xl p-16 text-center mt-24">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#0C1F3F] text-white rounded-3xl p-16 text-center mt-24">
           <h2 className="font-serif text-4xl text-[#F5C97A] mb-6">
             Make Document Readiness a Startup Prerequisite, Not an Afterthought
           </h2>
@@ -762,7 +805,7 @@ const PlantStartupDocumentation: React.FC = () => {
             packages — every document you get right before startup is one less
             crisis to manage after it.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">

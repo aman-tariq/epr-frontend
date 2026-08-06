@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
 
 const styles = `
 :root{--bg:#f7fbff;--card:#ffffff;--ink:#16324f;--muted:#5f7387;--line:#dce9f7;--blue:#1e66d0;--blue-2:#4ea1ff;--blue-3:#d9eeff;--blue-4:#0e3f7a;--soft:#eef7ff;--accent:#0b5cab;--good:#1f8a5b;--warn:#b57a00;--shadow:0 16px 40px rgba(17,54,93,.10)}
 
-.market-analysis-blog-root{margin:0;font-family:Arial, Helvetica, sans-serif;background:radial-gradient(circle at top left, rgba(78,161,255,.10), transparent 28%),radial-gradient(circle at top right, rgba(30,102,208,.08), transparent 22%),var(--bg);color:var(--ink);line-height:1.75}
+.market-analysis-blog-root{margin:0; margin-top: 120px; font-family:Arial, Helvetica, sans-serif;background:radial-gradient(circle at top left, rgba(78,161,255,.10), transparent 28%),radial-gradient(circle at top right, rgba(30,102,208,.08), transparent 22%),var(--bg);color:var(--ink);line-height:1.75}
 
-.hero{position:relative;overflow:hidden;background: linear-gradient(135deg, #0d2f5f 0%, #134a8a 45%, #2d87e8 100%);color:#fff;padding:84px 24px 68px;text-align:center}
+.hero{position:relative;overflow:hidden;background: linear-gradient(135deg, #0d2f5f 0%, #134a8a 45%, #2d87e8 100%);color:#fff;padding:84px 24px 68px;text-align:center; }
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,255,255,.06) 0 12%, transparent 12% 100%),linear-gradient(245deg, rgba(255,255,255,.05) 0 8%, transparent 8% 100%);pointer-events:none}
-.hero-badge{display:inline-block;text-transform:uppercase;letter-spacing:.26em;font-size:11px;font-weight:700;background: rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:8px 14px;border-radius:999px;margin-bottom:18px;backdrop-filter: blur(4px)}
+.hero-badge{display:inline-block;text-transform:uppercase;letter-spacing:.26em;font-size:11px;font-weight:700;background: rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:8px 14px;border-radius:999px;margin-bottom:18px;backdrop-filter: blur(4px); margin-top:80px;}
 .hero h1{margin:0 auto 18px;max-width:980px;font-size:clamp(28px,5.5vw,56px);line-height:1.08;font-weight:900;letter-spacing:-.03em}
 .hero h1 span{color:#cde8ff}
 .punchline{max-width:860px;margin:0 auto 30px;font-size:clamp(15px,2.2vw,21px);color:rgba(255,255,255,.86)}
@@ -130,6 +131,25 @@ const faqItems = [
   { question: 'What should be tracked every month?', answer: 'A good monthly review should include lead sources, segment conversion, average deal size, pickup time, resale channel performance, and regional demand shifts. Those indicators show whether the market strategy is working.' },
 ];
 
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
 const RVSFMarketAnalysisBlog: React.FC = () => {
   const mixChartRef = useRef<HTMLCanvasElement | null>(null);
   const scoreChartRef = useRef<HTMLCanvasElement | null>(null);
@@ -220,7 +240,7 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="market-analysis-blog-root">
+    <div className="market-analysis-blog-root ">
       <Seo
         title="RVSF Market Analysis 2026 - Target Segments, Buyer Demand & Growth Strategy for Registered Vehicle Scrapping Facility"
         description="Complete market analysis for Registered Vehicle Scrapping Facilities (RVSF). Learn target customer segments, regional demand, profitable product streams, and data-driven strategies to grow your scrapping business in India."
@@ -237,7 +257,17 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
         url="https://eprnexuss.com/blog/rvsf-market-analysis"
         type="article"  
       />
-      <header className="hero">
+      
+
+      <main className="container mt-10">
+        <div className="flex flex-col lg:flex-row gap-0 items-stretch">
+          <div>
+            <motion.header 
+        className="hero"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="hero-badge">Registered Vehicle Scrapping Facility</div>
         <h1>When your market data is clear, <span>your scrap strategy gets stronger.</span></h1>
         <p className="punchline">How We Help Clients with Market Analysis and Target Market Segments at a Registered Vehicle Scrapping Facility Plant — turning buyer demand, seller demand, and regional trends into practical growth decisions.</p>
@@ -246,24 +276,40 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
           <span>Market Segmentation</span>
           <span>Data-Driven Scrap Planning</span>
         </div>
-      </header>
-
-      <main className="container mt-10">
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+      </motion.header>
+          
           <div className="content-area flex-1 min-w-0">
             {/* All your content sections are here */}
-            <section className="lead">
+            <motion.section 
+              className="lead"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <p>For a registered vehicle scrapping facility, the real business does not begin when a vehicle arrives at the plant. It begins much earlier — when the team understands who is buying, who is selling, what each customer group values, and which locations offer the highest-volume opportunities. That is where market analysis becomes a growth tool, not just a reporting exercise. In this blog, we show how a facility can use practical data, segment-based thinking, and clear dashboards to help clients make faster, smarter decisions.</p>
-            </section>
+            </motion.section>
 
-          <section className="stats">
-            <div className="stat"><span className="num">6</span><div className="lbl">Core market segments</div></div>
-            <div className="stat"><span className="num">42%</span><div className="lbl">Better lead quality with segmentation</div></div>
-            <div className="stat"><span className="num">31%</span><div className="lbl">Faster buyer conversion with pricing clarity</div></div>
-            <div className="stat"><span className="num">2.4×</span><div className="lbl">More targeted inquiries from mapped regions</div></div>
-          </section>
+          <motion.section 
+            className="stats"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.div className="stat" variants={fadeInVariant}><span className="num">6</span><div className="lbl">Core market segments</div></motion.div>
+            <motion.div className="stat" variants={fadeInVariant}><span className="num">42%</span><div className="lbl">Better lead quality with segmentation</div></motion.div>
+            <motion.div className="stat" variants={fadeInVariant}><span className="num">31%</span><div className="lbl">Faster buyer conversion with pricing clarity</div></motion.div>
+            <motion.div className="stat" variants={fadeInVariant}><span className="num">2.4×</span><div className="lbl">More targeted inquiries from mapped regions</div></motion.div>
+          </motion.section>
 
-          <section className="two-col">
+          <motion.section 
+            className="two-col"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <article className="card">
               <h2>The punchline: good market analysis turns scrap into strategy</h2>
               <p>A registered vehicle scrapping facility is not only a recovery center for end-of-life vehicles. It is also a marketplace where the right buyers, the right sellers, and the right product streams need to meet at the right time. When we help clients understand their market, we help them answer a few important questions: Which customer groups are most likely to sell? Which buyers need what kind of material? Which regions create the best inbound flow? Which product categories should be prioritized for margin?</p>
@@ -287,22 +333,33 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
               </div>
               <div className="chart-box"><canvas ref={mixChartRef} /></div>
             </aside>
-          </section>
+          </motion.section>
 
           <section className="mobile-form-container">
             <StickyContactForm />
           </section>
 
-          <section>
+          <motion.section
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>How we help clients with market analysis</h2>
             <div className="grid-3">
               <div className="card phase"><div className="num">1</div><h3>Map the market</h3><p>We start by identifying where vehicles are coming from, which districts have the highest scrappage potential, and which routes produce the cheapest inbound logistics. This tells the client where to focus outreach and where to avoid expensive acquisition efforts.</p></div>
               <div className="card phase"><div className="num">2</div><h3>Study customer behavior</h3><p>Not every seller is the same. Fleet owners, private owners, insurers, dealers, and corporate asset teams all move differently. By grouping their behavior, we help the client design a message that feels direct, trustworthy, and relevant.</p></div>
               <div className="card phase"><div className="num">3</div><h3>Track value streams</h3><p>Some customers care most about speed. Others care about compliance, documentation, or returns from metal and reusable parts. We compare these priorities against plant output so the client can sell the right offer to the right audience.</p></div>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="two-col">
+          <motion.section 
+            className="two-col"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <article className="card">
               <h2>Target market segments that matter most</h2>
               <p>For a registered vehicle scrapping facility, the strongest market segments usually fall into a few clear groups. Each one has a different buying motive and a different way of responding to outreach. A smart facility does not use one message for everyone. It builds segment-specific offers.</p>
@@ -318,9 +375,15 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
               </div>
               <div className="chart-box tall"><canvas ref={scoreChartRef} /></div>
             </aside>
-          </section>
+          </motion.section>
 
-          <section className="card">
+          <motion.section 
+            className="card"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>Product value database</h2>
             <p style={{ marginBottom: 18 }}>This table helps clients see which product streams deserve the most attention when the plant is planning sales, outreach, and recovery targets.</p>
             <div className="table-responsive">
@@ -343,9 +406,15 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="two-col">
+          <motion.section 
+            className="two-col"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <div className="card chart-card">
               <div className="chart-title">
                 <div>
@@ -362,9 +431,15 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
               <p>That is the heart of our support: we do not just show numbers. We help clients interpret them. A graph only matters when it changes a decision — whether that is a pricing tweak, a new campaign, a pickup route revision, or a new segment to prioritize.</p>
               <div className="callout">Good market analysis does not try to sell everything to everyone. It helps a scrapping facility focus on the customers most likely to move, convert, and return with better margins.</div>
             </article>
-          </section>
+          </motion.section>
 
-          <section className="case">
+          <motion.section 
+            className="case"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>Case study: turning scattered inquiries into a focused sales engine</h2>
             <p>A registered vehicle scrapping facility serving a large urban region had steady walk-in traffic but weak conversion. Their problem was not lack of interest. It was poor segmentation. The team was treating every inquiry the same, whether it came from a fleet manager, a private owner, or a salvage buyer.</p>
             <p>We helped them build a simple market analysis dashboard, separate target segments by intent, and create different messages for each group. Fleet owners received a compliance and bulk pickup message. Private owners got a value-and-convenience message. Salvage buyers received a parts availability message. Within one quarter, the business had a far clearer sales funnel and much cleaner lead quality.</p>
@@ -373,9 +448,14 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
               <div className="case-box"><strong>29%</strong><span>Faster response time for high-value leads</span></div>
               <div className="case-box"><strong>2.1×</strong><span>More inbound demand from priority regions</span></div>
             </div>
-          </section>
+          </motion.section>
 
-          <section>
+          <motion.section
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>FAQ</h2>
             <div className="card faq">
               {faqItems.map((item, index) => (
@@ -387,23 +467,36 @@ const RVSFMarketAnalysisBlog: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
-          <section className="card">
+          <motion.section 
+            className="card"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>Why this approach works</h2>
             <p>When a registered vehicle scrapping facility uses market analysis properly, it stops operating like a passive collection point and starts behaving like a strategic business. That means better targeting, better pricing, better client communication, and stronger growth over time. The goal is not just to process vehicles — it is to understand the market that brings them in.</p>
             <p>By combining content, charts, and database-style segment mapping, clients can see the full picture in one place and make faster decisions with more confidence.</p>
-          </section>
+          </motion.section>
 
-          <section className="footer-cta">
+          <motion.section 
+            className="footer-cta"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2>Ready to build a smarter market strategy?</h2>
             <p>With the right analysis, your registered vehicle scrapping facility can identify high-value segments, improve conversion, and create a more reliable flow of clients and business opportunities.</p>
-          </section>
+          </motion.section>
+        </div>
         </div>
         
 
         <aside className="hidden lg:block shrink-0 w-[320px]">
-          <div className="sticky top-28 px-2">
+          <div className="sticky top-[86px] px-2">
             <StickyContactForm />
           </div>
         </aside>

@@ -1,8 +1,28 @@
 // src/components/blogs/solar-panel/DetailedProjectReport.tsx
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import { motion, Variants } from "framer-motion";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
+
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 const DetailedProjectReport: React.FC = () => {
   const materialValueRef = useRef<HTMLCanvasElement>(null);
@@ -33,13 +53,12 @@ const DetailedProjectReport: React.FC = () => {
               "#6b7280",
               "#94a3b8",
             ],
-            // Removed 'cutout' from here
           },
         ],
       },
       options: {
         responsive: true,
-        cutout: "55%", // Moved 'cutout' to the main options object
+        cutout: "55%",
         plugins: {
           legend: { position: "bottom" },
         },
@@ -146,8 +165,7 @@ const DetailedProjectReport: React.FC = () => {
   }, []);
 
   return (
-    // Note: Removed global overflow-x-hidden here to ensure CSS position: sticky computes perfectly
-    <div className="page font-['Manrope'] bg-gradient-to-b from-[#fefaf5] to-[#f8f6f2] text-[#1f2937] w-full p-4 md:p-6 lg:p-8">
+    <div className="page mt-[90px] font-['Manrope'] bg-gradient-to-b from-[#fefaf5] to-[#f8f6f2] text-[#1f2937] w-full p-4 md:p-6 lg:p-8">
       <Seo
         title="Detailed Project Report (DPR) for a Solar Panel Recycling Plant"
         description="Learn how to prepare a Detailed Project Report (DPR) for a solar panel recycling plant. Explore project planning, financial projections, compliance requirements, feasibility analysis, infrastructure, and operational strategies for a successful recycling business."
@@ -182,14 +200,16 @@ const DetailedProjectReport: React.FC = () => {
         type="article"
       />
 
-      {/* The parent element wrapper. `items-start` prevents the aside 
-        from stretching to full height, which would otherwise break stickiness.
-      */}
-      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-4 items-start relative w-full h-full min-h-screen">
+      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-1 items-start relative w-full h-full min-h-screen">
         {/* MAIN CONTENT COLUMN */}
         <main className="flex-1 w-full min-w-0">
           {/* HERO */}
-          <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0b2f2c] via-[#0f766e] to-[#c2410c] text-white rounded-[34px] px-6 md:px-12 py-16 md:py-20 mb-8 shadow-2xl w-full">
+          <motion.section
+            className="hero relative overflow-hidden bg-gradient-to-br from-[#0b2f2c] via-[#0f766e] to-[#c2410c] text-white rounded-[34px] px-6 md:px-12 py-16 md:py-20 mb-8 shadow-2xl w-full"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="absolute w-[300px] h-[300px] bg-white/10 rounded-full -top-20 -right-20 pointer-events-none" />
             <div className="absolute w-[200px] h-[200px] bg-white/10 rounded-full -bottom-16 -left-16 pointer-events-none" />
 
@@ -214,9 +234,9 @@ const DetailedProjectReport: React.FC = () => {
                 builds the circular solar economy.
               </div>
             </div>
-          </section>
+          </motion.section>
 
-          {/* MOBILE ONLY FORM PLACEMENT (Falls cleanly inline for better UX, disappears on desktop) */}
+          {/* MOBILE ONLY FORM PLACEMENT */}
           <div className="block lg:hidden w-full mb-8">
             <div className="bg-white rounded-3xl p-6 shadow-xl border border-[#e3dbcf]">
               <h3 className="text-xl font-bold mb-4 text-[#0b2f2c]">
@@ -227,7 +247,13 @@ const DetailedProjectReport: React.FC = () => {
           </div>
 
           {/* Grid 2 */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8 w-full">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] w-full min-w-0">
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0b2f2c]">
                 Why solar panel recycling needs a strong DPR
@@ -275,14 +301,26 @@ const DetailedProjectReport: React.FC = () => {
                 execution.
               </div>
             </section>
-          </div>
+          </motion.div>
 
           {/* Steps */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               DPR preparation journey for solar recycling plant
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
+            <motion.div
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   num: "1",
@@ -305,8 +343,9 @@ const DetailedProjectReport: React.FC = () => {
                   desc: "Environmental clearances, EPR, waste handling licenses.",
                 },
               ].map((step, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="step border border-[#e3dbcf] rounded-2xl p-5 bg-gradient-to-b from-white to-[#fffdf9] w-full"
                 >
                   <div className="num w-11 h-11 rounded-full bg-gradient-to-br from-[#0f766e] to-[#c2410c] text-white font-bold flex items-center justify-center mb-4">
@@ -314,13 +353,19 @@ const DetailedProjectReport: React.FC = () => {
                   </div>
                   <h4 className="font-bold text-lg mb-2">{step.title}</h4>
                   <p className="text-sm text-[#5f6b7a]">{step.desc}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* DPR Sections Table */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full overflow-hidden">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full overflow-hidden"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               What a complete solar panel recycling DPR includes
             </h2>
@@ -390,10 +435,16 @@ const DetailedProjectReport: React.FC = () => {
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
           {/* Charts Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8 w-full">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] w-full min-w-0">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
                 📊 Recovered material value share
@@ -418,10 +469,16 @@ const DetailedProjectReport: React.FC = () => {
                 total revenue by 40%.
               </p>
             </section>
-          </div>
+          </motion.div>
 
           {/* Bar + Segment */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8 w-full">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] w-full min-w-0">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
                 🎯 Target segment attractiveness (score /100)
@@ -463,10 +520,16 @@ const DetailedProjectReport: React.FC = () => {
                 ))}
               </div>
             </section>
-          </div>
+          </motion.div>
 
           {/* Database View */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               🗄️ Database view: Solar recycling DPR readiness tracker
             </h2>
@@ -503,10 +566,16 @@ const DetailedProjectReport: React.FC = () => {
               scattered information into a decision-ready dashboard for
               directors and lenders.
             </div>
-          </section>
+          </motion.section>
 
           {/* Case Study */}
-          <section className="card case bg-gradient-to-b from-[#fff9f1] to-white border border-[#fed7aa] rounded-3xl p-6 md:p-8 shadow-xl mb-8 w-full">
+          <motion.section
+            className="card case bg-gradient-to-b from-[#fff9f1] to-white border border-[#fed7aa] rounded-3xl p-6 md:p-8 shadow-xl mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0b2f2c]">
               📌 Case study: SunCircle Recycling
             </h2>
@@ -543,10 +612,16 @@ const DetailedProjectReport: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* Financial Snapshot */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full overflow-hidden">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full overflow-hidden"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               Financial snapshot (5 tons/day)
             </h2>
@@ -613,10 +688,16 @@ const DetailedProjectReport: React.FC = () => {
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
           {/* More Charts */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8 w-full">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] w-full min-w-0">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
                 ♻️ Circular value chain (indexed)
@@ -633,10 +714,16 @@ const DetailedProjectReport: React.FC = () => {
                 <canvas ref={wasteRef} className="max-w-full" />
               </div>
             </section>
-          </div>
+          </motion.div>
 
           {/* Trust Section */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               Why clients trust our DPR
             </h2>
@@ -668,10 +755,16 @@ const DetailedProjectReport: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* FAQ */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e3dbcf] mb-8 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0b2f2c]">
               Frequently asked questions
             </h2>
@@ -705,10 +798,16 @@ const DetailedProjectReport: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* Closing */}
-          <section className="closing text-white text-center py-12 md:py-16 rounded-[34px] bg-gradient-to-br from-[#0b2f2c] via-[#0f766e] to-[#c2410c] px-4 w-full">
+          <motion.section
+            className="closing text-white text-center py-12 md:py-16 rounded-[34px] bg-gradient-to-br from-[#0b2f2c] via-[#0f766e] to-[#c2410c] px-4 w-full"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-4xl font-bold mb-6">
               Final Thoughts — Your solar recycling project starts with the
               right DPR
@@ -722,14 +821,10 @@ const DetailedProjectReport: React.FC = () => {
               “Solar panels never truly retire — they transform into new
               resources.”
             </div>
-          </section>
+          </motion.section>
         </main>
 
-        {/* FIXED STICKY SIDEBAR: 
-          - Used `sticky top-28` to guarantee spacing below headers.
-          - Added `items-start` on the layout flex wrapper so the component has a defined bounding height to anchor along while scrolling.
-        */}
-        <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px]">
+        <aside className="hidden lg:block sticky top-28 self-start w-[300px] min-w-[300px]">
           <StickyContactForm />
         </aside>
       </div>

@@ -8,13 +8,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import hero1 from "@/assets/hero/pp1.jpg";
-import hero2 from "@/assets/hero/ss1.jpg";
-import hero3 from "@/assets/hero-1.jpg";
-import hero4 from "@/assets/hero-2.jpg";
-import hero5 from "@/assets/hero/epr-pp.png";
-import hero6 from "@/assets/hero/epr-ss.png";
-import hero7 from "@/assets/hero/feedstock-pp.png";
+import hero1 from "@/assets/hero/hero1.jpg";
+import hero2 from "@/assets/hero/hero2.jpg";
+import hero3 from "@/assets/hero/hero3.jpg";
+import hero4 from "@/assets/hero/hero4.jpg";
+import hero5 from "@/assets/hero/hero5.jpg";
+import hero6 from "@/assets/hero/hero6.jpg";
+import hero7 from "@/assets/hero/hero7.jpg";
 import hero8 from "@/assets/hero/network-ss.png";
 import hero9 from "@/assets/company-banner.jpg";
 import hero10 from "@/assets/recycling-process.jpg";
@@ -200,7 +200,7 @@ const slides = [
   // },
 ];
 
-const HeroSlider = () => {
+const  HeroSlider = () => {
   const [current, setCurrent] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
 
@@ -291,7 +291,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[750px] w-full overflow-hidden">
+    <section className="relative h-screen lg:min-h[100px] xl:min-h-[750px] w-full overflow-hidden">
       {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -340,7 +340,7 @@ const HeroSlider = () => {
               {/* Badge */}
               <div className="mb-7">
                 <span
-                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs md:text-sm font-medium uppercase tracking-[2px] border backdrop-blur-md text-white shadow-lg ${isPain
+                  className={`inline-flex items-center gap-2 px-6 py-3 lg:mt-10 lx:mt-0 rounded-full text-xs md:text-sm font-medium uppercase tracking-[2px] border backdrop-blur-md text-white shadow-lg ${isPain
                       ? "bg-red-400/15 border-red-200/30"
                       : isSolution
                         ? "bg-emerald-300/15 border-emerald-100/30"

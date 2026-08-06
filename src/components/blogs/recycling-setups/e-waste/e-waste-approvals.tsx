@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, Variants } from "framer-motion";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
 
@@ -8,14 +9,14 @@ const styles = {
     background: "linear-gradient(180deg,#eef4ff 0%, #f8fafc 35%, #f4f7fb 100%)",
     color: "#1f2937",
     lineHeight: "1.8",
-  } as React.CSSProperties,
+  },
 
   hero: {
     background: "linear-gradient(135deg,#0f172a 0%, #1d4ed8 52%, #0ea5e9 100%)",
-  } as React.CSSProperties,
+  },
 
   heroBefore: {
-    position: "absolute" as const,
+    position: "absolute",
     borderRadius: "50%",
     background: "rgba(255,255,255,0.09)",
     filter: "blur(0.5px)",
@@ -23,10 +24,10 @@ const styles = {
     height: "260px",
     top: "-80px",
     right: "-80px",
-  } as React.CSSProperties,
+  },
 
   heroAfter: {
-    position: "absolute" as const,
+    position: "absolute",
     borderRadius: "50%",
     background: "rgba(255,255,255,0.09)",
     filter: "blur(0.5px)",
@@ -34,28 +35,28 @@ const styles = {
     height: "180px",
     bottom: "-60px",
     left: "-50px",
-  } as React.CSSProperties,
+  },
 
   heroH1: {
     fontSize: "clamp(30px,3.8vw,52px)",
     lineHeight: "1.08",
     fontWeight: 800,
     marginBottom: "18px",
-  } as React.CSSProperties,
+  },
 
   heroP: {
     fontSize: "clamp(15px,1.3vw,18px)",
     color: "rgba(255,255,255,0.94)",
     maxWidth: "850px",
     margin: "0 auto",
-  } as React.CSSProperties,
+  },
 
   sectionH2: {
     fontSize: "clamp(22px,2vw,32px)",
     lineHeight: "1.15",
     color: "#0f172a",
     marginBottom: "14px",
-  } as React.CSSProperties,
+  },
 
   highlight: {
     background: "linear-gradient(135deg,#ecfeff 0%, #e0f2fe 50%, #eff6ff 100%)",
@@ -63,46 +64,66 @@ const styles = {
     borderRadius: "18px",
     padding: "clamp(14px, 3vw, 22px)",
     margin: "22px 0",
-  } as React.CSSProperties,
+  },
 
   stepNumber: {
     background: "linear-gradient(135deg,#1d4ed8,#0ea5e9)",
     boxShadow: "0 8px 18px rgba(29,78,216,0.24)",
-  } as React.CSSProperties,
+  },
 
   barFill: {
     background: "linear-gradient(90deg,#1d4ed8 0%, #0ea5e9 50%, #22c55e 100%)",
-  } as React.CSSProperties,
+  },
 
   dbBox: {
     background: "linear-gradient(180deg,#ffffff 0%, #f8fbff 100%)",
-  } as React.CSSProperties,
+  },
 
   caseStudy: {
     background: "linear-gradient(135deg,#fff7ed 0%, #fff1d6 100%)",
     border: "1px solid #fde68a",
-  } as React.CSSProperties,
+  },
 
   checkCard: {
     background: "linear-gradient(180deg,#ffffff 0%, #f8fbff 100%)",
-  } as React.CSSProperties,
+  },
 
   checkNum: {
     background: "linear-gradient(135deg,#0f172a,#1d4ed8)",
     flexShrink: 0,
-  } as React.CSSProperties,
+  },
 
   closing: {
     background: "linear-gradient(135deg,#07111f 0%, #123b76 55%, #0f766e 100%)",
     boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
-  } as React.CSSProperties,
+  },
 
   card: {
     boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
-  } as React.CSSProperties,
+  },
+} as const;
+
+// Motion animation variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  },
 };
 
-const EWasteApprovalsBlog: React.FC = () => {
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const EWasteApprovalsBlog = () => {
   return (
     <div className="w-full" style={{ ...styles.body, overflowX: "clip" }}>
       <Seo
@@ -144,9 +165,17 @@ const EWasteApprovalsBlog: React.FC = () => {
       />
 
       {/* ── OUTER PAGE WRAPPER ── */}
-      <div className=" max-w-8xl mx-auto px-1 lg:px-8 py-[34px] pb-[60px]">
-        {/* ── HERO: full width above two-col layout ── */}
-        <section
+      <div className="max-w-8xl mt-[80px]  mx-auto px-1 lg:px-8 py-[34px] pb-[60px]">
+        
+
+        {/* ── TWO-COLUMN: main content left, sticky sidebar right ── */}
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+          <div>
+            {/* ── HERO: full width above two-col layout ── */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative overflow-hidden text-white px-5 sm:px-[42px] py-12 sm:py-[78px] rounded-[30px] mb-[30px]"
           style={styles.hero}
         >
@@ -158,7 +187,7 @@ const EWasteApprovalsBlog: React.FC = () => {
             className="absolute rounded-full pointer-events-none"
             style={styles.heroAfter}
           />
-          <div className="relative z-10 w-full max-w-[900px] mx-auto text-center break-words">
+          <div className="relative z-10  w-full max-w-[900px] mx-auto text-center break-words">
             <div
               className="inline-block px-3 py-2 rounded-full text-[13px] font-semibold tracking-[0.4px] mb-[18px] max-w-full"
               style={{
@@ -166,7 +195,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                 border: "1px solid rgba(255,255,255,0.18)",
               }}
             >
-              E-Waste Recycling Plant | Approvals, Compliance & Project Planning
+              E-Waste Recycling Plant | Approvals, Compliance &amp; Project Planning
             </div>
             <h1 style={styles.heroH1}>Approvals on E-Waste Recycling Plant</h1>
             <p style={styles.heroP}>
@@ -181,18 +210,18 @@ const EWasteApprovalsBlog: React.FC = () => {
               easier to trust, and better to scale.
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* ── TWO-COLUMN: main content left, sticky sidebar right ── */}
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+
           {/* ── MAIN CONTENT ── */}
           <div className="flex-1 min-w-0 w-full flex flex-col gap-6">
             {/* Two intro cards */}
-            <div
-              className="grid grid-cols-1 lg:grid-cols-1 gap-[24px]"
-              style={{ gridTemplateColumns: undefined }}
-            >
-              <section
+            <div className="grid grid-cols-1 lg:grid-cols-1 gap-[24px]">
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
                 style={styles.card}
               >
@@ -232,7 +261,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                   ].map((pill) => (
                     <span
                       key={pill}
-                      className="text-[13px] font-semibold px-[14px] py-[8px] rounded-full"
+                      className="text-[13px] font-semibold px-[14px] py-[8px] rounded-full transition-transform hover:scale-105"
                       style={{
                         background: "#eef2ff",
                         color: "#3730a3",
@@ -243,9 +272,13 @@ const EWasteApprovalsBlog: React.FC = () => {
                     </span>
                   ))}
                 </div>
-              </section>
+              </motion.section>
 
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
                 style={styles.card}
               >
@@ -271,11 +304,15 @@ const EWasteApprovalsBlog: React.FC = () => {
                   This is why approval planning should begin before civil work
                   and before equipment purchase.
                 </p>
-              </section>
+              </motion.section>
             </div>
 
             {/* Major Approvals Table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
@@ -343,7 +380,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                         "Land legality and zoning fit",
                       ],
                     ].map(([approval, why, what], i) => (
-                      <tr key={i} className="hover:bg-[#f8fbff]">
+                      <tr key={i} className="hover:bg-[#f8fbff] transition-colors">
                         <td
                           className="text-[14px] text-[#334155] align-top"
                           style={{
@@ -376,21 +413,31 @@ const EWasteApprovalsBlog: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Checklist Grid */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
               <h2 style={styles.sectionH2}>
-                Licences & Approvals — The Complete Checklist
+                Licences &amp; Approvals — The Complete Checklist
               </h2>
               <p className="text-[#5b6472] text-[17px] mb-[14px]">
                 Below is a simple breakdown of the most important licences and
                 approvals for an e-waste recycling plant.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] mt-[18px]"
+              >
                 {[
                   {
                     num: 1,
@@ -441,8 +488,11 @@ const EWasteApprovalsBlog: React.FC = () => {
                     body: "This is a major step for keeping the project aligned with current e-waste responsibility requirements.",
                   },
                 ].map(({ num, title, sub, body }) => (
-                  <div
+                  <motion.div
                     key={num}
+                    variants={fadeInUp}
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
                     className="border border-[#e5e7eb] rounded-[18px] p-[20px]"
                     style={styles.checkCard}
                   >
@@ -454,7 +504,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                         {num}
                       </div>
                       <div>
-                        <h4 className="text-[16px] text-[#0f172a] m-0">
+                        <h4 className="text-[16px] text-[#0f172a] m-0 font-bold">
                           {title}
                         </h4>
                         <p className="text-[13px] text-[#5b6472] m-0 mt-1">
@@ -463,9 +513,9 @@ const EWasteApprovalsBlog: React.FC = () => {
                       </div>
                     </div>
                     <p className="text-[13px] text-[#5b6472] m-0">{body}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
               <div style={styles.highlight}>
                 <strong className="text-[#0f172a]">
                   Easy client explanation:
@@ -473,10 +523,14 @@ const EWasteApprovalsBlog: React.FC = () => {
                 these approvals work like a project shield. They protect the
                 plant, the business, and the investment before operations begin.
               </div>
-            </section>
+            </motion.section>
 
             {/* Steps */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
@@ -487,7 +541,13 @@ const EWasteApprovalsBlog: React.FC = () => {
                 A client understands compliance better when it is shown as a
                 sequence.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     n: 1,
@@ -510,8 +570,11 @@ const EWasteApprovalsBlog: React.FC = () => {
                     body: "Complete inspection, resolve queries, and move toward trial production and operation.",
                   },
                 ].map(({ n, title, body }) => (
-                  <div
+                  <motion.div
                     key={n}
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                     className="border border-[#e5e7eb] rounded-[18px] p-[18px] sm:min-h-[150px]"
                     style={{
                       background:
@@ -524,22 +587,26 @@ const EWasteApprovalsBlog: React.FC = () => {
                     >
                       {n}
                     </div>
-                    <h4 className="text-[15px] text-[#0f172a] mb-[8px]">
+                    <h4 className="text-[15px] text-[#0f172a] mb-[8px] font-bold">
                       {title}
                     </h4>
                     <p className="text-[13px] text-[#5b6472] m-0">{body}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* Bar Chart + Readiness */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[24px]">
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[28px] border border-[rgba(229,231,235,0.8)]"
                 style={styles.card}
               >
-                <h2 className="text-[20px] leading-[1.2] text-[#0f172a] mb-[8px]">
+                <h2 className="text-[20px] leading-[1.2] font-bold text-[#0f172a] mb-[8px]">
                   Bar graph: approval effort
                 </h2>
                 <p className="text-[#5b6472] mb-[16px] text-[13px]">
@@ -558,9 +625,13 @@ const EWasteApprovalsBlog: React.FC = () => {
                         {label}
                       </div>
                       <div className="flex-1 h-[14px] bg-[#e5e7eb] rounded-full overflow-hidden">
-                        <div
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${pct}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
                           className="h-full rounded-full"
-                          style={{ width: `${pct}%`, ...styles.barFill }}
+                          style={styles.barFill}
                         />
                       </div>
                       <div className="text-[12px] font-bold text-[#0f172a] w-[32px] text-right flex-shrink-0">
@@ -572,13 +643,17 @@ const EWasteApprovalsBlog: React.FC = () => {
                 <p className="text-[11px] text-[#64748b] mt-[10px]">
                   Higher bars = more planning effort needed.
                 </p>
-              </section>
+              </motion.section>
 
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[28px] border border-[rgba(229,231,235,0.8)]"
                 style={styles.card}
               >
-                <h2 className="text-[20px] leading-[1.2] text-[#0f172a] mb-[8px]">
+                <h2 className="text-[20px] leading-[1.2] font-bold text-[#0f172a] mb-[8px]">
                   Project readiness score
                 </h2>
                 <p className="text-[#5b6472] mb-[16px] text-[13px]">
@@ -630,11 +705,15 @@ const EWasteApprovalsBlog: React.FC = () => {
                     risky and more investable.
                   </span>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* Additional Topics */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
@@ -646,7 +725,7 @@ const EWasteApprovalsBlog: React.FC = () => {
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
                 <div>
-                  <h3 className="text-[18px] leading-[1.2] text-[#0f172a] mt-[16px] mb-[10px]">
+                  <h3 className="text-[18px] leading-[1.2] font-bold text-[#0f172a] mt-[16px] mb-[10px]">
                     1. Plant layout and approval connection
                   </h3>
                   <p className="text-[#5b6472] text-[15px] mb-[12px]">
@@ -655,7 +734,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                     zones, processing areas, fire exits, and waste-handling
                     points must all be planned carefully.
                   </p>
-                  <h3 className="text-[18px] leading-[1.2] text-[#0f172a] mt-[16px] mb-[10px]">
+                  <h3 className="text-[18px] leading-[1.2] font-bold text-[#0f172a] mt-[16px] mb-[10px]">
                     2. Document checklist
                   </h3>
                   <p className="text-[#5b6472] text-[15px] mb-[12px]">
@@ -665,7 +744,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-[18px] leading-[1.2] text-[#0f172a] mt-[16px] mb-[10px]">
+                  <h3 className="text-[18px] leading-[1.2] font-bold text-[#0f172a] mt-[16px] mb-[10px]">
                     3. Risk if approvals are delayed
                   </h3>
                   <p className="text-[#5b6472] text-[15px] mb-[12px]">
@@ -674,7 +753,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                     cases, the cost of delay becomes more expensive than the
                     approval itself.
                   </p>
-                  <h3 className="text-[18px] leading-[1.2] text-[#0f172a] mt-[16px] mb-[10px]">
+                  <h3 className="text-[18px] leading-[1.2] font-bold text-[#0f172a] mt-[16px] mb-[10px]">
                     4. Why compliance builds trust
                   </h3>
                   <p className="text-[#5b6472] text-[15px] mb-[12px]">
@@ -692,10 +771,14 @@ const EWasteApprovalsBlog: React.FC = () => {
                 approvals tell the market that the plant is serious, safe, and
                 ready for long-term business.
               </div>
-            </section>
+            </motion.section>
 
             {/* Tracking Database Table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
@@ -762,7 +845,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                         "Cannot begin production",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-[#f8fbff]">
+                      <tr key={i} className="hover:bg-[#f8fbff] transition-colors">
                         {row.map((cell, j) => (
                           <td
                             key={j}
@@ -780,10 +863,14 @@ const EWasteApprovalsBlog: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case Study */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="rounded-[22px] p-4 sm:p-[32px]"
               style={{ ...styles.card, ...styles.caseStudy }}
             >
@@ -816,7 +903,7 @@ const EWasteApprovalsBlog: React.FC = () => {
                     style={{ border: "1px solid #fbd38d" }}
                   >
                     <h4
-                      className="text-[15px] mb-[8px]"
+                      className="text-[15px] mb-[8px] font-bold"
                       style={{ color: "#9a3412" }}
                     >
                       {title}
@@ -834,10 +921,14 @@ const EWasteApprovalsBlog: React.FC = () => {
                 when approvals are planned early, the project becomes easier to
                 execute and safer to manage.
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-[32px] border border-[rgba(229,231,235,0.8)]"
               style={styles.card}
             >
@@ -859,17 +950,21 @@ const EWasteApprovalsBlog: React.FC = () => {
                 ].map(({ q, a }) => (
                   <div
                     key={q}
-                    className="border border-[#e5e7eb] rounded-[18px] p-[18px] bg-white"
+                    className="border border-[#e5e7eb] rounded-[18px] p-[18px] bg-white hover:border-sky-300 transition-colors"
                   >
-                    <h4 className="text-[16px] mb-[6px] text-[#0f172a]">{q}</h4>
+                    <h4 className="text-[16px] mb-[6px] text-[#0f172a] font-bold">{q}</h4>
                     <p className="m-0 text-[14px] text-[#5b6472]">{a}</p>
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="text-center text-white px-4 sm:px-[30px] py-10 sm:py-[58px] rounded-[30px]"
               style={styles.closing}
             >
@@ -892,16 +987,16 @@ const EWasteApprovalsBlog: React.FC = () => {
               <div className="text-[27px] font-bold mt-[20px] text-white">
                 "Strong approvals build stronger recycling businesses."
               </div>
-            </section>
+            </motion.section>
           </div>
           {/* end main content */}
+          </div>
 
           {/* ── STICKY SIDEBAR ── */}
-          <aside
-            className="hidden lg:block w-[280px] flex-shrink-0 self-start"
-            style={{ position: "sticky", top: "7rem" }}
-          >
-            <StickyContactForm />
+          <aside className="hidden lg:block w-[280px] shrink-0">
+            <div className="sticky top-[80px] px-2">
+              <StickyContactForm />
+            </div>
           </aside>
         </div>
         {/* end flex row */}

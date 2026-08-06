@@ -1,7 +1,27 @@
 import React, { useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import Chart from 'chart.js/auto';
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeInVariant: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
+};
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
 
 const TyreDpr: React.FC = () => {
     useEffect(() => {
@@ -53,10 +73,20 @@ const TyreDpr: React.FC = () => {
             />
             
             {/* Main Outer Container shifted to a bright, readable light slate layout */}
-            <div className="bg-[#f8fafc] text-[#1e293b] font-['Inter'] min-h-screen pb-16">
+            <div className="bg-[#f8fafc] mt-[120px] text-[#1e293b] font-['Inter'] min-h-screen pb-16">
 
-                {/* HERO — Revamped with a light blue and secondary teal-sky gradient background */}
-                <section className="relative overflow-hidden rounded-3xl mx-4 md:mx-6 mt-8 p-4 lg:p-12 md:p-20 text-center border border-[#d0e1f9]"
+                
+
+                {/* Content and Sidebar Responsive Grid Split */}
+                <div className="max-w-8xl mx-auto px-2 lg:px-2 py-12">
+                    <div className="flex flex-col lg:flex-row gap-2 items-stretch">
+                        <div>
+                            {/* HERO — Revamped with a light blue and secondary teal-sky gradient background */}
+                <motion.section 
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInVariant}
+                    className="relative overflow-hidden rounded-3xl mx-4 md:mx-6  p-4 lg:p-12 md:p-20 text-center border border-[#d0e1f9]"
                     style={{
                         background: 'linear-gradient(135deg, rgba(240,246,255,0.95), rgba(56,189,248,0.15)), linear-gradient(135deg,#ffffff 0%,#e2f1e9 55%,#e0f2fe 100%)'
                     }}>
@@ -64,7 +94,7 @@ const TyreDpr: React.FC = () => {
                     <div className="absolute w-[180px] h-[180px] bg-[#22c55e]/10 rounded-full -bottom-12 -left-12" />
 
                     <div className="relative z-10 max-w-4xl mx-auto">
-                        <div className="inline-block px-4 lg:px-6 py-3 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-sm font-bold tracking-wider mb-8 text-[#0369a1]">
+                        <div className="inline-block px-4 mt-10 lg:px-6 py-3 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-sm font-bold tracking-wider mb-8 text-[#0369a1]">
                             Tyre Waste Recycling | DPR Planning & Project Structuring
                         </div>
                         <h1 className="text-2xl lg:text-4xl md:text-6xl font-bold leading-tight tracking-tighter mb-8 text-[#0f172a]">
@@ -77,18 +107,20 @@ const TyreDpr: React.FC = () => {
                             “A strong DPR gives your recycling business clarity before construction even begins.”
                         </div>
                     </div>
-                </section>
-
-                {/* Content and Sidebar Responsive Grid Split */}
-                <div className="max-w-7xl mx-auto px-4 lg:px-6 py-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr,350px] gap-8 lg:gap-12 items-start">
+                </motion.section>
                         
                         {/* MAIN CONTENT COLUMN */}
                         <main className="min-w-0">
                             
                             {/* WHY + HOW WE HELP */}
-                            <div className="grid md:grid-cols-1 gap-8 mb-12">
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={staggerContainer}
+                                className="grid md:grid-cols-1 gap-8 mb-12"
+                            >
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
                                     <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Why a bankable DPR matters</h2>
                                     <p className="text-[#475569] mb-6">
                                         In tyre waste recycling, the DPR is more than a formal document. It becomes the foundation of the entire project.
@@ -104,9 +136,9 @@ const TyreDpr: React.FC = () => {
                                             <span key={chip} className="px-5 py-2 text-sm font-bold rounded-full bg-[#f8fafc] border border-[#cbd5e1] text-[#334155]">{chip}</span>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
 
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
                                     <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">How we help our clients</h2>
                                     <p className="text-[#475569] mb-8">
                                         We simplify DPR preparation — delivering a detailed, readable, and commercially practical report.
@@ -114,11 +146,17 @@ const TyreDpr: React.FC = () => {
                                     <div className="highlight bg-[#e2f1e9] border-l-4 border-[#22c55e] p-6 rounded-2xl">
                                         <strong className="text-[#0f172a]">Client benefit:</strong> The project becomes easier to explain, finance, and execute.
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* WHO THIS IS FOR */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Who this DPR is for</h2>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {[
@@ -133,10 +171,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* BUSINESS VALUE CHAIN */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">How the tyre recycling business works</h2>
                                 <p className="text-[#475569] mb-10">Complete value chain from input to final output.</p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -156,10 +200,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* DPR TOPICS TABLE */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Key topics included in the DPR</h2>
                                 <div className="overflow-x-auto rounded-2xl border border-[#cbd5e1]">
                                     <table className="w-full min-w-[900px]">
@@ -191,12 +241,18 @@ const TyreDpr: React.FC = () => {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* CHARTS SECTION */}
-                            <div className="grid md:grid-cols-1 gap-8 mb-12">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={staggerContainer}
+                                className="grid md:grid-cols-1 gap-8 mb-12"
+                            >
                                 {/* Focus Areas Bar Chart Container */}
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 md:p-8 shadow-sm">
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 md:p-8 shadow-sm">
                                     <h3 className="text-xl md:text-2xl font-bold mb-6 text-[#0f172a]">
                                         Major Focus Areas in DPR Preparation
                                     </h3>
@@ -207,10 +263,10 @@ const TyreDpr: React.FC = () => {
                                             className="!w-full !h-full"
                                         />
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {/* Readiness Tracker */}
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
                                     <h3 className="text-xl md:text-2xl font-bold mb-6 text-[#0f172a]">DPR Readiness Tracker</h3>
                                     <div className="grid grid-cols-1 gap-6">
                                         {[
@@ -225,12 +281,18 @@ const TyreDpr: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* TARGET MARKETS & REVENUE STREAMS */}
-                            <div className="grid md:grid-cols-1 gap-8 mb-12">
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={staggerContainer}
+                                className="grid md:grid-cols-1 gap-8 mb-12"
+                            >
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
                                     <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Target Market Segments</h2>
                                     {[
                                         ["Rubber product manufacturers", "Flooring, molded goods, industrial products"],
@@ -243,9 +305,9 @@ const TyreDpr: React.FC = () => {
                                             <p className="text-sm text-[#475569]">{desc}</p>
                                         </div>
                                     ))}
-                                </div>
+                                </motion.div>
 
-                                <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
+                                <motion.div variants={fadeInVariant} className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 shadow-sm">
                                     <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">What the business can earn from</h2>
                                     <div className="grid grid-cols-1 gap-5">
                                         {[
@@ -264,11 +326,17 @@ const TyreDpr: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* RISKS SECTION */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Risks and how the DPR addresses them</h2>
                                 <p className="text-[#475569] mb-10">
                                     Every project has challenges. A good DPR does not hide them; it explains them and shows how they can be managed.
@@ -286,10 +354,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* IMPLEMENTATION ROADMAP */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Implementation roadmap</h2>
                                 <p className="text-[#475569] mb-10">
                                     Clients often understand a project better when the full journey is shown in stages.
@@ -311,10 +385,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* HOW WE MAKE DPR EASIER */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">How we make the DPR easier for clients to understand</h2>
                                 <p className="text-[#475569] mb-10">
                                     A project report should not feel confusing. We organize the content in a practical way.
@@ -332,10 +412,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* CASE STUDY */}
-                            <div className="bg-white border border-[#f59e0b]/40 rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#f59e0b]/40 rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-6 text-[#0f172a]">Case Study: Turning an Idea into a Structured Project</h2>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {[
@@ -349,10 +435,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* FAQ */}
-                            <div className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="bg-white border border-[#d0e1f9] rounded-3xl p-4 lg:p-8 md:p-10 mb-12 shadow-sm"
+                            >
                                 <h2 className="text-xl lg:text-3xl font-bold mb-8 text-[#0f172a]">Frequently Asked Questions</h2>
                                 <div className="space-y-6">
                                     {[
@@ -366,10 +458,16 @@ const TyreDpr: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* CLOSING CALL TO ACTION SECTION */}
-                            <div className="closing rounded-3xl p-12 md:p-20 text-center border border-[#d0e1f9] mt-12 bg-gradient-to-br from-[#ffffff] via-[#f0f6ff] to-[#e2f1e9]">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInVariant}
+                                className="closing rounded-3xl p-12 md:p-20 text-center border border-[#d0e1f9] mt-12 bg-gradient-to-br from-[#ffffff] via-[#f0f6ff] to-[#e2f1e9]"
+                            >
                                 <h2 className="text-xl lg:text-4xl font-bold mb-6 text-[#0f172a]">Final Thoughts</h2>
                                 <p className="text-lg text-[#475569] max-w-3xl mx-auto">
                                     A strong Detailed Project Report is the backbone of a successful tyre waste recycling project.
@@ -377,13 +475,14 @@ const TyreDpr: React.FC = () => {
                                 <div className="mt-10 text-lg lg:text-2xl font-bold text-[#0f172a]">
                                     “We turn recycling ideas into structured business opportunities.”
                                 </div>
-                            </div>
+                            </motion.div>
 
                         </main>
+                        </div>
                         
                         {/* STICKY SIDEBAR COLUMN — Aligned with the light blue theme frames */}
-                        <aside className="hidden lg:block sticky top-24 self-start h-fit will-change-transform z-30">
-                            <div className="rounded-3xl border border-[#d0e1f9] bg-white p-1 shadow-sm">
+                        <aside className="hidden lg:block shrink-0 w-[320px]">
+                            <div className="sticky top-28 px-2">
                                 <StickyContactForm />
                             </div>
                         </aside>

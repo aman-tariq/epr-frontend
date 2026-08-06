@@ -172,7 +172,7 @@ const faqs = [
 
 export default function LegallySellIndustrialBatteriesBlog() {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background  mt-[120px] min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border mt-[60px]">
         <div className="absolute inset-0 bg-gradient-to-br from-brandGreen/10 via-background to-secondary/10" />

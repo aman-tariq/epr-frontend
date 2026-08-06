@@ -1,7 +1,37 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import StickyContactForm from "../../StickyContactForm";
 import Seo from "@/components/Seo";
+
+// Framer Motion Animation Variant
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+// Reusable Scroll Reveal Wrapper
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const VehicleScrappingBlog: React.FC = () => {
   // --- Static Data Definitions ---
@@ -92,800 +122,830 @@ const VehicleScrappingBlog: React.FC = () => {
 
       <div className="page-body">
         {/* TAGS */}
-        <div style={styles.topChips}>
-          <div style={styles.chip}>EPR Nexuss</div>
-          <div style={styles.chip}>Vehicle Scrapping Facility</div>
-          <div style={styles.chip}>Unique design edition</div>
-          <div style={styles.chip}>Investor-ready storytelling</div>
-        </div>
+        <Reveal delay={0.1}>
+          <div style={styles.topChips}>
+            <div style={styles.chip}>EPR Nexuss</div>
+            <div style={styles.chip}>Vehicle Scrapping Facility</div>
+            <div style={styles.chip}>Unique design edition</div>
+            <div style={styles.chip}>Investor-ready storytelling</div>
+          </div>
+        </Reveal>
 
         {/* HERO */}
-        <div style={styles.hero}>
-          <div style={styles.heroBefore}></div>
-          <div style={styles.heroAfter}></div>
-          <div style={styles.eyebrow}>
-            A business built from recovery, compliance, and smart logistics
-          </div>
-          <div className="hero-grid">
-            <div>
-              <h1>
-                When a vehicle reaches the end of the road,{" "}
-                <em style={{ fontStyle: "normal", color: "#fde68a" }}>
-                  the real value begins.
-                </em>
-              </h1>
-              <p>
-                A scrapping facility can convert old vehicles into a clean,
-                organised revenue stream. The right setup creates income from
-                metal recovery, parts resale, certificate processing, and
-                collection partnerships.
-              </p>
+        <Reveal delay={0.2}>
+          <div style={styles.hero}>
+            <div style={styles.heroBefore}></div>
+            <div style={styles.heroAfter}></div>
+            <div style={styles.eyebrow}>
+              A business built from recovery, compliance, and smart logistics
             </div>
-            <div style={styles.heroSide}>
-              <h3>Market pulse</h3>
-              <div className="grid-mini">
-                <div style={styles.miniStat}>
-                  <div style={styles.miniStatV}>51L+</div>
-                  <div style={styles.miniStatL}>
-                    End-of-life vehicles available
+            <div className="hero-grid">
+              <div>
+                <h1>
+                  When a vehicle reaches the end of the road,{" "}
+                  <em style={{ fontStyle: "normal", color: "#fde68a" }}>
+                    the real value begins.
+                  </em>
+                </h1>
+                <p>
+                  A scrapping facility can convert old vehicles into a clean,
+                  organised revenue stream. The right setup creates income from
+                  metal recovery, parts resale, certificate processing, and
+                  collection partnerships.
+                </p>
+              </div>
+              <div style={styles.heroSide}>
+                <h3>Market pulse</h3>
+                <div className="grid-mini">
+                  <div style={styles.miniStat}>
+                    <div style={styles.miniStatV}>51L+</div>
+                    <div style={styles.miniStatL}>
+                      End-of-life vehicles available
+                    </div>
                   </div>
-                </div>
-                <div style={styles.miniStat}>
-                  <div style={styles.miniStatV}>₹10K Cr</div>
-                  <div style={styles.miniStatL}>
-                    Illustrative opportunity value
+                  <div style={styles.miniStat}>
+                    <div style={styles.miniStatV}>₹10K Cr</div>
+                    <div style={styles.miniStatL}>
+                      Illustrative opportunity value
+                    </div>
                   </div>
-                </div>
-                <div style={styles.miniStat}>
-                  <div style={styles.miniStatV}>3–6 Acres</div>
-                  <div style={styles.miniStatL}>Best mid-scale footprint</div>
-                </div>
-                <div style={styles.miniStat}>
-                  <div style={styles.miniStatV}>18–22 Mo</div>
-                  <div style={styles.miniStatL}>Project execution cycle</div>
+                  <div style={styles.miniStat}>
+                    <div style={styles.miniStatV}>3–6 Acres</div>
+                    <div style={styles.miniStatL}>Best mid-scale footprint</div>
+                  </div>
+                  <div style={styles.miniStat}>
+                    <div style={styles.miniStatV}>18–22 Mo</div>
+                    <div style={styles.miniStatL}>Project execution cycle</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div style={styles.meta}>
-          <span>
-            Prepared by{" "}
-            <strong style={{ color: "#2563eb" }}>EPR Nexuss Team</strong>
-          </span>
-          <span>April 2026</span>
-          <span>Vehicle scrapping business blog</span>
-        </div>
+        <Reveal delay={0.25}>
+          <div style={styles.meta}>
+            <span>
+              Prepared by{" "}
+              <strong style={{ color: "#2563eb" }}>EPR Nexuss Team</strong>
+            </span>
+            <span>April 2026</span>
+            <span>Vehicle scrapping business blog</span>
+          </div>
+        </Reveal>
 
         {/* LAYOUT 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
-          <div style={styles.card}>
-            <h2 style={styles.title}>Why the organised route wins</h2>
-            <p style={styles.sub}>
-              A registered scrapping facility performs better because it
-              controls the process, the documentation, and the revenue flow.
-            </p>
-            <p>
-              Instead of handling vehicles as loose scrap, a formal plant works
-              with a structured intake, depollution stage, dismantling section,
-              recovery line, and traceable certificate workflow. That gives the
-              business more credibility, more control, and more ways to earn.
-            </p>
-            <div style={styles.featureNote}>
-              Punch line: Old vehicles are not a burden when the system knows
-              how to unlock their hidden value.
+          <Reveal delay={0.1}>
+            <div style={styles.card}>
+              <h2 style={styles.title}>Why the organised route wins</h2>
+              <p style={styles.sub}>
+                A registered scrapping facility performs better because it
+                controls the process, the documentation, and the revenue flow.
+              </p>
+              <p>
+                Instead of handling vehicles as loose scrap, a formal plant works
+                with a structured intake, depollution stage, dismantling section,
+                recovery line, and traceable certificate workflow. That gives the
+                business more credibility, more control, and more ways to earn.
+              </p>
+              <div style={styles.featureNote}>
+                Punch line: Old vehicles are not a burden when the system knows
+                how to unlock their hidden value.
+              </div>
+              <div style={styles.tags}>
+                <span style={styles.tag}>Metal recovery</span>
+                <span style={styles.tag}>Digital certificates</span>
+                <span style={styles.tag}>Fleet partnerships</span>
+                <span style={styles.tag}>Compliance-focused model</span>
+              </div>
             </div>
-            <div style={styles.tags}>
-              <span style={styles.tag}>Metal recovery</span>
-              <span style={styles.tag}>Digital certificates</span>
-              <span style={styles.tag}>Fleet partnerships</span>
-              <span style={styles.tag}>Compliance-focused model</span>
-            </div>
-          </div>
+          </Reveal>
 
-          <div style={styles.card}>
-            <h2 style={styles.title}>What happens inside the plant</h2>
-            <div className="story-grid">
-              <div style={styles.story}>
-                <div style={styles.storyIcon}>🚗</div>
-                <h3>Receiving</h3>
-                <p>
-                  Vehicles are inspected, recorded, weighed, and tagged before
-                  processing begins.
-                </p>
-              </div>
-              <div style={styles.story}>
-                <div style={styles.storyIcon}>🧪</div>
-                <h3>Depollution</h3>
-                <p>
-                  Fluids, batteries, and other hazardous components are safely
-                  removed first.
-                </p>
-              </div>
-              <div style={styles.story}>
-                <div style={styles.storyIcon}>🔩</div>
-                <h3>Dismantling</h3>
-                <p>
-                  Reusable parts are separated and sent to resale or
-                  refurbishment channels.
-                </p>
-              </div>
-              <div style={styles.story}>
-                <div style={styles.storyIcon}>📊</div>
-                <h3>Tracking</h3>
-                <p>
-                  Vehicle identity, certificate flow, and material movement are
-                  documented digitally.
-                </p>
+          <Reveal delay={0.2}>
+            <div style={styles.card}>
+              <h2 style={styles.title}>What happens inside the plant</h2>
+              <div className="story-grid">
+                <div style={styles.story}>
+                  <div style={styles.storyIcon}>🚗</div>
+                  <h3>Receiving</h3>
+                  <p>
+                    Vehicles are inspected, recorded, weighed, and tagged before
+                    processing begins.
+                  </p>
+                </div>
+                <div style={styles.story}>
+                  <div style={styles.storyIcon}>🧪</div>
+                  <h3>Depollution</h3>
+                  <p>
+                    Fluids, batteries, and other hazardous components are safely
+                    removed first.
+                  </p>
+                </div>
+                <div style={styles.story}>
+                  <div style={styles.storyIcon}>🔩</div>
+                  <h3>Dismantling</h3>
+                  <p>
+                    Reusable parts are separated and sent to resale or
+                    refurbishment channels.
+                  </p>
+                </div>
+                <div style={styles.story}>
+                  <div style={styles.storyIcon}>📊</div>
+                  <h3>Tracking</h3>
+                  <p>
+                    Vehicle identity, certificate flow, and material movement are
+                    documented digitally.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* SECTION */}
         <div className="section-block">
           {/* ELV Forecast Chart */}
-          <div style={styles.chart} className="chart-card-container">
+          <Reveal delay={0.1}>
+            <div style={styles.chart} className="chart-card-container">
+              <div style={styles.chartHead}>
+                <div>
+                  <h3>ELV growth forecast</h3>
+                  <p>Planning curve for a vehicle scrapping project</p>
+                </div>
+                <p>Units in lakh vehicles</p>
+              </div>
+              <div className="chart-scroll-container">
+                <div className="bar-chart-canvas">
+                  {elvData.map((d, index) => {
+                    const h = Math.round((d.v / 118) * 168);
+                    return (
+                      <div className="bar-col" key={index}>
+                        <div className="bar-top">{d.v}L</div>
+                        <div
+                          className={`bar ${d.a ? "" : "alt"}`}
+                          style={{ height: `${h}px` }}
+                        ></div>
+                        <div className="bar-label">{d.y}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Recovery Database Chart */}
+          <Reveal delay={0.2}>
+            <div style={styles.chart} className="chart-card-container">
+              <div style={styles.chartHead}>
+                <div>
+                  <h3>Recovery database</h3>
+                  <p>Quick view of the most valuable input streams</p>
+                </div>
+                <p>Recovery score and indicative value</p>
+              </div>
+              <div className="db-layout-container">
+                {matData.map((d, index) => (
+                  <div className="db-row-custom" key={index}>
+                    <div className="db-name-custom">{d.name}</div>
+                    <div className="db-bar-custom">
+                      <div
+                        className="db-fill-custom"
+                        style={{ width: `${d.pct}%`, background: d.color }}
+                      ></div>
+                    </div>
+                    <div className="db-right-custom">
+                      {d.val} · Recovery {d.pct}%
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Vehicle Type Split Table */}
+          <Reveal delay={0.3}>
+            <div style={styles.chart} className="chart-card-container">
+              <div style={styles.chartHead}>
+                <div>
+                  <h3>Vehicle type split</h3>
+                  <p>Useful for capacity, layout, and workflow planning</p>
+                </div>
+              </div>
+              <div className="table-wrapper">
+                <table style={styles.table}>
+                  <thead>
+                    <tr>
+                      <th style={styles.tableTh}>Vehicle type</th>
+                      <th style={styles.tableTh}>Estimated share</th>
+                      <th style={styles.tableTh}>Why it matters</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={styles.tableTd}>Two-wheelers</td>
+                      <td style={styles.tableTd}>
+                        <span style={styles.badge}>42%</span>
+                      </td>
+                      <td style={styles.tableTd}>
+                        High intake volume with fast movement through the line.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Passenger cars / SUVs</td>
+                      <td style={styles.tableTd}>
+                        <span style={styles.badge}>24%</span>
+                      </td>
+                      <td style={styles.tableTd}>
+                        Good resale parts and balanced material recovery.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Commercial vehicles</td>
+                      <td style={styles.tableTd}>
+                        <span style={styles.badge}>15%</span>
+                      </td>
+                      <td style={styles.tableTd}>
+                        Heavier recovery, more steel, and larger dismantling work.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Three-wheelers</td>
+                      <td style={styles.tableTd}>
+                        <span style={styles.badge}>9%</span>
+                      </td>
+                      <td style={styles.tableTd}>
+                        Urban collection opportunity with steady throughput.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Tractors / others</td>
+                      <td style={styles.tableTd}>
+                        <span style={styles.badge}>10%</span>
+                      </td>
+                      <td style={styles.tableTd}>
+                        Regional inflow stream for broader reach.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* LAYOUT 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
+          <Reveal delay={0.1}>
+            <div style={styles.card}>
+              <h2 style={styles.title}>Site selection and land strategy</h2>
+              <p style={styles.sub}>
+                A smart plot makes the facility safer, cleaner, and easier to
+                grow.
+              </p>
+              <div className="table-wrapper">
+                <table style={styles.table}>
+                  <thead>
+                    <tr>
+                      <th style={styles.tableTh}>Requirement</th>
+                      <th style={styles.tableTh}>Preferred specification</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={styles.tableTd}>Zoning</td>
+                      <td style={styles.tableTd}>
+                        Industrial, auto-cluster, or approved manufacturing land
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Access</td>
+                      <td style={styles.tableTd}>
+                        Wide approach for trucks, tow vehicles, and storage
+                        movement
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Built-up layout</td>
+                      <td style={styles.tableTd}>
+                        Receiving bay, depollution area, dismantling line, and
+                        storage
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Power</td>
+                      <td style={styles.tableTd}>
+                        3-phase industrial supply with room for equipment load
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Safety buffer</td>
+                      <td style={styles.tableTd}>
+                        Fire lane, spill control, and emergency access area
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.tableTd}>Expansion</td>
+                      <td style={styles.tableTd}>
+                        Space reserved for future automation or more storage
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="land-grid">
+                <div style={styles.landCard}>
+                  <div style={styles.landIcon}>🏢</div>
+                  <div style={styles.landLabel}>Starter unit</div>
+                  <div style={styles.landVal}>1–2 Acres</div>
+                  <div style={styles.landDesc}>
+                    Useful for collection, sorting, and smaller recovery work.
+                  </div>
+                </div>
+                <div style={{ ...styles.landCard, ...styles.landCardFeatured }}>
+                  <div style={styles.landIcon}>⭐</div>
+                  <div style={styles.landLabel}>Best fit</div>
+                  <div style={styles.landVal}>3–6 Acres</div>
+                  <div style={styles.landDesc}>
+                    Balanced for intake, processing, and future expansion.
+                  </div>
+                </div>
+                <div style={styles.landCard}>
+                  <div style={styles.landIcon}>🏭</div>
+                  <div style={styles.landLabel}>Large plant</div>
+                  <div style={styles.landVal}>10+ Acres</div>
+                  <div style={styles.landDesc}>
+                    Higher automation and larger storage capacity.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div style={styles.card}>
+              <h2 style={styles.title}>Approval path</h2>
+              <p style={styles.sub}>
+                A clear sequence keeps the launch moving and avoids bottlenecks.
+              </p>
+              <div className="timeline-flow-list">
+                <div style={styles.step}>
+                  <div style={styles.num}>1</div>
+                  <div>
+                    <h4>MoRTH RVSF registration</h4>
+                    <p>
+                      Main authorisation to operate as a recognised scrapping
+                      facility.
+                    </p>
+                    <span style={styles.time}>45–90 days</span>
+                  </div>
+                </div>
+                <div style={styles.step}>
+                  <div style={styles.num}>2</div>
+                  <div>
+                    <h4>Consent to Establish</h4>
+                    <p>
+                      Needed before civil work and machine installation start.
+                    </p>
+                    <span style={styles.time}>60–90 days</span>
+                  </div>
+                </div>
+                <div style={styles.step}>
+                  <div style={styles.num}>3</div>
+                  <div>
+                    <h4>Hazardous waste authorisation</h4>
+                    <p>
+                      For fluids, batteries, residues, and safe handling flow.
+                    </p>
+                    <span style={styles.time}>30–60 days</span>
+                  </div>
+                </div>
+                <div style={styles.step}>
+                  <div style={styles.num}>4</div>
+                  <div>
+                    <h4>Factory licence and Fire NOC</h4>
+                    <p>Supports worker protection and emergency readiness.</p>
+                    <span style={styles.time}>20–45 days</span>
+                  </div>
+                </div>
+                <div style={styles.step}>
+                  <div style={styles.num}>5</div>
+                  <div>
+                    <h4>Consent to Operate</h4>
+                    <p>
+                      Final clearance before the facility receives vehicles
+                      commercially.
+                    </p>
+                    <span style={styles.time}>30–60 days</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Setup Timeline Chart Block */}
+        <Reveal delay={0.1}>
+          <div
+            style={{ ...styles.chart, ...styles.sectionGap }}
+            className="chart-card-container"
+          >
             <div style={styles.chartHead}>
               <div>
-                <h3>ELV growth forecast</h3>
-                <p>Planning curve for a vehicle scrapping project</p>
+                <h3>Setup timeline</h3>
+                <p>A month-wise roadmap for disciplined execution</p>
               </div>
-              <p>Units in lakh vehicles</p>
             </div>
             <div className="chart-scroll-container">
-              <div className="bar-chart-canvas">
-                {elvData.map((d, index) => {
-                  const h = Math.round((d.v / 118) * 168);
+              <div className="timeline-chart-canvas">
+                {timelineData.map((d, index) => {
+                  const h = Math.max(26, Math.round((d.dur / 10) * 160));
+                  const left = (d.start / 24) * 100;
+                  const width = (d.dur / 24) * 100;
                   return (
-                    <div className="bar-col" key={index}>
-                      <div className="bar-top">{d.v}L</div>
-                      <div
-                        className={`bar ${d.a ? "" : "alt"}`}
-                        style={{ height: `${h}px` }}
-                      ></div>
-                      <div className="bar-label">{d.y}</div>
+                    <div className="timeline-bar-col" key={index}>
+                      <div className="bar-top">
+                        M{d.start + 1}–{d.start + d.dur}
+                      </div>
+                      <div className="timeline-track-window">
+                        <div
+                          className="timeline-filled-span"
+                          style={{
+                            left: `${left}%`,
+                            width: `${width}%`,
+                            height: `${h}px`,
+                            background: d.color,
+                          }}
+                        ></div>
+                      </div>
+                      <div className="bar-label">{d.label}</div>
                     </div>
                   );
                 })}
               </div>
             </div>
           </div>
-
-          {/* Recovery Database Chart */}
-          <div style={styles.chart} className="chart-card-container">
-            <div style={styles.chartHead}>
-              <div>
-                <h3>Recovery database</h3>
-                <p>Quick view of the most valuable input streams</p>
-              </div>
-              <p>Recovery score and indicative value</p>
-            </div>
-            <div className="db-layout-container">
-              {matData.map((d, index) => (
-                <div className="db-row-custom" key={index}>
-                  <div className="db-name-custom">{d.name}</div>
-                  <div className="db-bar-custom">
-                    <div
-                      className="db-fill-custom"
-                      style={{ width: `${d.pct}%`, background: d.color }}
-                    ></div>
-                  </div>
-                  <div className="db-right-custom">
-                    {d.val} · Recovery {d.pct}%
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Vehicle Type Split Table */}
-          <div style={styles.chart} className="chart-card-container">
-            <div style={styles.chartHead}>
-              <div>
-                <h3>Vehicle type split</h3>
-                <p>Useful for capacity, layout, and workflow planning</p>
-              </div>
-            </div>
-            <div className="table-wrapper">
-              <table style={styles.table}>
-                <thead>
-                  <tr>
-                    <th style={styles.tableTh}>Vehicle type</th>
-                    <th style={styles.tableTh}>Estimated share</th>
-                    <th style={styles.tableTh}>Why it matters</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={styles.tableTd}>Two-wheelers</td>
-                    <td style={styles.tableTd}>
-                      <span style={styles.badge}>42%</span>
-                    </td>
-                    <td style={styles.tableTd}>
-                      High intake volume with fast movement through the line.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Passenger cars / SUVs</td>
-                    <td style={styles.tableTd}>
-                      <span style={styles.badge}>24%</span>
-                    </td>
-                    <td style={styles.tableTd}>
-                      Good resale parts and balanced material recovery.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Commercial vehicles</td>
-                    <td style={styles.tableTd}>
-                      <span style={styles.badge}>15%</span>
-                    </td>
-                    <td style={styles.tableTd}>
-                      Heavier recovery, more steel, and larger dismantling work.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Three-wheelers</td>
-                    <td style={styles.tableTd}>
-                      <span style={styles.badge}>9%</span>
-                    </td>
-                    <td style={styles.tableTd}>
-                      Urban collection opportunity with steady throughput.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Tractors / others</td>
-                    <td style={styles.tableTd}>
-                      <span style={styles.badge}>10%</span>
-                    </td>
-                    <td style={styles.tableTd}>
-                      Regional inflow stream for broader reach.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* LAYOUT 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
-          <div style={styles.card}>
-            <h2 style={styles.title}>Site selection and land strategy</h2>
-            <p style={styles.sub}>
-              A smart plot makes the facility safer, cleaner, and easier to
-              grow.
-            </p>
-            <div className="table-wrapper">
-              <table style={styles.table}>
-                <thead>
-                  <tr>
-                    <th style={styles.tableTh}>Requirement</th>
-                    <th style={styles.tableTh}>Preferred specification</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={styles.tableTd}>Zoning</td>
-                    <td style={styles.tableTd}>
-                      Industrial, auto-cluster, or approved manufacturing land
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Access</td>
-                    <td style={styles.tableTd}>
-                      Wide approach for trucks, tow vehicles, and storage
-                      movement
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Built-up layout</td>
-                    <td style={styles.tableTd}>
-                      Receiving bay, depollution area, dismantling line, and
-                      storage
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Power</td>
-                    <td style={styles.tableTd}>
-                      3-phase industrial supply with room for equipment load
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Safety buffer</td>
-                    <td style={styles.tableTd}>
-                      Fire lane, spill control, and emergency access area
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={styles.tableTd}>Expansion</td>
-                    <td style={styles.tableTd}>
-                      Space reserved for future automation or more storage
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="land-grid">
-              <div style={styles.landCard}>
-                <div style={styles.landIcon}>🏢</div>
-                <div style={styles.landLabel}>Starter unit</div>
-                <div style={styles.landVal}>1–2 Acres</div>
-                <div style={styles.landDesc}>
-                  Useful for collection, sorting, and smaller recovery work.
-                </div>
-              </div>
-              <div style={{ ...styles.landCard, ...styles.landCardFeatured }}>
-                <div style={styles.landIcon}>⭐</div>
-                <div style={styles.landLabel}>Best fit</div>
-                <div style={styles.landVal}>3–6 Acres</div>
-                <div style={styles.landDesc}>
-                  Balanced for intake, processing, and future expansion.
-                </div>
-              </div>
-              <div style={styles.landCard}>
-                <div style={styles.landIcon}>🏭</div>
-                <div style={styles.landLabel}>Large plant</div>
-                <div style={styles.landVal}>10+ Acres</div>
-                <div style={styles.landDesc}>
-                  Higher automation and larger storage capacity.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style={styles.card}>
-            <h2 style={styles.title}>Approval path</h2>
-            <p style={styles.sub}>
-              A clear sequence keeps the launch moving and avoids bottlenecks.
-            </p>
-            <div className="timeline-flow-list">
-              <div style={styles.step}>
-                <div style={styles.num}>1</div>
-                <div>
-                  <h4>MoRTH RVSF registration</h4>
-                  <p>
-                    Main authorisation to operate as a recognised scrapping
-                    facility.
-                  </p>
-                  <span style={styles.time}>45–90 days</span>
-                </div>
-              </div>
-              <div style={styles.step}>
-                <div style={styles.num}>2</div>
-                <div>
-                  <h4>Consent to Establish</h4>
-                  <p>
-                    Needed before civil work and machine installation start.
-                  </p>
-                  <span style={styles.time}>60–90 days</span>
-                </div>
-              </div>
-              <div style={styles.step}>
-                <div style={styles.num}>3</div>
-                <div>
-                  <h4>Hazardous waste authorisation</h4>
-                  <p>
-                    For fluids, batteries, residues, and safe handling flow.
-                  </p>
-                  <span style={styles.time}>30–60 days</span>
-                </div>
-              </div>
-              <div style={styles.step}>
-                <div style={styles.num}>4</div>
-                <div>
-                  <h4>Factory licence and Fire NOC</h4>
-                  <p>Supports worker protection and emergency readiness.</p>
-                  <span style={styles.time}>20–45 days</span>
-                </div>
-              </div>
-              <div style={styles.step}>
-                <div style={styles.num}>5</div>
-                <div>
-                  <h4>Consent to Operate</h4>
-                  <p>
-                    Final clearance before the facility receives vehicles
-                    commercially.
-                  </p>
-                  <span style={styles.time}>30–60 days</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Setup Timeline Chart Block */}
-        <div
-          style={{ ...styles.chart, ...styles.sectionGap }}
-          className="chart-card-container"
-        >
-          <div style={styles.chartHead}>
-            <div>
-              <h3>Setup timeline</h3>
-              <p>A month-wise roadmap for disciplined execution</p>
-            </div>
-          </div>
-          <div className="chart-scroll-container">
-            <div className="timeline-chart-canvas">
-              {timelineData.map((d, index) => {
-                const h = Math.max(26, Math.round((d.dur / 10) * 160));
-                const left = (d.start / 24) * 100;
-                const width = (d.dur / 24) * 100;
-                return (
-                  <div className="timeline-bar-col" key={index}>
-                    <div className="bar-top">
-                      M{d.start + 1}–{d.start + d.dur}
-                    </div>
-                    <div className="timeline-track-window">
-                      <div
-                        className="timeline-filled-span"
-                        style={{
-                          left: `${left}%`,
-                          width: `${width}%`,
-                          height: `${h}px`,
-                          background: d.color,
-                        }}
-                      ></div>
-                    </div>
-                    <div className="bar-label">{d.label}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        </Reveal>
 
         {/* Investment Split Chart Block */}
-        <div
-          style={{ ...styles.chart, ...styles.sectionGap }}
-          className="chart-card-container"
-        >
-          <div style={styles.chartHead}>
-            <div>
-              <h3>Investment split</h3>
-              <p>Indicative capex mix for a mid-scale scrapping business</p>
+        <Reveal delay={0.2}>
+          <div
+            style={{ ...styles.chart, ...styles.sectionGap }}
+            className="chart-card-container"
+          >
+            <div style={styles.chartHead}>
+              <div>
+                <h3>Investment split</h3>
+                <p>Indicative capex mix for a mid-scale scrapping business</p>
+              </div>
+            </div>
+            <div className="chart-scroll-container">
+              <div className="bar-chart-canvas">
+                {capexData.map((d, index) => {
+                  const h = Math.round((d.val / 2.8) * 168);
+                  return (
+                    <div className="bar-col" key={index}>
+                      <div className="bar-top">₹{d.val} Cr</div>
+                      <div
+                        className="bar orange"
+                        style={{ height: `${h}px`, background: d.color }}
+                      ></div>
+                      <div className="bar-label">{d.label}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <div className="chart-scroll-container">
-            <div className="bar-chart-canvas">
-              {capexData.map((d, index) => {
-                const h = Math.round((d.val / 2.8) * 168);
-                return (
-                  <div className="bar-col" key={index}>
-                    <div className="bar-top">₹{d.val} Cr</div>
-                    <div
-                      className="bar orange"
-                      style={{ height: `${h}px`, background: d.color }}
-                    ></div>
-                    <div className="bar-label">{d.label}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        </Reveal>
 
         {/* CASE STUDY */}
-        <div style={styles.case}>
-          <div style={styles.caseHead}>
-            <div style={styles.caseTag}>Case study</div>
-            <h3>
-              A mid-scale facility in Pune turned structured recovery into a
-              stable business line
-            </h3>
+        <Reveal delay={0.1}>
+          <div style={styles.case}>
+            <div style={styles.caseHead}>
+              <div style={styles.caseTag}>Case study</div>
+              <h3>
+                A mid-scale facility in Pune turned structured recovery into a
+                stable business line
+              </h3>
+            </div>
+            <div style={styles.caseBody}>
+              <div className="kpi-grid">
+                <div style={styles.kpi}>
+                  <div style={styles.kpiV}>6,000 / yr</div>
+                  <div style={styles.kpiL}>Vehicle capacity</div>
+                </div>
+                <div style={styles.kpi}>
+                  <div style={styles.kpiV}>₹7.2 Cr</div>
+                  <div style={styles.kpiL}>Illustrative capex</div>
+                </div>
+                <div style={styles.kpi}>
+                  <div style={styles.kpiV}>21 Mo</div>
+                  <div style={styles.kpiL}>Concept to launch</div>
+                </div>
+              </div>
+
+              <div className="cols-grid">
+                <div>
+                  <h2
+                    style={{
+                      ...styles.title,
+                      fontSize: "18px",
+                      marginBottom: "10px",
+                      color: "blue",
+                    }}
+                  >
+                    What they needed
+                  </h2>
+                  <ul style={styles.list}>
+                    <li>Industrial land with the correct permissions</li>
+                    <li>A full approval path across departments</li>
+                    <li>A formal intake network for vehicles</li>
+                    <li>Higher margins than informal scrap handling</li>
+                  </ul>
+                </div>
+                <div>
+                  <h2
+                    style={{
+                      ...styles.title,
+                      fontSize: "18px",
+                      marginBottom: "10px",
+                      color: "green",
+                    }}
+                  >
+                    What was implemented
+                  </h2>
+                  <ul style={styles.list}>
+                    <li>Structured licensing and registration workflow</li>
+                    <li>Collection tie-ups with dealers and fleet operators</li>
+                    <li>Digital tracking for certificates and inventory</li>
+                    <li>Recovery lines for safe dismantling and sorting</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="table-wrapper" style={{ marginTop: "16px" }}>
+                <table style={styles.profit}>
+                  <thead>
+                    <tr>
+                      <th style={styles.profitTh}>Revenue / Cost head</th>
+                      <th style={styles.profitTh}>Year 1</th>
+                      <th style={styles.profitTh}>Year 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ferrous scrap sales</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹290 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹440 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Non-ferrous metal sales</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹185 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹280 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Usable parts resale</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹210 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹330 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Fluid recovery income</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹55 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹85 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Certificate / service fees</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹120 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 800,
+                        }}
+                      >
+                        ₹190 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Operating cost</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#dc2626",
+                          fontWeight: 800,
+                        }}
+                      >
+                        -₹310 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#dc2626",
+                          fontWeight: 800,
+                        }}
+                      >
+                        -₹390 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Debt servicing</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#dc2626",
+                          fontWeight: 800,
+                        }}
+                      >
+                        -₹85 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#dc2626",
+                          fontWeight: 800,
+                        }}
+                      >
+                        -₹85 L
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Net result</td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 900,
+                        }}
+                      >
+                        ₹555 L
+                      </td>
+                      <td
+                        style={{
+                          ...styles.profitTd,
+                          color: "#16a34a",
+                          fontWeight: 900,
+                        }}
+                      >
+                        ₹1,010 L
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style={styles.callout}>
+                The turning point was the shift from manual scrap handling to a
+                fully documented recovery system. That improved buyer confidence,
+                compliance clarity, and long-term value capture.
+              </div>
+            </div>
           </div>
-          <div style={styles.caseBody}>
-            <div className="kpi-grid">
-              <div style={styles.kpi}>
-                <div style={styles.kpiV}>6,000 / yr</div>
-                <div style={styles.kpiL}>Vehicle capacity</div>
-              </div>
-              <div style={styles.kpi}>
-                <div style={styles.kpiV}>₹7.2 Cr</div>
-                <div style={styles.kpiL}>Illustrative capex</div>
-              </div>
-              <div style={styles.kpi}>
-                <div style={styles.kpiV}>21 Mo</div>
-                <div style={styles.kpiL}>Concept to launch</div>
-              </div>
-            </div>
+        </Reveal>
 
-            <div className="cols-grid">
-              <div>
-                <h2
-                  style={{
-                    ...styles.title,
-                    fontSize: "18px",
-                    marginBottom: "10px",
-                    color: "blue",
-                  }}
-                >
-                  What they needed
-                </h2>
-                <ul style={styles.list}>
-                  <li>Industrial land with the correct permissions</li>
-                  <li>A full approval path across departments</li>
-                  <li>A formal intake network for vehicles</li>
-                  <li>Higher margins than informal scrap handling</li>
-                </ul>
-              </div>
-              <div>
-                <h2
-                  style={{
-                    ...styles.title,
-                    fontSize: "18px",
-                    marginBottom: "10px",
-                    color: "green",
-                  }}
-                >
-                  What was implemented
-                </h2>
-                <ul style={styles.list}>
-                  <li>Structured licensing and registration workflow</li>
-                  <li>Collection tie-ups with dealers and fleet operators</li>
-                  <li>Digital tracking for certificates and inventory</li>
-                  <li>Recovery lines for safe dismantling and sorting</li>
-                </ul>
-              </div>
+        <Reveal delay={0.1}>
+          <div style={styles.inlineCta}>
+            <div style={styles.inlineCtaIt}>
+              Need a project plan for your own site?{" "}
+              <strong style={{ color: "#1d4ed8" }}>
+                EPR Nexuss can help map the full scrapping plant journey from land
+                to launch.
+              </strong>
             </div>
-
-            <div className="table-wrapper" style={{ marginTop: "16px" }}>
-              <table style={styles.profit}>
-                <thead>
-                  <tr>
-                    <th style={styles.profitTh}>Revenue / Cost head</th>
-                    <th style={styles.profitTh}>Year 1</th>
-                    <th style={styles.profitTh}>Year 2</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ferrous scrap sales</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹290 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹440 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Non-ferrous metal sales</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹185 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹280 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Usable parts resale</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹210 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹330 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Fluid recovery income</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹55 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹85 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Certificate / service fees</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹120 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 800,
-                      }}
-                    >
-                      ₹190 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Operating cost</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#dc2626",
-                        fontWeight: 800,
-                      }}
-                    >
-                      -₹310 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#dc2626",
-                        fontWeight: 800,
-                      }}
-                    >
-                      -₹390 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Debt servicing</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#dc2626",
-                        fontWeight: 800,
-                      }}
-                    >
-                      -₹85 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#dc2626",
-                        fontWeight: 800,
-                      }}
-                    >
-                      -₹85 L
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Net result</td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 900,
-                      }}
-                    >
-                      ₹555 L
-                    </td>
-                    <td
-                      style={{
-                        ...styles.profitTd,
-                        color: "#16a34a",
-                        fontWeight: 900,
-                      }}
-                    >
-                      ₹1,010 L
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div style={styles.callout}>
-              The turning point was the shift from manual scrap handling to a
-              fully documented recovery system. That improved buyer confidence,
-              compliance clarity, and long-term value capture.
-            </div>
+            <button
+              style={styles.btn}
+              onClick={() =>
+                (window.location.href = "mailto:contact@eprnexuss.com")
+              }
+            >
+              Get My Plan
+            </button>
           </div>
-        </div>
-
-        <div style={styles.inlineCta}>
-          <div style={styles.inlineCtaIt}>
-            Need a project plan for your own site?{" "}
-            <strong style={{ color: "#1d4ed8" }}>
-              EPR Nexuss can help map the full scrapping plant journey from land
-              to launch.
-            </strong>
-          </div>
-          <button
-            style={styles.btn}
-            onClick={() =>
-              (window.location.href = "mailto:contact@eprnexuss.com")
-            }
-          >
-            Get My Plan
-          </button>
-        </div>
+        </Reveal>
 
         {/* CTA */}
-        <div className="cta-main">
-          <div className="cta-eyebrow">
-            ⚡ EPR Nexuss — India's Complete Vehicle Recycling Partner
+        <Reveal delay={0.2}>
+          <div className="cta-main">
+            <div className="cta-eyebrow">
+              ⚡ EPR Nexuss — India's Complete Vehicle Recycling Partner
+            </div>
+            <div className="cta-h">
+              You Now Have The Blueprint.
+              <br />
+              <em>Let EPR Nexuss Build It With You.</em>
+            </div>
+            <div className="cta-sub">
+              Licences. Land. Technology. Collection. EPR certificates. We handle
+              every step — so you focus on building the most profitable green
+              business of the decade. First consultation is completely free.
+            </div>
+            <div className="cta-btns">
+              <button
+                className="btn-p"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Book Free Consultation ↗
+              </button>
+              <button
+                className="btn-s"
+                onClick={() => window.open("tel:+919289659966")}
+              >
+                Call Now
+              </button>
+            </div>
+            <div className="cta-trust">
+              <span className="cta-ti">
+                <span className="ck">✓</span> Free consultation
+              </span>
+              <span className="cta-ti">
+                <span className="ck">✓</span> End-to-end licensing
+              </span>
+              <span className="cta-ti">
+                <span className="ck">✓</span> Technology partners
+              </span>
+              <span className="cta-ti">
+                <span className="ck">✓</span> EPR certificate guaranteed
+              </span>
+              <span className="cta-ti">
+                <span className="ck">✓</span> Pan-India coverage
+              </span>
+            </div>
           </div>
-          <div className="cta-h">
-            You Now Have The Blueprint.
-            <br />
-            <em>Let EPR Nexuss Build It With You.</em>
-          </div>
-          <div className="cta-sub">
-            Licences. Land. Technology. Collection. EPR certificates. We handle
-            every step — so you focus on building the most profitable green
-            business of the decade. First consultation is completely free.
-          </div>
-          <div className="cta-btns">
-            <button
-              className="btn-p"
-              onClick={() => (window.location.href = "/contact")}
-            >
-              Book Free Consultation ↗
-            </button>
-            <button
-              className="btn-s"
-              onClick={() => window.open("tel:+919289659966")}
-            >
-              Call Now
-            </button>
-          </div>
-          <div className="cta-trust">
-            <span className="cta-ti">
-              <span className="ck">✓</span> Free consultation
-            </span>
-            <span className="cta-ti">
-              <span className="ck">✓</span> End-to-end licensing
-            </span>
-            <span className="cta-ti">
-              <span className="ck">✓</span> Technology partners
-            </span>
-            <span className="cta-ti">
-              <span className="ck">✓</span> EPR certificate guaranteed
-            </span>
-            <span className="cta-ti">
-              <span className="ck">✓</span> Pan-India coverage
-            </span>
-          </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* STICKY SIDEBAR CONTAINER */}

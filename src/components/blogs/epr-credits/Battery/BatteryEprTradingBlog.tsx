@@ -437,22 +437,48 @@ function OrderBookChart() {
 /*  SECTION 5 — Price index line chart                                 */
 /* ------------------------------------------------------------------ */
 
+const batteryCreditPriceTrend = [
+  { label: "Q1 FY25", value: 24 },
+  { label: "Q2 FY25", value: 29 },
+  { label: "Q3 FY25", value: 35 },
+  { label: "Q4 FY25", value: 41 },
+];
+
 function PriceIndexChart() {
-  const max = Math.max(...priceIndex.map((d) => d.value));
+  const values = batteryCreditPriceTrend.map((d) => d.value);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+  const range = max - min || 1;
+
   const w = 340;
   const h = 140;
-  const step = w / (priceIndex.length - 1);
-  const points = priceIndex.map((d, i) => [i * step, h - (d.value / max) * h]);
+
+  // inset padding on all sides so circles/stroke/labels never touch the
+  // viewBox edge — this is what was causing the cropped look
+  const padX = 20;
+  const padY = 16;
+  const plotW = w - padX * 2;
+  const plotH = h - padY * 2;
+  const step = plotW / (batteryCreditPriceTrend.length - 1);
+
+  const points = batteryCreditPriceTrend.map((d, i) => [
+    padX + i * step,
+    padY + plotH - ((d.value - min) / range) * plotH,
+  ]);
+
   const path = points
     .map((p, i) => `${i === 0 ? "M" : "L"} ${p[0]} ${p[1]}`)
     .join(" ");
+
+  // smooth area fill under the line for a bit more visual weight
+  const areaPath = `${path} L ${points[points.length - 1][0]} ${h - padY} L ${points[0][0]} ${h - padY} Z`;
 
   return (
     <section className="mt-20">
       <Reveal>
         <Eyebrow code="TRD-03">Where price has moved</Eyebrow>
         <h2 className="font-display md:text-3xl text-xl sm:text-4xl font-semibold tracking-tight text-foreground max-w-2xl">
-          Marketplace price index, week over week
+          Battery EPR credit pricing, quarter over quarter
         </h2>
       </Reveal>
       <Reveal
@@ -460,9 +486,27 @@ function PriceIndexChart() {
         className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8"
       >
         <p className="text-xs text-muted-foreground mb-2 font-mono">
-          Indicative index, W1 = 100
+          Indicative price, ₹ per kg of certified battery waste recycled
         </p>
-        <svg viewBox={`0 0 ${w} ${h + 30}`} className="w-full h-auto mt-4">
+        <svg
+          viewBox={`0 0 ${w} ${h + 30}`}
+          className="w-full h-auto mt-4 overflow-visible"
+        >
+          <motion.path
+            d={areaPath}
+            fill="url(#priceGradient)"
+            stroke="none"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.3 }}
+          />
+          <defs>
+            <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#5AC361" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#5AC361" stopOpacity="0" />
+            </linearGradient>
+          </defs>
           <motion.path
             d={path}
             fill="none"
@@ -479,15 +523,40 @@ function PriceIndexChart() {
               <circle cx={p[0]} cy={p[1]} r="4" fill="#5AC361" />
               <text
                 x={p[0]}
+                y={p[1] - 12}
+                textAnchor={
+                  i === 0
+                    ? "start"
+                    : i === points.length - 1
+                      ? "end"
+                      : "middle"
+                }
+                className="fill-foreground font-mono text-[11px] font-medium"
+              >
+                ₹{batteryCreditPriceTrend[i].value}
+              </text>
+              <text
+                x={p[0]}
                 y={h + 22}
-                textAnchor="middle"
+                textAnchor={
+                  i === 0
+                    ? "start"
+                    : i === points.length - 1
+                      ? "end"
+                      : "middle"
+                }
                 className="fill-muted-foreground font-mono text-[10px]"
               >
-                {priceIndex[i].label}
+                {batteryCreditPriceTrend[i].label}
               </text>
             </g>
           ))}
         </svg>
+        <p className="mt-4 font-mono text-[11px] text-muted-foreground">
+          Indicative range based on publicly reported battery EPR certificate
+          pricing (~₹20–₹50/kg), which fluctuates 20–30% with supply-demand
+          swings. Actual pricing varies by battery chemistry and registry.
+        </p>
       </Reveal>
     </section>
   );

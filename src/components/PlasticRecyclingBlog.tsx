@@ -574,6 +574,7 @@ body {
 .page-body {
   width: 100%;
   min-width: 0; 
+  margin-top: 50px;
 }
 
 .sidebar-container { 

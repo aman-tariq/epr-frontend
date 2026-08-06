@@ -15,8 +15,8 @@ const Index = () => {
   return (
     <>
     <Seo
-        title="EPR Nexuss | Experts in Recycling Plant Setup, Compliance & Operations Intelligence"
-        description="India's trusted partner for Extended Producer Responsibility (EPR) compliance, EPR credit trading, plastic, battery, solar panel, and e-waste recycling services."
+        title="EPR Nexuss | EPR Compliance & Recycling Solutions India"
+        description="EPR Nexuss provides EPR compliance, EPR credit trading, recycling plant setup, waste management, and CPCB compliance solutions across India."
         keywords={["EPR", "EPR Credit Trading", "Waste Management", "CPCB Compliance", "E-Waste Recycling", "Plastic EPR","EPR Credit Trading",
     "EPR Compliance India",
     "Waste Management Solutions",
@@ -46,13 +46,15 @@ const Index = () => {
         type="website"
       />
       <HeroSlider />
+      <ClientsSlider />
       <ServicesGrid />
       <ProcessSection />
       <TradingPlatform />
-      <SustainabilityTree />
       <WhyChooseUs />
-      <ClientsSlider />
-      <EWasteTypes />
+      <SustainabilityTree />
+      
+      
+      {/* <EWasteTypes /> */}
       <ShowcaseGallery />
       <Gallery />
       <ContactCTA />

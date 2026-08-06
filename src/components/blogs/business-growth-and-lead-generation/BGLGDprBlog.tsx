@@ -62,7 +62,7 @@ function BarRow({ label, width, delay }: { label: string; width: string; delay: 
 
 export default function MarketTrendsBlog() {
   return (
-    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="font-sans mt-[100px] bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="Top Recycling & Compliance Market Trends Shaping Business Today"
         description="A look at the key recycling, EPR, and sustainability market trends reshaping how businesses compete — and what to do to stay ahead of them."
@@ -80,7 +80,11 @@ export default function MarketTrendsBlog() {
       />
 
       <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
-        {/* Banner */}
+        
+
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+            {/* Banner */}
         <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-secondary/80 to-secondary shadow-lg">
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
@@ -109,8 +113,6 @@ export default function MarketTrendsBlog() {
             </p>
           </div>
         </section>
-
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
           <div className="flex-1 min-w-0 w-full">
             {/* 1. Why trends matter */}
             <Reveal>
@@ -411,8 +413,9 @@ export default function MarketTrendsBlog() {
               </section>
             </Reveal>
           </div>
+          </div>
 
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "5.5rem" }}>
             <StickyContactForm />
           </aside>
         </div>

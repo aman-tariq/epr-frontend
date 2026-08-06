@@ -1,0 +1,62 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Used when useWindowScroll is true: the wrapper should sit inline in the
+   normal page flow and let the actual window handle scrolling, instead of
+   being its own fixed-height scroll container. */
+.scroll-stack-scroller.scroll-stack-window {
+  height: auto;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
+
+.scroll-stack-inner {
+  padding: 4vh 0 24rem;
+  min-height: 100%;
+}
+
+.scroll-stack-window .scroll-stack-inner {
+  padding: 0 0 20rem;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  transform: translateZ(0);
+  /* No height cap by default (mobile/tablet): the grid layout collapses
+     to a single column on small screens, making card content taller.
+     Capping height here was both clipping content from view AND
+     starving the JS stacking math of the extra scroll distance a
+     taller card should naturally get before the next card is allowed
+     to start overlapping it. */
+  overflow-y: visible;
+}
+
+/* Only cap height on larger screens, where the grid is 2-3 columns and
+   content reliably fits within this box without being cut off. */
+@media (min-width: 768px) {
+  .scroll-stack-card {
+    max-height: min(72vh, 44rem);
+    overflow-y: auto;
+  }
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}

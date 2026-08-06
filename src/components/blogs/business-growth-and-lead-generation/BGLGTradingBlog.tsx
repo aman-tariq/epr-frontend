@@ -86,7 +86,7 @@ const steps = [
 
 export default function WasteToWealthBlog() {
   return (
-    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="font-sans mt-[100px] bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="From Waste to Wealth: Building a Growth Strategy Around Recycling & Compliance"
         description="A step-by-step approach to turning recycling and EPR compliance from a back-office task into a genuine growth strategy for your business."
@@ -103,7 +103,10 @@ export default function WasteToWealthBlog() {
       />
 
       <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
-        {/* Banner */}
+        
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+            {/* Banner */}
         <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-primary/90 to-secondary shadow-lg">
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
@@ -134,7 +137,8 @@ export default function WasteToWealthBlog() {
           </div>
         </section>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+
+
           <div className="flex-1 min-w-0 w-full">
             {/* 1. Rethinking waste */}
             <Reveal>
@@ -373,8 +377,9 @@ export default function WasteToWealthBlog() {
               </section>
             </Reveal>
           </div>
+          </div>
 
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "5.5rem" }}>
             <StickyContactForm />
           </aside>
         </div>

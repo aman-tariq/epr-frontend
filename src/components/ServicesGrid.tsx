@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { CircleDot, Recycle, Battery, Zap, Truck, Monitor, Box } from "lucide-react";
 import { serviceCategoriesNav, services as servicesList } from "@/lib/services";
 
@@ -10,14 +10,35 @@ const categoryDescriptions: Record<string, string> = {
   "Business Growth & Lead Generation": "Demand generation, SEO and conversion systems to grow enquiries and sales.",
 };
 
+// Motion Variants for Staggered Grid Animation
+const gridContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardItemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
 const ServicesGrid = () => {
   return (
     <section className="py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
+        {/* Header Section Animation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Our Services</span>
@@ -29,53 +50,88 @@ const ServicesGrid = () => {
           </p>
         </motion.div>
 
+        {/* Category Sections */}
         <div className="space-y-8">
           {serviceCategoriesNav.map((cat, i) => (
             <motion.section
               key={cat.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className="p-6 rounded-2xl bg-card border border-border"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              whileHover={{ borderColor: "rgba(var(--secondary), 0.3)" }}
+              className="p-6 rounded-2xl bg-card border border-border transition-colors duration-300"
             >
               <div className="md:flex md:items-start md:gap-8">
+                {/* Left Category Info */}
                 <div className="md:w-1/3">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0"
+                    >
                       <Recycle className="w-6 h-6 text-secondary" />
-                    </div>
+                    </motion.div>
                     <h3 className="font-display text-xl font-semibold text-foreground">{cat.name}</h3>
                   </div>
                   <p className="text-muted-foreground">{categoryDescriptions[cat.name] ?? "Explore our services and subcategories for this area."}</p>
+                  
+                  {/* Left Subcategory Links List */}
                   <div className="mt-4 flex flex-col gap-2">
                     {cat.subcategories.map((s) => (
-                      <a key={s.path} href={s.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <motion.a
+                        key={s.path}
+                        href={s.path}
+                        whileHover={{ x: 4 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
+                      >
                         • {s.label}
-                      </a>
+                      </motion.a>
                     ))}
                   </div>
                 </div>
 
+                {/* Right Service Cards Grid */}
                 <div className="md:flex-1 mt-6 md:mt-0">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <motion.div 
+                    variants={gridContainerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                  >
                     {cat.subcategories
                       .map((s) => servicesList.find((it) => it.path === s.path))
                       .filter(Boolean)
                       .map((item) => (
-                        <a key={item!.path} href={item!.path} className="block p-4 bg-background rounded-lg border border-border hover:shadow-md transition-shadow">
+                        <motion.a
+                          key={item!.path}
+                          href={item!.path}
+                          variants={cardItemVariants}
+                          whileHover={{ y: -4, scale: 1.01 }}
+                          whileTap={{ scale: 0.98 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          className="block p-4 bg-background rounded-lg border border-border hover:shadow-md hover:border-secondary/40 transition-shadow"
+                        >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-md bg-secondary/10 flex items-center justify-center">
+                            <motion.div 
+                              whileHover={{ scale: 1.15 }}
+                              className="w-10 h-10 rounded-md bg-secondary/10 flex items-center justify-center shrink-0"
+                            >
                               {getIconFor(item!.slug)}
-                            </div>
+                            </motion.div>
                             <div>
                               <h4 className="text-sm font-semibold text-foreground">{item!.title}</h4>
-                              <p className="text-muted-foreground text-xs mt-1 line-clamp-3">{item!.subtitle ?? item!.desc}</p>
+                              <p className="text-muted-foreground text-xs mt-1 line-clamp-3">
+                                {item!.subtitle ?? item!.desc}
+                              </p>
                             </div>
                           </div>
-                        </a>
+                        </motion.a>
                       ))}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.section>

@@ -15,7 +15,7 @@ import { serviceDropdown, serviceCategoriesNav } from "@/lib/services";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contact us", path: "/contact" },
   { name: "About us", path: "/about" }
 ];
 
@@ -163,7 +163,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className={`transition-all duration-300 ${scrolled ? "bg-primary/95 backdrop-blur-xl shadow-lg shadow-primary/20" : "bg-transparent"}`}>
+      <nav className={`transition-all duration-300 ${scrolled ? "bg-primary/95 backdrop-blur-xl shadow-lg shadow-primary/20" : "bg-primary/15"}`}>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
@@ -178,7 +178,7 @@ const Navbar = () => {
                   height="64"
                 />
               </div>
-              <span className="font-display text-xl font-bold text-primary-foreground hidden sm:block">
+              <span className="font-display text-xl font-bold  hidden sm:block ${} text-primary-foreground">
                 EPR NEXUSS
               </span>
             </Link>
@@ -206,7 +206,7 @@ const Navbar = () => {
               >
                 <DropdownMenu open={isBlogOpen} onOpenChange={setIsBlogOpen}>
                   <DropdownMenuTrigger className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 inline-flex items-center gap-2 ${location.pathname.startsWith("/blog") ? "bg-secondary text-primary-foreground" : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"}`}>
-                    Blog {isBlogOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                    Blogs {isBlogOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </DropdownMenuTrigger>
                   <DropdownMenuContent sideOffset={6} className="min-w-[18rem]">
                     <DropdownMenuLabel>Blog Categories</DropdownMenuLabel>
@@ -463,7 +463,7 @@ const Navbar = () => {
                     onClick={() => setMobileBlogOpen(!mobileBlogOpen)}
                     className="w-full px-4 py-3 flex items-center justify-between rounded-lg text-sm font-medium transition-all text-primary-foreground/80 hover:bg-primary-foreground/10"
                   >
-                    Blog
+                    Blogs
                     <ChevronDown size={18} className={`transition-transform ${mobileBlogOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>

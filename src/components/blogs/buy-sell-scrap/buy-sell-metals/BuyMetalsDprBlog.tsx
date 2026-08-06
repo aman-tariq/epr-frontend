@@ -149,8 +149,13 @@ const faqs = [
 
 export default function NavigatingNonFerrousEprFrameworkBlog() {
   return (
-    <div className="bg-background min-h-screen">
-      <section className="relative overflow-hidden border-b border-border mt-[60px]">
+    <div className="bg-background min-h-screen mt-[10px]">
+      
+
+      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 py-12">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div>
+            <section className="relative overflow-hidden border-b border-border mt-[60px]">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-brandGreen/10" />
         <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
           <motion.div
@@ -186,9 +191,6 @@ export default function NavigatingNonFerrousEprFrameworkBlog() {
           </motion.div>
         </div>
       </section>
-
-      <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 py-12">
-        <div className="flex flex-col lg:flex-row gap-4">
           <main className="flex-1 min-w-0 space-y-16">
             <Section id="intro" index={0}>
               <p className="text-base leading-relaxed text-muted-foreground">
@@ -416,6 +418,7 @@ export default function NavigatingNonFerrousEprFrameworkBlog() {
               </div>
             </Section>
           </main>
+          </div>
 
           <aside className="w-full lg:w-[320px] lg:shrink-0">
             <div className="lg:sticky lg:top-24">

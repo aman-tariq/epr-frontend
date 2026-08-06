@@ -1,6 +1,29 @@
 import React, { useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+// Framer Motion Variants for Fade In & Motion Effects
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+};
 
 const LithiumBatteryMarketAnalysis: React.FC = () => {
   useEffect(() => {
@@ -118,29 +141,57 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
         type="article"
       />
     <div className="min-h-screen bg-background text-foreground font-sans">
-      <div className=" mx-auto px-1 md:px-1 mt-10 py-6 md:py-6">
+      <div className=" mx-auto px-1 md:px-1 mt-[100px] py-6 md:py-6">
 
-        {/* HERO */}
-        <div className="hero bg-gradient-to-br from-slate-100 via-white to-emerald-50/50 border  border-brandGreen rounded-3xl p-5 md:p-10 mb-12 shadow-sm">
-          <div className="badge inline-block bg-slate-100 border border-border text-slate-800 px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-6 max-w-full break-words text-center">
-            🔋 Recycling Market View | Present Batteries First
-          </div>
-          <h1 className="text-2xl md:text-5xl font-bold font-display text-slate-900 leading-tight mb-6 break-words">
-            Market Analysis of Mobile, E-Rickshaw and Car Batteries in Recycling
-          </h1>
-          <p className="text-muted-foreground text-sm md:text-lg max-w-3xl leading-relaxed">
-            The strongest recycling businesses are built on what is already moving through the market today. Mobile batteries, e-rickshaw batteries, and car batteries create the real collection base.
-          </p>
-        </div>
+        
 
         {/* Two-Column Layout Wrapper */}
         <div className="lg:flex lg:gap-4 lg:items-start">
+          <div>
+            {/* HERO */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="hero bg-gradient-to-br from-slate-100 via-white to-emerald-50/50 border border-brandGreen rounded-3xl p-5 md:p-10 mb-12 shadow-sm"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="badge inline-block bg-slate-100 border border-border text-slate-800 px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-6 max-w-full break-words text-center"
+          >
+            🔋 Recycling Market View | Present Batteries First
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-2xl md:text-5xl font-bold font-display text-slate-900 leading-tight mb-6 break-words"
+          >
+            Market Analysis of Mobile, E-Rickshaw and Car Batteries in Recycling
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-muted-foreground text-sm md:text-lg max-w-3xl leading-relaxed"
+          >
+            The strongest recycling businesses are built on what is already moving through the market today. Mobile batteries, e-rickshaw batteries, and car batteries create the real collection base.
+          </motion.p>
+        </motion.div>
           
           {/* Main Content Column */}
           <div className="flex-1 space-y-12 overflow-hidden">
 
             {/* Current Market Overview */}
-            <div className="card bg-gradient-to-br from-slate-100 via-white to-emerald-50/50 bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              className="card bg-gradient-to-br from-slate-100 via-white to-emerald-50/50 bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">What This Market Looks Like Today</h2>
               <p className="text-muted-foreground text-sm md:text-base mb-6">
                 The present battery market is driven by everyday use, repeated replacement cycles, and easy collection from local repair and service networks.
@@ -149,23 +200,40 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                 A smart plant builds a mix of small-volume, medium-volume, and structured replacement batteries to stay active throughout the year.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+              <motion.div 
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10"
+              >
                 {[
                   { num: "3", label: "Current battery streams" },
                   { num: "1", label: "Collection network plan" },
                   { num: "2", label: "Market phases: present and future" },
                   { num: "100%", label: "Focus on practical feedstock" }
                 ].map((stat, i) => (
-                  <div key={i} className="bg-slate-50 border border-border rounded-2xl p-4 md:p-6 text-center flex flex-col justify-center min-w-0 shadow-sm">
+                  <motion.div 
+                    key={i} 
+                    variants={scaleUp}
+                    whileHover={{ y: -4 }}
+                    className="bg-slate-50 border border-border rounded-2xl p-4 md:p-6 text-center flex flex-col justify-center min-w-0 shadow-sm"
+                  >
                     <div className="text-xl md:text-2xl font-bold text-slate-900 mb-2 truncate">{stat.num}</div>
                     <div className="text-xs md:text-sm text-muted-foreground break-words">{stat.label}</div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* ==================== RESPONSIVE DASHBOARD SECTION ==================== */}
-            <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-4 text-center md:text-left break-words">Quick Visual Dashboard</h2>
               <p className="text-muted-foreground mb-8 text-sm md:text-base text-center md:text-left">A fast view of the three current battery streams and the future EV plan.</p>
 
@@ -202,10 +270,16 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* ==================== MARKET PROFILE - RESPONSIVE BARS ==================== */}
-            <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Market Profile of the Three Current Battery Types</h2>
               
               <div className="space-y-8">
@@ -220,18 +294,27 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                       <span className="font-semibold text-slate-900">{item.strength}</span>
                     </div>
                     <div className="h-4 bg-muted rounded-full overflow-hidden">
-                      <div 
-                        className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all`}
-                        style={{ width: item.strength }}
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: item.strength }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: i * 0.2, ease: "easeOut" }}
+                        className={`h-full bg-gradient-to-r ${item.color} rounded-full`}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* ==================== DATABASE TABLE 1 - RESPONSIVE ==================== */}
-            <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Database: Present Battery Segments</h2>
               
               <div className="overflow-x-auto rounded-2xl border border-border">
@@ -266,11 +349,17 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </motion.div>
 
             {/* Mobile, E-Rickshaw Details */}
             <div className="grid gap-8">
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Mobile Batteries: The Small but Steady Stream</h2>
                 <p className="text-muted-foreground text-sm md:text-base mb-6">
                   Mobile batteries come in small units, but they are available in large numbers. They help the plant build a dependable collection pipeline.
@@ -279,9 +368,15 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                   <div><strong className="text-slate-900">Best collection source:</strong> Repair shops</div>
                   <div><strong className="text-slate-900">Planning value:</strong> Steady volume</div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">E-Rickshaw Batteries: The City Market Opportunity</h2>
                 <p className="text-muted-foreground text-sm md:text-base mb-6">
                   E-rickshaw batteries are a strong recycling source because they follow city transport movement and create repeated replacement cycles.
@@ -290,54 +385,84 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                   <div><strong className="text-slate-900">Best collection source:</strong> Fleet operators</div>
                   <div><strong className="text-slate-900">Planning value:</strong> Repeatable source</div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Car Batteries + Positioning */}
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Car Batteries: The Structured Channel</h2>
                 <p className="text-muted-foreground text-sm md:text-base">
                   Car batteries are one of the cleanest sources to organize because they move through service stations, garages, and dealerships.
                 </p>
-              </div>
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              </motion.div>
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">How the Plant Should Position Itself</h2>
                 <ul className="space-y-3 text-slate-700 text-sm md:text-base">
                   <li>• Focus on mobile, e-rickshaw, and car batteries first</li>
                   <li>• Build direct tie-ups with repair shops and fleet operators</li>
                   <li>• Use today’s market to prepare systems for EV batteries tomorrow</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
 
             {/* Case Study + Future Plan */}
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Case Study: City Collection Network</h2>
                 <p className="text-muted-foreground text-sm md:text-base">
                   A practical recycling model connects mobile repair shops, e-rickshaw charging points, and car service centres in the same region.
                 </p>
-              </div>
-              <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+              </motion.div>
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
+                className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+              >
                 <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Future Plan: EV Battery Readiness</h2>
-                <div className="grid grid-cols-3 gap-3">
+                <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-3 gap-3">
                   {[
                     { phase: "Phase 1", title: "Build present collection base" },
                     { phase: "Phase 2", title: "Upgrade safety systems" },
                     { phase: "Phase 3", title: "Enter EV battery recycling" }
                   ].map((item, i) => (
-                    <div key={i} className="bg-slate-50 border border-border rounded-2xl p-3 text-center flex flex-col justify-between min-w-0 shadow-sm">
+                    <motion.div key={i} variants={scaleUp} whileHover={{ y: -3 }} className="bg-slate-50 border border-border rounded-2xl p-3 text-center flex flex-col justify-between min-w-0 shadow-sm">
                       <div className="text-xs font-semibold text-slate-900">{item.phase}</div>
                       <div className="text-[11px] md:text-xs text-muted-foreground font-medium mt-2 leading-tight break-words">{item.title}</div>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
 
             {/* ==================== DATABASE TABLE 2 - RESPONSIVE ==================== */}
-            <div className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              className="card bg-card text-card-foreground border border-border rounded-3xl p-5 md:p-10 shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Quick Database: Market Action Plan</h2>
               <div className="overflow-x-auto rounded-2xl border border-border">
                 <table className="w-full min-w-[550px] text-xs md:text-sm">
@@ -356,16 +481,24 @@ const LithiumBatteryMarketAnalysis: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </motion.div>
 
             {/* Conclusion */}
-            <div className="card bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 border border-border rounded-3xl p-5 md:p-10 text-center shadow-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              whileHover={{ scale: 1.01 }}
+              className="card bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 border border-border rounded-3xl p-5 md:p-10 text-center shadow-sm"
+            >
               <h2 className="text-xl md:text-3xl font-bold font-display text-slate-900 mb-6 break-words">Conclusion</h2>
               <p className="text-muted-foreground text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
                 This market works best when the plant stays focused on present battery streams first. Mobile, e-rickshaw, and car batteries create the real collection base today — and they also help build the systems needed for EV batteries in the future.
               </p>
-            </div>
+            </motion.div>
 
+          </div>
           </div>
 
           {/* ── STICKY SIDEBAR ── */}

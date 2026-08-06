@@ -207,8 +207,14 @@ const BusinessGrowthAndLeadGeneration = () => {
         type="article"
       />
 
-      {/* --- Hero Section --- */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
+      
+
+      {/* --- Main Grid Content Area --- */}
+      <div className="container mx-auto px-1">
+        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+          <div>
+            {/* --- Hero Section --- */}
+      <section className="relative overflow-hidden mt-[70px] md:mt-[130px] lg:py-32">
         <div className="absolute inset-0 bg-gradient-to-r from-[#5AC361]/30 via-[#5AC361]/10 to-white" />
         <div className="container relative mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
@@ -244,9 +250,6 @@ const BusinessGrowthAndLeadGeneration = () => {
         </div>
       </section>
 
-      {/* --- Main Grid Content Area --- */}
-      <div className="container mx-auto px-4">
-        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
           
           {/* Main Left Flow */}
           <div className="space-y-4">
@@ -380,6 +383,7 @@ const BusinessGrowthAndLeadGeneration = () => {
               </div>
             </section>
 
+          </div>
           </div>
 
           {/* Sticky Workspace Sidebar containing Form */}

@@ -3,6 +3,35 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const DigitalInfrastructureBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -111,14 +140,17 @@ const DigitalInfrastructureBlog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#17212b] font-sans">
+    <div className="min-h-screen mt-[120px] bg-white text-[#17212b] font-sans">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch mt-10">
         <div className="flex-1 min-w-0">
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#f9fcff] to-white border-b border-[#dbe6f2] py-20 px-2 text-center">
+      <motion.section
+      initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+       className="relative overflow-hidden bg-gradient-to-b from-white via-[#f9fcff] to-white border-b border-[#dbe6f2] py-20 px-2 text-center">
         <div className="max-w-8xl mx-auto relative">
-          <div className="inline-flex items-center gap-3 px-6 py-3 border border-[#dbe6f2] bg-white rounded-full text-[#195d7a] text-xs font-bold tracking-widest shadow">
-            <div className="w-2 h-2 bg-[#2d8f9f] rounded-full" /> White Paper Style Blog
-          </div>
+         
           <h1 className="text-5xl md:text-6xl font-serif font-black mt-8 leading-tight tracking-tighter">
             The Role of <span className="text-[#195d7a]">Digital Infrastructure</span> in Plant Expansion
           </h1>
@@ -133,14 +165,19 @@ const DigitalInfrastructureBlog = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <div className="max-w-5xl mx-auto px-6 py-12">
         <div className="border-l-8 border-[#195d7a] bg-gradient-to-r from-white to-[#fbfdff] p-8 rounded-2xl shadow mb-12 text-lg leading-relaxed">
           When a plant expands, every new line, utility, and control loop depends on more than steel and instruments. It depends on digital infrastructure: the systems that keep design data, commissioning records, compliance files, training content, and handover information aligned from day one. Done well, this foundation strengthens industrial commissioning, speeds the plant commissioning process, and protects uptime as the asset grows.
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {[
             { num: '5', lbl: 'Core expansion phases' },
             { num: '24/7', lbl: 'Data availability for teams' },
@@ -152,14 +189,19 @@ const DigitalInfrastructureBlog = () => {
               <div className="text-xs uppercase tracking-widest mt-3 text-[#5d6b7a]">{stat.lbl}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">What digital infrastructure does</div>
         <h2 className="text-4xl font-serif font-bold tracking-tight">Why Plant Expansion Needs a Digital Backbone</h2>
         <p className="mt-6 text-[#243241]">Plant expansion is never only a construction project. It is a documentation problem, a data coordination problem, and a readiness problem.</p>
         <p className="mt-6 text-[#243241]">A strong digital layer ties together setup and commissioning documentation, commissioning documentation, commissioning checklist workflows, commissioning plan updates, and the final handover documentation package.</p>
 
-        <div className="grid md:grid-cols-5 gap-6 mt-12">
+        <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="grid md:grid-cols-1 gap-6 mt-12">
           {[
             { title: 'Planning', desc: 'Define the commissioning lifecycle, system boundaries, naming rules, and commissioning standards before design freezes.' },
             { title: 'Design & Build', desc: 'Link engineering turnover package items, installation verification records, and quality assurance documentation to live asset data.' },
@@ -172,14 +214,24 @@ const DigitalInfrastructureBlog = () => {
               <p className="text-sm text-[#5d6b7a]">{phase.desc}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-20">
+        <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mt-20">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">The data picture</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">How Digital Infrastructure Improves Expansion Performance</h2>
           <p className="mt-6 text-[#243241]">Digital infrastructure helps teams reduce waiting time between construction and startup.</p>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12 overflow-x-scroll">
+          <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid md:grid-cols-2 gap-8 mt-12 overflow-x-scroll">
             <div className="bg-white border border-[#dbe6f2] rounded-2xl p-8 shadow">
               <div className="uppercase text-xs tracking-widest text-[#5d6b7a] font-bold mb-4">Expansion outcomes by infrastructure maturity</div>
               <div className="h-[300px]"><canvas ref={chart1Ref} /></div>
@@ -188,15 +240,20 @@ const DigitalInfrastructureBlog = () => {
               <div className="uppercase text-xs tracking-widest text-[#5d6b7a] font-bold mb-4">Where digital gaps cause the most friction</div>
               <div className="h-[300px]"><canvas ref={chart2Ref} /></div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="bg-white border border-[#dbe6f2] rounded-2xl p-8 shadow mt-8">
             <div className="uppercase text-xs tracking-widest text-[#5d6b7a] font-bold mb-4">Information flow across the commissioning lifecycle</div>
             <div className="h-[300px]"><canvas ref={chart3Ref} /></div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-20 overflow-x-scroll">
+        <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mt-20 overflow-x-scroll">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">Digital infrastructure database</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">Reference Database for a Plant Expansion Program</h2>
           <div className="bg-white border border-[#dbe6f2] rounded-2xl overflow-x-scroll shadow mt-8">
@@ -256,13 +313,23 @@ const DigitalInfrastructureBlog = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 bg-gradient-to-r from-[#fffaf5] to-white border-l-4 border-[#d67f2f] p-8 rounded-2xl italic text-[#37485b]">
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+         className="mt-12 bg-gradient-to-r from-[#fffaf5] to-white border-l-4 border-[#d67f2f] p-8 rounded-2xl italic text-[#37485b]">
           A plant can buy new equipment in months, but it can only absorb new complexity when its digital documentation workflow is fast, accurate, and visible to every team that depends on it.
-        </div>
+        </motion.div>
 
-        <div className="mt-20">
+        <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mt-20">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">Key components</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">What a Strong Digital Expansion Package Should Include</h2>
           <div className="grid md:grid-cols-2 gap-8 mt-10">
@@ -275,9 +342,14 @@ const DigitalInfrastructureBlog = () => {
               <p className="text-[#243241]">Engineering documentation, equipment testing documentation, performance verification, installation verification, and as-built documentation keep the asset reliable and traceable.</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+        
+        className="mt-20">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">Best practices</div>
           <h2 className="text-4xl font-serif font-bold tracking-tight">Best Practices for Commissioning Documentation in Expansion Projects</h2>
           <ul className="mt-10 space-y-4">
@@ -296,9 +368,14 @@ const DigitalInfrastructureBlog = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="mt-20 bg-white border border-[#dbe6f2] rounded-2xl p-10 shadow relative">
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+         className="mt-20 bg-white border border-[#dbe6f2] rounded-2xl p-10 shadow relative">
           <div className="uppercase text-xs font-black tracking-widest text-[#195d7a] absolute top-6 right-6">CASE STUDY</div>
           <h3 className="text-3xl font-serif font-bold text-[#195d7a]">Case Study: How a Process Plant Cut Expansion Delays with Better Digital Infrastructure</h3>
           <p className="mt-6 text-[#243241]">A mid-size process plant added a new production line while keeping the main facility online...</p>
@@ -317,7 +394,7 @@ const DigitalInfrastructureBlog = () => {
               <span className="text-sm text-[#5d6b7a]">Cleaner expansion readiness</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="mt-20">
           <div className="uppercase text-[#195d7a] text-xs font-bold tracking-widest mb-3">FAQs</div>
@@ -352,10 +429,15 @@ const DigitalInfrastructureBlog = () => {
           </div>
         </div> */}
 
-        <div className="mt-20 bg-gradient-to-b from-white to-[#f9fcff] border border-[#dbe6f2] rounded-3xl p-16 text-center shadow">
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+         className="mt-20 bg-gradient-to-b from-white to-[#f9fcff] border border-[#dbe6f2] rounded-3xl p-16 text-center shadow">
           <h2 className="text-4xl font-serif font-bold">Build expansion on a digital foundation</h2>
           <p className="max-w-2xl mx-auto mt-6 text-[#5d6b7a]">Plant expansion moves faster when the documentation, workflow, training, compliance, and commissioning records all live in one connected system. That is how digital infrastructure protects performance, supports handover, and makes the next expansion easier than the last.</p>
-        </div>
+        </motion.div>
       </div>
     </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">

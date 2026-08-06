@@ -79,11 +79,6 @@ const stakeholders = [
     title: "Recyclers & processors",
     body: "Every tonne processed and verified converts into certificate value — the opportunity scales with formal registration, clean documentation, and category-accurate reporting.",
   },
-  {
-    icon: Landmark,
-    title: "PROs",
-    body: "Sit between producers and recyclers, aggregating supply across categories and making credit pricing transparent enough to actually trade on.",
-  },
 ];
 
 const categoryLedger = [
@@ -256,14 +251,14 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.25}>
         <div className="mt-9 flex flex-wrap items-center gap-4">
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
-          >
+          
+            <a href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]">
+        
             Get immediate guidance <ArrowRight className="w-4 h-4" />
           </a>
-          <a
-            href="#market-analysis"
+          
+           <a href="#market-analysis"
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
           >
             See the market data
@@ -390,7 +385,6 @@ function WhatAreCredits() {
           {[
             "Certificates are tied to a specific plastic category, not a blanket total",
             "Producers, importers & brand owners buy what they can't recycle themselves",
-            "PROs are the trust layer that makes the trade work at scale",
           ].map((line) => (
             <li
               key={line}
@@ -551,7 +545,7 @@ function MarketAnalysisChart() {
           Credit volume and price movement, at a glance
         </h2>
       </Reveal>
-      <div className="mt-8 grid lg:grid-cols-2 gap-6">
+      <div className="mt-8 grid lg:grid-cols-1 gap-6">
         <Reveal
           delay={0.1}
           className="rounded-2xl border border-border bg-card p-6"
@@ -567,7 +561,7 @@ function MarketAnalysisChart() {
           </p>
           <BarChart />
         </Reveal>
-        <Reveal
+        {/* <Reveal
           delay={0.2}
           className="rounded-2xl border border-border bg-card p-6"
         >
@@ -581,7 +575,7 @@ function MarketAnalysisChart() {
             Q1 of the compliance year = 100
           </p>
           <LineChart />
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );
@@ -600,7 +594,7 @@ function StakeholderOpportunities() {
           Where the opportunity sits, by role
         </h2>
       </Reveal>
-      <div className="mt-8 grid sm:grid-cols-3 gap-5">
+      <div className="mt-8 grid sm:grid-cols-2 gap-5">
         {stakeholders.map((s, i) => (
           <Reveal key={s.title} delay={i * 0.1}>
             <div className="h-full rounded-2xl border border-border bg-card p-6 flex flex-col hover:-translate-y-1 transition-transform">
@@ -661,7 +655,6 @@ function CreditFlowDiagram() {
   const nodes = [
     { icon: Factory, label: "PIBO" },
     { icon: Recycle, label: "Recycler" },
-    { icon: Landmark, label: "PRO" },
     { icon: FileCheck2, label: "Certificate" },
     { icon: ShieldCheck, label: "Compliance" },
   ];
@@ -722,14 +715,13 @@ function CTABanner() {
             Want to learn more?
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
-            If you need to make a PIBO, recycler, or PRO decision now, talk to
+            If you need to make a PIBO or recycler decision now, talk to
             our team for immediate, category-specific guidance instead of
             waiting on the published version.
           </p>
-          <a
-            href="/contact"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:scale-[1.03] transition-transform"
-          >
+          
+           <a href="/contact"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:scale-[1.03] transition-transform">
             Reach out for guidance <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -807,10 +799,10 @@ function ClosingTrustStrip() {
               after the market has already moved.
             </p>
           </div>
-          <a
+          
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-brandGreen px-5 py-2.5 text-sm font-medium text-brandGreen hover:bg-brandGreen hover:text-white transition-colors"
-          >
+          <a>
             Talk to our team <ArrowRight className="w-4 h-4" />
           </a>
         </div>

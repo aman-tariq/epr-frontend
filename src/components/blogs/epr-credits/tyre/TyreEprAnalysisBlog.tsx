@@ -15,6 +15,8 @@ import {
   CartesianGrid,
 } from "recharts";
 
+import {motion} from "framer-motion"
+
 const pieData = [
   { name: "Recyclers", value: 405 },
   { name: "Producers", value: 173 },
@@ -26,6 +28,35 @@ const barData = [
   { year: "2024-25", Producers: 173, Recyclers: 405 },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+
 export default function TyreBlog1() {
   return (
     <div
@@ -35,11 +66,16 @@ export default function TyreBlog1() {
           "radial-gradient(circle at top left, rgba(90,195,97,0.10), transparent 34%), radial-gradient(circle at top right, rgba(15,23,42,0.04), transparent 25%), #f6f8fb",
       }}
     >
-      <main className="mx-auto max-w-8xl px-1 mt-10 py-6 sm:px-2 lg:px-2 ">
+      <main className="mx-auto max-w-8xl mt-[110px] px-1  py-6 sm:px-2 lg:px-2 ">
         <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           <div className="container">
             {/* Header */}
-            <header className="rounded-[28px] overflow-hidden bg-white/80 backdrop-blur-xl border border-slate-900/[0.08] shadow-[0_18px_40px_rgba(10,15,25,0.08)]">
+            <motion.header 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="rounded-[28px] overflow-hidden bg-white/80 backdrop-blur-xl border border-slate-900/[0.08] shadow-[0_18px_40px_rgba(10,15,25,0.08)]">
               <div className="grid gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[1.3fr_0.7fr] lg:px-10 lg:py-10">
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-[0.45rem] text-xs font-bold tracking-[0.03em] bg-brandGreen/10 text-green-800 border border-brandGreen/[0.22]">
@@ -106,10 +142,10 @@ export default function TyreBlog1() {
                   </div>
                 </div>
               </div>
-            </header>
+            </motion.header>
 
             {/* Real-world markers */}
-            <section className="mt-6 grid gap-4 lg:grid-cols-3">
+             <Reveal delay={0.05}> <section  className="mt-6 grid gap-4 lg:grid-cols-3">
               <article className="rounded-[26px] bg-white p-5 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
                 <div className="text-sm font-semibold uppercase tracking-[0.2em] text-brandGreen">
                   Real-world marker
@@ -147,10 +183,10 @@ export default function TyreBlog1() {
                   to the Hazardous and Other Wastes rules.
                 </p>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Intro + Why approvals matter */}
-            <section id="intro" className="mt-8 grid gap-6 lg:grid-cols-1">
+             <Reveal delay={0.05}> <section  id="intro" className="mt-8 grid gap-6 lg:grid-cols-1">
               <article className="rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
                 <h2 className="font-display tracking-tight text-2xl font-bold text-slate-950">
                   Introduction
@@ -220,10 +256,10 @@ export default function TyreBlog1() {
                   </p>
                 </div>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Problem + Brief solution */}
-            <section className="mt-8 grid gap-6 lg:grid-cols-1">
+             <Reveal delay={0.05}> <section  className="mt-8 grid gap-6 lg:grid-cols-1">
               <article className="rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100 lg:col-span-1">
                 <h2 className="font-display tracking-tight text-2xl font-bold text-slate-950">
                   Problem
@@ -272,10 +308,10 @@ export default function TyreBlog1() {
                   ))}
                 </div>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Roadmap + Requirements */}
-            <section className="mt-8 grid gap-6 lg:grid-cols-1">
+             <Reveal delay={0.05}> <section  className="mt-8 grid gap-6 lg:grid-cols-1">
               <article className="rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
                 <h2 className="font-display tracking-tight text-2xl font-bold text-slate-950">
                   Roadmap
@@ -340,10 +376,10 @@ export default function TyreBlog1() {
                   ))}
                 </ul>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Pitfalls + client message */}
-            <section className="mt-8 grid gap-6 lg:grid-cols-1">
+             <Reveal delay={0.05}> <section  className="mt-8 grid gap-6 lg:grid-cols-1">
               <article className="rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
                 <h2 className="font-display tracking-tight text-2xl font-bold text-slate-950">
                   Pitfalls
@@ -402,10 +438,10 @@ export default function TyreBlog1() {
                   engineering, procurement, and execution.
                 </p>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Charts */}
-            <section id="charts" className="mt-8 grid gap-6 lg:grid-cols-2">
+             <Reveal delay={0.05}> <section  id="charts" className="mt-8 grid gap-6 lg:grid-cols-2">
               <article className="rounded-[28px] bg-white p-2 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
                 <h2 className="font-display tracking-tight text-xl md:text-2xl font-bold text-center text-slate-950">
                       Dynamic Pie Graph
@@ -522,10 +558,10 @@ export default function TyreBlog1() {
                   </ResponsiveContainer>
                 </div>
               </article>
-            </section>
+            </section> </Reveal>
 
             {/* Why data matters */}
-            <section className="mt-8 rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
+             <Reveal delay={0.05}> <section  className="mt-8 rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100">
               <h2 className="font-display tracking-tight text-2xl font-bold text-slate-950">
                 Why these data points matter
               </h2>
@@ -554,10 +590,10 @@ export default function TyreBlog1() {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* FAQ */}
-            <section
+             <Reveal delay={0.05}> <section 
               id="faq"
               className="mt-8 rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(10,15,25,0.08)] border border-slate-100"
             >
@@ -598,7 +634,7 @@ export default function TyreBlog1() {
                   </details>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
           </div>
           <aside className="hidden lg:block shrink-0 w-[320px]">
             <div className="sticky top-28 px-2">

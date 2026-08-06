@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
 
@@ -115,6 +116,21 @@ const faqItems = [
   { question: 'What does IoT monitoring actually mean for my plant?', answer: 'Your machines flag problems before they fail — vibration sensors catch bearing wear days early, temperature sensors stop hydraulic blowouts. Your team sees a simple traffic-light dashboard; we handle everything behind it.' },
   { question: 'How is pricing structured?', answer: 'Three options: annual retainer (all-inclusive), hybrid retainer + per-incident, or pay-per-service for smaller plants. All include machine database setup, live dashboard, and quarterly reviews.' },
 ];
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
 
 const RVSMachineryBlog: React.FC = () => {
   const c1Ref = useRef<HTMLCanvasElement | null>(null);
@@ -247,7 +263,7 @@ const RVSMachineryBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="machinery-blog-root">
+    <div className="machinery-blog-root mt-[102px]">
       <Seo
         title="RVSF Machinery Support & Maintenance Services in India - Shredder, Baler & Plant Reliability"
         description="Specialized machinery maintenance and support for Registered Vehicle Scrapping Facilities (RVSF). Preventive maintenance, emergency breakdown support, IoT monitoring, and compliance-ready service for shredders, balers, separators & more."
@@ -255,26 +271,39 @@ const RVSMachineryBlog: React.FC = () => {
         url="https://eprnexuss.com/blog/rvsf-machinery"
         type="article"
       />
-      <header className="hero">
-        <div className="hero-grid" />
-        <div className="hero-glow" />
-        <div className="hero-eyebrow">🔩 Industry Insight · RVSF Machinery Support · 2025</div>
-        <h1>Dead Machines<br/>Kill <span className="accent">Profitable Plants.</span><br/>We Keep Yours Alive.</h1>
-        <div className="hero-divider" />
-        <p className="hero-sub">Inside every registered vehicle scrapping facility, powerful machinery runs around the clock — and the moment it stops, so does your revenue, your reputation, and your compliance standing.</p>
-        <div className="hero-stats">
-          <div className="h-stat"><span className="num">₹2.8Cr</span><span className="lbl">avg. machinery loss / year</span></div>
-          <div className="h-stat"><span className="num">73%</span><span className="lbl">downtime is preventable</span></div>
-          <div className="h-stat"><span className="num">4×</span><span className="lbl">ROI on proactive support</span></div>
-          <div className="h-stat"><span className="num">18 min</span><span className="lbl">emergency response time</span></div>
-        </div>
-      </header>
+     
 
       <div className="container">
-        <div className="main-layout">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+          <div>
+             <motion.header 
+        className="hero"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <div className="hero-grid" />
+        <div className="hero-glow" />
+        <motion.div className="hero-eyebrow" variants={fadeInUp}>🔩 Industry Insight · RVSF Machinery Support · 2025</motion.div>
+        <motion.h1 variants={fadeInUp}>Dead Machines<br/>Kill <span className="accent">Profitable Plants.</span><br/>We Keep Yours Alive.</motion.h1>
+        <motion.div className="hero-divider" variants={fadeInUp} />
+        <motion.p className="hero-sub" variants={fadeInUp}>Inside every registered vehicle scrapping facility, powerful machinery runs around the clock — and the moment it stops, so does your revenue, your reputation, and your compliance standing.</motion.p>
+        <motion.div className="hero-stats" variants={staggerContainer}>
+          <motion.div className="h-stat" variants={fadeInUp}><span className="num">₹2.8Cr</span><span className="lbl">avg. machinery loss / year</span></motion.div>
+          <motion.div className="h-stat" variants={fadeInUp}><span className="num">73%</span><span className="lbl">downtime is preventable</span></motion.div>
+          <motion.div className="h-stat" variants={fadeInUp}><span className="num">4×</span><span className="lbl">ROI on proactive support</span></motion.div>
+          <motion.div className="h-stat" variants={fadeInUp}><span className="num">18 min</span><span className="lbl">emergency response time</span></motion.div>
+        </motion.div>
+      </motion.header>
           {/* Main Content Area */}
           <main>
-            <section className="section">
+            <motion.section 
+              className="section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeInUp}
+            >
               <div className="s-label">The Real Problem</div>
               <h2 className="s-title">The Machine You Ignore Today Is the Crisis You Face Tomorrow</h2>
               <div className="s-bar" />
@@ -282,16 +311,22 @@ const RVSMachineryBlog: React.FC = () => {
               <p>When one link in that chain breaks, the whole operation stalls. And unlike a software glitch that restarts with a click, a failed shredder hammer or a blown hydraulic seal takes hours — sometimes days — to fix. Every one of those hours costs money, strains client commitments, and puts your RVSF license compliance at risk.</p>
               <div className="intro-strip">"Most plant operators don't think about machinery support until something catastrophic happens. By then, it's not a mechanical problem anymore — it's a financial emergency with a regulatory deadline attached."</div>
               <p>India's Vehicle Scrapping Policy under MoRTH has created hundreds of new registered facilities across the country. Each one faces the same fundamental pressure: extract maximum throughput from heavy-duty equipment, keep maintenance costs under control, pass regulatory inspections, and scale operations as more vehicles flow in. That's exactly where a specialist machinery support partner changes the game.</p>
-              <div className="metrics-row">
-                <div className="metric-box"><div className="mv">800+</div><div className="ml">Active RVSF plants in India</div></div>
-                <div className="metric-box"><div className="mv">62%</div><div className="ml">Plants without structured maintenance</div></div>
-                <div className="metric-box"><div className="mv">₹18L</div><div className="ml">Avg. loss per shredder failure event</div></div>
-                <div className="metric-box"><div className="mv">3.8hr</div><div className="ml">Our avg. emergency repair time</div></div>
-              </div>
-            </section>
+              <motion.div className="metrics-row" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <motion.div className="metric-box" variants={fadeInUp}><div className="mv">800+</div><div className="ml">Active RVSF plants in India</div></motion.div>
+                <motion.div className="metric-box" variants={fadeInUp}><div className="mv">62%</div><div className="ml">Plants without structured maintenance</div></motion.div>
+                <motion.div className="metric-box" variants={fadeInUp}><div className="mv">₹18L</div><div className="ml">Avg. loss per shredder failure event</div></motion.div>
+                <motion.div className="metric-box" variants={fadeInUp}><div className="mv">3.8hr</div><div className="ml">Our avg. emergency repair time</div></motion.div>
+              </motion.div>
+            </motion.section>
 
             <div className="section-alt">
-              <section className="section">
+              <motion.section 
+                className="section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={fadeInUp}
+              >
                 <div className="s-label">The Numbers</div>
                 <h2 className="s-title">What a Single Breakdown Actually Costs Your Plant</h2>
                 <div className="s-bar" />
@@ -308,24 +343,36 @@ const RVSMachineryBlog: React.FC = () => {
                 </div>
                 <p>The shredder is the single biggest financial risk in any RVSF plant — yet it is the machine most commonly serviced reactively. A shredder sitting idle for 48 hours can cost a mid-sized plant upward of ₹18 lakhs in combined lost revenue alone. Add repair costs and potential compliance exposure, and a single incident can wipe out months of operating margin.</p>
                 <div className="pull-quote">Reactive maintenance costs 3 to 6 times more than a planned preventive program. The maths is simple. The discipline is where most plants struggle — and where the right partner makes all the difference.</div>
-              </section>
+              </motion.section>
             </div>
 
-            <section className="section">
+            <motion.section 
+              className="section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeInUp}
+            >
               <div className="s-label">What We Do</div>
               <h2 className="s-title">Four Pillars of Machinery Support Built for RVSF Plants</h2>
               <div className="s-bar" />
               <p>Our work is not generic industrial maintenance repackaged with a different logo. Every service we offer has been designed around the specific machines, regulatory requirements, throughput pressures, and operational realities of registered vehicle scrapping and recycling facilities.</p>
-              <div className="srv-grid">
-                <div className="srv-card"><div className="srv-top" /><div className="srv-icon">⚙️</div><h4>Preventive Maintenance Programs</h4><p>Scheduled service visits, fluid and wear-part analysis, replacement cycles, and monthly health reports — calibrated precisely to your machine hours.</p></div>
-                <div className="srv-card"><div className="srv-top" /><div className="srv-icon">🔧</div><h4>Emergency Breakdown Response</h4><p>A dedicated on-call engineering team with guaranteed response windows. Critical spare parts stocked locally for the top 28 failure scenarios.</p></div>
-                <div className="srv-card"><div className="srv-top" /><div className="srv-icon">📡</div><h4>IoT Performance Monitoring</h4><p>Real-time sensor data from vibration, temperature, and load points across your critical machines — all flowing to a live dashboard.</p></div>
-                <div className="srv-card"><div className="srv-top" /><div className="srv-icon">📋</div><h4>Compliance & Audit Readiness</h4><p>Complete digital service history, MoRTH-aligned documentation, and pre-inspection machinery reviews — so audit day is never a surprise.</p></div>
-              </div>
-            </section>
+              <motion.div className="srv-grid" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <motion.div className="srv-card" variants={fadeInUp}><div className="srv-top" /><div className="srv-icon">⚙️</div><h4>Preventive Maintenance Programs</h4><p>Scheduled service visits, fluid and wear-part analysis, replacement cycles, and monthly health reports — calibrated precisely to your machine hours.</p></motion.div>
+                <motion.div className="srv-card" variants={fadeInUp}><div className="srv-top" /><div className="srv-icon">🔧</div><h4>Emergency Breakdown Response</h4><p>A dedicated on-call engineering team with guaranteed response windows. Critical spare parts stocked locally for the top 28 failure scenarios.</p></motion.div>
+                <motion.div className="srv-card" variants={fadeInUp}><div className="srv-top" /><div className="srv-icon">📡</div><h4>IoT Performance Monitoring</h4><p>Real-time sensor data from vibration, temperature, and load points across your critical machines — all flowing to a live dashboard.</p></motion.div>
+                <motion.div className="srv-card" variants={fadeInUp}><div className="srv-top" /><div className="srv-icon">📋</div><h4>Compliance & Audit Readiness</h4><p>Complete digital service history, MoRTH-aligned documentation, and pre-inspection machinery reviews — so audit day is never a surprise.</p></motion.div>
+              </motion.div>
+            </motion.section>
 
             <div className="section-alt">
-              <section className="section">
+              <motion.section 
+                className="section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={fadeInUp}
+              >
                 <div className="s-label">Performance Data</div>
                 <h2 className="s-title">Preventive vs. Reactive Maintenance — What the Data Shows</h2>
                 <div className="s-bar" />
@@ -339,10 +386,16 @@ const RVSMachineryBlog: React.FC = () => {
                   </div>
                   <div className="chart-wrap"><canvas ref={c2Ref} role="img" aria-label="Radar chart comparing operational metrics before and after preventive maintenance." /></div>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
-            <section className="section">
+            <motion.section 
+              className="section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeInUp}
+            >
               <div className="s-label">Live Intelligence</div>
               <h2 className="s-title">Plant Machinery Health Database — How We Track Your Fleet</h2>
               <div className="s-bar" />
@@ -361,10 +414,16 @@ const RVSMachineryBlog: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             <div className="section-alt">
-              <section className="section">
+              <motion.section 
+                className="section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={fadeInUp}
+              >
                 <div className="s-label">The Financial Case</div>
                 <h2 className="s-title">Your Investment vs. Your Returns — A 36-Month Picture</h2>
                 <div className="s-bar" />
@@ -378,23 +437,35 @@ const RVSMachineryBlog: React.FC = () => {
                     </div>
                     <div className="chart-wrap" style={{ height: '320px' }}><canvas ref={c3Ref} role="img" aria-label="Line chart showing investment and savings over 36 months." /></div>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
-            <section className="section">
+            <motion.section 
+              className="section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeInUp}
+            >
               <div className="s-label">Getting Started</div>
               <h2 className="s-title">From First Conversation to Full Coverage in 14 Days</h2>
               <div className="s-bar" />
-              <div className="proc-list">
-                <div className="proc-step"><div className="p-num">1</div><div className="p-body"><h4>Plant Audit & Full Machine Census</h4><p>Our engineers visit your facility and document every machine — model, age, operating hours, service history, current condition, and daily load.</p></div></div>
-                <div className="proc-step"><div className="p-num">2</div><div className="p-body"><h4>Risk Stratification & Priority Mapping</h4><p>Using audit data, every machine is classified by failure probability and business impact. High-risk units go onto an immediate watchlist.</p></div></div>
-                <div className="proc-step"><div className="p-num">3</div><div className="p-body"><h4>12-Month Maintenance Calendar Deployment</h4><p>A forward maintenance schedule is built and shared with your operations team. Every service window is planned around your production calendar.</p></div></div>
-                <div className="proc-step"><div className="p-num">4</div><div className="p-body"><h4>IoT Sensor Installation on Critical Machines</h4><p>Vibration, temperature, and load sensors go onto your highest-risk machines — shredders, separators, and balers first.</p></div></div>
-              </div>
-            </section>
+              <motion.div className="proc-list" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <motion.div className="proc-step" variants={fadeInUp}><div className="p-num">1</div><div className="p-body"><h4>Plant Audit & Full Machine Census</h4><p>Our engineers visit your facility and document every machine — model, age, operating hours, service history, current condition, and daily load.</p></div></motion.div>
+                <motion.div className="proc-step" variants={fadeInUp}><div className="p-num">2</div><div className="p-body"><h4>Risk Stratification & Priority Mapping</h4><p>Using audit data, every machine is classified by failure probability and business impact. High-risk units go onto an immediate watchlist.</p></div></motion.div>
+                <motion.div className="proc-step" variants={fadeInUp}><div className="p-num">3</div><div className="p-body"><h4>12-Month Maintenance Calendar Deployment</h4><p>A forward maintenance schedule is built and shared with your operations team. Every service window is planned around your production calendar.</p></div></motion.div>
+                <motion.div className="proc-step" variants={fadeInUp}><div className="p-num">4</div><div className="p-body"><h4>IoT Sensor Installation on Critical Machines</h4><p>Vibration, temperature, and load sensors go onto your highest-risk machines — shredders, separators, and balers first.</p></div></motion.div>
+              </motion.div>
+            </motion.section>
 
             <div className="section-alt">
-              <section className="section">
+              <motion.section 
+                className="section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={fadeInUp}
+              >
                 <div className="s-label">Real Results</div>
                 <h2 className="s-title">Case Study: Turning Around a Struggling RVSF Plant in Pune</h2>
                 <div className="s-bar" />
@@ -410,10 +481,16 @@ const RVSMachineryBlog: React.FC = () => {
                   </div>
                   <div className="case-chart-wrap"><canvas ref={c4Ref} role="img" aria-label="Bar chart of EcoScrap monthly vehicle throughput." /></div>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
-            <section className="section">
+            <motion.section 
+              className="section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeInUp}
+            >
               <div className="s-label">Sector Benchmark</div>
               <h2 className="s-title">Where Indian RVSF Plants Stand Today — And the Gap to Close</h2>
               <div className="s-bar" />
@@ -425,44 +502,66 @@ const RVSMachineryBlog: React.FC = () => {
                 </div>
                 <div className="chart-wrap" style={{ height: '340px' }}><canvas ref={c5Ref} role="img" aria-label="Horizontal bar chart showing industry benchmark gaps." /></div>
               </div>
-            </section>
+            </motion.section>
 
             <div className="section-alt">
-              <section className="section">
+              <motion.section 
+                className="section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={fadeInUp}
+              >
                 <div className="s-label">Common Questions</div>
                 <h2 className="s-title">Frequently Asked Questions</h2>
                 <div className="s-bar" />
-                <div className="faq-list">
+                <motion.div className="faq-list" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   {faqItems.map((item, index) => (
-                    <div key={index} className="faq-item">
+                    <motion.div key={index} className="faq-item" variants={fadeInUp}>
                       <div className="faq-q" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
                         <div className="faq-num">{index + 1}</div>
                         <div className="faq-q-text">{item.question}</div>
                       </div>
-                      {openFaq === index && <div className="faq-a">{item.answer}</div>}
-                    </div>
+                      {openFaq === index && (
+                        <motion.div 
+                          className="faq-a"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {item.answer}
+                        </motion.div>
+                      )}
+                    </motion.div>
                   ))}
-                </div>
-              </section>
+                </motion.div>
+              </motion.section>
             </div>
           </main>
+          </div>
 
           {/* Persistent Sidebar Column Area */}
-          <aside className="sidebar-column">
-            <div className="side-card hidden lg:block">
+          <aside className="hideen lg:block shrink-0 w-[320px]">
+            <div className="sticky top-[86px] px-2">
               <StickyContactForm />
             </div>
-          
           </aside>
         </div>
 
-        <section className="section">
+        <motion.section 
+          className="section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+        >
           <div className="cta-block">
             <h2>Your Machines Run 24 Hours.<br/>So Does Our Support Team.</h2>
             <p>Get a no-obligation plant machinery audit and discover exactly where your biggest risks are hiding right now.</p>
             <a href="/contact" className="cta-btn">Request Your Free Plant Audit →</a>
           </div>
-        </section>
+        </motion.section>
       </div>
 
       <style>{styles}</style>

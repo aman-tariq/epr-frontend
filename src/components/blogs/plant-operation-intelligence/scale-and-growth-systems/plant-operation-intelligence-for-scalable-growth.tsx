@@ -1,10 +1,11 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 const PlantIntelligenceDashboard = () => {
   return (
-    <div className="min-h-screen bg-[#f4f7fa] text-[#1e293b] font-sans">
+    <div className="min-h-screen mt-[120px] bg-[#f4f7fa] text-[#1e293b] font-sans">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <style>{`
@@ -29,13 +30,13 @@ const PlantIntelligenceDashboard = () => {
           display: grid;
           grid-template-columns: 1.2fr 0.8fr;
           gap: 20px;
-          padding: 28px;
+          padding: 18px;
           background: linear-gradient(135deg, #ffffff, #f8fafc);
           border: 1px solid var(--line);
           border-radius: 34px;
           box-shadow: var(--shadow);
           overflow: hidden;
-          margin-top: 60px;
+         
         }
 
         .eyebrow {
@@ -189,7 +190,10 @@ const PlantIntelligenceDashboard = () => {
 
       <div className="max-w-8xl mx-auto px-4 py-7">
         {/* HERO */}
-        <section className="hero">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="hero">
           <div>
             <span className="eyebrow">Plant intelligence for faster scale</span>
             <h1 className="text-[clamp(2.1rem,4vw,4.3rem)] leading-[1.02] mt-4 mb-3.5 font-bold text-[#0f172a]">
@@ -266,10 +270,13 @@ const PlantIntelligenceDashboard = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* WHY IT MATTERS */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Why plant operation intelligence matters
           </h2>
@@ -305,10 +312,13 @@ const PlantIntelligenceDashboard = () => {
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* GROWTH BENEFITS */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Growth benefits in plain numbers
           </h2>
@@ -391,10 +401,13 @@ const PlantIntelligenceDashboard = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* KPI TABLE */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-2 text-[#0f172a]">
             Database-style KPI view
           </h2>
@@ -456,10 +469,13 @@ const PlantIntelligenceDashboard = () => {
               </tbody>
             </table>
           </div>
-        </section>
+        </motion.section>
 
         {/* CASE STUDY */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-3 text-[#0f172a]">
             Case study: scaling without losing efficiency
           </h2>
@@ -496,10 +512,13 @@ const PlantIntelligenceDashboard = () => {
             The result was a stronger plant that could grow without a quality or
             uptime penalty.
           </p>
-        </section>
+        </motion.section>
 
         {/* FAQ */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-6 text-[#0f172a]">FAQs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
@@ -526,10 +545,13 @@ const PlantIntelligenceDashboard = () => {
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* CLOSING */}
-        <section className="section">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="section">
           <h2 className="text-3xl font-semibold mb-4 text-[#0f172a]">Closing thought</h2>
           <p className="text-[#475569] mb-6">
             Scalable growth is not about pushing the plant harder. It is about
@@ -541,7 +563,7 @@ const PlantIntelligenceDashboard = () => {
             When the right data leads the right action, the plant stops reacting
             and starts scaling.
           </p>
-        </section>
+        </motion.section>
 
         <div className="text-center text-[#64748b] text-sm mt-12">
           React version • Light enterprise theme with modern data storytelling

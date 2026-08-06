@@ -163,10 +163,10 @@ const faqs = [
 
 export default function CorporateGuideOffloadingScrapBatteriesBlog() {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background mt-[120px] min-h-screen">
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-brandGreen/10" />
-        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12 mt-[60px]">
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

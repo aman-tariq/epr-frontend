@@ -3,11 +3,40 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const PlantOperationIntelligence: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f5f8fc] text-[#10233f] font-sans">
-      <div className="flex flex-col lg:flex-row gap-2 items-stretch mt-[80px]">
+    <div className="min-h-screen bg-[#f5f8fc] mt-[90px] text-[#10233f] font-sans">
+      <div className="flex flex-col lg:flex-row gap-1 items-stretch mt-[80px]">
         <div className="flex-1 min-w-0">
       <div className="max-w-8xl mx-auto px-6 py-8">
         <div className="grid  gap-2">
@@ -47,7 +76,7 @@ const PlantOperationIntelligence: React.FC = () => {
           {/* Main Content */}
           <main>
             {/* Hero */}
-            <section className="hero-card bg-white border border-[#10233f]/10 rounded-3xl overflow-hidden shadow-xl">
+            <Reveal delay={0.05}> <section  className="hero-card bg-white border border-[#10233f]/10 rounded-3xl overflow-hidden shadow-xl">
               <div
                 className="featured-image h-[380px] md:h-[420px] relative flex items-end p-8 md:p-12 text-white"
                 style={{
@@ -58,11 +87,11 @@ const PlantOperationIntelligence: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.2),transparent)]" />
 
-                <div className="relative z-10 max-w-3xl">
+                <div className="relative  z-10 max-w-3xl">
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2 rounded-full text-sm tracking-widest mb-6">
                     Plant Operation Intelligence
                   </div>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                  <h1 className="text-4xl mt-3 md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                     How Plant Operation Intelligence Improves Daily Operational
                     Control
                   </h1>
@@ -77,10 +106,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Overview Section */}
-            <section id="overview" className="mt-12 grid md:grid-cols-5 gap-6">
+            <Reveal delay={0.05}> <section  id="overview" className="mt-12 grid md:grid-cols-1 gap-6">
               <article className="md:col-span-3 bg-white border border-[#10233f]/10 rounded-3xl p-10">
                 <h2 className="text-3xl font-bold mb-6">
                   Why plant operation intelligence matters every day
@@ -122,10 +151,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   ))}
                 </div>
               </aside>
-            </section>
+            </section> </Reveal>
 
             {/* Benefits */}
-            <section
+            <Reveal delay={0.05}> <section 
               id="benefits"
               className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10"
             >
@@ -189,10 +218,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Visual Insights */}
-            <section id="visuals" className="mt-12 grid md:grid-cols-1 gap-6">
+            <Reveal delay={0.05}> <section  id="visuals" className="mt-12 grid md:grid-cols-1 gap-6">
               <div className="md:col-span-3 bg-white border border-[#10233f]/10 rounded-3xl p-10">
                 <h2 className="text-3xl font-bold mb-6">
                   Visual data: where operational intelligence creates the
@@ -248,10 +277,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Database View */}
-            <section className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
+            <Reveal delay={0.05}> <section  className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10">
               <h2 className="text-3xl font-bold mb-6">
                 Database view: what a plant intelligence system tracks
               </h2>
@@ -304,10 +333,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   ))}
                 </tbody>
               </table>
-            </section>
+            </section> </Reveal>
 
             {/* Case Study */}
-            <section
+            <Reveal delay={0.05}> <section 
               id="case-study"
               className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10"
             >
@@ -328,10 +357,10 @@ const PlantOperationIntelligence: React.FC = () => {
                 <strong>Result:</strong> Faster decisions, better shift
                 handovers, and more stable production.
               </p>
-            </section>
+            </section> </Reveal>
 
             {/* FAQ */}
-            <section
+            <Reveal delay={0.05}> <section 
               id="faqs"
               className="mt-12 bg-white border border-[#10233f]/10 rounded-3xl p-10"
             >
@@ -358,10 +387,10 @@ const PlantOperationIntelligence: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Final Thought */}
-            <section className="mt-16 bg-white border border-[#10233f]/10 rounded-3xl p-12 text-center">
+            <Reveal delay={0.05}> <section  className="mt-16 bg-white border border-[#10233f]/10 rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold mb-6">Final Thought</h2>
               <p className="max-w-3xl mx-auto text-lg text-[#5f6f87]">
                 Plant operation intelligence improves daily operational control
@@ -369,7 +398,7 @@ const PlantOperationIntelligence: React.FC = () => {
                 Better visibility leads to better decisions and more stable
                 operations.
               </p>
-            </section>
+            </section> </Reveal>
           </main>
 
           {/* Sidebar */}

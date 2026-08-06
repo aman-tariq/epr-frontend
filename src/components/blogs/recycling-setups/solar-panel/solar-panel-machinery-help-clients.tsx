@@ -1,6 +1,26 @@
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 const SolarPanelMachinery: React.FC = () => {
 
@@ -31,7 +51,12 @@ const SolarPanelMachinery: React.FC = () => {
           {/* LEFT MAIN CONTENT STREAM */}
           <main className="flex-1 w-full min-w-0">
             {/* Hero */}
-            <section className="hero w-full">
+            <motion.section 
+              className="hero w-full"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <div className="hero-main">
                 <div className="kicker">Solar Panel Recycling | Machinery Planning & Client Support</div>
                 <h1>Machines That Make Solar Recycling Work</h1>
@@ -44,9 +69,9 @@ const SolarPanelMachinery: React.FC = () => {
                 <div className="metric"><strong>1</strong><span>clear equipment roadmap makes the project easier to manage</span></div>
                 <div className="metric"><strong>100%</strong><span>of clients benefit from a practical machine fit check</span></div>
               </div>
-            </section>
+            </motion.section>
 
-            {/* MOBILE ONLY FORM PLACEMENT (Falls cleanly inline for better UX on smaller viewports) */}
+            {/* MOBILE ONLY FORM PLACEMENT */}
             <div className="block lg:hidden w-full mb-6">
               <div className="card section bg-white rounded-3xl p-6 shadow-xl border border-[#e5e7eb]">
                 <h3 className="text-xl font-bold mb-4 text-[#0f172a]">Connect With Our Experts</h3>
@@ -55,7 +80,13 @@ const SolarPanelMachinery: React.FC = () => {
             </div>
 
             {/* First Layout */}
-            <section className="layout">
+            <motion.section 
+              className="layout"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <div className="card section">
                 <h2>How we help clients with machinery in solar panel recycling</h2>
                 <p className="lead">
@@ -85,10 +116,16 @@ const SolarPanelMachinery: React.FC = () => {
                   <div className="mini"><h4>Lower risk</h4><p>Better choices mean fewer surprises during setup and operation.</p></div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Machinery Table */}
-            <section className="card section full overflow-hidden">
+            <motion.section 
+              className="card section full overflow-hidden"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>What machinery is usually needed</h2>
               <p>The exact setup changes by capacity and business model...</p>
               <div className="table-wrap">
@@ -109,22 +146,48 @@ const SolarPanelMachinery: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* 4 Steps */}
-            <section className="card section full">
+            <motion.section 
+              className="card section full"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>The machinery journey in simple steps</h2>
               <p>We explain the machinery path in a way that helps clients make decisions quickly...</p>
-              <div className="flow">
-                <div className="step"><div className="n">1</div><h4>Understand the target output</h4><p>We first define whether the client wants dismantling, material recovery, resale, or a phased setup.</p></div>
-                <div className="step"><div className="n">2</div><h4>Map the plant flow</h4><p>We study how material will move inside the plant...</p></div>
-                <div className="step"><div className="n">3</div><h4>Shortlist the machines</h4><p>We help choose the right equipment based on capacity...</p></div>
-                <div className="step"><div className="n">4</div><h4>Prepare for startup</h4><p>We support delivery, installation, trial runs...</p></div>
-              </div>
-            </section>
+              <motion.div 
+                className="flow"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {[
+                  { n: "1", title: "Understand the target output", desc: "We first define whether the client wants dismantling, material recovery, resale, or a phased setup." },
+                  { n: "2", title: "Map the plant flow", desc: "We study how material will move inside the plant..." },
+                  { n: "3", title: "Shortlist the machines", desc: "We help choose the right equipment based on capacity..." },
+                  { n: "4", title: "Prepare for startup", desc: "We support delivery, installation, trial runs..." }
+                ].map((step, idx) => (
+                  <motion.div key={idx} variants={fadeInVariant} className="step">
+                    <div className="n">{step.n}</div>
+                    <h4>{step.title}</h4>
+                    <p>{step.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.section>
 
             {/* Second Layout */}
-            <section className="layout">
+            <motion.section 
+              className="layout"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <div className="card section">
                 <h2>How our support helps clients make better decisions</h2>
                 <p>We help clients think beyond the purchase price. That means looking at service, ease of operation, maintenance needs, spare parts availability, energy use, and future expansion.</p>
@@ -145,25 +208,51 @@ const SolarPanelMachinery: React.FC = () => {
                   <span className="tag">Better returns</span>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* More Topics */}
-            <section className="card section full">
+            <motion.section 
+              className="card section full"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>More topics clients should understand before choosing machinery</h2>
               <p>A better machinery decision becomes easier when the client sees the whole picture...</p>
-              <div className="flow">
-                <div className="step"><div className="n">1</div><h4>Maintenance planning</h4><p>We explain how often the machines need service...</p></div>
-                <div className="step"><div className="n">2</div><h4>Spare parts strategy</h4><p>We help clients think ahead about critical spares...</p></div>
-                <div className="step"><div className="n">3</div><h4>Safety and training</h4><p>We make sure equipment choice is matched with operator safety...</p></div>
-                <div className="step"><div className="n">4</div><h4>Future expansion</h4><p>We show clients how to buy with growth in mind...</p></div>
-              </div>
+              <motion.div 
+                className="flow"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {[
+                  { n: "1", title: "Maintenance planning", desc: "We explain how often the machines need service..." },
+                  { n: "2", title: "Spare parts strategy", desc: "We help clients think ahead about critical spares..." },
+                  { n: "3", title: "Safety and training", desc: "We make sure equipment choice is matched with operator safety..." },
+                  { n: "4", title: "Future expansion", desc: "We show clients how to buy with growth in mind..." }
+                ].map((step, idx) => (
+                  <motion.div key={idx} variants={fadeInVariant} className="step">
+                    <div className="n">{step.n}</div>
+                    <h4>{step.title}</h4>
+                    <p>{step.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
               <div className="highlight">
                 <strong>Why this matters:</strong> machinery support is not only about buying equipment. It is about building a plant that stays useful, safe, and profitable over time.
               </div>
-            </section>
+            </motion.section>
 
             {/* Bar Graph + Database View */}
-            <section className="layout">
+            <motion.section 
+              className="layout"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <div className="card section">
                 <h2>Bar graph: where client value appears fastest</h2>
                 <p>This chart shows the areas where clients usually feel the strongest improvement after the machinery plan is done well.</p>
@@ -210,10 +299,16 @@ const SolarPanelMachinery: React.FC = () => {
                   <strong>Database insight:</strong> tracking machinery decisions in one place keeps the project organized and easier to control.
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case Study */}
-            <section className="card section full case">
+            <motion.section 
+              className="card section full case"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>Case study: helping a client avoid the wrong machinery purchase</h2>
               <p>
                 A recycling client wanted to launch a solar panel processing unit quickly. They already had three vendor quotations,
@@ -235,11 +330,17 @@ const SolarPanelMachinery: React.FC = () => {
               </div>
               <div className="quote">
                 <strong>Simple lesson:</strong> the best machinery plan is the one that fits the project, not the one that just looks big.
-  </div>
-            </section>
+              </div>
+            </motion.section>
 
             {/* Third Layout - Graphs */}
-            <section className="layout">
+            <motion.section 
+              className="layout"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <div className="card section">
                 <h2>Graph: where clients gain value through support</h2>
                 <p>This chart shows the main areas where clients usually feel faster progress...</p>
@@ -266,10 +367,16 @@ const SolarPanelMachinery: React.FC = () => {
                   <strong>Quick client view:</strong> when these four boxes are in place, the machinery project becomes easier to approve and easier to run.
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section className="card section full">
+            <motion.section 
+              className="card section full"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>Frequently asked questions</h2>
               <div className="faq">
                 <div className="faq-item">
@@ -285,19 +392,25 @@ const SolarPanelMachinery: React.FC = () => {
                   <p>Because the right machine plan decides how smoothly the plant can run and how much value it can recover.</p>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section className="closing">
+            <motion.section 
+              className="closing"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2>Final Thoughts</h2>
               <p>Solar panel recycling becomes much easier to manage when the machinery plan is clear, practical, and built around real business needs...</p>
               <p>Our support helps them make the right choice with confidence.</p>
               <div className="final">“Right machines, clear plan, stronger results.”</div>
-            </section>
+            </motion.section>
           </main>
 
           {/* DESKTOP STICKY SIDEBAR CONTAINER */}
-          <aside className="hidden lg:block sticky top-28 self-start w-[360px] min-w-[360px]">
+          <aside className="hidden lg:block sticky top-28 self-start w-[300px]">
             <StickyContactForm />
           </aside>
 

@@ -1,7 +1,27 @@
 import React, { useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import Chart from 'chart.js/auto';
 import StickyContactForm from '@/components/StickyContactForm'; // Added Import
+
+const fadeInVariant: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
+};
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
 
 const TyreMachinery: React.FC = () => {
 
@@ -59,10 +79,15 @@ const TyreMachinery: React.FC = () => {
         url="https://eprnexuss.com/blog/tyre-machinery"
         type="article"
       />
-    <div className="blog-container p-0 md:p-5 font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12">
+    <div className="blog-container mt-[100px] p-0 md:p-5 font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12">
 
       {/* HERO */}
-      <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-0 lg:px-8 md:px-12 py-0 md:py-20 mb-8 shadow-2xl">
+      <motion.section 
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariant}
+        className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-0 lg:px-8 md:px-12 py-0 md:py-20 mb-8 shadow-2xl"
+      >
         <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20" />
         <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12" />
         <div className="hero-inner relative px-2 py- 2 z-10 text-center max-w-4xl mx-auto">
@@ -76,16 +101,22 @@ const TyreMachinery: React.FC = () => {
             From tyre shredding and granulation to steel recovery and plant optimization, we help clients build efficient recycling systems that improve production, reduce downtime, and support long-term growth.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* CSS Grid Wrapper for Main Content and Sticky Sidebar */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr,350px] gap-8 lg:gap-12 items-start">
+      <div className="max-w-8xl mx-auto px-4 lg:px-1">
+        <div className="flex flex-col lg:flex-row items-stretch gap-2">
 
           {/* MAIN CONTENT COLUMN */}
           <main className="min-w-0">
             {/* Growing Importance */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">The Growing Importance of Tyre Waste Recycling</h2>
               <p className="text-[#5b6472] mb-6">
                 Tyre waste has become one of the fastest-growing environmental and industrial challenges. Every year, millions of tyres reach the end of their usable life, creating a major opportunity for recycling businesses.
@@ -101,10 +132,16 @@ const TyreMachinery: React.FC = () => {
               <div className="highlight p-2 md:p-6 bg-gradient-to-r from-amber-50 to-white border-l-4 border-amber-500 rounded-2xl">
                 A successful tyre recycling business starts with proper machinery planning, balanced production flow, and efficient recovery systems.
               </div>
-            </section>
+            </motion.section>
 
             {/* Why Machinery Selection Matters */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">Why Machinery Selection Matters in Tyre Recycling</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -124,10 +161,16 @@ const TyreMachinery: React.FC = () => {
                   The right machinery setup transforms tyre waste into a profitable industrial opportunity.
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* How We Help */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">How We Help Clients with Tyre Recycling Machinery</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
@@ -144,19 +187,31 @@ const TyreMachinery: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Process Flow */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">Typical Tyre Waste Recycling Process Flow</h2>
               <div className="bg-[#0b1220] text-white p-2 md:p-8 rounded-2xl font-mono text-sm leading-relaxed overflow-x-auto">
                 Used Tyres → Primary Tyre Shredder → Secondary Crusher → Granulation System →<br />
                 Magnetic Steel Separation → Screening & Sorting → Final Output: Crumb Rubber / Steel / Fibre
               </div>
-            </section>
+            </motion.section>
 
             {/* Performance Graphs - Fully Responsive */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#0f172a]">Plant Performance Comparison</h2>
               
               <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
@@ -176,10 +231,16 @@ const TyreMachinery: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case Study */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">Case Study: Improving Efficiency in a Tyre Recycling Plant</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
@@ -193,10 +254,16 @@ const TyreMachinery: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Benefits */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-6 text-[#0f172a]">Benefits Clients Receive</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
@@ -213,10 +280,16 @@ const TyreMachinery: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="card bg-white rounded-3xl p-2 md:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+            >
               <h2 className="text-lg md:text-3xl font-bold mb-8 text-[#0f172a]">Frequently Asked Questions</h2>
               <div className="space-y-6">
                 {[
@@ -231,10 +304,16 @@ const TyreMachinery: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* FINAL CTA */}
-            <section className="closing relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-2 lg:px-8 md:px-12 py-16 w-full mb-8">
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="closing relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-2 lg:px-8 md:px-12 py-16 w-full mb-8"
+            >
               <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20" />
               <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12" />
               <div className="text-center max-w-3xl mx-auto relative z-10">
@@ -246,13 +325,13 @@ const TyreMachinery: React.FC = () => {
                   Get Machinery Consultation
                 </button>
               </div>
-            </section>
+            </motion.section>
           </main>
 
           {/* STICKY SIDEBAR COLUMN */}
-          <aside className="hidden lg:block sticky top-24 self-start h-fit will-change-transform z-30">
+          <aside className="hidden lg:block shrink-0 w-[320px]">
             {/* Styled to match the light theme of this specific page */}
-            <div className="rounded-3xl border border-[#e5e7eb] bg-white p-6 shadow-xl">
+            <div className="sticky top-28 px-2 ">
               
               <StickyContactForm />
             </div>
