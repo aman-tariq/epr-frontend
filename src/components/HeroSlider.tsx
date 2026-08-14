@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
@@ -200,9 +200,18 @@ const slides = [
   // },
 ];
 
+const PAUSE_DURATION_MS = 8000;
+const AUTOPLAY_INTERVAL_MS = 6000;
+
 const  HeroSlider = () => {
   const [current, setCurrent] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Ref mirrors isPaused so the setInterval callback always reads the latest
+  // value instead of the stale one captured at mount time.
+  const isPausedRef = useRef(false);
+  const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -213,10 +222,42 @@ const  HeroSlider = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 12000);
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+
+  // Autoplay — skips advancing on ticks while paused, but keeps a steady
+  // interval so it resumes on the same cadence once unpaused.
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!isPausedRef.current) {
+        next();
+      }
+    }, AUTOPLAY_INTERVAL_MS);
 
     return () => clearInterval(timer);
   }, [next]);
+
+  // Clicking the slide image pauses autoplay for 5s, then resumes.
+  const handleImageClick = useCallback(() => {
+    setIsPaused(true);
+
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+      pauseTimeoutRef.current = null;
+    }, PAUSE_DURATION_MS);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     let rafId: number | null = null;
@@ -300,7 +341,8 @@ const  HeroSlider = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.9 }}
-          className="absolute inset-0"
+          className="absolute inset-0 cursor-pointer"
+          onClick={handleImageClick}
         >
           {/* Background Image */}
           <img
@@ -319,6 +361,21 @@ const  HeroSlider = () => {
           <div className={`absolute inset-0 ${customStyles.overlayTwo}`} />
 
           <div className={`absolute inset-0 ${customStyles.overlayThree}`} />
+
+          {/* Paused indicator */}
+          {isPaused && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute top-6 right-6 z-20 flex items-center gap-2 rounded-full bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-wider text-white backdrop-blur-md border border-white/20"
+            >
+              <span className="flex h-2 w-2">
+                <span className="h-2 w-2 rounded-full bg-yellow-300" />
+              </span>
+              Paused
+            </motion.div>
+          )}
         </motion.div>
       </AnimatePresence>
 

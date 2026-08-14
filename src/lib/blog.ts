@@ -33,152 +33,175 @@
 // Each image variable is reused across many posts. To swap an image for a whole
 // section of posts, just change the import path here.
 // -----------------------------------------------------------------------------
-import platformImage from "@/assets/recycling-process.jpg";   // used for setup/operations/scale posts
-import cpcbImage from "@/assets/epr-company-banner.jpg";        // used for EPR credit and ELV posts
-import batteryImage from "@/assets/epr-services-banner.jpg";    // used for lithium/battery/operations posts
-import tyreImage from "@/assets/company-banner.jpg";  
+import platformImage from "@/assets/recycling-process.jpg"; // used for setup/operations/scale posts
+import cpcbImage from "@/assets/epr-company-banner.jpg"; // used for EPR credit and ELV posts
+import batteryImage from "@/assets/epr-services-banner.jpg"; // used for lithium/battery/operations posts
+import tyreImage from "@/assets/company-banner.jpg";
 
 //blog/services-images
 //lithium
-import lithiumApprovals from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-approvals.jpg"
-import lithiumDpr from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-dpr.jpg"
-import lithiumMachinery from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-machinery.jpg"
-import lithiumAnalysis from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-market Analysis.jpg"
-import lithiumTrading from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-Trading.jpg"
+import lithiumApprovals from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-approvals.jpg";
+import lithiumDpr from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-dpr.jpg";
+import lithiumMachinery from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-machinery.jpg";
+import lithiumAnalysis from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-market Analysis.jpg";
+import lithiumTrading from "@/assets/banner/blogs/recycling-setup/lithium/Lithium-Trading.jpg";
 //e-waste
-import ewasteAnalysis from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteAnalysis.jpg"
-import ewasteApprovals from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteApprovals.jpg"
-import ewasteBuyAndSell from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteBuyAndSell.jpg"
-import ewasteDpr from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteDpr.jpg"
-import ewasteMachinery from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteMachinery.jpg"
+import ewasteAnalysis from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteAnalysis.jpg";
+import ewasteApprovals from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteApprovals.jpg";
+import ewasteBuyAndSell from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteBuyAndSell.jpg";
+import ewasteDpr from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteDpr.jpg";
+import ewasteMachinery from "@/assets/banner/blogs/recycling-setup/e-waste/ewasteMachinery.jpg";
 //rvsf
-import rvsfAnalysis from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfAnalysis.jpg"
-import rvsfApprovals from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfApporvals.jpg"
-import rvsfDpr from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfDpr.jpg"
-import rvsfMachinery from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfMachinery.jpg"
-import rvsfTrading from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfTrading.jpg"
-import rvsfSustainable from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfTrading.jpg"
-import rvsfFuture from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfFuture.jpg"
-import rvsfGrowth from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfGrowth.jpg"
-import rvsfGuide from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfguide.jpg"
-import rvsfLicense from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfLicense.jpg"
-import rvsfPath from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfPath.jpg"
+import rvsfAnalysis from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfAnalysis.jpg";
+import rvsfApprovals from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfApporvals.jpg";
+import rvsfDpr from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfDpr.jpg";
+import rvsfMachinery from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfMachinery.jpg";
+import rvsfTrading from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfTrading.jpg";
+import rvsfSustainable from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfTrading.jpg";
+import rvsfFuture from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfFuture.jpg";
+import rvsfGrowth from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfGrowth.jpg";
+import rvsfGuide from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfguide.jpg";
+import rvsfLicense from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfLicense.jpg";
+import rvsfPath from "@/assets/banner/blogs/recycling-setup/rvsf/rvsfPath.jpg";
 //solar panel
-import solarAnalysis from "@/assets/banner/blogs/recycling-setup/solar/solarAnalysis.jpg"
-import solarApprovals from "@/assets/banner/blogs/recycling-setup/solar/solarApprovals.jpg"
-import solarDpr from "@/assets/banner/blogs/recycling-setup/solar/solarDpr.jpg"
-import solarMachinery from "@/assets/banner/blogs/recycling-setup/solar/solarMachinery.jpg"
-import solarTrading from "@/assets/banner/blogs/recycling-setup/solar/solarTrading.jpg"
+import solarAnalysis from "@/assets/banner/blogs/recycling-setup/solar/solarAnalysis.jpg";
+import solarApprovals from "@/assets/banner/blogs/recycling-setup/solar/solarApprovals.jpg";
+import solarDpr from "@/assets/banner/blogs/recycling-setup/solar/solarDpr.jpg";
+import solarMachinery from "@/assets/banner/blogs/recycling-setup/solar/solarMachinery.jpg";
+import solarTrading from "@/assets/banner/blogs/recycling-setup/solar/solarTrading.jpg";
 //plastic
-import plasticAnalysis from "@/assets/banner/blogs/recycling-setup/plastic/plasticAnalysis.jpg"
-import plasticApprovals from "@/assets/banner/blogs/recycling-setup/plastic/plasticApprovals.jpg"
-import plasticMachinery from "@/assets/banner/blogs/recycling-setup/plastic/plasticMachinery.jpg"
-import plasticSustainablity from "@/assets/banner/blogs/recycling-setup/plastic/plasticSustainability.jpg"
-import plasticTrading from "@/assets/banner/blogs/recycling-setup/plastic/plasticTrading.jpg"
+import plasticAnalysis from "@/assets/banner/blogs/recycling-setup/plastic/plasticAnalysis.jpg";
+import plasticApprovals from "@/assets/banner/blogs/recycling-setup/plastic/plasticApprovals.jpg";
+import plasticMachinery from "@/assets/banner/blogs/recycling-setup/plastic/plasticMachinery.jpg";
+import plasticSustainablity from "@/assets/banner/blogs/recycling-setup/plastic/plasticSustainability.jpg";
+import plasticTrading from "@/assets/banner/blogs/recycling-setup/plastic/plasticTrading.jpg";
 //tyre
-import tyreAnalysis from "@/assets/banner/blogs/recycling-setup/tyre/tyreAnalysis.jpg"
-import tyreApprovals from "@/assets/banner/blogs/recycling-setup/tyre/tyreApprovals.jpg"
-import tyreBuySell from "@/assets/banner/blogs/recycling-setup/tyre/tyreBuySell.jpg"
-import tyreDpr from "@/assets/banner/blogs/recycling-setup/tyre/tyreDpr.jpg"
-import tyreMachinery from "@/assets/banner/blogs/recycling-setup/tyre/tyreMachinery.jpg"
+import tyreAnalysis from "@/assets/banner/blogs/recycling-setup/tyre/tyreAnalysis.jpg";
+import tyreApprovals from "@/assets/banner/blogs/recycling-setup/tyre/tyreApprovals.jpg";
+import tyreBuySell from "@/assets/banner/blogs/recycling-setup/tyre/tyreBuySell.jpg";
+import tyreDpr from "@/assets/banner/blogs/recycling-setup/tyre/tyreDpr.jpg";
+import tyreMachinery from "@/assets/banner/blogs/recycling-setup/tyre/tyreMachinery.jpg";
 
 //images of blogs/eprCredits
 
 //Epr plastic
-import eprPlasticAnalysis from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticAnalysis.jpg"
-import eprPlasticTrading from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticTrading.jpg"
+import eprPlasticAnalysis from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticAnalysis.jpg";
+import eprPlasticTrading from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticTrading.jpg";
 
 //Epr Electronic
-import eprElectronicAnalysis from "@/assets/banner/blogs/epr-credits/electronic/eprElectronicAnalysis.jpg"
-import eprElectronicTrading from "@/assets/banner/blogs/epr-credits/electronic/eprElectronicTrading.jpg"
+import eprElectronicAnalysis from "@/assets/banner/blogs/epr-credits/electronic/eprElectronicAnalysis.jpg";
+import eprElectronicTrading from "@/assets/banner/blogs/epr-credits/electronic/eprElectronicTrading.jpg";
 
 //Epr Tyre
-import eprTyreAnalysis from "@/assets/banner/blogs/epr-credits/tyre/eprTyreAnalysis.jpg"
-import eprTyreTrading from "@/assets/banner/blogs/epr-credits/tyre/eprTyreTrading.png"
+import eprTyreAnalysis from "@/assets/banner/blogs/epr-credits/tyre/eprTyreAnalysis.jpg";
+import eprTyreTrading from "@/assets/banner/blogs/epr-credits/tyre/eprTyreTrading.png";
 
 //Epr ElV
-import eprElvTrading from "@/assets/banner/blogs/epr-credits/elv/eprElvTrading.jpg"
-import eprElvAnalysis from "@/assets/banner/blogs/epr-credits/elv/eprElvAnalysis.jpg"
+import eprElvTrading from "@/assets/banner/blogs/epr-credits/elv/eprElvTrading.jpg";
+import eprElvAnalysis from "@/assets/banner/blogs/epr-credits/elv/eprElvAnalysis.jpg";
 
 //Epr Lithium
-import eprLithiumTrading from "@/assets/banner/blogs/epr-credits/lithium/eprLithiumTrading.jpg"
-import eprLithiumAnalysis from "@/assets/banner/blogs/epr-credits/lithium/eprLithiumAnalysis.jpg"
+import eprLithiumTrading from "@/assets/banner/blogs/epr-credits/lithium/eprLithiumTrading.jpg";
+import eprLithiumAnalysis from "@/assets/banner/blogs/epr-credits/lithium/eprLithiumAnalysis.jpg";
 
 //Epr metal
-import eprMetalTrading from "@/assets/banner/blogs/epr-credits/metal/eprMetalTrading.jpg"
-import eprMetalAnalysis from "@/assets/banner/blogs/epr-credits/metal/eprMetalAnalysis.jpg"
+import eprMetalTrading from "@/assets/banner/blogs/epr-credits/metal/eprMetalTrading.jpg";
+import eprMetalAnalysis from "@/assets/banner/blogs/epr-credits/metal/eprMetalAnalysis.jpg";
 
 //epr UsedOil
-import eprOilTrading from "@/assets/banner/blogs/epr-credits/oil/eprOilTrading.jpg"
-import eprOilAnalysis from "@/assets/banner/blogs/epr-credits/oil/eprOilAnalysis.jpg"
+import eprOilTrading from "@/assets/banner/blogs/epr-credits/oil/eprOilTrading.jpg";
+import eprOilAnalysis from "@/assets/banner/blogs/epr-credits/oil/eprOilAnalysis.jpg";
 
 //erp Battery
-import eprBatteryTrading from "@/assets/banner/blogs/epr-credits/battery/eprBatteryTrading.jpg"
-import eprBatteryAnalysis from "@/assets/banner/blogs/epr-credits/battery/eprBatteryAnalysis.jpg"
+import eprBatteryTrading from "@/assets/banner/blogs/epr-credits/battery/eprBatteryTrading.jpg";
+import eprBatteryAnalysis from "@/assets/banner/blogs/epr-credits/battery/eprBatteryAnalysis.jpg";
 // used for tyre and scale-and-growth posts
 
-//plant operation and intelligence 
-import POI1 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceSetupDocuments.jpg"
-import POI2 from "@/assets/banner/blogs/Plant-Operation-intelligence/platOperationIntelligenceDocumentationGaps.jpg"
-import POI3 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceCommisioningRecords.jpg"
-import POI4 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceNoDocumentsNoStartup.jpg"
-import POI5 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceChecklists.jpg"
-import POI6 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceBestPractices.jpg"
-import POI7 from "@/assets/banner/blogs/Plant-Operation-intelligence/roleOfKpi.jpg"
-import POI8 from "@/assets/banner/blogs/Plant-Operation-intelligence/keyPerformance.jpg"
-import POI9 from "@/assets/banner/blogs/Plant-Operation-intelligence/dailyOperation.jpg"
-import POI10 from "@/assets/banner/blogs/Plant-Operation-intelligence/reduceOperationDelay.jpg"
-import POI11 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantEffeciency.jpg"
-import POI12 from "@/assets/banner/blogs/Plant-Operation-intelligence/digitalInfra.jpg"
-import POI13 from "@/assets/banner/blogs/Plant-Operation-intelligence/samePlaybook.jpg"
-import POI14 from "@/assets/banner/blogs/Plant-Operation-intelligence/losingEfficiency.jpg"
-import POI15 from "@/assets/banner/blogs/Plant-Operation-intelligence/scalableGrowth.jpg"
-import POI16 from "@/assets/banner/blogs/Plant-Operation-intelligence/standardizeOperation.jpg"
+//plant operation and intelligence
+import POI1 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceSetupDocuments.jpg";
+import POI2 from "@/assets/banner/blogs/Plant-Operation-intelligence/platOperationIntelligenceDocumentationGaps.jpg";
+import POI3 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceCommisioningRecords.jpg";
+import POI4 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceNoDocumentsNoStartup.jpg";
+import POI5 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceChecklists.jpg";
+import POI6 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantOperationIntelligenceBestPractices.jpg";
+import POI7 from "@/assets/banner/blogs/Plant-Operation-intelligence/roleOfKpi.jpg";
+import POI8 from "@/assets/banner/blogs/Plant-Operation-intelligence/keyPerformance.jpg";
+import POI9 from "@/assets/banner/blogs/Plant-Operation-intelligence/dailyOperation.jpg";
+import POI10 from "@/assets/banner/blogs/Plant-Operation-intelligence/reduceOperationDelay.jpg";
+import POI11 from "@/assets/banner/blogs/Plant-Operation-intelligence/plantEffeciency.jpg";
+import POI12 from "@/assets/banner/blogs/Plant-Operation-intelligence/digitalInfra.jpg";
+import POI13 from "@/assets/banner/blogs/Plant-Operation-intelligence/samePlaybook.jpg";
+import POI14 from "@/assets/banner/blogs/Plant-Operation-intelligence/losingEfficiency.jpg";
+import POI15 from "@/assets/banner/blogs/Plant-Operation-intelligence/scalableGrowth.jpg";
+import POI16 from "@/assets/banner/blogs/Plant-Operation-intelligence/standardizeOperation.jpg";
 
 //buy and sell scrap
-import BSS1 from "@/assets/banner/blogs/buy-sell-scrap/whySell.jpg"
-import BSS2 from "@/assets/banner/blogs/buy-sell-scrap/types.jpg"
-import BSS3 from "@/assets/banner/blogs/buy-sell-scrap/legal.jpg"
-import BSS4 from "@/assets/banner/blogs/buy-sell-scrap/price.jpg"
-import BSS5 from "@/assets/banner/blogs/buy-sell-scrap/compliant.jpg"
-import BSS6 from "@/assets/banner/blogs/buy-sell-scrap/cash.jpg"
-import BSS7 from "@/assets/banner/blogs/buy-sell-scrap/gap.jpg"
-import BSS8 from "@/assets/banner/blogs/buy-sell-scrap/guide.jpg"
-import BSS9 from "@/assets/banner/blogs/buy-sell-scrap/traditional.jpg"
-import BSS10 from "@/assets/banner/blogs/buy-sell-scrap/maximizing.jpg"
-import BSS11 from "@/assets/banner/blogs/buy-sell-scrap/non-ferrous.jpg"
-import BSS12 from "@/assets/banner/blogs/buy-sell-scrap/verified.jpg"
+import BSS1 from "@/assets/banner/blogs/buy-sell-scrap/whySell.jpg";
+import BSS2 from "@/assets/banner/blogs/buy-sell-scrap/types.jpg";
+import BSS3 from "@/assets/banner/blogs/buy-sell-scrap/legal.jpg";
+import BSS4 from "@/assets/banner/blogs/buy-sell-scrap/price.jpg";
+import BSS5 from "@/assets/banner/blogs/buy-sell-scrap/compliant.jpg";
+import BSS6 from "@/assets/banner/blogs/buy-sell-scrap/cash.jpg";
+import BSS7 from "@/assets/banner/blogs/buy-sell-scrap/gap.jpg";
+import BSS8 from "@/assets/banner/blogs/buy-sell-scrap/guide.jpg";
+import BSS9 from "@/assets/banner/blogs/buy-sell-scrap/traditional.jpg";
+import BSS10 from "@/assets/banner/blogs/buy-sell-scrap/maximizing.jpg";
+import BSS11 from "@/assets/banner/blogs/buy-sell-scrap/non-ferrous.jpg";
+import BSS12 from "@/assets/banner/blogs/buy-sell-scrap/verified.jpg";
 
 //business growth and lead generation
-import bglg1 from "@/assets/banner/blogs/business-growth-and-lead-generation/practices.jpg"
-import bglg2 from "@/assets/banner/blogs/business-growth-and-lead-generation/strategy.jpg"
-import bglg3 from "@/assets/banner/blogs/business-growth-and-lead-generation/trends.jpg"
-import bglg4 from "@/assets/banner/blogs/business-growth-and-lead-generation/environment.jpg"
-import bglg5 from "@/assets/banner/blogs/business-growth-and-lead-generation/wealth.jpg"
+import bglg1 from "@/assets/banner/blogs/business-growth-and-lead-generation/practices.jpg";
+import bglg2 from "@/assets/banner/blogs/business-growth-and-lead-generation/strategy.jpg";
+import bglg3 from "@/assets/banner/blogs/business-growth-and-lead-generation/trends.jpg";
+import bglg4 from "@/assets/banner/blogs/business-growth-and-lead-generation/environment.jpg";
+import bglg5 from "@/assets/banner/blogs/business-growth-and-lead-generation/wealth.jpg";
 
 //hero images
-import lithiumHero from "@/assets/hero/blogs/lithiumHero.webp"
-import ewasteHero from "@/assets/hero/blogs/ewasteHero.webp"
-import rvsfHero from "@/assets/hero/blogs/rvsfHero.webp"
-import plasticHero from "@/assets/hero/blogs/plasticHero.webp"
-import solarHero from "@/assets/hero/blogs/solarHero.webp"
-import tyreHero from "@/assets/hero/blogs/tyreHero.webp"
-import eprBatteryHero from "@/assets/hero/blogs/eprBatteryHero.webp"
-import eprElectronicHero from "@/assets/hero/blogs/eprElectronicHero.webp"
-import eprLithiumHero from "@/assets/hero/blogs/eprLithiumHero.webp"
-import eprElvHero from "@/assets/hero/blogs/eprElvHero.webp"
-import eprMetalHero from "@/assets/hero/blogs/eprMetalHero.webp"
-import eprOilHero from "@/assets/hero/blogs/eprOilHero.webp"
-import eprPlasticHero from "@/assets/hero/blogs/eprPlasticHero.webp"
-import eprTyreHero from "@/assets/hero/blogs/eprTyreHero.webp"
-import bglgHero from "@/assets/hero/blogs/bglgHero.webp"
-import operationAndPerformanceHero from "@/assets/hero/blogs/operationAndPerformanceHero.webp"
-import setupAndCommissioningHero from "@/assets/hero/blogs/setupcommissioningHero.webp"
-import scaleAndGrowthHero from "@/assets/hero/blogs/scaleAndGrowthHero.webp"
-import buyEwasteHero from "@/assets/hero/blogs/buyEwasteHero.webp"
-import buySellMetalsHero from "@/assets/hero/blogs/buySellMetalsHero.webp"
-import sellBatteriesHero from "@/assets/hero/blogs/sellBatteriesHero.webp"
+import lithiumHero from "@/assets/hero/blogs/lithiumHero.webp";
+import ewasteHero from "@/assets/hero/blogs/ewasteHero.webp";
+import rvsfHero from "@/assets/hero/blogs/rvsfHero.webp";
+import plasticHero from "@/assets/hero/blogs/plasticHero.webp";
+import solarHero from "@/assets/hero/blogs/solarHero.webp";
+import tyreHero from "@/assets/hero/blogs/tyreHero.webp";
+import eprBatteryHero from "@/assets/hero/blogs/eprBatteryHero.webp";
+import eprElectronicHero from "@/assets/hero/blogs/eprElectronicHero.webp";
+import eprLithiumHero from "@/assets/hero/blogs/eprLithiumHero.webp";
+import eprElvHero from "@/assets/hero/blogs/eprElvHero.webp";
+import eprMetalHero from "@/assets/hero/blogs/eprMetalHero.webp";
+import eprOilHero from "@/assets/hero/blogs/eprOilHero.webp";
+import eprPlasticHero from "@/assets/hero/blogs/eprPlasticHero.webp";
+import eprTyreHero from "@/assets/hero/blogs/eprTyreHero.webp";
+import bglgHero from "@/assets/hero/blogs/bglgHero.webp";
+import operationAndPerformanceHero from "@/assets/hero/blogs/operationAndPerformanceHero.webp";
+import setupAndCommissioningHero from "@/assets/hero/blogs/setupcommissioningHero.webp";
+import scaleAndGrowthHero from "@/assets/hero/blogs/scaleAndGrowthHero.webp";
+import buyEwasteHero from "@/assets/hero/blogs/buyEwasteHero.webp";
+import buySellMetalsHero from "@/assets/hero/blogs/buySellMetalsHero.webp";
+import sellBatteriesHero from "@/assets/hero/blogs/sellBatteriesHero.webp";
 
+//common blog post card banner image for /blogs common section
+import ewasteBanner from "@/assets/banner/Common/ewasteBanner.jpg";
+import bglgBanner from "@/assets/banner/Common/bglgBanner.jpg";
+import blogHero from "@/assets/banner/Common/blogHero.webp";
+import buyEwasteBanner from "@/assets/banner/Common/buyEwasteBanner.jpg";
+import buySellMetalsBanner from "@/assets/banner/Common/buySellMetalsBanner.jpg";
+import eprTyreBanner from "@/assets/banner/Common/eorTyreBanner.jpg";
+import eprBatteryBanner from "@/assets/banner/Common/eprBatteryBanner.jpg";
+import eprElectronicBanner from "@/assets/banner/Common/eprElectronicBanner.jpg";
+import eprElvBanner from "@/assets/banner/Common/eprElvBanner.png";
+import eprLithiumBanner from "@/assets/banner/Common/eprLithiumBanner.jpg";
+import eprMetalsBanner from "@/assets/banner/Common/eprMetalsBanner.jpg";
+import eprPlasticBanner from "@/assets/banner/Common/eprPlasticBanner.jpg";
+import eprUsedOilBanner from "@/assets/banner/Common/eprUsedOilBanner.jpg";
+import lithiumBanner from "@/assets/banner/Common/lithiumBanner.jpg";
+import opmBanner from "@/assets/banner/Common/opmBanner.jpg";
+import plasticBanner from "@/assets/banner/Common/plasticBanner.jpg";
+import rvsfBanner from "@/assets/banner/Common/rvsfBanner.png";
+import sagsBanner from "@/assets/banner/Common/sagsBanner.png";
+import scdBanner from "@/assets/banner/Common/scdBanner.jpg";
+import sellBatteriesBanner from "@/assets/banner/Common/sellBatteriesBanner.jpg";
+import solarPanelBanner from "@/assets/banner/Common/solarPanelBanner.png";
+import tyreBanner from "@/assets/banner/Common/tyreBanner.png";
 
 // -----------------------------------------------------------------------------
 // TYPE: BlogPostSection
@@ -226,7 +249,29 @@ export interface BlogPost {
   keywords: string[];
   metaDescription: string;
   sections?: BlogPostSection[];
-  category: "epr-plastic" | "epr-battery" | "epr-tyre" | "e-waste" | "solar-panel" | "sops-kpis-checklists" | "rvsf" | "lithium" | "plastic" | "epr-elv" | "tyre" | "setup-commissioning-documentation" | "operation-performance-management" | "scale-and-growth-systems" | "epr-electronic" | "epr-lithium" | "epr-metals" | "epr-used-oil" | "buy-e-waste" | "sell-batteries" | "buy-and-sell-metals" | "business-growth-and-lead-generation";
+  category:
+    | "epr-plastic"
+    | "epr-battery"
+    | "epr-tyre"
+    | "e-waste"
+    | "solar-panel"
+    | "sops-kpis-checklists"
+    | "rvsf"
+    | "lithium"
+    | "plastic"
+    | "epr-elv"
+    | "tyre"
+    | "setup-commissioning-documentation"
+    | "operation-performance-management"
+    | "scale-and-growth-systems"
+    | "epr-electronic"
+    | "epr-lithium"
+    | "epr-metals"
+    | "epr-used-oil"
+    | "buy-e-waste"
+    | "sell-batteries"
+    | "buy-and-sell-metals"
+    | "business-growth-and-lead-generation";
   // ↑ To add a new category: add a new string here AND add a BlogCategory object at the bottom of this file
   previewContent?: string;
   fullContent?: string;
@@ -277,7 +322,6 @@ export interface BlogCategory {
 //  12. Scale & Growth Systems  (slug: digital-infrastructure-*, etc. → component in blogs/scale-and-growth-systems/)
 // =============================================================================
 export const blogPosts: BlogPost[] = [
-
   // ===========================================================================
   // SECTION 1: EPR GENERAL POSTS
   // These are general EPR compliance articles. They use the "sections[]" fallback
@@ -373,7 +417,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "e-waste-buying-selling",
     path: "/blog/e-waste-buying-selling",
-    title: "How We Help Clients Buy and Sell Scrap and Products in E-Waste Recycling Plant",
+    title:
+      "How We Help Clients Buy and Sell Scrap and Products in E-Waste Recycling Plant",
     summary:
       "Learn how to optimize scrap sourcing, material grading, and product sales in e-waste recycling through smart buying and selling strategies.",
     date: "May 11, 2026",
@@ -395,13 +440,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why this part of the business matters",
-        body:
-          "Many clients think an e-waste recycling plant is only about collection and dismantling. In reality, the business becomes truly profitable when scrap and output products move smoothly in the market. The business cycle improves when you buy wisely and sell smartly.",
+        body: "Many clients think an e-waste recycling plant is only about collection and dismantling. In reality, the business becomes truly profitable when scrap and output products move smoothly in the market. The business cycle improves when you buy wisely and sell smartly.",
       },
       {
         title: "The full buying and selling cycle",
-        body:
-          "The process includes sourcing scrap, checking quality, finding the right buyer, and closing the deal with proper documentation and payment coordination.",
+        body: "The process includes sourcing scrap, checking quality, finding the right buyer, and closing the deal with proper documentation and payment coordination.",
       },
     ],
   },
@@ -430,20 +473,19 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why approvals matter before plant setup",
-        body:
-          "Approvals shape the entire business from the beginning. They decide how the site is used, where waste is stored, how material moves, what pollution control is needed, and when commercial operations can begin.",
+        body: "Approvals shape the entire business from the beginning. They decide how the site is used, where waste is stored, how material moves, what pollution control is needed, and when commercial operations can begin.",
       },
       {
         title: "Major approvals required",
-        body:
-          "Most e-waste projects need E-waste authorization, Consent to Establish, Consent to Operate, Factory License, Fire NOC, and building clearance.",
+        body: "Most e-waste projects need E-waste authorization, Consent to Establish, Consent to Operate, Factory License, Fire NOC, and building clearance.",
       },
     ],
   },
   {
     slug: "e-waste-market-analysis",
     path: "/blog/e-waste-market-analysis",
-    title: "Market Analysis and Target Market Segments in E-Waste Recycling Plant",
+    title:
+      "Market Analysis and Target Market Segments in E-Waste Recycling Plant",
     summary:
       "Understand target market segments for e-waste recycling including bulk generators, aggregators, traders, and downstream buyers.",
     date: "May 11, 2026",
@@ -465,20 +507,19 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why market analysis matters",
-        body:
-          "Market analysis gives the client a real picture of the business environment. It helps answer: Is there enough material available? Who are the major buyers? Which segment offers the best value?",
+        body: "Market analysis gives the client a real picture of the business environment. It helps answer: Is there enough material available? Who are the major buyers? Which segment offers the best value?",
       },
       {
         title: "Target market segments",
-        body:
-          "The business depends on a mix of scrap generators, bulk suppliers, aggregators, traders, manufacturers, and downstream buyers.",
+        body: "The business depends on a mix of scrap generators, bulk suppliers, aggregators, traders, manufacturers, and downstream buyers.",
       },
     ],
   },
   {
     slug: "e-waste-machinery",
     path: "/blog/e-waste-machinery",
-    title: "How We Help Clients Choose the Right Machinery in E-Waste Recycling Plant",
+    title:
+      "How We Help Clients Choose the Right Machinery in E-Waste Recycling Plant",
     summary:
       "Select optimal machinery for e-waste recycling plants covering dismantling, shredding, sorting, and separation systems.",
     date: "May 11, 2026",
@@ -500,20 +541,19 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why machinery selection matters",
-        body:
-          "Machinery is the heart of the operation. It decides how fast material moves, how safely it is handled, how much can be recovered, and how much profit the plant can create.",
+        body: "Machinery is the heart of the operation. It decides how fast material moves, how safely it is handled, how much can be recovered, and how much profit the plant can create.",
       },
       {
         title: "Common machinery types",
-        body:
-          "E-waste plants typically use dismantling tables, shredders, magnetic separators, eddy current separators, dust collection, and conveyor systems.",
+        body: "E-waste plants typically use dismantling tables, shredders, magnetic separators, eddy current separators, dust collection, and conveyor systems.",
       },
     ],
   },
   {
     slug: "e-waste-dpr",
     path: "/blog/e-waste-dpr",
-    title: "How Can We Help Clients in Creating a Detailed Project Report File for E-Waste Recycling Plant",
+    title:
+      "How Can We Help Clients in Creating a Detailed Project Report File for E-Waste Recycling Plant",
     summary:
       "Create a comprehensive DPR for e-waste recycling projects covering planning, design, finance, and approval roadmap.",
     date: "May 11, 2026",
@@ -530,826 +570,189 @@ export const blogPosts: BlogPost[] = [
     metaDescription:
       "Master the creation of a strong Detailed Project Report for e-waste recycling plants to secure funding and smooth execution.",
     category: "e-waste",
-    fullContent: `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Detailed Project Report File in E-Waste Recycling Plant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f7f3ee;
-      --bg2:#fffaf3;
-      --card:#ffffff;
-      --text:#1f2937;
-      --muted:#5f6b7a;
-      --heading:#10233f;
-      --accent:#0f766e;
-      --accent2:#f97316;
-      --accent3:#2563eb;
-      --soft:#e8f4f2;
-      --soft2:#fff1e6;
-      --line:#e7dfd6;
-      --shadow:0 14px 40px rgba(16,35,63,.08);
-      --radius:26px;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Manrope',sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(15,118,110,.10), transparent 25%),
-        radial-gradient(circle at top right, rgba(249,115,22,.10), transparent 22%),
-        linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
-      color:var(--text);
-      line-height:1.75;
-    }
-
-    .page{
-      width:min(1180px,92%);
-      margin:0 auto;
-      padding:34px 0 60px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:
-        linear-gradient(135deg, rgba(15,118,110,.96), rgba(37,99,235,.94)),
-        linear-gradient(135deg, #0f766e, #2563eb);
-      color:#fff;
-      padding:82px 44px;
-      border-radius:34px;
-      box-shadow:var(--shadow);
-      margin-bottom:26px;
-    }
-
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,.10);
-    }
-
-    .hero::before{
-      category: "e-waste",
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px;
-      background:linear-gradient(180deg,#ffffff 0%, #fffdf9 100%);
-      min-height:155px;
-    }
-
-    .step .num{
-      width:40px;height:40px;
-      display:flex;align-items:center;justify-content:center;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--accent),#14b8a6);
-      color:#fff;
-      font-weight:800;
-      margin-bottom:12px;
-      box-shadow:0 10px 18px rgba(15,118,110,.16);
-    }
-
-    .step h4{
-      color:var(--heading);
-      font-size:17px;
-      margin-bottom:8px;
-    }
-
-    .step p{
-      margin:0;
-      font-size:14px;
-    }
-
-    .table-wrap{
-      overflow-x:auto;
-      border-radius:20px;
-      border:1px solid var(--line);
-      margin-top:18px;
-    }
-
-    table{
-      width:100%;
-      min-width:780px;
-      border-collapse:collapse;
-      background:#fff;
-    }
-
-    thead th{
-      background:linear-gradient(135deg,#0f766e,#2563eb);
-      color:#fff;
-      text-align:left;
-      padding:15px 16px;
-      font-size:14px;
-      letter-spacing:.2px;
-    }
-
-    tbody td{
-      border-top:1px solid var(--line);
-      padding:14px 16px;
-      font-size:14px;
-      color:#334155;
-      vertical-align:top;
-    }
-
-    tbody tr:hover{background:#fbfcfe}
-
-    .visual-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-    }
-
-    .chart-card{
-      padding:28px;
-    }
-
-    .chart-title{
-      font-size:24px;
-      color:var(--heading);
-      margin-bottom:8px;
-    }
-
-    .chart-sub{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:18px;
-    }
-
-    .bars{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
-
-    .bar-row{
-      display:grid;
-      grid-template-columns:210px 1fr 54px;
-      gap:12px;
-      align-items:center;
-    }
-
-    .bar-label{
-      font-size:15px;
-      font-weight:700;
-      color:#334155;
-    }
-
-    .track{
-      height:16px;
-      background:#e9edf3;
-      border-radius:999px;
-      overflow:hidden;
-    }
-
-    .fill{
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--accent2),#fbbf24);
-    }
-
-    .fill.blue{
-      background:linear-gradient(90deg,var(--accent3),#38bdf8);
-    }
-
-    .fill.green{
-      background:linear-gradient(90deg,var(--accent2),#34d399);
-    }
-
-    .value{
-      text-align:right;
-      font-size:14px;
-      font-weight:800;
-      color:var(--heading);
-    }
-
-    .db-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .db{
-      background:linear-gradient(180deg,#fff 0%, #fcfbf8 100%);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .db h4{
-      color:var(--heading);
-      font-size:16px;
-      margin-bottom:8px;
-    }
-
-    .db p{
-      margin:0;
-      font-size:14px;
-    }
-
-    .case{
-      background:linear-gradient(180deg,#fff9f1 0%, #fff 100%);
-      border:1px solid #ffe0bf;
-    }
-
-    .case .case-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .case-box{
-      background:#fff;
-      border:1px solid #f6d7b5;
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .case-box h4{
-      color:#9a3412;
-      font-size:16px;
-      margin-bottom:8px;
-    }
-
-    .case-box p{
-      margin:0;
-      font-size:14px;
-      color:#6b4b21;
-    }
-
-    .subgrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-      margin-top:8px;
-    }
-
-    .mini{
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      background:#fff;
-    }
-
-    .mini h4{
-      color:var(--heading);
-      font-size:16px;
-      margin-bottom:6px;
-    }
-
-    .mini p{
-      margin:0;
-      font-size:14px;
-    }
-
-    .closing{
-      text-align:center;
-      border-radius:34px;
-      padding:56px 30px;
-      margin-top:24px;
-      color:#fff;
-      background:
-        radial-gradient(circle at top, rgba(251,191,36,.16), transparent 32%),
-        linear-gradient(135deg,#0f172a 0%, #1d4ed8 52%, #0f766e 100%);
-      box-shadow:var(--shadow);
-    }
-
-    .closing h2{
-      color:#fff;
-      margin-bottom:10px;
-    }
-
-    .closing p{
-      color:rgba(255,255,255,.92);
-      max-width:920px;
-      margin:0 auto 12px;
-    }
-
-    .closing .final{
-      font-size:28px;
-      font-weight:800;
-      margin-top:18px;
-      color:#fff;
-    }
-
-    .faq{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:14px;
-    }
-
-    .faq-item{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px 20px;
-    }
-
-    .faq-item h4{
-      color:#fff;
-      font-size:16px;
-      margin-bottom:6px;
-    }
-
-    .faq-item p{
-      margin:0;
-      font-size:14px;
-    }
-
-    .note{
-      font-size:13px;
-      color:#9eb0c9;
-      margin-top:10px;
-    }
-
-    .small-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-    }
-
-    .metric{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:18px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-    }
-
-    .metric .dot{
-      width:12px;height:12px;border-radius:50%;
-      margin-top:8px;
-      background:var(--accent2);
-      flex:0 0 auto;
-      box-shadow:0 0 0 6px rgba(52,211,153,.08);
-    }
-
-    .metric h4{
-      color:#fff;
-      font-size:16px;
-      margin-bottom:5px;
-    }
-
-    .metric p{
-      font-size:14px;
-      margin:0;
-    }
-
-    @media (max-width: 1080px){
-      .grid2,.two-col,.small-grid,.case-grid,.gallery,.db-grid,.timeline{grid-template-columns:1fr}
-      .bar-row{grid-template-columns:1fr;gap:8px}
-      .value{text-align:left}
-    }
-
-    @media (max-width: 640px){
-      .hero{padding:54px 22px;border-radius:24px}
-      .card{padding:22px;border-radius:20px}
-      .closing{padding:42px 22px;border-radius:24px}
-      h1{font-size:32px}
-      p{font-size:15px}
-      .closing .line{font-size:22px}
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="badge">E-Waste Recycling Plant | DPR Planning & Project Support</div>
-        <h1>How Can We Help Clients in Creating a Detailed Project Report File for E-Waste Recycling Plant</h1>
-        <p>
-          <strong>One strong DPR can turn an idea into a fundable project.</strong>
-          <br><br>
-          A detailed project report is more than a document. It is the map that explains the business, the plant, the approvals,
-          the machinery, the costs, and the future growth path in one clear place.
-        </p>
-        <div class="line">A good DPR gives the client confidence before the first machine is even installed.</div>
-      </div>
-    </section>
-
-    <div class="grid-2">
-      <section class="card section">
-        <h2>Why the DPR is so important</h2>
-        <p class="lead">
-          For an e-waste recycling plant, the detailed project report is the foundation of the entire project journey.
-          It helps the client understand what the plant will do, how much it will cost, what approvals are needed,
-          and how the business can work in a practical way.
-        </p>
-        <p>
-          We help clients prepare a DPR that is easy to read, technically strong, and useful for investors, banks,
-          government authorities, and internal planning.
-        </p>
-        <p>
-          A well-written DPR reduces confusion. It connects the business vision with the operational reality,
-          which makes project execution much smoother.
-        </p>
-
-        <div class="highlight">
-          <strong>Simple truth:</strong> the DPR is not just a file. It is the business story of the plant, written in a way that others can trust.
-        </div>
-
-        <div class="chips">
-          <span class="chip one">Project planning</span>
-          <span class="chip two">Technical clarity</span>
-          <span class="chip three">Funding support</span>
-        </div>
-      </section>
-
-      <section class="card section">
-        <h2>How we support the client</h2>
-        <p>
-          We guide the client through the entire DPR preparation process, from understanding the project concept to building
-          a professional file that can be used for approvals, finance, and implementation.
-        </p>
-        <p>
-          Our support includes project capacity planning, site understanding, machinery list preparation, cost estimation,
-          manpower planning, revenue projection, and approval mapping.
-        </p>
-
-        <div class="highlight">
-          <strong>Client benefit:</strong> when the project report is structured properly, the decision-making process becomes much easier.
-        </div>
-      </section>
-    </div>
-
-    <section class="card section">
-      <h2>The DPR preparation journey in simple steps</h2>
-      <p>
-        Clients understand the process better when it is shown step by step.
-      </p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <h4>Understand the project idea</h4>
-          <p>We first study the client’s goals, budget, plant size, and target output.</p>
-        </div>
-
-        <div class="step">
-          <div class="num">2</div>
-          <h4>Build the project structure</h4>
-          <p>We prepare the business logic, plant flow, approvals, and machinery framework.</p>
-        </div>
-
-        <div class="step">
-          <div class="num">3</div>
-          <h4>Prepare the financial part</h4>
-          <p>We estimate project cost, operating cost, revenue logic, and basic return expectations.</p>
-        </div>
-
-        <div class="step">
-          <div class="num">4</div>
-          <h4>Finalize the report file</h4>
-          <p>We shape the final DPR into a clean, usable document for the client and stakeholders.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card section">
-      <h2>What goes inside a strong DPR file</h2>
-      <p>
-        A detailed project report should explain the project in a practical and organized way.
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>DPR Section</th>
-              <th>What it explains</th>
-              <th>Why it matters</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Project overview</td>
-              <td>Basic idea, purpose, and plant objective</td>
-              <td>Gives the reader a clear start</td>
-            </tr>
-            <tr>
-              <td>Market study</td>
-              <td>Demand, supply, and business opportunity</td>
-              <td>Shows if the project has growth potential</td>
-            </tr>
-            <tr>
-              <td>Plant process</td>
-              <td>How e-waste moves through the facility</td>
-              <td>Explains the actual working model</td>
-            </tr>
-            <tr>
-              <td>Machinery list</td>
-              <td>Major machines and equipment required</td>
-              <td>Supports project design and costing</td>
-            </tr>
-            <tr>
-              <td>Costing & finance</td>
-              <td>Investment, expenses, and revenue logic</td>
-              <td>Helps with funding and planning</td>
-            </tr>
-            <tr>
-              <td>Approvals</td>
-              <td>Permissions required before and during operations</td>
-              <td>Keeps the project legally ready</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <div class="visual-grid">
-      <section class="card chart-card">
-        <h2 class="chart-title">Bar graph: where DPR effort usually goes</h2>
-        <p class="chart-sub">
-          This chart shows which sections usually need the most attention while preparing a detailed project report.
-        </p>
-
-        <div class="bars">
-          <div class="bar-row">
-            <div class="bar-label">Project finance</div>
-            <div class="track"><div class="fill blue" style="width:95%"></div></div>
-            <div class="value">95%</div>
-          </div>
-
-          <div class="bar-row">
-            <div class="bar-label">Plant process design</div>
-            <div class="track"><div class="fill green" style="width:90%"></div></div>
-            <div class="value">90%</div>
-          </div>
-
-          <div class="bar-row">
-            <div class="bar-label">Approval mapping</div>
-            <div class="track"><div class="fill" style="width:84%"></div></div>
-            <div class="value">84%</div>
-          </div>
-
-          <div class="bar-row">
-            <div class="bar-label">Machinery selection</div>
-            <div class="track"><div class="fill blue" style="width:78%"></div></div>
-            <div class="value">78%</div>
-          </div>
-
-          <div class="bar-row">
-            <div class="bar-label">Market analysis</div>
-            <div class="track"><div class="fill green" style="width:70%"></div></div>
-            <div class="value">70%</div>
-          </div>
-        </div>
-
-        <p class="note">
-          Higher bars mean more planning work. These areas often decide whether the DPR feels strong, practical, and investor-ready.
-        </p>
-      </section>
-
-      <section class="card chart-card">
-        <h2 class="chart-title">Database view: DPR readiness tracker</h2>
-        <p class="chart-sub">
-          A simple database makes it easier to track what has been completed and what still needs attention.
-        </p>
-
-        <div class="db-grid">
-          <div class="db">
-            <h4>Project input</h4>
-            <p>Client goal, capacity, location, budget, and business model collected clearly.</p>
-          </div>
-          <div class="db">
-            <h4>Technical data</h4>
-            <p>Plant flow, machinery, utilities, and space requirement organized in one place.</p>
-          </div>
-          <div class="db">
-            <h4>Financial data</h4>
-            <p>Capital cost, operating cost, and estimated revenue logic prepared for review.</p>
-          </div>
-          <div class="db">
-            <h4>Compliance data</h4>
-            <p>Required approvals and legal steps linked to the project structure.</p>
-          </div>
-        </div>
-
-        <div class="highlight" style="margin-top:18px;">
-          <strong>Why this helps:</strong> when the data is organized, the client can make decisions faster and with more confidence.
-        </div>
-      </section>
-    </div>
-
-    <section class="card section">
-      <h2>How we make the DPR easier for the client to understand</h2>
-      <p>
-        A good project report should not feel heavy or confusing. It should explain the project in a human and practical way.
-      </p>
-
-      <div class="subgrid">
-        <div class="mini">
-          <h4>Clear project story</h4>
-          <p>
-            We explain the plant in a simple sequence: what it is, why it is needed, how it works, and how it makes money.
-          </p>
-        </div>
-        <div class="mini">
-          <h4>Clean financial view</h4>
-          <p>
-            We keep the cost and revenue logic easy to read so the client can understand the financial direction quickly.
-          </p>
-        </div>
-        <div class="mini">
-          <h4>Practical layout</h4>
-          <p>
-            We connect the report with the actual plant area, machinery placement, and workflow.
-          </p>
-        </div>
-        <div class="mini">
-          <h4>Approval support</h4>
-          <p>
-            The DPR also helps the client understand what permissions are needed and in what order they should be taken.
-          </p>
-        </div>
-      </div>
-
-      <div class="highlight">
-        <strong>Easy client explanation:</strong> a good DPR turns a complex recycling project into a clear business plan.
-      </div>
-    </section>
-
-    <section class="card section">
-      <h2>Database-style project summary</h2>
-      <p>
-        This section works like a quick project dashboard for the client.
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Project Area</th>
-              <th>Status in DPR</th>
-              <th>Client benefit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Plant concept</td>
-              <td>Defined</td>
-              <td>Gives clarity on the business model</td>
-            </tr>
-            <tr>
-              <td>Machinery plan</td>
-              <td>Mapped</td>
-              <td>Helps with plant design and cost planning</td>
-            </tr>
-            <tr>
-              <td>Financial model</td>
-              <td>Prepared</td>
-              <td>Supports funding and investment discussions</td>
-            </tr>
-            <tr>
-              <td>Approval path</td>
-              <td>Outlined</td>
-              <td>Shows the legal and compliance route</td>
-            </tr>
-            <tr>
-              <td>Implementation roadmap</td>
-              <td>Ready</td>
-              <td>Helps the client move from planning to action</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="card case">
-      <h2>Case study: how a proper DPR helped a client move faster</h2>
-      <p>
-        A client wanted to start an e-waste recycling project but was unsure about plant size, machinery, and investment planning.
-        The idea was strong, but the project was not organized in a way that investors could easily understand.
-      </p>
-
-      <div class="case-grid">
-        <div class="case-box">
-          <h4>The challenge</h4>
-          <p>
-            The client had a business idea, but no clear project structure, no cost roadmap, and no final approval sequence.
-          </p>
-        </div>
-
-        <div class="case-box">
-          <h4>The solution</h4>
-          <p>
-            We created a detailed project report with plant flow, machine list, estimated costs, approval mapping, and business explanation.
-          </p>
-        </div>
-
-        <div class="case-box">
-          <h4>The result</h4>
-          <p>
-            The client could present the project more confidently, understand the financial path better, and move toward execution faster.
-          </p>
-        </div>
-      </div>
-
-      <div class="highlight" style="margin-top:18px;">
-        <strong>Lesson from the case:</strong> a well-made DPR does not just describe the project — it helps the project move forward.
-      </div>
-    </section>
-
-    <section class="card section">
-      <h2>Additional topics that make the blog stronger for clients</h2>
-      <p>
-        To help clients understand the value of a DPR, it is useful to explain a few more practical points beyond the basic section list.
-      </p>
-
-      <div class="grid-2">
-        <div>
-          <h3>Why banks and investors look at DPR first</h3>
-          <p>
-            A clear DPR helps investors quickly see whether the project is structured, realistic, and worth reviewing further.
-          </p>
-
-          <h3>Why the report should match the site</h3>
-          <p>
-            The report must reflect the actual location, space, utility availability, and plant needs. Otherwise, implementation becomes difficult later.
-          </p>
-        </div>
-
-        <div>
-          <h3>Why future expansion should be included</h3>
-          <p>
-            A good DPR should not only explain the present project. It should also show how the plant can grow in the future.
-          </p>
-
-          <h3>Why simple language matters</h3>
-          <p>
-            Even though the report is technical, it should still be readable. Simple language makes the project easier to trust.
-          </p>
-        </div>
-      </div>
-
-      <div class="highlight">
-        <strong>Client-friendly point:</strong> the best DPR is one that feels complete, practical, and easy to follow.
-      </div>
-    </section>
-
-    <section class="card section">
-      <h2>Frequently asked questions</h2>
-      <div class="faq">
-        <div class="faq-item">
-          <h4>What is the main purpose of a detailed project report?</h4>
-          <p>
-            It explains the full project plan in one organized file so the client, investor, and authority can understand the business clearly.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h4>Can the DPR help in getting approvals?</h4>
-          <p>
-            Yes. A strong DPR supports the approval process because it gives a clear picture of the plant, its design, and its compliance needs.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h4>Why do clients need professional help for DPR preparation?</h4>
-          <p>
-            Because a well-prepared DPR saves time, avoids confusion, and helps the client present the project in a more trustworthy way.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing">
-      <h2>Final Thoughts</h2>
-      <p>
-        A detailed project report is the backbone of an e-waste recycling plant. It connects the idea, the machinery, the approvals,
-        the financials, and the future plan into one clear project story.
-      </p>
-      <p>
-        When clients receive a well-prepared DPR, they gain clarity, confidence, and a stronger path toward execution.
-      </p>
-      <div class="final">“A strong DPR builds a stronger recycling business.”</div>
-    </section>
-
-  </div>
-</body>
-</html>`,
     previewContent:
       "One strong DPR can turn an idea into a fundable project. A detailed project report is more than a document. It is the map that explains the business, the plant, the approvals, the machinery, the costs, and the future growth path in one clear place.",
     sections: [
       {
         title: "Why the DPR is so important",
-        body:
-          "For an e-waste recycling plant, the DPR is the foundation of the entire project journey. It helps the client understand what the plant will do, how much it will cost, what approvals are needed, and how the business can work practically.",
+        body: "For an e-waste recycling plant, the DPR is the foundation of the entire project journey. It helps the client understand what the plant will do, how much it will cost, what approvals are needed, and how the business can work practically.",
       },
       {
         title: "What goes inside a strong DPR",
-        body:
-          "A DPR should include project overview, market study, plant process, machinery list, costing & finance, and approvals section.",
+        body: "A DPR should include project overview, market study, plant process, machinery list, costing & finance, and approvals section.",
+      },
+    ],
+  },
+  {
+    slug: "e-waste-compliance-and-consultancy",
+    path: "/blog/e-waste-compliance-and-consultancy",
+    title:
+      "Navigating E-Waste Compliance and Consulting Services for Business Growth",
+    summary:
+      "A complete guide on how advisory services streamline regulatory clearances, auditor readiness, and environmental standard management for e-waste businesses.",
+    date: "May 11, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: ["Compliance", "Consultancy", "E-Waste", "Regulations"],
+    keywords: [
+      "e-waste compliance",
+      "environmental consultancy",
+      "regulatory clearances",
+      "CPCB advisory",
+    ],
+    metaDescription:
+      "Learn how strategic e-waste compliance and consultancy help businesses satisfy CPCB mandates, manage risk, and optimize circular operations.",
+    category: "e-waste",
+    previewContent:
+      "Compliance isn't just a regulatory requirement—it is a competitive advantage. Expert consulting ensures your operations meet legal standards seamlessly while minimizing financial risk.",
+    sections: [
+      {
+        title: "The Importance of Regulatory Guidance",
+        body: "Environmental compliance mandates undergo frequent updates. Specialized consultants help businesses remain aligned with State and Central Pollution Control Board guidelines without stalling operations.",
+      },
+      {
+        title: "End-to-End Advisory Framework",
+        body: "From obtaining CTE/CTO consents to conducting compliance audits, structured consultancy reduces liability risks and simplifies annual report submissions.",
+      },
+    ],
+  },
+  {
+    slug: "e-waste-management-rule",
+    path: "/blog/e-waste-management-rule",
+    title:
+      "Understanding the E-Waste Management Rules: Obligations & Implementation",
+    summary:
+      "An in-depth breakdown of legal frameworks, producer responsibility, category expansions, and target structures under e-waste regulations.",
+    date: "May 11, 2026",
+    readingTime: "9 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: ["E-Waste", "Legislation", "Rules", "EPR"],
+    keywords: [
+      "e-waste management rules",
+      "EPR mandates",
+      "CPCB guidelines",
+      "recycling obligations",
+    ],
+    metaDescription:
+      "Master the essential aspects of official e-waste management rules, producer obligations, and statutory recycling targets.",
+    category: "e-waste",
+    previewContent:
+      "Staying informed on government notifications protects your organization from penalties. Here is what you need to know about updated e-waste management regulations.",
+    sections: [
+      {
+        title: "Core Statutory Mandates",
+        body: "The updated regulations establish clear responsibilities for producers, recyclers, refurbishers, and dismantlers to build a transparent recycling ecosystem.",
+      },
+      {
+        title: "Target Allocation and Monitoring",
+        body: "Entities must fulfill specific recycling targets calculated from historic sales data and standard average product lifespans monitored via centralized digital portals.",
+      },
+    ],
+  },
+  {
+    slug: "e-waste-management-solution",
+    path: "/blog/e-waste-management-solution",
+    title: "Integrated E-Waste Management Solutions for Modern Enterprises",
+    summary:
+      "Discover end-to-end management solutions for commercial e-waste, from secure collection and reverse logistics to sustainable processing.",
+    date: "May 11, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: [
+      "E-Waste",
+      "Management Solutions",
+      "Sustainability",
+      "Reverse Logistics",
+    ],
+    keywords: [
+      "e-waste management solution",
+      "reverse logistics",
+      "corporate asset disposition",
+      "sustainable recycling",
+    ],
+    metaDescription:
+      "Explore scalable e-waste management solutions designed for corporate bulk consumers and industrial recycling chains.",
+    category: "e-waste",
+    previewContent:
+      "Efficient e-waste management requires an integrated approach. Combining reverse logistics, material recovery, and digital tracking transforms waste into valuable secondary resources.",
+    sections: [
+      {
+        title: "Designing Sustainable Supply Chains",
+        body: "End-to-end solutions connect bulk consumers with verified recycling channels, ensuring safe disposal routes and reliable data destruction.",
+      },
+      {
+        title: "Maximizing Resource Recovery",
+        body: "Advanced processing methodologies retrieve critical raw materials—including precious metals and technical plastics—supporting circular economy initiatives.",
+      },
+    ],
+  },
+  {
+    slug: "e-waste-plant-setup",
+    path: "/blog/e-waste-plant-setup",
+    title:
+      "Step-by-Step Guide to Planning and Setting Up an E-Waste Recycling Plant",
+    summary:
+      "A strategic roadmap for establishing a compliant e-waste facility, detailing site selection, environmental approvals, and operational layouts.",
+    date: "May 11, 2026",
+    readingTime: "10 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: ["E-Waste", "Plant Setup", "Infrastructure", "Facility Design"],
+    keywords: [
+      "e-waste plant setup",
+      "recycling facility setup",
+      "dismantling plant layout",
+      "waste processing infrastructure",
+    ],
+    metaDescription:
+      "Plan and launch a modern e-waste processing facility with key insights into site selection, machinery configuration, and regulatory approvals.",
+    category: "e-waste",
+    previewContent:
+      "Building a successful e-waste processing plant requires strategic planning. From environmental clearances to optimized workflow layouts, key decisions determine operational efficiency.",
+    sections: [
+      {
+        title: "Site Selection & Infrastructure Planning",
+        body: "Choosing the right location requires consideration of industrial zoning rules, logistical connectivity, power infrastructure, and effluent management requirements.",
+      },
+      {
+        title: "Layout and Process Workflow",
+        body: "An optimized facility layout ensures efficient material flow from receiving and sorting through dismantling, mechanical processing, and storage.",
+      },
+    ],
+  },
+  {
+    slug: "e-waste-registration-guide",
+    path: "/blog/e-waste-registration-guide",
+    title: "Complete Step-by-Step CPCB E-Waste Portal Registration Guide",
+    summary:
+      "A detailed walkthrough of the registration procedure on the official CPCB portal for producers, importers, recyclers, and refurbishers.",
+    date: "May 11, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: ["Registration Guide", "CPCB Portal", "E-Waste", "EPR Compliance"],
+    keywords: [
+      "e-waste registration guide",
+      "CPCB portal signup",
+      "EPR registration steps",
+      "importer e-waste registration",
+    ],
+    metaDescription:
+      "Follow this complete step-by-step guide to successfully complete your e-waste registration on the centralized CPCB online portal.",
+    category: "e-waste",
+    previewContent:
+      "Registering on the official portal is mandatory for operating legally in the electronic supply chain. Follow this guide to prepare documents and complete your application accurately.",
+    sections: [
+      {
+        title: "Document Preparation Checklist",
+        body: "Gather necessary documentation—including company registration, GST certificates, authorized signatory details, and technical product files—before starting your online application.",
+      },
+      {
+        title: "Portal Filing and Verification Steps",
+        body: "Navigate the multi-stage portal workflow smoothly by entering accurate sales data, selecting appropriate item codes, and submitting fees for timely approval.",
       },
     ],
   },
@@ -1365,7 +768,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "tyre-approvals",
     path: "/blog/tyre-approvals",
-    title: "Tyre Recycling Plant Approvals — Complete Roadmap for CPCB Compliance",
+    title:
+      "Tyre Recycling Plant Approvals — Complete Roadmap for CPCB Compliance",
     summary:
       "Master the approval process for tyre recycling plants with CTE, CTO, hazardous waste authorization, and all required environmental clearances.",
     date: "May 13, 2026",
@@ -1387,13 +791,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Approvals Matter for Tyre Recycling",
-        body:
-          "Tyre waste is classified as hazardous material under CPCB guidelines, making proper approvals essential before any recycling operations begin. The approval process ensures environmental safety, proper waste handling, and compliance with EPR obligations.",
+        body: "Tyre waste is classified as hazardous material under CPCB guidelines, making proper approvals essential before any recycling operations begin. The approval process ensures environmental safety, proper waste handling, and compliance with EPR obligations.",
       },
       {
         title: "Complete Approval Checklist",
-        body:
-          "A tyre recycling plant typically requires 6-8 different approvals from various government bodies. With proper planning and parallel filing, the entire process can be completed in 6-8 months.",
+        body: "A tyre recycling plant typically requires 6-8 different approvals from various government bodies. With proper planning and parallel filing, the entire process can be completed in 6-8 months.",
         bullets: [
           "Consent to Establish (CTE) before construction",
           "Consent to Operate (CTO) before production",
@@ -1407,15 +809,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Key Success Factors",
-        body:
-          "File CTE and Hazardous Waste Authorization simultaneously to save 2-3 months. Prepare comprehensive project reports and ensure all documentation is audit-ready from day one.",
+        body: "File CTE and Hazardous Waste Authorization simultaneously to save 2-3 months. Prepare comprehensive project reports and ensure all documentation is audit-ready from day one.",
       },
     ],
   },
   {
     slug: "tyre-buy-selling",
     path: "/blog/tyre-buy-selling",
-    title: "Tyre Scrap Buying & Selling — Maximize Margins in Tyre Recycling Business",
+    title:
+      "Tyre Scrap Buying & Selling — Maximize Margins in Tyre Recycling Business",
     summary:
       "Learn strategies for sourcing tyre scrap, quality assessment, and selling recycled rubber products for maximum profitability.",
     date: "May 13, 2026",
@@ -1437,13 +839,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Buying and Selling Matter in Tyre Recycling",
-        body:
-          "A tyre recycling plant cannot achieve optimal profitability through processing alone. Success depends on establishing reliable scrap supply chains, implementing quality control measures, and developing strong sales channels for recycled products.",
+        body: "A tyre recycling plant cannot achieve optimal profitability through processing alone. Success depends on establishing reliable scrap supply chains, implementing quality control measures, and developing strong sales channels for recycled products.",
       },
       {
         title: "Strategic Scrap Sourcing",
-        body:
-          "Focus on consistent quality over lowest price. Establish relationships with authorized tyre dealers, fleet operators, and municipal waste collectors for steady supply.",
+        body: "Focus on consistent quality over lowest price. Establish relationships with authorized tyre dealers, fleet operators, and municipal waste collectors for steady supply.",
         bullets: [
           "Prioritize passenger car and truck tyres over mixed waste",
           "Implement quality checks for steel content and rubber condition",
@@ -1453,8 +853,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Product Sales Optimization",
-        body:
-          "Position recycled rubber products correctly in the market. Target industrial buyers who value consistent quality and documented compliance over commodity pricing.",
+        body: "Position recycled rubber products correctly in the market. Target industrial buyers who value consistent quality and documented compliance over commodity pricing.",
         bullets: [
           "Sell crumb rubber to athletic field and playground manufacturers",
           "Market tyre-derived fuel to cement and paper industries",
@@ -1467,7 +866,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "tyre-machinery",
     path: "/blog/tyre-machinery",
-    title: "Tyre Recycling Machinery — Right Equipment for Profitable Operations",
+    title:
+      "Tyre Recycling Machinery — Right Equipment for Profitable Operations",
     summary:
       "Select optimal machinery for tyre recycling including shredders, granulators, separators, and processing systems.",
     date: "May 13, 2026",
@@ -1489,13 +889,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Machinery Selection is Critical",
-        body:
-          "Tyre recycling requires specialized equipment that can handle tough rubber compounds, separate steel wire, and produce consistent output quality. The machinery must be robust, efficient, and matched to your production capacity and product mix.",
+        body: "Tyre recycling requires specialized equipment that can handle tough rubber compounds, separate steel wire, and produce consistent output quality. The machinery must be robust, efficient, and matched to your production capacity and product mix.",
       },
       {
         title: "Essential Equipment Components",
-        body:
-          "A complete tyre recycling line includes primary shredding, secondary processing, separation systems, and material handling equipment.",
+        body: "A complete tyre recycling line includes primary shredding, secondary processing, separation systems, and material handling equipment.",
         bullets: [
           "Primary Shredder — Breaks whole tyres into 50-100mm chips",
           "Secondary Granulator — Reduces chips to 10-20mm granules",
@@ -1508,22 +906,27 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Capacity Planning and Configuration",
-        body:
-          "Match equipment capacity to your target throughput. A 5 TPD plant requires different machinery configuration than a 20 TPD facility. Consider product mix (crumb rubber vs. tyre-derived fuel) when selecting equipment.",
+        body: "Match equipment capacity to your target throughput. A 5 TPD plant requires different machinery configuration than a 20 TPD facility. Consider product mix (crumb rubber vs. tyre-derived fuel) when selecting equipment.",
       },
     ],
   },
   {
     slug: "tyre-market-analysis",
     path: "/blog/tyre-market-analysis",
-    title: "Tyre Recycling Market Analysis — Target Segments and Business Opportunities",
+    title:
+      "Tyre Recycling Market Analysis — Target Segments and Business Opportunities",
     summary:
       "Understand the tyre recycling market landscape, identify target segments, and build a sustainable business model.",
     date: "May 13, 2026",
     readingTime: "7 min read",
     author: "EPR Nexuss Team",
     image: tyreAnalysis,
-    tags: ["EPR Tyre", "Market Analysis", "Business Strategy", "Sustainability"],
+    tags: [
+      "EPR Tyre",
+      "Market Analysis",
+      "Business Strategy",
+      "Sustainability",
+    ],
     keywords: [
       "tyre recycling market",
       "rubber recycling business",
@@ -1538,13 +941,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Market Growth Drivers",
-        body:
-          "India generates 1.8 million tonnes of tyre waste annually, with EPR regulations mandating responsible disposal. Growing infrastructure projects and industrial demand for recycled rubber create strong market fundamentals.",
+        body: "India generates 1.8 million tonnes of tyre waste annually, with EPR regulations mandating responsible disposal. Growing infrastructure projects and industrial demand for recycled rubber create strong market fundamentals.",
       },
       {
         title: "Key Market Segments",
-        body:
-          "Target segments offer different value propositions and pricing structures. Focus on segments with stable demand and willingness to pay premium for quality.",
+        body: "Target segments offer different value propositions and pricing structures. Focus on segments with stable demand and willingness to pay premium for quality.",
         bullets: [
           "Construction industry — Crumb rubber for modified bitumen",
           "Athletic surfaces — Rubber granules for playgrounds and sports fields",
@@ -1555,21 +956,21 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Competitive Positioning",
-        body:
-          "Differentiate through quality consistency, regulatory compliance, and reliable supply. Build relationships with large buyers who value long-term partnerships over spot market pricing.",
+        body: "Differentiate through quality consistency, regulatory compliance, and reliable supply. Build relationships with large buyers who value long-term partnerships over spot market pricing.",
       },
     ],
   },
   {
     slug: "tyre-dpr",
     path: "/blog/tyre-dpr",
-    title: "Tyre Recycling DPR — Complete Project Report for 10 TPD Plant Setup",
+    title:
+      "Tyre Recycling DPR — Complete Project Report for 10 TPD Plant Setup",
     summary:
       "Create a comprehensive Detailed Project Report for tyre recycling plants covering planning, finance, and implementation.",
     date: "May 13, 2026",
     readingTime: "11 min read",
     author: "EPR Nexuss Team",
-    image: tyreDpr  ,
+    image: tyreDpr,
     tags: ["EPR Tyre", "DPR", "Project Planning", "Finance"],
     keywords: [
       "tyre recycling DPR",
@@ -1585,13 +986,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Project Overview and Rationale",
-        body:
-          "India's 1.8 million tonne annual tyre waste generation, coupled with EPR regulations and growing demand for recycled rubber, creates a compelling business case for tyre recycling plants.",
+        body: "India's 1.8 million tonne annual tyre waste generation, coupled with EPR regulations and growing demand for recycled rubber, creates a compelling business case for tyre recycling plants.",
       },
       {
         title: "Technical Specifications",
-        body:
-          "A 10 TPD tyre recycling plant requires approximately 5,000 sq ft of covered area and specialized equipment for shredding, separation, and processing.",
+        body: "A 10 TPD tyre recycling plant requires approximately 5,000 sq ft of covered area and specialized equipment for shredding, separation, and processing.",
         bullets: [
           "Primary shredder (5 TPD capacity)",
           "Secondary granulator and fine grinder",
@@ -1602,8 +1001,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Financial Projections",
-        body:
-          "Total project cost approximately ₹180 lakhs with projected annual revenue of ₹360 lakhs and healthy profit margins through optimized product mix and market positioning.",
+        body: "Total project cost approximately ₹180 lakhs with projected annual revenue of ₹360 lakhs and healthy profit margins through optimized product mix and market positioning.",
       },
     ],
   },
@@ -1879,7 +1277,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-approvals",
     path: "/blog/rvsf-approvals",
-    title: "RVSF Approvals Guide 2026 — How to Get Registered Vehicle Scrapping Facility Approval",
+    title:
+      "RVSF Approvals Guide 2026 — How to Get Registered Vehicle Scrapping Facility Approval",
     summary:
       "Complete guide on Registered Vehicle Scrapping Facility (RVSF) approvals, requirements, documentation, and how to set up a profitable scrapping plant in India as per CPCB & MoRTH guidelines.",
     date: "May 20, 2026",
@@ -1901,7 +1300,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-buy-selling",
     path: "/blog/rvsf-buy-selling",
-    title: "How to Buy and Sell Scrap at a Registered Vehicle Scrapping Facility (RVSF) — Complete Guide",
+    title:
+      "How to Buy and Sell Scrap at a Registered Vehicle Scrapping Facility (RVSF) — Complete Guide",
     summary:
       "Learn the complete buying and selling process at a Registered Vehicle Scrapping Facility (RVSF), covering scrap purchase, reusable parts selling, documentation, and pricing.",
     date: "May 20, 2026",
@@ -1922,7 +1322,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-machinery",
     path: "/blog/rvsf-machinery",
-    title: "RVSF Machinery Support & Maintenance Services in India — Shredder, Baler & Plant Reliability",
+    title:
+      "RVSF Machinery Support & Maintenance Services in India — Shredder, Baler & Plant Reliability",
     summary:
       "Specialized machinery maintenance and support for Registered Vehicle Scrapping Facilities (RVSF), covering preventive maintenance, emergency breakdown support, and IoT monitoring.",
     date: "May 20, 2026",
@@ -1943,7 +1344,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-market-analysis",
     path: "/blog/rvsf-market-analysis",
-    title: "RVSF Market Analysis 2026 — Target Segments, Buyer Demand & Growth Strategy",
+    title:
+      "RVSF Market Analysis 2026 — Target Segments, Buyer Demand & Growth Strategy",
     summary:
       "Complete market analysis for Registered Vehicle Scrapping Facilities (RVSF), covering target customer segments, regional demand, and data-driven growth strategies.",
     date: "May 20, 2026",
@@ -1964,7 +1366,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-dpr",
     path: "/blog/rvsf-dpr",
-    title: "Detailed Project Report (DPR) for Registered Vehicle Scrapping Facility (RVSF) — Complete Guide 2026",
+    title:
+      "Detailed Project Report (DPR) for Registered Vehicle Scrapping Facility (RVSF) — Complete Guide 2026",
     summary:
       "Complete guide on preparing a Detailed Project Report (DPR) for an RVSF, including financial model, compliance roadmap, and implementation plan for RVSF setup in India.",
     date: "May 20, 2026",
@@ -1982,7 +1385,7 @@ export const blogPosts: BlogPost[] = [
       "Complete guide on preparing a Detailed Project Report (DPR) for a Registered Vehicle Scrapping Facility (RVSF). Includes financial model, compliance roadmap, and implementation plan.",
     category: "rvsf",
   },
-{
+  {
     slug: "rvsf-future",
     path: "/blog/rvsf-future",
     title: "RVSF Recycling Setup in India: Building a Sustainable Future",
@@ -2013,7 +1416,12 @@ export const blogPosts: BlogPost[] = [
     readingTime: "9 min read",
     author: "EPR Nexuss Team",
     image: rvsfGrowth,
-    tags: ["Vehicle Scrapping Plant", "ELV Rules 2025", "Recycling Setup", "Compliance"],
+    tags: [
+      "Vehicle Scrapping Plant",
+      "ELV Rules 2025",
+      "Recycling Setup",
+      "Compliance",
+    ],
     keywords: [
       "Vehicle Scrapping Plant Setup",
       "Environment Protection ELV Rules 2025",
@@ -2027,7 +1435,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-facility",
     path: "/blog/rvsf-facility",
-    title: "Registered Vehicle Scrapping Facility: India’s Path to Sustainable Mobility",
+    title:
+      "Registered Vehicle Scrapping Facility: India’s Path to Sustainable Mobility",
     summary:
       "A strategic overview of the RVSF ecosystem in India, highlighting prerequisites, market potential, material recovery distribution, and how RVSFs support the circular economy.",
     date: "May 20, 2026",
@@ -2070,7 +1479,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rvsf-license",
     path: "/blog/rvsf-license",
-    title: "EPR RVSF License : Procedural Guidelines for RVSF License Application, Renewal, and Documentation",
+    title:
+      "EPR RVSF License : Procedural Guidelines for RVSF License Application, Renewal, and Documentation",
     summary:
       "A focused, compliance-first guide to the Registered Vehicle Scrapping Facility (RVSF) process in India — covering how to apply, what to keep ready, how renewal works, and which documentation and operational records matter most.",
     date: "May 20, 2026",
@@ -2106,7 +1516,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "plastic-approvals",
     path: "/blog/plastic-approvals",
-    title: "Approvals for Plastic Recycling Plant — Turn Compliance Into a Smooth Start",
+    title:
+      "Approvals for Plastic Recycling Plant — Turn Compliance Into a Smooth Start",
     summary:
       "Master the approval roadmap for plastic recycling plants with CTE, CTO, GST registration, and all required clearances.",
     date: "May 12, 2026",
@@ -2128,13 +1539,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Approvals Matter So Much",
-        body:
-          "Good approvals do more than satisfy a formality. They protect the project, support operations, and give the client a cleaner path to start-up. When approvals are delayed, the plant delays too. When approvals are planned well, the project feels manageable.",
+        body: "Good approvals do more than satisfy a formality. They protect the project, support operations, and give the client a cleaner path to start-up. When approvals are delayed, the plant delays too. When approvals are planned well, the project feels manageable.",
       },
       {
         title: "Main Approvals Clients Usually Need",
-        body:
-          "The exact list depends on the plant design, location, and process line. Most clients need CTE, CTO, plastic waste compliance, hazardous waste authorization if applicable, local body approvals, and fire clearance.",
+        body: "The exact list depends on the plant design, location, and process line. Most clients need CTE, CTO, plastic waste compliance, hazardous waste authorization if applicable, local body approvals, and fire clearance.",
         bullets: [
           "Consent to Establish (CTE) before construction",
           "Consent to Operate (CTO) before production",
@@ -2146,15 +1555,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Approval Roadmap Made Easy",
-        body:
-          "Start with site fitness, prepare the project file, apply for CTE, install the plant, apply for CTO, then start reporting and compliance tracking.",
+        body: "Start with site fitness, prepare the project file, apply for CTE, install the plant, apply for CTO, then start reporting and compliance tracking.",
       },
     ],
   },
   {
     slug: "plastic-buy-selling",
     path: "/blog/plastic-buy-selling",
-    title: "Scrap Buying & Selling in Plastic Recycling — From Scrap to Sale with Better Margins",
+    title:
+      "Scrap Buying & Selling in Plastic Recycling — From Scrap to Sale with Better Margins",
     summary:
       "Learn how to optimize plastic scrap sourcing, quality grading, and product sales for maximum profitability.",
     date: "May 12, 2026",
@@ -2176,13 +1585,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Buying and Selling Matter So Much",
-        body:
-          "A recycling plant cannot grow only by processing plastic. It must also manage market flow. Good buying brings clean feedstock. Good selling brings cash flow. Together, they keep the business healthy.",
+        body: "A recycling plant cannot grow only by processing plastic. It must also manage market flow. Good buying brings clean feedstock. Good selling brings cash flow. Together, they keep the business healthy.",
       },
       {
         title: "How to Help Clients in Scrap Buying",
-        body:
-          "Scrap buying is not only about price. It is about quality, consistency, logistics, and fit for the plant. A cheaper load can become expensive if it creates contamination or high rejection.",
+        body: "Scrap buying is not only about price. It is about quality, consistency, logistics, and fit for the plant. A cheaper load can become expensive if it creates contamination or high rejection.",
         bullets: [
           "Choose clean, useful scrap rather than only cheap scrap",
           "Focus on supplier reliability",
@@ -2192,8 +1599,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "How to Help Clients in Product Selling",
-        body:
-          "Once the plant starts producing flakes or pellets, the goal is to sell the product in the right market at the right value. Product presentation matters almost as much as product quality.",
+        body: "Once the plant starts producing flakes or pellets, the goal is to sell the product in the right market at the right value. Product presentation matters almost as much as product quality.",
         bullets: [
           "Improve product presentation and packaging",
           "Show clear grade and specification",
@@ -2206,7 +1612,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "plastic-machinery",
     path: "/blog/plastic-machinery",
-    title: "Plastic Recycling Machinery Planning — Build a Smarter Plant with the Right Equipment",
+    title:
+      "Plastic Recycling Machinery Planning — Build a Smarter Plant with the Right Equipment",
     summary:
       "Select and optimize machinery for plastic recycling covering shredding, sorting, washing, drying, and pelletizing systems.",
     date: "May 12, 2026",
@@ -2228,13 +1635,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Machinery Selection Matters So Much",
-        body:
-          "A recycling plant can only perform well when the machinery matches the material, capacity, and business model. A machine that looks powerful on paper may not be suitable for the actual waste stream. That is why planning is important.",
+        body: "A recycling plant can only perform well when the machinery matches the material, capacity, and business model. A machine that looks powerful on paper may not be suitable for the actual waste stream. That is why planning is important.",
       },
       {
         title: "Key Machinery Components",
-        body:
-          "PET bottles, HDPE containers, rigid plastic, and mixed scrap all need different handling. Choosing the correct line avoids unnecessary losses and poor output.",
+        body: "PET bottles, HDPE containers, rigid plastic, and mixed scrap all need different handling. Choosing the correct line avoids unnecessary losses and poor output.",
         bullets: [
           "Shredder / Crusher — Breaks large plastic into small pieces",
           "Sorting Conveyor — Separates unwanted material before washing",
@@ -2246,15 +1651,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "How We Help Clients at Every Stage",
-        body:
-          "We guide clients from understanding their goal through final commissioning. The focus is making the project simple, practical, and easy to understand.",
+        body: "We guide clients from understanding their goal through final commissioning. The focus is making the project simple, practical, and easy to understand.",
       },
     ],
   },
   {
     slug: "plastic-market-analysis",
     path: "/blog/plastic-market-analysis",
-    title: "Market Analysis & Target Segments in Plastic Recycling — Turn Waste into Supply Chain",
+    title:
+      "Market Analysis & Target Segments in Plastic Recycling — Turn Waste into Supply Chain",
     summary:
       "Understand the plastic recycling market landscape, identify target segments, and build a sustainable business model.",
     date: "May 12, 2026",
@@ -2276,13 +1681,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why This Market Keeps Opening Up",
-        body:
-          "A plastic recycling plant sits at the crossing point of three strong forces: more plastic consumption, tighter waste rules, and faster demand for recycled material. The Indian plastics market is large, while the recycled plastics market is expanding steadily.",
+        body: "A plastic recycling plant sits at the crossing point of three strong forces: more plastic consumption, tighter waste rules, and faster demand for recycled material. The Indian plastics market is large, while the recycled plastics market is expanding steadily.",
       },
       {
         title: "Best Target Market Segments",
-        body:
-          "The strongest target segments are the ones with repeat demand, clear specifications, and enough volume to support long runs.",
+        body: "The strongest target segments are the ones with repeat demand, clear specifications, and enough volume to support long runs.",
         bullets: [
           "Packaging converters — film, sheet, bottles, caps, crates",
           "FMCG brands — companies needing recycled-content packaging",
@@ -2293,8 +1696,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "How to Position the Plant in the Market",
-        body:
-          "Start with reliable scrap (PET bottles, HDPE containers, PP industrial scrap), sell quality not just material, use a multi-channel strategy, and build trust through documentation.",
+        body: "Start with reliable scrap (PET bottles, HDPE containers, PP industrial scrap), sell quality not just material, use a multi-channel strategy, and build trust through documentation.",
       },
     ],
   },
@@ -2308,7 +1710,12 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 min read",
     author: "EPR Nexuss Team",
     image: plasticSustainablity,
-    tags: ["Plastic Recycling", "Sustainability", "Process", "Circular Economy"],
+    tags: [
+      "Plastic Recycling",
+      "Sustainability",
+      "Process",
+      "Circular Economy",
+    ],
     keywords: [
       "plastic recycling process",
       "circular economy",
@@ -2323,8 +1730,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "The Business Flow from Waste to Product",
-        body:
-          "The process includes collecting plastic scrap, sorting by polymer type and color, washing and processing the material, and converting it into saleable products like flakes, regrind, or pellets.",
+        body: "The process includes collecting plastic scrap, sorting by polymer type and color, washing and processing the material, and converting it into saleable products like flakes, regrind, or pellets.",
         bullets: [
           "Step 1: Collect plastic scrap from households and businesses",
           "Step 2: Sort by polymer type, color, contamination level",
@@ -2335,13 +1741,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Which Products Fit Which Buyers",
-        body:
-          "PET flakes go to packaging converters, HDPE regrind to drum and pipe manufacturers, PP granules to automotive makers, and sorted bales to traders and material brokers.",
+        body: "PET flakes go to packaging converters, HDPE regrind to drum and pipe manufacturers, PP granules to automotive makers, and sorted bales to traders and material brokers.",
       },
       {
         title: "How Margin is Created",
-        body:
-          "Margin improves when scrap is bought smartly, sorting loss is low, and the output can be sold into a stable buyer base instead of a one-time open market sale.",
+        body: "Margin improves when scrap is bought smartly, sorting loss is low, and the output can be sold into a stable buyer base instead of a one-time open market sale.",
       },
     ],
   },
@@ -2358,7 +1762,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lithium-battery-approvals",
     path: "/blog/lithium-battery-approvals",
-    title: "Lithium-Ion Battery Recycling Plant Approvals — 8-Month Roadmap to Operation",
+    title:
+      "Lithium-Ion Battery Recycling Plant Approvals — 8-Month Roadmap to Operation",
     summary:
       "Master the complete approval roadmap for lithium battery recycling plants with parallel filing strategy and CPCB compliance.",
     date: "May 12, 2026",
@@ -2380,13 +1785,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why This Opportunity Won't Wait",
-        body:
-          "The recycling infrastructure to handle battery waste simply doesn't exist yet. That gap between waste generated and waste properly recycled is growing every year, and it is your business opportunity.",
+        body: "The recycling infrastructure to handle battery waste simply doesn't exist yet. That gap between waste generated and waste properly recycled is growing every year, and it is your business opportunity.",
       },
       {
         title: "Complete Licence Checklist",
-        body:
-          "A lithium-ion battery recycling plant needs approvals from 4 to 6 government bodies. With proper planning and parallel filing, the entire approval process can be completed in 8 months.",
+        body: "A lithium-ion battery recycling plant needs approvals from 4 to 6 government bodies. With proper planning and parallel filing, the entire approval process can be completed in 8 months.",
         bullets: [
           "GST Registration + Pollution Cess Exemption (Month 1)",
           "Consent to Establish (CTE) (Month 2-4)",
@@ -2399,15 +1802,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "The Key Insight",
-        body:
-          "Parallel filing of CTE and Hazardous Waste Authorisation saves an estimated 3-4 months compared to sequential processing. File everything together on Day 1 with complete documents.",
+        body: "Parallel filing of CTE and Hazardous Waste Authorisation saves an estimated 3-4 months compared to sequential processing. File everything together on Day 1 with complete documents.",
       },
     ],
   },
   {
     slug: "lithium-battery-buy-selling",
     path: "/blog/lithium-battery-buy-selling",
-    title: "Lithium Battery Recycling Trading — Make Scrap Trading More Profitable & Predictable",
+    title:
+      "Lithium Battery Recycling Trading — Make Scrap Trading More Profitable & Predictable",
     summary:
       "Learn trading strategies for lithium battery scrap sourcing, material grading, and buyer matching for maximum profitability.",
     date: "May 12, 2026",
@@ -2429,25 +1832,23 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "How We Help Clients Buy and Sell Scrap",
-        body:
-          "Buying and selling lithium-ion battery scrap should feel like a business decision, not a guessing game. We connect sellers with genuine buyers and help buyers access trusted scrap sources, so both sides can move forward with confidence.",
+        body: "Buying and selling lithium-ion battery scrap should feel like a business decision, not a guessing game. We connect sellers with genuine buyers and help buyers access trusted scrap sources, so both sides can move forward with confidence.",
       },
       {
         title: "What Makes a Deal Stronger",
-        body:
-          "Clear material grading before negotiation, better visibility on actual recoverable value, faster buyer response, safer movement with proper paperwork, and more trust between seller and buyer all improve deal strength.",
+        body: "Clear material grading before negotiation, better visibility on actual recoverable value, faster buyer response, safer movement with proper paperwork, and more trust between seller and buyer all improve deal strength.",
       },
       {
         title: "Price Optimization Through Better Networks",
-        body:
-          "With optimized trading practices and better buyer networks, recyclers can improve price realization from ₹85K per ton to ₹1.1L per ton, representing a 28% improvement in returns.",
+        body: "With optimized trading practices and better buyer networks, recyclers can improve price realization from ₹85K per ton to ₹1.1L per ton, representing a 28% improvement in returns.",
       },
     ],
   },
   {
     slug: "lithium-battery-dpr",
     path: "/blog/lithium-battery-dpr",
-    title: "Lithium Battery Recycling DPR — 5 TPD + 2 TPD Integrated Plant Plan",
+    title:
+      "Lithium Battery Recycling DPR — 5 TPD + 2 TPD Integrated Plant Plan",
     summary:
       "Create a comprehensive Detailed Project Report for lithium battery recycling plants covering design, finance, and compliance.",
     date: "May 12, 2026",
@@ -2469,13 +1870,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Executive Snapshot: Why This Plant Matters",
-        body:
-          "With EV sales booming and Battery Waste Management Rules 2022 mandating EPR, authorised recyclers are the missing link. This DPR outlines a practical, scalable, financially sound model to capture that opportunity.",
+        body: "With EV sales booming and Battery Waste Management Rules 2022 mandating EPR, authorised recyclers are the missing link. This DPR outlines a practical, scalable, financially sound model to capture that opportunity.",
       },
       {
         title: "Technology & Equipment",
-        body:
-          "Advanced mechanical shredding & separation plus hydrometallurgical leaching and solvent extraction for metal recovery. The plant achieves 95%+ target recovery efficiency.",
+        body: "Advanced mechanical shredding & separation plus hydrometallurgical leaching and solvent extraction for metal recovery. The plant achieves 95%+ target recovery efficiency.",
         bullets: [
           "Battery discharge station (safe load resistor based)",
           "Primary & secondary shredders (5 TPD capacity)",
@@ -2488,15 +1887,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Capital Outlay & Financial Projections",
-        body:
-          "Total project outlay approximately ₹495 Lakhs (₹4.95 Cr) with projected IRR of 22-25% and payback of 4.5 years. Revenue grows from ₹420 Lakhs in Year 1 to ₹890 Lakhs in Year 5.",
+        body: "Total project outlay approximately ₹495 Lakhs (₹4.95 Cr) with projected IRR of 22-25% and payback of 4.5 years. Revenue grows from ₹420 Lakhs in Year 1 to ₹890 Lakhs in Year 5.",
       },
     ],
   },
   {
     slug: "lithium-battery-machinery",
     path: "/blog/lithium-battery-machinery",
-    title: "Lithium Battery Recycling Machinery — Build a Smarter Plant with Right Equipment",
+    title:
+      "Lithium Battery Recycling Machinery — Build a Smarter Plant with Right Equipment",
     summary:
       "Select and optimize machinery for lithium battery recycling covering dismantling, shredding, separation, and hydromet systems.",
     date: "May 12, 2026",
@@ -2518,13 +1917,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "Why Machinery Selection Matters",
-        body:
-          "Every recycling plant needs the right equipment at the right stage. The real difference comes from choosing machinery that fits the plant's scale, material mix, and daily production target.",
+        body: "Every recycling plant needs the right equipment at the right stage. The real difference comes from choosing machinery that fits the plant's scale, material mix, and daily production target.",
       },
       {
         title: "Suggested Machinery Components",
-        body:
-          "From dismantling stations through separation units to dust collection systems, each machine serves a critical function in the recovery process.",
+        body: "From dismantling stations through separation units to dust collection systems, each machine serves a critical function in the recovery process.",
         bullets: [
           "Dismantling station — Safe opening and handling of battery packs",
           "Shredder / crusher — Breaks material into processable size",
@@ -2535,15 +1932,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Performance Improvements with Right Setup",
-        body:
-          "Proper machinery selection improves processing speed from 55% to 90%, increases material recovery from 60% to 88%, and reduces downtime from 30% to 12%.",
+        body: "Proper machinery selection improves processing speed from 55% to 90%, increases material recovery from 60% to 88%, and reduces downtime from 30% to 12%.",
       },
     ],
   },
   {
     slug: "lithium-battery-market-analysis",
     path: "/blog/lithium-battery-market-analysis",
-    title: "Lithium Battery Market Analysis — Present Batteries & Future EV Planning",
+    title:
+      "Lithium Battery Market Analysis — Present Batteries & Future EV Planning",
     summary:
       "Understand the lithium battery recycling market focusing on mobile, e-rickshaw, and car batteries with future EV readiness planning.",
     date: "May 12, 2026",
@@ -2565,13 +1962,11 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         title: "What This Market Looks Like Today",
-        body:
-          "The present battery market is driven by everyday use, repeated replacement cycles, and easy collection from local repair and service networks. Instead of depending on one source, a smart plant builds a mix of small-volume, medium-volume, and structured replacement batteries.",
+        body: "The present battery market is driven by everyday use, repeated replacement cycles, and easy collection from local repair and service networks. Instead of depending on one source, a smart plant builds a mix of small-volume, medium-volume, and structured replacement batteries.",
       },
       {
         title: "Market Profile of Current Battery Types",
-        body:
-          "Mobile batteries, e-rickshaw batteries, and car batteries each have different collection patterns but together create a balanced feedstock base.",
+        body: "Mobile batteries, e-rickshaw batteries, and car batteries each have different collection patterns but together create a balanced feedstock base.",
         bullets: [
           "Mobile batteries — High quantity and frequent inflow from repair shops",
           "E-rickshaw batteries — Repeatable fleet-based returns from operators",
@@ -2580,8 +1975,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "Future Plan: EV Battery Readiness",
-        body:
-          "Use today's battery business to build the systems needed for EV batteries later. This includes better fire safety, stronger storage controls, better reverse logistics, and tighter traceability.",
+        body: "Use today's battery business to build the systems needed for EV batteries later. This includes better fire safety, stronger storage controls, better reverse logistics, and tighter traceability.",
       },
     ],
   },
@@ -2600,14 +1994,21 @@ export const blogPosts: BlogPost[] = [
     slug: "solar-panel-recycling-approvals",
     path: "/blog/solar-panel-recycling-approvals",
     title: "Approvals on Solar Panel Recycling Plant",
-    summary: "Explore the essential approvals, licensing, and compliance requirements for setting up a solar panel recycling plant, including environmental clearances and regulatory pathways.",
+    summary:
+      "Explore the essential approvals, licensing, and compliance requirements for setting up a solar panel recycling plant, including environmental clearances and regulatory pathways.",
     date: "May 14, 2026",
     readingTime: "8 min read",
     author: "EPR Nexuss Team",
     image: solarApprovals,
     tags: ["Solar Panel Recycling", "Approvals", "Plant Setup", "Compliance"],
-    keywords: ["solar panel recycling approvals", "recycling plant licensing", "environmental clearances solar", "CPCB solar recycling"],
-    metaDescription: "Learn about the complete approval process for solar panel recycling plants, including CTE, CTO, waste authorization, and compliance requirements for sustainable operations.",
+    keywords: [
+      "solar panel recycling approvals",
+      "recycling plant licensing",
+      "environmental clearances solar",
+      "CPCB solar recycling",
+    ],
+    metaDescription:
+      "Learn about the complete approval process for solar panel recycling plants, including CTE, CTO, waste authorization, and compliance requirements for sustainable operations.",
     category: "solar-panel",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -2667,14 +2068,26 @@ export const blogPosts: BlogPost[] = [
     slug: "solar-panel-buying-selling-scrap",
     path: "/blog/solar-panel-buying-selling-scrap",
     title: "Buying and Selling Scrap and Products in Solar Panel Recycling",
-    summary: "Learn how to effectively buy and sell scrap and recovered products in the solar panel recycling market, including sourcing strategies and market connections.",
+    summary:
+      "Learn how to effectively buy and sell scrap and recovered products in the solar panel recycling market, including sourcing strategies and market connections.",
     date: "May 14, 2026",
     readingTime: "9 min read",
     author: "EPR Nexuss Team",
     image: solarTrading,
-    tags: ["Solar Panel Recycling", "Scrap Trading", "Market Connections", "Product Recovery"],
-    keywords: ["solar panel scrap buying", "recycling product sales", "scrap trading solar", "solar material recovery"],
-    metaDescription: "Discover strategies for buying solar panel scrap and selling recovered materials, with insights on market segments, pricing, and building profitable trading relationships.",
+    tags: [
+      "Solar Panel Recycling",
+      "Scrap Trading",
+      "Market Connections",
+      "Product Recovery",
+    ],
+    keywords: [
+      "solar panel scrap buying",
+      "recycling product sales",
+      "scrap trading solar",
+      "solar material recovery",
+    ],
+    metaDescription:
+      "Discover strategies for buying solar panel scrap and selling recovered materials, with insights on market segments, pricing, and building profitable trading relationships.",
     category: "solar-panel",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -3523,14 +2936,27 @@ export const blogPosts: BlogPost[] = [
     slug: "solar-panel-detailed-project-report",
     path: "/blog/solar-panel-detailed-project-report",
     title: "Detailed Project Report | Solar Panel Recycling Plant",
-    summary: "Comprehensive DPR for solar panel recycling plants including financials, machinery, market analysis, and operational planning for sustainable business setup.",
+    summary:
+      "Comprehensive DPR for solar panel recycling plants including financials, machinery, market analysis, and operational planning for sustainable business setup.",
     date: "May 14, 2026",
     readingTime: "10 min read",
     author: "EPR Nexuss Team",
     image: solarDpr,
-    tags: ["Solar Panel Recycling", "Project Report", "DPR", "Plant Setup", "Financial Planning"],
-    keywords: ["solar panel recycling DPR", "project report solar plant", "recycling plant feasibility", "solar waste management DPR"],
-    metaDescription: "Get a detailed project report for solar panel recycling plants with cost estimates, revenue projections, machinery specs, and market analysis for successful implementation.",
+    tags: [
+      "Solar Panel Recycling",
+      "Project Report",
+      "DPR",
+      "Plant Setup",
+      "Financial Planning",
+    ],
+    keywords: [
+      "solar panel recycling DPR",
+      "project report solar plant",
+      "recycling plant feasibility",
+      "solar waste management DPR",
+    ],
+    metaDescription:
+      "Get a detailed project report for solar panel recycling plants with cost estimates, revenue projections, machinery specs, and market analysis for successful implementation.",
     category: "solar-panel",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -3914,14 +3340,27 @@ export const blogPosts: BlogPost[] = [
     slug: "solar-panel-market-analysis-target-segments",
     path: "/blog/solar-panel-market-analysis-target-segments",
     title: "Market Analysis and Target Segments in Solar Panel Recycling",
-    summary: "In-depth market analysis for solar panel recycling including global trends, target segments, competitive landscape, and growth opportunities.",
+    summary:
+      "In-depth market analysis for solar panel recycling including global trends, target segments, competitive landscape, and growth opportunities.",
     date: "May 14, 2026",
     readingTime: "9 min read",
     author: "EPR Nexuss Team",
     image: solarAnalysis,
-    tags: ["Solar Panel Recycling", "Market Analysis", "Target Segments", "Industry Trends", "Competitive Landscape"],
-    keywords: ["solar panel recycling market", "market analysis solar waste", "recycling target segments", "solar panel industry trends"],
-    metaDescription: "Explore comprehensive market analysis for solar panel recycling with target segments, growth forecasts, competitive landscape, and strategic opportunities.",
+    tags: [
+      "Solar Panel Recycling",
+      "Market Analysis",
+      "Target Segments",
+      "Industry Trends",
+      "Competitive Landscape",
+    ],
+    keywords: [
+      "solar panel recycling market",
+      "market analysis solar waste",
+      "recycling target segments",
+      "solar panel industry trends",
+    ],
+    metaDescription:
+      "Explore comprehensive market analysis for solar panel recycling with target segments, growth forecasts, competitive landscape, and strategic opportunities.",
     category: "solar-panel",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -4302,14 +3741,27 @@ export const blogPosts: BlogPost[] = [
     slug: "solar-panel-machinery-help-clients",
     path: "/blog/solar-panel-machinery-help-clients",
     title: "How We Help Clients with Machinery in Solar Panel Recycling",
-    summary: "Comprehensive guide on solar panel recycling machinery selection, procurement, installation, and support for efficient and compliant operations.",
+    summary:
+      "Comprehensive guide on solar panel recycling machinery selection, procurement, installation, and support for efficient and compliant operations.",
     date: "May 14, 2026",
     readingTime: "8 min read",
     author: "EPR Nexuss Team",
     image: solarMachinery,
-    tags: ["Solar Panel Recycling", "Machinery", "Equipment Procurement", "Plant Setup", "Technical Support"],
-    keywords: ["solar panel recycling machinery", "recycling equipment solar", "machinery procurement solar", "plant setup solar recycling"],
-    metaDescription: "Learn how we assist clients with selecting, procuring, and implementing machinery for solar panel recycling plants, ensuring optimal performance and compliance.",
+    tags: [
+      "Solar Panel Recycling",
+      "Machinery",
+      "Equipment Procurement",
+      "Plant Setup",
+      "Technical Support",
+    ],
+    keywords: [
+      "solar panel recycling machinery",
+      "recycling equipment solar",
+      "machinery procurement solar",
+      "plant setup solar recycling",
+    ],
+    metaDescription:
+      "Learn how we assist clients with selecting, procuring, and implementing machinery for solar panel recycling plants, ensuring optimal performance and compliance.",
     category: "solar-panel",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -4795,14 +4247,22 @@ export const blogPosts: BlogPost[] = [
     slug: "operation-performance-management",
     path: "/blog/operation-performance-management",
     title: "Operation and Performance Management",
-    summary: "Great businesses grow when operations stay organized, performance stays visible, and every team knows exactly what success looks like.",
+    summary:
+      "Great businesses grow when operations stay organized, performance stays visible, and every team knows exactly what success looks like.",
     date: "May 16, 2026",
     readingTime: "8 min read",
     author: "EPR Nexuss Team",
     image: platformImage,
     tags: ["Operations", "Performance", "KPI", "Management", "Business Growth"],
-    keywords: ["operation management", "performance tracking", "KPI monitoring", "process control", "business efficiency"],
-    metaDescription: "Master operation and performance management with KPI strategies, bottleneck control, and continuous improvement frameworks for business growth.",
+    keywords: [
+      "operation management",
+      "performance tracking",
+      "KPI monitoring",
+      "process control",
+      "business efficiency",
+    ],
+    metaDescription:
+      "Master operation and performance management with KPI strategies, bottleneck control, and continuous improvement frameworks for business growth.",
     category: "sops-kpis-checklists",
     fullContent: `<!DOCTYPE html>
 <html lang="en">
@@ -5263,7 +4723,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI1,
     tags: ["Setup Documentation", "Commissioning", "Plant Operations"],
-    keywords: ["setup documentation", "commissioning documentation", "plant operation intelligence"],
+    keywords: [
+      "setup documentation",
+      "commissioning documentation",
+      "plant operation intelligence",
+    ],
     metaDescription:
       "Why setup and commissioning documentation forms the foundation of reliable plant operation intelligence, and how to build it right from day one.",
     category: "setup-commissioning-documentation",
@@ -5279,7 +4743,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI2,
     tags: ["Commissioning", "Documentation Gaps", "Plant Setup"],
-    keywords: ["documentation gaps", "commissioning delays", "plant setup documentation"],
+    keywords: [
+      "documentation gaps",
+      "commissioning delays",
+      "plant setup documentation",
+    ],
     metaDescription:
       "The most frequent documentation gaps that slow down plant commissioning, and practical steps to close them before they cause costly delays.",
     category: "setup-commissioning-documentation",
@@ -5295,7 +4763,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI3,
     tags: ["Commissioning Records", "Plant Documentation"],
-    keywords: ["commissioning records", "plant memory", "industrial documentation"],
+    keywords: [
+      "commissioning records",
+      "plant memory",
+      "industrial documentation",
+    ],
     metaDescription:
       "Why commissioning records are the hidden engine behind every high-performing industrial operation — and what happens when you ignore them.",
     category: "setup-commissioning-documentation",
@@ -5311,7 +4783,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI4,
     tags: ["Plant Startup", "Documentation", "Checklists"],
-    keywords: ["plant startup documentation", "startup checklist", "commissioning readiness"],
+    keywords: [
+      "plant startup documentation",
+      "startup checklist",
+      "commissioning readiness",
+    ],
     metaDescription:
       "Every plant shutdown traced to a missing record, every delayed startup caused by an incomplete checklist — all of it was preventable.",
     category: "setup-commissioning-documentation",
@@ -5327,7 +4803,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI5,
     tags: ["Commissioning Checklists", "Operational Readiness"],
-    keywords: ["commissioning checklists", "operational readiness", "plant startup checklist"],
+    keywords: [
+      "commissioning checklists",
+      "operational readiness",
+      "plant startup checklist",
+    ],
     metaDescription:
       "How structured commissioning checklists reduce risk, prevent missed steps, and improve overall operational readiness before plant startup.",
     category: "setup-commissioning-documentation",
@@ -5343,7 +4823,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI6,
     tags: ["Plant Handover", "Documentation Best Practices"],
-    keywords: ["plant handover files", "setup documentation best practices", "commissioning handover"],
+    keywords: [
+      "plant handover files",
+      "setup documentation best practices",
+      "commissioning handover",
+    ],
     metaDescription:
       "Practical best practices for organizing plant setup and handover documentation so nothing gets lost between commissioning teams and operations.",
     category: "setup-commissioning-documentation",
@@ -5385,7 +4869,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI8,
     tags: ["Performance Management", "Plant Operations", "Strategy"],
-    keywords: ["performance management strategies", "plant operations", "operational efficiency"],
+    keywords: [
+      "performance management strategies",
+      "plant operations",
+      "operational efficiency",
+    ],
     metaDescription:
       "Turn daily plant activity into measurable wins — faster decisions, fewer delays, tighter control, and stronger output.",
     category: "operation-performance-management",
@@ -5393,7 +4881,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "plant-operation-intelligence",
     path: "/blog/plant-operation-intelligence",
-    title: "How Plant Operation Intelligence Improves Daily Operational Control",
+    title:
+      "How Plant Operation Intelligence Improves Daily Operational Control",
     summary:
       "Plant operation intelligence gives teams a clearer view of what is happening, what is changing, and what needs attention right now.",
     date: "May 22, 2026",
@@ -5401,7 +4890,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI9,
     tags: ["Plant Operation Intelligence", "Operational Control"],
-    keywords: ["plant operation intelligence", "operational control", "daily plant management"],
+    keywords: [
+      "plant operation intelligence",
+      "operational control",
+      "daily plant management",
+    ],
     metaDescription:
       "Plant operation intelligence gives teams a clearer view of what is happening, what is changing, and what needs attention right now.",
     category: "operation-performance-management",
@@ -5417,7 +4910,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI10,
     tags: ["Real-Time Monitoring", "Operational Delays"],
-    keywords: ["real-time monitoring", "reduce operational delays", "plant monitoring"],
+    keywords: [
+      "real-time monitoring",
+      "reduce operational delays",
+      "plant monitoring",
+    ],
     metaDescription:
       "The fastest way to cut delays is to see them early, understand them clearly, and act before they spread.",
     category: "operation-performance-management",
@@ -5433,7 +4930,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI11,
     tags: ["Plant Data", "Efficiency", "Operations"],
-    keywords: ["plant efficiency data", "data-driven operations", "plant performance data"],
+    keywords: [
+      "plant efficiency data",
+      "data-driven operations",
+      "plant performance data",
+    ],
     metaDescription:
       "Turn plant data into better efficiency, faster decisions, and cleaner margins.",
     category: "operation-performance-management",
@@ -5459,7 +4960,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI12,
     tags: ["Digital Infrastructure", "Plant Expansion", "Scaling"],
-    keywords: ["digital infrastructure", "plant expansion", "scaling plant operations"],
+    keywords: [
+      "digital infrastructure",
+      "plant expansion",
+      "scaling plant operations",
+    ],
     metaDescription:
       "Expansion does not fail because the plant is too small — it fails when the information backbone cannot grow with it.",
     category: "scale-and-growth-systems",
@@ -5491,7 +4996,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI14,
     tags: ["Plant Efficiency", "Documentation Systems", "Growth"],
-    keywords: ["plant efficiency documentation", "scaling without losing efficiency", "growth systems"],
+    keywords: [
+      "plant efficiency documentation",
+      "scaling without losing efficiency",
+      "growth systems",
+    ],
     metaDescription:
       "The smartest plants do not simply expand output — they protect uptime, keep teams aligned, and turn every workflow into a repeatable advantage.",
     category: "scale-and-growth-systems",
@@ -5507,7 +5016,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI15,
     tags: ["Plant Operation Intelligence", "Scalable Growth"],
-    keywords: ["plant operation intelligence", "scalable growth", "predictive maintenance"],
+    keywords: [
+      "plant operation intelligence",
+      "scalable growth",
+      "predictive maintenance",
+    ],
     metaDescription:
       "The plants that scale smoothly are not the ones that work harder — they are the ones that see farther, using real-time visibility and predictive maintenance as a growth engine.",
     category: "scale-and-growth-systems",
@@ -5523,7 +5036,11 @@ export const blogPosts: BlogPost[] = [
     author: "EPR Nexuss Team",
     image: POI16,
     tags: ["Standardization", "Plant Scaling", "Operations"],
-    keywords: ["standardize operations", "plant scaling", "operational standardization"],
+    keywords: [
+      "standardize operations",
+      "plant scaling",
+      "operational standardization",
+    ],
     metaDescription:
       "The fastest-growing plants are not the ones that improvise better — they are the ones that standardize early, scale cleanly, and keep every team moving in the same direction.",
     category: "scale-and-growth-systems",
@@ -5537,14 +5054,20 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-battery-analysis",
     path: "/blog/epr-battery-analysis",
     title: "EPR Battery Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprBatteryAnalysis,
     tags: ["EPR Battery", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Battery analysis", "EPR battery analysis India", "EPR Battery EPR guide"],
-    metaDescription: "EPR Battery Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Battery analysis",
+      "EPR battery analysis India",
+      "EPR Battery EPR guide",
+    ],
+    metaDescription:
+      "EPR Battery Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-battery",
   },
   // {
@@ -5593,28 +5116,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-battery-trading",
     path: "/blog/epr-battery-trading",
     title: "EPR Battery Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprBatteryTrading,
     tags: ["EPR Battery", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Battery trading", "EPR battery trading India", "EPR Battery EPR guide"],
-    metaDescription: "EPR Battery Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Battery trading",
+      "EPR battery trading India",
+      "EPR Battery EPR guide",
+    ],
+    metaDescription:
+      "EPR Battery Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-battery",
   },
   {
     slug: "epr-electronic-analysis",
     path: "/blog/epr-electronic-analysis",
     title: "EPR Electronic Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprElectronicAnalysis,
     tags: ["EPR Electronic", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Electronic analysis", "EPR electronic (WEEE) analysis India", "EPR Electronic EPR guide"],
-    metaDescription: "EPR Electronic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Electronic analysis",
+      "EPR electronic (WEEE) analysis India",
+      "EPR Electronic EPR guide",
+    ],
+    metaDescription:
+      "EPR Electronic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-electronic",
   },
   // {
@@ -5663,28 +5198,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-electronic-trading",
     path: "/blog/epr-electronic-trading",
     title: "EPR Electronic Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR electronic (WEEE) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprElectronicTrading,
     tags: ["EPR Electronic", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Electronic trading", "EPR electronic (WEEE) trading India", "EPR Electronic EPR guide"],
-    metaDescription: "EPR Electronic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Electronic trading",
+      "EPR electronic (WEEE) trading India",
+      "EPR Electronic EPR guide",
+    ],
+    metaDescription:
+      "EPR Electronic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR electronic (WEEE) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-electronic",
   },
   {
     slug: "epr-elv-analysis",
     path: "/blog/epr-elv-analysis",
     title: "EPR ELV Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprElvAnalysis,
     tags: ["EPR ELV", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR ELV analysis", "EPR end-of-life vehicle (ELV) analysis India", "EPR ELV EPR guide"],
-    metaDescription: "EPR ELV Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR ELV analysis",
+      "EPR end-of-life vehicle (ELV) analysis India",
+      "EPR ELV EPR guide",
+    ],
+    metaDescription:
+      "EPR ELV Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-elv",
   },
   // {
@@ -5733,28 +5280,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-elv-trading",
     path: "/blog/epr-elv-trading",
     title: "EPR ELV Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR end-of-life vehicle (ELV) — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprElvTrading,
     tags: ["EPR ELV", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR ELV trading", "EPR end-of-life vehicle (ELV) trading India", "EPR ELV EPR guide"],
-    metaDescription: "EPR ELV Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR ELV trading",
+      "EPR end-of-life vehicle (ELV) trading India",
+      "EPR ELV EPR guide",
+    ],
+    metaDescription:
+      "EPR ELV Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR end-of-life vehicle (ELV) — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-elv",
   },
   {
     slug: "epr-lithium-analysis",
     path: "/blog/epr-lithium-analysis",
     title: "EPR Lithium Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprLithiumAnalysis,
     tags: ["EPR Lithium", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Lithium analysis", "EPR lithium battery analysis India", "EPR Lithium EPR guide"],
-    metaDescription: "EPR Lithium Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Lithium analysis",
+      "EPR lithium battery analysis India",
+      "EPR Lithium EPR guide",
+    ],
+    metaDescription:
+      "EPR Lithium Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-lithium",
   },
   // {
@@ -5803,28 +5362,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-lithium-trading",
     path: "/blog/epr-lithium-trading",
     title: "EPR Lithium Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR lithium battery — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprLithiumTrading,
     tags: ["EPR Lithium", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Lithium trading", "EPR lithium battery trading India", "EPR Lithium EPR guide"],
-    metaDescription: "EPR Lithium Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Lithium trading",
+      "EPR lithium battery trading India",
+      "EPR Lithium EPR guide",
+    ],
+    metaDescription:
+      "EPR Lithium Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR lithium battery — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-lithium",
   },
   {
     slug: "epr-metals-analysis",
     path: "/blog/epr-metals-analysis",
     title: "EPR Metals Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprMetalAnalysis,
     tags: ["EPR Metals", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Metals analysis", "EPR metal scrap analysis India", "EPR Metals EPR guide"],
-    metaDescription: "EPR Metals Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Metals analysis",
+      "EPR metal scrap analysis India",
+      "EPR Metals EPR guide",
+    ],
+    metaDescription:
+      "EPR Metals Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-metals",
   },
   // {
@@ -5873,28 +5444,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-metals-trading",
     path: "/blog/epr-metals-trading",
     title: "EPR Metals Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprMetalTrading,
     tags: ["EPR Metals", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Metals trading", "EPR metal scrap trading India", "EPR Metals EPR guide"],
-    metaDescription: "EPR Metals Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Metals trading",
+      "EPR metal scrap trading India",
+      "EPR Metals EPR guide",
+    ],
+    metaDescription:
+      "EPR Metals Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-metals",
   },
   {
     slug: "epr-plastic-analysis",
     path: "/blog/epr-plastic-analysis",
     title: "EPR Plastic Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprPlasticAnalysis,
     tags: ["EPR Plastic", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Plastic analysis", "EPR plastic analysis India", "EPR Plastic EPR guide"],
-    metaDescription: "EPR Plastic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Plastic analysis",
+      "EPR plastic analysis India",
+      "EPR Plastic EPR guide",
+    ],
+    metaDescription:
+      "EPR Plastic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-plastic",
   },
   // {
@@ -5943,28 +5526,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-plastic-trading",
     path: "/blog/epr-plastic-trading",
     title: "EPR Plastic Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprPlasticTrading,
     tags: ["EPR Plastic", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Plastic trading", "EPR plastic trading India", "EPR Plastic EPR guide"],
-    metaDescription: "EPR Plastic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Plastic trading",
+      "EPR plastic trading India",
+      "EPR Plastic EPR guide",
+    ],
+    metaDescription:
+      "EPR Plastic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-plastic",
   },
   {
     slug: "epr-tyre-analysis",
     path: "/blog/epr-tyre-analysis",
     title: "EPR Tyre Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprTyreAnalysis,
     tags: ["EPR Tyre", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Tyre analysis", "EPR tyre analysis India", "EPR Tyre EPR guide"],
-    metaDescription: "EPR Tyre Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Tyre analysis",
+      "EPR tyre analysis India",
+      "EPR Tyre EPR guide",
+    ],
+    metaDescription:
+      "EPR Tyre Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-tyre",
   },
   // {
@@ -6013,28 +5608,40 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-tyre-trading",
     path: "/blog/epr-tyre-trading",
     title: "EPR Tyre Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR tyre — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprTyreTrading,
     tags: ["EPR Tyre", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Tyre trading", "EPR tyre trading India", "EPR Tyre EPR guide"],
-    metaDescription: "EPR Tyre Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Tyre trading",
+      "EPR tyre trading India",
+      "EPR Tyre EPR guide",
+    ],
+    metaDescription:
+      "EPR Tyre Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR tyre — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-tyre",
   },
   {
     slug: "epr-used-oil-analysis",
     path: "/blog/epr-used-oil-analysis",
     title: "EPR Used Oil Credits: Market Analysis & Business Opportunity",
-    summary: "A practical, step-by-step guide covering market analysis & business opportunity for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering market analysis & business opportunity for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "May 4, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprOilAnalysis,
     tags: ["EPR Used Oil", "Market Analysis", "CPCB", "EPR India"],
-    keywords: ["EPR Used Oil analysis", "EPR used oil analysis India", "EPR Used Oil EPR guide"],
-    metaDescription: "EPR Used Oil Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Used Oil analysis",
+      "EPR used oil analysis India",
+      "EPR Used Oil EPR guide",
+    ],
+    metaDescription:
+      "EPR Used Oil Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-used-oil",
   },
   // {
@@ -6083,302 +5690,459 @@ export const blogPosts: BlogPost[] = [
     slug: "epr-used-oil-trading",
     path: "/blog/epr-used-oil-trading",
     title: "EPR Used Oil Credits: Credit Trading & Marketplace Guide",
-    summary: "A practical, step-by-step guide covering credit trading & marketplace guide for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+    summary:
+      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR used oil — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
     date: "June 1, 2026",
     readingTime: "5 min read",
     author: "EPR Nexuss Team",
     image: eprOilTrading,
     tags: ["EPR Used Oil", "Trading", "CPCB", "EPR India"],
-    keywords: ["EPR Used Oil trading", "EPR used oil trading India", "EPR Used Oil EPR guide"],
-    metaDescription: "EPR Used Oil Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    keywords: [
+      "EPR Used Oil trading",
+      "EPR used oil trading India",
+      "EPR Used Oil EPR guide",
+    ],
+    metaDescription:
+      "EPR Used Oil Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR used oil — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-used-oil",
   },
-{
-  slug: "sell-e-waste-benefits-india",
-  path: "/blog/sell-e-waste-benefits-india",
-  title: "Buy E-Waste: Why You Should Sell Your E-Waste Instead of Throwing It Away",
-  summary: "That old phone, laptop, or fan in your storeroom is worth more than a spot in the bin — for your wallet, and for the planet.",
-  date: "May 4, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS1,
-  tags: ["Buy E-Waste", "Why You Should Sell E-Waste", "CPCB", "EPR India"],
-  keywords: ["sell e-waste instead of throwing away", "why sell e-waste India", "Buy E-Waste EPR guide"],
-  metaDescription: "Buy E-Waste: Why You Should Sell Instead of Throwing It Away. Learn why old phones, laptops, and other electronics sitting in storage are worth more sold through a compliant channel than dumped in the bin — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-  category: "buy-e-waste",
-},
-{
-  slug: "types-of-e-waste-you-can-sell",
-  path: "/blog/types-of-e-waste-you-can-sell",
-  title: "Buy E-Waste: What Types of E-Waste You Can Sell",
-  summary: "From a single dead phone to a warehouse of retired office equipment — here's exactly what we take off your hands.",
-  date: "May 11, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS2,
-  tags: ["Buy E-Waste", "Types of E-waste You Can Sell", "CPCB", "EPR India"],
-  keywords: ["what e-waste can you sell India", "types of e-waste to sell", "Buy E-Waste EPR guide"],
-  metaDescription: "Buy E-Waste: What Types of E-Waste You Can Sell. From a single dead phone to a warehouse of retired office equipment, see exactly which e-waste categories EPR Nexuss buys — practical, India-focused, CPCB-aligned guidance.",
-  category: "buy-e-waste",
-},
-// {
-//   slug: "buy-e-waste-dpr",
-//   path: "/blog/buy-e-waste-dpr",
-//   title: "Buy E-Waste: Detailed Project Report (DPR) Essentials",
-//   summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-//   date: "May 18, 2026",
-//   readingTime: "5 min read",
-//   author: "EPR Nexuss Team",
-//   image: platformImage,
-//   tags: ["Buy E-Waste", "DPR", "CPCB", "EPR India"],
-//   keywords: ["Buy E-Waste dpr", "buying e-waste scrap dpr India", "Buy E-Waste EPR guide"],
-//   metaDescription: "Buy E-Waste: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-//   category: "buy-e-waste",
-// },
-{
-  slug: "is-selling-e-waste-legal-india",
-  path: "/blog/is-selling-e-waste-legal-india",
-  title: "Is Selling E-Waste Legal in India?",
-  summary: "Yes — but only when it's done through the right channel. Here's what the rules actually say, in plain language.",
-  date: "May 25, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS3,
-  tags: ["Buy E-Waste", "Is Selling E-Waste Legal?", "CPCB", "EPR India"],
-  keywords: ["is selling e-waste legal in India", "e-waste legality CPCB", "Buy E-Waste EPR guide"],
-  metaDescription: "Is Selling E-Waste Legal in India? Yes, when it's done through the right channel — learn what the CPCB rules actually require, explained in plain language, from EPR Nexuss.",
-  category: "buy-e-waste",
-},
-{
-  slug: "e-waste-price-calculation",
-  path: "/blog/e-waste-price-calculation",
-  title: "How Is the Price of Your E-Waste Calculated?",
-  summary: "No guesswork, no vague estimates — here's exactly what goes into the number we quote you.",
-  date: "June 1, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS4,
-  tags: ["Buy E-Waste", "How Price Is Calculated", "CPCB", "EPR India"],
-  keywords: ["how e-waste price is calculated India", "e-waste scrap pricing", "Buy E-Waste EPR guide"],
-  metaDescription: "How Is the Price of Your E-Waste Calculated? No guesswork, no vague estimates — see exactly what goes into the price EPR Nexuss quotes for your e-waste.",
-  category: "buy-e-waste",
-},
+  {
+    slug: "sell-e-waste-benefits-india",
+    path: "/blog/sell-e-waste-benefits-india",
+    title:
+      "Buy E-Waste: Why You Should Sell Your E-Waste Instead of Throwing It Away",
+    summary:
+      "That old phone, laptop, or fan in your storeroom is worth more than a spot in the bin — for your wallet, and for the planet.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS1,
+    tags: ["Buy E-Waste", "Why You Should Sell E-Waste", "CPCB", "EPR India"],
+    keywords: [
+      "sell e-waste instead of throwing away",
+      "why sell e-waste India",
+      "Buy E-Waste EPR guide",
+    ],
+    metaDescription:
+      "Buy E-Waste: Why You Should Sell Instead of Throwing It Away. Learn why old phones, laptops, and other electronics sitting in storage are worth more sold through a compliant channel than dumped in the bin — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "types-of-e-waste-you-can-sell",
+    path: "/blog/types-of-e-waste-you-can-sell",
+    title: "Buy E-Waste: What Types of E-Waste You Can Sell",
+    summary:
+      "From a single dead phone to a warehouse of retired office equipment — here's exactly what we take off your hands.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS2,
+    tags: ["Buy E-Waste", "Types of E-waste You Can Sell", "CPCB", "EPR India"],
+    keywords: [
+      "what e-waste can you sell India",
+      "types of e-waste to sell",
+      "Buy E-Waste EPR guide",
+    ],
+    metaDescription:
+      "Buy E-Waste: What Types of E-Waste You Can Sell. From a single dead phone to a warehouse of retired office equipment, see exactly which e-waste categories EPR Nexuss buys — practical, India-focused, CPCB-aligned guidance.",
+    category: "buy-e-waste",
+  },
+  // {
+  //   slug: "buy-e-waste-dpr",
+  //   path: "/blog/buy-e-waste-dpr",
+  //   title: "Buy E-Waste: Detailed Project Report (DPR) Essentials",
+  //   summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for buying e-waste scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+  //   date: "May 18, 2026",
+  //   readingTime: "5 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: platformImage,
+  //   tags: ["Buy E-Waste", "DPR", "CPCB", "EPR India"],
+  //   keywords: ["Buy E-Waste dpr", "buying e-waste scrap dpr India", "Buy E-Waste EPR guide"],
+  //   metaDescription: "Buy E-Waste: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about buying e-waste scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+  //   category: "buy-e-waste",
+  // },
+  {
+    slug: "is-selling-e-waste-legal-india",
+    path: "/blog/is-selling-e-waste-legal-india",
+    title: "Is Selling E-Waste Legal in India?",
+    summary:
+      "Yes — but only when it's done through the right channel. Here's what the rules actually say, in plain language.",
+    date: "May 25, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS3,
+    tags: ["Buy E-Waste", "Is Selling E-Waste Legal?", "CPCB", "EPR India"],
+    keywords: [
+      "is selling e-waste legal in India",
+      "e-waste legality CPCB",
+      "Buy E-Waste EPR guide",
+    ],
+    metaDescription:
+      "Is Selling E-Waste Legal in India? Yes, when it's done through the right channel — learn what the CPCB rules actually require, explained in plain language, from EPR Nexuss.",
+    category: "buy-e-waste",
+  },
+  {
+    slug: "e-waste-price-calculation",
+    path: "/blog/e-waste-price-calculation",
+    title: "How Is the Price of Your E-Waste Calculated?",
+    summary:
+      "No guesswork, no vague estimates — here's exactly what goes into the number we quote you.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS4,
+    tags: ["Buy E-Waste", "How Price Is Calculated", "CPCB", "EPR India"],
+    keywords: [
+      "how e-waste price is calculated India",
+      "e-waste scrap pricing",
+      "Buy E-Waste EPR guide",
+    ],
+    metaDescription:
+      "How Is the Price of Your E-Waste Calculated? No guesswork, no vague estimates — see exactly what goes into the price EPR Nexuss quotes for your e-waste.",
+    category: "buy-e-waste",
+  },
 
-{
-  slug: "sell-industrial-batteries-legally",
-  path: "/blog/sell-industrial-batteries-legally",
-  title: "Sell Batteries: Is Your Stored Lead-Acid and Lithium Waste Compliant? How to Legally Sell Industrial Batteries for Maximum Returns",
-  summary: "Every pallet of spent industrial batteries sitting in a warehouse is both a liability and an asset. Sell it the wrong way and you risk penalties and safety incidents. Sell it the right way and you turn hazardous waste into documented, audit-ready revenue.",
-  date: "May 4, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS5,
-  tags: ["Sell Batteries", "Compliant Selling", "CPCB", "EPR India"],
-  keywords: ["sell industrial batteries legally India", "lead-acid lithium waste compliance", "Sell Batteries EPR guide"],
-  metaDescription: "Sell Batteries: Is Your Stored Lead-Acid and Lithium Waste Compliant? Learn how to legally sell industrial batteries for maximum returns, and turn hazardous waste sitting in your warehouse into documented, audit-ready revenue — India-focused, CPCB-aligned guidance from EPR Nexuss.",
-  category: "sell-batteries",
-},
-{
-  slug: "lithium-ion-battery-scrap-value",
-  path: "/blog/lithium-ion-battery-scrap-value",
-  title: "Are You Missing Out on Cash? What Is the Current Scrap Value of Commercial Lithium-Ion Batteries?",
-  summary: "Lithium-ion scrap value is not a fixed number you can look up once and forget. It shifts with commodity markets, battery condition, and how well your batch is sorted and documented. Here is what actually moves the price.",
-  date: "May 11, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS6,
-  tags: ["Sell Batteries", "Lithium-Ion Scrap Value", "CPCB", "EPR India"],
-  keywords: ["lithium-ion battery scrap value India", "commercial battery scrap price", "Sell Batteries EPR guide"],
-  metaDescription: "What Is the Current Scrap Value of Commercial Lithium-Ion Batteries? Lithium-ion scrap value shifts with commodity markets, battery condition, and documentation — see what actually moves the price, from EPR Nexuss.",
-  category: "sell-batteries",
-},
-{
-  slug: "corporate-guide-sell-scrap-batteries",
-  path: "/blog/corporate-guide-sell-scrap-batteries",
-  title: "The Ultimate Corporate Guide to Offloading Scrap Batteries Safely, Profitably, and Compliantly",
-  summary: "For companies managing battery waste across multiple sites, disposal is a policy question as much as a transaction. Here is how to build a process that protects your people, your compliance record, and your margins at the same time.",
-  date: "May 18, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS7,
-  tags: ["Sell Batteries", "Corporate Disposal Guide", "CPCB", "EPR India"],
-  keywords: ["corporate guide sell scrap batteries", "offload scrap batteries safely India", "Sell Batteries EPR guide"],
-  metaDescription: "The Ultimate Corporate Guide to Offloading Scrap Batteries Safely, Profitably, and Compliantly. See how to build a disposal process across multiple sites that protects your people, compliance record, and margins — from EPR Nexuss.",
-  category: "sell-batteries",
-},
-// {
-//   slug: "sell-batteries-machinery",
-//   path: "/blog/sell-batteries-machinery",
-//   title: "Sell Batteries: Machinery, Setup & Operations Guide",
-//   summary: "A practical, step-by-step guide covering machinery, setup & operations guide for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-//   date: "May 25, 2026",
-//   readingTime: "5 min read",
-//   author: "EPR Nexuss Team",
-//   image: batteryImage,
-//   tags: ["Sell Batteries", "Machinery", "CPCB", "EPR India"],
-//   keywords: ["Sell Batteries machinery", "selling battery scrap machinery India", "Sell Batteries EPR guide"],
-//   metaDescription: "Sell Batteries: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-//   category: "sell-batteries",
-// },
-{
-  slug: "battery-waste-recycling-marketplace",
-  path: "/blog/battery-waste-recycling-marketplace",
-  title: "Turning Battery Waste into a Legal Asset: How EPR Nexuss Bridges the Gap Between Sellers and Registered Recyclers",
-  summary: "Compliant battery recycling in India involves three parties who rarely find each other easily on their own: waste generators, registered recyclers, and the regulatory system tracking it all. Here is how a bridge platform closes that gap.",
-  date: "June 1, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS8,
-  tags: ["Sell Batteries", "Marketplace", "CPCB", "EPR India"],
-  keywords: ["battery waste recycling marketplace India", "sellers registered recyclers bridge", "Sell Batteries EPR guide"],
-  metaDescription: "Turning Battery Waste into a Legal Asset. See how EPR Nexuss bridges the gap between waste generators, registered recyclers, and the regulatory system tracking it all — India-focused guidance.",
-  category: "sell-batteries",
-},
-{
-  slug: "metal-scrap-epr-fines-guidelines",
-  path: "/blog/metal-scrap-epr-fines-guidelines",
-  title: "Buy & Sell Metals: Why Are Traditional Metal Scrap Supply Chains Facing Massive Fines Under the New EPR Portal Guidelines?",
-  summary: "India's non-ferrous metal scrap trade has run informally for decades. A new Extended Producer Responsibility framework is about to change what costs anyone still operating outside a registered, documented supply chain.",
-  date: "May 4, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS9,
-  tags: ["Buy & Sell Metals", "New EPR Portal Guidelines", "CPCB", "EPR India"],
-  keywords: ["metal scrap EPR fines guidelines", "non-ferrous metal scrap EPR India", "Buy & Sell Metals EPR guide"],
-  metaDescription: "Why Are Traditional Metal Scrap Supply Chains Facing Massive Fines Under the New EPR Portal Guidelines? See what changes for anyone still operating outside a registered, documented supply chain — from EPR Nexuss.",
-  category: "buy-and-sell-metals",
-},
-{
-  slug: "fair-pricing-industrial-metal-scrap",
-  path: "/blog/fair-pricing-industrial-metal-scrap",
-  title: "Buy & Sell Metals: Is Your Business Maximizing Revenue on Bulk Scrap? How to Secure Fair Market Pricing on Verified Industrial Metal Streams",
-  summary: "Industrial metal scrap does not have one fixed price. It moves with global benchmarks, grade, and how well-documented your stream is. Here is what actually determines whether you are getting a fair deal.",
-  date: "May 11, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS10,
-  tags: ["Buy & Sell Metals", "Fair Market Pricing", "CPCB", "EPR India"],
-  keywords: ["fair pricing industrial metal scrap", "verified metal scrap streams India", "Buy & Sell Metals EPR guide"],
-  metaDescription: "Is Your Business Maximizing Revenue on Bulk Scrap? Learn how to secure fair market pricing on verified industrial metal streams, based on global benchmarks, grade, and documentation — from EPR Nexuss.",
-  category: "buy-and-sell-metals",
-},
-{
-  slug: "non-ferrous-metal-epr-framework",
-  path: "/blog/non-ferrous-metal-epr-framework",
-  title: "Navigating the Non-Ferrous Metal EPR Framework: How Importers and Producers Can Avoid Environmental Compensation Penalties",
-  summary: "The rules for aluminium, copper, and zinc producers and importers are more specific than most companies realise, and the obligations differ depending on which role you actually hold in the supply chain.",
-  date: "May 18, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS11,
-  tags: ["Buy & Sell Metals", "Non-Ferrous Metal EPR Framework", "CPCB", "EPR India"],
-  keywords: ["non-ferrous metal EPR framework", "aluminium copper zinc EPR India", "Buy & Sell Metals EPR guide"],
-  metaDescription: "Navigating the Non-Ferrous Metal EPR Framework. See how importers and producers of aluminium, copper, and zinc can avoid environmental compensation penalties under obligations that differ by supply-chain role — from EPR Nexuss.",
-  category: "buy-and-sell-metals",
-},
-// {
-//   slug: "buy-sell-metals-machinery",
-//   path: "/blog/buy-sell-metals-machinery",
-//   title: "Buy & Sell Metals: Machinery, Setup & Operations Guide",
-//   summary: "A practical, step-by-step guide covering machinery, setup & operations guide for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-//   date: "May 25, 2026",
-//   readingTime: "5 min read",
-//   author: "EPR Nexuss Team",
-//   image: tyreImage,
-//   tags: ["Buy & Sell Metals", "Machinery", "CPCB", "EPR India"],
-//   keywords: ["Buy & Sell Metals machinery", "buying and selling metal scrap machinery India", "Buy & Sell Metals EPR guide"],
-//   metaDescription: "Buy & Sell Metals: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-//   category: "buy-and-sell-metals",
-// },
-{
-  slug: "verified-metal-scrap-marketplace-india",
-  path: "/blog/verified-metal-scrap-marketplace-india",
-  title: "Why Forward-Thinking Foundries and Smelters Prefer the EPR Nexuss Verified Marketplace Over Informal Sourcing Channels",
-  summary: "As non-ferrous metal scrap moves under a formal Extended Producer Responsibility framework, the foundries and smelters sourcing it well ahead of the curve are the ones already working through verified, documented channels.",
-  date: "June 1, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: BSS12,
-  tags: ["Buy & Sell Metals", "Verified Marketplace", "CPCB", "EPR India"],
-  keywords: ["verified metal scrap marketplace India", "foundries smelters verified sourcing", "Buy & Sell Metals EPR guide"],
-  metaDescription: "Why Forward-Thinking Foundries and Smelters Prefer the EPR Nexuss Verified Marketplace. See why sourcing non-ferrous metal scrap through a verified, documented channel puts buyers ahead of the formal EPR framework curve.",
-  category: "buy-and-sell-metals",
-},
+  {
+    slug: "sell-industrial-batteries-legally",
+    path: "/blog/sell-industrial-batteries-legally",
+    title:
+      "Sell Batteries: Is Your Stored Lead-Acid and Lithium Waste Compliant? How to Legally Sell Industrial Batteries for Maximum Returns",
+    summary:
+      "Every pallet of spent industrial batteries sitting in a warehouse is both a liability and an asset. Sell it the wrong way and you risk penalties and safety incidents. Sell it the right way and you turn hazardous waste into documented, audit-ready revenue.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS5,
+    tags: ["Sell Batteries", "Compliant Selling", "CPCB", "EPR India"],
+    keywords: [
+      "sell industrial batteries legally India",
+      "lead-acid lithium waste compliance",
+      "Sell Batteries EPR guide",
+    ],
+    metaDescription:
+      "Sell Batteries: Is Your Stored Lead-Acid and Lithium Waste Compliant? Learn how to legally sell industrial batteries for maximum returns, and turn hazardous waste sitting in your warehouse into documented, audit-ready revenue — India-focused, CPCB-aligned guidance from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "lithium-ion-battery-scrap-value",
+    path: "/blog/lithium-ion-battery-scrap-value",
+    title:
+      "Are You Missing Out on Cash? What Is the Current Scrap Value of Commercial Lithium-Ion Batteries?",
+    summary:
+      "Lithium-ion scrap value is not a fixed number you can look up once and forget. It shifts with commodity markets, battery condition, and how well your batch is sorted and documented. Here is what actually moves the price.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS6,
+    tags: ["Sell Batteries", "Lithium-Ion Scrap Value", "CPCB", "EPR India"],
+    keywords: [
+      "lithium-ion battery scrap value India",
+      "commercial battery scrap price",
+      "Sell Batteries EPR guide",
+    ],
+    metaDescription:
+      "What Is the Current Scrap Value of Commercial Lithium-Ion Batteries? Lithium-ion scrap value shifts with commodity markets, battery condition, and documentation — see what actually moves the price, from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "corporate-guide-sell-scrap-batteries",
+    path: "/blog/corporate-guide-sell-scrap-batteries",
+    title:
+      "The Ultimate Corporate Guide to Offloading Scrap Batteries Safely, Profitably, and Compliantly",
+    summary:
+      "For companies managing battery waste across multiple sites, disposal is a policy question as much as a transaction. Here is how to build a process that protects your people, your compliance record, and your margins at the same time.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS7,
+    tags: ["Sell Batteries", "Corporate Disposal Guide", "CPCB", "EPR India"],
+    keywords: [
+      "corporate guide sell scrap batteries",
+      "offload scrap batteries safely India",
+      "Sell Batteries EPR guide",
+    ],
+    metaDescription:
+      "The Ultimate Corporate Guide to Offloading Scrap Batteries Safely, Profitably, and Compliantly. See how to build a disposal process across multiple sites that protects your people, compliance record, and margins — from EPR Nexuss.",
+    category: "sell-batteries",
+  },
+  // {
+  //   slug: "sell-batteries-machinery",
+  //   path: "/blog/sell-batteries-machinery",
+  //   title: "Sell Batteries: Machinery, Setup & Operations Guide",
+  //   summary: "A practical, step-by-step guide covering machinery, setup & operations guide for selling battery scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+  //   date: "May 25, 2026",
+  //   readingTime: "5 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: batteryImage,
+  //   tags: ["Sell Batteries", "Machinery", "CPCB", "EPR India"],
+  //   keywords: ["Sell Batteries machinery", "selling battery scrap machinery India", "Sell Batteries EPR guide"],
+  //   metaDescription: "Sell Batteries: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about selling battery scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+  //   category: "sell-batteries",
+  // },
+  {
+    slug: "battery-waste-recycling-marketplace",
+    path: "/blog/battery-waste-recycling-marketplace",
+    title:
+      "Turning Battery Waste into a Legal Asset: How EPR Nexuss Bridges the Gap Between Sellers and Registered Recyclers",
+    summary:
+      "Compliant battery recycling in India involves three parties who rarely find each other easily on their own: waste generators, registered recyclers, and the regulatory system tracking it all. Here is how a bridge platform closes that gap.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS8,
+    tags: ["Sell Batteries", "Marketplace", "CPCB", "EPR India"],
+    keywords: [
+      "battery waste recycling marketplace India",
+      "sellers registered recyclers bridge",
+      "Sell Batteries EPR guide",
+    ],
+    metaDescription:
+      "Turning Battery Waste into a Legal Asset. See how EPR Nexuss bridges the gap between waste generators, registered recyclers, and the regulatory system tracking it all — India-focused guidance.",
+    category: "sell-batteries",
+  },
+  {
+    slug: "metal-scrap-epr-fines-guidelines",
+    path: "/blog/metal-scrap-epr-fines-guidelines",
+    title:
+      "Buy & Sell Metals: Why Are Traditional Metal Scrap Supply Chains Facing Massive Fines Under the New EPR Portal Guidelines?",
+    summary:
+      "India's non-ferrous metal scrap trade has run informally for decades. A new Extended Producer Responsibility framework is about to change what costs anyone still operating outside a registered, documented supply chain.",
+    date: "May 4, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS9,
+    tags: [
+      "Buy & Sell Metals",
+      "New EPR Portal Guidelines",
+      "CPCB",
+      "EPR India",
+    ],
+    keywords: [
+      "metal scrap EPR fines guidelines",
+      "non-ferrous metal scrap EPR India",
+      "Buy & Sell Metals EPR guide",
+    ],
+    metaDescription:
+      "Why Are Traditional Metal Scrap Supply Chains Facing Massive Fines Under the New EPR Portal Guidelines? See what changes for anyone still operating outside a registered, documented supply chain — from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "fair-pricing-industrial-metal-scrap",
+    path: "/blog/fair-pricing-industrial-metal-scrap",
+    title:
+      "Buy & Sell Metals: Is Your Business Maximizing Revenue on Bulk Scrap? How to Secure Fair Market Pricing on Verified Industrial Metal Streams",
+    summary:
+      "Industrial metal scrap does not have one fixed price. It moves with global benchmarks, grade, and how well-documented your stream is. Here is what actually determines whether you are getting a fair deal.",
+    date: "May 11, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS10,
+    tags: ["Buy & Sell Metals", "Fair Market Pricing", "CPCB", "EPR India"],
+    keywords: [
+      "fair pricing industrial metal scrap",
+      "verified metal scrap streams India",
+      "Buy & Sell Metals EPR guide",
+    ],
+    metaDescription:
+      "Is Your Business Maximizing Revenue on Bulk Scrap? Learn how to secure fair market pricing on verified industrial metal streams, based on global benchmarks, grade, and documentation — from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  {
+    slug: "non-ferrous-metal-epr-framework",
+    path: "/blog/non-ferrous-metal-epr-framework",
+    title:
+      "Navigating the Non-Ferrous Metal EPR Framework: How Importers and Producers Can Avoid Environmental Compensation Penalties",
+    summary:
+      "The rules for aluminium, copper, and zinc producers and importers are more specific than most companies realise, and the obligations differ depending on which role you actually hold in the supply chain.",
+    date: "May 18, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS11,
+    tags: [
+      "Buy & Sell Metals",
+      "Non-Ferrous Metal EPR Framework",
+      "CPCB",
+      "EPR India",
+    ],
+    keywords: [
+      "non-ferrous metal EPR framework",
+      "aluminium copper zinc EPR India",
+      "Buy & Sell Metals EPR guide",
+    ],
+    metaDescription:
+      "Navigating the Non-Ferrous Metal EPR Framework. See how importers and producers of aluminium, copper, and zinc can avoid environmental compensation penalties under obligations that differ by supply-chain role — from EPR Nexuss.",
+    category: "buy-and-sell-metals",
+  },
+  // {
+  //   slug: "buy-sell-metals-machinery",
+  //   path: "/blog/buy-sell-metals-machinery",
+  //   title: "Buy & Sell Metals: Machinery, Setup & Operations Guide",
+  //   summary: "A practical, step-by-step guide covering machinery, setup & operations guide for buying and selling metal scrap — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+  //   date: "May 25, 2026",
+  //   readingTime: "5 min read",
+  //   author: "EPR Nexuss Team",
+  //   image: tyreImage,
+  //   tags: ["Buy & Sell Metals", "Machinery", "CPCB", "EPR India"],
+  //   keywords: ["Buy & Sell Metals machinery", "buying and selling metal scrap machinery India", "Buy & Sell Metals EPR guide"],
+  //   metaDescription: "Buy & Sell Metals: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about buying and selling metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+  //   category: "buy-and-sell-metals",
+  // },
+  {
+    slug: "verified-metal-scrap-marketplace-india",
+    path: "/blog/verified-metal-scrap-marketplace-india",
+    title:
+      "Why Forward-Thinking Foundries and Smelters Prefer the EPR Nexuss Verified Marketplace Over Informal Sourcing Channels",
+    summary:
+      "As non-ferrous metal scrap moves under a formal Extended Producer Responsibility framework, the foundries and smelters sourcing it well ahead of the curve are the ones already working through verified, documented channels.",
+    date: "June 1, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: BSS12,
+    tags: ["Buy & Sell Metals", "Verified Marketplace", "CPCB", "EPR India"],
+    keywords: [
+      "verified metal scrap marketplace India",
+      "foundries smelters verified sourcing",
+      "Buy & Sell Metals EPR guide",
+    ],
+    metaDescription:
+      "Why Forward-Thinking Foundries and Smelters Prefer the EPR Nexuss Verified Marketplace. See why sourcing non-ferrous metal scrap through a verified, documented channel puts buyers ahead of the formal EPR framework curve.",
+    category: "buy-and-sell-metals",
+  },
 
-// ===========================================================================
-// SECTION 14: BUSINESS GROWTH & LEAD GENERATION POSTS
-// components in src/components/blogs/business-growth-and-lead-generation/
-// ===========================================================================
-{
-  slug: "sustainable-recycling-business-growth",
-  path: "/blog/sustainable-recycling-business-growth",
-  title: "Business Growth & Lead Generation: How Sustainable Recycling Practices Drive Real Business Growth",
-  summary: "Sustainability used to be a side project. Today, it's showing up directly in revenue, cost savings, and the customers who choose to work with you.",
-  date: "June 8, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: bglg1,
-  tags: ["Business Growth & Lead Generation", "Sustainable Recycling Practices", "Growth", "EPR India"],
-  keywords: ["Business Growth & Lead Generation", "Sustainable Recycling Practices", "sustainability driven growth India", "Business Growth & Lead Generation guide"],
-  metaDescription: "Business Growth & Lead Generation: How Sustainable Recycling Practices Drive Growth. Learn how sustainability initiatives in recycling and EPR compliance translate into revenue, cost savings, and stronger customer relationships — practical, India-focused guidance from EPR Nexuss.",
-  category: "business-growth-and-lead-generation",
-},
-{
-  slug: "sustainability-lead-generation-strategy",
-  path: "/blog/sustainability-lead-generation-strategy",
-  title: "Why Sustainability Is Becoming Your Best Lead Generation Strategy",
-  summary: "Buyers are searching for compliant, responsible vendors before they ever fill out a contact form. Here's how to be found.",
-  date: "June 15, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: bglg2,
-  tags: ["Business Growth & Lead Generation", "Lead Generation Strategy", "Sustainability", "EPR India"],
-  keywords: ["Business Growth & Lead Generation", "sustainability lead generation strategy", "compliant vendor leads India", "Business Growth & Lead Generation guide"],
-  metaDescription: "Business Growth & Lead Generation: Sustainability as a Lead Generation Strategy. Learn how positioning your business as compliant and sustainability-focused attracts buyers already searching for responsible vendors — practical, India-focused guidance from EPR Nexuss.",
-  category: "business-growth-and-lead-generation",
-},
-{
-  slug: "recycling-compliance-market-trends",
-  path: "/blog/recycling-compliance-market-trends",
-  title: "Top Recycling & Compliance Market Trends Shaping Business Today",
-  summary: "The rules around waste and responsibility are shifting fast — here's what every business should be watching right now.",
-  date: "June 22, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: bglg3,
-  tags: ["Business Growth & Lead Generation", "Market Trends", "Recycling & Compliance", "EPR India"],
-  keywords: ["Business Growth & Lead Generation market trends", "recycling compliance trends India", "Business Growth & Lead Generation guide"],
-  metaDescription: "Business Growth & Lead Generation: Recycling & Compliance Market Trends. Stay ahead of the shifting rules around waste and producer responsibility, and see what every recycling and EPR business should be watching right now — practical, India-focused guidance from EPR Nexuss.",
-  category: "business-growth-and-lead-generation",
-},
-{
-  slug: "epr-compliance-business-opportunities",
-  path: "/blog/epr-compliance-business-opportunities",
-  title: "How EPR Nexuss Turns Environmental Compliance Into New Business Opportunities",
-  summary: "Compliance doesn't have to sit in a filing cabinet. Managed well, it opens doors that pure sales effort alone can't.",
-  date: "June 29, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: bglg4,
-  tags: ["Business Growth & Lead Generation", "New Business Opportunities", "Environmental Compliance", "EPR India"],
-  keywords: ["Business Growth & Lead Generation opportunities", "compliance to business opportunity India", "Business Growth & Lead Generation guide"],
-  metaDescription: "Business Growth & Lead Generation: Turning Compliance Into Opportunity. See how EPR Nexuss helps businesses convert environmental compliance obligations into new revenue streams and growth opportunities — practical, India-focused guidance from EPR Nexuss.",
-  category: "business-growth-and-lead-generation",
-},
-{
-  slug: "waste-to-wealth-growth-strategy",
-  path: "/blog/waste-to-wealth-growth-strategy",
-  title: "From Waste to Wealth: Building a Growth Strategy Around Recycling & Compliance",
-  summary: "What if the waste your business already produces became one of your strongest growth assets? Here's how to build toward that.",
-  date: "July 6, 2026",
-  readingTime: "5 min read",
-  author: "EPR Nexuss Team",
-  image: bglg4,
-  tags: ["Business Growth & Lead Generation", "Growth Strategy", "Waste to Wealth", "EPR India"],
-  keywords: ["Business Growth & Lead Generation waste to wealth", "growth strategy recycling compliance India", "Business Growth & Lead Generation guide"],
-  metaDescription: "Business Growth & Lead Generation: From Waste to Wealth Growth Strategy. Discover how the waste your business already produces can become one of your strongest growth assets — practical, India-focused guidance from EPR Nexuss.",
-  category: "business-growth-and-lead-generation",
-},
+  // ===========================================================================
+  // SECTION 14: BUSINESS GROWTH & LEAD GENERATION POSTS
+  // components in src/components/blogs/business-growth-and-lead-generation/
+  // ===========================================================================
+  {
+    slug: "sustainable-recycling-business-growth",
+    path: "/blog/sustainable-recycling-business-growth",
+    title:
+      "Business Growth & Lead Generation: How Sustainable Recycling Practices Drive Real Business Growth",
+    summary:
+      "Sustainability used to be a side project. Today, it's showing up directly in revenue, cost savings, and the customers who choose to work with you.",
+    date: "June 8, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: bglg1,
+    tags: [
+      "Business Growth & Lead Generation",
+      "Sustainable Recycling Practices",
+      "Growth",
+      "EPR India",
+    ],
+    keywords: [
+      "Business Growth & Lead Generation",
+      "Sustainable Recycling Practices",
+      "sustainability driven growth India",
+      "Business Growth & Lead Generation guide",
+    ],
+    metaDescription:
+      "Business Growth & Lead Generation: How Sustainable Recycling Practices Drive Growth. Learn how sustainability initiatives in recycling and EPR compliance translate into revenue, cost savings, and stronger customer relationships — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "sustainability-lead-generation-strategy",
+    path: "/blog/sustainability-lead-generation-strategy",
+    title: "Why Sustainability Is Becoming Your Best Lead Generation Strategy",
+    summary:
+      "Buyers are searching for compliant, responsible vendors before they ever fill out a contact form. Here's how to be found.",
+    date: "June 15, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: bglg2,
+    tags: [
+      "Business Growth & Lead Generation",
+      "Lead Generation Strategy",
+      "Sustainability",
+      "EPR India",
+    ],
+    keywords: [
+      "Business Growth & Lead Generation",
+      "sustainability lead generation strategy",
+      "compliant vendor leads India",
+      "Business Growth & Lead Generation guide",
+    ],
+    metaDescription:
+      "Business Growth & Lead Generation: Sustainability as a Lead Generation Strategy. Learn how positioning your business as compliant and sustainability-focused attracts buyers already searching for responsible vendors — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "recycling-compliance-market-trends",
+    path: "/blog/recycling-compliance-market-trends",
+    title: "Top Recycling & Compliance Market Trends Shaping Business Today",
+    summary:
+      "The rules around waste and responsibility are shifting fast — here's what every business should be watching right now.",
+    date: "June 22, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: bglg3,
+    tags: [
+      "Business Growth & Lead Generation",
+      "Market Trends",
+      "Recycling & Compliance",
+      "EPR India",
+    ],
+    keywords: [
+      "Business Growth & Lead Generation market trends",
+      "recycling compliance trends India",
+      "Business Growth & Lead Generation guide",
+    ],
+    metaDescription:
+      "Business Growth & Lead Generation: Recycling & Compliance Market Trends. Stay ahead of the shifting rules around waste and producer responsibility, and see what every recycling and EPR business should be watching right now — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "epr-compliance-business-opportunities",
+    path: "/blog/epr-compliance-business-opportunities",
+    title:
+      "How EPR Nexuss Turns Environmental Compliance Into New Business Opportunities",
+    summary:
+      "Compliance doesn't have to sit in a filing cabinet. Managed well, it opens doors that pure sales effort alone can't.",
+    date: "June 29, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: bglg4,
+    tags: [
+      "Business Growth & Lead Generation",
+      "New Business Opportunities",
+      "Environmental Compliance",
+      "EPR India",
+    ],
+    keywords: [
+      "Business Growth & Lead Generation opportunities",
+      "compliance to business opportunity India",
+      "Business Growth & Lead Generation guide",
+    ],
+    metaDescription:
+      "Business Growth & Lead Generation: Turning Compliance Into Opportunity. See how EPR Nexuss helps businesses convert environmental compliance obligations into new revenue streams and growth opportunities — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
+  {
+    slug: "waste-to-wealth-growth-strategy",
+    path: "/blog/waste-to-wealth-growth-strategy",
+    title:
+      "From Waste to Wealth: Building a Growth Strategy Around Recycling & Compliance",
+    summary:
+      "What if the waste your business already produces became one of your strongest growth assets? Here's how to build toward that.",
+    date: "July 6, 2026",
+    readingTime: "5 min read",
+    author: "EPR Nexuss Team",
+    image: bglg4,
+    tags: [
+      "Business Growth & Lead Generation",
+      "Growth Strategy",
+      "Waste to Wealth",
+      "EPR India",
+    ],
+    keywords: [
+      "Business Growth & Lead Generation waste to wealth",
+      "growth strategy recycling compliance India",
+      "Business Growth & Lead Generation guide",
+    ],
+    metaDescription:
+      "Business Growth & Lead Generation: From Waste to Wealth Growth Strategy. Discover how the waste your business already produces can become one of your strongest growth assets — practical, India-focused guidance from EPR Nexuss.",
+    category: "business-growth-and-lead-generation",
+  },
 ];
 
 // =============================================================================
@@ -6415,225 +6179,266 @@ export const blogPosts: BlogPost[] = [
 //   "scale-and-growth-systems"             → Scale & growth systems posts
 //   "sops-kpis-checklists"           → SOPs/KPIs post (operation-performance-management slug)
 // =============================================================================
-  export const blogCategories: BlogCategory[] = [
-    // ── Recycling Setup Categories ──────────────────────────────────────────────
-    // These appear under "Recycling Setups" in the Navbar dropdown.
-    // Each has a dedicated set of 5 posts (Approvals, Buy/Sell, Machinery, Market, DPR).
-    {
-      id: "e-waste",
-      slug: "e-waste",
-      name: "E-Waste",
-      path: "/blog/category/e-waste",
-      description: "Learn about e-waste recycling plant setup, machinery, market analysis, approvals, and project planning for successful operations.",
-      image: platformImage,
-      heroImage: ewasteHero,
-      tagLine: "E-Waste Recycling & Plant Management",
-    },
-    // ── EPR Credit Categories ────────────────────────────────────────────────────
-    // These appear under "EPR Credits" in the Navbar dropdown.
-    // They hold general compliance posts, NOT the recycling-setup posts.
-    {
-      id: "epr-plastic",
-      slug: "epr-plastic",   // posts tagged category:"epr-plastic" appear here (currently: epr-plastic-compliance-trends)
-      name: "EPR Plastic",
-      path: "/blog/category/epr-plastic",
-      description: "Learn about EPR plastic compliance, collection systems, and CPCB-aligned recycling strategies.",
-      image: platformImage,
-      heroImage: eprPlasticHero,
-      tagLine: "Plastic Waste Management & Compliance",
-    },
-    {
-      id: "epr-battery",
-      slug: "epr-battery",   // posts tagged category:"epr-battery" appear here (currently: none — lithium posts moved to "lithium")
-      name: "EPR Battery",
-      path: "/blog/category/epr-battery",
-      description: "Discover best practices for battery waste management, safe recycling, and lithium-ion recovery.",
-      image: batteryImage,
-      heroImage: eprBatteryHero,
-      tagLine: "Battery Recycling & Hazardous Waste",
-    },
-    {
-      id: "epr-tyre",
-      slug: "epr-tyre",      // posts tagged category:"epr-tyre" appear here (currently: none — tyre posts moved to "tyre")
-      name: "EPR Tyre",
-      path: "/blog/category/epr-tyre",
-      description: "Explore tyre waste management, recovery strategies, and sustainable reuse practices.",
-      image: tyreImage,
-      heroImage: eprTyreHero,
-      tagLine: "Tyre Recycling & Recovery",
-    },
-    {
-      id: "epr-elv",
-      slug: "epr-elv",       // posts tagged category:"epr-elv" appear here (elv-approvals, elv-buy-selling, elv-machinery, elv-market-analysis, elv-dpr, epr-elv-audit-readiness)
-      name: "EPR ELV",
-      path: "/blog/category/epr-elv",
-      description: "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
-      image: cpcbImage,
-      heroImage: eprElvHero,
-      tagLine: "Automotive Recycling & Recovery",
-    },
-    // ── More Recycling Setup Categories ─────────────────────────────────────────
-    {
-      id: "solar-panel",
-      slug: "solar-panel",   // posts tagged category:"solar-panel" appear here (5 solar-panel-* posts with fullContent HTML)
-      name: "Solar Panel",
-      path: "/blog/category/solar-panel",
-      description: "Explore solar panel recycling plant setup, approvals, market analysis, machinery, and project planning for sustainable energy waste management.",
-      image: platformImage,
-      heroImage: solarHero,
-      tagLine: "Solar Panel Recycling & Plant Management",
-    },
-    {
-      id: "rvsf",
-      slug: "rvsf",          // posts tagged category:"rvsf" appear here (rvsf-approvals, rvsf-buy-selling, rvsf-machinery, rvsf-market-analysis, rvsf-dpr)
-      name: "RVSF",
-      path: "/blog/category/rvsf",
-      description: "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
-      image: cpcbImage,
-      heroImage: rvsfHero,
-      tagLine: "Automotive Recycling & Recovery",
-    },
-    {
-      id: "lithium",
-      slug: "lithium",       // posts tagged category:"lithium" appear here (lithium-battery-approvals, lithium-battery-buy-selling, lithium-battery-dpr, lithium-battery-machinery, lithium-battery-market-analysis)
-      name: "Lithium",
-      path: "/blog/category/lithium",
-      description: "Learn what lithium is, its applications, extraction methods, environmental impact, recycling process, and why it is essential for batteries and the clean energy future.",
-      image: cpcbImage,
-      heroImage: lithiumHero,
-      heroGradient: "from-[#04151B] via-[#0B6244] to-[#15C964]",
-      tagLine: "Lithium Recycling & Recovery",
-    },
-    {
-      id: "tyre",
-      slug: "tyre",          // posts tagged category:"tyre" appear here (tyre-approvals, tyre-buy-selling, tyre-machinery, tyre-market-analysis, tyre-dpr)
-      name: "Tyre",
-      path: "/blog/category/tyre",
-      description: "Learn about tyre waste management, recycling methods, environmental impact, and the importance of responsible tyre disposal for a sustainable future.",
-      image: cpcbImage,
-      heroImage: tyreHero,
-      tagLine: "Tyre Recycling & Recovery",
-    },
-    {
-      id: "plastic",
-      slug: "plastic",       // posts tagged category:"plastic" appear here (plastic-approvals, plastic-buy-selling, plastic-machinery, plastic-market-analysis, plastic-recycling)
-      name: "Plastic",
-      path: "/blog/category/plastic",
-      description: "Learn about plastic waste management, recycling methods, environmental impact, and sustainable solutions for reducing plastic pollution.",
-      image: cpcbImage,
-      heroImage: plasticHero,
-      tagLine: "Plastic Recycling & Recovery",
-    },
-    // ── Plant Operation Intelligence Categories ──────────────────────────────────
-    // "plant-operation-intelligence" is the PARENT category. Its page shows all
-    // posts from all 3 sub-categories (BlogCategory.tsx has special logic for this).
-    // The 3 sub-category slugs below must match the "category" field on their posts.
-    // ⚠️ NOTE: There are NO separate blogCategory objects for the 3 sub-categories
-    // because they are handled by BlogCategory.tsx's subcategory URL logic:
-    //   /blog/category/plant-operation-intelligence/setup-commissioning-documentation
-    //   /blog/category/plant-operation-intelligence/operation-performance-management
-    //   /blog/category/plant-operation-intelligence/scale-and-growth-systems
-    {
-      id: "plant-operation-intelligence",
-      slug: "plant-operation-intelligence",  // parent category — shows all 16 posts across 3 sub-categories
-      name: "Plant Operation Intelligence",
-      path: "/blog/category/plant-operation-intelligence",
-      description: "Practical guidance on plant setup documentation, commissioning, performance management, and the systems that help recycling plants scale without losing efficiency.",
-      image: platformImage,
-      heroImage: operationAndPerformanceHero,
-      tagLine: "Setup, Performance & Scale",
-    },
-    // ── More EPR Credit Categories ──────────────────────────────────────────────
-    {
-      id: "epr-electronic",
-      slug: "epr-electronic",
-      name: "EPR Electronic",
-      path: "/blog/category/epr-electronic",
-      description: "Understand EPR obligations for electronics and WEEE (e-waste), producer registration, and CPCB-aligned recovery targets.",
-      image: cpcbImage,
-      heroImage: eprElectronicHero,
-      tagLine: "Electronics & WEEE Compliance",
-    },
-    {
-      id: "epr-lithium",
-      slug: "epr-lithium",
-      name: "EPR Lithium",
-      path: "/blog/category/epr-lithium",
-      description: "Guidance on EPR credits and compliance for lithium-ion battery producers, importers, and recyclers.",
-      image: cpcbImage,
-      heroImage: eprLithiumHero,
-      tagLine: "Lithium Battery Credit Compliance",
-    },
-    {
-      id: "epr-metals",
-      slug: "epr-metals",
-      name: "EPR Metals",
-      path: "/blog/category/epr-metals",
-      description: "Learn how EPR credits apply to metal scrap recovery, producer obligations, and authorised recycler partnerships.",
-      image: tyreImage,
-      heroImage: eprMetalHero,
-      tagLine: "Metal Scrap Credit Compliance",
-    },
-    {
-      id: "epr-used-oil",
-      slug: "epr-used-oil",
-      name: "EPR Used Oil",
-      path: "/blog/category/epr-used-oil",
-      description: "Explore EPR credit requirements for used oil collection, safe disposal, and CPCB-compliant recovery programs.",
-      image: batteryImage,
-      heroImage: eprBatteryHero,
-      tagLine: "Used Oil Credit Compliance",
-    },
-    // ── Buy & Sell Scrap Categories ─────────────────────────────────────────────
-    {
-      id: "buy-e-waste",
-      slug: "buy-e-waste",
-      name: "Buy E-Waste",
-      path: "/blog/category/buy-e-waste",
-      description: "Practical guidance on sourcing, pricing, and buying e-waste scrap safely and profitably.",
-      image: platformImage,
-      heroImage: buyEwasteHero,
-      tagLine: "Buy E-Waste Scrap",
-    },
-    {
-      id: "sell-batteries",
-      slug: "sell-batteries",
-      name: "Sell Batteries",
-      path: "/blog/category/sell-batteries",
-      description: "Learn how to sell battery scrap the right way — pricing, buyers, documentation, and compliance.",
-      image: batteryImage,
-      heroImage: sellBatteriesHero,
-      tagLine: "Sell Battery Scrap",
-    },
-    {
-      id: "buy-and-sell-metals",
-      slug: "buy-and-sell-metals",
-      name: "Buy & Sell Metals",
-      path: "/blog/category/buy-and-sell-metals",
-      description: "Everything you need to know about trading metal scrap — sourcing, pricing, buyers, and documentation.",
-      image: tyreImage,
-      heroImage: buySellMetalsHero,
-      tagLine: "Metal Scrap Trading",
-    },
-    {
-      id: "business-growth-and-lead-generation",
-      slug: "business-growth-and-lead-generation",
-      name: "Business Growth & Lead Generation",
-      path: "/blog/category/business-growth-and-lead-generation",
-      description: "Practical strategies for recycling and EPR businesses to build visibility, convert leads, and scale predictably.",
-      image: platformImage,
-      heroImage: bglgHero,
-      tagLine: "Visibility, Conversion & Scale",
-    },
-  ];
+export const blogCategories: BlogCategory[] = [
+  // ── Recycling Setup Categories ──────────────────────────────────────────────
+  // These appear under "Recycling Setups" in the Navbar dropdown.
+  // Each has a dedicated set of 5 posts (Approvals, Buy/Sell, Machinery, Market, DPR).
+  {
+    id: "e-waste",
+    slug: "e-waste",
+    name: "E-Waste",
+    path: "/blog/category/e-waste",
+    description:
+      "Learn about e-waste recycling plant setup, machinery, market analysis, approvals, and project planning for successful operations.",
+    image: ewasteBanner,
+    heroImage: ewasteHero,
+    tagLine: "E-Waste Recycling & Plant Management",
+  },
+  // ── EPR Credit Categories ────────────────────────────────────────────────────
+  // These appear under "EPR Credits" in the Navbar dropdown.
+  // They hold general compliance posts, NOT the recycling-setup posts.
+  {
+    id: "epr-plastic",
+    slug: "epr-plastic", // posts tagged category:"epr-plastic" appear here (currently: epr-plastic-compliance-trends)
+    name: "EPR Plastic",
+    path: "/blog/category/epr-plastic",
+    description:
+      "Learn about EPR plastic compliance, collection systems, and CPCB-aligned recycling strategies.",
+    image: eprPlasticBanner,
+    heroImage: eprPlasticHero,
+    tagLine: "Plastic Waste Management & Compliance",
+  },
+  {
+    id: "epr-battery",
+    slug: "epr-battery", // posts tagged category:"epr-battery" appear here (currently: none — lithium posts moved to "lithium")
+    name: "EPR Battery",
+    path: "/blog/category/epr-battery",
+    description:
+      "Discover best practices for battery waste management, safe recycling, and lithium-ion recovery.",
+    image: eprBatteryBanner,
+    heroImage: eprBatteryHero,
+    tagLine: "Battery Recycling & Hazardous Waste",
+  },
+  {
+    id: "epr-tyre",
+    slug: "epr-tyre", // posts tagged category:"epr-tyre" appear here (currently: none — tyre posts moved to "tyre")
+    name: "EPR Tyre",
+    path: "/blog/category/epr-tyre",
+    description:
+      "Explore tyre waste management, recovery strategies, and sustainable reuse practices.",
+    image: eprTyreBanner,
+    heroImage: eprTyreHero,
+    tagLine: "Tyre Recycling & Recovery",
+  },
+  {
+    id: "epr-elv",
+    slug: "epr-elv", // posts tagged category:"epr-elv" appear here (elv-approvals, elv-buy-selling, elv-machinery, elv-market-analysis, elv-dpr, epr-elv-audit-readiness)
+    name: "EPR ELV",
+    path: "/blog/category/epr-elv",
+    description:
+      "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
+    image: eprElvBanner,
+    heroImage: eprElvHero,
+    tagLine: "Automotive Recycling & Recovery",
+  },
+  // ── More Recycling Setup Categories ─────────────────────────────────────────
+  {
+    id: "solar-panel",
+    slug: "solar-panel", // posts tagged category:"solar-panel" appear here (5 solar-panel-* posts with fullContent HTML)
+    name: "Solar Panel",
+    path: "/blog/category/solar-panel",
+    description:
+      "Explore solar panel recycling plant setup, approvals, market analysis, machinery, and project planning for sustainable energy waste management.",
+    image: solarPanelBanner,
+    heroImage: solarHero,
+    tagLine: "Solar Panel Recycling & Plant Management",
+  },
+  {
+    id: "rvsf",
+    slug: "rvsf", // posts tagged category:"rvsf" appear here (rvsf-approvals, rvsf-buy-selling, rvsf-machinery, rvsf-market-analysis, rvsf-dpr)
+    name: "RVSF",
+    path: "/blog/category/rvsf",
+    description:
+      "Master end-of-life vehicle recycling, audit readiness, and CPCB-compliant recovery programs.",
+    image: rvsfBanner,
+    heroImage: rvsfHero,
+    tagLine: "Automotive Recycling & Recovery",
+  },
+  {
+    id: "lithium",
+    slug: "lithium", // posts tagged category:"lithium" appear here (lithium-battery-approvals, lithium-battery-buy-selling, lithium-battery-dpr, lithium-battery-machinery, lithium-battery-market-analysis)
+    name: "Lithium",
+    path: "/blog/category/lithium",
+    description:
+      "Learn what lithium is, its applications, extraction methods, environmental impact, recycling process, and why it is essential for batteries and the clean energy future.",
+    image: lithiumBanner,
+    heroImage: lithiumHero,
+    heroGradient: "from-[#04151B] via-[#0B6244] to-[#15C964]",
+    tagLine: "Lithium Recycling & Recovery",
+  },
+  {
+    id: "tyre",
+    slug: "tyre", // posts tagged category:"tyre" appear here (tyre-approvals, tyre-buy-selling, tyre-machinery, tyre-market-analysis, tyre-dpr)
+    name: "Tyre",
+    path: "/blog/category/tyre",
+    description:
+      "Learn about tyre waste management, recycling methods, environmental impact, and the importance of responsible tyre disposal for a sustainable future.",
+    image: tyreBanner,
+    heroImage: tyreHero,
+    tagLine: "Tyre Recycling & Recovery",
+  },
+  {
+    id: "plastic",
+    slug: "plastic", // posts tagged category:"plastic" appear here (plastic-approvals, plastic-buy-selling, plastic-machinery, plastic-market-analysis, plastic-recycling)
+    name: "Plastic",
+    path: "/blog/category/plastic",
+    description:
+      "Learn about plastic waste management, recycling methods, environmental impact, and sustainable solutions for reducing plastic pollution.",
+    image: plasticBanner,
+    heroImage: plasticHero,
+    tagLine: "Plastic Recycling & Recovery",
+  },
+  // ── Plant Operation Intelligence Categories ──────────────────────────────────
+  // "plant-operation-intelligence" is the PARENT category. Its page shows all
+  // posts from all 3 sub-categories (BlogCategory.tsx has special logic for this).
+  // The 3 sub-category slugs below must match the "category" field on their posts.
+  // ⚠️ NOTE: There are NO separate blogCategory objects for the 3 sub-categories
+  // because they are handled by BlogCategory.tsx's subcategory URL logic:
+  //   /blog/category/plant-operation-intelligence/setup-commissioning-documentation
+  //   /blog/category/plant-operation-intelligence/operation-performance-management
+  //   /blog/category/plant-operation-intelligence/scale-and-growth-systems
+  {
+    id: "setup-commissioning-documentation",
+    slug: "setup-commissioning-documentation",
+    name: "Setup Commissioning Documentation",
+    path: "/blog/category/setup-commissioning-documentation",
+    description:
+      "Explore practical plant commissioning documentation, handover packages, and readiness checklists to launch operations smoothly.",
+    image: scdBanner,
+    heroImage: setupAndCommissioningHero,
+    tagLine: "Setup & Commissioning",
+  },
+  {
+    id: "operation-performance-management",
+    slug: "operation-performance-management",
+    name: "Operation & Performance Management",
+    path: "/blog/category/operation-performance-management",
+    description:
+      "Learn how to manage plant operations with performance dashboards, SOPs, and routines that keep output consistent and efficient.",
+    image: opmBanner,
+    heroImage: operationAndPerformanceHero,
+    tagLine: "Operation & Performance",
+  },
+  {
+    id: "scale-and-growth-systems",
+    slug: "scale-and-growth-systems",
+    name: "Scale And Growth Systems",
+    path: "/blog/category/scale-and-growth-systems",
+    description:
+      "Find the systems and planning needed to grow plant capacity, improve quality, and scale without operational risk.",
+    image: sagsBanner,
+    heroImage: scaleAndGrowthHero,
+    tagLine: "Scale & Growth",
+  },
+  // ── More EPR Credit Categories ──────────────────────────────────────────────
+  {
+    id: "epr-electronic",
+    slug: "epr-electronic",
+    name: "EPR Electronic",
+    path: "/blog/category/epr-electronic",
+    description:
+      "Understand EPR obligations for electronics and WEEE (e-waste), producer registration, and CPCB-aligned recovery targets.",
+    image: eprElectronicBanner,
+    heroImage: eprElectronicHero,
+    tagLine: "Electronics & WEEE Compliance",
+  },
+  {
+    id: "epr-lithium",
+    slug: "epr-lithium",
+    name: "EPR Lithium",
+    path: "/blog/category/epr-lithium",
+    description:
+      "Guidance on EPR credits and compliance for lithium-ion battery producers, importers, and recyclers.",
+    image: eprLithiumBanner,
+    heroImage: eprLithiumHero,
+    tagLine: "Lithium Battery Credit Compliance",
+  },
+  {
+    id: "epr-metals",
+    slug: "epr-metals",
+    name: "EPR Metals",
+    path: "/blog/category/epr-metals",
+    description:
+      "Learn how EPR credits apply to metal scrap recovery, producer obligations, and authorised recycler partnerships.",
+    image: eprMetalsBanner,
+    heroImage: eprMetalHero,
+    tagLine: "Metal Scrap Credit Compliance",
+  },
+  {
+    id: "epr-used-oil",
+    slug: "epr-used-oil",
+    name: "EPR Used Oil",
+    path: "/blog/category/epr-used-oil",
+    description:
+      "Explore EPR credit requirements for used oil collection, safe disposal, and CPCB-compliant recovery programs.",
+    image: eprUsedOilBanner,
+    heroImage: eprBatteryHero,
+    tagLine: "Used Oil Credit Compliance",
+  },
+  // ── Buy & Sell Scrap Categories ─────────────────────────────────────────────
+  {
+    id: "buy-e-waste",
+    slug: "buy-e-waste",
+    name: "Buy E-Waste",
+    path: "/blog/category/buy-e-waste",
+    description:
+      "Practical guidance on sourcing, pricing, and buying e-waste scrap safely and profitably.",
+    image: buyEwasteBanner,
+    heroImage: buyEwasteHero,
+    tagLine: "Buy E-Waste Scrap",
+  },
+  {
+    id: "sell-batteries",
+    slug: "sell-batteries",
+    name: "Sell Batteries",
+    path: "/blog/category/sell-batteries",
+    description:
+      "Learn how to sell battery scrap the right way — pricing, buyers, documentation, and compliance.",
+    image: sellBatteriesBanner,
+    heroImage: sellBatteriesHero,
+    tagLine: "Sell Battery Scrap",
+  },
+  {
+    id: "buy-and-sell-metals",
+    slug: "buy-and-sell-metals",
+    name: "Buy & Sell Metals",
+    path: "/blog/category/buy-and-sell-metals",
+    description:
+      "Everything you need to know about trading metal scrap — sourcing, pricing, buyers, and documentation.",
+    image: buySellMetalsBanner,
+    heroImage: buySellMetalsHero,
+    tagLine: "Metal Scrap Trading",
+  },
+  {
+    id: "business-growth-and-lead-generation",
+    slug: "business-growth-and-lead-generation",
+    name: "Business Growth & Lead Generation",
+    path: "/blog/category/business-growth-and-lead-generation",
+    description:
+      "Practical strategies for recycling and EPR businesses to build visibility, convert leads, and scale predictably.",
+    image: bglgBanner,
+    heroImage: bglgHero,
+    tagLine: "Visibility, Conversion & Scale",
+  },
+];
 
-  // =============================================================================
-  // BLOG DROPDOWN
-  // This auto-generates the nav dropdown labels from blogCategories above.
-  // You DO NOT need to edit this — it always stays in sync with blogCategories.
-  // The Navbar.tsx file uses this array to build the Blog menu items.
-  // =============================================================================
-  export const blogDropdown = blogCategories.map((category) => ({
-    label: category.name,
-    path: category.path,
-  }));
+// =============================================================================
+// BLOG DROPDOWN
+// This auto-generates the nav dropdown labels from blogCategories above.
+// You DO NOT need to edit this — it always stays in sync with blogCategories.
+// The Navbar.tsx file uses this array to build the Blog menu items.
+// =============================================================================
+export const blogDropdown = blogCategories.map((category) => ({
+  label: category.name,
+  path: category.path,
+}));

@@ -12,7 +12,7 @@ export default function BisIsiMark(): JSX.Element {
   };
 
   return (
-    <main className="w-full md:mt-[75px] m-0 p-0 font-sans text-[#102033] bg-[radial-gradient(circle_at_top_left,rgba(11,107,83,0.10),transparent_26%),radial-gradient(circle_at_top_right,rgba(23,74,122,0.09),transparent_28%),#f5f7fb] leading-relaxed">
+    <main className="w-full md:mt-[75px] mt-14 m-0 p-0 font-sans text-[#102033] bg-[radial-gradient(circle_at_top_left,rgba(11,107,83,0.10),transparent_26%),radial-gradient(circle_at_top_right,rgba(23,74,122,0.09),transparent_28%),#f5f7fb] leading-relaxed">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div>
           {/* HERO SECTION */}

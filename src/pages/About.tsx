@@ -30,6 +30,7 @@ import user from "@/assets/team/user.png"
 import bhanu from "@/assets/Team/bhanu.jpg"
 import anjali from "@/assets/Team/anjali.jpg"
 import abdullah from "@/assets/Team/abdullah.jpg"
+import anurag from "@/assets/Team/anurag.png"
 
 const stats = [
   { value: "500+", label: "Manufacturers & Importers Served" },
@@ -102,7 +103,7 @@ const carouselTeam = [
   { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",  Facebook: "#" } },
   { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android",   Facebook: "#" } },
   { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#",   Facebook: "#" } },
-  { name: "Anjali", designation: "Business Developement Executive", image: anjali, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#",   Facebook: "#" } },
+  { name: "Anurag Singh", designation: "Business Developement Executive", image: anurag, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#",   Facebook: "#" } },
   { name: "Abdullah", designation: "Legal Advisor", image: abdullah, details: "Ensures legal compliance, reviews contracts, and provides strategic legal guidance to support business growth and protect organizational interests.", socials: { linkedin: "#", Facebook: "#" } }
 
 ];

@@ -12,6 +12,7 @@ import Loader from "@/components/Loader";
 import BusinessGrowthAndLeadGeneration from './components/services/business growth and lead generation/BusinessGrowthAndLeadGeneration';
 import ScrollToTop from '@/hooks/ScrollToTop'
 
+
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
@@ -26,6 +27,9 @@ const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Team = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const LicenseAndCertificationPage = lazy(() => import("./pages/LicenseAndCertification"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -71,6 +75,10 @@ const AppContent = () => (
           <Route path="/team" element={<About />} />
           <Route path="*" element={<NotFound />} />
           <Route path="test" element={<BusinessGrowthAndLeadGeneration/>} /> 
+          <Route path="/license-and-certification" element={<LicenseAndCertificationPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+
         </Routes>
       </Suspense>
     </main>

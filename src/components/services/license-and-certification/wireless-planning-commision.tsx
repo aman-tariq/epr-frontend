@@ -19,7 +19,7 @@ export default function WpcComplianceGuide(): React.JSX.Element {
             <div>
 
         {/* Hero Section */}
-        <section className="w-full lg:mt-[130px] relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#133b63] to-[#0d6efd] text-white p-6 sm:p-10 lg:p-12 rounded-none shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+        <section className="w-full lg:mt-[130px] mt-16 relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#133b63] to-[#0d6efd] text-white p-6 sm:p-10 lg:p-12 rounded-none shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
           <div className="w-full relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               <div className="w-full lg:w-8/12">

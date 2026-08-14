@@ -24,63 +24,24 @@ const cardVariants: Variants = {
 };
 
 const BlogCategoryPage = () => {
-  const { category, subcategory } = useParams<{
-    category: string;
-    subcategory?: string;
-  }>();
+  const { category } = useParams<{ category: string }>();
 
   const categoryData = blogCategories.find((c) => c.slug === category);
-
-  const subcategoryLabels: Record<string, string> = {
-    "setup-commissioning-documentation": "Setup Commissioning Documentation",
-    "operation-performance-management": "Operation & Performance Management",
-    "scale-and-growth-systems": "Scale And Growth Systems",
-  };
-
-  const subcategoryDescriptions: Record<string, string> = {
-    "setup-commissioning-documentation":
-      "Explore practical plant commissioning documentation, handover packages, and readiness checklists to launch operations smoothly.",
-    "operation-performance-management":
-      "Learn how to manage plant operations with performance dashboards, SOPs, and routines that keep output consistent and efficient.",
-    "scale-and-growth-systems":
-      "Find the systems and planning needed to grow plant capacity, improve quality, and scale without operational risk.",
-  };
 
   if (!categoryData) {
     return <Navigate to="/blog" replace />;
   }
 
-  const plantOperationSubcategories = [
-    "setup-commissioning-documentation",
-    "operation-performance-management",
-    "scale-and-growth-systems",
-  ];
-
-  const categoryPosts = blogPosts.filter((post) => {
-    if (categoryData.slug === "plant-operation-intelligence") {
-      if (subcategory) {
-        return post.category === subcategory;
-      }
-      return plantOperationSubcategories.includes(post.category);
-    }
-
-    const matchCategory = post.category === categoryData.slug;
-    if (subcategory) {
-      return matchCategory && post.category === subcategory;
-    }
-    return matchCategory;
-  });
+  const categoryPosts = blogPosts.filter(
+    (post) => post.category === categoryData.slug
+  );
 
   return (
     <>
       <Seo
-        title={`${categoryData.name}${subcategory ? ` - ${subcategoryLabels[subcategory] ?? subcategory.replace(/-/g, " ")}` : ""} Blog - EPR Nexuss`}
-        description={
-          subcategory
-            ? (subcategoryDescriptions[subcategory] ?? categoryData.description)
-            : categoryData.description
-        }
-        url={`https://eprnexuss.com/blog/category/${category}${subcategory ? `/${subcategory}` : ""}`}
+        title={`${categoryData.name} Blog - EPR Nexuss`}
+        description={categoryData.description}
+        url={`https://eprnexuss.com/blog/category/${category}`}
         keywords={[
           `${categoryData.name} blog`,
           `${categoryData.tagLine}`,
@@ -147,16 +108,10 @@ const BlogCategoryPage = () => {
 
             {/* Heading */}
             <h1 className="mt-8 text-5xl font-extrabold leading-tight tracking-tight lg:text-7xl">
-              {subcategory ? (
-                subcategoryLabels[subcategory]
-              ) : (
-                <>
-                  {categoryData.name}{" "}
-                  <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
-                    Blogs
-                  </span>
-                </>
-              )}
+              {categoryData.name}{" "}
+              <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
+                Blogs
+              </span>
             </h1>
 
             {/* Decorative Line */}
@@ -164,10 +119,7 @@ const BlogCategoryPage = () => {
 
             {/* Description */}
             <p className="mt-8 max-w-2xl text-lg leading-8 text-white/80">
-              {subcategory
-                ? (subcategoryDescriptions[subcategory] ??
-                  categoryData.description)
-                : categoryData.description}
+              {categoryData.description}
             </p>
 
             {/* CTA */}

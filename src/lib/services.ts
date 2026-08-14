@@ -1401,11 +1401,11 @@ export const serviceCategoriesNav: ServiceCategory[] = [
         path: "/services/bio-medical-waste-authorization",
       },
       {
-        label: "Hazardous Waste Impact Authorization",
+        label: "Hazardous Waste Import Authorization",
         path: "/services/hazardous-waste-impact-authorization",
       },
       {
-        label: "Extended Prodcuer Responsiblity (EPR)",
+        label: "Extended Prodcuer Responsiblity(EPR)",
         path: "/services/extended-producer-responsibility",
       },
       {
@@ -1430,7 +1430,7 @@ export const serviceCategoriesNav: ServiceCategory[] = [
         path: "/services/wireless-planning-commision",
       },
       {
-        label: "Directorate General Of Foreign Trade (DGHT)",
+        label: "Directorate General Of Foreign Trade (DGFT)",
         path: "/services/directorate-general-of-foreign-trade",
       },
     ],

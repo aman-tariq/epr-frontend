@@ -3,7 +3,7 @@ import React from "react";
 
 export default function CteGuide(): React.ReactElement {
   return (
-    <div className="w-full md:mt-[130px] m-0 p-0 box-border bg-[#f4f8fb] text-[#17212b] font-sans leading-relaxed">
+    <div className="w-full md:mt-[130px] mt-16 m-0 p-0 box-border bg-[#f4f8fb] text-[#17212b] font-sans leading-relaxed">
         <div className="flex flex-col lg:flex-row gap-2 items-stretch">
             <div>
 

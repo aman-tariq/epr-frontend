@@ -135,6 +135,9 @@ import ForeignManufacturersCertificationScheme from "@/components/services/licen
     if (service.slug === "directorate-general-of-foreign-trade") {
       return <DirectorateGeneralOfForeignTrade />;
     }
+    if (service.slug === "scale-and-growth-systems") {
+      return <ScaleAndGrowthSystems />;
+    }
 
 
     const getScopedBlogHtml = (html: string) => {

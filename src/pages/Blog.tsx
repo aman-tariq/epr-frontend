@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { blogPosts, blogCategories } from "@/lib/blog";
+import blogImage from "@/assets/hero/blogs/blogHero.webp";
 
 const Blog = () => {
-  const featuredPost = blogPosts[0];
+  const featuredPost = blogPosts[8];
   const recentPosts = blogPosts.slice(1);
 
   return (
@@ -42,40 +43,63 @@ const Blog = () => {
         type="website"
       />
 
-      <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-primary to-secondary text-white">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_35%)]" />
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/90">
-              Industry news
-            </span>
-            <h1 className="mt-6 text-5xl lg:text-6xl font-bold leading-tight">
-              Smart EPR insights for CPCB compliance and sustainable waste management
-            </h1>
-            <p className="mt-6 max-w-2xl text-white/80 text-lg leading-relaxed">
-              Explore practical articles, case studies and compliance guides to support producers with plastic, battery, tyre and ELV EPR programs across India.
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg shadow-black/10 transition hover:bg-white/90"
-              >
-                Explore EPR Services
-              </Link>
-              <Link
-                to={featuredPost.path}
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
-              >
-                Read featured article
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+<section className="relative overflow-hidden pt-40 pb-24 text-white">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+  backgroundImage: `url(${blogImage})`,
+  backgroundSize: "fit",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+}}
+  />
+
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-primary/80" />
+
+  {/* Existing radial effect */}
+  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_35%)]" />
+
+  {/* Content */}
+  <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="max-w-4xl"
+    >
+      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/90">
+        Industry news
+      </span>
+
+      <h1 className="mt-6 text-5xl lg:text-6xl font-bold leading-tight">
+        Smart EPR insights for CPCB compliance and sustainable waste management
+      </h1>
+
+      <p className="mt-6 max-w-2xl text-white/80 text-lg leading-relaxed">
+        Explore practical articles, case studies and compliance guides to
+        support producers with plastic, battery, tyre and ELV EPR programs
+        across India.
+      </p>
+
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+        <Link
+          to="/services"
+          className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg shadow-black/10 transition hover:bg-white/90"
+        >
+          Explore EPR Services
+        </Link>
+
+        <Link
+          to={featuredPost.path}
+          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
+        >
+          Read featured article
+        </Link>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
@@ -127,13 +151,13 @@ const Blog = () => {
                   {categories.map((category) => (
                     <div
                       key={category.id}
-                      className="group rounded-[2rem] border border-border bg-card overflow-hidden shadow-lg shadow-secondary/5 hover:shadow-secondary/20 transition-all duration-300"
+                      className="group rounded-[1rem] border border-border bg-card overflow-hidden shadow-lg shadow-secondary/5 hover:shadow-secondary/20 transition-all duration-300"
                     >
-                      <div className="relative overflow-hidden h-40">
+                      <div className="relative overflow-hidden h-[200px]">
                         <img
                           src={category.image}
                           alt={category.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="w-full h-full object-fit group-hover:scale-110 transition-transform duration-300"
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
@@ -174,14 +198,14 @@ const Blog = () => {
                 className="rounded-[2rem] overflow-hidden border border-border bg-card shadow-xl shadow-secondary/10"
               >
                 <div className="relative">
-                  <img src={featuredPost.image} alt={featuredPost.title} className="h-96 w-full object-cover" />
+                  <img src={featuredPost.image} alt={featuredPost.title} className="h-[600px] w-full object-fill" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" />
                   <div className="absolute bottom-8 left-8 right-8 text-white">
                     <span className="inline-flex rounded-full bg-secondary/95 px-4 py-2 text-xs uppercase tracking-[0.24em] font-semibold">
                       Featured
                     </span>
-                    <h2 className="mt-4 text-4xl font-bold leading-tight">{featuredPost.title}</h2>
-                    <p className="mt-4 max-w-2xl text-white/80 leading-8">{featuredPost.summary}</p>
+                    <h2 className="mt-4 text-4xl font-bold leading-tight"></h2>
+                    <p className="mt-4 max-w-2xl text-white/80 leading-8"></p>
                     <Link
                       to={featuredPost.path}
                       className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-lg shadow-black/10 hover:bg-white/90"
