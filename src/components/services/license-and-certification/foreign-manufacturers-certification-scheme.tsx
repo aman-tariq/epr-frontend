@@ -3,7 +3,7 @@ import React from "react";
 
 export default function FmcsCertificationPage(): JSX.Element {
   return (
-    <div className="w-full min-h-screen md:mt-[80px] m-0 p-0 box-border bg-[#f5f7fb] bg-[radial-gradient(circle_at_top_left,rgba(11,107,83,0.10),transparent_26%),radial-gradient(circle_at_top_right,rgba(23,74,122,0.10),transparent_28%),#f5f7fb] font-sans text-[#102033] leading-[1.68] scroll-smooth">
+    <div className="w-full min-h-screen md:mt-[80px] mt-12 m-0 p-0 box-border bg-[#f5f7fb] bg-[radial-gradient(circle_at_top_left,rgba(11,107,83,0.10),transparent_26%),radial-gradient(circle_at_top_right,rgba(23,74,122,0.10),transparent_28%),#f5f7fb] font-sans text-[#102033] leading-[1.68] scroll-smooth">
       <main className="w-full m-0 p-0">
         <div className="flex flex-col lg:flex-row gap-2 items-stretch">
           <div>

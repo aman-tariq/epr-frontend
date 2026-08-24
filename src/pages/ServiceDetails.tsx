@@ -5,12 +5,13 @@
   import serviceBanner from "@/assets/epr-services-banner.jpg";
   import recyclingProcess from "@/assets/recycling-process.jpg";
   import { services } from "@/lib/services";
-  import LithiumBatteryBlog from "@/components/services/recycling-setups/LithiumBatteryBlog";
-  import EWasteBlog from "@/components/services/recycling-setups/EWasteBlog";
-  import VehicleScrappingBlog from "@/components/services/recycling-setups/VehicleScrappingBlog";
-  import SolarPanelBlog from "@/components/services/recycling-setups/SolarPanelBlog";
+  import BiogasBlog from "@/components/services/plant-setups/BiogasBlog";
+  import LithiumBatteryBlog from "@/components/services/plant-setups/LithiumBatteryBlog";
+  import EWasteBlog from "@/components/services/plant-setups/EWasteBlog";
+  import VehicleScrappingBlog from "@/components/services/plant-setups/VehicleScrappingBlog";
+  import SolarPanelBlog from "@/components/services/plant-setups/SolarPanelBlog";
   import PlasticRecyclingBlog from "@/components/PlasticRecyclingBlog";
-  import PlasticRecycling from "@/components/services/recycling-setups/PlasticRecycling"
+  import PlasticRecycling from "@/components/services/plant-setups/PlasticRecycling"
   import BusinessGrowth from "./BusinessGrowth";
   import SetupCommissioningDocumentation from "../components/services/plant operation intelligence/SetupCommissioningDocumentation";
   import ScaleAndGrowthSystems from "../components/services/plant operation intelligence/ScaleAndGrowthSystems";import OperationPerformanceManagement from "../components/services/plant operation intelligence/OperationPerformanceManagement";  import StickyContactForm from "@/components/StickyContactForm";
@@ -43,9 +44,16 @@ import ForeignManufacturersCertificationScheme from "@/components/services/licen
     }
 
     // Special Full Blog Pages
+
+    
+
     if (service.slug === "recycling-lithium-ion-battery" || service.slug === "epr-lithium") {
       return <LithiumBatteryBlog />;
     }
+
+     if (service.slug === "biogas-plant-setup") {
+      return <BiogasBlog/>;
+    } 
 
     if (service.slug === "recycling-ewaste") {
       return <EWasteBlog />;
@@ -134,6 +142,9 @@ import ForeignManufacturersCertificationScheme from "@/components/services/licen
     }
     if (service.slug === "directorate-general-of-foreign-trade") {
       return <DirectorateGeneralOfForeignTrade />;
+    }
+    if (service.slug === "scale-and-growth-systems") {
+      return <ScaleAndGrowthSystems />;
     }
 
 

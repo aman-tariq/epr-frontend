@@ -6,6 +6,13 @@ import EWasteApprovals from "@/components/blogs/recycling-setups/e-waste/e-waste
 import EWasteMarketAnalysis from "@/components/blogs/recycling-setups/e-waste/e-waste-market-analysis";
 import EWasteMachinery from "@/components/blogs/recycling-setups/e-waste/e-waste-machinery";
 import EWasteDpr from "@/components/blogs/recycling-setups/e-waste/e-waste-dpr";
+import EwasteComplianceAndConsultancy from "@/components/blogs/recycling-setups/e-waste/e-waste-compliance-and-consultancy";
+import EwasteRegistrationGuide from "@/components/blogs/recycling-setups/e-waste/e-waste-registration-guide";
+import EwastePlantSetup from "@/components/blogs/recycling-setups/e-waste/e-waste-plant-setup";
+import EwasteManagementSolution from "@/components/blogs/recycling-setups/e-waste/e-waste-management-solution";
+import EwasteManagementRule from "@/components/blogs/recycling-setups/e-waste/e-waste-management-rule";
+
+import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
 
 import TyreApprovals from "@/components/blogs/recycling-setups/tyre/tyre-approvals";
 import TyreBuySelling from "@/components/blogs/recycling-setups/tyre/tyre-buy-selling";
@@ -130,6 +137,12 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "e-waste-market-analysis": EWasteMarketAnalysis,
   "e-waste-machinery": EWasteMachinery,
   "e-waste-dpr": EWasteDpr,
+  "e-waste-compliance-and-consultancy" : EwasteComplianceAndConsultancy,
+  "e-waste-registration-guide" : EwasteRegistrationGuide,
+  "e-waste-plant-setup" : EwastePlantSetup,
+  "e-waste-management-solution" : EwasteManagementSolution,
+  "e-waste-management-rule" : EwasteManagementRule,
+  "e-waste-new-blog" : eWasteNewBlog,
 
   // tyre
   "tyre-approvals": TyreApprovals,

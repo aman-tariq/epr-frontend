@@ -9,7 +9,7 @@ export default function LmpcComplianceGuide(): React.JSX.Element {
   };
 
   return (
-    <div className="w-full md:mt-[130px] min-h-screen bg-gradient-to-b from-[#f8fafc] to-[#eef2ff] text-[#0f172a] font-sans scroll-smooth m-0 p-0 ">
+    <div className="w-full md:mt-[130px] mt-16 min-h-screen bg-gradient-to-b from-[#f8fafc] to-[#eef2ff] text-[#0f172a] font-sans scroll-smooth m-0 p-0 ">
       {/* Main Container - Edge to edge, zero side padding/margin */}
       <div className="w-full m-0 p-0">
          <div className="flex flex-col lg:flex-row gap-2 items-stretch">

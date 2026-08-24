@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, NotebookTabs } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import logo from "../../public/logo/epr-logo.jpeg";
-
-
 
 const socialLinks = [
   { name: "WhatsApp", href: "https://wa.me/919289659966", icon: "M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5.01L2 22l5.09-1.35C8.47 21.51 10.18 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.64 14.3c-.18.5-.97.97-1.35 1.09-.36.11-.65.16-2.29-.48-1.94-.78-3.18-2.73-3.28-2.85-.1-.12-.79-.99-.79-1.89 0-.9.47-1.34.64-1.52.18-.18.47-.21.64-.21.16 0 .33.01.47.01.15 0 .36-.06.56.42.21.5.72 1.74.78 1.87.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.3-.36.4-.12.12-.24.24-.11.47.13.24.6 1.02 1.29 1.65.88.79 1.63 1.04 1.86 1.15.23.11.37.09.5-.06.13-.15.58-.66.73-.89.16-.23.31-.19.52-.12.21.08 1.34.64 1.57.75.23.12.38.18.44.28.06.1.04.58-.14 1.08z" },
@@ -12,11 +10,43 @@ const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/eprnexuss/", icon: "M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" },
 ];
 
+// Static const map for the footer contact bar — icon, label, and lines (each line can carry its own href)
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email Us",
+    lines: [
+      { text: "info@eprnexuss.com", href: "mailto:info@eprnexuss.com" },
+      { text: "eprnexuss@gmail.com", href: "mailto:eprnexuss@gmail.com" },
+    ],
+  },
+  {
+    icon: Phone,
+    label: "Call Us",
+    lines: [
+      { text: "+91 9289659966", href: "tel:+919289659966" },
+      { text: "0120-4605014", href: "tel:01204605014" },
+    ],
+  },
+  {
+    icon: MapPin,
+    label: "Visit Us",
+    lines: [
+      {
+        text: "H-73, No.107, Sector-63, Noida, Dist. Gautam Buddha Nagar, U.P. 201301",
+        href: "https://www.google.com/maps/dir//EPR+Nexuss,+1st+Floor,+H+73,+Sector+63+Rd,+H+Block,+Sector+63,+Noida,+Uttar+Pradesh+201301/@28.6260722,77.3668959,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x390cef2a5c81fb13:0x7d1918f56e42426b!2m2!1d77.3766912!2d28.6287437?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D",
+        external: true,
+      },
+    ],
+    hours: "Mon–Sat, 10:00am–6:00pm",
+  },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -35,6 +65,25 @@ const Footer = () => {
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               Your comprehensive partner in Extended Producer Responsibility & sustainable waste management solutions.
             </p>
+             {/* Social Icons Row */}
+        <div className=" mt-2 pt-2 ">
+          <div className="flex  gap-4 mb-6">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-7 h-7 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary transition-colors group"
+                title={social.name}
+              >
+                <svg className="w-5 h-5 fill-current text-primary-foreground/60 group-hover:text-primary-foreground transition-colors" viewBox="0 0 24 24">
+                  <path d={social.icon} />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
           </div>
 
           {/* Quick Links */}
@@ -60,19 +109,17 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Recycling Setup*/}
           <div>
             <h4 className="font-display font-semibold mb-4">Services</h4>
             <div className="flex flex-col gap-2">
               {[
-                { name: "EPR Plastic", path: "/services/epr-plastic" },
-                { name: "EPR Electronic", path: "/services/epr-electronic" },
-                { name: "EPR Tyre", path: "/services/epr-tyre" },
-                { name: "EPR ELV", path: "/services/epr-elv" },
-                { name: "EPR Used Oil", path: "/services/epr-used-oil" },
-                { name: "EPR Metals", path: "/services/epr-metals" },
-                { name: "EPR Battery", path: "/services/epr-battery" },
-                { name: "EPR Lithium", path: "/services/epr-lithium" },
+                { name: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
+                { name: "E-Waste Recycling", path: "/services/recycling-ewaste" },
+                { name: "RVSF Recycling", path: "/services/recycling-vehicles-scrapping" },
+                { name: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
+                { name: "Plastic Recycling", path: "/services/recycling-plastic" },
+                
               ].map((service) => (
                 <Link
                   key={service.path}
@@ -85,63 +132,115 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact */}
+          {/* License And Certification*/}
           <div>
-            <h4 className="font-display font-semibold mb-4">Contact Us</h4>
-            <div className="flex flex-col gap-3">
-              <a href="mailto:info@eprnexuss.com" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
-                <Mail size={16} /> info@eprnexuss.com
-              </a>
-              <a href="mailto:eprnexuss@gmail.com" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
-                <Mail size={16} /> eprnexuss@gmail.com
-              </a>
-              <a href="tel:+919289659966" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
-                <Phone size={16} /> +91 9289659966
-              </a>
-              <a href="tel:01204605014" className="flex items-center gap-2 text-sm text-primary-foreground/60 hover:text-secondary transition-colors">
-                <NotebookTabs size={16} /> 0120-4605014
-              </a>
-              <span className="flex items-center gap-2 text-sm text-primary-foreground/60">
-                <MapPin size={28} /> H-73, No.107, Sector-63, Noida,
-Dist. Gautam Buddha Nagar, U.P. 201301
-              </span>
+            <h4 className="font-display font-semibold mb-4">License And Certifications</h4>
+            <div className="flex flex-col gap-2">
+              {[
+                { name: "Consent To Establish", path: "/services/consent-to-establish" },
+                { name: "Consent To Operate", path: "/services/consent-to-operate" },
+                { name: "Hazardous Waste Authorization", path: "/services/hazardous-waste-authorization" },
+                { name: "Bio Medical Waste Authorization", path: "/services/bio-medical-waste-authorization" },
+                { name: "Hazardous Waste Impact Authorization", path: "/services/hazardous-waste-impact-authorization" },
+                
+              ].map((service) => (
+                <Link
+                  key={service.path}
+                  to={service.path}
+                  className="text-sm text-primary-foreground/60 hover:text-secondary transition-colors"
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+            <a href="/license-and-certification"
+            className="text-sm text-white-800 hover:text-secondary transition-colors">More Categories &gt;&gt;</a>
+          </div>
+
+          {/* Setup and Commisioning Documentation */}
+
+          <div>
+            <h4 className="font-display font-semibold mb-4">Plant Operation And Intelligence</h4>
+            <div className="flex flex-col gap-2">
+              {[
+                { name: "Setup & Commisioning Documentation", path: "/services/setup-and-commissioning-documentation" },
+                { name: "Operation And Performance Management", path: "/services/operationperformancemanagement" },
+                { name: "Scale And Growth System", path: "/services/scale-and-growth-systems" },
+              ].map((service) => (
+                <Link
+                  key={service.path}
+                  to={service.path}
+                  className="text-sm text-primary-foreground/60 hover:text-secondary transition-colors"
+                >
+                  {service.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Social Icons Row */}
-        <div className="border-t border-primary-foreground/10 mt-8 pt-6">
-          <div className="flex justify-center gap-4 mb-6">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary transition-colors group"
-                title={social.name}
-              >
-                <svg className="w-5 h-5 fill-current text-primary-foreground/60 group-hover:text-primary-foreground transition-colors" viewBox="0 0 24 24">
-                  <path d={social.icon} />
-                </svg>
-              </a>
-            ))}
+        {/* Contact Info Bar — separated from the link grid by a divider above it */}
+        <div className="mt-2 pt-4 border-t border-primary-foreground/10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 sm:divide-x sm:divide-primary-foreground/10">
+            {contactInfo.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.label} className="flex md:justify-center gap-3 sm:pl-6 first:sm:pl-0">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/10">
+                    <Icon className="h-5 w-5 text-secondary" />
+                  </div>
+                  <div className="min-w-0">
+                    
+                    <div className="mt-0 flex flex-col gap-0.5">
+                      {item.lines.map((line) =>
+                        line.external ? (
+                          <a
+                            key={line.text}
+                            href={line.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-semibold leading-snug text-primary-foreground hover:text-secondary transition-colors"
+                          >
+                            {line.text}
+                          </a>
+                        ) : (
+                          <a
+                            key={line.text}
+                            href={line.href}
+                            className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors first:font-semibold first:text-primary-foreground"
+                          >
+                            {line.text}
+                          </a>
+                        )
+                      )}
+                    </div>
+                    {/* {item.hours && (
+                      <p className="mt-1.5 flex items-center gap-1.5 text-xs text-primary-foreground/50">
+                        <Clock className="h-3.5 w-3.5" />
+                        {item.hours}
+                      </p>
+                    )} */}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-primary-foreground/10 mt-4 pt-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/40">
             © {new Date().getFullYear()} EPR Nexuss. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <span className="text-sm text-primary-foreground/40 hover:text-secondary cursor-pointer transition-colors">
+            <a href="/privacy-policy" className="text-sm text-primary-foreground/40 hover:text-secondary cursor-pointer transition-colors">
               Privacy Policy
-            </span>
-            <span className="text-sm text-primary-foreground/40 hover:text-secondary cursor-pointer transition-colors">
+            </a>
+            <a href="/terms-of-service" className="text-sm text-primary-foreground/40 hover:text-secondary cursor-pointer transition-colors">
               Terms of Service
-            </span>
+            </a>
           </div>
         </div>
+      
       </div>
     </footer>
   );

@@ -9,7 +9,7 @@ export default function DgftLandingPage(): React.JSX.Element {
   };
 
   return (
-    <div className="w-full md:mt-[130px] min-h-screen bg-gradient-to-b from-[#f6f8fc] via-[#eef3f9] to-[#ffffff] text-[#0f172a] font-['Inter',sans-serif] scroll-smooth m-0 p-0">
+    <div className="w-full md:mt-[130px] mt-16 min-h-screen bg-gradient-to-b from-[#f6f8fc] via-[#eef3f9] to-[#ffffff] text-[#0f172a] font-['Inter',sans-serif] scroll-smooth m-0 p-0">
       
       <main className="w-full m-0 p-0">
          <div className="flex flex-col lg:flex-row gap-2 items-stretch">
