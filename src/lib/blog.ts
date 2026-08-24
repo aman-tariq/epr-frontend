@@ -82,6 +82,7 @@ import tyreBuySell from "@/assets/banner/blogs/recycling-setup/tyre/tyreBuySell.
 import tyreDpr from "@/assets/banner/blogs/recycling-setup/tyre/tyreDpr.jpg";
 import tyreMachinery from "@/assets/banner/blogs/recycling-setup/tyre/tyreMachinery.jpg";
 
+
 //images of blogs/eprCredits
 
 //Epr plastic
@@ -756,6 +757,42 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+
+  //new blog 
+  {
+    slug: "e-waste-new-blog",
+    path: "/blog/e-waste-new-blog",
+    title: "this is our new blog",
+    summary:
+      "A detailed walkthrough of the registration procedure on the official CPCB portal for producers, importers, recyclers, and refurbishers.",
+    date: "May 11, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: ewasteMachinery,
+    tags: ["Registration Guide", "CPCB Portal", "E-Waste", "EPR Compliance"],
+    keywords: [
+      "e-waste registration guide",
+      "CPCB portal signup",
+      "EPR registration steps",
+      "importer e-waste registration",
+    ],
+    metaDescription:
+      "Follow this complete step-by-step guide to successfully complete your e-waste registration on the centralized CPCB online portal.",
+    category: "e-waste",
+    previewContent:
+      "Registering on the official portal is mandatory for operating legally in the electronic supply chain. Follow this guide to prepare documents and complete your application accurately.",
+    sections: [
+      {
+        title: "Document Preparation Checklist",
+        body: "Gather necessary documentation—including company registration, GST certificates, authorized signatory details, and technical product files—before starting your online application.",
+      },
+      {
+        title: "Portal Filing and Verification Steps",
+        body: "Navigate the multi-stage portal workflow smoothly by entering accurate sales data, selecting appropriate item codes, and submitting fees for timely approval.",
+      },
+    ],
+  },
+
   // ===========================================================================
   // SECTION 3: TYRE RECYCLING POSTS
   // 5 posts covering Approvals, Buying/Selling, Machinery, Market Analysis, DPR.

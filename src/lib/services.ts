@@ -23,6 +23,28 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
+    slug: "biogas-plant-setup",
+    title: "Biogas Plant Setup",
+    subtitle:
+      "End-to-end biogas plant design, commissioning and compliance support.",
+    desc: "Biogas plant setup services covering feedstock planning, digester design, and regulatory approvals.",
+    details:
+      "Our Biogas Plant Setup service helps you plan and commission plants for organic waste-to-energy conversion, with support for approvals, equipment selection, and safety compliance.",
+    features: [
+      "Feedstock & digester sizing",
+      "Regulatory approvals support",
+      "Commissioning assistance",
+    ],
+    highlights: [
+      "End-to-end plant setup",
+      "Compliance-ready documentation",
+      "Operational efficiency",
+    ],
+    path: "/services/biogas-plant-setup",
+    category: "recycling-setups",
+    subcategory: "Biogas Plant Setup",
+  },
+  {
     slug: "epr-plastic",
     title: "EPR Plastic",
     subtitle:
@@ -1289,6 +1311,7 @@ export const serviceDropdown = [
     label: "Lithium Battery Recycling",
     path: "/services/recycling-lithium-ion-battery",
   },
+  { label: "Biogas Plant Setup", path: "/services/biogas-plant-setup" },
   { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
   {
     label: "Registered Vehicles Scraping Facility Plant",
@@ -1356,8 +1379,12 @@ export interface ServiceCategory {
 
 export const serviceCategoriesNav: ServiceCategory[] = [
   {
-    name: "Recycling Setups",
+    name: "Plant Setups",
     subcategories: [
+      {
+        label: "Biogas Plant Setup",
+        path: "/services/biogas-plant-setup",
+      },
       {
         label: "Lithium Battery Recycling",
         path: "/services/recycling-lithium-ion-battery",
@@ -1452,7 +1479,6 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       },
     ],
   },
-  
 
   {
     name: "Buy & Sell Scrap",
@@ -1471,5 +1497,4 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       },
     ],
   },
-  
 ];

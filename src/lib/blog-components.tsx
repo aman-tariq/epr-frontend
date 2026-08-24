@@ -12,6 +12,8 @@ import EwastePlantSetup from "@/components/blogs/recycling-setups/e-waste/e-wast
 import EwasteManagementSolution from "@/components/blogs/recycling-setups/e-waste/e-waste-management-solution";
 import EwasteManagementRule from "@/components/blogs/recycling-setups/e-waste/e-waste-management-rule";
 
+import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
+
 import TyreApprovals from "@/components/blogs/recycling-setups/tyre/tyre-approvals";
 import TyreBuySelling from "@/components/blogs/recycling-setups/tyre/tyre-buy-selling";
 import TyreMachinery from "@/components/blogs/recycling-setups/tyre/tyre-machinery";
@@ -140,6 +142,7 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "e-waste-plant-setup" : EwastePlantSetup,
   "e-waste-management-solution" : EwasteManagementSolution,
   "e-waste-management-rule" : EwasteManagementRule,
+  "e-waste-new-blog" : eWasteNewBlog,
 
   // tyre
   "tyre-approvals": TyreApprovals,

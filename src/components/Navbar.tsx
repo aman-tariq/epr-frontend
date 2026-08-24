@@ -29,7 +29,7 @@ const navLinks = [
 
 // ==================== BLOG CATEGORIES ====================
 const blogDropdown = [
-  { label: "Recycling Setups", path: "/blog/category/recycling-setups" },
+  { label: "Plant Setups", path: "/blog/category/recycling-setups" },
   { label: "EPR Credits", path: "/blog/category/epr-credits" },
   {
     label: "Plant Operation Intelligence",
