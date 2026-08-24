@@ -1,7 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Chart from 'chart.js/auto';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeIn = (direction: "up" | "down" | "left" | "right" = "up", delay: number = 0): Variants => {
+  return {
+    hidden: {
+      y: direction === "up" ? 30 : direction === "down" ? -30 : 0,
+      x: direction === "left" ? 30 : direction === "right" ? -30 : 0,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 0.6,
+        delay: delay,
+        ease: [0.25, 0.25, 0.25, 0.75],
+      },
+    },
+  };
+};
 
 const styles = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -82,7 +104,7 @@ const styles = `
     padding: 6px 14px;
     border-radius: 9999px;
     margin-bottom: 20px;
-    shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
 
   .hero h1 {
@@ -544,7 +566,7 @@ const RVSFApprovalsBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="approvals-blog-root py-4 md:py-8">
+    <div className="approvals-blog-root mt-[80px] py-4 md:py-8">
       
       <Seo
         title="RVSF Approvals Guide 2026 - How to Get Registered Vehicle Scrapping Facility Approval"
@@ -554,60 +576,119 @@ const RVSFApprovalsBlog: React.FC = () => {
         type="article"
       />
 
-      <header className="hero mb-8 md:mb-12">
-        <div className="hero-tag">Registered Vehicle Scrapping Facility</div>
-        <h1>Registered Vehicle Scrapping Facility – Approvals Guide</h1>
-        <p className="punch">The right scrapping facility does more than dismantle vehicles — it builds trust, improves recovery, and creates a clean buying and selling engine for scrap.</p>
-      </header>
+     
 
       <main className="container">
         <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+          <div>
+             <motion.header
+        variants={fadeIn("up", 0.1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="hero mb-8 md:mb-12"
+      >
+        <div className="hero-tag">Registered Vehicle Scrapping Facility</div>
+        <h1>Registered Vehicle Scrapping Facility – Approvals Guide</h1>
+        <p className="punch">The right scrapping facility does more than dismantle vehicles — it builds trust, improves recovery, and creates a clean buying and selling engine for scrap.</p>
+      </motion.header>
           
           {/* Main Content Body */}
           <article className="content-area">
-            <section className="mb-8">
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-8"
+            >
               <p>At a modern <strong>registered vehicle scrapping facility</strong>, the buying and selling process is not random. It is built on a clean system that identifies the vehicle, verifies ownership, removes polluting components safely, and separates what can be recycled, resold, or responsibly disposed of.</p>
               <p>The business model is broader than metal recovery. A well-run plant can sell ferrous scrap, non-ferrous scrap, reusable components, recovered plastics, glass, rubber, and other sorted materials.</p>
-            </section>
+            </motion.section>
 
-            <section className="mb-8">
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-8"
+            >
               <h2>How the buying and selling workflow works</h2>
               <p>The first step is intake. The vehicle owner or seller brings the end-of-life vehicle to the facility with the required documents. Once ownership is verified, the plant inspects the vehicle, estimates recoverable value, and records the unit in the system.</p>
-            </section>
+            </motion.section>
 
             <section className="mb-8">
-              <h2>Data-driven visuals</h2>
+              <motion.h2
+                variants={fadeIn("up", 0.1)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                Data-driven visuals
+              </motion.h2>
               
-              <div className="chart-card">
-                <div className="chart-title">Revenue mix by recovered material</div>
-                <div className="chart-outer-container">
-                  <div className="chart-wrap small"><canvas ref={revMixRef} /></div>
-                </div>
-              </div>
+              <div className="grid gap-6">
+                <motion.div
+                  variants={fadeIn("up", 0.1)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="chart-card"
+                >
+                  <div className="chart-title">Revenue mix by recovered material</div>
+                  <div className="chart-outer-container">
+                    <div className="chart-wrap small"><canvas ref={revMixRef} /></div>
+                  </div>
+                </motion.div>
 
-              <div className="chart-card">
-                <div className="chart-title">Operational flow: from intake to sale</div>
-                <div className="chart-outer-container">
-                  <div className="chart-wrap"><canvas ref={processFlowRef} /></div>
-                </div>
-              </div>
+                <motion.div
+                  variants={fadeIn("up", 0.15)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="chart-card"
+                >
+                  <div className="chart-title">Operational flow: from intake to sale</div>
+                  <div className="chart-outer-container">
+                    <div className="chart-wrap"><canvas ref={processFlowRef} /></div>
+                  </div>
+                </motion.div>
 
-              <div className="chart-card">
-                <div className="chart-title">Buyer demand by channel</div>
-                <div className="chart-outer-container">
-                  <div className="chart-wrap small"><canvas ref={buyerMixRef} /></div>
-                </div>
-              </div>
+                <motion.div
+                  variants={fadeIn("up", 0.2)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="chart-card"
+                >
+                  <div className="chart-title">Buyer demand by channel</div>
+                  <div className="chart-outer-container">
+                    <div className="chart-wrap small"><canvas ref={buyerMixRef} /></div>
+                  </div>
+                </motion.div>
 
-              <div className="chart-card">
-                <div className="chart-title">Manual vs digital documentation time</div>
-                <div className="chart-outer-container">
-                  <div className="chart-wrap"><canvas ref={docTimeRef} /></div>
-                </div>
+                <motion.div
+                  variants={fadeIn("up", 0.25)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="chart-card"
+                >
+                  <div className="chart-title">Manual vs digital documentation time</div>
+                  <div className="chart-outer-container">
+                    <div className="chart-wrap"><canvas ref={docTimeRef} /></div>
+                  </div>
+                </motion.div>
               </div>
             </section>
 
-            <section className="mb-8">
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-8"
+            >
               <h2>Document database for a clean transaction</h2>
               <div className="data-table-wrap">
                 <table className="data-table">
@@ -621,9 +702,15 @@ const RVSFApprovalsBlog: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="mb-8">
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-8"
+            >
               <h2>Case study: how one facility improved recovery</h2>
               <div className="case-study">
                 <h3>Structured buying and selling workflow optimization</h3>
@@ -633,32 +720,52 @@ const RVSFApprovalsBlog: React.FC = () => {
                   <div className="case-metric"><span className="cm-num block">-41%</span><span className="cm-lbl text-xs">manual rework</span></div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="mb-8">
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-8"
+            >
               <h2>Frequently asked questions</h2>
               <div className="faq-list">
                 {faqItems.map((item, index) => (
-                  <div key={index} className={`faq-item${openFaq === index ? ' open' : ''}`}>
+                  <motion.div
+                    key={index}
+                    variants={fadeIn("up", index * 0.05)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className={`faq-item${openFaq === index ? ' open' : ''}`}
+                  >
                     <div className="faq-q" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
                       <span>{item.question}</span>
                     </div>
                     <div className="faq-a">{item.answer}</div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Mobile Form Viewport */}
-            <div className="block lg:hidden mt-8 p-6 bg-white border border-[var(--border)] rounded-2xl shadow-sm">
+            <motion.div
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="block lg:hidden mt-8 p-6 bg-white border border-[var(--border)] rounded-2xl shadow-sm"
+            >
               <h3 className="font-bold text-lg mb-4 text-[var(--ink)]">Connect With Our Team</h3>
               <StickyContactForm />
-            </div>
+            </motion.div>
           </article>
+          </div>
 
           {/* Sidebar Column */}
           <aside className="hidden lg:block shrink-0 w-[320px]">
-            <div className="sticky top-28 px-2">
+            <div className="sticky top-[86px] px-2">
               <StickyContactForm />
             </div>
           </aside>

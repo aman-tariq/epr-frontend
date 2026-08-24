@@ -10,7 +10,13 @@ export interface ServiceItem {
   compliancePoints?: string[];
   highlights: string[];
   path: string;
-  category: "epr-credits" | "sops-kpis-checklists" | "buy-sell" | "recycling-setups" | "business-growth-lead-generation";
+  category:
+    | "epr-credits"
+    | "sops-kpis-checklists"
+    | "buy-sell"
+    | "recycling-setups"
+    | "business-growth-lead-generation"
+    | "license-and-certification";
   subcategory?: string;
   fullContent?: string;
 }
@@ -19,28 +25,53 @@ export const services: ServiceItem[] = [
   {
     slug: "epr-plastic",
     title: "EPR Plastic",
-    subtitle: "CPCB-aligned plastic waste collection, segregation and recycling.",
+    subtitle:
+      "CPCB-aligned plastic waste collection, segregation and recycling.",
     desc: "Integrated management for plastic waste under the Plastic Waste Management Rules, with CPCB-aligned documentation and certified EPR credit issuance.",
     details:
       "Our EPR Plastic service follows Central Pollution Control Board guidance and the Plastic Waste Management Rules, 2016. We manage collection, segregation, recycling and chain-of-custody documentation to support producers and brand owners in meeting compliance requirements.",
-    features: ["CPCB-aligned compliance", "Segregation & recycling", "Verifiable EPR reporting"],
+    features: [
+      "CPCB-aligned compliance",
+      "Segregation & recycling",
+      "Verifiable EPR reporting",
+    ],
     useCases: [
       "Packaging scrap and flexible film recovery",
       "Post-consumer plastic collection from retail outlets",
       "Rigid plastic recycling for consumer goods producers",
     ],
     processSteps: [
-      { title: "Collection planning", description: "We design collection routes and material segregation systems aligned with CPCB requirements." },
-      { title: "Certified transport", description: "Plastic waste is moved using authorized carriers with tracked chain-of-custody documentation." },
-      { title: "Authorized recycling", description: "Materials are delivered to certified recyclers that meet CPCB EPR standards." },
-      { title: "Credit reporting", description: "We provide audit-ready EPR credit certificates and compliance reports." },
+      {
+        title: "Collection planning",
+        description:
+          "We design collection routes and material segregation systems aligned with CPCB requirements.",
+      },
+      {
+        title: "Certified transport",
+        description:
+          "Plastic waste is moved using authorized carriers with tracked chain-of-custody documentation.",
+      },
+      {
+        title: "Authorized recycling",
+        description:
+          "Materials are delivered to certified recyclers that meet CPCB EPR standards.",
+      },
+      {
+        title: "Credit reporting",
+        description:
+          "We provide audit-ready EPR credit certificates and compliance reports.",
+      },
     ],
     compliancePoints: [
       "CPCB-approved documentation and certificates",
       "Segregation of plastic waste streams at source",
       "Recycling through authorized facilities",
     ],
-    highlights: ["Plastic waste traceability", "Certification-ready documentation", "Authorized recycling partners"],
+    highlights: [
+      "Plastic waste traceability",
+      "Certification-ready documentation",
+      "Authorized recycling partners",
+    ],
     path: "/services/epr-plastic",
     category: "epr-credits",
     subcategory: "EPR Plastic",
@@ -48,29 +79,58 @@ export const services: ServiceItem[] = [
   {
     slug: "epr-electronic",
     title: "EPR Electronic",
-    subtitle: "Comprehensive e-waste collection and recycling under EPR guidelines.",
+    subtitle:
+      "Comprehensive e-waste collection and recycling under EPR guidelines.",
     desc: "End-to-end electronic waste management including collection, dismantling, and material recovery with CPCB-aligned EPR compliance.",
     details:
       "Our EPR Electronic service manages all types of electronic waste from consumer electronics to industrial equipment. We ensure secure collection, data destruction, material recovery, and full EPR documentation in line with CPCB guidelines.",
-    features: ["E-waste collection & dismantling", "Data destruction services", "Material recovery"],
+    features: [
+      "E-waste collection & dismantling",
+      "Data destruction services",
+      "Material recovery",
+    ],
     useCases: [
       "Consumer electronics recycling (phones, laptops, TVs)",
       "IT asset disposal for businesses",
       "Industrial electronic waste management",
     ],
     processSteps: [
-      { title: "Secure collection", description: "We collect e-waste from generators with proper documentation and chain-of-custody tracking." },
-      { title: "Data destruction", description: "Sensitive data is securely wiped or physically destroyed before processing." },
-      { title: "Dismantling & sorting", description: "Devices are disassembled and components sorted for recycling." },
-      { title: "Material recovery", description: "Precious metals, plastics, and other materials are recovered by authorized recyclers." },
-      { title: "EPR reporting", description: "We provide certified EPR credits and compliance documentation." },
+      {
+        title: "Secure collection",
+        description:
+          "We collect e-waste from generators with proper documentation and chain-of-custody tracking.",
+      },
+      {
+        title: "Data destruction",
+        description:
+          "Sensitive data is securely wiped or physically destroyed before processing.",
+      },
+      {
+        title: "Dismantling & sorting",
+        description:
+          "Devices are disassembled and components sorted for recycling.",
+      },
+      {
+        title: "Material recovery",
+        description:
+          "Precious metals, plastics, and other materials are recovered by authorized recyclers.",
+      },
+      {
+        title: "EPR reporting",
+        description:
+          "We provide certified EPR credits and compliance documentation.",
+      },
     ],
     compliancePoints: [
       "E-Waste Management Rules alignment",
       "Authorized dismantlers and recyclers",
       "Data security and privacy compliance",
     ],
-    highlights: ["Secure e-waste handling", "Precious metal recovery", "CPCB-approved processes"],
+    highlights: [
+      "Secure e-waste handling",
+      "Precious metal recovery",
+      "CPCB-approved processes",
+    ],
     path: "/services/epr-electronic",
     category: "epr-credits",
     subcategory: "EPR Electronic",
@@ -78,57 +138,105 @@ export const services: ServiceItem[] = [
   {
     slug: "epr-tyre",
     title: "EPR Tyre",
-    category: "epr-credits",       
-  subcategory: "EPR Tyre", 
+    category: "epr-credits",
+    subcategory: "EPR Tyre",
     subtitle: "Comprehensive end-of-life tyre management and EPR compliance.",
     desc: "Responsible tyre waste collection, material recovery and energy recovery solutions in line with CPCB and EPR requirements.",
     details:
       "Our EPR Tyre service supports producers with tyre waste protocols that align with CPCB guidance. We provide secure collection, retreading, recycling and recovery by authorized processors, backed by documented EPR credit issuance.",
-    features: ["Tyre reverse logistics", "Energy recovery pathways", "Regulatory reporting"],
+    features: [
+      "Tyre reverse logistics",
+      "Energy recovery pathways",
+      "Regulatory reporting",
+    ],
     useCases: [
       "End-of-life passenger and commercial tyres",
       "Retreading and secondary use preparation",
       "Tyre-derived fuel and material recovery operations",
     ],
     processSteps: [
-      { title: "Secure pickup", description: "We collect tyres from warehouses, dealers, and reuse centers using documented transport practices." },
-      { title: "Sorting and grading", description: "Tyres are graded for reuse, retreading or recycling to maximize material value." },
-      { title: "Recovery processing", description: "Recyclers split materials for rubber, steel and textile recovery under CPCB norms." },
-      { title: "EPR documentation", description: "We deliver certified records for tyre EPR credit compliance." },
+      {
+        title: "Secure pickup",
+        description:
+          "We collect tyres from warehouses, dealers, and reuse centers using documented transport practices.",
+      },
+      {
+        title: "Sorting and grading",
+        description:
+          "Tyres are graded for reuse, retreading or recycling to maximize material value.",
+      },
+      {
+        title: "Recovery processing",
+        description:
+          "Recyclers split materials for rubber, steel and textile recovery under CPCB norms.",
+      },
+      {
+        title: "EPR documentation",
+        description:
+          "We deliver certified records for tyre EPR credit compliance.",
+      },
     ],
     compliancePoints: [
       "Authorized end-of-life tyre processors",
       "Documentation for retreading and recycling",
       "Safe handling of tyre-derived fuels and residues",
     ],
-    highlights: ["Retreading and recycling", "Pyrolysis-ready processing", "CPCB-approved documentation"],
+    highlights: [
+      "Retreading and recycling",
+      "Pyrolysis-ready processing",
+      "CPCB-approved documentation",
+    ],
     path: "/services/epr-tyre",
   },
   {
     slug: "epr-elv",
     title: "EPR ELV",
-    subtitle: "Authorized end-of-life vehicle depollution and material recovery.",
+    subtitle:
+      "Authorized end-of-life vehicle depollution and material recovery.",
     desc: "Complete ELV dismantling, depollution and material recovery consistent with CPCB and environmental norms.",
     details:
       "Our EPR ELV service handles end-of-life vehicles through authorized depollution centers and material recovery facilities. We deliver full documentation and EPR credit support in accordance with CPCB guidelines for vehicle waste handling.",
-    features: ["Authorized depollution", "Hazardous fluid recovery", "Material salvage"],
+    features: [
+      "Authorized depollution",
+      "Hazardous fluid recovery",
+      "Material salvage",
+    ],
     useCases: [
       "End-of-life car and two-wheeler dismantling",
       "Hazardous fluid and battery removal",
       "Recycling of steel, aluminium and plastic auto parts",
     ],
     processSteps: [
-      { title: "Depollution", description: "Our team removes fluids, batteries and hazardous components before dismantling." },
-      { title: "Component recovery", description: "Reusable and recyclable parts are sorted for material recovery." },
-      { title: "Secure recycling", description: "Vehicles are processed by authorized recyclers in CPCB-approved facilities." },
-      { title: "Compliance reporting", description: "We prepare full ELV documentation for regulator review." },
+      {
+        title: "Depollution",
+        description:
+          "Our team removes fluids, batteries and hazardous components before dismantling.",
+      },
+      {
+        title: "Component recovery",
+        description:
+          "Reusable and recyclable parts are sorted for material recovery.",
+      },
+      {
+        title: "Secure recycling",
+        description:
+          "Vehicles are processed by authorized recyclers in CPCB-approved facilities.",
+      },
+      {
+        title: "Compliance reporting",
+        description: "We prepare full ELV documentation for regulator review.",
+      },
     ],
     compliancePoints: [
       "CPCB-aligned depollution and dismantling procedures",
       "Safe handling of hazardous vehicle materials",
       "Traceable recovery and reporting systems",
     ],
-    highlights: ["ELV dismantling compliance", "Metal and plastic recovery", "EPR reporting support"],
+    highlights: [
+      "ELV dismantling compliance",
+      "Metal and plastic recovery",
+      "EPR reporting support",
+    ],
     path: "/services/epr-elv",
     category: "epr-credits",
     subcategory: "EPR ELV",
@@ -136,28 +244,52 @@ export const services: ServiceItem[] = [
   {
     slug: "epr-used-oil",
     title: "EPR Used Oil",
-    subtitle: "Safe collection and recycling of used oil under CPCB and EPR frameworks.",
+    subtitle:
+      "Safe collection and recycling of used oil under CPCB and EPR frameworks.",
     desc: "Compliant used oil management, regeneration and disposal with verifiable EPR credits and CPCB-aligned handling.",
     details:
       "Our EPR Used Oil service ensures secure collection, transportation and recovery of spent oil. We partner with CPCB-approved recyclers and provide regulator-ready documentation for producers and industrial generators.",
-    features: ["Secure oil logistics", "Re-refining & recovery", "Compliance documentation"],
+    features: [
+      "Secure oil logistics",
+      "Re-refining & recovery",
+      "Compliance documentation",
+    ],
     useCases: [
       "Industrial engine oil and compressor oil collection",
       "Spent lubricant recovery from service centers",
       "Regeneration and packaging of used oil products",
     ],
     processSteps: [
-      { title: "Source collection", description: "Used oil is collected from generators with complete material tracking." },
-      { title: "Hazardous handling", description: "Transport and storage meet CPCB safety standards for used oil." },
-      { title: "Refining and reuse", description: "Oil is re-refined or repurposed in approved facilities." },
-      { title: "Compliance certification", description: "We provide audit-ready EPR documentation for used oil management." },
+      {
+        title: "Source collection",
+        description:
+          "Used oil is collected from generators with complete material tracking.",
+      },
+      {
+        title: "Hazardous handling",
+        description:
+          "Transport and storage meet CPCB safety standards for used oil.",
+      },
+      {
+        title: "Refining and reuse",
+        description: "Oil is re-refined or repurposed in approved facilities.",
+      },
+      {
+        title: "Compliance certification",
+        description:
+          "We provide audit-ready EPR documentation for used oil management.",
+      },
     ],
     compliancePoints: [
       "CPCB-approved storage and transport",
       "Regulated re-refining pathways",
       "Complete audit trail for used oil disposal",
     ],
-    highlights: ["Used oil traceability", "CPCB-approved handling", "Verified EPR credit records"],
+    highlights: [
+      "Used oil traceability",
+      "CPCB-approved handling",
+      "Verified EPR credit records",
+    ],
     path: "/services/epr-used-oil",
     category: "epr-credits",
     subcategory: "EPR Used Oil",
@@ -169,24 +301,48 @@ export const services: ServiceItem[] = [
     desc: "Ferrous and non-ferrous metal waste management with CPCB-aligned recycling and EPR credit support.",
     details:
       "Our EPR Metals service manages scrap metal collection, sorting and authorized recovery. We ensure compliance with CPCB guidelines and provide transparent documentation for EPR credit issuance.",
-    features: ["Scrap metal logistics", "Authorized recycling", "Compliance-ready reports"],
+    features: [
+      "Scrap metal logistics",
+      "Authorized recycling",
+      "Compliance-ready reports",
+    ],
     useCases: [
       "Ferrous and non-ferrous scrap collection from industrial sites",
       "Metal recovery from construction and manufacturing waste",
       "Sorting of mixed metal streams for authorized recycling",
     ],
     processSteps: [
-      { title: "Scrap assessment", description: "We evaluate metal waste quality and plan recovery routes for efficient processing." },
-      { title: "Sorting and grading", description: "Metals are separated and graded for authorized recycling and downstream reuse." },
-      { title: "Authorized processing", description: "Materials are delivered to CPCB-approved metal recyclers for recovery." },
-      { title: "Reporting", description: "Compliance documentation is created for every recovered metal batch." },
+      {
+        title: "Scrap assessment",
+        description:
+          "We evaluate metal waste quality and plan recovery routes for efficient processing.",
+      },
+      {
+        title: "Sorting and grading",
+        description:
+          "Metals are separated and graded for authorized recycling and downstream reuse.",
+      },
+      {
+        title: "Authorized processing",
+        description:
+          "Materials are delivered to CPCB-approved metal recyclers for recovery.",
+      },
+      {
+        title: "Reporting",
+        description:
+          "Compliance documentation is created for every recovered metal batch.",
+      },
     ],
     compliancePoints: [
       "Traceable metal scrap transportation",
       "Authorized recycler documentation",
       "CPCB-aligned EPR credit reporting",
     ],
-    highlights: ["Ferrous and non-ferrous recovery", "Documented waste streams", "EPR-ready delivery"],
+    highlights: [
+      "Ferrous and non-ferrous recovery",
+      "Documented waste streams",
+      "EPR-ready delivery",
+    ],
     path: "/services/epr-metals",
     category: "epr-credits",
     subcategory: "EPR Metals",
@@ -198,24 +354,48 @@ export const services: ServiceItem[] = [
     desc: "End-to-end battery management for lead acid and lithium-ion waste under the Battery Waste Management Rules and CPCB EPR guidance.",
     details:
       "Our EPR Battery service handles all battery waste types with CPCB-aligned safety standards. We manage secure pickup, transport, recycling and material recovery while delivering certified EPR credits and regulator-ready documentation.",
-    features: ["Battery reverse logistics", "Hazardous material safety", "Regulatory EPR reporting"],
+    features: [
+      "Battery reverse logistics",
+      "Hazardous material safety",
+      "Regulatory EPR reporting",
+    ],
     useCases: [
       "Lead acid battery returns from UPS and telecom sectors",
       "Lithium-ion battery disposal from EV and consumer electronics",
       "Battery pack recovery for reuse and material separation",
     ],
     processSteps: [
-      { title: "Secure collection", description: "We collect spent batteries following battery waste handling rules and safety procedures." },
-      { title: "Safe segregation", description: "Batteries are segregated by chemistry and condition for proper processing." },
-      { title: "Responsible recycling", description: "Materials are sent to certified facilities for metal recovery and safe disposal." },
-      { title: "EPR reporting", description: "We deliver end-to-end documentation for CPCB-compliant battery EPR credits." },
+      {
+        title: "Secure collection",
+        description:
+          "We collect spent batteries following battery waste handling rules and safety procedures.",
+      },
+      {
+        title: "Safe segregation",
+        description:
+          "Batteries are segregated by chemistry and condition for proper processing.",
+      },
+      {
+        title: "Responsible recycling",
+        description:
+          "Materials are sent to certified facilities for metal recovery and safe disposal.",
+      },
+      {
+        title: "EPR reporting",
+        description:
+          "We deliver end-to-end documentation for CPCB-compliant battery EPR credits.",
+      },
     ],
     compliancePoints: [
       "Battery Waste Management Rules alignment",
       "Hazardous battery handling safety",
       "Documented EPR credit issuance",
     ],
-    highlights: ["Lead acid and lithium-ion handling", "Certified recyclers", "Traceable compliance records"],
+    highlights: [
+      "Lead acid and lithium-ion handling",
+      "Certified recyclers",
+      "Traceable compliance records",
+    ],
     path: "/services/epr-battery",
     category: "epr-credits",
     subcategory: "EPR Battery",
@@ -227,25 +407,52 @@ export const services: ServiceItem[] = [
     desc: "Safe handling, recycling, and material recovery of lithium-ion batteries under EPR and environmental regulations.",
     details:
       "Our EPR Lithium service focuses on lithium-ion battery waste from EVs, consumer electronics, and energy storage systems. We provide secure collection, testing, recycling, and EPR credit support with full regulatory compliance.",
-    features: ["Lithium battery logistics", "Thermal runaway prevention", "Material recovery"],
+    features: [
+      "Lithium battery logistics",
+      "Thermal runaway prevention",
+      "Material recovery",
+    ],
     useCases: [
       "EV battery pack recycling",
       "Consumer device battery disposal",
       "Energy storage system waste management",
     ],
     processSteps: [
-      { title: "Safe collection", description: "Batteries are collected with safety protocols to prevent thermal runaway." },
-      { title: "Condition assessment", description: "Batteries are tested and categorized for recycling or disposal." },
-      { title: "Discharge & dismantling", description: "Safe discharge and disassembly of battery packs." },
-      { title: "Material recovery", description: "Lithium, cobalt, nickel, and other materials are recovered." },
-      { title: "EPR documentation", description: "Certified EPR credits and compliance reports are provided." },
+      {
+        title: "Safe collection",
+        description:
+          "Batteries are collected with safety protocols to prevent thermal runaway.",
+      },
+      {
+        title: "Condition assessment",
+        description:
+          "Batteries are tested and categorized for recycling or disposal.",
+      },
+      {
+        title: "Discharge & dismantling",
+        description: "Safe discharge and disassembly of battery packs.",
+      },
+      {
+        title: "Material recovery",
+        description:
+          "Lithium, cobalt, nickel, and other materials are recovered.",
+      },
+      {
+        title: "EPR documentation",
+        description:
+          "Certified EPR credits and compliance reports are provided.",
+      },
     ],
     compliancePoints: [
       "Battery Waste Management Rules compliance",
       "Hazardous waste handling standards",
       "Material recovery traceability",
     ],
-    highlights: ["Lithium-ion battery expertise", "Safe recycling processes", "EPR credit certification"],
+    highlights: [
+      "Lithium-ion battery expertise",
+      "Safe recycling processes",
+      "EPR credit certification",
+    ],
     path: "/services/epr-lithium",
     category: "epr-credits",
     subcategory: "EPR Lithium",
@@ -253,11 +460,21 @@ export const services: ServiceItem[] = [
   {
     slug: "setup-and-commissioning-documentation",
     title: "Setup and Commissioning Documentation",
-    subtitle: "Comprehensive setup and commissioning documentation for project handover and operations.",
+    subtitle:
+      "Comprehensive setup and commissioning documentation for project handover and operations.",
     desc: "Detailed SOPs designed to streamline your EPR operations and ensure consistent compliance across all waste streams.",
-    details: "Our SOPs provide step-by-step guidance for collection, segregation, transportation, and recycling processes aligned with CPCB requirements and industry best practices.",
-    features: ["Process standardization", "Compliance alignment", "Operational efficiency"],
-    highlights: ["Clear process documentation", "CPCB-aligned procedures", "Audit-ready SOPs"],
+    details:
+      "Our SOPs provide step-by-step guidance for collection, segregation, transportation, and recycling processes aligned with CPCB requirements and industry best practices.",
+    features: [
+      "Process standardization",
+      "Compliance alignment",
+      "Operational efficiency",
+    ],
+    highlights: [
+      "Clear process documentation",
+      "CPCB-aligned procedures",
+      "Audit-ready SOPs",
+    ],
     path: "/services/setup-and-commissioning-documentation",
     category: "sops-kpis-checklists",
     subcategory: "SOPs",
@@ -265,11 +482,17 @@ export const services: ServiceItem[] = [
   {
     slug: "operationperformancemanagement",
     title: "Operation & Performance Management",
-    subtitle: "Operational performance systems, KPI visibility, and process intelligence.",
+    subtitle:
+      "Operational performance systems, KPI visibility, and process intelligence.",
     desc: "A complete operational performance service that combines KPI dashboards, process control, and continuous improvement for stronger plant operations.",
-    details: "Our operation and performance management service builds a performance-first operating system with KPI monitoring, bottleneck tracking, and data-driven decision support.",
+    details:
+      "Our operation and performance management service builds a performance-first operating system with KPI monitoring, bottleneck tracking, and data-driven decision support.",
     features: ["Performance tracking", "Benchmarking", "Data-driven insights"],
-    highlights: ["Real-time KPI dashboards", "Industry benchmarks", "Actionable insights"],
+    highlights: [
+      "Real-time KPI dashboards",
+      "Industry benchmarks",
+      "Actionable insights",
+    ],
     path: "/services/operationperformancemanagement",
     category: "sops-kpis-checklists",
     subcategory: "Operation & Performance management",
@@ -436,9 +659,14 @@ export const services: ServiceItem[] = [
     title: "Checklists",
     subtitle: "Pre-audit and compliance checklists for EPR requirements.",
     desc: "Comprehensive checklists to ensure you meet all EPR compliance requirements before audits and regulatory inspections.",
-    details: "Our checklists cover documentation, process implementation, record-keeping, and reporting requirements specific to each waste category and CPCB guidelines.",
+    details:
+      "Our checklists cover documentation, process implementation, record-keeping, and reporting requirements specific to each waste category and CPCB guidelines.",
     features: ["Audit readiness", "Compliance verification", "Risk mitigation"],
-    highlights: ["Pre-audit checklists", "Compliance verification tools", "Documentation guides"],
+    highlights: [
+      "Pre-audit checklists",
+      "Compliance verification tools",
+      "Documentation guides",
+    ],
     path: "/services/checklists",
     category: "sops-kpis-checklists",
     subcategory: "Checklists",
@@ -446,7 +674,8 @@ export const services: ServiceItem[] = [
   {
     slug: "scale-and-growth-systems",
     title: "Scale & Growth Systems",
-    subtitle: "Scalable operational systems, KPI dashboards and growth-ready workflows.",
+    subtitle:
+      "Scalable operational systems, KPI dashboards and growth-ready workflows.",
     desc: "Build plant operation systems that support expansion, maintain compliance and measure performance through actionable KPIs.",
     details:
       "Our Scale & Growth Systems service combines process standardization, performance dashboards, digital workflows and documented playbooks to help industrial operations expand reliably.",
@@ -456,7 +685,11 @@ export const services: ServiceItem[] = [
       "Scalable operational workflows",
       "Digital handover and decision support",
     ],
-    highlights: ["Scale-ready operations", "Live performance metrics", "Repeatable process systems"],
+    highlights: [
+      "Scale-ready operations",
+      "Live performance metrics",
+      "Repeatable process systems",
+    ],
     path: "/services/scale-and-growth-systems",
     category: "sops-kpis-checklists",
     subcategory: "Scale & Growth Systems",
@@ -464,11 +697,17 @@ export const services: ServiceItem[] = [
   {
     slug: "buy-sell-ewaste",
     title: "Buy & Sell E-Waste",
-    subtitle: "Purchase and sell certified e-waste for material recovery and recycling.",
+    subtitle:
+      "Purchase and sell certified e-waste for material recovery and recycling.",
     desc: "Access quality e-waste streams directly from our verified network of collection centers for your recycling and material recovery operations.",
-    details: "We connect buyers with certified e-waste sources, ensuring material quality, traceability, and compliance with all environmental standards.",
+    details:
+      "We connect buyers with certified e-waste sources, ensuring material quality, traceability, and compliance with all environmental standards.",
     features: ["Certified sources", "Quality assurance", "Reliable supply"],
-    highlights: ["Verified quality", "Traceable sourcing", "Competitive pricing"],
+    highlights: [
+      "Verified quality",
+      "Traceable sourcing",
+      "Competitive pricing",
+    ],
     path: "/services/buy-sell-ewaste",
     category: "buy-sell",
     subcategory: "E-Waste",
@@ -478,9 +717,14 @@ export const services: ServiceItem[] = [
     title: "Sell Batteries",
     subtitle: "Sell your battery waste to certified recyclers and processors.",
     desc: "Monetize your battery waste streams by connecting with qualified buyers in our platform marketplace for batteries of all types.",
-    details: "Our marketplace connects battery sellers with certified buyers, ensuring fair pricing, proper handling, and full regulatory compliance throughout the transaction.",
+    details:
+      "Our marketplace connects battery sellers with certified buyers, ensuring fair pricing, proper handling, and full regulatory compliance throughout the transaction.",
     features: ["Market access", "Fair pricing", "Compliance assured"],
-    highlights: ["Direct buyer connections", "Transparent pricing", "Regulatory compliance"],
+    highlights: [
+      "Direct buyer connections",
+      "Transparent pricing",
+      "Regulatory compliance",
+    ],
     path: "/services/sell-batteries",
     category: "buy-sell",
     subcategory: "Batteries",
@@ -490,9 +734,18 @@ export const services: ServiceItem[] = [
     title: "Buy & Sell Metals",
     subtitle: "Trade ferrous and non-ferrous metals with certified partners.",
     desc: "Access a comprehensive marketplace for buying and selling metals, including scrap metals, recovery materials, and certified recycled metals.",
-    details: "Our metals trading platform connects buyers and sellers of ferrous and non-ferrous metals, ensuring quality assurance, fair market pricing, and full traceability throughout the transaction process.",
-    features: ["Certified metal sources", "Market transparency", "Quality verification"],
-    highlights: ["Direct trading platform", "Fair pricing", "Certified suppliers"],
+    details:
+      "Our metals trading platform connects buyers and sellers of ferrous and non-ferrous metals, ensuring quality assurance, fair market pricing, and full traceability throughout the transaction process.",
+    features: [
+      "Certified metal sources",
+      "Market transparency",
+      "Quality verification",
+    ],
+    highlights: [
+      "Direct trading platform",
+      "Fair pricing",
+      "Certified suppliers",
+    ],
     path: "/services/buy-sell-metals",
     category: "buy-sell",
     subcategory: "Metals",
@@ -502,9 +755,18 @@ export const services: ServiceItem[] = [
     title: "Lithium Ion Battery",
     subtitle: "State-of-the-art lithium ion battery recycling plant.",
     desc: "Advanced recycling facility for lithium ion batteries with recovery of valuable materials including lithium, cobalt, and nickel.",
-    details: "Our lithium ion battery recycling setup uses certified processes to safely dismantle, segregate, and recover valuable materials from spent batteries, ensuring environmental compliance and maximum material recovery.",
-    features: ["Material recovery", "Safety compliance", "Environmental standards"],
-    highlights: ["Advanced processing", "Material efficiency", "Certified facility"],
+    details:
+      "Our lithium ion battery recycling setup uses certified processes to safely dismantle, segregate, and recover valuable materials from spent batteries, ensuring environmental compliance and maximum material recovery.",
+    features: [
+      "Material recovery",
+      "Safety compliance",
+      "Environmental standards",
+    ],
+    highlights: [
+      "Advanced processing",
+      "Material efficiency",
+      "Certified facility",
+    ],
     path: "/services/recycling-lithium-ion-battery",
     category: "recycling-setups",
     subcategory: "Lithium Ion Battery",
@@ -514,9 +776,14 @@ export const services: ServiceItem[] = [
     title: "E-Waste",
     subtitle: "Comprehensive e-waste recycling and material recovery facility.",
     desc: "Full-scale e-waste recycling plant equipped to process all types of electronic waste with proper segregation and certified material recovery.",
-    details: "Our e-waste recycling setup provides secure collection, dismantling, data destruction, and material recovery with complete traceability and regulatory compliance.",
+    details:
+      "Our e-waste recycling setup provides secure collection, dismantling, data destruction, and material recovery with complete traceability and regulatory compliance.",
     features: ["Secure processing", "Data destruction", "Material recovery"],
-    highlights: ["Full automation", "High recovery rates", "Certified operations"],
+    highlights: [
+      "Full automation",
+      "High recovery rates",
+      "Certified operations",
+    ],
     path: "/services/recycling-ewaste",
     category: "recycling-setups",
     subcategory: "E-Waste",
@@ -526,9 +793,18 @@ export const services: ServiceItem[] = [
     title: "Registered Vehicles Scraping Faculty Plant",
     subtitle: "Authorized vehicle scrapping and depollution facility.",
     desc: "Licensed registered vehicle scrapping plant for end-of-life vehicles with authorized depollution and certified material recovery processes.",
-    details: "Our registered vehicles scrapping faculty operates under government authorization, ensuring proper depollution procedures, hazardous fluid removal, and comprehensive material segregation for recycling.",
-    features: ["Authorized operation", "Depollution services", "Material segregation"],
-    highlights: ["Government registered", "Complete compliance", "Certified dismantlers"],
+    details:
+      "Our registered vehicles scrapping faculty operates under government authorization, ensuring proper depollution procedures, hazardous fluid removal, and comprehensive material segregation for recycling.",
+    features: [
+      "Authorized operation",
+      "Depollution services",
+      "Material segregation",
+    ],
+    highlights: [
+      "Government registered",
+      "Complete compliance",
+      "Certified dismantlers",
+    ],
     path: "/services/recycling-vehicles-scrapping",
     category: "recycling-setups",
     subcategory: "Registered Vehicles Scraping Faculty Plant",
@@ -536,7 +812,8 @@ export const services: ServiceItem[] = [
   {
     slug: "recycling-plastic",
     title: "Plastic Recycling",
-    subtitle: "Plastic recycling facility setup and compliance-ready recovery solutions.",
+    subtitle:
+      "Plastic recycling facility setup and compliance-ready recovery solutions.",
     desc: "Plastic recycling setup for waste collection, sorting, washing, extrusion, and documented recovery aligned with regulatory best practices.",
     details:
       "Our Plastic Recycling setup service helps promoters design and launch formal plastic recovery facilities that handle PET, HDPE, PP and mixed polymer streams. We assist with site planning, equipment selection, permitting, and end-to-end compliance documentation.",
@@ -552,17 +829,37 @@ export const services: ServiceItem[] = [
       "PET bottle and film washing and pelletising",
     ],
     processSteps: [
-      { title: "Site & layout planning", description: "Design plant flow for receiving, sorting, washing, drying and extrusion." },
-      { title: "Equipment selection", description: "Specify conveyors, shredders, wash lines, dryers and pelletisers for the right capacity." },
-      { title: "Compliance approvals", description: "Support permits, pollution control clearances and ETP planning." },
-      { title: "Operational setup", description: "Help with commissioning, trial runs and reporting for stable plant operations." },
+      {
+        title: "Site & layout planning",
+        description:
+          "Design plant flow for receiving, sorting, washing, drying and extrusion.",
+      },
+      {
+        title: "Equipment selection",
+        description:
+          "Specify conveyors, shredders, wash lines, dryers and pelletisers for the right capacity.",
+      },
+      {
+        title: "Compliance approvals",
+        description:
+          "Support permits, pollution control clearances and ETP planning.",
+      },
+      {
+        title: "Operational setup",
+        description:
+          "Help with commissioning, trial runs and reporting for stable plant operations.",
+      },
     ],
     compliancePoints: [
       "Plastic Waste Management Rules alignment",
       "ETP and wastewater management",
       "Authorized recycler partnerships",
     ],
-    highlights: ["Formal plastic recovery", "Regulatory-ready plant design", "Investor-friendly setup"],
+    highlights: [
+      "Formal plastic recovery",
+      "Regulatory-ready plant design",
+      "Investor-friendly setup",
+    ],
     path: "/services/recycling-plastic",
     category: "recycling-setups",
     subcategory: "Plastic",
@@ -572,9 +869,14 @@ export const services: ServiceItem[] = [
     title: "Solar Panel",
     subtitle: "Specialized solar panel recycling and material recovery.",
     desc: "Dedicated recycling facility for end-of-life solar panels with recovery of glass, silicon, and metal components.",
-    details: "Our solar panel recycling setup safely processes retired panels, recovering valuable materials while ensuring environmental safety and regulatory compliance.",
+    details:
+      "Our solar panel recycling setup safely processes retired panels, recovering valuable materials while ensuring environmental safety and regulatory compliance.",
     features: ["Material recovery", "Glass processing", "Silicon recovery"],
-    highlights: ["Eco-friendly process", "High recovery rates", "Certified technology"],
+    highlights: [
+      "Eco-friendly process",
+      "High recovery rates",
+      "Certified technology",
+    ],
     path: "/services/recycling-solar-panel",
     category: "recycling-setups",
     subcategory: "Solar Panel",
@@ -582,7 +884,8 @@ export const services: ServiceItem[] = [
   {
     slug: "business-growth",
     title: "Business Growth & Lead Generation",
-    subtitle: "Find the right buyers through targeted digital campaigns, SEO-driven content, and structured lead conversion systems.",
+    subtitle:
+      "Find the right buyers through targeted digital campaigns, SEO-driven content, and structured lead conversion systems.",
     desc: "Strategic business growth services that generate qualified leads, build digital brand authority, and create sales pipelines that convert. We help established businesses break through visibility barriers and scale predictably through targeted campaigns, SEO optimization, and conversion systems.",
     details:
       "We partner with established businesses ready to scale beyond referrals. You have built a great product or service, but your pipeline is dry, you are losing deals to weaker competitors, and growth has plateaued. We become your growth partner by building your digital visibility, generating qualified leads through targeted campaigns and SEO, and structuring your sales pipeline so enquiries convert to deals. We handle ad management, cold calling outreach, lead nurturing, CRM setup, and sales team support on your behalf.",
@@ -602,13 +905,41 @@ export const services: ServiceItem[] = [
       "Entrepreneurs with proven products seeking predictable lead flow",
     ],
     processSteps: [
-      { title: "Visibility Audit", description: "We assess why your pipeline is dry. Market analysis, competitor positioning, and digital presence gaps are identified." },
-      { title: "Campaign Strategy", description: "Develop targeted digital campaigns and ad strategy to reach your ideal buyer profile directly." },
-      { title: "Content & SEO", description: "Create SEO-optimized content and position you as the authority in your category so buyers find you." },
-      { title: "Lead Generation", description: "Launch targeted campaigns, manage ad spend, execute cold calling, and nurture leads through the sales funnel." },
-      { title: "Pipeline Setup", description: "Implement CRM systems, follow-up automation, and structured processes so leads convert to deals." },
-      { title: "Sales Support", description: "If your product is the right fit, our sales team works on your behalf to close deals." },
-      { title: "Optimization", description: "Continuously monitor metrics, refine campaigns, and optimize conversion rates for maximum ROI." },
+      {
+        title: "Visibility Audit",
+        description:
+          "We assess why your pipeline is dry. Market analysis, competitor positioning, and digital presence gaps are identified.",
+      },
+      {
+        title: "Campaign Strategy",
+        description:
+          "Develop targeted digital campaigns and ad strategy to reach your ideal buyer profile directly.",
+      },
+      {
+        title: "Content & SEO",
+        description:
+          "Create SEO-optimized content and position you as the authority in your category so buyers find you.",
+      },
+      {
+        title: "Lead Generation",
+        description:
+          "Launch targeted campaigns, manage ad spend, execute cold calling, and nurture leads through the sales funnel.",
+      },
+      {
+        title: "Pipeline Setup",
+        description:
+          "Implement CRM systems, follow-up automation, and structured processes so leads convert to deals.",
+      },
+      {
+        title: "Sales Support",
+        description:
+          "If your product is the right fit, our sales team works on your behalf to close deals.",
+      },
+      {
+        title: "Optimization",
+        description:
+          "Continuously monitor metrics, refine campaigns, and optimize conversion rates for maximum ROI.",
+      },
     ],
     highlights: [
       "End-to-end growth partnership",
@@ -623,27 +954,310 @@ export const services: ServiceItem[] = [
     category: "business-growth-lead-generation",
     subcategory: "Business Growth & Lead Generation",
   },
-    {
+  {
     slug: "buy-sell-ewaste",
     title: "Buy & Sell E-Waste Scrap",
     subtitle: "Transform electronic scrap into sustainable business value.",
     desc: "Professional platform for buying and selling e-waste scrap including IT equipment, cables, PCBs, and mixed electronic waste.",
-    details: "EPR Nexuss helps businesses buy and sell e-waste scrap responsibly through organized recycling support, transparent processes, and value-driven handling.",
+    details:
+      "EPR Nexuss helps businesses buy and sell e-waste scrap responsibly through organized recycling support, transparent processes, and value-driven handling.",
     features: [
       "Scrap Evaluation",
       "Buyer & Seller Support",
       "Responsible Recycling",
-      "Business Transparency"
+      "Business Transparency",
     ],
     highlights: [
       "Certified e-waste handling",
       "Transparent pricing",
       "Responsible recycling",
-      "Material recovery focus"
+      "Material recovery focus",
     ],
     path: "/services/buy-sell-ewaste",
     category: "buy-sell",
     subcategory: "E-Waste",
+  },
+  {
+    slug: "consent-to-establish",
+    title: "Consent To Establish (CTE)",
+    subtitle:
+      "Secure mandatory environmental clearance before starting your facility.",
+    desc: "End-to-end support for obtaining Consent to Establish (CTE) from State Pollution Control Boards to ensure complete legal compliance before project commencement.",
+    details:
+      "EPR Nexus assists businesses in preparing site plans, environmental impact documentation, and navigating regulatory submissions for seamless CTE approval.",
+    features: [
+      "Site Suitability Assessment",
+      "Documentation Support",
+      "SPCB Portal Filing",
+      "Regulatory Liaison",
+    ],
+    highlights: [
+      "End-to-end compliance",
+      "Faster application clearance",
+      "Expert regulatory guidance",
+      "Error-free documentation",
+    ],
+    path: "/services/consent-to-establish",
+    category: "license-and-certification",
+    subcategory: "Consent To Establish",
+  },
+  {
+    slug: "consent-to-operate",
+    title: "Consent To Operate (CTO)",
+    subtitle: "Authorize your industrial and commercial operations seamlessly.",
+    desc: "Comprehensive assistance for obtaining and renewing Consent to Operate (CTO) to run business operations in compliance with environmental standards.",
+    details:
+      "EPR Nexus simplifies the CTO acquisition process by conducting compliance audits, preparing pollution monitoring reports, and handling SPCB submissions.",
+    features: [
+      "Compliance Audits",
+      "CTO Renewal & Modification",
+      "Pollution Control Data Review",
+      "Board Inspection Guidance",
+    ],
+    highlights: [
+      "Timely CTO issuance",
+      "Operational continuity",
+      "Hassle-free renewals",
+      "Tailored compliance strategy",
+    ],
+    path: "/services/consent-to-operate",
+    category: "license-and-certification",
+    subcategory: "Consent To Operate",
+  },
+  {
+    slug: "hazardous-waste-authorization",
+    title: "Hazardous Waste Authorization",
+    subtitle: "Ensure safe and lawful handling of industrial hazardous waste.",
+    desc: "Expert advisory and legal authorization support for facilities generating, handling, storing, or treating hazardous waste material.",
+    details:
+      "EPR Nexus helps industries secure Hazardous Waste Management Authorization through precise quantification, safe management plans, and regulatory liaisoning.",
+    features: [
+      "Waste Characterization",
+      "Storage & Handling Plans",
+      "Application Preparation",
+      "Annual Return Compliance",
+    ],
+    highlights: [
+      "Safe waste lifecycle management",
+      "Regulatory alignment",
+      "Standard operating guidance",
+      "Complete documentation support",
+    ],
+    path: "/services/hazardous-waste-authorization",
+    category: "license-and-certification",
+    subcategory: "Hazardous Waste Authorization",
+  },
+  {
+    slug: "bio-medical-waste-authorization",
+    title: "Bio Medical Waste Authorization",
+    subtitle: "Compliant waste handling solutions for healthcare facilities.",
+    desc: "Streamlined authorization services for hospitals, clinics, labs, and biomedical waste treatment facilities under Bio-Medical Waste Management Rules.",
+    details:
+      "EPR Nexus guides healthcare providers through the necessary licensing steps, segregation standards, and tie-ups with authorized treatment facilities (CBWTFs).",
+    features: [
+      "BMW Classification & Audit",
+      "CBWTF Tie-up Support",
+      "SPCB Application Assistance",
+      "Barcoding & Logbook Setup",
+    ],
+    highlights: [
+      "Healthcare compliance focus",
+      "Simplified application process",
+      "Safe disposal protocol alignment",
+      "End-to-end approval support",
+    ],
+    path: "/services/bio-medical-waste-authorization",
+    category: "license-and-certification",
+    subcategory: "Bio Medical Waste Authorization",
+  },
+  {
+    slug: "hazardous-waste-impact-authorization",
+    title: "Hazardous Waste Impact Authorization",
+    subtitle: "Assess and mitigate environmental impacts of dangerous waste.",
+    desc: "Specialized licensing and impact assessment services for high-risk industrial units handling complex hazardous waste streams.",
+    details:
+      "EPR Nexus provides expert consultation to analyze risk factors, prepare detailed impact assessments, and acquire specialized environmental permissions.",
+    features: [
+      "Risk & Impact Analysis",
+      "Mitigation Strategy Planning",
+      "Specialized SPCB Submissions",
+      "Facility Safety Reviews",
+    ],
+    highlights: [
+      "In-depth risk evaluation",
+      "Regulatory approval clarity",
+      "Sustainable mitigation planning",
+      "Expert safety audits",
+    ],
+    path: "/services/hazardous-waste-impact-authorization",
+    category: "license-and-certification",
+    subcategory: "Hazardous Waste Impact Authorization",
+  },
+  {
+    slug: "extended-producer-responsibility",
+    title: "Extended Producer Responsibility (EPR)",
+    subtitle:
+      "Fulfill your target obligations for Plastic, E-Waste, Battery & Rubber.",
+    desc: "Complete EPR registration, target fulfillment, and credit transfer services for Producers, Importers, and Brand Owners (PIBOs).",
+    details:
+      "EPR Nexus connects PIBOs with certified recyclers and manages centralized CPCB portal filings to help businesses meet their mandatory EPR targets effortlessly.",
+    features: [
+      "CPCB Registration",
+      "EPR Target Management",
+      "Credit Sourcing & Trading",
+      "Annual Return Filing",
+    ],
+    highlights: [
+      "100% CPCB compliant framework",
+      "Verified recycler network",
+      "Transparent credit trading",
+      "End-to-end target tracking",
+    ],
+    path: "/services/extended-producer-responsibility",
+    category: "license-and-certification",
+    subcategory: "Extended Prodcuer Responsiblity (EPR)",
+  },
+  {
+    slug: "complusory-registration-scheme",
+    title: "BIS:Compulsory Registration Scheme(CRS)",
+    subtitle:
+      "Ensure mandatory IT & electronic product compliance for Indian market entry.",
+    desc: "End-to-end guidance for electronic and IT product manufacturers to achieve mandatory BIS-CRS registration through accredited lab testing and self-declaration.",
+    details:
+      "EPR Nexus streamlines the entire CRS process—from coordinating sample testing with BIS-recognized NABL laboratories to managing portal registration, document verification, and compliance management for smooth product launches.",
+    features: [
+      "Mandatory IT & Electronics CRS Registration",
+      "NABL Accredited Lab Testing Coordination",
+      "Self-Declaration of Conformity (SDOC)",
+      "Inclusion & Series Approval Management",
+    ],
+    highlights: [
+      "BIS-recognized lab alignment",
+      "Streamlined registration timeline",
+      "Technical document preparation",
+      "Pre-compliance test evaluation",
+    ],
+    path: "/services/complusory-registration-scheme",
+    category: "license-and-certification",
+    subcategory: "Bureau Of Indian Standards (BIS)",
+  },
+  {
+    slug: "indian-standards-institute",
+    title: "BIS:Indian Standards Institute(ISI)",
+    subtitle:
+      "Obtain the prestigious ISI mark for guaranteed quality and regulatory compliance.",
+    desc: "Comprehensive support for domestic manufacturers to secure the ISI Mark, validating product safety, quality control, and adherence to mandatory Indian Standards.",
+    details:
+      "EPR Nexus assists domestic manufacturing units through factory layout review, internal testing setup, NABL sample testing, and complete coordination during official BIS factory audits for ISI Mark grant.",
+    features: [
+      "Product-Specific ISI Mark Certification",
+      "In-house Laboratory Setup Assistance",
+      "Factory Audit & Inspection Guidance",
+      "Scheme of Testing and Inspection (STI) Implementation",
+    ],
+    highlights: [
+      "Factory audit readiness",
+      "Quality management system alignment",
+      "End-to-end inspection support",
+      "Regulatory renewal & scope expansion",
+    ],
+    path: "/services/indian-standards-institute",
+    category: "license-and-certification",
+    subcategory: "Bureau Of Indian Standards (BIS)",
+  },
+  {
+    slug: "foreign-manufacturers-certification-scheme",
+    title: "BIS:Foreign Manufacturers Certification Scheme(FMCS)",
+    subtitle:
+      "Authorize overseas manufacturing locations to sell certified products in India.",
+    desc: "Dedicated compliance services for foreign manufacturers looking to register under FMCS, obtain the ISI Mark, and legally export products to India.",
+    details:
+      "EPR Nexus acts as your expert compliance advisor for FMCS, handling Authorized Indian Representative (AIR) coordination, overseas factory audit planning, sample testing in India, and BIS portal submissions.",
+    features: [
+      "Foreign Manufacturers (FMCS) Licensing",
+      "Authorized Indian Representative (AIR) Support",
+      "Overseas Factory Inspection Coordination",
+      "Customs Clearance & Import Sample Testing",
+    ],
+    highlights: [
+      "Global-to-India compliance management",
+      "Audit & logistics coordination",
+      "Bilingual documentation support",
+      "Post-grant license renewal & surveillance",
+    ],
+    path: "/services/foreign-manufacturers-certification-scheme",
+    category: "license-and-certification",
+    subcategory: "Bureau Of Indian Standards (BIS)",
+  },
+  {
+    slug: "legal-metrology-packaged-commudities",
+    title: "Legal Metrology Packaged Commodities (LMPC)",
+    subtitle: "Ensure mandatory package labeling and import compliance.",
+    desc: "End-to-end LMPC registration services for importers, manufacturers, and packers of pre-packaged commodities.",
+    details:
+      "EPR Nexus helps businesses design compliant product labels and obtain Legal Metrology certificates to avoid customs holds and regulatory penalties.",
+    features: [
+      "LMPC Import Registration",
+      "Label Compliance Verification",
+      "State & Central Filings",
+      "Customs Clearance Alignment",
+    ],
+    highlights: [
+      "Smooth customs clearance",
+      "Error-free label auditing",
+      "Fast-track processing",
+      "National trade compliance",
+    ],
+    path: "/services/legal-metrology-packaged-commudities",
+    category: "license-and-certification",
+    subcategory: "Legal Metrology Packaged Commudities (LMPC)",
+  },
+  {
+    slug: "wireless-planning-commision",
+    title: "Wireless Planning Commission (WPC)",
+    subtitle: "ETA approval and licensing for radio frequency devices.",
+    desc: "Professional guidance for acquiring WPC Equipment Type Approval (ETA) and import licenses for wireless and Bluetooth equipment.",
+    details:
+      "EPR Nexus streamlines the WPC filing process through the Saral Sanchar portal, helping importers and tech companies launch wireless devices smoothly.",
+    features: [
+      "ETA Approval Guidance",
+      "RF Test Report Review",
+      "Saral Sanchar Portal Filings",
+      "Import License Processing",
+    ],
+    highlights: [
+      "Expert frequency alignment",
+      "Seamless online clearance",
+      "Reduced regulatory delays",
+      "Complete import readiness",
+    ],
+    path: "/services/wireless-planning-commision",
+    category: "license-and-certification",
+    subcategory: "Wireless Planning Commison (WPC)",
+  },
+  {
+    slug: "directorate-general-of-foreign-trade",
+    title: "Directorate General Of Foreign Trade (DGFT)",
+    subtitle:
+      "Cross-border trade licensing, IEC registration, and policy support.",
+    desc: "Full-suite consulting and registration support for IEC, export-import authorizations, and DGFT licensing schemes.",
+    details:
+      "EPR Nexus helps businesses establish cross-border trade readiness, manage Importer-Exporter Codes (IEC), and obtain specialized restricted item licenses.",
+    features: [
+      "IEC Registration & Modification",
+      "Advance / EPCG Authorizations",
+      "Restricted Item Licenses",
+      "DGFT Policy Consultation",
+    ],
+    highlights: [
+      "Seamless cross-border trading",
+      "Policy optimization",
+      "End-to-end portal support",
+      "Timely authorization tracking",
+    ],
+    path: "/services/directorate-general-of-foreign-trade",
+    category: "license-and-certification",
+    subcategory: "Directorate General Of Foreign Trade",
   },
 ];
 
@@ -656,19 +1270,80 @@ export const serviceDropdown = [
   { label: "EPR Metals", path: "/services/epr-metals" },
   { label: "EPR Battery", path: "/services/epr-battery" },
   { label: "EPR Lithium", path: "/services/epr-lithium" },
-  { label: "Setup & commissioning documentation", path: "/services/setup-and-commissioning-documentation" },
-  { label: "Operation & Performance management", path: "/services/operationperformancemanagement" },
-  { label: "Scale and Growth Systems", path: "/services/scale-and-growth-systems" },
+  {
+    label: "Setup & commissioning documentation",
+    path: "/services/setup-and-commissioning-documentation",
+  },
+  {
+    label: "Operation & Performance management",
+    path: "/services/operationperformancemanagement",
+  },
+  {
+    label: "Scale and Growth Systems",
+    path: "/services/scale-and-growth-systems",
+  },
   { label: "Buy E-Waste", path: "/services/buy-sell-ewaste" },
   { label: "Sell Batteries", path: "/services/sell-batteries" },
   { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
-  { label: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
+  {
+    label: "Lithium Battery Recycling",
+    path: "/services/recycling-lithium-ion-battery",
+  },
   { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
-  { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
+  {
+    label: "Registered Vehicles Scraping Facility Plant",
+    path: "/services/recycling-vehicles-scrapping",
+  },
   { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
   { label: "Plastic Recycling", path: "/services/recycling-plastic" },
-  { label: "Tyre Recycling", path: "/services/recycling-tyre" },
-  { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
+  {
+    label: "Business Growth & Lead Generation",
+    path: "/services/business-growth",
+  },
+  { label: "Consent To Establish", path: "/services/consent-to-establish" },
+  { label: "Consent To Operate", path: "/services/consent-to-operate" },
+  {
+    label: "Hazardous Waste Authorization",
+    path: "/services/hazardous-waste-authorization",
+  },
+  {
+    label: "Bio Medical Waste Authorization",
+    path: "/services/bio-medical-waste-authorization",
+  },
+  {
+    label: "Hazardous Waste Impact Authorization",
+    path: "/services/hazardous-waste-impact-authorization",
+  },
+  {
+    label: "Extended Prodcuer Responsiblity (EPR)",
+    path: "/services/extended-producer-responsibility",
+  },
+  {
+    label: "BIS:Compulsory Registration Scheme(CRS)",
+    path: "/services/complusory-registration-scheme",
+  },
+  {
+    label: "BIS:Indian Standards Institute(ISI)",
+    path: "/services/indian-standards-institute",
+  },
+
+  {
+    label: "BIS:Foreign Manufacturers Certification Scheme(FMCS)",
+    path: "/services/foreign-manufacturers-certification-scheme",
+  },
+
+  {
+    label: "Legal Metrology Packaged Commudities (LMPC)",
+    path: "/services/legal-metrology-packaged-commudities",
+  },
+  {
+    label: "Wireless Planning Commison (WPC)",
+    path: "/services/wireless-planning-commision",
+  },
+  {
+    label: "Directorate General Of Foreign Trade (DGHT)",
+    path: "/services/directorate-general-of-foreign-trade",
+  },
 ];
 
 export interface ServiceCategory {
@@ -683,26 +1358,20 @@ export const serviceCategoriesNav: ServiceCategory[] = [
   {
     name: "Recycling Setups",
     subcategories: [
-      { label: "Lithium Battery Recycling", path: "/services/recycling-lithium-ion-battery" },
+      {
+        label: "Lithium Battery Recycling",
+        path: "/services/recycling-lithium-ion-battery",
+      },
       { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
-      { label: "Registered Vehicles Scraping Facility Plant", path: "/services/recycling-vehicles-scrapping" },
-      { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
+      {
+        label: "Registered Vehicles Scraping Facility Plant",
+        path: "/services/recycling-vehicles-scrapping",
+      },
+      {
+        label: "Solar Panel Recycling",
+        path: "/services/recycling-solar-panel",
+      },
       { label: "Plastic Recycling", path: "/services/recycling-plastic" },
-      { label: "Tyre Recycling", path: "/services/recycling-tyre" },
-    ],
-  },
-  {
-    name: "Plant Operation Intelligence",
-    subcategories: [
-      { label: "Setup & commissioning documentation", path: "/services/setup-and-commissioning-documentation" },
-      { label: "Operation & Performance management", path: "/services/operationperformancemanagement" },
-      { label: "Scale and Growth Systems", path: "/services/scale-and-growth-systems" },
-    ],
-  },
-  {
-    name: "Business Growth & Lead Generation",
-    subcategories: [
-      { label: "Business Growth & Lead Generation", path: "/services/business-growth" },
     ],
   },
   {
@@ -714,7 +1383,73 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "EPR ELV", path: "/services/epr-elv" },
       { label: "EPR Used Oil", path: "/services/epr-used-oil" },
       { label: "EPR Metals", path: "/services/epr-metals" },
-      { label: "EPR Lithium Battery", path: "/services/epr-lithium" },
+      { label: "EPR Battery", path: "/services/epr-battery" },
+      { label: "EPR Lithium", path: "/services/epr-lithium" },
+    ],
+  },
+  {
+    name: "License & Certification",
+    subcategories: [
+      { label: "Consent To Establish", path: "/services/consent-to-establish" },
+      { label: "Consent To Operate", path: "/services/consent-to-operate" },
+      {
+        label: "Hazardous Waste Authorization",
+        path: "/services/hazardous-waste-authorization",
+      },
+      {
+        label: "Bio Medical Waste Authorization",
+        path: "/services/bio-medical-waste-authorization",
+      },
+      {
+        label: "Hazardous Waste Impact Authorization",
+        path: "/services/hazardous-waste-impact-authorization",
+      },
+      {
+        label: "Extended Prodcuer Responsiblity (EPR)",
+        path: "/services/extended-producer-responsibility",
+      },
+      {
+        label: "BIS:Compulsory Registration Scheme(CRS)",
+        path: "/services/complusory-registration-scheme",
+      },
+      {
+        label: "BIS:Indian Standards Institute(ISI)",
+        path: "/services/indian-standards-institute",
+      },
+
+      {
+        label: "BIS:Foreign Manufacturers Certification Scheme(FMCS)",
+        path: "/services/foreign-manufacturers-certification-scheme",
+      },
+      {
+        label: "Legal Metrology Packaged Commudities (LMPC)",
+        path: "/services/legal-metrology-packaged-commudities",
+      },
+      {
+        label: "Wireless Planning Commison (WPC)",
+        path: "/services/wireless-planning-commision",
+      },
+      {
+        label: "Directorate General Of Foreign Trade (DGHT)",
+        path: "/services/directorate-general-of-foreign-trade",
+      },
+    ],
+  },
+  {
+    name: "Plant Operation Intelligence",
+    subcategories: [
+      {
+        label: "Setup & commissioning documentation",
+        path: "/services/setup-and-commissioning-documentation",
+      },
+      {
+        label: "Operation & Performance management",
+        path: "/services/operationperformancemanagement",
+      },
+      {
+        label: "Scale and Growth Systems",
+        path: "/services/scale-and-growth-systems",
+      },
     ],
   },
   
@@ -727,6 +1462,14 @@ export const serviceCategoriesNav: ServiceCategory[] = [
       { label: "Buy & Sell Metals", path: "/services/buy-sell-metals" },
     ],
   },
-  
+  {
+    name: "Business Growth & Lead Generation",
+    subcategories: [
+      {
+        label: "Business Growth & Lead Generation",
+        path: "/services/business-growth",
+      },
+    ],
+  },
   
 ];

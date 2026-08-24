@@ -25,10 +25,11 @@ import dilshad from "@/assets/team/dilshad.jpeg";
 import sakib from "@/assets/team/sakib.jpg";
 import ceoPhoto from "@/assets/gallery-5.jpg"; 
 import mdPhoto from "@/assets/gallery-5.jpg";
-import affan from "@/assets/team/affan.jpg"
+import affan from "@/assets/team/affan.png"
 import user from "@/assets/team/user.png"
 import bhanu from "@/assets/Team/bhanu.jpg"
 import anjali from "@/assets/Team/anjali.jpg"
+import abdullah from "@/assets/Team/abdullah.jpg"
 
 const stats = [
   { value: "500+", label: "Manufacturers & Importers Served" },
@@ -81,7 +82,7 @@ const executiveTeam = [
     image: tabish,
     bio: "Mohammad shapes the core compliance methodologies at EPR Nexuss, bringing over 15 years of structured environmental policy consultation experience. Under his management, the firm has successfully translated multi-state compliance challenges into seamless digital portal milestones.",
     highlight: "Oversees CPCB Portal Strategy & Enterprise Investor Partnerships.",
-    socials: { linkedin: "#", instagram: "#", Facebook: "#" }
+    socials: { linkedin: "#",  Facebook: "#" }
   },
   {
     name: "Dilshad Malik",
@@ -89,27 +90,21 @@ const executiveTeam = [
     image: dilshad,
     bio: "Dilshad Malik manages ground-level reverse logistics pipelines and handles structural integration with certified recycling facilities nationwide. His operational architecture bridges the gap between raw factory waste collections and authentic certified credit conversions.",
     highlight: "Directs Nationwide Recycler Framework Alignment & Operations Validation.",
-    socials: { linkedin: "#", instagram: "#", Facebook: "#" }
+    socials: { linkedin: "#",  Facebook: "#" }
   }
 ];
+
 const carouselTeam = [
-  { name: "Aman Tariq", designation: "Digital Marketing Head / Senior Web Developer", image: aman, details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", socials: { linkedin: "https://www.linkedin.com/in/aman-tariq-27611227b", instagram: "https://www.instagram.com/aman._tariq/", Facebook: "https://www.facebook.com/shams.aman.35" } },
-<<<<<<< HEAD
-  { name: "Bhanu", designation: "Sales Head", image: user, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
-  { name: "Affan Aziz", designation: "Digital Marketing Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
-  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios", instagram: "https://www.instagram.com/sakibxrajput", Facebook: "#" } },
-  { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
-  { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
-  { name: "Aina Marziya", designation: "Business Development Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#", instagram: "https://www.instagram.com/__alina_siddiqui__?igsh=aDh2ZnVjaTVrMXF1", Facebook: "#" } }
-=======
-  { name: "Bhanu", designation: "Sales Head", image: bhanu, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
-  { name: "Affan Aziz", designation: "Social Media Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } },
-  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios", instagram: "https://www.instagram.com/sakibxrajput", Facebook: "#" } },
-  { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
-  { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", instagram: "#", Facebook: "#" } },
-  { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#", instagram: "https://www.instagram.com/__alina_siddiqui__?igsh=aDh2ZnVjaTVrMXF1", Facebook: "#" } },
-  { name: "Anjali", designation: "Business Developement Executive", image: anjali, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#", instagram: "#", Facebook: "#" } }
->>>>>>> sakib-blog
+  { name: "Aman Tariq", designation: "Digital Marketing Head / Senior Web Developer", image: aman, details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", socials: { linkedin: "https://www.linkedin.com/in/aman-tariq-27611227b",  Facebook: "https://www.facebook.com/shams.aman.35" } },
+  { name: "Bhanu", designation: "Sales Head", image: bhanu, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#",  Facebook: "#" } },
+  { name: "Affan Aziz", designation: "Social Media Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#",  Facebook: "#" } },
+  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios",  Facebook: "#" } },
+  { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",  Facebook: "#" } },
+  { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android",   Facebook: "#" } },
+  { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#",   Facebook: "#" } },
+  { name: "Anjali", designation: "Business Developement Executive", image: anjali, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#",   Facebook: "#" } },
+  { name: "Abdullah", designation: "Legal Advisor", image: abdullah, details: "Ensures legal compliance, reviews contracts, and provides strategic legal guidance to support business growth and protect organizational interests.", socials: { linkedin: "#", Facebook: "#" } }
+
 ];
 
 const servicesData = [
@@ -674,7 +669,7 @@ const About = () => {
                     <span className="text-xs font-mono text-slate-400 font-bold uppercase">Connect:</span>
                     <div className="flex items-center gap-2.5">
                       <a href={member.socials.linkedin} className="w-8 h-8 rounded-lg bg-muted text-slate-500 hover:text-white hover:bg-[#0077B5] flex items-center justify-center transition-colors border border-border"><Linkedin size={14} /></a>
-                      <a href={member.socials.instagram} className="w-8 h-8 rounded-lg bg-muted text-slate-500 hover:text-white hover:bg-[#E1306C] flex items-center justify-center transition-colors border border-border"><Instagram size={14} /></a>
+                      {/* <a href={member.socials.instagram} className="w-8 h-8 rounded-lg bg-muted text-slate-500 hover:text-white hover:bg-[#E1306C] flex items-center justify-center transition-colors border border-border"><Instagram size={14} /></a> */}
                       <a href={member.socials.Facebook} className="w-8 h-8 rounded-lg bg-muted text-slate-500 hover:text-white hover:bg-black flex items-center justify-center transition-colors border border-border"><Facebook size={14} /></a>
                     </div>
                   </div>
@@ -736,8 +731,8 @@ const About = () => {
 
                     {/* Social Media Link Icon Strip */}
                     <div className="w-full pt-4 border-t border-border/60 flex items-center justify-center gap-4 mt-auto shrink-0">
-                      <a href={member.socials.Facebook} className="text-slate-400 hover:text-black transition-colors" aria-label="Facebook"><Facebook size={15} /></a>
-                      <a href={member.socials.instagram} className="text-slate-400 hover:text-[#E1306C] transition-colors" aria-label="Instagram"><Instagram size={15} /></a>
+                      {/* <a href={member.socials.Facebook} className="text-slate-400 hover:text-black transition-colors" aria-label="Facebook"><Facebook size={15} /></a> */}
+                      {/* <a href={member.socials.instagram} className="text-slate-400 hover:text-[#E1306C] transition-colors" aria-label="Instagram"><Instagram size={15} /></a> */}
                       <a href={member.socials.linkedin} className="text-slate-400 hover:text-[#0077B5] transition-colors" aria-label="LinkedIn"><Linkedin size={15} /></a>
                     </div>
                   </motion.div>

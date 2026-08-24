@@ -71,18 +71,13 @@ const stakeholders = [
     title: "Recyclers",
     body: "Every tonne processed converts into a certificate with resale value. Formal registration and clean documentation are what separate scrap volume from monetized credits.",
   },
-  {
-    icon: Landmark,
-    title: "PROs",
-    body: "Sit at the centre of the exchange between producers and recyclers. The opportunity is in aggregation, verification, and making the trade trustworthy at scale.",
-  },
 ];
 
 const ledgerSteps = [
   {
     code: "EPR-01",
     title: "Registration",
-    body: "Producers, recyclers, and PROs register on the central portal and declare battery categories placed on the market.",
+    body: "Producers and recyclers register on the central portal and declare battery categories placed on the market.",
   },
   {
     code: "EPR-02",
@@ -102,7 +97,7 @@ const ledgerSteps = [
   {
     code: "EPR-05",
     title: "Credit trading",
-    body: "Producers short on their own recycling purchase certificates from recyclers or PROs to close the gap.",
+    body: "Producers short on their own recycling purchase certificates from recyclers to close the gap.",
   },
   {
     code: "EPR-06",
@@ -118,7 +113,7 @@ const faqs = [
   },
   {
     q: "Who is actually required to hold credits?",
-    a: "Producers, importers, and brand owners placing batteries on the market carry the underlying obligation. PROs and recyclers generate and route the supply side of the market.",
+    a: "Producers, importers, and brand owners placing batteries on the market carry the underlying obligation. Recyclers generate and route the supply side of the market.",
   },
   {
     q: "How is a credit's price set?",
@@ -229,14 +224,14 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.25}>
         <div className="mt-9 flex flex-wrap items-center gap-4">
-          <a
-            href="/contact"
+          
+          <a  href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
           >
             Get immediate guidance <ArrowRight className="w-4 h-4" />
           </a>
-          <a
-            href="#market-analysis"
+          
+           <a href="#market-analysis"
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
           >
             See the market data
@@ -375,7 +370,6 @@ function WhatAreCredits() {
           {[
             "Certificates are tied to verified, audited recycling volume",
             "Producers buy what they can't recycle themselves",
-            "PROs are the trust layer that makes the trade work at scale",
           ].map((line) => (
             <li
               key={line}
@@ -554,7 +548,7 @@ function MarketAnalysisChart() {
           Credit volume and price movement, at a glance
         </h2>
       </Reveal>
-      <div className="mt-8 grid lg:grid-cols-2 gap-6">
+      <div className="mt-8 grid lg:grid-cols-1 gap-6">
         <Reveal
           delay={0.1}
           className="rounded-2xl border border-border bg-card p-6"
@@ -570,7 +564,7 @@ function MarketAnalysisChart() {
           </p>
           <BarChart />
         </Reveal>
-        <Reveal
+        {/* <Reveal
           delay={0.2}
           className="rounded-2xl border border-border bg-card p-6"
         >
@@ -584,7 +578,7 @@ function MarketAnalysisChart() {
             Q1 of the compliance year = 100
           </p>
           <LineChart />
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );
@@ -603,7 +597,7 @@ function StakeholderOpportunities() {
           Where the opportunity sits, by role
         </h2>
       </Reveal>
-      <div className="mt-8 grid sm:grid-cols-3 gap-5">
+      <div className="mt-8 grid sm:grid-cols-2 gap-5">
         {stakeholders.map((s, i) => (
           <Reveal key={s.title} delay={i * 0.1}>
             <div className="h-full rounded-2xl border border-border bg-card p-6 flex flex-col hover:-translate-y-1 transition-transform">
@@ -664,7 +658,6 @@ function CreditFlowDiagram() {
   const nodes = [
     { icon: Factory, label: "Producer" },
     { icon: Recycle, label: "Recycler" },
-    { icon: Landmark, label: "PRO" },
     { icon: FileCheck2, label: "Certificate" },
     { icon: ShieldCheck, label: "Compliance" },
   ];
@@ -725,12 +718,12 @@ function CTABanner() {
             The full deep-dive report is still being finalized.
           </h2>
           <p className="mt-3 max-w-xl text-sm sm:text-base opacity-90">
-            If you need to make a producer, recycler, or PRO decision now, talk
+            If you need to make a producer or recycler decision now, talk
             to our team for immediate, specific guidance instead of waiting on
             the published version.
           </p>
-          <a
-            href="/contact"
+          
+           <a href="/contact"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:scale-[1.03] transition-transform"
           >
             Reach out for guidance <ArrowRight className="w-4 h-4" />
@@ -811,8 +804,8 @@ function ClosingTrustStrip() {
               after the market has already moved.
             </p>
           </div>
-          <a
-            href="/contact"
+          
+           <a href="/contact"
             onClick={() => {
               navigate("#contact");
             }}

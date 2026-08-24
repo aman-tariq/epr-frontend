@@ -10,6 +10,7 @@
   import VehicleScrappingBlog from "@/components/services/recycling-setups/VehicleScrappingBlog";
   import SolarPanelBlog from "@/components/services/recycling-setups/SolarPanelBlog";
   import PlasticRecyclingBlog from "@/components/PlasticRecyclingBlog";
+  import PlasticRecycling from "@/components/services/recycling-setups/PlasticRecycling"
   import BusinessGrowth from "./BusinessGrowth";
   import SetupCommissioningDocumentation from "../components/services/plant operation intelligence/SetupCommissioningDocumentation";
   import ScaleAndGrowthSystems from "../components/services/plant operation intelligence/ScaleAndGrowthSystems";import OperationPerformanceManagement from "../components/services/plant operation intelligence/OperationPerformanceManagement";  import StickyContactForm from "@/components/StickyContactForm";
@@ -21,6 +22,18 @@ import EprCreditsTyreWasteBlog from "@/components/services/epr credits/EprTyre";
 import EprUsedOilBlog from "@/components/services/epr credits/EprUsedOil";
 import EprElectronic from "@/components/services/epr credits/EprElectronic";
 import EprBattery from "@/components/services/epr credits/EprBattery";
+import ConsentToEstablish from "@/components/services/license-and-certification/consent-to-establish";
+import ConsentToOperate from "@/components/services/license-and-certification/consent-to-operate";
+import HazardousWasteAuthorization from "@/components/services/license-and-certification/hazardous-waste-authorization";
+import BioMedicalWasteAuthorization from "@/components/services/license-and-certification/bio-medical-waste-authorization";
+import HazardousWasteImpactAuthorization from "@/components/services/license-and-certification/hazardous-waste-impact-authorization";
+import ExtendedProducerResponsiblity from "@/components/services/license-and-certification/extended-producer-responsibility";
+import LegalMetrologyPackagedCommudities from "@/components/services/license-and-certification/legal-metrology-packaged-commudities";
+import WirelessPlanningCommision from "@/components/services/license-and-certification/wireless-planning-commision";
+import DirectorateGeneralOfForeignTrade from "@/components/services/license-and-certification/directorate-general-of-foreign-trade";
+import CompulsoryRegistrationScheme from "@/components/services/license-and-certification/complusory-registration-scheme";
+import IndianStandardsInstitute from "@/components/services/license-and-certification/indian-standards-institute";
+import ForeignManufacturersCertificationScheme from "@/components/services/license-and-certification/foreign-manufacturers-certification-scheme";
   const ServiceDetails = () => {
     const { serviceSlug } = useParams();
     const service = services.find((item) => item.slug === serviceSlug);
@@ -75,7 +88,7 @@ import EprBattery from "@/components/services/epr credits/EprBattery";
     }
 
     if (service.slug === "recycling-plastic") {
-      return <PlasticRecyclingBlog />;
+      return <PlasticRecycling />;
     }
 
     if (service.slug === "business-growth") {
@@ -86,9 +99,43 @@ import EprBattery from "@/components/services/epr credits/EprBattery";
       return <SetupCommissioningDocumentation />;
     }
 
-    if (service.slug === "scale-and-growth-systems") {
-      return <ScaleAndGrowthSystems />;
+    if (service.slug === "consent-to-establish") {
+      return <ConsentToEstablish />;
     }
+    if (service.slug === "consent-to-operate") {
+      return <ConsentToOperate />;
+    }
+    if (service.slug === "hazardous-waste-authorization") {
+      return <HazardousWasteAuthorization />;
+    }
+    if (service.slug === "bio-medical-waste-authorization") {
+      return <BioMedicalWasteAuthorization />;
+    }
+    if (service.slug === "hazardous-waste-impact-authorization") {
+      return <HazardousWasteImpactAuthorization />;
+    }
+    if (service.slug === "extended-producer-responsibility") {
+      return <ExtendedProducerResponsiblity />;
+    }
+    if (service.slug === "indian-standards-institute") {
+      return <IndianStandardsInstitute/>;
+    }
+    if (service.slug === "foreign-manufacturers-certification-scheme") {
+      return <ForeignManufacturersCertificationScheme/>;
+    }
+    if (service.slug === "complusory-registration-scheme") {
+      return <CompulsoryRegistrationScheme/>;
+    }
+    if (service.slug === "legal-metrology-packaged-commudities") {
+      return <LegalMetrologyPackagedCommudities />;
+    }
+    if (service.slug === "wireless-planning-commision") {
+      return <WirelessPlanningCommision/>;
+    }
+    if (service.slug === "directorate-general-of-foreign-trade") {
+      return <DirectorateGeneralOfForeignTrade />;
+    }
+
 
     const getScopedBlogHtml = (html: string) => {
       const styleMatch = html.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
@@ -194,7 +241,8 @@ import EprBattery from "@/components/services/epr credits/EprBattery";
         .embedded-blog .card.section {
           overflow-x: hidden !important;
           min-width: 0 !important;
-        }
+        }import extendedProducerResponsiblity from '../components/services/license-and-certification/extended-producer-responsibility';
+
       `;
 
       return `<style>${scopeCss}</style><style>${overflowFix}</style><div class="embedded-blog">${rawBody}</div>`;

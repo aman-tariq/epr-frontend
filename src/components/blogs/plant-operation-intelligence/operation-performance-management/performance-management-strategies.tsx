@@ -3,11 +3,40 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const PerformanceManagementStrategies: React.FC = () => {
   return (
     // Outer canvas using a soft modern slate-light background instead of deep dark mode
-    <div className="min-h-screen bg-[#f8fafc] text-[#1e293b] font-sans">
+    <div className="min-h-screen mt-[80px] bg-[#f8fafc] text-[#1e293b] font-sans">
       <div className="flex flex-col lg:flex-row gap-8 items-stretch max-w-[1440px] mx-auto p-4 md:p-6">
         
         {/* MAIN CONTENT FIELD */}
@@ -49,7 +78,7 @@ const PerformanceManagementStrategies: React.FC = () => {
           <div className="max-w-[1180px] mx-auto py-6">
             
             {/* HERO — Revamped with a light green/blue mesh gradient profile layout */}
-            <section className="hero-card border border-blue-200 rounded-[32px] overflow-hidden shadow-xs bg-white relative"
+            <Reveal delay={0.05}> <section className="hero-card border border-blue-200 rounded-[32px] overflow-hidden shadow-xs bg-white relative"
               style={{
                 background: 'linear-gradient(135deg, rgba(240,253,244,0.9), rgba(219,234,254,0.6)), #ffffff'
               }}>
@@ -117,10 +146,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Why Performance Management Matters Split Block */}
-            <section id="overview" className="section mt-12 grid md:grid-cols-2 gap-8">
+            <Reveal delay={0.05}> <section id="overview" className="section mt-12 grid md:grid-cols-2 gap-8">
               <div className="card bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
                   Why performance management matters more than ever
@@ -153,10 +182,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Major Topics Panel Grid */}
-            <section className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
+            <Reveal delay={0.05}> <section className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center md:text-left">
                 Major topics every plant should include
               </h2>
@@ -177,10 +206,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Visual Performance Charts Simulation */}
-            <section id="visuals" className="mt-12">
+            <Reveal delay={0.05}> <section id="visuals" className="mt-12">
               <div className="grid md:grid-cols-2 gap-8">
                 
                 {/* Horizontal Bar Chart Graphic */}
@@ -247,10 +276,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                 </div>
 
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Database Snapshot Custom Table Layout */}
-            <section className="mt-12">
+            <Reveal delay={0.05}> <section className="mt-12">
               <div className="card bg-white border border-slate-200 rounded-3xl p-5 md:p-8 shadow-xs overflow-hidden">
                 <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
                   Performance Database Snapshot
@@ -300,10 +329,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                   </table>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Case Study Section Container */}
-            <section id="case-study" className="mt-12">
+            <Reveal delay={0.05}> <section id="case-study" className="mt-12">
               <div className="grid md:grid-cols-2 gap-8">
                 
                 {/* Left Card */}
@@ -346,10 +375,10 @@ const PerformanceManagementStrategies: React.FC = () => {
                 </div>
 
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Accordion Style FAQ Segment */}
-            <section id="faqs" className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
+            <Reveal delay={0.05}> <section id="faqs" className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900">FAQs</h2>
               <div className="space-y-4">
                 {[
@@ -373,7 +402,7 @@ const PerformanceManagementStrategies: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Bottom Tag Footer */}
             <div className="text-center text-slate-400 font-semibold mt-12 py-6 text-xs md:text-sm uppercase tracking-wider bg-slate-100/60 border border-slate-200 rounded-2xl">

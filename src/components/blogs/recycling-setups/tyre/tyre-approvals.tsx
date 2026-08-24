@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
 
@@ -26,11 +27,21 @@ const TyreApprovals: React.FC = () => {
                 type="article"
             />
             
-            <div className="blog-container font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12 px-4 md:px-8">
+            <div className="blog-container mt-[90px] font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12 px-4 md:px-8">
                 
-                <div className="max-w-screen-2xl mx-auto pt-8">
-                    {/* HERO - Stays full width at the top */}
-                    <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-8 md:px-12 py-10 lg:py-20 mb-8 shadow-2xl">
+                <div className="max-w-screen-8xl mx-0 pt-8">
+                   
+
+                    {/* TWO-COLUMN LAYOUT WRAPPER */}
+                    <div className="flex flex-col lg:flex-row gap-2 items-stretch">
+                        <div>
+                             {/* HERO - Stays full width at the top */}
+                    <motion.section 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-8 md:px-12 py-10 lg:py-20 mb-8 shadow-2xl"
+                    >
                         <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20" />
                         <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12" />
 
@@ -49,17 +60,20 @@ const TyreApprovals: React.FC = () => {
                                 A strong approval file protects the project from delay, confusion, and expensive rework.
                             </div>
                         </div>
-                    </section>
-
-                    {/* TWO-COLUMN LAYOUT WRAPPER */}
-                    <div className="flex flex-col lg:flex-row gap-8 relative">
+                    </motion.section>
                         
                         {/* LEFT COLUMN - Main Content */}
-                        <div className="flex-1 w-full lg:w-[65%] xl:w-[70%]">
+                        <div className="flex-1 w-full">
                             
                             {/* Main Grid */}
                             <div className="grid lg:grid-cols-1 gap-6 mb-8">
-                                <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]">
+                                <motion.section 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5 }}
+                                    className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]"
+                                >
                                     <h2 className="text-2xl lg:text-4xl font-bold mb-5 text-[#0f172a]">Why Approvals Matter in Tyre Waste Recycling</h2>
                                     <p className="text-[#5b6472] mb-4">
                                         Tyre waste recycling is a practical business, but it is also a heavily regulated one. The project handles waste material, industrial equipment, storage, and commercial processing.
@@ -81,9 +95,15 @@ const TyreApprovals: React.FC = () => {
                                         <span className="pill px-4 py-2 text-sm font-semibold rounded-full bg-blue-100 border border-blue-200 text-blue-700">Investor Confidence</span>
                                         <span className="pill px-4 py-2 text-sm font-semibold rounded-full bg-teal-100 border border-teal-200 text-teal-700">Clear Execution</span>
                                     </div>
-                                </section>
+                                </motion.section>
 
-                                <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]">
+                                <motion.section 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5 }}
+                                    className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]"
+                                >
                                     <h2 className="text-2xl lg:text-4xl font-bold mb-5 text-[#0f172a]">What the Client Should Understand First</h2>
                                     <p className="text-[#5b6472] mb-4">
                                         A tyre recycling plant may need business registration, environmental permissions, safety approvals, and factory-related compliance. Import permissions may also be required for waste tyres or rubber scrap.
@@ -95,11 +115,17 @@ const TyreApprovals: React.FC = () => {
                                     <div className="highlight mt-6">
                                         <strong>Simple message:</strong> The right approvals help the plant move forward without avoidable redesign.
                                     </div>
-                                </section>
+                                </motion.section>
                             </div>
 
                             {/* Approval Journey Steps */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-2xl lg:text-4xl font-bold mb-5 text-[#0f172a]">The Approval Journey in Simple Steps</h2>
                                 <p className="text-[#5b6472] mb-8">
                                     Clients understand compliance better when the process is shown step by step.
@@ -121,10 +147,16 @@ const TyreApprovals: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* Complete Checklist */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-2xl lg:text-4xl font-bold mb-5 text-[#0f172a]">Licences & Approvals — The Complete Checklist</h2>
                                 <p className="text-[#5b6472] mb-8">
                                     Practical checklist for a tyre waste recycling project:
@@ -156,12 +188,18 @@ const TyreApprovals: React.FC = () => {
                                 <div className="highlight mt-8 p-6 bg-gradient-to-br from-amber-50 to-white border-l-4 border-amber-500 rounded-2xl text-sm">
                                     <strong>Important Note:</strong> Imported waste tyres require Form 5, valid CTO, and Hazardous Waste Authorisation. Many proposals are scrutinized for CPCB site compliance and same-premises production model.
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* Visual Grid */}
                             <div className="grid lg:grid-cols-1 gap-6 mb-8">
                                 {/* Bar Graph */}
-                                <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]">
+                                <motion.section 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5 }}
+                                    className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]"
+                                >
                                     <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-[#0f172a]">Where Approval Effort Usually Goes</h2>
                                     <p className="text-[#5b6472] mb-8 text-sm">Illustrative effort distribution</p>
 
@@ -192,10 +230,16 @@ const TyreApprovals: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </section>
+                                </motion.section>
 
                                 {/* Readiness Tracker */}
-                                <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]">
+                                <motion.section 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5 }}
+                                    className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb]"
+                                >
                                     <h2 className="text-2xl font-bold mb-2 text-[#0f172a]">Approval Readiness Tracker</h2>
                                     <p className="text-[#5b6472] mb-6 text-sm">Dashboard-style overview</p>
 
@@ -212,11 +256,17 @@ const TyreApprovals: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </section>
+                                </motion.section>
                             </div>
 
                             {/* How We Explain Approvals */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-3xl font-bold mb-5 text-[#0f172a]">How We Explain Approvals to Clients</h2>
                                 <p className="text-[#5b6472] mb-8">
                                     A strong approvals blog should sound practical, not technical. The client should feel guided, not overwhelmed.
@@ -251,10 +301,16 @@ const TyreApprovals: React.FC = () => {
                                 <div className="highlight mt-8 p-6 bg-gradient-to-br from-teal-50 to-white border-l-4 border-teal-600 rounded-2xl">
                                     <strong>Easy client explanation:</strong> A well-planned approval file keeps the project moving in the right direction.
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* Quick Approval Summary Database */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-3xl font-bold mb-5 text-[#0f172a]">Quick Approval Summary Database</h2>
                                 <p className="text-[#5b6472] mb-8">
                                     This table gives a short project-style summary for easier client understanding.
@@ -298,10 +354,16 @@ const TyreApprovals: React.FC = () => {
                                         </tbody>
                                     </table>
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* Case Study */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-3xl font-bold mb-5 text-[#0f172a]">Case Study: A Tyre Recycling Project That Needed a Cleaner Approval Path</h2>
                                 <p className="text-[#5b6472] mb-8">
                                     A client planned to start a tyre waste recycling plant near an industrial zone. The business idea was strong, but the approval sequence was not fully mapped.
@@ -323,10 +385,16 @@ const TyreApprovals: React.FC = () => {
                                 <div className="highlight mt-8">
                                     <strong>Lesson:</strong> A clear approval roadmap saves time, reduces confusion, and protects the project from avoidable rework.
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* FAQ */}
-                            <section className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="card bg-white rounded-3xl p-4 lg:p-8 shadow-xl border border-[#e5e7eb] mb-8"
+                            >
                                 <h2 className="text-3xl font-bold mb-6 text-[#0f172a]">Frequently Asked Questions</h2>
                                 <div className="space-y-6">
                                     {[
@@ -349,10 +417,16 @@ const TyreApprovals: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </section>
+                            </motion.section>
 
                             {/* Closing */}
-                            <section className="closing relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-8 md:px-12 py-16 mb-8 lg:mb-0">
+                            <motion.section 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="closing relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-8 md:px-12 py-16 mb-8 lg:mb-0"
+                            >
                                 <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20" />
                                 <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12" />
 
@@ -368,14 +442,15 @@ const TyreApprovals: React.FC = () => {
                                         “Clear approvals build a stronger recycling future.”
                                     </div>
                                 </div>
-                            </section>
+                            </motion.section>
 
+                        </div>
                         </div>
 
                         {/* RIGHT COLUMN - Sticky Sidebar Area */}
-                        <aside className="w-full lg:w-[35%] xl:w-[30%]">
+                        <aside className="hidden lg:block shrink-0 w-[320px]">
                             {/* Changed top-6 to top-28 to account for navbar height */}
-                            <div className="sticky top-28 z-10">
+                            <div className="sticky top-28 px-2">
                                 <StickyContactForm />
                             </div>
                         </aside>

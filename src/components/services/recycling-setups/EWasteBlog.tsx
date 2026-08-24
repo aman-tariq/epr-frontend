@@ -2,6 +2,35 @@ import React, { useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import StickyContactForm from "../../StickyContactForm";
 import Seo from "@/components/Seo";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const EWasteBlog: React.FC = () => {
   useEffect(() => {
@@ -121,8 +150,8 @@ const EWasteBlog: React.FC = () => {
         PB = 30;
       const cW = W - PL - PR,
         cH = H - PT - PB;
-      const sx = (i) => PL + i * (cW / 4);
-      const sy = (v) => PT + cH - (v / 28) * cH;
+      const sx = (i: number) => PL + i * (cW / 4);
+      const sy = (v: number) => PT + cH - (v / 28) * cH;
 
       for (let v = 0; v <= 28; v += 7) {
         const y = sy(v);
@@ -189,787 +218,794 @@ const EWasteBlog: React.FC = () => {
       />
       <div className="page-body">
         {/* TAGS */}
-        <div style={styles.tagRow}>
-          <span style={{ ...styles.tag, ...styles.tg }}>
-            EPR Nexuss | Ultimate Guide
-          </span>
-          <span style={{ ...styles.tag, ...styles.to }}>
-            🖥️ E-Waste Plant Edition
-          </span>
-          <span style={{ ...styles.tag, ...styles.tb }}>
-            📊 Data + Case Study
-          </span>
-          <span style={{ ...styles.tag, ...styles.tr }}>
-            🔥 2026 Complete Blueprint
-          </span>
-        </div>
+        <Reveal>
+          <div style={styles.tagRow}>
+            <span style={{ ...styles.tag, ...styles.tg }}>
+              EPR Nexuss | Ultimate Guide
+            </span>
+            <span style={{ ...styles.tag, ...styles.to }}>
+              🖥️ E-Waste Plant Edition
+            </span>
+            <span style={{ ...styles.tag, ...styles.tb }}>
+              📊 Data + Case Study
+            </span>
+            <span style={{ ...styles.tag, ...styles.tr }}>
+              🔥 2026 Complete Blueprint
+            </span>
+          </div>
+        </Reveal>
 
         {/* HERO */}
-        <div style={styles.hero}>
-          <div style={styles.heroCircuit}></div>
-          <div style={styles.heroGlow}></div>
-          <div style={styles.heroGlow2}></div>
-          <div style={styles.heroBadge}>
-            <span style={styles.pulse}></span>
-            INDIA'S E-WASTE CRISIS — AND YOUR OPPORTUNITY
-          </div>
-          <div style={styles.heroH} className="heroH">
-            India’s E-Waste Crisis Demands Responsible Action.
-            <em
-              style={{
-                fontStyle: "normal",
-                color: "hsl(var(--secondary))",
-                display: "block",
-              }}
-            >
-              Build a Recycling Facility That Delivers Impact and Growth.
-            </em>
-          </div>
-          <div style={styles.heroSub}>
-            India generates 3.2 million tonnes of e-waste every year — the third
-            largest in the world. Less than 22% is formally recycled. The rest
-            is burned, buried, or picked apart by children with bare hands in
-            toxic junkyards. The entrepreneurs who build certified E-waste
-            recycling plants in 2026 won't just profit — they will become part
-            of the most important industrial story of this decade.
-          </div>
-          <div style={styles.heroStats}>
-            <div style={styles.hstat}>
-              <div style={styles.hstatN}>3.2MT</div>
-              <div style={styles.hstatL}>India's annual e-waste generation</div>
+        <Reveal delay={0.1}>
+          <div style={styles.hero}>
+            <div style={styles.heroCircuit}></div>
+            <div style={styles.heroGlow}></div>
+            <div style={styles.heroGlow2}></div>
+            <div style={styles.heroBadge}>
+              <span style={styles.pulse}></span>
+              INDIA'S E-WASTE CRISIS — AND YOUR OPPORTUNITY
             </div>
-            <div style={styles.hstat}>
-              <div style={styles.hstatN}>78%</div>
-              <div style={styles.hstatL}>
-                Informally handled — zero compliance
+            <div style={styles.heroH} className="heroH">
+              India’s E-Waste Crisis Demands Responsible Action.
+              <em
+                style={{
+                  fontStyle: "normal",
+                  color: "hsl(var(--secondary))",
+                  display: "block",
+                }}
+              >
+                Build a Recycling Facility That Delivers Impact and Growth.
+              </em>
+            </div>
+            <div style={styles.heroSub}>
+              India generates 3.2 million tonnes of e-waste every year — the third
+              largest in the world. Less than 22% is formally recycled. The rest
+              is burned, buried, or picked apart by children with bare hands in
+              toxic junkyards. The entrepreneurs who build certified E-waste
+              recycling plants in 2026 won't just profit — they will become part
+              of the most important industrial story of this decade.
+            </div>
+            <div style={styles.heroStats}>
+              <div style={styles.hstat}>
+                <div style={styles.hstatN}>3.2MT</div>
+                <div style={styles.hstatL}>India's annual e-waste generation</div>
+              </div>
+              <div style={styles.hstat}>
+                <div style={styles.hstatN}>78%</div>
+                <div style={styles.hstatL}>
+                  Informally handled — zero compliance
+                </div>
+              </div>
+              <div style={styles.hstat}>
+                <div style={styles.hstatN}>₹18K Cr</div>
+                <div style={styles.hstatL}>India e-waste market size by 2027</div>
+              </div>
+              <div style={styles.hstat}>
+                <div style={styles.hstatN}>₹8L+</div>
+                <div style={styles.hstatL}>Precious metals per tonne of PCBs</div>
               </div>
             </div>
-            <div style={styles.hstat}>
-              <div style={styles.hstatN}>₹18K Cr</div>
-              <div style={styles.hstatL}>India e-waste market size by 2027</div>
-            </div>
-            <div style={styles.hstat}>
-              <div style={styles.hstatN}>₹8L+</div>
-              <div style={styles.hstatL}>Precious metals per tonne of PCBs</div>
-            </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div style={styles.meta}>
-          <span>
-            By <span style={styles.brand}>EPR Nexuss Team</span>
-          </span>
-          <span>April 2026</span>
-          <span>12 min read</span>
-          <span>♻️ Most Complete E-Waste Guide in India</span>
-        </div>
+        <Reveal delay={0.05}>
+          <div style={styles.meta}>
+            <span>
+              By <span style={styles.brand}>EPR Nexuss Team</span>
+            </span>
+            <span>April 2026</span>
+            <span>12 min read</span>
+            <span>♻️ Most Complete E-Waste Guide in India</span>
+          </div>
+        </Reveal>
 
-        <p style={styles.bodyText}>
-          Every phone you upgrade, every laptop you discard, every television
-          you replace — it goes somewhere. In India, that "somewhere" is almost
-          always a cluster of informal workers in Delhi's Seelampur, Mumbai's
-          Dharavi, or Bengaluru's outskirts, melting circuit boards over open
-          fires to extract gold and copper. The toxic fumes cause irreversible
-          lung damage. The acids contaminate rivers. The lead poisons soil for
-          decades.
-        </p>
-        <p style={styles.bodyText}>
-          This is not just an environmental crime. It is an economic failure —
-          because those same circuit boards contain gold, silver, palladium, and
-          copper worth lakhs of rupees per tonne. And right now,{" "}
-          <span style={styles.brandI}>EPR Nexuss</span> is helping
-          forward-thinking businesses capture that value legally, profitably,
-          and at scale. Here is the complete blueprint.
-        </p>
+        <Reveal delay={0.05}>
+          <p style={styles.bodyText}>
+            Every phone you upgrade, every laptop you discard, every television
+            you replace — it goes somewhere. In India, that "somewhere" is almost
+            always a cluster of informal workers in Delhi's Seelampur, Mumbai's
+            Dharavi, or Bengaluru's outskirts, melting circuit boards over open
+            fires to extract gold and copper. The toxic fumes cause irreversible
+            lung damage. The acids contaminate rivers. The lead poisons soil for
+            decades.
+          </p>
+          <p style={styles.bodyText}>
+            This is not just an environmental crime. It is an economic failure —
+            because those same circuit boards contain gold, silver, palladium, and
+            copper worth lakhs of rupees per tonne. And right now,{" "}
+            <span style={styles.brandI}>EPR Nexuss</span> is helping
+            forward-thinking businesses capture that value legally, profitably,
+            and at scale. Here is the complete blueprint.
+          </p>
+        </Reveal>
 
-        <div style={styles.hbox}>
-          "India throws away ₹1,00,000 crore worth of recoverable precious
-          metals every single year by allowing e-waste to flow into the informal
-          sector. Every certified E-waste recycling plant built today is a
-          direct claim on that treasure — with full government backing."
-        </div>
+        <Reveal>
+          <div style={styles.hbox}>
+            "India throws away ₹1,00,000 crore worth of recoverable precious
+            metals every single year by allowing e-waste to flow into the informal
+            sector. Every certified E-waste recycling plant built today is a
+            direct claim on that treasure — with full government backing."
+          </div>
+        </Reveal>
 
         {/* SECTION 1: CRISIS */}
-        <div style={styles.secTitle}>The Crisis Behind The Opportunity</div>
-        <div style={styles.probGrid} className="probGrid">
-          <div style={{ ...styles.probCard }}>
-            <span style={styles.probIcon}>☠️</span>
-            <div style={styles.probTitle}>Toxic Informal Processing</div>
-            <div style={styles.probText}>
-              Over 1.5 million workers — including children — handle e-waste
-              informally. Open-air acid baths, burning cables, and mercury
-              extraction cause permanent health damage with zero safety
-              measures.
+        <Reveal>
+          <div style={styles.secTitle}>The Crisis Behind The Opportunity</div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div style={styles.probGrid} className="probGrid">
+            <div style={{ ...styles.probCard }}>
+              <span style={styles.probIcon}>☠️</span>
+              <div style={styles.probTitle}>Toxic Informal Processing</div>
+              <div style={styles.probText}>
+                Over 1.5 million workers — including children — handle e-waste
+                informally. Open-air acid baths, burning cables, and mercury
+                extraction cause permanent health damage with zero safety
+                measures.
+              </div>
+            </div>
+            <div style={{ ...styles.probCard, ...styles.probCardLight }}>
+              <span style={styles.probIcon}>📉</span>
+              <div style={styles.probTitle}>₹1 Lakh Crore Lost Annually</div>
+              <div style={styles.probText}>
+                Gold, silver, palladium, copper — recoverable at 95%+ purity
+                through certified processes — are lost to inefficient informal
+                extraction that recovers barely 30% of available value.
+              </div>
+            </div>
+            <div style={{ ...styles.probCard, ...styles.probCardLight }}>
+              <span style={styles.probIcon}>⚖️</span>
+              <div style={styles.probTitle}>E-Waste Management Rules 2022</div>
+              <div style={styles.probText}>
+                India's updated EWMR 2022 makes EPR mandatory for ALL producers
+                and importers of electronics. Non-compliance triggers CPCB
+                penalties, import bans, and licence revocations.
+              </div>
+            </div>
+            <div style={{ ...styles.probCard }}>
+              <span style={styles.probIcon}>📈</span>
+              <div style={styles.probTitle}>The Infrastructure Gap</div>
+              <div style={styles.probText}>
+                India has only ~312 registered e-waste recyclers for 3.2 MT of
+                annual waste. At current growth rates, India will need 3× this
+                capacity by 2028. That gap is your business opportunity.
+              </div>
             </div>
           </div>
-          <div style={{ ...styles.probCard, ...styles.probCardLight }}>
-            <span style={styles.probIcon}>📉</span>
-            <div style={styles.probTitle}>₹1 Lakh Crore Lost Annually</div>
-            <div style={styles.probText}>
-              Gold, silver, palladium, copper — recoverable at 95%+ purity
-              through certified processes — are lost to inefficient informal
-              extraction that recovers barely 30% of available value.
-            </div>
-          </div>
-          <div style={{ ...styles.probCard, ...styles.probCardLight }}>
-            <span style={styles.probIcon}>⚖️</span>
-            <div style={styles.probTitle}>E-Waste Management Rules 2022</div>
-            <div style={styles.probText}>
-              India's updated EWMR 2022 makes EPR mandatory for ALL producers
-              and importers of electronics. Non-compliance triggers CPCB
-              penalties, import bans, and licence revocations.
-            </div>
-          </div>
-          <div style={{ ...styles.probCard }}>
-            <span style={styles.probIcon}>📈</span>
-            <div style={styles.probTitle}>The Infrastructure Gap</div>
-            <div style={styles.probText}>
-              India has only ~312 registered e-waste recyclers for 3.2 MT of
-              annual waste. At current growth rates, India will need 3× this
-              capacity by 2028. That gap is your business opportunity.
-            </div>
-          </div>
-        </div>
+        </Reveal>
 
         {/* CHART 1 */}
-        <div style={styles.chartWrap}>
-          <div style={styles.chartTitle}>
-            📈 India E-Waste Generation (Million Tonnes) — 2019 to 2030
+        <Reveal>
+          <div style={styles.chartWrap}>
+            <div style={styles.chartTitle}>
+              📈 India E-Waste Generation (Million Tonnes) — 2019 to 2030
+            </div>
+            <div style={styles.chartSub}>
+              Actual data 2019–2024 | Projected 2025–2030 | Source: MoEFCC &
+              ASSOCHAM
+            </div>
+            <div style={styles.barChart} id="ewChart"></div>
+            <div style={{ display: "flex", gap: "16px", marginTop: "10px" }}>
+              <span
+                style={{
+                  fontSize: "11px",
+                  color: "var(--color-text-secondary,#666)",
+                }}
+              >
+                <span style={{ color: "#2E7D32" }}>■</span> Actual &nbsp;
+                <span style={{ color: "#81C784" }}>■</span> Projected
+              </span>
+            </div>
           </div>
-          <div style={styles.chartSub}>
-            Actual data 2019–2024 | Projected 2025–2030 | Source: MoEFCC &
-            ASSOCHAM
-          </div>
-          <div style={styles.barChart} id="ewChart"></div>
-          <div style={{ display: "flex", gap: "16px", marginTop: "10px" }}>
-            <span
-              style={{
-                fontSize: "11px",
-                color: "var(--color-text-secondary,#666)",
-              }}
-            >
-              <span style={{ color: "#2E7D32" }}>■</span> Actual &nbsp;
-              <span style={{ color: "#81C784" }}>■</span> Projected
-            </span>
-          </div>
-        </div>
-
-        {/* CHART 2 */}
-        {/* <div style={styles.chartWrap}>
-        <div style={styles.chartTitle}>💰 Precious & Base Metal Recovery Value per Tonne of E-Waste (₹ Lakhs)</div>
-        <div style={styles.chartSub}>Based on Q1 2026 LME prices | PCB-rich stream (computers, servers, mobiles)</div>
-        <div style={styles.matDb} id="matDb"></div>
-      </div> */}
+        </Reveal>
 
         {/* DONUT */}
-        <div style={styles.chartWrap}>
-          <div style={styles.chartTitle}>
-            🗂️ India E-Waste Composition by Category (2025)
-          </div>
-          <div style={styles.chartSub}>
-            Source: Central Pollution Control Board Annual Report
-          </div>
-          <div style={styles.donutWrap}>
-            <svg width="140" height="140" viewBox="0 0 140 140">
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#E8F5E9"
-                strokeWidth="24"
-              />
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#1B5E20"
-                strokeWidth="24"
-                strokeDasharray="122 217"
-                strokeDashoffset="0"
-                transform="rotate(-90 70 70)"
-              />
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#2E7D32"
-                strokeWidth="24"
-                strokeDasharray="61 278"
-                strokeDashoffset="-122"
-                transform="rotate(-90 70 70)"
-              />
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#4CAF50"
-                strokeWidth="24"
-                strokeDasharray="47 292"
-                strokeDashoffset="-183"
-                transform="rotate(-90 70 70)"
-              />
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#81C784"
-                strokeWidth="24"
-                strokeDasharray="34 305"
-                strokeDashoffset="-230"
-                transform="rotate(-90 70 70)"
-              />
-              <circle
-                cx="70"
-                cy="70"
-                r="54"
-                fill="none"
-                stroke="#C8E6C9"
-                strokeWidth="24"
-                strokeDasharray="22 317"
-                strokeDashoffset="-264"
-                transform="rotate(-90 70 70)"
-              />
-              <text
-                x="70"
-                y="65"
-                textAnchor="middle"
-                fontSize="13"
-                fontWeight="800"
-                fill="var(--color-text-primary,#111)"
-              >
-                3.2 MT
-              </text>
-              <text
-                x="70"
-                y="80"
-                textAnchor="middle"
-                fontSize="10"
-                fill="var(--color-text-secondary,#666)"
-              >
-                total / yr
-              </text>
-            </svg>
-            <div style={styles.donutLegend}>
-              <div style={styles.legendItem}>
-                <span
-                  style={{ ...styles.legendDot, background: "#1B5E20" }}
-                ></span>
-                <span>
-                  <strong>IT Equipment</strong> (computers, laptops, servers) —
-                  40%
-                </span>
-              </div>
-              <div style={styles.legendItem}>
-                <span
-                  style={{ ...styles.legendDot, background: "#2E7D32" }}
-                ></span>
-                <span>
-                  <strong>Telecom Equipment</strong> (phones, routers) — 20%
-                </span>
-              </div>
-              <div style={styles.legendItem}>
-                <span
-                  style={{ ...styles.legendDot, background: "#4CAF50" }}
-                ></span>
-                <span>
-                  <strong>Consumer Electronics</strong> (TV, audio) — 15%
-                </span>
-              </div>
-              <div style={styles.legendItem}>
-                <span
-                  style={{ ...styles.legendDot, background: "#81C784" }}
-                ></span>
-                <span>
-                  <strong>Electrical Equipment</strong> (UPS, panels) — 11%
-                </span>
-              </div>
-              <div style={styles.legendItem}>
-                <span
-                  style={{ ...styles.legendDot, background: "#C8E6C9" }}
-                ></span>
-                <span>
-                  <strong>Others</strong> (appliances, medical) — 14%
-                </span>
+        <Reveal>
+          <div style={styles.chartWrap}>
+            <div style={styles.chartTitle}>
+              🗂️ India E-Waste Composition by Category (2025)
+            </div>
+            <div style={styles.chartSub}>
+              Source: Central Pollution Control Board Annual Report
+            </div>
+            <div style={styles.donutWrap}>
+              <svg width="140" height="140" viewBox="0 0 140 140">
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#E8F5E9"
+                  strokeWidth="24"
+                />
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#1B5E20"
+                  strokeWidth="24"
+                  strokeDasharray="122 217"
+                  strokeDashoffset="0"
+                  transform="rotate(-90 70 70)"
+                />
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#2E7D32"
+                  strokeWidth="24"
+                  strokeDasharray="61 278"
+                  strokeDashoffset="-122"
+                  transform="rotate(-90 70 70)"
+                />
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#4CAF50"
+                  strokeWidth="24"
+                  strokeDasharray="47 292"
+                  strokeDashoffset="-183"
+                  transform="rotate(-90 70 70)"
+                />
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#81C784"
+                  strokeWidth="24"
+                  strokeDasharray="34 305"
+                  strokeDashoffset="-230"
+                  transform="rotate(-90 70 70)"
+                />
+                <circle
+                  cx="70"
+                  cy="70"
+                  r="54"
+                  fill="none"
+                  stroke="#C8E6C9"
+                  strokeWidth="24"
+                  strokeDasharray="22 317"
+                  strokeDashoffset="-264"
+                  transform="rotate(-90 70 70)"
+                />
+                <text
+                  x="70"
+                  y="65"
+                  textAnchor="middle"
+                  fontSize="13"
+                  fontWeight="800"
+                  fill="var(--color-text-primary,#111)"
+                >
+                  3.2 MT
+                </text>
+                <text
+                  x="70"
+                  y="80"
+                  textAnchor="middle"
+                  fontSize="10"
+                  fill="var(--color-text-secondary,#666)"
+                >
+                  total / yr
+                </text>
+              </svg>
+              <div style={styles.donutLegend}>
+                <div style={styles.legendItem}>
+                  <span
+                    style={{ ...styles.legendDot, background: "#1B5E20" }}
+                  ></span>
+                  <span>
+                    <strong>IT Equipment</strong> (computers, laptops, servers) —
+                    40%
+                  </span>
+                </div>
+                <div style={styles.legendItem}>
+                  <span
+                    style={{ ...styles.legendDot, background: "#2E7D32" }}
+                  ></span>
+                  <span>
+                    <strong>Telecom Equipment</strong> (phones, routers) — 20%
+                  </span>
+                </div>
+                <div style={styles.legendItem}>
+                  <span
+                    style={{ ...styles.legendDot, background: "#4CAF50" }}
+                  ></span>
+                  <span>
+                    <strong>Consumer Electronics</strong> (TV, audio) — 15%
+                  </span>
+                </div>
+                <div style={styles.legendItem}>
+                  <span
+                    style={{ ...styles.legendDot, background: "#81C784" }}
+                  ></span>
+                  <span>
+                    <strong>Electrical Equipment</strong> (UPS, panels) — 11%
+                  </span>
+                </div>
+                <div style={styles.legendItem}>
+                  <span
+                    style={{ ...styles.legendDot, background: "#C8E6C9" }}
+                  ></span>
+                  <span>
+                    <strong>Others</strong> (appliances, medical) — 14%
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* <div style={styles.ctaInline}>
-        <div style={styles.ctaIt}>Want a profitability model for your e-waste plant? <strong>EPR Nexuss builds free custom feasibility reports for serious investors.</strong></div>
-        <button style={styles.ctaIb} onClick={() => window.location.href='mailto:contact@eprnexuss.com'}>Get Feasibility Report ↗</button>
-      </div> */}
+        </Reveal>
 
         {/* SECTION 2: LAND */}
-        <div style={styles.secTitle}>
-          Land Requirements — What You Need, Where & Why
-        </div>
-        <p style={styles.bodyText}>
-          E-waste recycling involves hazardous chemicals, precious metal
-          recovery, and significant logistics. Land selection is not just about
-          cost — it's about zoning compliance, regulatory proximity, feedstock
-          access, and long-term operational viability.
-        </p>
+        <Reveal>
+          <div style={styles.secTitle}>
+            Land Requirements — What You Need, Where & Why
+          </div>
+          <p style={styles.bodyText}>
+            E-waste recycling involves hazardous chemicals, precious metal
+            recovery, and significant logistics. Land selection is not just about
+            cost — it's about zoning compliance, regulatory proximity, feedstock
+            access, and long-term operational viability.
+          </p>
+        </Reveal>
 
-        <div style={styles.landGrid} className="landGrid">
-          <div style={styles.landCard}>
-            <div style={styles.landIcon}>🏠</div>
-            <div style={styles.landLabel}>SMALL SCALE</div>
-            <div style={styles.landVal}>0.5–1 Acre</div>
-            <div style={styles.landDesc}>
-              Manual dismantling + basic segregation. Up to 500 TPY. Suitable
-              for Tier-2 city collection hubs.
+        <Reveal delay={0.1}>
+          <div style={styles.landGrid} className="landGrid">
+            <div style={styles.landCard}>
+              <div style={styles.landIcon}>🏠</div>
+              <div style={styles.landLabel}>SMALL SCALE</div>
+              <div style={styles.landVal}>0.5–1 Acre</div>
+              <div style={styles.landDesc}>
+                Manual dismantling + basic segregation. Up to 500 TPY. Suitable
+                for Tier-2 city collection hubs.
+              </div>
+            </div>
+            <div style={{ ...styles.landCard, ...styles.landCardFeat }}>
+              <div style={styles.landIcon}>⚙️</div>
+              <div style={styles.landLabel}>MID SCALE ★ IDEAL</div>
+              <div style={styles.landVal}>2–5 Acres</div>
+              <div style={styles.landDesc}>
+                Full processing: shredding, PCB refining, metal recovery.
+                500–5,000 TPY. Best ROI band. Requires MIDC / industrial zone.
+              </div>
+            </div>
+            <div style={styles.landCard}>
+              <div style={styles.landIcon}>🏗️</div>
+              <div style={styles.landLabel}>LARGE SCALE</div>
+              <div style={styles.landVal}>8–15 Acres</div>
+              <div style={styles.landDesc}>
+                Integrated precious metal refinery + hydrometallurgy. 5,000+ TPY.
+                SEZ or large industrial park required.
+              </div>
             </div>
           </div>
-          <div style={{ ...styles.landCard, ...styles.landCardFeat }}>
-            <div style={styles.landIcon}>⚙️</div>
-            <div style={styles.landLabel}>MID SCALE ★ IDEAL</div>
-            <div style={styles.landVal}>2–5 Acres</div>
-            <div style={styles.landDesc}>
-              Full processing: shredding, PCB refining, metal recovery.
-              500–5,000 TPY. Best ROI band. Requires MIDC / industrial zone.
-            </div>
-          </div>
-          <div style={styles.landCard}>
-            <div style={styles.landIcon}>🏗️</div>
-            <div style={styles.landLabel}>LARGE SCALE</div>
-            <div style={styles.landVal}>8–15 Acres</div>
-            <div style={styles.landDesc}>
-              Integrated precious metal refinery + hydrometallurgy. 5,000+ TPY.
-              SEZ or large industrial park required.
-            </div>
-          </div>
-        </div>
+        </Reveal>
 
         {/* REQUIREMENTS TABLE */}
-        <table style={styles.reqTable}>
-          <thead>
-            <tr>
-              <th style={{ ...styles.reqTableTh }}>Land Parameter</th>
-              <th style={{ ...styles.reqTableTh }}>Specification</th>
-              <th style={{ ...styles.reqTableTh }}>Regulatory Basis</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Zoning</strong>
-              </td>
-              <td style={styles.reqTableTd}>Industrial / MIDC / SEZ only</td>
-              <td style={styles.reqTableTd}>
-                EWMR 2022 — residential zones prohibited
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Distance from water bodies</strong>
-              </td>
-              <td style={styles.reqTableTd}>Minimum 500 metres</td>
-              <td style={styles.reqTableTd}>
-                CPCB hazardous waste proximity norms
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Distance from residential areas</strong>
-              </td>
-              <td style={styles.reqTableTd}>Minimum 500 metres</td>
-              <td style={styles.reqTableTd}>
-                Acid fume & emission safety buffer
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>ETP space</strong>
-              </td>
-              <td style={styles.reqTableTd}>20% of total plot area</td>
-              <td style={styles.reqTableTd}>
-                Mandatory for acid/chemical wastewater treatment
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Storage area — hazardous</strong>
-              </td>
-              <td style={styles.reqTableTd}>
-                Separate impermeable bunded yard
-              </td>
-              <td style={styles.reqTableTd}>
-                HWM Rules 2016 Schedule II compliance
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Ventilation & emissions</strong>
-              </td>
-              <td style={styles.reqTableTd}>
-                CPCB-approved stack height, scrubbers
-              </td>
-              <td style={styles.reqTableTd}>
-                Air (Prevention & Control of Pollution) Act
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Road access</strong>
-              </td>
-              <td style={styles.reqTableTd}>Min 9m wide approach road</td>
-              <td style={styles.reqTableTd}>
-                Heavy vehicle logistics — container trucks
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Power requirement</strong>
-              </td>
-              <td style={styles.reqTableTd}>3-phase, minimum 200 KVA</td>
-              <td style={styles.reqTableTd}>
-                Shredders, furnaces, refining equipment
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Preferred locations</strong>
-              </td>
-              <td style={styles.reqTableTd}>
-                Delhi NCR, Mumbai, Bengaluru, Chennai, Hyderabad, Pune
-              </td>
-              <td style={styles.reqTableTd}>
-                Highest e-waste generation density nationally
-              </td>
-            </tr>
-            <tr>
-              <td style={styles.reqTableTd}>
-                <strong>Water supply</strong>
-              </td>
-              <td style={styles.reqTableTd}>Min 10 KLD clean water supply</td>
-              <td style={styles.reqTableTd}>
-                Wet chemical processing and ETP operations
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        {/* <div style={styles.ctaInline}>
-        <div style={styles.ctaIt}>Need help identifying the perfect industrial plot? <strong>EPR Nexuss connects you with MIDC-approved land advisors in your target state.</strong></div>
-        <button style={styles.ctaIb} onClick={() => window.location.href='mailto:contact@eprnexuss.com'}>Find My Land ↗</button>
-      </div> */}
+        <Reveal>
+          <table style={styles.reqTable}>
+            <thead>
+              <tr>
+                <th style={{ ...styles.reqTableTh }}>Land Parameter</th>
+                <th style={{ ...styles.reqTableTh }}>Specification</th>
+                <th style={{ ...styles.reqTableTh }}>Regulatory Basis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Zoning</strong>
+                </td>
+                <td style={styles.reqTableTd}>Industrial / MIDC / SEZ only</td>
+                <td style={styles.reqTableTd}>
+                  EWMR 2022 — residential zones prohibited
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Distance from water bodies</strong>
+                </td>
+                <td style={styles.reqTableTd}>Minimum 500 metres</td>
+                <td style={styles.reqTableTd}>
+                  CPCB hazardous waste proximity norms
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Distance from residential areas</strong>
+                </td>
+                <td style={styles.reqTableTd}>Minimum 500 metres</td>
+                <td style={styles.reqTableTd}>
+                  Acid fume & emission safety buffer
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>ETP space</strong>
+                </td>
+                <td style={styles.reqTableTd}>20% of total plot area</td>
+                <td style={styles.reqTableTd}>
+                  Mandatory for acid/chemical wastewater treatment
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Storage area — hazardous</strong>
+                </td>
+                <td style={styles.reqTableTd}>
+                  Separate impermeable bunded yard
+                </td>
+                <td style={styles.reqTableTd}>
+                  HWM Rules 2016 Schedule II compliance
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Ventilation & emissions</strong>
+                </td>
+                <td style={styles.reqTableTd}>
+                  CPCB-approved stack height, scrubbers
+                </td>
+                <td style={styles.reqTableTd}>
+                  Air (Prevention & Control of Pollution) Act
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Road access</strong>
+                </td>
+                <td style={styles.reqTableTd}>Min 9m wide approach road</td>
+                <td style={styles.reqTableTd}>
+                  Heavy vehicle logistics — container trucks
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Power requirement</strong>
+                </td>
+                <td style={styles.reqTableTd}>3-phase, minimum 200 KVA</td>
+                <td style={styles.reqTableTd}>
+                  Shredders, furnaces, refining equipment
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Preferred locations</strong>
+                </td>
+                <td style={styles.reqTableTd}>
+                  Delhi NCR, Mumbai, Bengaluru, Chennai, Hyderabad, Pune
+                </td>
+                <td style={styles.reqTableTd}>
+                  Highest e-waste generation density nationally
+                </td>
+              </tr>
+              <tr>
+                <td style={styles.reqTableTd}>
+                  <strong>Water supply</strong>
+                </td>
+                <td style={styles.reqTableTd}>Min 10 KLD clean water supply</td>
+                <td style={styles.reqTableTd}>
+                  Wet chemical processing and ETP operations
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Reveal>
 
         {/* SECTION 3: LICENCES */}
-        <div style={styles.secTitle}>Complete Licence & Approval Roadmap</div>
-        <p style={styles.bodyText}>
-          An E-waste recycling plant touches multiple regulatory bodies. Every
-          single approval is non-negotiable — missing one means your plant
-          cannot legally process a single kilogram of e-waste. Here is every
-          licence, who issues it, and exactly how long it takes.
-        </p>
+        <Reveal>
+          <div style={styles.secTitle}>Complete Licence & Approval Roadmap</div>
+          <p style={styles.bodyText}>
+            An E-waste recycling plant touches multiple regulatory bodies. Every
+            single approval is non-negotiable — missing one means your plant
+            cannot legally process a single kilogram of e-waste. Here is every
+            licence, who issues it, and exactly how long it takes.
+          </p>
+        </Reveal>
 
-        <div style={styles.licWrap}>
-          {[
-            {
-              num: "1",
-              name: "GST + Pollution Cess Exemptions",
-              auth: "GST Council / MoEFCC Green Industry Scheme",
-              desc: "Certified e-waste recyclers may qualify for reduced GST on recovered materials, exemption from pollution cess, and green industry subsidies under state industrial promotion policies.",
-              time: "⏱ 10–20 days",
-            },
-            {
-              num: "2",
-              name: "Consent to Establish (CTE)",
-              auth: "State Pollution Control Board (SPCB)",
-              desc: "Required before any construction begins. Evaluates the plant layout, ETP design, air emission controls, and hazardous waste storage systems.",
-              time: "⏱ 60–120 days",
-            },
-            {
-              num: "3",
-              name: "Consent to Operate (CTO)",
-              auth: "State Pollution Control Board (SPCB)",
-              desc: "Issued after construction is complete, ETP is functional, and equipment is installed and verified. The SPCB inspector must physically sign off.",
-              time: "⏱ 30–60 days post-construction",
-            },
-            {
-              num: "4",
-              name: "Hazardous Waste Authorisation",
-              auth: "State Pollution Control Board (SPCB)",
-              desc: "E-waste processing generates hazardous by-products — leaded glass, mercury-containing lamps, brominated flame retardants, CRT dust.",
-              time: "⏱ 30–60 days",
-            },
-            {
-              num: "5",
-              name: "EPR Registration — CPCB Portal",
-              auth: "Central Pollution Control Board (CPCB)",
-              desc: "Mandatory under E-Waste Management Rules 2022 for all recyclers. This is the foundational registration that enables you to generate and trade EPR credits.",
-              time: "⏱ 15–25 days",
-            },
-            {
-              num: "6",
-              name: "Factory Licence",
-              auth: "State Labour Department / Factory Inspector",
-              desc: "Under the Factories Act 1948. Required for any processing facility with 10+ workers and powered machinery.",
-              time: "⏱ 30–45 days",
-            },
-            {
-              num: "7",
-              name: "Authorisation as E-Waste Recycler",
-              auth: "State Pollution Control Board (SPCB)",
-              desc: "Under EWMR 2022, every recycler must obtain SPCB authorisation specifying the categories of e-waste they are permitted to handle.",
-              time: "⏱ 45–90 days",
-            },
-            {
-              num: "8",
-              name: "Fire & Explosive Safety NOC",
-              auth: "State Fire Department + PESO (if solvents used)",
-              desc: "E-waste shredding generates combustible dust, CRT displays contain explosive vacuum chambers. Fire suppression systems verified before NOC issuance.",
-              time: "⏱ 20–40 days",
-            },
-          ].map((lic, idx) => (
-            <div key={idx} style={styles.licItem}>
-              <div style={styles.licLeft}>
-                <div style={styles.licNum}>{lic.num}</div>
-                {idx < 7 && <div style={styles.licLine}></div>}
+        <Reveal delay={0.1}>
+          <div style={styles.licWrap}>
+            {[
+              {
+                num: "1",
+                name: "GST + Pollution Cess Exemptions",
+                auth: "GST Council / MoEFCC Green Industry Scheme",
+                desc: "Certified e-waste recyclers may qualify for reduced GST on recovered materials, exemption from pollution cess, and green industry subsidies under state industrial promotion policies.",
+                time: "⏱ 10–20 days",
+              },
+              {
+                num: "2",
+                name: "Consent to Establish (CTE)",
+                auth: "State Pollution Control Board (SPCB)",
+                desc: "Required before any construction begins. Evaluates the plant layout, ETP design, air emission controls, and hazardous waste storage systems.",
+                time: "⏱ 60–120 days",
+              },
+              {
+                num: "3",
+                name: "Consent to Operate (CTO)",
+                auth: "State Pollution Control Board (SPCB)",
+                desc: "Issued after construction is complete, ETP is functional, and equipment is installed and verified. The SPCB inspector must physically sign off.",
+                time: "⏱ 30–60 days post-construction",
+              },
+              {
+                num: "4",
+                name: "Hazardous Waste Authorisation",
+                auth: "State Pollution Control Board (SPCB)",
+                desc: "E-waste processing generates hazardous by-products — leaded glass, mercury-containing lamps, brominated flame retardants, CRT dust.",
+                time: "⏱ 30–60 days",
+              },
+              {
+                num: "5",
+                name: "EPR Registration — CPCB Portal",
+                auth: "Central Pollution Control Board (CPCB)",
+                desc: "Mandatory under E-Waste Management Rules 2022 for all recyclers. This is the foundational registration that enables you to generate and trade EPR credits.",
+                time: "⏱ 15–25 days",
+              },
+              {
+                num: "6",
+                name: "Factory Licence",
+                auth: "State Labour Department / Factory Inspector",
+                desc: "Under the Factories Act 1948. Required for any processing facility with 10+ workers and powered machinery.",
+                time: "⏱ 30–45 days",
+              },
+              {
+                num: "7",
+                name: "Authorisation as E-Waste Recycler",
+                auth: "State Pollution Control Board (SPCB)",
+                desc: "Under EWMR 2022, every recycler must obtain SPCB authorisation specifying the categories of e-waste they are permitted to handle.",
+                time: "⏱ 45–90 days",
+              },
+              {
+                num: "8",
+                name: "Fire & Explosive Safety NOC",
+                auth: "State Fire Department + PESO (if solvents used)",
+                desc: "E-waste shredding generates combustible dust, CRT displays contain explosive vacuum chambers. Fire suppression systems verified before NOC issuance.",
+                time: "⏱ 20–40 days",
+              },
+            ].map((lic, idx) => (
+              <div key={idx} style={styles.licItem}>
+                <div style={styles.licLeft}>
+                  <div style={styles.licNum}>{lic.num}</div>
+                  {idx < 7 && <div style={styles.licLine}></div>}
+                </div>
+                <div style={styles.licBody}>
+                  <div style={styles.licName}>{lic.name}</div>
+                  <div style={styles.licAuth}>{lic.auth}</div>
+                  <div style={styles.licDesc}>{lic.desc}</div>
+                  <span style={styles.licTime}>{lic.time}</span>
+                </div>
               </div>
-              <div style={styles.licBody}>
-                <div style={styles.licName}>{lic.name}</div>
-                <div style={styles.licAuth}>{lic.auth}</div>
-                <div style={styles.licDesc}>{lic.desc}</div>
-                <span style={styles.licTime}>{lic.time}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
 
         {/* INVESTMENT CHART */}
-        <div style={styles.chartWrap}>
-          <div style={styles.chartTitle}>
-            🏗️ Plant Investment Split by Cost Head (₹ Cr) — Mid-Scale Plant
+        <Reveal>
+          <div style={styles.chartWrap}>
+            <div style={styles.chartTitle}>
+              🏗️ Plant Investment Split by Cost Head (₹ Cr) — Mid-Scale Plant
+            </div>
+            <div style={styles.chartSub}>
+              Total capex range ₹8–18 Cr depending on location and technology mix
+            </div>
+            <div style={styles.barChart} id="investChart"></div>
           </div>
-          <div style={styles.chartSub}>
-            Total capex range ₹8–18 Cr depending on location and technology mix
-          </div>
-          <div style={styles.barChart} id="investChart"></div>
-        </div>
-
-        {/* <div style={styles.ctaInline}>
-        <div style={styles.ctaIt}>Ready to map your 24-month plant journey? <strong>EPR Nexuss project-manages your entire setup — from land selection to first commercial batch.</strong></div>
-        <button style={styles.ctaIb} onClick={() => window.location.href='mailto:contact@eprnexuss.com'}>Start My Plant Journey ↗</button>
-      </div> */}
+        </Reveal>
 
         {/* CASE STUDY */}
-        <div style={styles.secTitle}>
-          Real Case Study — SAMS Recycling Pvt. Ltd., Hapur
-        </div>
-        <p style={styles.bodyText}>
-          Here is a verified, anonymised case study of a successful mid-scale
-          e-waste recycling plant that{" "}
-          <span style={styles.brandI}>EPR Nexuss</span> supported from concept
-          to commercial operations — including the full financial performance in
-          its first two operating years.
-        </p>
+        <Reveal>
+          <div style={styles.secTitle}>
+            Real Case Study — SAMS Recycling Pvt. Ltd., Hapur
+          </div>
+          <p style={styles.bodyText}>
+            Here is a verified, anonymised case study of a successful mid-scale
+            e-waste recycling plant that{" "}
+            <span style={styles.brandI}>EPR Nexuss</span> supported from concept
+            to commercial operations — including the full financial performance in
+            its first two operating years.
+          </p>
+        </Reveal>
 
-        <div style={styles.csCard}>
-          <div style={styles.csHead}>
-            <div style={styles.csBadge}>
-              📋 VERIFIED CASE STUDY — EPR NEXUSS PARTNER
+        <Reveal delay={0.1}>
+          <div style={styles.csCard}>
+            <div style={styles.csHead}>
+              <div style={styles.csBadge}>
+                📋 VERIFIED CASE STUDY — EPR NEXUSS PARTNER
+              </div>
+              <div style={styles.csTitle}>
+                SAMS Recycling Pvt. Ltd.
+                <br />
+                Hapur
+              </div>
             </div>
-            <div style={styles.csTitle}>
-              SAMS Recycling Pvt. Ltd.
-              <br />
-              Hapur
+            <div style={styles.csBody}>
+              <div style={styles.csMeta}>
+                <div style={styles.csMetaCard}>
+                  <div style={styles.csMetaVal}>3,200 TPY</div>
+                  <div style={styles.csMetaLabel}>Processing Capacity</div>
+                </div>
+                <div style={styles.csMetaCard}>
+                  <div style={styles.csMetaVal}>₹12.4 Cr</div>
+                  <div style={styles.csMetaLabel}>Total Capex Invested</div>
+                </div>
+                <div style={styles.csMetaCard}>
+                  <div style={styles.csMetaVal}>19 Months</div>
+                  <div style={styles.csMetaLabel}>Concept to First Batch</div>
+                </div>
+              </div>
+
+              <div style={styles.csSecTitle}>📍 Background & Challenge</div>
+              <ul style={styles.csList}>
+                <li>
+                  <span style={styles.csCk}>▸</span>Promoter: IT asset disposal
+                  company seeking vertical integration into formal recycling
+                </li>
+                <li>
+                  <span style={styles.csCk}>▸</span>Challenge: No prior recycling
+                  plant experience, zero regulatory relationships
+                </li>
+                <li>
+                  <span style={styles.csCk}>▸</span>Engaged EPR Nexuss at Month 1
+                  for end-to-end plant design, all licences
+                </li>
+                <li>
+                  <span style={styles.csCk}>▸</span>Target: Achieve profitability
+                  by end of Year 1 of operations
+                </li>
+              </ul>
+
+              <div style={styles.csSecTitle}>🔑 What EPR Nexuss Delivered</div>
+              <ul style={styles.csList}>
+                <li>
+                  <span style={styles.csCk}>✓</span>SPCB CTE & CTO secured in 108
+                  days (industry average: 180+ days)
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>CPCB EPR registration as
+                  certified recycler — 21 days
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Technology partner: German
+                  shredder line + domestic PCB hydrometallurgy
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Collection MoUs signed with 7
+                  IT OEMs, 3 telecom companies, and 12 corporate IT asset managers
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>CPCB-integrated ERP +
+                  weighbridge tracking system deployed in Week 1
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Zero-Liquid Discharge (ZLD)
+                  ETP designed and installed — zero deficiencies
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Full staff training program
+                  (38 workers + 4 specialists) with HSE compliance support
+                </li>
+              </ul>
+
+              <div style={styles.csSecTitle}>
+                🎯 Outcomes & What Happened Next
+              </div>
+              <ul style={styles.csList}>
+                <li>
+                  <span style={styles.csCk}>✓</span>Plant hit 82% capacity
+                  utilisation by Month 10 — ahead of 18-month target
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Full ROI payback projected at{" "}
+                  <strong>2.8 years</strong> from first commercial batch
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Signed exclusive 3-year
+                  collection agreement with a Bengaluru-based laptop OEM
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Expanded PCB precious metal
+                  refinery — Phase II adding ₹3 Cr annual revenue
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>ISO 14001 + OHSAS 18001
+                  certified — unlocking ESG-linked financing
+                </li>
+                <li>
+                  <span style={styles.csCk}>✓</span>Won 2 state government
+                  contracts for public sector IT asset disposal — ₹85 lakhs
+                </li>
+              </ul>
             </div>
           </div>
-          <div style={styles.csBody}>
-            <div style={styles.csMeta}>
-              <div style={styles.csMetaCard}>
-                <div style={styles.csMetaVal}>3,200 TPY</div>
-                <div style={styles.csMetaLabel}>Processing Capacity</div>
-              </div>
-              <div style={styles.csMetaCard}>
-                <div style={styles.csMetaVal}>₹12.4 Cr</div>
-                <div style={styles.csMetaLabel}>Total Capex Invested</div>
-              </div>
-              <div style={styles.csMetaCard}>
-                <div style={styles.csMetaVal}>19 Months</div>
-                <div style={styles.csMetaLabel}>Concept to First Batch</div>
-              </div>
-            </div>
+        </Reveal>
 
-            <div style={styles.csSecTitle}>📍 Background & Challenge</div>
-            <ul style={styles.csList}>
-              <li>
-                <span style={styles.csCk}>▸</span>Promoter: IT asset disposal
-                company seeking vertical integration into formal recycling
-              </li>
-              <li>
-                <span style={styles.csCk}>▸</span>Challenge: No prior recycling
-                plant experience, zero regulatory relationships
-              </li>
-              <li>
-                <span style={styles.csCk}>▸</span>Engaged EPR Nexuss at Month 1
-                for end-to-end plant design, all licences
-              </li>
-              <li>
-                <span style={styles.csCk}>▸</span>Target: Achieve profitability
-                by end of Year 1 of operations
-              </li>
-            </ul>
-
-            <div style={styles.csSecTitle}>🔑 What EPR Nexuss Delivered</div>
-            <ul style={styles.csList}>
-              <li>
-                <span style={styles.csCk}>✓</span>SPCB CTE & CTO secured in 108
-                days (industry average: 180+ days)
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>CPCB EPR registration as
-                certified recycler — 21 days
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Technology partner: German
-                shredder line + domestic PCB hydrometallurgy
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Collection MoUs signed with 7
-                IT OEMs, 3 telecom companies, and 12 corporate IT asset managers
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>CPCB-integrated ERP +
-                weighbridge tracking system deployed in Week 1
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Zero-Liquid Discharge (ZLD)
-                ETP designed and installed — zero deficiencies
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Full staff training program
-                (38 workers + 4 specialists) with HSE compliance support
-              </li>
-            </ul>
-
-            <div style={styles.csSecTitle}>
-              🎯 Outcomes & What Happened Next
-            </div>
-            <ul style={styles.csList}>
-              <li>
-                <span style={styles.csCk}>✓</span>Plant hit 82% capacity
-                utilisation by Month 10 — ahead of 18-month target
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Full ROI payback projected at{" "}
-                <strong>2.8 years</strong> from first commercial batch
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Signed exclusive 3-year
-                collection agreement with a Bengaluru-based laptop OEM
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Expanded PCB precious metal
-                refinery — Phase II adding ₹3 Cr annual revenue
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>ISO 14001 + OHSAS 18001
-                certified — unlocking ESG-linked financing
-              </li>
-              <li>
-                <span style={styles.csCk}>✓</span>Won 2 state government
-                contracts for public sector IT asset disposal — ₹85 lakhs
-              </li>
-            </ul>
+        <Reveal>
+          <div style={styles.urgency}>
+            <span style={{ fontSize: "18px", flexShrink: 0 }}>⏳</span>
+            <span>
+              <strong>
+                SAMS Recycling started exactly where you are right now.
+              </strong>{" "}
+              No recycling experience. No licences. No collection network. 19
+              months and ₹12.4 Cr later, they generated ₹7.1 Cr net profit in Year
+              1 alone — with Year 2 nearly doubling it. EPR Nexuss delivered every
+              piece of that journey. Your story could start today.
+            </span>
           </div>
-        </div>
-
-        <div style={styles.urgency}>
-          <span style={{ fontSize: "18px", flexShrink: 0 }}>⏳</span>
-          <span>
-            <strong>
-              SAMS Recycling started exactly where you are right now.
-            </strong>{" "}
-            No recycling experience. No licences. No collection network. 19
-            months and ₹12.4 Cr later, they generated ₹7.1 Cr net profit in Year
-            1 alone — with Year 2 nearly doubling it. EPR Nexuss delivered every
-            piece of that journey. Your story could start today.
-          </span>
-        </div>
-
-        {/* <div style={styles.ctaInline}>
-        <div style={styles.ctaIt}>Want to replicate SAMS Recycling's success in your city? <strong>EPR Nexuss will build your complete e-waste plant blueprint — first consultation is free.</strong></div>
-        <button style={styles.ctaIb} onClick={() => window.location.href='mailto:contact@eprnexuss.com'}>Build My Blueprint ↗</button>
-      </div> */}
+        </Reveal>
 
         {/* MAIN CTA */}
-        <div style={styles.ctaMain}>
-          <div style={styles.ctaEyebrow}>
-            ⚡ EPR Nexuss — India's Complete E-Waste Recycling Partner
-          </div>
-          <div style={styles.ctaH}>
-            The Blueprint Is In Your Hands.
-            <em style={{ fontStyle: "normal", color: "#81C784" }}>
-              Now It's Time To Build.
-            </em>
-          </div>
-          <div style={styles.ctaSub}>
-            Licences. Land. Technology. Collection networks. EPR certificates.
-            Precious metal offtake. EPR Nexuss manages every step of your
-            e-waste plant journey — so you can focus on building India's most
-            profitable green business. First consultation is completely free.
-          </div>
-          <div className="cta-wrapper">
-            <div className="cta-btns">
-              <button
-                className="btn-p"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Book Free Consultation ↗
-              </button>
+        <Reveal>
+          <div style={styles.ctaMain}>
+            <div style={styles.ctaEyebrow}>
+              ⚡ EPR Nexuss — India's Complete E-Waste Recycling Partner
+            </div>
+            <div style={styles.ctaH}>
+              The Blueprint Is In Your Hands.
+              <em style={{ fontStyle: "normal", color: "#81C784" }}>
+                Now It's Time To Build.
+              </em>
+            </div>
+            <div style={styles.ctaSub}>
+              Licences. Land. Technology. Collection networks. EPR certificates.
+              Precious metal offtake. EPR Nexuss manages every step of your
+              e-waste plant journey — so you can focus on building India's most
+              profitable green business. First consultation is completely free.
+            </div>
+            <div className="cta-wrapper">
+              <div className="cta-btns">
+                <button
+                  className="btn-p"
+                  onClick={() => (window.location.href = "/contact")}
+                >
+                  Book Free Consultation ↗
+                </button>
 
-              <button
-                className="btn-s"
-                onClick={() => window.open("tel:+919289659966")}
-              >
-                Call Now
-              </button>
+                <button
+                  className="btn-s"
+                  onClick={() => window.open("tel:+919289659966")}
+                >
+                  Call Now
+                </button>
+              </div>
+            </div>
+            <div style={styles.ctaTrust}>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> Free consultation
+              </span>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> End-to-end licensing
+              </span>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> Technology partners
+              </span>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> EPR certificate guaranteed
+              </span>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> Pan-India coverage
+              </span>
+              <span style={styles.ctaTi}>
+                <span style={styles.ck}>✓</span> 7-day fast-track option
+              </span>
             </div>
           </div>
-          <div style={styles.ctaTrust}>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> Free consultation
-            </span>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> End-to-end licensing
-            </span>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> Technology partners
-            </span>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> EPR certificate guaranteed
-            </span>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> Pan-India coverage
-            </span>
-            <span style={styles.ctaTi}>
-              <span style={styles.ck}>✓</span> 7-day fast-track option
-            </span>
-          </div>
-        </div>
+        </Reveal>
       </div>
+
       <div className="hidden lg:block sticky top-28 self-start">
         <StickyContactForm />
-      </div>{" "}
-      {/* STICKY */}
-      {/* <div style={styles.stickyBar}>
-        <div style={styles.stickyText}><strong>EPR Nexuss</strong> — From blueprint to first batch. Every step, together.</div>
-        <button style={styles.stickyBtn} onClick={() => window.location.href='mailto:contact@eprnexuss.com'}>Talk to an Expert ↗</button>
-      </div> */}
+      </div>
     </div>
   );
 };
 
-// Static inline styles
-const styles: { [key: string]: React.CSSProperties } = {
+// Static inline styles definition
+const styles: Record<string, React.CSSProperties> = {
   blogWrap: {
     maxWidth: "1200px",
     margin: "80px auto 0",
@@ -1572,152 +1608,117 @@ const staticStyles = `
     .blog-wrap { padding: 70px 16px 30px; }
     .land-grid { grid-template-columns: 1fr; }
   }
-    /* Container */
-.cta-btns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* Primary Button (Main CTA) */
-.btn-p {
-  background: linear-gradient(135deg, #16a34a, #22c55e); /* premium green */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.25);
-}
-
-.btn-p:hover {
-  background: linear-gradient(135deg, #15803d, #16a34a);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(34, 197, 94, 0.35);
-}
-
-.btn-p:active {
-  transform: scale(0.97);
-}
-
-/* Secondary Button */
-.btn-s {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #cbd5f5;
-  padding: 12px 22px;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-s:hover {
-  background: #f8fafc;
-  border-color: #94a3b8;
-  transform: translateY(-2px);
-}
-
-.btn-s:active {
-  transform: scale(0.97);
-}
+  .cta-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-p {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(34, 197, 94, 0.25);
+  }
+  .btn-p:hover {
+    background: linear-gradient(135deg, #15803d, #16a34a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(34, 197, 94, 0.35);
+  }
+  .btn-p:active {
+    transform: scale(0.97);
+  }
+  .btn-s {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5f5;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-s:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+  }
+  .btn-s:active {
+    transform: scale(0.97);
+  }
   .cta-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 22px;
-}
-  .wrap.has-sticky { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 32px; }
-.page-body { width: 100%; }
-.form-column { position: relative; width: 320px; }
-.wrap.has-sticky {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 32px;
-  // max-width: 1480px;
-  // margin: 80px auto 40px;
-  padding: 24px 18px 36px;
-  background: #f5f7fb;
-  position: relative;
-  max-width: 100% !important;
-  padding: 150px 24px 40px !important;
-  margin: 0 !important;
-
-}
-
-.page-body {
-  width: 100%;
-}
-
-.form-column {
-  position: relative;
-  display: block;
-  width: 320px;
-}
-
-/* Mobile fallback */
-@media (max-width: 900px) {
-  .wrap.has-sticky {
-    // grid-template-columns: 1fr;
-    gap: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
   }
-  
-}
-  @media (max-width: 980px) {
   .wrap.has-sticky {
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-    padding: 16px 12px 40px;
-    margin: 60px auto 20px;
-  }
-  
-  .form-column {
-    // order: -1;
-    // width: 100% !important;
-    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 32px;
+    padding: 150px 24px 40px !important;
+    background: #f5f7fb;
     position: relative;
-    margin-bottom: 30px;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
-
-  .bar-chart, .bar-wrap, .chart {
-    overflow-x: auto;
-    padding-bottom: 12px;
+  .page-body {
+    width: 100%;
   }
-
-  .bar-col {
-    min-width: 60px;
-    flex-shrink: 0;
-  }
-
-  table {
+  .form-column {
+    position: relative;
     display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    width: 320px;
   }
-
-  .hero-grid, .layout, .cols, .kpis, .mini-grid, .land-grid, .prob-grid {
-    grid-template-columns: 1fr !important;
+  @media (max-width: 980px) {
+    .wrap.has-sticky {
+      grid-template-columns: 1fr !important;
+      gap: 24px;
+      padding: 16px 12px 40px;
+      margin: 60px auto 20px;
+    }
+    .form-column {
+      max-width: none;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .bar-chart, .bar-wrap, .chart {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+    .bar-col {
+      min-width: 60px;
+      flex-shrink: 0;
+    }
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .hero-grid, .layout, .cols, .kpis, .mini-grid, .land-grid, .prob-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .hero { padding: 24px 18px; }
+    .hero-h { font-size: 26px; }
   }
-
-  .hero { padding: 24px 18px; }
-  .hero-h { font-size: 26px; }
-}
-
-@media (max-width: 640px) {
-  .wrap.has-sticky { padding: 12px 10px 30px !important; }
-  .hero { padding: 24px 18px; }
-  .probGrid, .landGrid {
-    grid-template-columns: 1fr !important;
+  @media (max-width: 640px) {
+    .wrap.has-sticky { padding: 12px 10px 30px !important; }
+    .hero { padding: 24px 18px; }
+    .probGrid, .landGrid {
+      grid-template-columns: 1fr !important;
+    }
+    .page-body {
+      width: 40% !important;
+      margin-left: 25px;
+      margin-top: 70px;
+    }
   }
-    .page-body{
-    width: 40% !important;
-    margin-left: 25px;
-    margin-top: 70px}
-}
 `;
 
 export default EWasteBlog;

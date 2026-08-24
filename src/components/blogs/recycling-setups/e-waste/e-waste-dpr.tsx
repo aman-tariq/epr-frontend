@@ -1,10 +1,49 @@
+import React from "react";
+import { motion, Variants } from "framer-motion";
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+
+const styles = {
+  heroBefore: {
+    width: 300,
+    height: 300,
+    right: -110,
+    top: -110,
+    background: "rgba(255,255,255,.10)",
+  } as const,
+
+  heroAfter: {
+    width: 200,
+    height: 200,
+    left: -70,
+    bottom: -70,
+    background: "rgba(255,255,255,.10)",
+  } as const,
+};
+
+// Animation Variants typed using Framer Motion's Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function EWasteDPRBlog() {
   return (
     <div
-      // className="overflow-x-hidden"
       style={{
         fontFamily: "'Manrope', sans-serif",
         background: `
@@ -50,9 +89,17 @@ export default function EWasteDPRBlog() {
         type="article"
       />
       {/* Page container */}
-      <div className=" max-w-9xl mx-auto px-1 pt-[34px] pb-[60px] overflow-clip">
-        {/* Hero */}
-        <section
+      <div className=" max-w-9xl mt-[90px] mx-auto px-1 pt-[34px] pb-[60px] overflow-clip">
+        
+
+        {/* Main flex layout: content + sticky sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+            {/* Hero */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative overflow-hidden text-white px-1 sm:px-[44px] py-12 sm:py-[82px] rounded-[34px] mb-[26px]"
           style={{
             background: `linear-gradient(135deg, rgba(15,118,110,.96), rgba(37,99,235,.94)),
@@ -61,24 +108,12 @@ export default function EWasteDPRBlog() {
           }}
         >
           <span
-            className="absolute rounded-full"
-            style={{
-              width: 300,
-              height: 300,
-              right: -110,
-              top: -110,
-              background: "rgba(255,255,255,.10)",
-            }}
+            className="absolute rounded-full pointer-events-none"
+            style={styles.heroBefore}
           />
           <span
-            className="absolute rounded-full"
-            style={{
-              width: 200,
-              height: 200,
-              left: -70,
-              bottom: -70,
-              background: "rgba(255,255,255,.10)",
-            }}
+            className="absolute rounded-full pointer-events-none"
+            style={styles.heroAfter}
           />
           <div className="relative z-10 w-full max-w-[980px] mx-auto text-center">
             <div
@@ -119,16 +154,17 @@ export default function EWasteDPRBlog() {
               even installed.
             </div>
           </div>
-        </section>
-
-        {/* Main flex layout: content + sticky sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        </motion.section>
           {/* Main content */}
           <div className="flex-1 min-w-0">
             {/* 2-col intro grid */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
               {/* Why DPR matters */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px]"
                 style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
               >
@@ -169,41 +205,33 @@ export default function EWasteDPRBlog() {
                   written in a way that others can trust.
                 </div>
                 <div className="flex flex-wrap gap-[8px] mt-[14px]">
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold border"
-                    style={{
-                      background: "#eefaf8",
-                      borderColor: "#c8ebe4",
-                      color: "#0f766e",
-                    }}
-                  >
-                    Project planning
-                  </span>
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold border"
-                    style={{
-                      background: "#fff4e8",
-                      borderColor: "#ffd8b7",
-                      color: "#c2410c",
-                    }}
-                  >
-                    Technical clarity
-                  </span>
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold border"
-                    style={{
-                      background: "#eff6ff",
-                      borderColor: "#cfe0ff",
-                      color: "#1d4ed8",
-                    }}
-                  >
-                    Funding support
-                  </span>
+                  {[
+                    { label: "Project planning", bg: "#eefaf8", border: "#c8ebe4", color: "#0f766e" },
+                    { label: "Technical clarity", bg: "#fff4e8", border: "#ffd8b7", color: "#c2410c" },
+                    { label: "Funding support", bg: "#eff6ff", border: "#cfe0ff", color: "#1d4ed8" },
+                  ].map((pill) => (
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      key={pill.label}
+                      className="px-[13px] py-2 rounded-full text-[13px] font-bold border cursor-default"
+                      style={{
+                        background: pill.bg,
+                        borderColor: pill.border,
+                        color: pill.color,
+                      }}
+                    >
+                      {pill.label}
+                    </motion.span>
+                  ))}
                 </div>
-              </section>
+              </motion.section>
 
               {/* How we support */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px]"
                 style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
               >
@@ -237,11 +265,15 @@ export default function EWasteDPRBlog() {
                   when the project report is structured properly, the
                   decision-making process becomes much easier.
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* DPR Steps */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -258,7 +290,13 @@ export default function EWasteDPRBlog() {
                 Clients understand the process better when it is shown step by
                 step.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     num: 1,
@@ -281,8 +319,11 @@ export default function EWasteDPRBlog() {
                     text: "We shape the final DPR into a clean, usable document for the client and stakeholders.",
                   },
                 ].map(({ num, title, text }) => (
-                  <div
+                  <motion.div
                     key={num}
+                    variants={fadeInUp}
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
                     className="border border-[#e7dfd6] rounded-[20px] p-[18px] sm:min-h-[155px]"
                     style={{
                       background:
@@ -302,13 +343,17 @@ export default function EWasteDPRBlog() {
                       {title}
                     </h4>
                     <p className="m-0 text-[14px] text-[#5f6b7a]">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* What goes inside DPR table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -383,7 +428,7 @@ export default function EWasteDPRBlog() {
                         "Keeps the project legally ready",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-[#fbfcfe]">
+                      <tr key={i} className="hover:bg-[#fbfcfe] transition-colors">
                         {row.map((cell, j) => (
                           <td
                             key={j}
@@ -397,12 +442,16 @@ export default function EWasteDPRBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Bar graph + Database tracker */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-6">
               {/* Bar graph */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[28px]"
                 style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
               >
@@ -447,10 +496,13 @@ export default function EWasteDPRBlog() {
                         className="h-4 rounded-full overflow-hidden"
                         style={{ background: "#e9edf3" }}
                       >
-                        <div
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
                           className="h-full rounded-full"
                           style={{
-                            width,
                             background:
                               type === "blue"
                                 ? "linear-gradient(90deg,#2563eb,#38bdf8)"
@@ -470,10 +522,14 @@ export default function EWasteDPRBlog() {
                   Higher bars mean more planning work. These areas often decide
                   whether the DPR feels strong, practical, and investor-ready.
                 </p>
-              </section>
+              </motion.section>
 
               {/* DPR Readiness Tracker */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[28px]"
                 style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
               >
@@ -484,7 +540,13 @@ export default function EWasteDPRBlog() {
                   A simple database makes it easier to track what has been
                   completed and what still needs attention.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] mt-[18px]">
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] mt-[18px]"
+                >
                   {[
                     {
                       title: "Project input",
@@ -503,8 +565,9 @@ export default function EWasteDPRBlog() {
                       text: "Required approvals and legal steps linked to the project structure.",
                     },
                   ].map(({ title, text }) => (
-                    <div
+                    <motion.div
                       key={title}
+                      variants={fadeInUp}
                       className="border border-[#e7dfd6] rounded-[18px] p-[18px]"
                       style={{
                         background:
@@ -515,9 +578,9 @@ export default function EWasteDPRBlog() {
                         {title}
                       </h4>
                       <p className="m-0 text-[14px] text-[#5f6b7a]">{text}</p>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
                 <div
                   className="border-l-[6px] border-[#0f766e] rounded-[18px] px-5 py-[18px] mt-[18px]"
                   style={{
@@ -528,11 +591,15 @@ export default function EWasteDPRBlog() {
                   when the data is organized, the client can make decisions
                   faster and with more confidence.
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* How we make DPR easier */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -591,10 +658,14 @@ export default function EWasteDPRBlog() {
                 a good DPR turns a complex recycling project into a clear
                 business plan.
               </div>
-            </section>
+            </motion.section>
 
             {/* Project summary table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -662,7 +733,7 @@ export default function EWasteDPRBlog() {
                         "Helps the client move from planning to action",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-[#fbfcfe]">
+                      <tr key={i} className="hover:bg-[#fbfcfe] transition-colors">
                         {row.map((cell, j) => (
                           <td
                             key={j}
@@ -676,10 +747,14 @@ export default function EWasteDPRBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case study */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="rounded-[26px] p-4 sm:p-[30px] border border-[#ffe0bf] my-6"
               style={{
                 background: "linear-gradient(180deg,#fff9f1 0%,#fff 100%)",
@@ -701,7 +776,13 @@ export default function EWasteDPRBlog() {
                 idea was strong, but the project was not organized in a way that
                 investors could easily understand.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-[14px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     title: "The challenge",
@@ -716,17 +797,18 @@ export default function EWasteDPRBlog() {
                     text: "The client could present the project more confidently, understand the financial path better, and move toward execution faster.",
                   },
                 ].map(({ title, text }) => (
-                  <div
+                  <motion.div
                     key={title}
+                    variants={fadeInUp}
                     className="bg-white border border-[#f6d7b5] rounded-[18px] p-[18px]"
                   >
                     <h4 className="text-[#9a3412] text-[16px] font-bold mb-2">
                       {title}
                     </h4>
                     <p className="m-0 text-[14px] text-[#6b4b21]">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
               <div
                 className="border-l-[6px] border-[#0f766e] rounded-[18px] px-5 py-[18px] mt-[18px]"
                 style={{
@@ -739,10 +821,14 @@ export default function EWasteDPRBlog() {
                 a well-made DPR does not just describe the project — it helps
                 the project move forward.
               </div>
-            </section>
+            </motion.section>
 
             {/* Additional topics */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -806,10 +892,14 @@ export default function EWasteDPRBlog() {
                 the best DPR is one that feels complete, practical, and easy to
                 follow.
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white border border-[#e7dfd6] rounded-[26px] p-4 sm:p-[30px] my-6"
               style={{ boxShadow: "0 14px 40px rgba(16,35,63,.08)" }}
             >
@@ -839,7 +929,7 @@ export default function EWasteDPRBlog() {
                 ].map(({ q, a }) => (
                   <div
                     key={q}
-                    className="border border-[#e7dfd6] rounded-[18px] bg-white px-5 py-[18px]"
+                    className="border border-[#e7dfd6] rounded-[18px] bg-white px-5 py-[18px] hover:border-teal-400 transition-colors"
                   >
                     <h4 className="text-[#10233f] text-[16px] font-bold mb-[6px]">
                       {q}
@@ -848,10 +938,14 @@ export default function EWasteDPRBlog() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="text-center text-white rounded-[34px] px-4 sm:px-[30px] py-10 sm:py-[56px] mt-6"
               style={{
                 background: `
@@ -889,12 +983,13 @@ export default function EWasteDPRBlog() {
               <div className="text-[28px] font-extrabold mt-[18px] text-white">
                 "A strong DPR builds a stronger recycling business."
               </div>
-            </section>
+            </motion.section>
           </div>
           {/* end main content */}
+          </div>
 
           {/* Sticky Sidebar */}
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 sticky top-28 self-start">
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 sticky top-[87px] self-start">
             <StickyContactForm />
           </aside>
         </div>

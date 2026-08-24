@@ -3,11 +3,40 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const UsingDataToImprovePlantEfficiency: React.FC = () => {
   return (
     // Base light background with strong dark slate body copy for readability
-    <div className="min-h-screen bg-[#f8fafc] text-[#1e293b] font-sans">
+    <div className="min-h-screen mt-[80px] bg-[#f8fafc] text-[#1e293b] font-sans">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch max-w-8xl mx-0 p-4 md:p-6">
         
         {/* Main Content Column */}
@@ -49,7 +78,7 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
           <div className="max-w-8xl mx-auto py-6">
             
             {/* HERO — Built with an organic light gradient mesh mixing green/blue tones */}
-            <section className="relative overflow-hidden rounded-[32px] p-6 md:p-12 border border-blue-200 shadow-xs bg-white"
+            <Reveal delay={0.05}> <section  className="relative overflow-hidden rounded-[32px] p-6 md:p-12 border border-blue-200 shadow-xs bg-white"
               style={{
                 background: 'linear-gradient(135deg, rgba(240,253,244,0.95), rgba(219,234,254,0.70)), #ffffff'
               }}>
@@ -101,10 +130,10 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Why Data Matters Split Column Field */}
-            <section id="insights" className="mt-12 grid md:grid-cols-1 gap-8">
+            <Reveal delay={0.05}> <section  id="insights" className="mt-12 grid md:grid-cols-1 gap-8">
               <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900">
                   Why data is the real efficiency engine
@@ -146,10 +175,10 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Charts Section Layout */}
-            <section id="charts" className="mt-12">
+            <Reveal delay={0.05}> <section  id="charts" className="mt-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center md:text-left">
                 Graph view: where efficiency is gained or lost
               </h2>
@@ -189,10 +218,10 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Database Snap Table Frame */}
-            <section id="database" className="mt-12">
+            <Reveal delay={0.05}> <section  id="database" className="mt-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900">
                 Database view: sample plant efficiency records
               </h2>
@@ -226,10 +255,10 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   </table>
                 </div>
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Case Study Section Grid Layout */}
-            <section id="case-study" className="mt-12 bg-amber-50/60 border border-amber-200 rounded-3xl p-6 md:p-10 shadow-xs">
+            <Reveal delay={0.05}> <section  id="case-study" className="mt-12 bg-amber-50/60 border border-amber-200 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-amber-900">
                 Case Study: A plant that improved efficiency with simple data habits
               </h2>
@@ -249,10 +278,10 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* FAQ Accordion Component Segment */}
-            <section id="faq" className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
+            <Reveal delay={0.05}> <section  id="faq" className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900">FAQs</h2>
               <div className="space-y-4">
                 {[
@@ -288,7 +317,7 @@ const UsingDataToImprovePlantEfficiency: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </section> </Reveal>
 
             {/* Bottom Insight Footer tag */}
             <div className="text-center text-slate-400 font-semibold mt-12 py-6 text-xs md:text-sm uppercase tracking-wider bg-slate-100/60 border border-slate-200 rounded-2xl">

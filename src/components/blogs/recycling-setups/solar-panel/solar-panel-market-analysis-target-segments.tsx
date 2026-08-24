@@ -1,7 +1,26 @@
-// src/components/blogs/solar-panel/solar-panel-market-analysis-target-segments.tsx
 import React from "react";
+import { motion, Variants } from "framer-motion";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
+
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
   const targetSegments = [
@@ -57,7 +76,7 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-[#fcfaf6] via-[#faf7f2] to-[#f5f2ea] text-slate-800 font-[Poppins] ">
+    <div className="w-full bg-gradient-to-b mt-[90px] from-[#fcfaf6] via-[#faf7f2] to-[#f5f2ea] text-slate-800 font-[Poppins]">
       <Seo
         title="Market Analysis and Target Segments in Solar Panel Recycling"
         description="Explore the solar panel recycling market with detailed analysis, target customer segments, industry trends, demand forecasts, and business opportunities. Learn how to identify profitable markets and grow a sustainable solar recycling business."
@@ -93,11 +112,18 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
       />
 
       {/* 3-COLUMN DESKTOP CONTENT GRID */}
-      <div className="max-w-8xl mt-10 mx-auto flex flex-col lg:flex-row gap-4 items-stretch px-4 sm:px-6 lg:px-2 py-8  grid-cols-1 lg:grid-cols-3">
+      <div className="max-w-8xl mt-10 mx-auto flex flex-col lg:flex-row gap-4 items-stretch px-4 sm:px-6 lg:px-2 py-8 grid-cols-1 lg:grid-cols-3">
         {/* LEFT & CENTER COLUMNS: PRIMARY MAIN CONTENT FLOW */}
         <main className="lg:col-span-2 w-full min-w-0 flex flex-col gap-8">
+          
           {/* Why market analysis matters */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               Why market analysis matters in solar panel recycling
             </h2>
@@ -139,10 +165,16 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                 </span>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* What the market is really looking for */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               What the market is really looking for
             </h2>
@@ -157,7 +189,13 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
               without creating extra work[cite: 3].
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   title: "For sellers",
@@ -176,19 +214,26 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                   desc: "A process that is practical, compliant, and scalable.",
                 },
               ].map((item, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5"
                 >
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-600">{item.desc}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
-          {/* TABLE SECTION (Guarded against edge overflows via overflow-x-auto) */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8 overflow-hidden">
+          {/* TABLE SECTION */}
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8 overflow-hidden"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               Target market segments in solar panel recycling
             </h2>
@@ -232,14 +277,26 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
           {/* STEPS */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               How the market usually behaves
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   title: "New installations create future scrap",
@@ -258,8 +315,9 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                   desc: "Businesses prefer documented and responsible recycling partners.",
                 },
               ].map((step, index) => (
-                <div
+                <motion.div
                   key={index}
+                  variants={fadeInVariant}
                   className="rounded-2xl border border-slate-200 bg-gradient-to-b from-purple-50 to-white p-6"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-900 to-orange-700 text-white flex items-center justify-center font-bold mb-4">
@@ -269,15 +327,21 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                   <p className="text-slate-600 text-sm leading-6">
                     {step.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* BARS + DASHBOARD */}
           <div className="grid grid-cols-1 gap-6">
             {/* Bar Graph */}
-            <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <motion.section
+              className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-3 text-indigo-950">
                 Bar graph: segment attractiveness
               </h2>
@@ -298,22 +362,37 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                       </span>
                     </div>
                     <div className="h-4 bg-slate-200 rounded-full overflow-hidden">
-                      <div
+                      <motion.div
                         className="h-full rounded-full bg-gradient-to-r from-purple-900 via-violet-600 to-orange-700"
-                        style={{ width: bar.value }}
-                      ></div>
+                        initial={{ width: 0 }}
+                        whileInView={{ width: bar.value }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                      ></motion.div>
                     </div>
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Database View */}
-            <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <motion.section
+              className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-3 text-indigo-950">
                 Database view: market segmentation dashboard
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
                 {[
                   {
                     title: "Segment size",
@@ -332,26 +411,33 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                     desc: "How likely the segment is to expand over time.",
                   },
                 ].map((item, i) => (
-                  <div
+                  <motion.div
                     key={i}
+                    variants={fadeInVariant}
                     className="rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5"
                   >
                     <h3 className="font-bold mb-2">{item.title}</h3>
                     <p className="text-sm text-slate-600">{item.desc}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               <div className="bg-gradient-to-r from-orange-50 via-purple-50 to-purple-100 border-l-4 border-orange-600 rounded-2xl p-5 mt-6">
                 <strong>Database insight:</strong> when a client tracks segment
                 size, intent, fit, and growth together, it becomes much easier
                 to choose a winning market[cite: 3].
               </div>
-            </section>
+            </motion.section>
           </div>
 
           {/* Where value is created */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               Where value is created in the market
             </h2>
@@ -409,10 +495,16 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
               only to find demand — it is to create value at every stage of the
               journey[cite: 3].
             </div>
-          </section>
+          </motion.section>
 
           {/* Case Study */}
-          <section className="bg-gradient-to-r from-[#fff7ed] to-[#ecfdf5] border border-[#fed7aa] rounded-3xl p-6 md:p-8">
+          <motion.section
+            className="bg-gradient-to-r from-[#fff7ed] to-[#ecfdf5] border border-[#fed7aa] rounded-3xl p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
               Case study: a market strategy that helped a recycling company grow
               faster
@@ -424,7 +516,13 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
               sales message was too broad[cite: 3].
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   title: "The challenge",
@@ -439,27 +537,34 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                   desc: "The company improved lead quality, shortened sales conversations, and built a clearer market identity.",
                 },
               ].map((box, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="bg-white border border-[#f3d8b3] rounded-2xl p-6"
                 >
                   <h4 className="text-[#9a3412] font-semibold mb-3">
                     {box.title}
                   </h4>
                   <p className="text-[#7a4e23] text-[15px]">{box.desc}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <div className="mt-8 p-6 rounded-2xl bg-[#111827] text-white">
               <strong>Case study lesson:</strong> a focused target market is
               usually stronger than a broad market message[cite: 3].
             </div>
-          </section>
+          </motion.section>
 
           {/* How we help + Why clients value */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <motion.section
+              className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
                 How we help clients choose the right segment
               </h2>
@@ -487,9 +592,15 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                   </span>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
-            <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <motion.section
+              className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-indigo-950">
                 Why clients value this approach
               </h2>
@@ -504,11 +615,17 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                 buyer, underpricing services, or focusing only on material
                 resale[cite: 3].
               </p>
-            </section>
+            </motion.section>
           </div>
 
           {/* FAQ */}
-          <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8">
+          <motion.section
+            className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-8"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-indigo-950">
               Frequently asked questions
             </h2>
@@ -523,10 +640,16 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* CLOSING */}
-          <section className="rounded-[30px] bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f97316] text-white text-center px-6 sm:px-10 py-16 shadow-2xl">
+          <motion.section
+            className="rounded-[30px] bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f97316] text-white text-center px-6 sm:px-10 py-16 shadow-2xl"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Final Thoughts
             </h2>
@@ -544,15 +667,15 @@ const SolarPanelMarketAnalysisTargetSegments: React.FC = () => {
               “The right segment turns a recycling idea into a real
               market.”[cite: 3]
             </div>
-          </section>
+          </motion.section>
         </main>
 
-       {/* Sticky form  */}
-       <aside className="hidden lg:block shrink-0 w-[320px] ">
-        <div className="sticky top-28 px-2">
-          <StickyContactForm />
-        </div>
-       </aside>
+        {/* Sticky form  */}
+        <aside className="hidden lg:block shrink-0 w-[320px]">
+          <div className="sticky top-28 px-2">
+            <StickyContactForm />
+          </div>
+        </aside>
       </div>
     </div>
   );

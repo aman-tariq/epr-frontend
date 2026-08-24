@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 Chart.register(...registerables);
 
@@ -278,7 +279,10 @@ const CommissioningDocumentationChecklist: React.FC = () => {
       />
       {/* Hero */}
 
-      <div className="bg-[#1A1206] text-white py-20 md:py-24 px-1 md:px-2 text-center relative overflow-hidden">
+      <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#1A1206] text-white py-20 md:py-24 px-1 md:px-2 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_40px,rgba(183,65,14,.08)_40px,rgba(183,65,14,.08)_41px)]" />
 
         <div className="relative max-w-8xl mx-auto">
@@ -302,21 +306,27 @@ const CommissioningDocumentationChecklist: React.FC = () => {
             <span>🏭 Industrial &amp; EPC Focus</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="max-w-[920px] mx-auto px-6 py-16">
         {/* Lead */}
-        <p className="text-[19px] leading-relaxed border-l-4 border-[#B7410E] pl-6 text-[#2C2416] mb-12">
+        <motion.p initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="text-[19px] leading-relaxed border-l-4 border-[#B7410E] pl-6 text-[#2C2416] mb-12">
           Imagine spending ₹1,660 crore building a plant — then watching it
           underperform for years because nobody documented how it was actually
           commissioned. This is not a hypothetical. It happens across
           refineries, power plants, and manufacturing facilities worldwide.
           Setup and commissioning documentation is the bridge between a
           constructed asset and an intelligent, high-performing operation.
-        </p>
+        </motion.p>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {[
             { num: "73%", lbl: "Plants lack complete commissioning records" },
             { num: "40%", lbl: "Startup delays traced to poor documentation" },
@@ -338,38 +348,53 @@ const CommissioningDocumentationChecklist: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           What Is Setup Documentation
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-4xl font-bold mb-6">
+        <motion.h2 initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="font-serif text-4xl font-bold mb-6">
           What Is Setup and Commissioning Documentation?
-        </h2>
+        </motion.h2>
 
-        <p className="mb-6 leading-relaxed">
+        <motion.p initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mb-6 leading-relaxed">
           At its core, <strong>setup and commissioning documentation</strong> is
           the complete body of written records that captures how a facility
           transitions from construction to live operation. It includes
           everything from the earliest{" "}
           <strong>pre-commissioning checklist</strong> to the final{" "}
           <strong>handover documentation</strong> passed to the operations team.
-        </p>
+        </motion.p>
 
-        <p className="mb-12 leading-relaxed">
+        <motion.p initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mb-12 leading-relaxed">
           This documentation is not paperwork for paperwork&apos;s sake. It is
           the operational memory of your plant. A well-maintained{" "}
           <strong>commissioning plan</strong> captures the sequence of
           activities, the responsible parties, the acceptance criteria, and the
           baseline performance data that operations teams rely on for years —
           sometimes decades — of service.
-        </p>
+        </motion.p>
 
         {/* Phase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
           {[
             {
               title: "Pre-Commissioning",
@@ -404,27 +429,36 @@ const CommissioningDocumentationChecklist: React.FC = () => {
               <p className="text-sm text-[#7A6E60]">{phase.desc}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           The Data Picture
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-4xl font-bold mb-8">
+        <motion.h2 initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="font-serif text-4xl font-bold mb-8">
           Why Commissioning Documentation Drives Plant Performance
-        </h2>
+        </motion.h2>
 
         {/* Chart 1 */}
-        <div className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
           <div className="uppercase text-xs tracking-widest font-semibold text-[#7A6E60] mb-4">
             Documentation Quality vs. Plant KPIs — Benchmark Comparison
           </div>
           <div className="h-[280px]">
             <canvas ref={chart1Ref} />
           </div>
-        </div>
+        </motion.div>
 
         <p className="mb-12 leading-relaxed">
           Beyond startup, the value compounds. Operators who have access to
@@ -435,37 +469,49 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </p>
 
         {/* Chart 2 */}
-        <div className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
           <div className="uppercase text-xs tracking-widest font-semibold text-[#7A6E60] mb-4">
             Commissioning Phase — Where Documentation Gaps Cause Most Issues
           </div>
           <div className="h-[260px]">
             <canvas ref={chart2Ref} />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           Key Components
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-8">
           Key Components of a Commissioning Checklist
         </h2>
 
         {/* Chart 3 */}
-        <div className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
           <div className="uppercase text-xs tracking-widest font-semibold text-[#7A6E60] mb-4">
             Commissioning Deliverables by Project Phase — Volume &amp; Priority
           </div>
           <div className="h-[280px]">
             <canvas ref={chart3Ref} />
           </div>
-        </div>
+        </motion.div>
 
         {/* Table */}
-        <div className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-16 overflow-x-auto">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-16 overflow-x-auto">
           <div className="uppercase text-xs tracking-widest font-semibold text-[#7A6E60] mb-6">
             Commissioning Checklist — Document Database Reference
           </div>
@@ -581,17 +627,23 @@ const CommissioningDocumentationChecklist: React.FC = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           FAT vs SAT
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-4xl font-bold mb-8">
+        <motion.h2 initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="font-serif text-4xl font-bold mb-8">
           FAT vs SAT Testing Documentation: Understanding the Difference
-        </h2>
+        </motion.h2>
 
         <p className="mb-8 leading-relaxed">
           <strong>FAT testing</strong> (Factory Acceptance Testing) and{" "}
@@ -610,7 +662,10 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </div>
 
         {/* Case Study */}
-        <div className="bg-[#1A1206] text-white rounded-3xl p-10 md:p-14 relative mb-16 overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#1A1206] text-white rounded-3xl p-10 md:p-14 relative mb-16 overflow-hidden">
           <div className="uppercase text-[10px] tracking-[3px] bg-[#B7410E] inline-block px-5 py-1 font-bold mb-6">
             Real-World Case Study
           </div>
@@ -655,35 +710,44 @@ const CommissioningDocumentationChecklist: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Digital Transformation */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           Digital Transformation
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-8">
           Digital Commissioning Documentation: The Modern Approach
         </h2>
 
         {/* Chart 4 */}
-        <div className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border border-[#E2D9CC] rounded-3xl p-8 mb-12">
           <div className="uppercase text-xs tracking-widest font-semibold text-[#7A6E60] mb-4">
             Digital vs. Traditional Documentation: Time Spent on Key Activities
           </div>
           <div className="h-[260px]">
             <canvas ref={chart4Ref} />
           </div>
-        </div>
+        </motion.div>
 
         {/* Best Practices */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           Best Practices
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-8">
           Best Practices for Commissioning Documentation
@@ -712,11 +776,14 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </ol>
 
         {/* FAQ */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-12">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           FAQ
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
         <h2 className="font-serif text-4xl font-bold mb-10">
           Frequently Asked Questions
@@ -763,11 +830,14 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </div>
 
         {/* Keywords */}
-        <div className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-8">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex items-center gap-4 text-xs tracking-[2px] uppercase text-[#7A6E60] mb-8">
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
           Related Keywords
           <div className="flex-1 h-px bg-[#E2D9CC]"></div>
-        </div>
+        </motion.div>
 
         <div className="flex flex-wrap gap-3 mb-20">
           {[
@@ -794,7 +864,10 @@ const CommissioningDocumentationChecklist: React.FC = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className="bg-[#1A1206] text-white rounded-3xl p-12 md:p-16 text-center">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#1A1206] text-white rounded-3xl p-12 md:p-16 text-center">
           <h2 className="font-serif text-4xl text-[#C9952B] mb-6">
             Ready to Transform Your Commissioning Documentation?
           </h2>
@@ -803,7 +876,7 @@ const CommissioningDocumentationChecklist: React.FC = () => {
             — structured commissioning documentation is the foundation of plant
             operation intelligence.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">

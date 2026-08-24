@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
+import {motion} from "framer-motion"
 
 /* ============================================================================
    UTILITIES

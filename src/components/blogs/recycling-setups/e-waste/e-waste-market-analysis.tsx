@@ -1,5 +1,30 @@
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+import { motion, Variants } from "framer-motion";
+
+// Standard fade-in variant
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+// Container variant for staggering child animations
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
 export default function EWasteMarketAnalysisBlog() {
   return (
@@ -49,9 +74,17 @@ export default function EWasteMarketAnalysisBlog() {
         url="https://eprnexuss.com/blog/e-waste-dpr"
         type="article"
       />
-      <div className="w-full max-w-8xl mx-auto px-4 pt-[32px] pb-[60px]">
-        {/* Hero */}
-        <section
+      <div className="w-full max-w-8xl mt-[84px] mx-auto px-4 pt-[32px] pb-[60px]">
+
+
+        {/* Main flex layout: content + sticky sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+                    {/* Hero */}
+        <motion.section
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
           className="relative overflow-hidden rounded-[32px] px-5 sm:px-[42px] py-12 sm:py-[84px] mb-[26px] border border-slate-200/80"
           style={{
             background: `
@@ -82,7 +115,8 @@ export default function EWasteMarketAnalysisBlog() {
             }}
           />
           <div className="relative z-10 w-full max-w-[960px] mx-auto text-center break-words">
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="inline-block px-4 py-2 rounded-full text-[13px] font-bold tracking-[0.3px] mb-[18px] text-slate-700 max-w-full shadow-sm"
               style={{
                 background: "#ffffff",
@@ -90,15 +124,17 @@ export default function EWasteMarketAnalysisBlog() {
               }}
             >
               E-Waste Recycling Plant | Market Strategy &amp; Segment Planning
-            </div>
-            <h1
+            </motion.div>
+            <motion.h1
+              variants={fadeInUp}
               className="font-extrabold mb-[18px] tracking-[-0.03em] text-slate-900"
               style={{ fontSize: "clamp(34px, 4.8vw, 64px)", lineHeight: 1.04 }}
             >
               Market Analysis and Target Market Segments in E-Waste Recycling
               Plant
-            </h1>
-            <p
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
               className="mx-auto"
               style={{
                 fontSize: "clamp(16px, 1.55vw, 20px)",
@@ -114,22 +150,26 @@ export default function EWasteMarketAnalysisBlog() {
               machines and approvals. It also needs a clear understanding of who
               will supply the waste, who will buy the output, and which market
               segments give the best opportunity for growth.
-            </p>
-            <div className="mt-[22px] text-[16px] sm:text-[18px] font-bold text-slate-800">
+            </motion.p>
+            <motion.div
+              variants={fadeInUp}
+              className="mt-[22px] text-[16px] sm:text-[18px] font-bold text-slate-800"
+            >
               A recycling business becomes stronger when it knows where the
               material comes from and where the value goes.
-            </div>
+            </motion.div>
           </div>
-        </section>
-
-        {/* Main flex layout: content + sticky sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        </motion.section>
           {/* Main content */}
           <div className="flex-1 min-w-0 w-full">
             {/* 2-col intro grid */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] my-[22px]">
               {/* Why market analysis matters */}
-              <section
+              <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInUp}
                 className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
                 style={{
                   boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -165,7 +205,8 @@ export default function EWasteMarketAnalysisBlog() {
                 <div
                   className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                   style={{
-                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                    background:
+                      "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
                   <strong className="text-slate-900">Simple idea:</strong>{" "}
@@ -175,26 +216,24 @@ export default function EWasteMarketAnalysisBlog() {
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-[8px] mt-[14px]">
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-blue-700 bg-blue-50 border border-blue-200 shadow-sm"
-                  >
+                  <span className="px-[13px] py-2 rounded-full text-[13px] font-bold text-blue-700 bg-blue-50 border border-blue-200 shadow-sm">
                     Supply mapping
                   </span>
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm"
-                  >
+                  <span className="px-[13px] py-2 rounded-full text-[13px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm">
                     Buyer analysis
                   </span>
-                  <span
-                    className="px-[13px] py-2 rounded-full text-[13px] font-bold text-amber-700 bg-amber-50 border border-amber-200 shadow-sm"
-                  >
+                  <span className="px-[13px] py-2 rounded-full text-[13px] font-bold text-amber-700 bg-amber-50 border border-amber-200 shadow-sm">
                     Pricing logic
                   </span>
                 </div>
-              </section>
+              </motion.section>
 
               {/* How we help */}
-              <section
+              <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInUp}
                 className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
                 style={{
                   boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -223,7 +262,8 @@ export default function EWasteMarketAnalysisBlog() {
                 <div
                   className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                   style={{
-                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                    background:
+                      "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
                   <strong className="text-slate-900">Client benefit:</strong>{" "}
@@ -232,11 +272,15 @@ export default function EWasteMarketAnalysisBlog() {
                     becomes more realistic and more stable.
                   </span>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* Market journey steps */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -255,7 +299,10 @@ export default function EWasteMarketAnalysisBlog() {
                 Clients understand the market better when the process is shown
                 step by step.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     num: 1,
@@ -278,14 +325,16 @@ export default function EWasteMarketAnalysisBlog() {
                     text: "We connect market demand, plant capacity, and product sales into one practical plan.",
                   },
                 ].map(({ num, title, text }) => (
-                  <div
+                  <motion.div
                     key={num}
+                    variants={fadeInUp}
                     className="border border-slate-100 rounded-[20px] p-[18px] sm:min-h-[156px] bg-slate-50/60 shadow-sm"
                   >
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-slate-900 mb-3"
                       style={{
-                        background: "linear-gradient(135deg, #bfdbfe, #a7f3d0)",
+                        background:
+                          "linear-gradient(135deg, #bfdbfe, #a7f3d0)",
                         boxShadow: "0 4px 10px rgba(191,219,254,0.4)",
                       }}
                     >
@@ -295,13 +344,17 @@ export default function EWasteMarketAnalysisBlog() {
                       {title}
                     </h4>
                     <p className="text-slate-600 text-[14px] m-0">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* Target segments table */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -375,13 +428,22 @@ export default function EWasteMarketAnalysisBlog() {
                         "Support long-term service-based business",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-slate-50/50 transition-colors">
+                      <tr
+                        key={i}
+                        className="hover:bg-slate-50/50 transition-colors"
+                      >
                         {row.map((cell, j) => (
                           <td
                             key={j}
                             className="border-t border-slate-100 px-4 py-[14px] text-[14px] text-slate-700 align-top"
                           >
-                            {j === 0 ? <strong className="text-slate-900">{cell}</strong> : cell}
+                            {j === 0 ? (
+                              <strong className="text-slate-900">
+                                {cell}
+                              </strong>
+                            ) : (
+                              cell
+                            )}
                           </td>
                         ))}
                       </tr>
@@ -389,12 +451,16 @@ export default function EWasteMarketAnalysisBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Bar graph + DB tracker */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mb-[22px]">
               {/* Bar graph */}
-              <section
+              <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInUp}
                 className="rounded-[24px] p-5 sm:p-[28px] border border-slate-200 bg-white"
                 style={{
                   boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -431,27 +497,29 @@ export default function EWasteMarketAnalysisBlog() {
                       key={label}
                       className="grid items-center gap-5"
                       style={{
-                        gridTemplateColumns: "minmax(0,1.2fr) minmax(0,2fr) 54px",
+                        gridTemplateColumns:
+                          "minmax(0,1.2fr) minmax(0,2fr) 54px",
                       }}
                     >
                       <div className="text-slate-700 text-[13px] font-semibold">
                         {label}
                       </div>
-                      <div
-                        className="h-4 rounded-full overflow-hidden bg-slate-100 shadow-inner"
-                      >
-                        <div
-                          className="h-full rounded-full transition-all duration-500"
+                      <div className="h-4 rounded-full overflow-hidden bg-slate-100 shadow-inner">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          viewport={{ once: true }}
+                          className="h-full rounded-full"
                           style={{
-                            width,
                             background:
                               type === "blue"
                                 ? "linear-gradient(90deg, #3b82f6, #60a5fa)"
                                 : type === "green"
-                                  ? "linear-gradient(90deg, #10b981, #34d399)"
-                                  : type === "amber"
-                                    ? "linear-gradient(90deg, #f59e0b, #fbbf24)"
-                                    : "linear-gradient(90deg, #64748b, #94a3b8)",
+                                ? "linear-gradient(90deg, #10b981, #34d399)"
+                                : type === "amber"
+                                ? "linear-gradient(90deg, #f59e0b, #fbbf24)"
+                                : "linear-gradient(90deg, #64748b, #94a3b8)",
                           }}
                         />
                       </div>
@@ -466,10 +534,14 @@ export default function EWasteMarketAnalysisBlog() {
                   decision should always depend on plant size, location, and
                   material quality.
                 </p>
-              </section>
+              </motion.section>
 
               {/* Segment readiness tracker */}
-              <section
+              <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInUp}
                 className="rounded-[24px] p-4 sm:p-[28px] border border-slate-200 bg-white"
                 style={{
                   boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -515,7 +587,8 @@ export default function EWasteMarketAnalysisBlog() {
                 <div
                   className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] mt-[18px]"
                   style={{
-                    background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                    background:
+                      "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                   }}
                 >
                   <strong className="text-slate-900">Why this helps:</strong>{" "}
@@ -524,11 +597,15 @@ export default function EWasteMarketAnalysisBlog() {
                     right segment with more certainty.
                   </span>
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* How we explain target market */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -580,19 +657,26 @@ export default function EWasteMarketAnalysisBlog() {
               <div
                 className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                 style={{
-                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
-                  }}
+                  background:
+                    "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                }}
               >
-                <strong className="text-slate-900">Easy client explanation:</strong>{" "}
+                <strong className="text-slate-900">
+                  Easy client explanation:
+                </strong>{" "}
                 <span className="text-slate-700">
                   the right market segment is the one that gives steady
                   material, healthy margins, and repeat business.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* Market summary table */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -660,13 +744,22 @@ export default function EWasteMarketAnalysisBlog() {
                         "Plant can grow into a bigger market later",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-slate-50/50 transition-colors">
+                      <tr
+                        key={i}
+                        className="hover:bg-slate-50/50 transition-colors"
+                      >
                         {row.map((cell, j) => (
                           <td
                             key={j}
                             className="border-t border-slate-100 px-4 py-[14px] text-[14px] text-slate-700 align-top"
                           >
-                            {j === 0 ? <strong className="text-slate-900">{cell}</strong> : cell}
+                            {j === 0 ? (
+                              <strong className="text-slate-900">
+                                {cell}
+                              </strong>
+                            ) : (
+                              cell
+                            )}
                           </td>
                         ))}
                       </tr>
@@ -674,14 +767,19 @@ export default function EWasteMarketAnalysisBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case study */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border mb-[22px] bg-white"
               style={{
                 borderColor: "rgba(245,158,11,.35)",
-                background: "linear-gradient(180deg, rgba(254,243,199,0.4), #ffffff 120px)",
+                background:
+                  "linear-gradient(180deg, rgba(254,243,199,0.4), #ffffff 120px)",
                 boxShadow: "0 12px 30px rgba(245,158,11,0.05)",
               }}
             >
@@ -728,19 +826,26 @@ export default function EWasteMarketAnalysisBlog() {
               <div
                 className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] mt-[18px]"
                 style={{
-                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                  background:
+                    "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                 }}
               >
-                <strong className="text-slate-900">Lesson from the case:</strong>{" "}
+                <strong className="text-slate-900">
+                  Lesson from the case:
+                </strong>{" "}
                 <span className="text-slate-700">
                   market analysis is not just research. It is a decision-making
                   tool that can shape the whole business.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* Additional topics */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -796,19 +901,26 @@ export default function EWasteMarketAnalysisBlog() {
               <div
                 className="border-l-[6px] border-emerald-500 rounded-[18px] px-5 py-[18px] my-[18px]"
                 style={{
-                  background: "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
+                  background:
+                    "linear-gradient(135deg, rgba(219,234,254,0.6), rgba(209,250,229,0.5))",
                 }}
               >
-                <strong className="text-slate-900">Client-friendly point:</strong>{" "}
+                <strong className="text-slate-900">
+                  Client-friendly point:
+                </strong>{" "}
                 <span className="text-slate-700">
                   the best market strategy is the one that connects material
                   supply, buyer demand, and plant growth in one plan.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="rounded-[24px] p-4 sm:p-[30px] border border-slate-200 bg-white mb-[22px]"
               style={{
                 boxShadow: "0 12px 30px rgba(148,163,184,0.08)",
@@ -849,10 +961,14 @@ export default function EWasteMarketAnalysisBlog() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
               className="text-center rounded-[32px] px-4 sm:px-[30px] py-10 sm:py-[56px] mt-6 border border-slate-200"
               style={{
                 background: `
@@ -884,14 +1000,15 @@ export default function EWasteMarketAnalysisBlog() {
               <div className="text-[26px] font-extrabold mt-[18px] text-slate-900 tracking-tight">
                 "The right market segment turns planning into profit."
               </div>
-            </section>
+            </motion.section>
           </div>
           {/* end main content */}
+          </div>
 
           {/* Sticky Sidebar */}
           <aside
             className="hidden lg:block w-[280px] flex-shrink-0 self-start"
-            style={{ position: "sticky", top: "7rem" }}
+            style={{ position: "sticky", top: "5.5rem" }}
           >
             <StickyContactForm />
           </aside>

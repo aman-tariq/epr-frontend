@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Seo from "@/components/Seo";
 import Chart from 'chart.js/auto';
 import StickyContactForm from '@/components/StickyContactForm';
@@ -188,23 +189,25 @@ const TyreBuySelling: React.FC = () => {
         type="article"
       />
       <div className="bg-[#f8fafc] text-[#1e293b] font-['Inter'] min-h-screen">
-        
-        {/* TOPBAR */}
-        <div className="bg-[#f1f5f9] py-3 text-sm border-b border-[#e2e8f0] text-[#475569]">
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center flex-wrap gap-3 font-medium">
-            <span>Tyre Waste Recycling — Buying &amp; Selling Scrap and Products Made Simple</span>
-            <span>Better sourcing • Stronger sales • Real market connections</span>
-          </div>
-        </div>
 
-        {/* HERO - Full Width at Top */}
-        <header className="py-16 px-6">
-          <div className="max-w-7xl mx-auto grid gap-6 items-stretch">
+
+
+        {/* MAIN TWO-COLUMN WRAPPER */}
+        <div className="max-w-8xl mx-auto md:px-1 flex flex-col mt-[60px] lg:flex-row gap-2 relative pb-20">
+          <div>
+                    {/* HERO - Full Width at Top */}
+        <motion.header 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="py-16 px-6"
+        >
+          <div className="max-w-7xl mx-auto mt-[10px] grid gap-6 items-stretch">
             <div className="lg:col-span-8 bg-gradient-to-br from-white to-[#f1f5f9] border border-[#e2e8f0] rounded-3xl p-6 lg:p-12 relative overflow-hidden shadow-sm">
               <div className="inline-flex items-center gap-3 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-full px-6 py-2 text-sm font-bold mb-8">
                 Tyre Waste Recycling — Scrap &amp; Products
               </div>
-              <h1 className="text-3xl lg:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 text-[#0f172a]">
+              <h1 className="text-3xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8 text-[#0f172a]">
                 Scrap That Sits Is Money That Walks Away
               </h1>
               <p className="text-lg lg:text-xl text-[#475569] max-w-2xl leading-relaxed">
@@ -241,16 +244,20 @@ const TyreBuySelling: React.FC = () => {
               </div>
             </div>
           </div>
-        </header>
-
-        {/* MAIN TWO-COLUMN WRAPPER */}
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-8 relative pb-20">
+        </motion.header>
           
           {/* LEFT COLUMN - Main Content */}
-          <div className="flex-1 w-full lg:w-[65%] xl:w-[70%]">
+          <div className="flex-1 w-full">
             
             {/* OPPORTUNITY SECTION */}
-            <section id="opportunity" className="py-8">
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              id="opportunity" 
+              className="py-8"
+            >
               <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4 text-[#0f172a]">The Tyre Waste Market Is Bigger Than Most Clients Realise</h2>
               <p className="text-[#475569] max-w-3xl text-lg mb-8 leading-relaxed">
                 India generates over 1.5 million metric tonnes of end-of-life tyres every year. Only a fraction of that volume enters formal recycling channels.
@@ -277,10 +284,17 @@ const TyreBuySelling: React.FC = () => {
                   <canvas id="supplyGapChart" height="150"></canvas>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* PRODUCTS SECTION */}
-            <section id="products" className="py-12 px-6 lg:px-10 bg-white border border-[#e2e8f0] rounded-[32px] mb-12 shadow-sm">
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              id="products" 
+              className="py-12 px-6 lg:px-10 bg-white border border-[#e2e8f0] rounded-[32px] mb-12 shadow-sm"
+            >
               <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4 text-[#0f172a]">What Comes Out of a Tyre Recycling Plant — and Who Buys It</h2>
               <p className="text-[#475569] max-w-3xl text-lg mb-8 leading-relaxed">
                 A well-run tyre recycling plant produces four distinct output streams. Knowing who to sell to, at what specification, and at what price is where value is lost or gained.
@@ -320,10 +334,17 @@ const TyreBuySelling: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* HOW WE HELP SECTION */}
-            <section id="how-we-help" className="py-8">
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              id="how-we-help" 
+              className="py-8"
+            >
               <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4 text-[#0f172a]">How We Help Clients Buy Better and Sell Smarter</h2>
               <p className="text-[#475569] max-w-3xl text-lg mb-8">
                 A clear, practical process that fills the commercial gap most plant owners face.
@@ -350,10 +371,17 @@ const TyreBuySelling: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* MARKET DATA SECTION */}
-            <section id="market-data" className="py-12 px-6 lg:px-10 bg-white border border-[#e2e8f0] rounded-[32px] mb-12 shadow-sm">
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              id="market-data" 
+              className="py-12 px-6 lg:px-10 bg-white border border-[#e2e8f0] rounded-[32px] mb-12 shadow-sm"
+            >
               <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-8 text-[#0f172a]">Market Data That Every Tyre Recycler Should Know</h2>
 
               <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-2xl p-4 lg:p-6 mb-8">
@@ -404,10 +432,17 @@ const TyreBuySelling: React.FC = () => {
                 <h3 className="text-lg font-bold mb-4 text-[#0f172a]">Revenue Contribution by Output Stream — Well-Optimised Plant</h3>
                 <canvas id="revenueMixChart" height="140"></canvas>
               </div>
-            </section>
+            </motion.section>
 
             {/* CASE STUDY SECTION */}
-            <section id="case-study" className="py-8">
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              id="case-study" 
+              className="py-8"
+            >
               <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-6 text-[#0f172a]">Case Study: From Commodity Pricing to Premium Markets in 8 Months</h2>
 
               <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -449,13 +484,14 @@ const TyreBuySelling: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
+          </div>
           </div>
 
           {/* RIGHT COLUMN - Sticky Sidebar Area */}
-          <aside className="w-full lg:w-[35%] xl:w-[30%]">
-            <div className="sticky top-28 z-10 self-start bg-white p-2 rounded-3xl border border-[#e2e8f0] shadow-sm">
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-[140px] px-2">
               <StickyContactForm />
             </div>
           </aside>

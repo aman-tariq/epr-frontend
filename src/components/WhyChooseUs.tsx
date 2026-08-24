@@ -1,50 +1,136 @@
-import { motion } from "framer-motion";
-import { ShieldCheck, Lock, Zap, Award } from "lucide-react";
+"use client";
 
-const points = [
-  { icon: ShieldCheck, title: "Trusted Compliance", desc: "Full regulatory compliance with government-approved EPR certifications." },
-  { icon: Lock, title: "Secure Transactions", desc: "End-to-end encrypted credit trading with verified audit trails." },
-  { icon: Zap, title: "Fast Processing", desc: "Quick turnaround on EPR credit generation and certificate issuance." },
-  { icon: Award, title: "Industry Expertise", desc: "Decade of experience in waste management and EPR credit markets." },
+import { motion, type Variants } from "framer-motion";
+import {
+  UserCheck,
+  ReceiptText,
+  Network,
+  MapPinned,
+  FileCheck2,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
+
+interface TrustPoint {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const trustPoints: TrustPoint[] = [
+  {
+    icon: UserCheck,
+    title: "Dedicated Compliance Expert",
+    description:
+      "A single point of contact who understands your business and manages your EPR obligations end-to-end.",
+  },
+  {
+    icon: ReceiptText,
+    title: "No Hidden Charges",
+    description:
+      "Transparent, upfront pricing on every service — no surprise fees at any stage of the process.",
+  },
+  {
+    icon: Network,
+    title: "Verified Recycler Network",
+    description:
+      "Access to a vetted, CPCB-authorized network of recyclers across India for compliant material handling.",
+  },
+  {
+    icon: MapPinned,
+    title: "PAN India Support",
+    description:
+      "On-ground coordination and support across all states and union territories, wherever your operations are based.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Fast Documentation",
+    description:
+      "Rapid turnaround on certificates, filings, and regulatory paperwork so you're never stuck waiting.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Long-Term Compliance",
+    description:
+      "Ongoing monitoring and renewal support that keeps you compliant well beyond the first filing cycle.",
+  },
 ];
 
-const WhyChooseUs = () => {
-  return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Why EPR Nexuss</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Why Choose Us
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {points.map((point, i) => (
-            <motion.div
-              key={point.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group text-center p-8 rounded-2xl bg-card border border-border hover:border-secondary/40 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/10"
-            >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <point.icon className="w-8 h-8 text-secondary" />
-              </div>
-              <h3 className="font-display font-semibold text-foreground mb-2">{point.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{point.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.12, ease: "easeOut" },
+  }),
 };
 
-export default WhyChooseUs;
+const lineVariants: Variants = {
+  hidden: { scaleY: 0 },
+  visible: {
+    scaleY: 1,
+    transition: { duration: 1.4, ease: "easeInOut" },
+  },
+};
+
+export default function TrustFlowSection() {
+  return (
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      className="relative py-16"
+    >
+      <div className="max-w-3xl mx-auto text-center mb-14">
+        <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground">
+          Why Businesses Trust EPR Nexuss
+        </h2>
+        <p className="font-sans text-muted-foreground mt-3">
+          A compliance process built for clarity, speed, and long-term
+          reliability — not one-time paperwork.
+        </p>
+      </div>
+
+      <div className="relative max-w-2xl mx-auto">
+        {/* Animated connecting line */}
+        {/* <motion.div
+          variants={lineVariants}
+          style={{ originY: 0 }}
+          className="absolute left-6 top-2 bottom-2 w-[2px] bg-[#5AC361]/30 md:left-1/2 md:-translate-x-1/2"
+        /> */}
+
+        <ul className="space-y-10">
+          {trustPoints.map((point, i) => {
+            const Icon = point.icon;
+            return (
+              <motion.li
+                key={point.title}
+                custom={i}
+                variants={itemVariants}
+                className="relative flex items-start gap-5 pl-0 md:pl-0"
+              >
+                {/* Icon node */}
+                <motion.div
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-card border border-[#5AC361]/40 shadow-sm"
+                >
+                  <Icon className="h-5 w-5 text-[#5AC361]" strokeWidth={2} />
+                </motion.div>
+
+                <div className="pt-1.5">
+                  <h3 className="font-display text-lg font-semibold text-foreground">
+                    {point.title}
+                  </h3>
+                  <p className="font-sans text-sm text-muted-foreground mt-1 leading-relaxed">
+                    {point.description}
+                  </p>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </div>
+    </motion.section>
+  );
+}

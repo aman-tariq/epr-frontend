@@ -1,5 +1,45 @@
+import React from "react";
+import { motion, Variants } from "framer-motion";
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+
+const styles = {
+  heroBefore: {
+    width: 260,
+    height: 260,
+    top: -80,
+    right: -80,
+    background: "rgba(255,255,255,0.09)",
+  } as const,
+
+  heroAfter: {
+    width: 180,
+    height: 180,
+    bottom: -60,
+    left: -50,
+    background: "rgba(255,255,255,0.09)",
+  } as const,
+};
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function EWasteBuyingSellingBlog() {
   return (
@@ -47,10 +87,19 @@ export default function EWasteBuyingSellingBlog() {
         url="https://eprnexuss.com/blog/e-waste-approvals"
         type="article"
       />
+
       {/* Blog Container */}
-      <div className="w-full max-w-8xl mx-auto px-1 pt-[34px] pb-[60px]">
-        {/* Hero */}
-        <section
+      <div className="w-full max-w-8xl mt-[90px] mx-auto px-1 pt-[34px] pb-[60px]">
+        
+
+        {/* Main layout: content + sticky sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+            {/* Hero Section */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative overflow-hidden text-white px-1 sm:px-[20px] py-12 sm:py-[78px] rounded-[30px] mb-[30px]"
           style={{
             background:
@@ -58,26 +107,14 @@ export default function EWasteBuyingSellingBlog() {
             boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
           }}
         >
-          {/* decorative circles */}
+          {/* Decorative circles */}
           <span
-            className="absolute rounded-full"
-            style={{
-              width: 260,
-              height: 260,
-              top: -80,
-              right: -80,
-              background: "rgba(255,255,255,0.09)",
-            }}
+            className="absolute rounded-full pointer-events-none"
+            style={styles.heroBefore}
           />
           <span
-            className="absolute rounded-full"
-            style={{
-              width: 180,
-              height: 180,
-              bottom: -60,
-              left: -50,
-              background: "rgba(255,255,255,0.09)",
-            }}
+            className="absolute rounded-full pointer-events-none"
+            style={styles.heroAfter}
           />
           <div className="relative z-10 w-full max-w-[900px] mx-auto text-center break-words">
             <div
@@ -123,16 +160,17 @@ export default function EWasteBuyingSellingBlog() {
               plant into a stronger, faster-growing business.
             </div>
           </div>
-        </section>
-
-        {/* Main layout: content + sticky sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        </motion.section>
           {/* Main content column */}
           <div className="flex-1 min-w-0 w-full">
             {/* 2-col grid: Why this matters + What we do */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6">
               {/* Why this part matters */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-8 border mb-0"
                 style={{
                   boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -183,9 +221,10 @@ export default function EWasteBuyingSellingBlog() {
                     "Market linkage",
                     "Sales planning",
                   ].map((pill) => (
-                    <span
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
                       key={pill}
-                      className="text-[13px] font-semibold px-[14px] py-2 rounded-full"
+                      className="text-[13px] font-semibold px-[14px] py-2 rounded-full cursor-default"
                       style={{
                         background: "#eef2ff",
                         color: "#3730a3",
@@ -193,13 +232,17 @@ export default function EWasteBuyingSellingBlog() {
                       }}
                     >
                       {pill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </section>
+              </motion.section>
 
               {/* What we do */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-8 border mb-0"
                 style={{
                   boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -240,11 +283,15 @@ export default function EWasteBuyingSellingBlog() {
                   A recycling business grows faster when the commercial side is
                   as organized as the technical side.
                 </p>
-              </section>
+              </motion.section>
             </div>
 
             {/* Full buying & selling cycle */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -264,7 +311,13 @@ export default function EWasteBuyingSellingBlog() {
                 To make the process easier for clients, we explain the entire
                 commercial flow in a simple and practical way.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     num: 1,
@@ -287,14 +340,18 @@ export default function EWasteBuyingSellingBlog() {
                     text: "Pricing, dispatch, documentation, and payment flow are planned so the transaction stays smooth and clear.",
                   },
                 ].map(({ num, title, text }) => (
-                  <div
+                  <motion.div
                     key={num}
+                    variants={fadeInUp}
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
                     className="border border-[#e5e7eb] rounded-[18px] p-[18px] bg-white sm:min-h-[140px]"
                   >
                     <div
                       className="w-[38px] h-[38px] flex items-center justify-center rounded-full text-white font-bold mb-3"
                       style={{
-                        background: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
+                        background:
+                          "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
                       }}
                     >
                       {num}
@@ -303,13 +360,17 @@ export default function EWasteBuyingSellingBlog() {
                       {title}
                     </h4>
                     <p className="text-[14px] text-[#5b6472] m-0">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* Types of scrap table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -378,7 +439,10 @@ export default function EWasteBuyingSellingBlog() {
                         "Directly affects plant profitability",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-[#f8fbff]">
+                      <tr
+                        key={i}
+                        className="hover:bg-[#f8fbff] transition-colors"
+                      >
                         {row.map((cell, j) => (
                           <td
                             key={j}
@@ -392,12 +456,16 @@ export default function EWasteBuyingSellingBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Bar graph + database grid */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6">
               {/* Bar graph */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[30px] border"
                 style={{
                   boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -438,10 +506,13 @@ export default function EWasteBuyingSellingBlog() {
                         {label}
                       </div>
                       <div className="h-4 bg-[#e5e7eb] rounded-full overflow-hidden relative">
-                        <div
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
                           className="h-full rounded-full"
                           style={{
-                            width,
                             background:
                               "linear-gradient(90deg, #1d4ed8 0%, #0ea5e9 50%, #22c55e 100%)",
                           }}
@@ -458,10 +529,14 @@ export default function EWasteBuyingSellingBlog() {
                   clients match each material with the right buyer and the right
                   pricing logic.
                 </p>
-              </section>
+              </motion.section>
 
               {/* Database view */}
-              <section
+              <motion.section
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="bg-white rounded-[22px] p-4 sm:p-[30px] border"
                 style={{
                   boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -475,7 +550,13 @@ export default function EWasteBuyingSellingBlog() {
                   A simple database helps clients understand whether the
                   material is ready for sale or still needs work.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-[18px]">
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-[18px]"
+                >
                   {[
                     {
                       title: "Scrap status",
@@ -494,7 +575,8 @@ export default function EWasteBuyingSellingBlog() {
                       text: "Transport, invoice, and loading process aligned for smooth delivery.",
                     },
                   ].map(({ title, text }) => (
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
                       key={title}
                       className="border border-[#e5e7eb] rounded-[18px] p-[18px]"
                       style={{
@@ -506,9 +588,9 @@ export default function EWasteBuyingSellingBlog() {
                         {title}
                       </h4>
                       <p className="text-[14px] text-[#5b6472] m-0">{text}</p>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
                 <div
                   className="rounded-[18px] p-[22px] mt-[18px] border-l-[6px] border-[#0ea5e9]"
                   style={{
@@ -520,11 +602,15 @@ export default function EWasteBuyingSellingBlog() {
                   when the database is clear, the client sees the business more
                   like a system and less like guesswork.
                 </div>
-              </section>
+              </motion.section>
             </div>
 
             {/* How we help clients sell */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -593,10 +679,14 @@ export default function EWasteBuyingSellingBlog() {
                 well-managed selling process converts plant output into reliable
                 revenue, not just leftover material.
               </div>
-            </section>
+            </motion.section>
 
             {/* Commercial journey table */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -663,7 +753,10 @@ export default function EWasteBuyingSellingBlog() {
                         "Business growth becomes stronger",
                       ],
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-[#f8fbff]">
+                      <tr
+                        key={i}
+                        className="hover:bg-[#f8fbff] transition-colors"
+                      >
                         {row.map((cell, j) => (
                           <td
                             key={j}
@@ -677,13 +770,18 @@ export default function EWasteBuyingSellingBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case study */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
-                background: "linear-gradient(135deg, #fff7ed 0%, #fff1d6 100%)",
+                background:
+                  "linear-gradient(135deg, #fff7ed 0%, #fff1d6 100%)",
                 border: "1px solid #fde68a",
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
               }}
@@ -704,7 +802,13 @@ export default function EWasteBuyingSellingBlog() {
                 was being bought without a clear grading process, and recovered
                 materials were being sold to random buyers.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-[18px]">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-[18px]"
+              >
                 {[
                   {
                     title: "The challenge",
@@ -722,7 +826,8 @@ export default function EWasteBuyingSellingBlog() {
                     titleColor: "#9a3412",
                   },
                 ].map(({ title, text, titleColor }) => (
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
                     key={title}
                     className="bg-white border border-[#fbd38d] rounded-[18px] p-[18px]"
                   >
@@ -733,9 +838,9 @@ export default function EWasteBuyingSellingBlog() {
                       {title}
                     </h4>
                     <p className="m-0 text-[14px] text-[#6b4b21]">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
               <div
                 className="rounded-[18px] p-[22px] mt-[18px] border-l-[6px] border-[#0ea5e9]"
                 style={{
@@ -749,10 +854,14 @@ export default function EWasteBuyingSellingBlog() {
                 profit improves when buying and selling are planned with the
                 same level of care as plant operations.
               </div>
-            </section>
+            </motion.section>
 
             {/* Additional topics */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -822,10 +931,14 @@ export default function EWasteBuyingSellingBlog() {
                 the business becomes stronger when material flow, stock control,
                 and sales planning work together.
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-[22px] p-4 sm:p-8 border mb-6"
               style={{
                 boxShadow: "0 12px 35px rgba(15,23,42,0.08)",
@@ -858,7 +971,7 @@ export default function EWasteBuyingSellingBlog() {
                 ].map(({ q, a }) => (
                   <div
                     key={q}
-                    className="border border-[#e5e7eb] rounded-[18px] px-5 py-[18px] bg-white"
+                    className="border border-[#e5e7eb] rounded-[18px] px-5 py-[18px] bg-white hover:border-sky-300 transition-colors"
                   >
                     <h4 className="text-[17px] font-semibold text-[#0f172a] mb-[6px]">
                       {q}
@@ -867,10 +980,14 @@ export default function EWasteBuyingSellingBlog() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section
+            <motion.section
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="text-center text-white px-4 sm:px-[30px] py-10 sm:py-[58px] rounded-[30px] mt-[28px]"
               style={{
                 background:
@@ -908,15 +1025,13 @@ export default function EWasteBuyingSellingBlog() {
               <div className="text-[27px] font-bold mt-5 text-white">
                 "Buy smart. Sell smart. Grow stronger."
               </div>
-            </section>
+            </motion.section>
           </div>
           {/* end main content */}
+          </div>
 
           {/* Sticky Sidebar */}
-          <aside
-            className="hidden lg:block w-[320px] flex-shrink-0 self-start"
-            style={{ position: "sticky", top: "7rem" }}
-          >
+          <aside className="hidden lg:block w-[320px] flex-shrink-0 self-start sticky top-[5.5rem]">
             <StickyContactForm />
           </aside>
         </div>

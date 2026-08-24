@@ -3,10 +3,38 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 const RealTimeMonitoringDelays: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f4fbf7] text-[#143123] font-sans">
+    <div className="min-h-screen mt-[80px] bg-[#f4fbf7] text-[#143123] font-sans">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <div className="max-w-8xl mx-auto px-2 py-12">
@@ -44,7 +72,7 @@ const RealTimeMonitoringDelays: React.FC = () => {
           type="article"
         />
         {/* Hero */}
-        <section className="hero-shell bg-white border border-[#143123]/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
+        <Reveal delay={0.05}> <section  className="hero-shell bg-white border border-[#143123]/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute -right-24 -top-24 w-[420px] h-[420px] bg-[#21a366] rounded-full opacity-10 blur-3xl" />
           <div className="absolute -left-20 bottom-0 w-80 h-80 bg-[#2f80ed] rounded-full opacity-10 blur-3xl" />
 
@@ -118,10 +146,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Why Delays Happen */}
-        <section className="mt-16 grid md:grid-cols-1 gap-8">
+        <Reveal delay={0.05}> <section  className="mt-16 grid md:grid-cols-1 gap-8">
           <div className="card bg-white border border-[#143123]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Why delays happen in the first place
@@ -172,10 +200,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Major Topics */}
-        <section className="mt-16">
+        <Reveal delay={0.05}> <section  className="mt-16">
           <h2 className="text-3xl font-bold mb-8">
             Major topics that strengthen delay reduction
           </h2>
@@ -213,10 +241,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Visual Grid */}
-        <section className="mt-16 visual-grid grid md:grid-cols-2 gap-8">
+        <Reveal delay={0.05}> <section  className="mt-16 visual-grid grid md:grid-cols-2 gap-8">
           {/* Bar Chart */}
           <div className="viz bg-white border border-[#143123]/10 rounded-3xl p-10">
             <h2 className="text-2xl font-bold mb-2">
@@ -289,10 +317,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Database Snapshot */}
-        <section className="mt-16">
+        <Reveal delay={0.05}> <section  className="mt-16">
           <h2 className="text-3xl font-bold mb-8">
             Monitoring Database Snapshot
           </h2>
@@ -343,10 +371,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               </tbody>
             </table>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Case Study */}
-        <section className="mt-16 grid md:grid-cols-2 gap-8">
+        <Reveal delay={0.05}> <section  className="mt-16 grid md:grid-cols-2 gap-8">
           <div className="card bg-white border border-[#143123]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Case study: one plant cut delays with live visibility
@@ -379,10 +407,10 @@ const RealTimeMonitoringDelays: React.FC = () => {
               </li>
             </ul>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* FAQ */}
-        <section className="mt-16">
+        <Reveal delay={0.05}> <section  className="mt-16">
           <h2 className="text-3xl font-bold mb-8">FAQs</h2>
           <div className="space-y-4">
             {[
@@ -410,7 +438,7 @@ const RealTimeMonitoringDelays: React.FC = () => {
               </details>
             ))}
           </div>
-        </section>
+        </section> </Reveal>
 
         <div className="note text-center text-[#5f7669] mt-20">
           Built for operations teams that want fewer delays, faster decisions,

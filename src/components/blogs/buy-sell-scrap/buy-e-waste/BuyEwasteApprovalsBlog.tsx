@@ -92,7 +92,7 @@ const categories = [
 
 export default function TypesOfEwasteBlog() {
   return (
-    <div className="font-sans bg-gradient-to-b from-white via-secondary/[0.03] to-primary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="font-sans bg-gradient-to-b mt-[100px] from-white via-secondary/[0.03] to-primary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="What Types of E-Waste Do We Buy? A Complete Guide"
         description="A complete guide to the categories of electronic waste we purchase — from phones and laptops to large appliances and cables — with tips on getting the best value."
@@ -111,7 +111,11 @@ export default function TypesOfEwasteBlog() {
       />
 
       <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
-        {/* Banner */}
+       
+
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+             {/* Banner */}
         <section className="relative overflow-hidden rounded-[32px] mb-7 border border-secondary/10 bg-gradient-to-br from-secondary via-secondary/90 to-primary shadow-lg">
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
@@ -141,18 +145,18 @@ export default function TypesOfEwasteBlog() {
           </div>
         </section>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          
           <div className="flex-1 min-w-0 w-full">
             {/* Intro */}
             <Reveal>
               <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
-                <p className="text-gray-600 text-[16px] mb-4">
+                <p className="text-gray-600 text-[18px] mb-4">
                   A lot of people assume "e-waste" only means old phones and
                   laptops. In reality, almost anything with a plug, a
                   battery, or a circuit board qualifies — and most of it has
                   resale value.
                 </p>
-                <p className="text-gray-600 text-[16px] mb-0">
+                <p className="text-gray-600 text-[18px] mb-0">
                   To make things simple, here is a full breakdown of the
                   categories we regularly purchase from households,
                   offices, and businesses.
@@ -164,7 +168,7 @@ export default function TypesOfEwasteBlog() {
             <Reveal delay={0.05}>
               <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
                 <h2 className="font-display font-extrabold text-gray-900 text-[24px] sm:text-[28px] mb-5">
-                  Categories we accept
+                  What You Can Sell
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {categories.map(({ icon: Icon, title, items, color }) => {
@@ -314,10 +318,7 @@ export default function TypesOfEwasteBlog() {
                       Not sure if your item qualifies?
                     </h3>
                     <p className="text-gray-600 text-[14.5px] m-0">
-                      If it runs on electricity or a battery — working or
-                      broken — chances are we can take it. When in doubt,
-                      send us a quick description or photo and we'll confirm
-                      right away.
+                      Not sure which EPR solution is right for your business? Tell us about your requirements, and our experts will guide you to the most suitable compliance, recycling, or credit solution.
                     </p>
                   </div>
                 </div>
@@ -359,7 +360,7 @@ export default function TypesOfEwasteBlog() {
             </Reveal>
 
             {/* Closing CTA */}
-            <Reveal delay={0.05}>
+            {/* <Reveal delay={0.05}>
               <section className="text-center rounded-[32px] px-6 sm:px-10 py-12 sm:py-16 border border-secondary/10 bg-gradient-to-br from-secondary to-primary shadow-lg">
                 <h2 className="font-display font-extrabold text-white mb-3" style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}>
                   Have a mix of items to sell?
@@ -370,10 +371,11 @@ export default function TypesOfEwasteBlog() {
                   fair payment for the full lot.
                 </p>
               </section>
-            </Reveal>
+            </Reveal> */}
+          </div>
           </div>
 
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "5.5rem" }}>
             <StickyContactForm />
           </aside>
         </div>

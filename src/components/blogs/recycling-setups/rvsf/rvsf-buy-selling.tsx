@@ -1,7 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, Variants } from 'framer-motion';
 import Chart from 'chart.js/auto';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeIn = (direction: "up" | "down" | "left" | "right" = "up", delay: number = 0): Variants => {
+  return {
+    hidden: {
+      y: direction === "up" ? 30 : direction === "down" ? -30 : 0,
+      x: direction === "left" ? 30 : direction === "right" ? -30 : 0,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 0.6,
+        delay: delay,
+        ease: [0.25, 0.25, 0.25, 0.75],
+      },
+    },
+  };
+};
 
 const styles = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -564,7 +586,7 @@ const RVSFBuyingSellingBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="buying-selling-blog-root py-4 md:py-8">
+    <div className="buying-selling-blog-root mt-[78px] py-4 md:py-8">
       <Seo
         title="How to Buy and Sell Scrap at Registered Vehicle Scrapping Facility (RVSF) - Complete Guide"
         description="Learn the complete buying and selling process at a Registered Vehicle Scrapping Facility (RVSF). Best practices for scrap purchase, reusable parts selling, documentation, pricing, and maximizing profit in vehicle scrapping business."
@@ -573,9 +595,19 @@ const RVSFBuyingSellingBlog: React.FC = () => {
         type="article"
       />
       
-      <header className="hero">
-        <div className="hero-inner">
+      
+
+      <main className="container">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           <div>
+            <header className="hero">
+        <div className="hero-inner">
+          <motion.div
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="eyebrow">Registered Vehicle Scrapping Facility</div>
             <h1>Turn End-of-Life Vehicles into <span className="accent">Real Business Value</span></h1>
             <p className="punchline">The right scrapping facility does more than dismantle vehicles — it builds trust, improves recovery, and creates a clean buying and selling engine for scrap.</p>
@@ -584,23 +616,32 @@ const RVSFBuyingSellingBlog: React.FC = () => {
               <span className="badge">Reusable products</span>
               <span className="badge">Compliance-first operations</span>
             </div>
-          </div>
-          <aside className="hero-card">
+          </motion.div>
+
+          <motion.aside
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="hero-card"
+          >
             <h3>At-a-glance impact</h3>
             <div className="metric">
               <div><strong>5</strong><span>value streams</span></div>
               <div><strong>100%</strong><span>traceable</span></div>
             </div>
-          </aside>
+          </motion.aside>
         </div>
       </header>
-
-      <main className="container">
-        <div className="main-layout-wrapper">
           
           {/* Content Area */}
           <article className="content-column">
-            <section>
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="lead">When a vehicle reaches the end of its road, the opportunity is just beginning.</div>
               <p>At a modern <strong>registered vehicle scrapping facility</strong>, the buying and selling process is not random. It is built on a clear system that identifies the vehicle, verifies ownership, removes polluting components safely, and separates what can be recycled, resold, or responsibly disposed of.</p>
               <div className="stat-strip">
@@ -610,9 +651,14 @@ const RVSFBuyingSellingBlog: React.FC = () => {
                 <div className="stat"><strong>100%</strong><span>documented</span></div>
               </div>
               <div className="note"><strong>Human insight:</strong> buyers do not pay more because the scrap is old; they pay more because the scrap is sorted, clean, verified, and ready to use.</div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <h2>How the buying and selling workflow works</h2>
               <p>The first step is intake. After that, the vehicle moves through depollution, dismantling, segregation, and grading. Once materials are graded, the facility sells them to the right channel.</p>
               <div className="phase-grid">
@@ -620,29 +666,69 @@ const RVSFBuyingSellingBlog: React.FC = () => {
                 <div className="phase"><b>2. Depollution</b><p>Drain fluids and isolate hazardous items.</p></div>
                 <div className="phase"><b>3. Dismantling</b><p>Separate reusable parts and recyclables.</p></div>
               </div>
-            </section>
+            </motion.section>
 
             <section>
-              <h2>Data-driven visuals</h2>
-              <div className="chart-box">
+              <motion.h2
+                variants={fadeIn("up", 0.1)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                Data-driven visuals
+              </motion.h2>
+
+              <motion.div
+                variants={fadeIn("up", 0.1)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="chart-box"
+              >
                 <div className="chart-title">Revenue mix by recovered material</div>
                 <div className="chart-outer-container"><div className="chart small"><canvas ref={revMixRef} /></div></div>
-              </div>
-              <div className="chart-box">
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn("up", 0.15)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="chart-box"
+              >
                 <div className="chart-title">Operational flow: from intake to sale</div>
                 <div className="chart-outer-container"><div className="chart"><canvas ref={processFlowRef} /></div></div>
-              </div>
-              <div className="chart-box">
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="chart-box"
+              >
                 <div className="chart-title">Buyer demand by channel</div>
                 <div className="chart-outer-container"><div className="chart small"><canvas ref={buyerMixRef} /></div></div>
-              </div>
-              <div className="chart-box">
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn("up", 0.25)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="chart-box"
+              >
                 <div className="chart-title">Manual vs digital documentation time</div>
                 <div className="chart-outer-container"><div className="chart"><canvas ref={docTimeRef} /></div></div>
-              </div>
+              </motion.div>
             </section>
 
-            <section>
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <h2>Document database for a clean transaction</h2>
               <div className="data-table-wrap">
                 <table className="db">
@@ -656,9 +742,14 @@ const RVSFBuyingSellingBlog: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <h2>Case study: how one facility improved recovery</h2>
               <div className="case">
                 <h3>Illustrative case study: plant workflow overhaul</h3>
@@ -669,36 +760,51 @@ const RVSFBuyingSellingBlog: React.FC = () => {
                   <div><strong>2x</strong><span>buyer turnover</span></div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <h2>Frequently asked questions</h2>
               <div className="faq">
                 {faqItems.map((item, index) => (
-                  <div key={index} className="faq-item">
-                    <div className="faq-q" style={{ contentVisibility: 'auto' }} onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                  <motion.div
+                    key={index}
+                    variants={fadeIn("up", index * 0.05)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="faq-item"
+                  >
+                    <div className={`faq-q${openFaq === index ? ' open' : ''}`} style={{ contentVisibility: 'auto' }} onClick={() => setOpenFaq(openFaq === index ? null : index)}>
                       {item.question}
                     </div>
                     <div className={`faq-a${openFaq === index ? ' show' : ''}`}>{item.answer}</div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Mobile Contact Form Display */}
-            <div className="block lg:hidden mt-4">
+            <motion.div
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="block lg:hidden mt-4"
+            >
               <StickyContactForm />
-            </div>
+            </motion.div>
           </article>
+          </div>
 
           {/* Sticky Sidebar */}
-          <aside className="sidebar-column">
-            <div className="side-card hidden lg:block">
+          <aside className="hidden lg:block shrink-0 w-[320px]">
+            <div className="sticky top-[86px] px-2">
               <StickyContactForm />
-            </div>
-            <div className="side-card">
-              <h2 style={{ fontSize: '18px', marginBottom: '10px' }}>Quick buyer lens</h2>
-              <p style={{ fontSize: '14px', margin: 0, color: 'var(--muted)' }}>People buy better when the facility feels organized. A good display yard, clean weighing practice, visible grading, and fast settlement help build trust.</p>
             </div>
           </aside>
 

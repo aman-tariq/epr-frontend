@@ -35,9 +35,7 @@ const HeroSection = () => (
         <span className="inline-block py-1.5 px-4 rounded-full bg-secondary text-secondary-foreground text-sm font-semibold border border-border shadow-sm">
           Industry Guide
         </span>
-        <span className="inline-block py-1.5 px-4 rounded-full bg-brandGreen/10 text-brandGreen text-sm font-bold border border-brandGreen/20 shadow-sm">
-          Updated for 2026
-        </span>
+        
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-foreground leading-tight mb-6 tracking-tight">
         EPR Metals Credits: <br />
@@ -680,10 +678,10 @@ const Conclusion = () => (
 export default function EprMetalsBlog() {
   return (
     // No overflow settings globally on <main> to prevent breakages of position:sticky
-    <main className="min-h-screen bg-background text-foreground pt-32 pb-20 selection:bg-brandGreen selection:text-white">
-      <div className="md:container mx-auto px-4 md:px-2 xl:px-4 max-w-8xl">
+    <main className="min-h-screen bg-background text-foreground mt-[130px] pt-2 pb-20 selection:bg-brandGreen selection:text-white">
+      <div className="md:container mx-0 px-1 md:px-2 xl:px-1 max-w-8xl">
         {/* Important: Removed items-start from layout grid wrapper so both columns default to equal structural height */}
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-4 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-0 items-stretch">
           {/* Left Column: Main Blog Content */}
           <div className="w-full lg:w-[65%] xl:w-[70%]">
             <Seo
@@ -736,7 +734,7 @@ export default function EprMetalsBlog() {
           </div>
 
           {/* Right Column: Sticky Sidebar with Contact Form */}
-          <aside className="hidden lg:block shrink-0 w-[320px]">
+          <aside className="hidden lg:block shrink-0 w-[360px]">
             <div className="sticky top-28 px-2">
               <StickyContactForm />
             </div>

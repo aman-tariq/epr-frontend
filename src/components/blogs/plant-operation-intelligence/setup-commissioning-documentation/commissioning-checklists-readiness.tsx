@@ -3,11 +3,12 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 const CommissioningChecklistsReadiness: React.FC = () => {
   return (
     // Base light background wrapper with dark slate body text
-    <div className="min-h-screen bg-[#f8fafc] text-[#1e293b] font-sans">
+    <div className="min-h-screen mt-[100px] bg-[#f8fafc] text-[#1e293b] font-sans">
       <div className="flex flex-col lg:flex-row gap-2 items-stretch max-w-8xl mx-auto p-4 md:p-6">
         
         {/* Main content column */}
@@ -48,7 +49,10 @@ const CommissioningChecklistsReadiness: React.FC = () => {
             />
             
             {/* HERO — Built with an organic, multi-colored light gradient mesh using green/blue */}
-            <section className="relative overflow-hidden rounded-3xl p-8 md:p-14 border border-blue-200 shadow-sm"
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="relative overflow-hidden rounded-3xl p-8 md:p-14 border border-blue-200 shadow-sm"
               style={{
                 background: 'linear-gradient(135deg, rgba(240,253,244,0.95), rgba(219,234,254,0.70)), linear-gradient(135deg, #ffffff 0%, #f0fdf4 60%, #eff6ff 100%)'
               }}>
@@ -102,10 +106,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Why Commissioning Readiness Section */}
-            <section className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
                 Why commissioning readiness is now a business priority
               </h2>
@@ -158,10 +165,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Why Checklists Matter Split Columns */}
-            <div className="grid md:grid-cols-5 gap-6 mt-12">
+            <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-5 gap-6 mt-12">
               <div className="md:col-span-3 bg-white border border-green-100 rounded-3xl p-6 md:p-10 shadow-xs">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
                   Why commissioning checklists matter
@@ -209,10 +219,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* How Checklists Improve Readiness Grid */}
-            <section className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center md:text-left">
                 How checklists improve readiness in real life
               </h2>
@@ -240,10 +253,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Visual View Progress Bars Container */}
-            <section className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1">
                 Visual view: where checklists add the most value
               </h2>
@@ -271,10 +287,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Sample Table Block */}
-            <div className="grid md:grid-cols-1 gap-2 mt-12">
+            <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-1 gap-2 mt-12">
               <div className="bg-white border border-green-100 rounded-3xl p-6 md:p-8 shadow-xs overflow-hidden">
                 <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
                   Sample database view for commissioning control
@@ -325,10 +344,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Case Study Section Container */}
-            <section className="mt-12 bg-amber-50/60 border border-amber-200 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-amber-50/60 border border-amber-200 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-amber-900">
                 Case study: turning a delayed start-up into a controlled launch
               </h2>
@@ -346,10 +368,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Readiness Stages Flow */}
-            <section className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">
                 Understanding operational readiness in simple stages
               </h2>
@@ -373,10 +398,10 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ Accordion Layout */}
-            <section className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
+            <motion.section className="mt-12 bg-white border border-blue-100 rounded-3xl p-6 md:p-10 shadow-xs">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900">FAQs</h2>
               <div className="space-y-4">
                 {[
@@ -412,10 +437,10 @@ const CommissioningChecklistsReadiness: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Final Thought CTA Card Block */}
-            <section className="mt-12 rounded-3xl p-8 md:p-14 text-center border border-blue-200 shadow-xs bg-gradient-to-r from-blue-50 via-white to-green-50">
+            <motion.section className="mt-12 rounded-3xl p-8 md:p-14 text-center border border-blue-200 shadow-xs bg-gradient-to-r from-blue-50 via-white to-green-50">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">Final Thought</h2>
               <p className="max-w-3xl mx-auto text-base md:text-lg text-slate-600 leading-relaxed">
                 Commissioning checklists improve operational readiness by bringing
@@ -425,13 +450,13 @@ const CommissioningChecklistsReadiness: React.FC = () => {
               <div className="mt-6 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600 font-extrabold text-lg md:text-xl">
                 ✨ Building Precision Into Process Automation.
               </div>
-            </section>
+            </motion.section>
           </div>
         </div>
 
         {/* Sticky Form Sidebar aligned with light frames */}
         <aside className="hidden lg:block shrink-0 w-[340px]">
-          <div className="sticky top-28 px-1 py-6 bg-white border border-slate-200 rounded-3xl shadow-sm mt-6">
+          <div className="sticky top-28 px-1">
             <StickyContactForm />
           </div>
         </aside>

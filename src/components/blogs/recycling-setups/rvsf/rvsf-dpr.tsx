@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
 
@@ -381,6 +382,35 @@ const styles = `
   .mini-note { font-size: 13px; color: #688073; background: #f5fbf6; border: 1px dashed #d2e8d8; border-radius: 16px; padding: 14px 16px; margin-top: 14px; }
 `;
 
+// Motion Variants Definition
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    }
+  }
+};
+
+const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    transition: { duration: 0.5, ease: "easeOut" } 
+  }
+};
+
 const faqItems = [
   { question: 'What is a detail project report for a registered vehicle scrapping facility?', answer: 'It is a complete project document that explains the facility concept, site plan, process flow, equipment need, financial model, compliance path, and implementation schedule. It helps clients and decision-makers understand the project before they commit to it.' },
   { question: 'Why do clients need a detailed report before starting the plant?', answer: 'Clients need clarity on investment, approvals, operations, and long-term feasibility. A good report reduces uncertainty and helps the project move forward with fewer delays.' },
@@ -536,7 +566,7 @@ const RVSFDPRBlog: React.FC = () => {
   }, []);
 
   return (
-    <div className="dpr-blog-root py-4 md:py-8">
+    <div className="dpr-blog-root py-4 mt-[90px] md:py-8">
       <Seo
         title="Detailed Project Report (DPR) for Registered Vehicle Scrapping Facility (RVSF) - Complete Guide 2026"
         description="Complete guide on preparing a Detailed Project Report (DPR) for Registered Vehicle Scrapping Facility (RVSF). Includes financial model, compliance roadmap, commissioning documentation, approvals process, and implementation plan for RVSF setup in India."
@@ -554,32 +584,44 @@ const RVSFDPRBlog: React.FC = () => {
         type="article"
       />
       
-      <header className="hero">
-        <div className="hero-badge">Registered Vehicle Scrapping Facility</div>
-        <h1>Build a <span>detail project report</span> that helps clients approve faster, plan smarter, and invest with confidence.</h1>
-        <p className="punchline">A strong project report does more than explain a facility — it proves the business case, the compliance path, and the long-term value.</p>
-        <div className="hero-meta">
+     
+      <main className="wrap">
+        <div className="flex flex-col lg:flex-row gap-0 items-stretch">
+          <div>
+             <motion.header 
+        className="hero"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <motion.div className="hero-badge" variants={fadeInUp}>Registered Vehicle Scrapping Facility</motion.div>
+        <motion.h1 variants={fadeInUp}>Build a <span>detail project report</span> that helps clients approve faster, plan smarter, and invest with confidence.</motion.h1>
+        <motion.p className="punchline" variants={fadeInUp}>A strong project report does more than explain a facility — it proves the business case, the compliance path, and the long-term value.</motion.p>
+        <motion.div className="hero-meta" variants={fadeInUp}>
           <span>Project Feasibility</span>
           <span>Compliance &amp; Planning</span>
           <span>Financial Clarity</span>
           <span>Operational Readiness</span>
-        </div>
-      </header>
+        </motion.div>
+      </motion.header>
 
-      <main className="wrap">
-        <div className="main-layout-wrapper">
           
           {/* Main content stream */}
           <article className="content-column">
-            <section>
+            <motion.section 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <p className="lead">A registered vehicle scrapping facility needs more than land, machines, and approvals. It needs a detail project report that tells the full story: how the plant will work, how it will earn, how it will stay compliant, and how it will grow. That is where we help clients move from a rough idea to a decision-ready plan.</p>
 
-              <div className="stats">
-                <div className="stat"><span className="num">5–7</span><div className="lbl">Core sections</div></div>
-                <div className="stat"><span className="num">100%</span><div className="lbl">Scope clarity</div></div>
-                <div className="stat"><span className="num">3×</span><div className="lbl">Faster approvals</div></div>
-                <div className="stat"><span className="num">1</span><div className="lbl">Aligned roadmap</div></div>
-              </div>
+              <motion.div className="stats" variants={staggerContainer}>
+                <motion.div className="stat" variants={scaleUp}><span className="num">5–7</span><div className="lbl">Core sections</div></motion.div>
+                <motion.div className="stat" variants={scaleUp}><span className="num">100%</span><div className="lbl">Scope clarity</div></motion.div>
+                <motion.div className="stat" variants={scaleUp}><span className="num">3×</span><div className="lbl">Faster approvals</div></motion.div>
+                <motion.div className="stat" variants={scaleUp}><span className="num">1</span><div className="lbl">Aligned roadmap</div></motion.div>
+              </motion.div>
 
               <div className="section-divider">What clients need</div>
               <h2>Why a detail project report matters for a vehicle scrapping facility</h2>
@@ -590,21 +632,26 @@ const RVSFDPRBlog: React.FC = () => {
                 <h3>Clear report. Clear approvals. Clear business case.</h3>
                 <p>That is the difference between a project that keeps moving and a project that keeps getting delayed.</p>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <div className="section-divider">Project flow</div>
               <h2>How we structure the project report for clients</h2>
               <p>We prepare the report in a way that is easy to review and easy to defend. The structure usually follows the same logic used in engineering and industrial documentation: from initial concept to handover. It includes the <strong>commissioning plan</strong>, <strong>commissioning checklist</strong>, <strong>pre-commissioning checklist</strong>, <strong>commissioning workflow</strong>, <strong>handover documentation</strong>, and <strong>startup documentation</strong> that the facility will eventually need.</p>
 
-              <div className="phase-grid">
-                <div className="phase"><h4>1. Project concept</h4><p>Facility purpose, capacity, business objective, and market need.</p></div>
-                <div className="phase"><h4>2. Site planning</h4><p>Land use, access, utilities, workflow, and safety layout.</p></div>
-                <div className="phase"><h4>3. Process design</h4><p>Scrapping flow, equipment selection, storage zones, and controls.</p></div>
-              </div>
+              <motion.div className="phase-grid" variants={staggerContainer}>
+                <motion.div className="phase" variants={fadeInUp}><h4>1. Project concept</h4><p>Facility purpose, capacity, business objective, and market need.</p></motion.div>
+                <motion.div className="phase" variants={fadeInUp}><h4>2. Site planning</h4><p>Land use, access, utilities, workflow, and safety layout.</p></motion.div>
+                <motion.div className="phase" variants={fadeInUp}><h4>3. Process design</h4><p>Scrapping flow, equipment selection, storage zones, and controls.</p></motion.div>
+              </motion.div>
 
               <div className="grid-custom">
-                <div className="card">
+                <motion.div className="card" variants={fadeInUp}>
                   <h3>What the report should include</h3>
                   <ul className="clean">
                     <li>Executive summary and project objective</li>
@@ -613,9 +660,9 @@ const RVSFDPRBlog: React.FC = () => {
                     <li>Manpower plan and operating roles</li>
                   </ul>
                   <div className="mini-note">We keep the language human and practical so the client does not have to decode engineering jargon to make a decision.</div>
-                </div>
+                </motion.div>
 
-                <div className="card soft">
+                <motion.div className="card soft" variants={fadeInUp}>
                   <h3>Project-report database view</h3>
                   <div className="db-wrap">
                     <table className="db" aria-label="Project report database">
@@ -634,31 +681,41 @@ const RVSFDPRBlog: React.FC = () => {
                       </tbody>
                     </table>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <div className="section-divider">Data made visible</div>
               <h2>Graphs that explain the project in seconds</h2>
 
-              <div className="chart-box">
+              <motion.div className="chart-box" variants={scaleUp}>
                 <div className="chart-title">Report sections that influence client approval most</div>
                 <div className="chart-outer-wrap"><div className="chart short"><canvas ref={chart1Ref} /></div></div>
-              </div>
+              </motion.div>
 
-              <div className="chart-box">
+              <motion.div className="chart-box" variants={scaleUp}>
                 <div className="chart-title">What clients need to see before saying yes</div>
                 <div className="chart-outer-wrap"><div className="chart tall"><canvas ref={chart2Ref} /></div></div>
-              </div>
+              </motion.div>
 
-              <div className="chart-box">
+              <motion.div className="chart-box" variants={scaleUp}>
                 <div className="chart-title">Documentation flow across project stages</div>
                 <div className="chart-outer-wrap"><div className="chart short"><canvas ref={chart3Ref} /></div></div>
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
-            <section>
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <div className="section-divider">Industrial documentation</div>
               <h2>Why commissioning-style documentation matters</h2>
               <p>Even though this is a project report, the same discipline used in industrial documentation makes it stronger. The client gets a clearer sense of control when the report includes <strong>mechanical completion</strong>, <strong>installation verification</strong>, <strong>FAT testing</strong>, <strong>SAT testing</strong>, <strong>acceptance testing</strong>, and <strong>performance verification</strong> thinking from the start.</p>
@@ -667,9 +724,14 @@ const RVSFDPRBlog: React.FC = () => {
                 <div className="chart-title">Stage-by-stage reporting needs</div>
                 <div className="chart-outer-wrap"><div className="chart short"><canvas ref={chart4Ref} /></div></div>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <div className="section-divider">Case study</div>
               <div className="case">
                 <h3>How a structured project report helped a facility move forward</h3>
@@ -681,9 +743,14 @@ const RVSFDPRBlog: React.FC = () => {
                   <div className="r"><strong>1</strong><span>Roadmap</span></div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
-            <section>
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeInUp}
+            >
               <div className="section-divider">FAQ</div>
               <h2>Frequently Asked Questions</h2>
               <div className="faq">
@@ -705,24 +772,19 @@ const RVSFDPRBlog: React.FC = () => {
                 <span className="kw">handover documentation</span>
               </div>
 
-              <div className="footer-cta">
+              <motion.div className="footer-cta" variants={scaleUp}>
                 <h2>Turn an idea into a report the client can act on</h2>
                 <p>When the project report is clear, visual, and complete, the client does not just read it — they believe it. That is the kind of document that helps a registered vehicle scrapping facility move forward with confidence.</p>
-              </div>
-            </section>
-
-            {/* Mobile Contact Form Display */}
-            <div className="block lg:hidden mt-4">
-              <StickyContactForm />
-            </div>
+              </motion.div>
+            </motion.section>
           </article>
+          </div>
 
           {/* Persistent Sidebar Area */}
-          <aside className="sidebar-column">
-            <div className="side-card hidden lg:block">
+          <aside className="hideen lg:block shrink-0 w-[320px]">
+            <div className="sticky top-[86px] px-2">
               <StickyContactForm />
             </div>
-           
           </aside>
 
         </div>

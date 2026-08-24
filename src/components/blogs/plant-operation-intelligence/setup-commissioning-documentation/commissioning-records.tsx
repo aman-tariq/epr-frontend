@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 Chart.register(...registerables);
 
@@ -260,7 +261,7 @@ const CommissioningRecords: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFEF9] text-[#1C1A14] font-sans">
+    <div className="min-h-screen bg-[#FFFEF9] mt-[120px] text-[#1C1A14] font-sans">
       <div className="flex max-w-8xl flex-col lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">
       <Seo
@@ -301,7 +302,7 @@ const CommissioningRecords: React.FC = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2760%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.03%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%27)]" />
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="inline-block bg-[#B87000] text-white text-xs tracking-[3px] px-6 py-1.5 rounded mb-6 font-semibold">
+          <div className="inline-block mt-10 bg-[#B87000] text-white text-xs tracking-[3px] px-6 py-1.5 rounded mb-6 font-semibold">
             Smart Plant Performance Series
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
@@ -324,7 +325,7 @@ const CommissioningRecords: React.FC = () => {
 
       <div className="max-w-8xl mx-auto px-6 py-16">
         {/* Lead */}
-        <p className="text-[18px] leading-relaxed border-l-4 border-[#0A6E72] pl-6 text-[#1C1A14] mb-12 font-serif">
+        <p className="text-[18px] mt-[20px] leading-relaxed border-l-4 border-[#0A6E72] pl-6 text-[#1C1A14] mb-12 font-serif">
           Every plant has a story — told not in press releases, but in the
           commissioning records that document how it was brought to life. When
           those records are complete, accurate, and accessible, operations teams

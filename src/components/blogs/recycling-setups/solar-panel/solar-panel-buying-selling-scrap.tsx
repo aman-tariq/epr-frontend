@@ -1,6 +1,26 @@
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import Seo from "@/components/Seo";
 import StickyContactForm from '@/components/StickyContactForm';
+
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
 
 const SolarPanelBuyingSellingScrap: React.FC = () => {
 
@@ -27,10 +47,20 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
         type="article"
       />
       
-      <div className="blog-container font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12 px-4 md:px-6">
+      <div className="blog-container mt-[120px] font-['Poppins'] bg-gradient-to-b from-[#eff6ff] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12 px-4 md:px-6">
         
-        {/* HERO */}
-        <section className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-12 py-16 md:py-20 my-6 shadow-2xl">
+
+
+        {/* 2-Column Responsive Layout Wrapper */}
+        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4 items-start">
+          <div>
+                    {/* HERO */}
+        <motion.section 
+          className="hero relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-12 py-16 md:py-20 my-6 shadow-2xl"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20" />
           <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12" />
 
@@ -50,16 +80,19 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
               The right partner helps clients buy smarter, sell faster, and recover more value from every panel.
             </div>
           </div>
-        </section>
-
-        {/* 2-Column Responsive Layout Wrapper */}
-        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-4 items-start">
+        </motion.section>
           
           {/* Left Column: Main Content Area */}
           <div className="space-y-8 min-w-0">
             
             {/* Main Grid Section */}
-            <div className="grid grid-cols-1 gap-6">
+            <motion.div 
+              className="grid grid-cols-1 gap-6"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
                 <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">How we help clients in buying and selling scrap and products</h2>
                 <p className="lead text-base md:text-lg text-[#334155] mb-4">
@@ -101,7 +134,7 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   A strong buying-and-selling process reduces risk, improves margins, and keeps the project moving with less confusion.
                 </p>
               </section>
-            </div>
+            </motion.div>
 
             {/* Mobile Fallback: Form displays inside the layout stream only on mobile views */}
             <div className="block lg:hidden">
@@ -109,7 +142,13 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
             </div>
 
             {/* What we buy and sell Table */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">What we buy and what we help clients sell</h2>
               <p className="text-[#5b6472] mb-6">
                 The solar recycling market is broader than just broken panels. Below is a practical view of the materials and products
@@ -143,35 +182,53 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Support Model Steps */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">Our support model in simple steps</h2>
               <p className="text-[#5b6472] mb-6">
                 Buying and selling works best when the process is clear. Here is the practical journey we follow with clients.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <motion.div 
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
                 {[
                   { num: "1", title: "Source identification", desc: "We help clients find suitable scrap sources, end-of-life panels, or resale-ready products." },
                   { num: "2", title: "Quality check", desc: "We review condition, material type, and recovery potential before buying or selling." },
                   { num: "3", title: "Market matching", desc: "We connect the material with the right buyer segment, whether it is scrap, reuse, or refined product." },
                   { num: "4", title: "Deal closure", desc: "We help clients move from pricing to transaction with better confidence and fewer delays." },
                 ].map((step, i) => (
-                  <div key={i} className="step border border-[#e5e7eb] rounded-2xl p-5 bg-gradient-to-b from-[#f8fbff] to-white">
+                  <motion.div key={i} variants={fadeInVariant} className="step border border-[#e5e7eb] rounded-2xl p-5 bg-gradient-to-b from-[#f8fbff] to-white">
                     <div className="step-number w-10 h-10 rounded-full bg-gradient-to-br from-[#0f766e] to-[#f59e0b] text-white flex items-center justify-center font-bold mb-4">
                       {step.num}
                     </div>
                     <h4 className="font-semibold text-base mb-2">{step.title}</h4>
                     <p className="text-xs text-[#5b6472]">{step.desc}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* Bar Graph + Database */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
                 <h2 className="text-xl md:text-2xl font-bold mb-4 text-[#0f172a]">Bar graph: where client value is created</h2>
                 <p className="text-[#5b6472] mb-6 text-sm">
@@ -219,10 +276,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   <strong>Database insight:</strong> when the material flow is tracked properly, clients can sell faster and manage inventory with less stress.
                 </div>
               </section>
-            </div>
+            </motion.div>
 
             {/* Why Buy Smarter */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">Why our guidance helps clients buy smarter</h2>
               <p className="text-[#5b6472] mb-4">
                 Buying scrap in solar recycling is not only about getting the lowest price. It is about getting the right material,
@@ -250,10 +313,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
               <div className="highlight mt-6 p-4 bg-slate-50 border-l-4 border-[#0f766e] rounded-r-xl text-sm">
                 <strong>Simple client message:</strong> the best buy is not the cheapest one — it is the one that creates the best overall result.
               </div>
-            </section>
+            </motion.section>
 
             {/* Why Sell Better */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">Why our guidance helps clients sell better</h2>
               <p className="text-[#5b6472] mb-6">
                 Selling recovered scrap and products becomes easier when the material is presented cleanly, graded properly, and positioned for the right buyer.
@@ -273,10 +342,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   <p className="text-sm text-[#5b6472]">When clients sell consistently and transparently, they build a strong reputation.</p>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Tracking Dashboard Table */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">Tracking dashboard for buying and selling</h2>
               <p className="text-[#5b6472] mb-6">
                 This dashboard-style table gives a simple view of material movement, deal stage, and business outcome.
@@ -310,10 +385,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case Study */}
-            <section className="card case-study bg-gradient-to-br from-[#fff7ed] to-[#ffedd5] border border-[#fdba74] rounded-3xl p-6 lg:p-8 shadow-xl">
+            <motion.section 
+              className="card case-study bg-gradient-to-br from-[#fff7ed] to-[#ffedd5] border border-[#fdba74] rounded-3xl p-6 lg:p-8 shadow-xl"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#9a3412]">Case study: helping a client turn mixed solar scrap into a revenue stream</h2>
               <p className="text-[#6b4b21] mb-6 text-sm md:text-base">
                 A mid-sized recycling client approached us with a large batch of mixed solar scrap. The inventory included damaged panels,
@@ -336,10 +417,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
               <div className="highlight mt-6 p-4 bg-white/50 border-l-4 border-[#9a3412] rounded-r-xl text-sm">
                 <strong>Case study lesson:</strong> when scrap is graded properly, clients do not just sell material — they unlock value.
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section 
+              className="card bg-white rounded-3xl p-6 lg:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0f172a]">Frequently asked questions</h2>
               <div className="faq space-y-4">
                 {[
@@ -362,10 +449,16 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* CLOSING */}
-            <section className="closing text-white text-center bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f97316] py-12 px-6 rounded-[30px]">
+            <motion.section 
+              className="closing text-white text-center bg-gradient-to-br from-[#0f172a] via-[#0f766e] to-[#f97316] py-12 px-6 rounded-[30px]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-2xl md:text-4xl font-bold mb-6">Final Thoughts</h2>
               <p className="max-w-3xl mx-auto text-sm md:text-lg leading-relaxed opacity-95">
                 In solar panel recycling, buying and selling become powerful when they are guided by experience, material understanding,
@@ -375,8 +468,9 @@ const SolarPanelBuyingSellingScrap: React.FC = () => {
                 Our support helps turn scrap into opportunity and recovered products into real business value.
               </p>
               <div className="final-line mt-10 text-xl md:text-3xl font-bold">“We help clients buy with confidence and sell with value.”</div>
-            </section>
+            </motion.section>
 
+          </div>
           </div>
 
           {/* Right Column: Desktop Sticky Sidebar (Adjusted top offset to top-24 to safely clear navbars) */}

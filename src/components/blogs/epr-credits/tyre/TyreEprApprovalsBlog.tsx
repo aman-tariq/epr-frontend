@@ -15,6 +15,7 @@ import {
   YAxis,
   CartesianGrid,
 } from "recharts";
+import {motion} from "framer-motion"
 
 type YearKey = "2023-24" | "2024-25";
 
@@ -24,6 +25,34 @@ const dataMap: Record<YearKey, { producers: number; recyclers: number }> = {
 };
 
 const PIE_COLORS = ["#5AC361", "#1e293b"];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function TyreBlog2() {
   const [year, setYear] = useState<YearKey>("2024-25");
@@ -44,13 +73,18 @@ export default function TyreBlog2() {
       }}
     >
       <main className="min-h-screen max-w-8xl">
-        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-1 items-stretch">
           <div className="container">
 
          
        
         {/* Header */}
-        <header className="container mx-auto px-1 mt-10 pt-8 pb-10">
+        <motion.header
+        initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }} 
+        className="container mx-auto px-1 mt-10 pt-8 pb-10">
           <div className="rounded-[2rem] overflow-hidden bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.18] shadow-[0_20px_50px_rgba(15,23,42,0.08)]">
             <div className="p-6 md:p-4 lg:p-14">
               <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -90,10 +124,10 @@ export default function TyreBlog2() {
               </div>
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Intro + Problem */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <article className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)] animate-fade-in">
               <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Introduction</h2>
@@ -137,10 +171,10 @@ export default function TyreBlog2() {
               </div>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Brief solution */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Brief Solution</h2>
             <p className="mt-5 text-slate-700 leading-8 max-w-5xl mx-auto text-center">
@@ -153,10 +187,10 @@ export default function TyreBlog2() {
               to scale.
             </p>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Roadmap + Requirements */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <article className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)] lg:col-span-2">
               <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Roadmap</h2>
@@ -192,10 +226,10 @@ export default function TyreBlog2() {
               </ul>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Pitfalls */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Pitfalls</h2>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -212,10 +246,10 @@ export default function TyreBlog2() {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* What clients come to us for */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">What clients come to us for</h2>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -232,10 +266,10 @@ export default function TyreBlog2() {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Products and scrap we cover */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Products and scrap we cover</h2>
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -246,10 +280,10 @@ export default function TyreBlog2() {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Outputs & buyers + data snapshot */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="grid grid-cols-1 xl:grid-cols- gap-6">
             <article className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
               <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">
@@ -355,10 +389,10 @@ export default function TyreBlog2() {
               </p>
             </article>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* Turn guidance into action */}
-        <section className="container mx-auto px-4 pb-8">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-8">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Turn guidance into compliant action</h2>
             <p className="mt-5 text-center text-slate-700 leading-8 max-w-5xl mx-auto">
@@ -369,10 +403,10 @@ export default function TyreBlog2() {
               business becomes more bankable and more scalable.
             </p>
           </div>
-        </section>
+        </section> </Reveal>
 
         {/* FAQ */}
-        <section className="container mx-auto px-4 pb-10">
+        <Reveal delay={0.05}> <section  className="container mx-auto px-4 pb-10">
           <div className="rounded-[2rem] p-6 md:p-8 bg-white/[0.78] backdrop-blur-xl border border-slate-400/[0.22] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <h2 className="text-center font-display text-2xl md:text-3xl font-bold text-slate-950">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-4">
@@ -390,7 +424,7 @@ export default function TyreBlog2() {
               ))}
             </div>
           </div>
-        </section>
+        </section> </Reveal>
         </div>
         <aside className="hidden lg:block w-[320px] shrink-0">
           <div className="sticky top-28 px-2">

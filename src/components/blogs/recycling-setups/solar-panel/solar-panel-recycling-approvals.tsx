@@ -1,12 +1,31 @@
-// C:\Users\lenovo\Desktop\epr-nexuss\epr-nexus\frontend\src\components\blogs\solar-panel\solar-panel-recycling-approvals.tsx
 import React from "react";
+import { motion, Variants } from "framer-motion";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
+
+const fadeInVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 const SolarPanelRecyclingApprovals: React.FC = () => {
   return (
     // Removed overflow-x-hidden from here to prevent breaking CSS stickiness
-    <div className="blog-container w-full max-w-full font-['Poppins'] bg-gradient-to-b from-[#fff7ed] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12">
+    <div className="blog-container mt-[120px] w-full max-w-full font-['Poppins'] bg-gradient-to-b from-[#fff7ed] via-[#f8fafc] to-[#f4f7fb] text-[#1f2937] pb-12">
       <Seo
         title="Approvals for a Solar Panel Recycling Plant: Registration & Compliance Guide"
         description="Learn the approvals, registrations, licenses, and compliance requirements for setting up a solar panel recycling plant in India. Understand CPCB guidelines, environmental regulations, documentation, and legal obligations for successful operations."
@@ -42,7 +61,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
       />
 
       {/* HERO SECTION */}
-      <section className="hero relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-2 py-16 md:py-20 mx-4 my-6 shadow-2xl">
+      <motion.section
+        className="hero relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#0f766e] to-[#f59e0b] text-white rounded-[30px] px-6 md:px-2 py-16 md:py-20 mx-4 my-6 shadow-2xl"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
         <div className="absolute w-[260px] h-[260px] bg-white/10 rounded-full -top-20 -right-20 pointer-events-none" />
         <div className="absolute w-[180px] h-[180px] bg-white/10 rounded-full -bottom-16 -left-12 pointer-events-none" />
 
@@ -67,7 +92,7 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
             give it credibility, speed, and long-term value.
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* THREE-COLUMN LAYOUT MAIN WRAPPER */}
       {/* items-start is strictly required here so the column heights remain independent */}
@@ -75,7 +100,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
         {/* LEFT & CENTER COLUMNS: PRIMARY MAIN ARTICLE FLOW */}
         <main className="lg:col-span-2 w-full min-w-0 flex flex-col gap-8">
           {/* Why approvals matter before plant setup */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               Why approvals matter before plant setup
             </h2>
@@ -112,7 +143,7 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                 Faster launch readiness
               </span>
             </div>
-          </section>
+          </motion.section>
 
           {/* MOBILE ONLY CONTACT FORM (Becomes inline on tablet/mobile views) */}
           <div className="block lg:hidden w-full">
@@ -129,7 +160,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
           </div>
 
           {/* What a client should know first */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               What a client should know first
             </h2>
@@ -151,10 +188,16 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
               Early approval planning helps avoid design changes, compliance
               gaps, and unexpected delays later in the project.
             </p>
-          </section>
+          </motion.section>
 
           {/* Major Approvals Table */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               Major approvals required for a solar panel recycling plant
             </h2>
@@ -234,10 +277,16 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                 </tbody>
               </table>
             </div>
-          </section>
+          </motion.section>
 
           {/* Complete Checklist */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               Licences & approvals — the complete checklist
             </h2>
@@ -245,7 +294,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
               Below is a practical checklist for a solar panel recycling plant.
             </p>
 
-            <div className="checklist-grid grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <motion.div
+              className="checklist-grid grid grid-cols-1 sm:grid-cols-2 gap-5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   num: "1",
@@ -288,8 +343,9 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                   desc: "Useful for businesses involved in producer responsibility.",
                 },
               ].map((item, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="check-card border border-[#e5e7eb] rounded-2xl p-6 bg-gradient-to-b from-white to-[#fffbeb] flex flex-col justify-between"
                 >
                   <div>
@@ -305,19 +361,25 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <div className="highlight mt-8 bg-amber-50 border-l-4 border-amber-500 rounded-xl p-5">
               <strong>Easy client explanation:</strong> these approvals work
               like a protection layer. They keep the project legally safe,
               technically stable, and easier to scale.
             </div>
-          </section>
+          </motion.section>
 
           {/* Roadmap Steps */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               The approval roadmap in simple steps
             </h2>
@@ -326,7 +388,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
               sequence.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   num: "1",
@@ -349,8 +417,9 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                   desc: "Resolve queries, complete inspections, and move toward trial production.",
                 },
               ].map((step, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="step border border-[#e5e7eb] rounded-2xl p-5 bg-gradient-to-b from-[#fffdf7] to-white"
                 >
                   <div className="step-number w-9 h-9 rounded-full bg-gradient-to-br from-[#0f766e] to-[#f59e0b] text-white font-bold flex items-center justify-center mb-4 text-sm">
@@ -362,14 +431,20 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                   <p className="text-xs text-[#5b6472] leading-relaxed">
                     {step.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* Bar Graph + Readiness */}
           <div className="grid grid-cols-1 gap-6">
-            <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section
+              className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
                 Bar graph: where the approval effort is highest
               </h2>
@@ -393,10 +468,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                       {bar.label}
                     </div>
                     <div className="bar-track flex-1 h-3.5 bg-[#e5e7eb] rounded-full overflow-hidden">
-                      <div
+                      <motion.div
                         className="bar-fill h-full rounded-full bg-gradient-to-r from-[#0f766e] via-[#22c55e] to-[#f59e0b]"
-                        style={{ width: bar.value }}
-                      ></div>
+                        initial={{ width: 0 }}
+                        whileInView={{ width: bar.value }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                      ></motion.div>
                     </div>
                     <div className="bar-value font-bold text-sm text-slate-900 sm:w-[50px] text-right shrink-0">
                       {bar.value}
@@ -404,9 +482,15 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
-            <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+            <motion.section
+              className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+              variants={fadeInVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
                 Project readiness score
               </h2>
@@ -414,7 +498,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                 A simple database-style view helps clients see whether the
                 project is ready.
               </p>
-              <div className="mini-database grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <motion.div
+                className="mini-database grid grid-cols-1 sm:grid-cols-2 gap-4"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
                 {[
                   {
                     title: "Site readiness",
@@ -433,8 +523,9 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                     desc: "Storage, manpower, utilities, and safety planning aligned.",
                   },
                 ].map((item, i) => (
-                  <div
+                  <motion.div
                     key={i}
+                    variants={fadeInVariant}
                     className="db-box border border-[#e5e7eb] rounded-2xl p-5 bg-slate-50"
                   >
                     <h4 className="font-semibold text-base mb-2 text-slate-900 break-words">
@@ -443,14 +534,20 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                     <p className="text-xs md:text-sm text-[#5b6472] leading-relaxed">
                       {item.desc}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
           </div>
 
           {/* Additional Topics */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#0f172a]">
               Additional topics that help the client understand the project
               better
@@ -492,10 +589,16 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
               market that the plant is serious, safe, and ready for long-term
               business.
             </div>
-          </section>
+          </motion.section>
 
           {/* Case Study */}
-          <section className="card case-study bg-gradient-to-br from-[#fff7ed] to-[#ffedd5] border border-[#fdba74] rounded-3xl p-6 md:p-8 shadow-xl">
+          <motion.section
+            className="card case-study bg-gradient-to-br from-[#fff7ed] to-[#ffedd5] border border-[#fdba74] rounded-3xl p-6 md:p-8 shadow-xl"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-5 text-[#9a3412]">
               Case study: how proper approvals strengthened a solar recycling
               project
@@ -504,7 +607,13 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
               A mid-sized solar recycling company wanted to launch a new plant
               near a growing industrial corridor.
             </p>
-            <div className="case-grid grid grid-cols-1 md:grid-cols-3 gap-5">
+            <motion.div
+              className="case-grid grid grid-cols-1 md:grid-cols-3 gap-5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {[
                 {
                   title: "The challenge",
@@ -519,8 +628,9 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                   desc: "The client reduced delay risk, improved investor confidence, and moved toward commissioning with a stronger compliance profile.",
                 },
               ].map((item, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeInVariant}
                   className="case-item bg-white border border-[#fed7aa] rounded-2xl p-5 flex flex-col justify-between"
                 >
                   <div>
@@ -531,17 +641,23 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
             <div className="highlight mt-8 bg-amber-50 border-l-4 border-amber-500 rounded-xl p-5">
               <strong>Lesson from the case:</strong> when approvals are planned
               early, the project becomes easier to execute and safer to manage.
             </div>
-          </section>
+          </motion.section>
 
           {/* FAQ */}
-          <section className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]">
+          <motion.section
+            className="card bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#e5e7eb]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#0f172a]">
               Frequently asked questions
             </h2>
@@ -573,10 +689,16 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
           {/* CLOSING */}
-          <section className="closing text-grey-900 text-center py-12 px-4 rounded-[30px]">
+          <motion.section
+            className="closing text-grey-900 text-center py-12 px-4 rounded-[30px]"
+            variants={fadeInVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Final Thoughts
             </h2>
@@ -591,16 +713,15 @@ const SolarPanelRecyclingApprovals: React.FC = () => {
             <div className="final-line mt-10 text-xl md:text-3xl font-bold break-words">
               “Strong approvals create stronger solar recycling businesses.”
             </div>
-          </section>
+          </motion.section>
         </main>
 
         {/* RIGHT COLUMN: DESKTOP STICKY SIDEBAR */}
         {/* Added "sticky top-28 self-start" for guaranteed sliding behavior inside the grid layout */}
         <aside className="hidden lg:block shrink-0 w-[320px]">
           <div className="sticky top-28 px-2">
-              <StickyContactForm />
+            <StickyContactForm />
           </div>
-          
         </aside>
       </div>
     </div>

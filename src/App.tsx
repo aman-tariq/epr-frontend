@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import Loader from "@/components/Loader";
 import BusinessGrowthAndLeadGeneration from './components/services/business growth and lead generation/BusinessGrowthAndLeadGeneration';
+import ScrollToTop from '@/hooks/ScrollToTop'
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -90,6 +91,7 @@ const App = () => (
           v7_relativeSplatPath: true,
         }}
       >
+        <ScrollToTop/>
         <Loader>
           <AppContent />
         </Loader>

@@ -45,7 +45,7 @@ function Reveal({
 
 export default function WhySellEwasteBlog() {
   return (
-    <div className="font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="font-sans bg-gradient-to-b mt-[100px] from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="Why You Should Sell Your E-Waste Instead of Throwing It Away"
         description="Learn why selling your old electronics to a certified e-waste buyer is safer, greener, and more rewarding than throwing them in the trash."
@@ -64,7 +64,12 @@ export default function WhySellEwasteBlog() {
       />
 
       <div className="w-full max-w-8xl mx-auto px-1 pt-8 pb-16">
-        {/* Banner */}
+       
+
+        {/* Content + Sticky Sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+             {/* Banner */}
         <section className="relative overflow-hidden rounded-[32px] mb-7 border border-primary/10 bg-gradient-to-br from-primary via-primary/90 to-secondary shadow-lg">
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -left-14 -bottom-12 w-44 h-44 rounded-full bg-white/10" />
@@ -94,19 +99,18 @@ export default function WhySellEwasteBlog() {
           </div>
         </section>
 
-        {/* Content + Sticky Sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          
           <div className="flex-1 min-w-0 w-full">
             {/* Intro */}
             <Reveal>
               <section className="rounded-[24px] p-6 sm:p-8 border border-gray-200 bg-white shadow-sm mb-6">
-                <p className="text-gray-600 text-[16px] mb-4">
+                <p className="text-gray-600 text-[20px] mb-4">
                   Every year, households and offices across India quietly
                   throw away tonnes of old electronics — broken chargers, dead
                   batteries, retired laptops, unused phones. It feels harmless.
                   It isn't.
                 </p>
-                <p className="text-gray-600 text-[16px] mb-0">
+                <p className="text-gray-600 text-[20px] mb-0">
                   Electronic waste is one of the fastest-growing waste
                   streams in the world, and most of it is completely
                   recoverable. When you sell your e-waste to a certified
@@ -231,7 +235,7 @@ export default function WhySellEwasteBlog() {
                     The hidden value sitting inside your old devices
                   </h2>
                 </div>
-                <p className="text-gray-600 text-[15px] mb-4">
+                <p className="text-gray-600 text-[18px] mb-4">
                   Most people look at a dead laptop or a broken television
                   and see only trash. In reality, that same device is a
                   small deposit of recoverable material. A single laptop can
@@ -242,7 +246,7 @@ export default function WhySellEwasteBlog() {
                   None of that value disappears when the device stops
                   working — it just sits unused until someone recovers it.
                 </p>
-                <p className="text-gray-600 text-[15px] mb-0">
+                <p className="text-gray-600 text-[18px] mb-0">
                   Certified buyers price these materials individually rather
                   than guessing a flat rate for "old electronics," which is
                   exactly why selling almost always beats throwing away: you
@@ -352,9 +356,10 @@ export default function WhySellEwasteBlog() {
               </section>
             </Reveal>
           </div>
+          </div>
 
           {/* Sticky Sidebar */}
-          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "7rem" }}>
+          <aside className="hidden lg:block w-[280px] flex-shrink-0 self-start" style={{ position: "sticky", top: "5.5rem" }}>
             <StickyContactForm />
           </aside>
         </div>

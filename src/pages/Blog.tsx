@@ -165,7 +165,7 @@ const Blog = () => {
           <hr className="my-20 border-border/50" />
 
           {/* Featured and Recent Posts */}
-          <div className="grid gap-10 xl:grid-cols-[1.5fr_0.9fr]">
+          <div className="grid gap-10 xl:grid-cols-[1.5fr_0.9fr/]">
             <div className="space-y-10">
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
@@ -192,8 +192,9 @@ const Blog = () => {
                 </div>
               </motion.article>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-3">
                 {recentPosts.map((post, index) => (
+                  <Link to={post.path}>
                   <motion.article
                     key={post.slug}
                     initial={{ opacity: 0, y: 30 }}
@@ -227,19 +228,20 @@ const Blog = () => {
                         <span>{post.date}</span>
                         <span>{post.readingTime}</span>
                       </div>
-                      <Link
-                        to={post.path}
+                      <span
+                       
                         className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary/80"
                       >
                         Read article
-                      </Link>
+                      </span>
                     </div>
                   </motion.article>
+                  </Link>
                 ))}
               </div>
             </div>
 
-            <aside className="space-y-6">
+            {/* <aside className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -284,7 +286,7 @@ const Blog = () => {
                   New EPR rules, audit readiness, and waste recycling pathways are evolving rapidly. Stay ahead with concise, actionable posts from our EPR specialists.
                 </p>
               </motion.div>
-            </aside>
+            </aside> */}
           </div>
         </div>
       </section>

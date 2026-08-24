@@ -1,6 +1,7 @@
 import React from "react";
 import Seo from "@/components/Seo";
-import StickyContactForm from '@/components/StickyContactForm';
+import StickyContactForm from "@/components/StickyContactForm";
+import { motion, Variants } from "framer-motion";
 import {
   BarChart,
   Bar,
@@ -11,6 +12,29 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+
+// Motion Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const checklistChartData = [
   { name: "Company", value: 10 },
@@ -156,11 +180,21 @@ const PlasticApprovals: React.FC = () => {
       />
       
       {/* GLOBAL SCROLLABLE CONTENT WRAPPER */}
-      <div className="w-full max-w-full space-y-16 p-1 min-w-0">
+      <div className="w-full mt-[119px] max-w-full space-y-16 p-1 min-w-0">
         
-        {/* HERO */}
-        <section className="rounded-[32px] border border-border bg-gradient-to-br from-background to-secondary/5 p-6 md:p-12 mx-1 shadow-sm">
-          <div className="mb-5 flex flex-wrap gap-2 text-[10px] md:text-xs uppercase tracking-[0.3em] text-secondary font-semibold">
+        
+
+        {/* RESPONSIVE LAYOUT MATRIX */}
+        <div className="flex flex-col lg:flex-row gap-3 items-stretch">
+          <div>
+            {/* HERO */}
+        <motion.section
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="rounded-[32px] border border-border bg-gradient-to-br from-background to-secondary/5 p-6 md:p-12 mx-1 shadow-sm"
+        >
+          <motion.div variants={fadeInUp} className="mb-5 flex  flex-wrap gap-2 text-[10px] md:text-xs uppercase tracking-[0.3em] text-secondary font-semibold">
             {["Plastic Recycling", "Approvals", "CPCB", "Compliance"].map(
               (tag) => (
                 <span
@@ -171,19 +205,19 @@ const PlasticApprovals: React.FC = () => {
                 </span>
               )
             )}
-          </div>
+          </motion.div>
 
-          <h1 className="max-w-4xl text-3xl font-bold leading-tight text-foreground md:text-6xl break-words">
+          <motion.h1 variants={fadeInUp} className="max-w-4xl text-3xl font-bold leading-tight text-foreground md:text-6xl break-words">
             Turn Compliance Into a Smooth Start, Not a Last-Minute Panic
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 max-w-3xl text-base md:text-lg leading-7 md:leading-8 text-muted-foreground">
+          <motion.p variants={fadeInUp} className="mt-6 max-w-3xl text-base md:text-lg leading-7 md:leading-8 text-muted-foreground">
             A plastic recycling plant works best when the approvals are planned
             early. The right sequence saves time, avoids rework, and helps the
             business move from idea to operation with confidence.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap gap-3 md:gap-4">
+          <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-3 md:gap-4">
             <button className="rounded-2xl bg-secondary px-5 py-3 text-sm md:text-base font-semibold text-secondary-foreground transition hover:scale-105">
               Get Approval Guidance
             </button>
@@ -191,17 +225,20 @@ const PlasticApprovals: React.FC = () => {
             <button className="rounded-2xl border border-border px-5 py-3 text-sm md:text-base font-semibold text-foreground transition hover:bg-muted">
               See Real-World Example
             </button>
-          </div>
-        </section>
-
-        {/* RESPONSIVE LAYOUT MATRIX */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full max-w-full">
+          </motion.div>
+        </motion.section>
           
           {/* LEFT/CENTER PRIMARY FLOW */}
           <main className="lg:col-span-2 w-full min-w-0 flex flex-col gap-16">
             
             {/* WHY APPROVALS */}
-            <section className="space-y-5 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-5 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 Why Approvals Matter So Much
               </h2>
@@ -213,7 +250,7 @@ const PlasticApprovals: React.FC = () => {
                 approvals are planned well, the project feels manageable.
               </p>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <motion.div variants={staggerContainer} className="grid gap-4 sm:grid-cols-2">
                 {[
                   {
                     title: "Land & Site Fit",
@@ -232,8 +269,9 @@ const PlasticApprovals: React.FC = () => {
                     desc: "Recyclers/processors follow annual reporting requirements",
                   },
                 ].map((item) => (
-                  <div
+                  <motion.div
                     key={item.title}
+                    variants={fadeInUp}
                     className="rounded-3xl border border-border bg-background p-5 md:p-6"
                   >
                     <h3 className="mb-2 text-lg md:text-xl font-semibold text-foreground break-words">
@@ -241,10 +279,10 @@ const PlasticApprovals: React.FC = () => {
                     </h3>
 
                     <p className="text-sm md:text-base leading-6 md:leading-7 text-muted-foreground">{item.desc}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* MOBILE ONLY CONTACT INLINE CONTAINER */}
             <div className="block lg:hidden w-full">
@@ -256,7 +294,13 @@ const PlasticApprovals: React.FC = () => {
             </div>
 
             {/* APPROVALS */}
-            <section className="space-y-5 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-5 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 Main Approvals Clients Usually Need
               </h2>
@@ -268,20 +312,27 @@ const PlasticApprovals: React.FC = () => {
                 and fire clearance.
               </p>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <motion.div variants={staggerContainer} className="grid gap-4 sm:grid-cols-2">
                 {approvals.map((item) => (
-                  <div
+                  <motion.div
                     key={item}
+                    variants={fadeInUp}
                     className="rounded-3xl border border-border bg-background p-5"
                   >
                     <p className="text-sm md:text-base leading-6 md:leading-7 text-muted-foreground break-words">{item}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* CHECKLIST */}
-            <section className="space-y-8 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-8 w-full"
+            >
               <div>
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                   Licences & Approvals — The Complete Checklist
@@ -294,10 +345,11 @@ const PlasticApprovals: React.FC = () => {
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <motion.div variants={staggerContainer} className="space-y-4">
                 {checklistSteps.map((step) => (
-                  <div
+                  <motion.div
                     key={step.no}
+                    variants={fadeInUp}
                     className="flex flex-col sm:flex-row gap-4 rounded-3xl border border-border bg-background p-5 md:p-6"
                   >
                     <div className="flex h-12 w-12 min-w-[48px] items-center justify-center rounded-2xl bg-secondary text-base font-bold text-secondary-foreground shrink-0">
@@ -313,13 +365,19 @@ const PlasticApprovals: React.FC = () => {
                         {step.desc}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* TABLE */}
-            <section className="space-y-6 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-6 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 Approval Database for Client Understanding
               </h2>
@@ -386,10 +444,16 @@ const PlasticApprovals: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* CHECKLIST CHART */}
-            <section className="w-full min-w-0">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="w-full min-w-0"
+            >
               <ChartCard title="Checklist Priority Chart">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={checklistChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -412,10 +476,16 @@ const PlasticApprovals: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </ChartCard>
-            </section>
+            </motion.section>
 
             {/* PRIORITY CHART */}
-            <section className="space-y-6 w-full min-w-0">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-6 w-full min-w-0"
+            >
               <div>
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                   Approval Priority Chart
@@ -450,10 +520,16 @@ const PlasticApprovals: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </ChartCard>
-            </section>
+            </motion.section>
 
             {/* ROADMAP */}
-            <section className="space-y-6 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-6 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 Approval Roadmap Made Easy
               </h2>
@@ -463,7 +539,7 @@ const PlasticApprovals: React.FC = () => {
                 simple. This is the usual flow we recommend.
               </p>
 
-              <div className="grid gap-4">
+              <motion.div variants={staggerContainer} className="grid gap-4">
                 {[
                   "Check the site first",
                   "Prepare the project file",
@@ -472,8 +548,9 @@ const PlasticApprovals: React.FC = () => {
                   "Apply for CTO and operational approvals",
                   "Start reporting and compliance tracking",
                 ].map((item, index) => (
-                  <div
+                  <motion.div
                     key={item}
+                    variants={fadeInUp}
                     className="flex items-center gap-4 rounded-3xl border border-border bg-background p-4 md:p-5"
                   >
                     <div className="flex h-10 w-10 min-w-[40px] items-center justify-center rounded-2xl bg-secondary text-sm font-bold text-secondary-foreground shrink-0">
@@ -483,13 +560,19 @@ const PlasticApprovals: React.FC = () => {
                     <h3 className="text-base md:text-lg font-semibold text-foreground break-words">
                       {item}
                     </h3>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* STAGE CHART */}
-            <section className="space-y-6 w-full min-w-0">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-6 w-full min-w-0"
+            >
               <div>
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                   Compliance Load by Project Stage
@@ -523,10 +606,16 @@ const PlasticApprovals: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </ChartCard>
-            </section>
+            </motion.section>
 
             {/* CASE STUDY */}
-            <section className="space-y-8 w-full min-w-0">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-8 w-full min-w-0"
+            >
               <div>
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                   Case Study: A Client Who Avoided Delays by Planning Approvals Early
@@ -598,15 +687,21 @@ const PlasticApprovals: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </ChartCard>
-            </section>
+            </motion.section>
 
             {/* CLIENT GAINS */}
-            <section className="space-y-6 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-6 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 What the Client Gains
               </h2>
 
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              <motion.div variants={staggerContainer} className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {[
                   {
                     title: "Clear Direction",
@@ -625,8 +720,9 @@ const PlasticApprovals: React.FC = () => {
                     desc: "The plant starts with more confidence",
                   },
                 ].map((item) => (
-                  <div
+                  <motion.div
                     key={item.title}
+                    variants={fadeInUp}
                     className="rounded-3xl border border-border bg-background p-5"
                   >
                     <h3 className="mb-2 text-lg font-semibold text-foreground break-words">
@@ -634,13 +730,19 @@ const PlasticApprovals: React.FC = () => {
                     </h3>
 
                     <p className="text-sm text-muted-foreground leading-6">{item.desc}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* FAQ */}
-            <section className="space-y-5 w-full">
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="space-y-5 w-full"
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground break-words">
                 Frequently Asked Questions
               </h2>
@@ -679,11 +781,12 @@ const PlasticApprovals: React.FC = () => {
                   </details>
                 ))}
               </div>
-            </section>
+            </motion.section>
           </main>
+          </div>
 
           {/* RIGHT COLUMN: DESKTOP STICKY SIDEBAR AREA */}
-          <aside className="hidden lg:block lg:col-span-1 sticky top-24 self-start w-[320px]">
+          <aside className="hidden lg:block lg:col-span-1 sticky top-24 self-start w-[490px]">
             <StickyContactForm />
           </aside>
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 const PlantEfficiencyBlog = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -12,10 +13,13 @@ const PlantEfficiencyBlog = () => {
 
   return (
     <div className="min-h-screen bg-[#f1f5f9] text-[#1e293b] font-sans">
-      <div className="flex flex-col lg:flex-row gap-4 mt-10 items-stretch p-4 md:p-2">
+      <div className="flex flex-col lg:flex-row gap-4 mt-[90px] items-stretch p-4 md:p-2">
         <div className="flex-1 min-w-0">
       {/* HERO */}
-      <header className="pt-8 pb-6 px-2 max-w-8xl mx-auto">
+      <motion.header initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="pt-8 pb-6 px-2 max-w-8xl mx-auto">
         <div className="bg-gradient-to-br from-[#f8fafc] via-[#edf2f7] to-[#e2e8f0] border-2 border-blue-200 rounded-[34px] shadow-xl overflow-hidden relative">
           <div className="grid ">
             <div className="p-10 md:p-11">
@@ -64,16 +68,22 @@ const PlantEfficiencyBlog = () => {
             </aside>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main className="max-w-6xl mx-auto px-6 pb-20">
         {/* LEAD SECTION */}
-        <section className="bg-white border-2 border-green-500 border-l-8 rounded-3xl p-8 md:p-10 my-12 text-lg font-medium leading-relaxed shadow-xs text-slate-800">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="bg-white border-2 border-green-500 border-l-8 rounded-3xl p-8 md:p-10 my-12 text-lg font-medium leading-relaxed shadow-xs text-slate-800">
           A modern plant grows best when operations, documentation, and performance are designed together. When the <strong>commissioning plan</strong>, <strong>commissioning documentation</strong>, and <strong>O&M documentation</strong> all speak the same language, teams move faster, troubleshoot better, and avoid the waste that usually comes from disconnected systems.
-        </section>
+        </motion.section>
 
         {/* TOC */}
-        <div className="flex flex-wrap gap-3 mb-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex flex-wrap gap-3 mb-12">
           {[
             { id: 'framework', label: 'System framework', color: 'hover:bg-blue-500 hover:text-white border-blue-300 text-blue-700' },
             { id: 'data', label: 'Efficiency data', color: 'hover:bg-green-500 hover:text-white border-green-300 text-green-700' },
@@ -86,16 +96,22 @@ const PlantEfficiencyBlog = () => {
               {item.label}
             </a>
           ))}
-        </div>
+        </motion.div>
 
         {/* FRAMEWORK */}
-        <div id="framework" className="flex items-center gap-3 text-green-700 font-bold text-xs uppercase tracking-widest mb-3">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="framework" className="flex items-center gap-3 text-green-700 font-bold text-xs uppercase tracking-widest mb-3">
           <div className="h-1 w-8 bg-green-500 rounded-full" /> What makes a plant efficient
-        </div>
+        </motion.div>
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">The real job: help the plant grow while the process stays lean</h2>
         <p className="mt-6 text-slate-700 text-lg font-medium">Any plant can chase output for a few months. The harder part is keeping quality steady, keeping the team calm, and making sure the system can absorb growth without adding chaos. That is why setup and commissioning documentation matters so much.</p>
 
-        <div className="grid md:grid-cols-3 gap-6 my-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-3 gap-6 my-12">
           {[
             { kicker: '1. Foundation', title: 'Design the process before the pressure hits', desc: 'A strong commissioning checklist and a practical pre-commissioning checklist keep the plant from rushing into startup before the system is ready.', border: 'border-blue-400 bg-blue-50/40 text-blue-950', kickColor: 'text-blue-700' },
             { kicker: '2. Execution', title: 'Use one source of truth', desc: 'A modern commissioning management system and technical documentation management process help teams avoid duplicated files, missing approvals, and version confusion.', border: 'border-green-400 bg-green-50/40 text-green-950', kickColor: 'text-green-700' },
@@ -107,17 +123,23 @@ const PlantEfficiencyBlog = () => {
               <p className="text-sm font-medium leading-relaxed">{card.desc}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* DATA SECTION */}
-        <div id="data" className="flex items-center gap-3 text-blue-700 font-bold text-xs uppercase tracking-widest mt-20 mb-3">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="data" className="flex items-center gap-3 text-blue-700 font-bold text-xs uppercase tracking-widest mt-20 mb-3">
           <div className="h-1 w-8 bg-blue-500 rounded-full" /> Data picture
-        </div>
+        </motion.div>
         <h2 className="text-4xl md:text-5xl font-black text-slate-900">Where efficiency is won or lost</h2>
         <p className="mt-6 text-slate-700 font-medium text-lg">The simplest way to see plant performance is to compare how much friction the system creates.</p>
 
         {/* Main Efficiency Bars */}
-        <div className="mt-12 bg-white border-2 border-blue-200 rounded-3xl p-8 shadow-md">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border-2 border-blue-200 rounded-3xl p-8 shadow-md">
           <h3 className="text-2xl font-bold text-slate-900 mb-2">Illustrative efficiency balance across plant system types</h3>
           <p className="text-sm font-bold text-slate-500 mb-8">Higher bars mean better overall balance between growth and operating efficiency.</p>
           <div className="space-y-7 mt-10">
@@ -136,10 +158,13 @@ const PlantEfficiencyBlog = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Two Column Visuals */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-2 gap-8 mt-12">
           {/* Time Loss */}
           <div className="bg-white border-2 border-green-200 rounded-3xl p-8 shadow-md">
             <h3 className="text-2xl font-bold text-slate-900">Where plants usually lose time</h3>
@@ -181,10 +206,13 @@ const PlantEfficiencyBlog = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* DOCUMENTATION DATABASE */}
-        <div id="database" className="mt-24">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="database" className="mt-24">
           <div className="flex items-center gap-3 text-purple-700 font-bold text-xs uppercase tracking-widest mb-3">
             <div className="h-1 w-8 bg-purple-500 rounded-full" /> Documentation database
           </div>
@@ -226,10 +254,13 @@ const PlantEfficiencyBlog = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
         {/* FLOW */}
-        <div className="mt-24">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-24">
           <div className="flex items-center gap-3 text-green-700 font-bold text-xs uppercase tracking-widest mb-6">
             <div className="h-1 w-8 bg-green-500 rounded-full" /> How the system holds together
           </div>
@@ -251,10 +282,13 @@ const PlantEfficiencyBlog = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CASE STUDY */}
-        <div id="case" className="mt-24 bg-gradient-to-br from-blue-900 to-slate-900 border-2 border-blue-400 rounded-3xl p-8 md:p-11 shadow-xl text-white">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="case" className="mt-24 bg-gradient-to-br from-blue-900 to-slate-900 border-2 border-blue-400 rounded-3xl p-8 md:p-11 shadow-xl text-white">
           <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-200">Example case study: a growing industrial plant that stopped losing efficiency</h3>
           <p className="mt-6 text-blue-100 font-medium text-lg leading-relaxed">An industrial manufacturing site expanded production capacity by nearly 30 percent... (full story from original)</p>
           <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -271,10 +305,13 @@ const PlantEfficiencyBlog = () => {
               <span className="text-xs md:text-sm text-blue-200 font-semibold mt-2 block">better retrieval of as-built and O&M files</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* BEST PRACTICES */}
-        <div className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-20">
           <div className="flex items-center gap-3 text-amber-700 font-bold text-xs uppercase tracking-widest mb-3">
             <div className="h-1 w-8 bg-amber-500 rounded-full" /> Best practices
           </div>
@@ -291,15 +328,21 @@ const PlantEfficiencyBlog = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CALLOUT */}
-        <div className="mt-16 bg-gradient-to-r from-green-100 to-blue-100 border-2 border-blue-300 rounded-3xl p-10 md:p-12 text-center text-xl md:text-2xl font-extrabold italic text-slate-800 shadow-sm">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-16 bg-gradient-to-r from-green-100 to-blue-100 border-2 border-blue-300 rounded-3xl p-10 md:p-12 text-center text-xl md:text-2xl font-extrabold italic text-slate-800 shadow-sm">
           "A plant can grow fast and still stay efficient — but only when its documents, systems, and people move together."
-        </div>
+        </motion.div>
 
         {/* FAQS */}
-        <div id="faqs" className="mt-24">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="faqs" className="mt-24">
           <div className="flex items-center gap-3 text-indigo-700 font-bold text-xs uppercase tracking-widest mb-3">
             <div className="h-1 w-8 bg-indigo-500 rounded-full" /> FAQs
           </div>
@@ -320,10 +363,13 @@ const PlantEfficiencyBlog = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* KEYWORDS */}
-        <div id="keywords" className="mt-24">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} id="keywords" className="mt-24">
           <div className="flex items-center gap-3 text-rose-700 font-bold text-xs uppercase tracking-widest mb-3">
             <div className="h-1 w-8 bg-rose-500 rounded-full" /> Keyword map
           </div>
@@ -335,13 +381,16 @@ const PlantEfficiencyBlog = () => {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* FOOTER CTA */}
-        <div className="footer-cta mt-20 bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 border-2 border-blue-200 rounded-3xl p-10 md:p-12 text-center shadow-md">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="footer-cta mt-20 bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 border-2 border-blue-200 rounded-3xl p-10 md:p-12 text-center shadow-md">
           <h2 className="text-4xl font-black text-slate-900">When systems grow with the plant, efficiency stays intact.</h2>
           <p className="mt-6 text-lg font-medium text-slate-700 max-w-2xl mx-auto">That is the real win: better structure, clearer ownership, cleaner handover, and a plant that can expand without becoming harder to run.</p>
-        </div>
+        </motion.div>
       </main>
     </div>
         <aside className="hidden lg:block shrink-0 w-[340px]">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 const StandardizeOperationsBlog = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -126,10 +127,13 @@ const StandardizeOperationsBlog = () => {
 
   return (
     <div className="min-h-screen bg-[#F7FBF7] text-[#173024] font-sans">
-      <div className="flex flex-col lg:flex-row gap-2 mt-10 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-2 mt-[120px] items-stretch">
         <div className="flex-1 min-w-0">
       {/* HERO */}
-      <header className="relative bg-gradient-to-br from-[#0E1F18] via-[#123525] to-[#185C3A] text-white py-20 px-6 overflow-hidden">
+      <motion.header initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="relative bg-gradient-to-br from-[#0E1F18] via-[#123525] to-[#185C3A] text-white py-20 px-6 overflow-hidden">
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 px-6 py-3 rounded-full text-xs font-bold tracking-widest">
             Industrial Scaling Playbook
@@ -148,16 +152,22 @@ const StandardizeOperationsBlog = () => {
             ))}
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main className="max-w-5xl mx-auto px-6 py-12">
         {/* LEAD */}
-        <div className="lead border-l-8 border-[#137A4D] bg-gradient-to-r from-white to-[#F4FBF6] p-8 rounded-2xl shadow mb-12 text-lg">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="lead border-l-8 border-[#137A4D] bg-gradient-to-r from-white to-[#F4FBF6] p-8 rounded-2xl shadow mb-12 text-lg">
           Faster plant scaling is not just about adding equipment or hiring more people. It starts with a repeatable operating model.
-        </div>
+        </motion.div>
 
         {/* STATS */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {[
             { num: "3×", lbl: "Faster handover with standardized workflows" },
             { num: "42%", lbl: "Less rework when documentation is consistent" },
@@ -169,7 +179,7 @@ const StandardizeOperationsBlog = () => {
               <div className="text-xs uppercase tracking-widest mt-3 text-[#5E7268]">{stat.lbl}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* WHY IT MATTERS */}
         <div className="uppercase text-[#137A4D] text-xs font-bold tracking-widest mb-3">Why It Matters</div>
@@ -177,7 +187,10 @@ const StandardizeOperationsBlog = () => {
         <p className="mt-6 text-[#294337]">When a plant expands, complexity rises faster than capacity...</p>
 
         {/* TWO COLUMN - CHART 1 + PHASES */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-2 gap-8 mt-12">
           <div className="bg-white border border-[#DDE8E1] rounded-2xl p-8 shadow">
             <div className="uppercase text-xs tracking-widest text-[#5D7B68] font-bold mb-4">Standardized vs. Ad-Hoc Operations</div>
             <div className="h-80"><canvas ref={chart1Ref} /></div>
@@ -200,16 +213,22 @@ const StandardizeOperationsBlog = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* CORE FRAMEWORK */}
-        <div className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-20">
           <div className="uppercase text-[#137A4D] text-xs font-bold tracking-widest mb-3">Core Framework</div>
           <h2 className="text-4xl font-serif font-bold">The Operating Standard That Keeps Expansion Under Control</h2>
-        </div>
+        </motion.div>
 
         {/* TWO COLUMN - CHART 2 + DATABASE */}
-        <div className="grid md:grid-cols-1 gap-8 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-1 gap-8 mt-12">
           <div className="bg-white border border-[#DDE8E1] rounded-2xl p-8 shadow">
             <div className="uppercase text-xs tracking-widest text-[#5D7B68] font-bold mb-4">Documentation Load Across the Commissioning Lifecycle</div>
             <div className="h-80"><canvas ref={chart2Ref} /></div>
@@ -252,10 +271,13 @@ const StandardizeOperationsBlog = () => {
               </table>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* TIME SAVED CHARTS */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-2 gap-8 mt-12">
           <div className="bg-white border border-[#DDE8E1] rounded-2xl p-8 shadow">
             <div className="uppercase text-xs tracking-widest text-[#5D7B68] font-bold mb-4">Time Saved After Standardization</div>
             <div className="h-80"><canvas ref={chart3Ref} /></div>
@@ -264,10 +286,13 @@ const StandardizeOperationsBlog = () => {
             <div className="uppercase text-xs tracking-widest text-[#5D7B68] font-bold mb-4">Key Standardization Levers</div>
             <div className="h-80"><canvas ref={chart4Ref} /></div>
           </div>
-        </div>
+        </motion.div>
 
         {/* CASE STUDY CALLOUT */}
-        <div className="mt-20 bg-gradient-to-br from-[#0F2C20] to-[#175137] text-white rounded-2xl p-10 relative overflow-hidden shadow">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-20 bg-gradient-to-br from-[#0F2C20] to-[#175137] text-white rounded-2xl p-10 relative overflow-hidden shadow">
           <div className="uppercase text-xs font-black tracking-widest absolute right-8 top-8 rotate-90">CASE STUDY</div>
           <h3 className="text-3xl font-serif font-bold text-[#BFF0D0]">How a Chemical Plant Cut Expansion Delays by 30% with One Standard Playbook</h3>
           <p className="mt-6 opacity-90">A mid-sized chemical manufacturer... (full story as in original)</p>
@@ -285,10 +310,10 @@ const StandardizeOperationsBlog = () => {
               <span className="text-sm opacity-75">Better documentation quality</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* BEST PRACTICES */}
-        <div className="mt-20">
+        <motion.div className="mt-20">
           <div className="uppercase text-[#137A4D] text-xs font-bold tracking-widest mb-3">Best Practices</div>
           <h2 className="text-4xl font-serif font-bold">Best Practices for Standardizing Operations</h2>
           <ul className="mt-8 space-y-6">
@@ -305,10 +330,13 @@ const StandardizeOperationsBlog = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* FAQ */}
-        <div className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-20">
           <div className="uppercase text-[#137A4D] text-xs font-bold tracking-widest mb-3">FAQs</div>
           <h2 className="text-4xl font-serif font-bold">Frequently Asked Questions</h2>
           <div className="mt-10 space-y-4">
@@ -327,10 +355,13 @@ const StandardizeOperationsBlog = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* KEYWORDS */}
-        <div className="mt-20">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-20">
           <div className="uppercase text-[#137A4D] text-xs font-bold tracking-widest mb-3">Keyword Coverage</div>
           <h2 className="text-4xl font-serif font-bold">Keywords Used Across the Blog</h2>
           <div className="flex flex-wrap gap-3 mt-10">
@@ -340,13 +371,16 @@ const StandardizeOperationsBlog = () => {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* FINAL CTA */}
-        <div className="footer-cta mt-20 bg-gradient-to-br from-[#E9F8EF] to-[#F7FCF9] border border-[#DDE8E1] rounded-2xl p-12 text-center">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="footer-cta mt-20 bg-gradient-to-br from-[#E9F8EF] to-[#F7FCF9] border border-[#DDE8E1] rounded-2xl p-12 text-center">
           <h2 className="text-4xl font-serif font-bold">Build a Plant That Can Scale Without Slowing Down</h2>
           <p className="mt-6 max-w-2xl mx-auto text-[#335044]">Standardized operations make growth repeatable. With the right documentation, the right workflow, and the right controls, faster plant scaling becomes a managed process instead of a risky leap.</p>
-        </div>
+        </motion.div>
       </main>
     </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">

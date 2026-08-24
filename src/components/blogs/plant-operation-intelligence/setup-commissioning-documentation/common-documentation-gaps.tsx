@@ -3,11 +3,12 @@
 import Seo from "@/components/Seo";
 import React from "react";
 import StickyContactForm from "@/components/StickyContactForm";
+import {motion} from "framer-motion"
 
 const CommonDocumentationGaps: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#faf6ef] text-[#2a2433] font-sans">  
-      <div className="flex flex-col lg:flex-row gap-2 items-stretch">
+    <div className="min-h-screen mt-[70px] bg-[#faf6ef] text-[#2a2433] font-sans">  
+      <div className="flex flex-col  lg:flex-row gap-2 items-stretch">
         <div className="flex-1 min-w-0">              
       <div className="max-w-8xl mx-auto px-2 py-12">
         <Seo
@@ -44,7 +45,10 @@ const CommonDocumentationGaps: React.FC = () => {
           type="article"
         />
         {/* Hero */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#2a2433] to-[#5c2f61] rounded-3xl p-10 md:p-16 text-white border border-white/10 shadow-2xl">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="relative overflow-hidden bg-gradient-to-br from-[#2a2433] to-[#5c2f61] rounded-3xl p-10 md:p-16 text-white border border-white/10 shadow-2xl">
           <div className="absolute right-0 top-0 w-96 h-96 bg-[#e76f51] rounded-full opacity-20 blur-3xl -translate-y-1/3 translate-x-1/3" />
           <div className="absolute left-0 bottom-0 w-80 h-80 bg-[#c78a2b] rounded-full opacity-20 blur-3xl translate-y-1/3 -translate-x-1/3" />
 
@@ -67,10 +71,13 @@ const CommonDocumentationGaps: React.FC = () => {
               readiness is incomplete.
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Meta Info */}
-        <div className="flex flex-wrap items-center justify-between gap-6 bg-white border border-[#2a2433]/10 rounded-2xl p-6 mt-8 shadow">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="flex flex-wrap items-center justify-between gap-6 bg-white border border-[#2a2433]/10 rounded-2xl p-6 mt-8 shadow">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#8b3d8f] to-[#e76f51] flex items-center justify-center text-white text-2xl font-bold">
               CD
@@ -99,10 +106,13 @@ const CommonDocumentationGaps: React.FC = () => {
               <strong>10 min read</strong>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Why Documentation Gaps Matter */}
-        <div className="grid md:grid-cols-5 gap-6 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-5 gap-6 mt-12">
           <div className="md:col-span-3 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Why documentation gaps create real commissioning problems
@@ -145,10 +155,13 @@ const CommonDocumentationGaps: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Where Delays Begin */}
-        <section className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
           <h2 className="text-3xl font-bold mb-8">
             Where documentation delays usually begin
           </h2>
@@ -209,10 +222,13 @@ const CommonDocumentationGaps: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Visual View - Impact Bars */}
-        <section className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
           <h2 className="text-3xl font-bold mb-2">
             Visual view: how documentation gaps affect commissioning
           </h2>
@@ -238,10 +254,13 @@ const CommonDocumentationGaps: React.FC = () => {
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Data Snapshot */}
-        <section className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-12 bg-white border border-[#2a2433]/10 rounded-3xl p-10">
           <h2 className="text-3xl font-bold mb-8">
             Data snapshot: where documentation delays are most likely
           </h2>
@@ -289,10 +308,13 @@ const CommonDocumentationGaps: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Database Tracker */}
-        <div className="grid md:grid-cols-1 gap-6 mt-12">
+        <motion.div initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="grid md:grid-cols-1 gap-6 mt-12">
           <div className="bg-white border border-[#2a2433]/10 rounded-3xl p-10">
             <h2 className="text-3xl font-bold mb-6">
               Database-style tracker for closing gaps
@@ -348,21 +370,24 @@ const CommonDocumentationGaps: React.FC = () => {
               status, owner, revision, and evidence.
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Final Thought */}
-        <section className="mt-16 bg-white border border-[#2a2433]/10 rounded-3xl p-12 text-center">
+        <motion.section initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6, ease: "easeOut" }} className="mt-16 bg-white border border-[#2a2433]/10 rounded-3xl p-12 text-center">
           <h2 className="text-3xl font-bold mb-6">Final Thought</h2>
           <p className="max-w-3xl mx-auto text-lg text-[#6e667a]">
             Common documentation gaps are one of the most underestimated causes
             of commissioning delays. Strong documentation discipline brings
             clarity, control, and confidence to the entire process.
           </p>
-        </section>
+        </motion.section>
       </div>
     </div>
         <aside className="hidden lg:block shrink-0 w-[320px]">
-          <div className="sticky top-28 px-2">
+          <div className="sticky top-[130px] px-2">
             <StickyContactForm />
           </div>
         </aside>

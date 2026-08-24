@@ -1,9 +1,29 @@
 import Seo from "@/components/Seo";
 import StickyContactForm from "@/components/StickyContactForm";
+import { motion, Variants } from "framer-motion";
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
 export default function EWasteMachineryBlog() {
   return (
-    <div className="overflow-x-clip font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
+    <div className="overflow-x-clip mt-[90px] font-sans bg-gradient-to-b from-white via-primary/[0.03] to-secondary/[0.05] text-gray-800 leading-[1.75]">
       <Seo
         title="How We Help Clients Choose the Right Machinery for E-Waste Recycling Plants"
         description="Discover how our experts help businesses select the right machinery for e-waste recycling plants. Learn about equipment selection, plant setup, compliance, operational efficiency, and cost optimization."
@@ -38,8 +58,19 @@ export default function EWasteMachineryBlog() {
         type="article"
       />
       <div className="w-full max-w-8xl mx-auto px-1 pt-[32px] pb-[60px]">
-        {/* Hero */}
-        <section className="relative overflow-hidden px-5 sm:px-[10px] py-12 sm:py-[84px] rounded-[32px] mb-[26px] border border-primary/10 bg-gradient-to-br from-primary/10 via-secondary/10 to-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
+        
+
+        {/* Main flex layout: content + sticky sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div>
+            {/* Hero */}
+        <motion.section 
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative overflow-hidden px-5 sm:px-[10px] py-12 sm:py-[84px] rounded-[32px] mb-[26px] border border-primary/10 bg-gradient-to-br from-primary/10 via-secondary/10 to-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]"
+        >
           <span className="absolute rounded-full w-[260px] h-[260px] -right-[70px] -top-[70px] bg-primary/[0.07] blur-[0.5px]" />
           <span className="absolute rounded-full w-[180px] h-[180px] -left-[60px] -bottom-[50px] bg-secondary/[0.08] blur-[0.5px]" />
           <div className="relative z-10 w-full max-w-[920px] mx-auto text-center break-words">
@@ -69,16 +100,19 @@ export default function EWasteMachineryBlog() {
               cost, and output quality.
             </div>
           </div>
-        </section>
-
-        {/* Main flex layout: content + sticky sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        </motion.section>
           {/* Main content */}
           <div className="flex-1 min-w-0 w-full">
             {/* 2-col intro grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mt-[22px]">
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mt-[22px]"
+            >
               {/* Why machinery selection matters */}
-              <section className="rounded-[24px] p-4 sm:p-[10px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+              <motion.section variants={fadeIn} className="rounded-[24px] p-4 sm:p-[10px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
                 <h2
                   className="font-display font-extrabold mb-[14px] text-gray-900"
                   style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -119,10 +153,10 @@ export default function EWasteMachineryBlog() {
                     Safe operation
                   </span>
                 </div>
-              </section>
+              </motion.section>
 
               {/* How we support */}
-              <section className="rounded-[24px] p-4 sm:p-[10px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+              <motion.section variants={fadeIn} className="rounded-[24px] p-4 sm:p-[10px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
                 <h2
                   className="font-display font-extrabold mb-[14px] text-gray-900"
                   style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -163,11 +197,17 @@ export default function EWasteMachineryBlog() {
                     </div>
                   </div>
                 ))}
-              </section>
-            </div>
+              </motion.section>
+            </motion.div>
 
             {/* Machinery journey steps */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -178,7 +218,13 @@ export default function EWasteMachineryBlog() {
                 Clients understand machinery better when the process is shown
                 like a practical roadmap.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]">
+              <motion.div 
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[14px] mt-[18px]"
+              >
                 {[
                   {
                     num: 1,
@@ -201,8 +247,9 @@ export default function EWasteMachineryBlog() {
                     text: "We keep future scale in mind so the client can expand without redesigning everything again.",
                   },
                 ].map(({ num, title, text }) => (
-                  <div
+                  <motion.div
                     key={num}
+                    variants={fadeIn}
                     className="border border-gray-200 rounded-[20px] p-[18px] sm:min-h-[160px] bg-gray-50"
                   >
                     <div className="w-[38px] h-[38px] flex items-center justify-center rounded-full font-extrabold text-white mb-3 bg-gradient-to-br from-primary to-secondary shadow-[0_10px_20px_rgba(37,99,235,0.18)]">
@@ -212,13 +259,19 @@ export default function EWasteMachineryBlog() {
                       {title}
                     </h4>
                     <p className="text-gray-600 text-[14px] m-0">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
 
             {/* Common machinery table */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -290,12 +343,18 @@ export default function EWasteMachineryBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Bar graph + DB tracker */}
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mb-[22px]">
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-1 gap-[22px] mb-[22px]"
+            >
               {/* Bar graph */}
-              <section className="rounded-[24px] p-4 sm:p-[28px] border border-gray-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+              <motion.section variants={fadeIn} className="rounded-[24px] p-4 sm:p-[28px] border border-gray-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
                 <h2 className="text-gray-900 font-display font-extrabold text-[24px] mb-2">
                   Bar graph: machinery importance by plant activity
                 </h2>
@@ -320,9 +379,12 @@ export default function EWasteMachineryBlog() {
                         {label}
                       </div>
                       <div className="h-4 rounded-full overflow-hidden bg-gray-100">
-                        <div
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          viewport={{ once: true }}
                           className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                          style={{ width }}
                         />
                       </div>
                       <div className="text-right font-extrabold text-gray-900 text-[14px]">
@@ -335,10 +397,10 @@ export default function EWasteMachineryBlog() {
                   Higher values show areas that usually need more attention
                   while designing and budgeting the plant.
                 </p>
-              </section>
+              </motion.section>
 
               {/* DB tracker */}
-              <section className="rounded-[24px] p-4 sm:p-[28px] border border-gray-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+              <motion.section variants={fadeIn} className="rounded-[24px] p-4 sm:p-[28px] border border-gray-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
                 <h2 className="text-gray-900 font-display font-extrabold text-[24px] mb-2">
                   Database view: machinery readiness tracker
                 </h2>
@@ -383,11 +445,17 @@ export default function EWasteMachineryBlog() {
                     buying decisions and avoid costly mistakes.
                   </span>
                 </div>
-              </section>
-            </div>
+              </motion.section>
+            </motion.div>
 
             {/* Right machinery decision */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -440,10 +508,16 @@ export default function EWasteMachineryBlog() {
                   that fits the business perfectly.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* Machine selection table */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -510,10 +584,16 @@ export default function EWasteMachineryBlog() {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
 
             {/* Case study */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border mb-[22px] bg-gradient-to-b from-secondary/[0.06] to-white border-secondary/20 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border mb-[22px] bg-gradient-to-b from-secondary/[0.06] to-white border-secondary/20 shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -558,10 +638,16 @@ export default function EWasteMachineryBlog() {
                   correction costs.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* Additional topics */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -615,10 +701,16 @@ export default function EWasteMachineryBlog() {
                   tomorrow's growth at the same time.
                 </span>
               </div>
-            </section>
+            </motion.section>
 
             {/* FAQ */}
-            <section className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-[24px] p-4 sm:p-[30px] border border-gray-200 mb-[22px] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[14px] text-gray-900"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -651,10 +743,16 @@ export default function EWasteMachineryBlog() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Closing */}
-            <section className="text-center text-white rounded-[32px] px-4 sm:px-[30px] py-10 sm:py-[58px] mt-6 border border-primary/10 bg-gradient-to-br from-primary to-secondary shadow-[0_18px_50px_rgba(15,23,42,0.15)]">
+            <motion.section 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="text-center text-white rounded-[32px] px-4 sm:px-[30px] py-10 sm:py-[58px] mt-6 border border-primary/10 bg-gradient-to-br from-primary to-secondary shadow-[0_18px_50px_rgba(15,23,42,0.15)]"
+            >
               <h2
                 className="font-display font-extrabold mb-[10px] text-white"
                 style={{ fontSize: "clamp(26px, 2.7vw, 38px)", lineHeight: 1.14 }}
@@ -674,14 +772,15 @@ export default function EWasteMachineryBlog() {
               <div className="text-[28px] font-extrabold mt-[18px] text-white">
                 "The right machinery builds the right recycling business."
               </div>
-            </section>
+            </motion.section>
           </div>
           {/* end main content */}
+          </div>
 
           {/* Sticky Sidebar */}
           <aside
             className="hidden lg:block w-[320px] flex-shrink-0 self-start"
-            style={{ position: "sticky", top: "7rem" }}
+            style={{ position: "sticky", top: "5.5rem" }}
           >
             <StickyContactForm />
           </aside>
