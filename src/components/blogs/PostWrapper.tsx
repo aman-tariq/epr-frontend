@@ -146,4 +146,33 @@ const PostWrapper: React.FC<PostWrapperProps> = ({
   );
 };
 
+const SetupProcess = () => {
+  return (
+    <PostWrapper
+      category="CBGP Set Up" 
+      title="Your CBGP Setup Guide Title"
+      summary="A comprehensive step-by-step guide to understanding and setting up CBGP for your business."
+      date="August 25, 2026"
+      readingTime="5 min read"
+      author="Rajinder"
+      image="/assets/cbgp-hero-image.jpg" 
+      tags={['CBGP', 'Setup', 'Guide', 'Compliance']}
+      metaDescription="Learn the essential steps for setting up CBGP. This guide covers everything from initial planning to execution."
+      keywords={['CBGP setup', 'EPR compliance', 'CBGP process', 'recycling']}
+      path="/blogs/cbgp-set-up/cbgp-guide"
+      slug="cbgp-guide"
+    >
+      <div className="blog-content">
+        <h2>Introduction to CBGP</h2>
+        <p>Write your detailed blog content here. You can use standard HTML tags or other React components inside this wrapper.</p>
+        
+        <h3>Step 1: Initial Planning</h3>
+        <p>Details about the first step...</p>
+      </div>
+    </PostWrapper>
+  );
+};
+
+
+
 export default PostWrapper;

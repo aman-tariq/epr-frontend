@@ -88,6 +88,11 @@ import tyreMachinery from "@/assets/banner/blogs/recycling-setup/tyre/tyreMachin
 //Epr plastic
 import eprPlasticAnalysis from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticAnalysis.jpg";
 import eprPlasticTrading from "@/assets/banner/blogs/epr-credits/plastic/eprPlasticTrading.jpg";
+import eprPlasticCalculate from "@/assets/banner/blogs/epr-credits/plastic/EprPlasticCalculate.jpg";
+import eprPlasticCertificates from "@/assets/banner/blogs/epr-credits/plastic/EprPlasticCertificates.jpg";
+import eprPlasticCost from "@/assets/banner/blogs/epr-credits/plastic/EprPlasticCost.jpg";
+import eprPlasticRegister from "@/assets/banner/blogs/epr-credits/plastic/EprPlasticRegister.jpg";
+import eprPlasticRejected from "@/assets/banner/blogs/epr-credits/plastic/EprPlasticRejected.jpg";
 
 //Epr Electronic
 import eprElectronicAnalysis from "@/assets/banner/blogs/epr-credits/electronic/eprElectronicAnalysis.jpg";
@@ -204,7 +209,18 @@ import sellBatteriesBanner from "@/assets/banner/Common/sellBatteriesBanner.jpg"
 import solarPanelBanner from "@/assets/banner/Common/solarPanelBanner.png";
 import tyreBanner from "@/assets/banner/Common/tyreBanner.png";
 
+// ---------------------------------------------------------------------------------------
+
+import CBGLoanAssistance from "@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance";
+import SetUpProcess from "@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-machinery-setup.tsx";
+import CBGProjectFeasibility from "@/components/blogs/recycling-setups/biogas/compressed-biogas-project-planning-and-feasiblity";
+import CBGSubsidies from "@/components/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives";
+
 // -----------------------------------------------------------------------------
+// Images of Compressed Biogas Plant
+import biogasImage from "@/assets/banner/blogs/recycling-setup/biogas/biogasImage.jpg";
+
+// -------------------------------------------------------------------------------------------------------
 // TYPE: BlogPostSection
 // Used only when a post has NO dedicated component and NO fullContent HTML.
 // In that case, BlogPost.tsx renders these sections as plain styled blocks.
@@ -272,7 +288,10 @@ export interface BlogPost {
     | "buy-e-waste"
     | "sell-batteries"
     | "buy-and-sell-metals"
-    | "business-growth-and-lead-generation";
+    | "business-growth-and-lead-generation"
+    | "biogas"
+    | "cbgp-set-up";
+     // <-- Add your new category here
   // ↑ To add a new category: add a new string here AND add a BlogCategory object at the bottom of this file
   previewContent?: string;
   fullContent?: string;
@@ -759,39 +778,6 @@ export const blogPosts: BlogPost[] = [
   },
 
   //new blog 
-  {
-    slug: "e-waste-new-blog",
-    path: "/blog/e-waste-new-blog",
-    title: "this is our new blog",
-    summary:
-      "A detailed walkthrough of the registration procedure on the official CPCB portal for producers, importers, recyclers, and refurbishers.",
-    date: "May 11, 2026",
-    readingTime: "7 min read",
-    author: "EPR Nexuss Team",
-    image: ewasteMachinery,
-    tags: ["Registration Guide", "CPCB Portal", "E-Waste", "EPR Compliance"],
-    keywords: [
-      "e-waste registration guide",
-      "CPCB portal signup",
-      "EPR registration steps",
-      "importer e-waste registration",
-    ],
-    metaDescription:
-      "Follow this complete step-by-step guide to successfully complete your e-waste registration on the centralized CPCB online portal.",
-    category: "e-waste",
-    previewContent:
-      "Registering on the official portal is mandatory for operating legally in the electronic supply chain. Follow this guide to prepare documents and complete your application accurately.",
-    sections: [
-      {
-        title: "Document Preparation Checklist",
-        body: "Gather necessary documentation—including company registration, GST certificates, authorized signatory details, and technical product files—before starting your online application.",
-      },
-      {
-        title: "Portal Filing and Verification Steps",
-        body: "Navigate the multi-stage portal workflow smoothly by entering accurate sales data, selecting appropriate item codes, and submitting fees for timely approval.",
-      },
-    ],
-  },
 
   // ===========================================================================
   // SECTION 3: TYRE RECYCLING POSTS
@@ -1500,7 +1486,7 @@ export const blogPosts: BlogPost[] = [
     date: "May 20, 2026",
     readingTime: "7 min read",
     author: "EPR Nexuss Team",
-    image: rvsfGuide,
+    image: "rvsfPath",
     tags: ["RVSF", "Registration", "License", "MoRTH", "Compliance"],
     keywords: [
       "RVSF Registration",
@@ -1513,6 +1499,92 @@ export const blogPosts: BlogPost[] = [
       "A registration-only guide to RVSF Registration in India, covering eligibility, documents, process, compliance checkpoints, common mistakes, and FAQs.",
     category: "rvsf",
   },
+  // -------------------------------biogas related slugs ---------------------------------
+
+  {
+  slug: "compressed-biogas-plant-machinery-setup",
+  // Fixed typo (machinery), converted to lowercase, and aligned with slug
+  path: "/blog/compressed-biogas-plant-machinery-setup", 
+  title: "Compressed Bio-Gas (CBG) Plant Setup: A Complete Implementation Guide",
+  summary: "A strategic overview of setting up a Compressed Bio-Gas (CBG) plant, covering major requirements and compliance.",
+  date: "May 20, 2026",
+  readingTime: "8 min read",
+  author: "EPR Nexuss Team",
+  image: biogasImage,
+  tags: ["CBG", "Bio-Gas", "Plant Setup", "Renewable Energy", "Waste to Energy"],
+  keywords: [
+    "Compressed Bio Gas plant setup",
+    "CBG plant prerequisites",
+    "Biogas plant business model",
+    "CBG regulatory compliance",
+  ],
+  metaDescription: "Discover how to set up a Compressed Bio-Gas (CBG) plant. Explore essential requirements, regulatory compliance, and business models.",
+  category: "biogas",
+},
+
+{
+  slug: "compressed-biogas-plant-bank-loan-assistance",
+  path: "/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance",
+  title: "Compressed Bio Gas Plant Bank Loan Assistance",
+  summary: "A practical guide on securing bank loans for Compressed Bio Gas plants under SATAT and priority sector schemes.",
+  date: "May 22, 2026",
+  readingTime: "9 min read",
+  author: "EPR Nexuss Team",
+  image: biogasImage,
+  tags: ["CBG", "SATAT", "Bank Loan", "Project Finance", "Renewable Energy"],
+  keywords: [
+    "CBG plant bank loan",
+    "SATAT scheme loan assistance",
+    "Compressed Bio Gas project finance",
+    "IREDA CBG loan",
+  ],
+  metaDescription: "Learn how to secure bank financing for a Compressed Bio-Gas (CBG) plant, including eligibility criteria, required documents, and scheme terms.",
+  category: "biogas",
+},
+{
+    slug: "compressed-biogas-subsidies-and-incentives",
+    path: "/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives",
+    title: "Compressed Biogas Subsidies and Incentives",
+    summary: "A comprehensive guide to CBG subsidies in India, covering the new GOBARdhan scheme, capital assistance, offtake assurance, and eligibility conditions.",
+    date: "August 12, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: biogasImage,
+    tags: ["CBG", "Subsidies", "GOBARdhan", "Incentives", "Renewable Energy"],
+    keywords: [
+      "CBG subsidy India",
+      "GOBARdhan scheme CBG",
+      "Compressed Bio Gas incentives",
+      "CBG capital assistance",
+      "MNRE CBG subsidy"
+    ],
+    metaDescription: "Discover the latest Compressed Biogas (CBG) subsidies and incentives in India, including GOBARdhan capital assistance, pricing frameworks, and eligibility rules.",
+    category: "biogas"
+  },
+
+  {
+  slug: "compressed-biogas-project-planning-and-feasiblity",
+  path: "/blog/compressed-biogas-project-planning-and-feasiblity",
+  title: "Compressed Biogas Project Planning and Feasibility",
+  summary: "A complete guide to CBG project planning in India, covering feedstock validation, site selection, financial modeling, and regulatory compliance.",
+  date: "August 28, 2026",
+  readingTime: "7 min read",
+  author: "EPR Nexuss Team",
+  image: biogasImage,
+  tags: ["CBG", "Project Planning", "Feasibility Study", "Business Setup", "Renewable Energy"],
+  keywords: [
+    "CBG project feasibility",
+    "Compressed Bio Gas planning",
+    "CBG DPR preparation",
+    "CBG plant cost India",
+    "CBG project setup"
+  ],
+  metaDescription: "Learn how to plan a viable Compressed Biogas (CBG) project in India with our guide on feedstock assessment, financial feasibility, and regulatory compliance.",
+  category: "biogas"
+},
+
+  
+  // ---------------------------------------------------------------------
   {
     slug: "rvsf-license",
     path: "/blog/rvsf-license",
@@ -5497,88 +5569,148 @@ export const blogPosts: BlogPost[] = [
       "EPR Metals Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-metals",
   },
-  {
-    slug: "epr-plastic-analysis",
-    path: "/blog/epr-plastic-analysis",
+{
+    slug: "market-analysis-and-business-opportunities-for-epr-plastic",
+    path: "/blog/market-analysis-and-business-opportunities-for-epr-plastic",
     title: "EPR Plastic Credits: Market Analysis & Business Opportunity",
     summary:
-      "A practical, step-by-step guide covering market analysis & business opportunity for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+      "How the Plastic EPR market in India is structured today — obligation volumes, certificate pricing dynamics, and where producers, recyclers and PROs can find the biggest opportunities.",
     date: "May 4, 2026",
-    readingTime: "5 min read",
+    readingTime: "6 min read",
     author: "EPR Nexuss Team",
     image: eprPlasticAnalysis,
     tags: ["EPR Plastic", "Market Analysis", "CPCB", "EPR India"],
     keywords: [
-      "EPR Plastic analysis",
-      "EPR plastic analysis India",
-      "EPR Plastic EPR guide",
+      "EPR plastic market analysis",
+      "EPR plastic business opportunity India",
+      "Plastic EPR market size",
     ],
     metaDescription:
-      "EPR Plastic Credits: Market Analysis & Business Opportunity. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+      "A market analysis of India's Plastic EPR ecosystem — obligation trends, certificate demand and the business opportunity for producers, recyclers and PROs.",
     category: "epr-plastic",
   },
-  // {
-  //   slug: "epr-plastic-approvals",
-  //   path: "/blog/epr-plastic-approvals",
-  //   title: "EPR Plastic Credits: Approvals, Registration & Compliance Roadmap",
-  //   summary: "A practical, step-by-step guide covering approvals, registration & compliance roadmap for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-  //   date: "May 11, 2026",
-  //   readingTime: "5 min read",
-  //   author: "EPR Nexuss Team",
-  //   image: platformImage,
-  //   tags: ["EPR Plastic", "Approvals", "CPCB", "EPR India"],
-  //   keywords: ["EPR Plastic approvals", "EPR plastic approvals India", "EPR Plastic EPR guide"],
-  //   metaDescription: "EPR Plastic Credits: Approvals, Registration & Compliance Roadmap. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-  //   category: "epr-plastic",
-  // },
-  // {
-  //   slug: "epr-plastic-dpr",
-  //   path: "/blog/epr-plastic-dpr",
-  //   title: "EPR Plastic Credits: Detailed Project Report (DPR) Essentials",
-  //   summary: "A practical, step-by-step guide covering detailed project report (dpr) essentials for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-  //   date: "May 18, 2026",
-  //   readingTime: "5 min read",
-  //   author: "EPR Nexuss Team",
-  //   image: platformImage,
-  //   tags: ["EPR Plastic", "DPR", "CPCB", "EPR India"],
-  //   keywords: ["EPR Plastic dpr", "EPR plastic dpr India", "EPR Plastic EPR guide"],
-  //   metaDescription: "EPR Plastic Credits: Detailed Project Report (DPR) Essentials. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-  //   category: "epr-plastic",
-  // },
-  // {
-  //   slug: "epr-plastic-machinery",
-  //   path: "/blog/epr-plastic-machinery",
-  //   title: "EPR Plastic Credits: Machinery, Setup & Operations Guide",
-  //   summary: "A practical, step-by-step guide covering machinery, setup & operations guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
-  //   date: "May 25, 2026",
-  //   readingTime: "5 min read",
-  //   author: "EPR Nexuss Team",
-  //   image: platformImage,
-  //   tags: ["EPR Plastic", "Machinery", "CPCB", "EPR India"],
-  //   keywords: ["EPR Plastic machinery", "EPR plastic machinery India", "EPR Plastic EPR guide"],
-  //   metaDescription: "EPR Plastic Credits: Machinery, Setup & Operations Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
-  //   category: "epr-plastic",
-  // },
+  {
+    slug: "how-to-register-for-epr-plastic-in-india",
+    path: "/blog/how-to-register-for-epr-plastic-in-india",
+    title: "EPR Plastic Credits: Approvals, Registration & Compliance Roadmap",
+    summary:
+      "Who needs Plastic EPR registration, the documents CPCB asks for, the fee structure by waste-generation slab, and the step-by-step registration process for Producers, Importers and Brand Owners.",
+    date: "May 11, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: eprPlasticRegister,
+    tags: ["EPR Plastic", "Registration", "CPCB", "EPR India"],
+    keywords: [
+      "Plastic EPR registration",
+      "CPCB plastic EPR registration",
+      "PIBO registration India",
+    ],
+    metaDescription:
+      "How to register for Plastic EPR in India — eligibility, required documents, CPCB fees and the full registration process for PIBOs.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "how-target-calculated-for-epr-plastic",
+    path: "/blog/how-target-calculated-for-epr-plastic",
+    title: "EPR Plastic Credits: How Is Your Plastic EPR Target Calculated?",
+    summary:
+      "How CPCB calculates Plastic EPR targets by packaging category — rigid, flexible, MLP and compostable — with a worked example and how reuse and recycled content factor in.",
+    date: "May 18, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: eprPlasticCalculate,
+    tags: ["EPR Plastic", "Target Calculation", "CPCB", "EPR India"],
+    keywords: [
+      "Plastic EPR target calculation",
+      "CPCB EPR target",
+      "EPR target for PIBO",
+    ],
+    metaDescription:
+      "How Plastic EPR targets are calculated in India — packaging categories, MLP weight rules, a worked example, and annual reporting requirements.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "how-to-buy-epr-plastic-certificates-in-india",
+    path: "/blog/how-to-buy-epr-plastic-certificates-in-india",
+    title: "EPR Plastic Credits: How to Buy EPR Certificates in India? Complete Guide",
+    summary:
+      "How to calculate a shortfall against your EPR obligation, source certificates from eligible registered Plastic Waste Processors, verify them, and what actually drives certificate pricing.",
+    date: "May 25, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: eprPlasticCertificates,
+    tags: ["EPR Plastic", "Certificates", "CPCB", "EPR India"],
+    keywords: [
+      "Buy plastic EPR certificates",
+      "Plastic EPR certificate price",
+      "CPCB EPR certificate",
+    ],
+    metaDescription:
+      "How to buy Plastic EPR certificates in India — eligibility, sourcing from registered processors, verification checklist and pricing factors.",
+    category: "epr-plastic",
+  },
   {
     slug: "epr-plastic-trading",
     path: "/blog/epr-plastic-trading",
     title: "EPR Plastic Credits: Credit Trading & Marketplace Guide",
     summary:
-      "A practical, step-by-step guide covering credit trading & marketplace guide for EPR plastic — built for producers, recyclers, and PROs. Our team is finalizing the full deep-dive; reach out for immediate guidance in the meantime.",
+      "How Plastic EPR certificate trading works between registered processors and obligated entities, and how a marketplace model simplifies comparing availability across categories.",
     date: "June 1, 2026",
-    readingTime: "5 min read",
+    readingTime: "6 min read",
     author: "EPR Nexuss Team",
     image: eprPlasticTrading,
     tags: ["EPR Plastic", "Trading", "CPCB", "EPR India"],
     keywords: [
-      "EPR Plastic trading",
-      "EPR plastic trading India",
-      "EPR Plastic EPR guide",
+      "EPR plastic trading",
+      "EPR plastic credit marketplace",
+      "Plastic EPR certificate trading India",
     ],
     metaDescription:
-      "EPR Plastic Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR plastic — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
+      "How Plastic EPR credit trading and marketplaces work in India — connecting registered processors with obligated PIBOs for certificate fulfilment.",
     category: "epr-plastic",
   },
+  {
+    slug: "why-is-my-plastic-epr-registration-rejected",
+    path: "/blog/why-is-my-plastic-epr-registration-rejected",
+    title: "EPR Plastic Credits: Why Is My Plastic EPR Registration Rejected? Complete Guide",
+    summary:
+      "The most common reasons CPCB rejects Plastic EPR applications — wrong category, document mismatches, inconsistent packaging data — and the exact fix for each, plus what to do after a rejection.",
+    date: "June 8, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: eprPlasticRejected,
+    tags: ["EPR Plastic", "Registration Rejection", "CPCB", "EPR India"],
+    keywords: [
+      "Plastic EPR registration rejected",
+      "Plastic EPR rejection reasons",
+      "CPCB EPR registration problems",
+    ],
+    metaDescription:
+      "Why Plastic EPR registrations get rejected in India — common causes, document mistakes, category errors, and how to fix and resubmit your application.",
+    category: "epr-plastic",
+  },
+  {
+    slug: "what-it-costs-to-start-a-plastic-recycling-plant-in-india",
+    path: "/blog/what-it-costs-to-start-a-plastic-recycling-plant-in-india",
+    title: "EPR Plastic Credits: What It Costs to Start a Plastic Recycling Plant in India? Complete Guide",
+    summary:
+      "Investment ranges by plant size, the machinery you'll actually need per feedstock type, licenses, operating costs, and how EPR certificate generation factors into recycling plant profitability.",
+    date: "June 15, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: eprPlasticCost,
+    tags: ["EPR Plastic", "Recycling Plant", "CPCB", "EPR India"],
+    keywords: [
+      "Plastic recycling plant cost India",
+      "Plastic recycling plant setup",
+      "Plastic waste processor registration",
+    ],
+    metaDescription:
+      "The cost of starting a plastic recycling plant in India — investment by plant size, machinery, licenses, operating costs and profitability factors.",
+    category: "epr-plastic",
+  },
+  
+  
   {
     slug: "epr-tyre-analysis",
     path: "/blog/epr-tyre-analysis",
@@ -6334,6 +6466,17 @@ export const blogCategories: BlogCategory[] = [
     image: plasticBanner,
     heroImage: plasticHero,
     tagLine: "Plastic Recycling & Recovery",
+  },
+  {
+    id: "biogas",
+    slug: "biogas", // posts tagged category:"biogas" appear here (biogas-approvals, biogas-buy-selling, biogas-machinery, biogas-market-analysis, biogas-recycling)
+    name: "Biogas",
+    path: "/blog/category/biogas",
+    description:
+      "Learn about biogas waste management, recycling methods, environmental impact, and sustainable solutions for reducing biogas pollution.",
+    image: plasticBanner,
+    heroImage: plasticHero,
+    tagLine: "Biogas Recycling & Recovery",
   },
   // ── Plant Operation Intelligence Categories ──────────────────────────────────
   // "plant-operation-intelligence" is the PARENT category. Its page shows all

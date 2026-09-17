@@ -12,8 +12,13 @@ import Loader from "@/components/Loader";
 import BusinessGrowthAndLeadGeneration from './components/services/business growth and lead generation/BusinessGrowthAndLeadGeneration';
 import ScrollToTop from '@/hooks/ScrollToTop'
 
+// ___________________________________________________________________________________________________
 
-// Lazy load pages for code splitting
+// I CREATED THESE LINES HERE 
+import CBGPlantSetup from '@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-machinery-setup.tsx';
+
+// ____________________________________________________________________________________________________
+
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
@@ -30,8 +35,19 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const LicenseAndCertificationPage = lazy(() => import("./pages/LicenseAndCertification"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const Gallery = lazy(() => import("./pages/Gallery"));
 
-// Loading fallback component
+// __________________________________________________________________________________________________________________________
+// I  CREATED THESE LINES 
+
+const SetUpProcess = lazy(() => import('./components/blogs/recycling-setups/biogas/compressed-biogas-plant-machinery-setup'));
+const CBGLoanAssistance = lazy(() => import('./components/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance'));
+const CBGProjectFeasibility = lazy(() => import('./components/blogs/recycling-setups/biogas/compressed-biogas-project-planning-and-feasiblity'));
+const CBGSubsidies = lazy(() => import('./components/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives'));
+// const BiogasCategoryPage = lazy(() => import('./pages/BiogasCategoryPage'));
+
+// ___________________________________________________________________________________________________________________________
+
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="flex flex-col items-center gap-4">
@@ -73,11 +89,33 @@ const AppContent = () => (
           <Route path="/blog/:blogSlug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/team" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<NotFound />} />
           <Route path="test" element={<BusinessGrowthAndLeadGeneration/>} /> 
           <Route path="/license-and-certification" element={<LicenseAndCertificationPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/blogs/cbgp-set-up/guide" element={<CBGPlantSetup />} />
+          {/* Now i created here  */}
+          <Route path="/blogs/recycling-setups/biogas/cbgp-set-up" element={<CBGPlantSetup />} />
+          <Route path="/blogs/recycling-setups/biogas/cbg-loan-assistance" element={<CBGLoanAssistance />} />
+          <Route path="/blogs/recycling-setups/biogas/cbg-subsidies" element={<CBGSubsidies />}/>
+          <Route path="/blogs/recycling-setups/biogas/cbg-project-feasibility" element={<CBGProjectFeasibility />}/>
+         {/* _______________________________________________________________________________ */}
+         
+          {/* HERE ARE FOR BIOGAS PAGES ROUTES  */}
+
+          {/* <Route path="/blog/category/biogas" element={<BiogasCategoryPage />} /> */}
+
+          <Route   path="/blog/compressed-biogas-plant-machinery-setup"  element={<CBGPlantSetup />} 
+/>
+          <Route path="/blog/compressed-biogas-subsidies-and-incentives" element={<CBGSubsidies />} />
+          <Route path="/blog/compressed-biogas-project-planning-and-feasiblity" element={<CBGProjectFeasibility />} />
+          <Route path="/blog/compressed-biogas-plant-bank-loan-assistance" element={<CBGLoanAssistance />} />
+
+
+          {/* _____________________________________________________________________________ */}
+
 
         </Routes>
       </Suspense>

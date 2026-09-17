@@ -123,7 +123,7 @@ const Blog = () => {
             </div>
             {Object.entries(
               blogCategories.reduce<Record<string, typeof blogCategories>>((groups, category) => {
-                const key = category.group || "Other";
+                const key = (category as any).group || "Other";
                 if (!groups[key]) {
                   groups[key] = [];
                 }
