@@ -12,7 +12,7 @@ import EwastePlantSetup from "@/components/blogs/recycling-setups/e-waste/e-wast
 import EwasteManagementSolution from "@/components/blogs/recycling-setups/e-waste/e-waste-management-solution";
 import EwasteManagementRule from "@/components/blogs/recycling-setups/e-waste/e-waste-management-rule";
 
-import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
+// import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
 
 import TyreApprovals from "@/components/blogs/recycling-setups/tyre/tyre-approvals";
 import TyreBuySelling from "@/components/blogs/recycling-setups/tyre/tyre-buy-selling";
@@ -31,6 +31,10 @@ import LithiumBatteryBuySelling from "@/components/blogs/recycling-setups/batter
 import LithiumBatteryDpr from "@/components/blogs/recycling-setups/battery/lithium-battery-dpr";
 import LithiumBatteryMachinery from "@/components/blogs/recycling-setups/battery/lithium-battery-machinery";
 import LithiumBatteryMarketAnalysis from "@/components/blogs/recycling-setups/battery/lithium-battery-market-analysis";
+import LithiumIonBatteryManufacturingBlog from "@/components/blogs/recycling-setups/battery/lithium-ion-battery-manufacturing";
+import ComplianceAndCertification from "@/components/blogs/recycling-setups/battery/lithium-ion-battery-compliance-certification";
+import DecodingLithiumIonChemistries from "@/components/blogs/recycling-setups/battery/decoding-lithium-ion-chemistries";
+import LithiumIonManufacturingMasterBlueprint from "@/components/blogs/recycling-setups/battery/lithium-ion-manufacturing-master-blueprint";
 
 import RvsfApprovals from "@/components/blogs/recycling-setups/rvsf/rvsf-approvals";
 import RvsfBuySelling from "@/components/blogs/recycling-setups/rvsf/rvsf-buy-selling";
@@ -149,7 +153,7 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "e-waste-plant-setup" : EwastePlantSetup,
   "e-waste-management-solution" : EwasteManagementSolution,
   "e-waste-management-rule" : EwasteManagementRule,
-  "e-waste-new-blog" : eWasteNewBlog,
+  // "e-waste-new-blog" : eWasteNewBlog,
 
   // tyre
   "tyre-approvals": TyreApprovals,
@@ -171,6 +175,10 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "lithium-battery-dpr": LithiumBatteryDpr,
   "lithium-battery-machinery": LithiumBatteryMachinery,
   "lithium-battery-market-analysis": LithiumBatteryMarketAnalysis,
+  "lithium-ion-battery-manufacturing": LithiumIonBatteryManufacturingBlog,
+  "lithium-ion-battery-compliance-certification": ComplianceAndCertification,
+  "decoding-lithium-ion-chemistries": DecodingLithiumIonChemistries, 
+  "lithium-ion-manufacturing-master-blueprint": LithiumIonManufacturingMasterBlueprint,
 
   // rvsf (ELV reclassified)
   "rvsf-approvals": RvsfApprovals,

@@ -26,6 +26,7 @@ import hero14 from "@/assets/showcase-2.jpg";
 const slides = [
   {
     image: hero1,
+    alt: "Recycling plant construction site with CPCB compliance signage in India",
     title: "Stuck Before Starting?",
     subtitle:
       "CPCB APPROVALS • PROCESS DESIGN • MACHINERY SELECTION • DPR",
@@ -37,6 +38,7 @@ const slides = [
   },
   {
     image: hero2,
+    alt: "Recycling plant with hydrometallurgy machinery and live digital dashboard in India",
     title: "End-to-End Plant Setup",
     subtitle:
       "BANK-APPROVED DPR • CPCB/SPCB CLEARANCE • LIVE DASHBOARD",
@@ -49,6 +51,7 @@ const slides = [
   // Banner 2A — Pain
   {
     image: hero3,
+    alt: "Recycling plant machinery commissioning with bank-approved DPR and CPCB clearance documents",
     title: "Operations Out Of Control?",
     subtitle:
       "NO REAL-TIME VISIBILITY • PROCESS GAPS • MARGIN LEAKAGE • NO SOPs",
@@ -62,6 +65,7 @@ const slides = [
   // Banner 2B — Solution
   {
     image: hero4,
+    alt: "Recycling plant with live digital dashboard showing real-time KPIs in India",
     title: "Smart Plant Operations",
     subtitle:
       "LIVE KPI DASHBOARDS • SHIFT SOPs • ENERGY TRACKING • CHECKLISTS",
@@ -74,6 +78,7 @@ const slides = [
   // Banner 3A — Pain Point
   {
     image: hero5,
+    alt: "EPR compliance issues with CPCB portal, credit trading, and recycler verification in India",
     title: "EPR Compliance Chaos?",
     subtitle:
       "CPCB PORTAL • CREDIT ISSUES • RECYCLER VERIFICATION • PENALTY RISK",
@@ -87,6 +92,7 @@ const slides = [
   // Banner 3B — Solution
   {
     image: hero6,
+    alt: "EPR compliance dashboard showing verified recyclers, credit trading, and annual return filing in India",
     title: "Complete EPR Compliance",
     subtitle:
       "EPR CREDIT TRADING • VERIFIED RECYCLERS • LIVE DASHBOARD",
@@ -99,6 +105,7 @@ const slides = [
   // Banner 4A — Pain Point
   {
     image: hero7,
+    alt: "Recycling plant with inconsistent feedstock supply and aggregator issues in India",
     title: "Feedstock Supply Problems?",
     subtitle:
       "LOW UTILISATION • INCONSISTENT FEEDSTOCK • AGGREGATOR ISSUES",
@@ -112,6 +119,7 @@ const slides = [
   // Banner 4B — Solution
   {
     image: hero8,
+    alt: "Recycling plant with reliable waste supply network in India",
     title: "Reliable Waste Supply Network",
     subtitle:
       "DAILY PROCUREMENT • MATERIAL TRACKING • COST VISIBILITY",
@@ -200,8 +208,8 @@ const slides = [
   // },
 ];
 
-const PAUSE_DURATION_MS = 8000;
-const AUTOPLAY_INTERVAL_MS = 6000;
+const PAUSE_DURATION_MS = 12000;
+const AUTOPLAY_INTERVAL_MS = 9000;
 
 const  HeroSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -295,13 +303,13 @@ const  HeroSlider = () => {
     // Heading
     headingColor: "text-white",
     headingHighlight: "text-yellow-200",
-    headingFont: "'Playfair Display', serif",
+    headingFont: "'Sora', sans-serif",
     headingShadow:
       "0px 5px 35px rgba(0,0,0,0.95)",
 
     // Paragraph
     paragraphColor: "text-slate-100 ",
-    paragraphFont: "'Poppins', sans-serif",
+    paragraphFont: "'Plus Jakarta Sans', sans-serif",
     paragraphShadow:
       "0px 2px 12px rgba(0,0,0,0.85)",
 
@@ -321,13 +329,13 @@ const  HeroSlider = () => {
       "border-white/30 text-white hover:bg-white/10 hover:border-white/60",
 
     // Overlay
-    overlayOne: "bg-white/20",
+    overlayOne: "bg-black/15",
 
     overlayTwo:
-      "bg-gradient-to-r from-black/5 via-black/35 to-black/20",
+      "bg-gradient-to-r from-black/20 via-black/35 to-black/25",
 
     overlayThree:
-      "bg-gradient-to-t from-black/50 via-black/10 to-black/20",
+      "bg-gradient-to-t from-black/70 via-black/25 to-black/35",
       
   };
 
@@ -337,20 +345,26 @@ const  HeroSlider = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.9 }}
-          className="absolute inset-0 cursor-pointer"
+          className="absolute inset-0 cursor-pointer overflow-hidden"
           onClick={handleImageClick}
         >
-          {/* Background Image */}
-          <img
+          {/* Background Image — slow continuous Ken Burns zoom while the slide is showing */}
+          <motion.img
             src={currentSlide.image}
-            alt={currentSlide.title}
+            alt={`${currentSlide.alt} — EPR Nexuss`}
             className="w-full h-full object-cover will-change-transform"
+            initial={{ scale: 1.06 }}
+            animate={{ scale: isPaused ? 1.06 : 1.16 }}
+            transition={{
+              duration: AUTOPLAY_INTERVAL_MS / 1000,
+              ease: "linear",
+            }}
             style={{
-              transform: `translateY(${offsetY}px)`,
+              translate: `0 ${offsetY}px`,
             }}
           />
 
@@ -361,21 +375,6 @@ const  HeroSlider = () => {
           <div className={`absolute inset-0 ${customStyles.overlayTwo}`} />
 
           <div className={`absolute inset-0 ${customStyles.overlayThree}`} />
-
-          {/* Paused indicator */}
-          {isPaused && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute top-6 right-6 z-20 flex items-center gap-2 rounded-full bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-wider text-white backdrop-blur-md border border-white/20"
-            >
-              <span className="flex h-2 w-2">
-                <span className="h-2 w-2 rounded-full bg-yellow-300" />
-              </span>
-              Paused
-            </motion.div>
-          )}
         </motion.div>
       </AnimatePresence>
 
@@ -404,7 +403,7 @@ const  HeroSlider = () => {
                         : "bg-white/10 border-white/20"
                     }`}
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                   }}
                 >
                   {isPain && (
@@ -439,7 +438,7 @@ const  HeroSlider = () => {
                   text-white-900
                 "
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Sora', sans-serif",
                   textShadow: "0px 5px 35px rgba(0,0,0,0.95)",
                 }}
               >
@@ -534,7 +533,7 @@ md:text-lg
                     }
   `}
                   style={{
-                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                     fontWeight: 700,
                     letterSpacing: "0.5px",
                     textShadow: isSolution
@@ -558,6 +557,8 @@ md:text-lg
                 <Link
                   to="/services"
                   className="
+                    btn-shine
+                    group
                     px-6
                 sm:px-8
                 md:px-10
@@ -572,15 +573,23 @@ md:text-lg
                     font-semibold
                     rounded-2xl
                     transition-all
+                    duration-300
                     hover:bg-white/10
+                    hover:scale-[1.03]
                     backdrop-blur-md
                     hover:border-white/60
+                    inline-flex
+                    items-center
+                    gap-2
                   "
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                   }}
                 >
                   View All Services
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
                 </Link>
               </div>
             </motion.div>
@@ -614,6 +623,9 @@ md:text-lg
           justify-center
           text-white
           hover:bg-white/20
+          hover:scale-110
+          hover:border-white/40
+          active:scale-95
           transition-all
           duration-300
         `}
@@ -648,6 +660,9 @@ md:text-lg
           justify-center
           text-white
           hover:bg-white/20
+          hover:scale-110
+          hover:border-white/40
+          active:scale-95
           transition-all
           duration-300
         `}
@@ -655,18 +670,49 @@ md:text-lg
         <ChevronRight size={28} />
       </button>
 
-      {/* Progress Dots */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`h-3 rounded-full transition-all duration-300 ${i === current
-                ? "w-12 bg-yellow-300"
-                : "w-3 bg-white/40 hover:bg-white/70"
+      {/* Progress Dots — active dot fills as a timed progress bar synced to autoplay */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3">
+        <div className="flex gap-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`relative h-3 rounded-full overflow-hidden transition-all duration-300 ${
+                i === current ? "w-12 bg-white/25" : "w-3 bg-white/40 hover:bg-white/70"
               }`}
-          />
-        ))}
+            >
+              {i === current && (
+                <span
+                  key={`${current}-${isPaused}`}
+                  className="absolute inset-y-0 left-0 bg-yellow-300 rounded-full"
+                  style={{
+                    animation: `heroFillBar ${AUTOPLAY_INTERVAL_MS}ms linear forwards`,
+                    animationPlayState: isPaused ? "paused" : "running",
+                  }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {isPaused && (
+            <motion.div
+              initial={{ opacity: 0, y: -6, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -6, scale: 0.9 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="flex items-center gap-2 rounded-full bg-black/50 px-4 py-1.5 text-[11px] font-medium uppercase tracking-wider text-white backdrop-blur-md border border-white/20"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-300 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-300" />
+              </span>
+              Slideshow paused
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
