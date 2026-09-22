@@ -12,7 +12,7 @@ import EwastePlantSetup from "@/components/blogs/recycling-setups/e-waste/e-wast
 import EwasteManagementSolution from "@/components/blogs/recycling-setups/e-waste/e-waste-management-solution";
 import EwasteManagementRule from "@/components/blogs/recycling-setups/e-waste/e-waste-management-rule";
 
-import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
+// import eWasteNewBlog from "@/components/blogs/recycling-setups/e-waste/blog10"
 
 import TyreApprovals from "@/components/blogs/recycling-setups/tyre/tyre-approvals";
 import TyreBuySelling from "@/components/blogs/recycling-setups/tyre/tyre-buy-selling";
@@ -31,6 +31,10 @@ import LithiumBatteryBuySelling from "@/components/blogs/recycling-setups/batter
 import LithiumBatteryDpr from "@/components/blogs/recycling-setups/battery/lithium-battery-dpr";
 import LithiumBatteryMachinery from "@/components/blogs/recycling-setups/battery/lithium-battery-machinery";
 import LithiumBatteryMarketAnalysis from "@/components/blogs/recycling-setups/battery/lithium-battery-market-analysis";
+import LithiumIonBatteryManufacturingBlog from "@/components/blogs/recycling-setups/battery/lithium-ion-battery-manufacturing";
+import ComplianceAndCertification from "@/components/blogs/recycling-setups/battery/lithium-ion-battery-compliance-certification";
+import DecodingLithiumIonChemistries from "@/components/blogs/recycling-setups/battery/decoding-lithium-ion-chemistries";
+import LithiumIonManufacturingMasterBlueprint from "@/components/blogs/recycling-setups/battery/lithium-ion-manufacturing-master-blueprint";
 
 import RvsfApprovals from "@/components/blogs/recycling-setups/rvsf/rvsf-approvals";
 import RvsfBuySelling from "@/components/blogs/recycling-setups/rvsf/rvsf-buy-selling";
@@ -93,9 +97,11 @@ import MetalsEprDprBlog from "@/components/blogs/epr-credits/metals/MetalsEprDpr
 import MetalsEprMachineryBlog from "@/components/blogs/epr-credits/metals/MetalsEprMachineryBlog";
 import MetalsEprTradingBlog from "@/components/blogs/epr-credits/metals/MetalsEprTradingBlog";
 import PlasticEprAnalysisBlog from "@/components/blogs/epr-credits/plastic/PlasticEprAnalysisBlog";
-import PlasticEprApprovalsBlog from "@/components/blogs/epr-credits/plastic/PlasticEprApprovalsBlog";
-import PlasticEprDprBlog from "@/components/blogs/epr-credits/plastic/PlasticEprDprBlog";
-import PlasticEprMachineryBlog from "@/components/blogs/epr-credits/plastic/PlasticEprMachineryBlog";
+import PlasticEprRegisterBlog from "@/components/blogs/epr-credits/plastic/PlasticEprRegisterBlog";
+import PlasticEprTargetBlog from "@/components/blogs/epr-credits/plastic/PlasticEprTargetBlog";
+import PlasticEprCertificatesBlog from "@/components/blogs/epr-credits/plastic/PlasticEprCertificatesBlog";
+import PlasticEprRegistrationRejectedBlog from "@/components/blogs/epr-credits/plastic/PlasticEprRegistrationRejectedBlog";
+import PlasticEprCostBlog from "@/components/blogs/epr-credits/plastic/PlasticEprCostBlog";
 import PlasticEprTradingBlog from "@/components/blogs/epr-credits/plastic/PlasticEprTradingBlog";
 import TyreEprAnalysisBlog from "@/components/blogs/epr-credits/tyre/TyreEprAnalysisBlog";
 import TyreEprApprovalsBlog from "@/components/blogs/epr-credits/tyre/TyreEprApprovalsBlog";
@@ -130,6 +136,11 @@ import BGLGDprBlog from "@/components/blogs/business-growth-and-lead-generation/
 import BGLGMachineryBlog from "@/components/blogs/business-growth-and-lead-generation/BGLGMachineryBlog";
 import BGLGTradingBlog from "@/components/blogs/business-growth-and-lead-generation/BGLGTradingBlog";
 
+// BIOGAS COMPONENTS 
+import CBGPlantSetup from "@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-machinery-setup";
+import CBGLoanAssistance from "@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance";
+import CBGSubsidies from "@/components/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives";
+import CBGProjectFeasibility from "@/components/blogs/recycling-setups/biogas/compressed-biogas-project-planning-and-feasiblity";
 export const blogComponents: Record<string, React.ComponentType<any>> = {
   // e-waste
   "e-waste-buying-selling": EWasteBuyingSelling,
@@ -142,7 +153,7 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "e-waste-plant-setup" : EwastePlantSetup,
   "e-waste-management-solution" : EwasteManagementSolution,
   "e-waste-management-rule" : EwasteManagementRule,
-  "e-waste-new-blog" : eWasteNewBlog,
+  // "e-waste-new-blog" : eWasteNewBlog,
 
   // tyre
   "tyre-approvals": TyreApprovals,
@@ -164,6 +175,10 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "lithium-battery-dpr": LithiumBatteryDpr,
   "lithium-battery-machinery": LithiumBatteryMachinery,
   "lithium-battery-market-analysis": LithiumBatteryMarketAnalysis,
+  "lithium-ion-battery-manufacturing": LithiumIonBatteryManufacturingBlog,
+  "lithium-ion-battery-compliance-certification": ComplianceAndCertification,
+  "decoding-lithium-ion-chemistries": DecodingLithiumIonChemistries, 
+  "lithium-ion-manufacturing-master-blueprint": LithiumIonManufacturingMasterBlueprint,
 
   // rvsf (ELV reclassified)
   "rvsf-approvals": RvsfApprovals,
@@ -219,20 +234,26 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
 "epr-elv-dpr": ElvEprDprBlog,
 "epr-elv-machinery": ElvEprMachineryBlog,
 "epr-elv-trading": ElvEprTradingBlog,
+//epr lithium
 "epr-lithium-analysis": LithiumEprAnalysisBlog,
 "epr-lithium-approvals": LithiumEprApprovalsBlog,
 "epr-lithium-dpr": LithiumEprDprBlog,
 "epr-lithium-machinery": LithiumEprMachineryBlog,
 "epr-lithium-trading": LithiumEprTradingBlog,
+//epr metals
 "epr-metals-analysis": MetalsEprAnalysisBlog,
 "epr-metals-approvals": MetalsEprApprovalsBlog,
 "epr-metals-dpr": MetalsEprDprBlog,
 "epr-metals-machinery": MetalsEprMachineryBlog,
 "epr-metals-trading": MetalsEprTradingBlog,
-"epr-plastic-analysis": PlasticEprAnalysisBlog,
-"epr-plastic-approvals": PlasticEprApprovalsBlog,
-"epr-plastic-dpr": PlasticEprDprBlog,
-"epr-plastic-machinery": PlasticEprMachineryBlog,
+//epr plastic 
+"market-analysis-and-business-opportunities-for-epr-plastic": PlasticEprAnalysisBlog,
+"how-to-register-for-epr-plastic-in-india": PlasticEprRegisterBlog,
+"how-target-calculated-for-epr-plastic": PlasticEprTargetBlog,
+"how-to-buy-epr-plastic-certificates-in-india": PlasticEprCertificatesBlog,
+"why-is-my-plastic-epr-registration-rejected": PlasticEprRegistrationRejectedBlog,
+"what-it-costs-to-start-a-plastic-recycling-plant-in-india": PlasticEprCostBlog,
+
 "epr-plastic-trading": PlasticEprTradingBlog,
 "epr-tyre-analysis": TyreEprAnalysisBlog,
 "epr-tyre-approvals": TyreEprApprovalsBlog,
@@ -263,6 +284,13 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
 "recycling-compliance-market-trends": BGLGDprBlog,
 "epr-compliance-business-opportunities": BGLGMachineryBlog,
 "waste-to-wealth-growth-strategy": BGLGTradingBlog,
+
+//  I DEFINE IT HERE BIOGAS Blogs
+
+"compressed-biogas-plant-machinery-setup": CBGPlantSetup,
+"compressed-biogas-plant-bank-loan-assistance": CBGLoanAssistance,
+"compressed-biogas-subsidies-and-incentives":CBGSubsidies,
+"compressed-biogas-project-planning-and-feasiblity":CBGProjectFeasibility,
 };
 
 export default blogComponents;

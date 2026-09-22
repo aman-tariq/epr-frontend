@@ -8,8 +8,9 @@ import {
   NotebookTabs,
   ChevronDown,
   ChevronUp,
+  TrendingUp,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
 import logo from "@/assets/epr-logo.jpeg";
 import {
   DropdownMenu,
@@ -21,10 +22,28 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { serviceDropdown, serviceCategoriesNav } from "@/lib/services";
 
+const MARKETPLACE_URL = "/marketplace/";
+
+// Staggered reveal for dropdown menu rows: the container fires this on
+// mount (each open is a fresh mount, since the menu unmounts on close),
+// and each row animates in slightly after the one before it.
+const dropdownContainer: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.045, delayChildren: 0.04 },
+  },
+};
+
+const dropdownRow: Variants = {
+  hidden: { opacity: 0, x: -6 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.22, ease: "easeOut" } },
+};
+
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Contact us", path: "/contact" },
   { name: "About us", path: "/about" },
+  { name: "Gallery", path: "/gallery" },
 ];
 
 // ==================== BLOG CATEGORIES ====================
@@ -64,6 +83,7 @@ const recyclingSetupsSubcategories = [
   { label: "Solar Panel Recycling Setup", path: "/blog/category/solar-panel" },
   { label: "Plastic Recycling Setup", path: "/blog/category/plastic" },
   { label: "Tyre Recycling Setup", path: "/blog/category/tyre" },
+  { label: "Biogas Recycling Setup", path: "/blog/category/biogas" },
 ];
 
 const eprCreditsSubcategories = [
@@ -118,6 +138,54 @@ const socialLinks = [
   },
 ];
 
+/**
+ * The "EPR Trading" marketplace button. Deliberately louder than the rest of
+ * the nav: gradient fill, a soft breathing glow, and a small live dot,
+ * because this one destination (buying/selling credits) is meant to pull
+ * the eye. Respects prefers-reduced-motion.
+ *
+ * NOTE: This uses a plain <a> tag (not React Router's <Link>) on purpose.
+ * "/marketplace/" is a separate app/deployment outside this SPA's own
+ * router, so it needs a real full-page browser navigation. Using <Link>
+ * here caused React Router to try to match the path against its own
+ * routes, find nothing, and render a client-side 404 -- which is why a
+ * manual refresh "fixed" it (refresh bypasses the SPA router entirely).
+ */
+const MarketplaceButton = ({
+  onClick,
+  className = "",
+}: {
+  onClick?: () => void;
+  className?: string;
+}) => {
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <a
+      href={MARKETPLACE_URL}
+      onClick={onClick}
+      className={`relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-[#04120d] bg-gradient-to-r from-emerald-400 to-amber-300 overflow-visible ${className}`}
+    >
+      {!prefersReducedMotion && (
+        <motion.span
+          aria-hidden="true"
+          className="absolute -inset-1 rounded-lg bg-gradient-to-r from-emerald-400 to-amber-300 blur-md -z-10"
+          animate={{ opacity: [0.35, 0.85, 0.35], scale: [1, 1.06, 1] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+      )}
+      <span className="relative flex h-2 w-2">
+        {!prefersReducedMotion && (
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[#04120d]/50 animate-ping" />
+        )}
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#04120d]" />
+      </span>
+      <TrendingUp size={16} />
+      EPR Trading
+    </a>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
@@ -143,15 +211,11 @@ const Navbar = () => {
     setExpandedCategories(newExpanded);
   };
 
-  /* ==================== CHANGE 1 START ==================== */
-  // Clear the subcategories when both main desktop dropdown menus are closed.
-  // This ensures that when you re-hover over a menu later, it starts clean.
   useEffect(() => {
     if (!isBlogOpen && !isServicesOpen) {
       setExpandedCategories(new Set());
     }
   }, [isBlogOpen, isServicesOpen]);
-  /* ===================== CHANGE 1 END ===================== */
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -171,7 +235,12 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
+    <motion.div
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50"
+    >
       {/* Top Bar */}
       <div
         className={`bg-secondary hidden lg:block transition-all duration-300 ${scrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}
@@ -237,6 +306,7 @@ const Navbar = () => {
               aria-label="EPR NEXUSS Home"
             >
               <div className="relative">
+                <span className="absolute inset-0 rounded-full bg-secondary/40 blur-md opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-125 transition-all duration-500 -z-10" />
                 <img
                   src={logo}
                   alt="EPR NEXUSS"
@@ -257,21 +327,33 @@ const Navbar = () => {
               role="navigation"
               aria-label="Main navigation"
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    location.pathname === link.path
-                      ? "bg-secondary text-primary-foreground"
-                      : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                      isActive
+                        ? "text-primary-foreground"
+                        : "text-primary-foreground/80 hover:text-primary-foreground"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className="absolute inset-0 rounded-lg bg-secondary -z-10"
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      />
+                    )}
+                    {!isActive && (
+                      <span className="absolute inset-0 rounded-lg bg-primary-foreground/0 hover:bg-primary-foreground/10 transition-colors duration-200 -z-10" />
+                    )}
+                    <span className="relative">{link.name}</span>
+                  </Link>
+                );
+              })}
 
-              {/* Blog Dropdown */}
               {/* Blog Dropdown */}
               <div
                 {...(isDesktop && {
@@ -291,17 +373,27 @@ const Navbar = () => {
                       <ChevronDown size={16} />
                     )}
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent sideOffset={6} className="min-w-[18rem]">
-                    <DropdownMenuLabel>Blog Categories</DropdownMenuLabel>
+                  <DropdownMenuContent
+                    sideOffset={6}
+                    className="min-w-[18rem] max-h-[80vh] overflow-hidden p-0"
+                  >
+                    <DropdownMenuLabel className="px-4 py-3">
+                      Blog Categories
+                    </DropdownMenuLabel>
 
-                    {blogDropdown.map((item) => {
+                    <motion.div
+                      variants={dropdownContainer}
+                      initial="hidden"
+                      animate="show"
+                      className="max-h-[65vh] overflow-y-auto overflow-x-hidden pr-1"
+                    >
+                      {blogDropdown.map((item) => {
                       if (
                         item.path ===
                         "/blog/category/plant-operation-intelligence"
                       ) {
                         return (
-                          <div key={item.path}>
-                            {/* CHANGE 2: Added "blog-" namespace prefix to prevent name conflict with Services */}
+                          <motion.div variants={dropdownRow} key={item.path}>
                             <button
                               onClick={() =>
                                 toggleCategory(
@@ -340,14 +432,13 @@ const Navbar = () => {
                               )}
                             </AnimatePresence>
                             <DropdownMenuSeparator />
-                          </div>
+                          </motion.div>
                         );
                       }
 
                       if (item.path === "/blog/category/recycling-setups") {
                         return (
-                          <div key={item.path}>
-                            {/* CHANGE 2: Added "blog-" namespace prefix */}
+                          <motion.div variants={dropdownRow} key={item.path}>
                             <button
                               onClick={() =>
                                 toggleCategory("blog-Recycling Setups")
@@ -384,14 +475,13 @@ const Navbar = () => {
                               )}
                             </AnimatePresence>
                             <DropdownMenuSeparator />
-                          </div>
+                          </motion.div>
                         );
                       }
 
                       if (item.path === "/blog/category/epr-credits") {
                         return (
-                          <div key={item.path}>
-                            {/* CHANGE 2: Added "blog-" namespace prefix */}
+                          <motion.div variants={dropdownRow} key={item.path}>
                             <button
                               onClick={() => toggleCategory("blog-EPR Credits")}
                               className="w-full px-4 py-2 text-xs font-semibold text-secondary uppercase tracking-wider flex items-center justify-between hover:bg-accent/5 transition-colors"
@@ -424,7 +514,7 @@ const Navbar = () => {
                               )}
                             </AnimatePresence>
                             <DropdownMenuSeparator />
-                          </div>
+                          </motion.div>
                         );
                       }
 
@@ -433,8 +523,7 @@ const Navbar = () => {
                         "/blog/category/business-growth-and-lead-generation"
                       ) {
                         return (
-                          <div key={item.path}>
-                            {/* CHANGE 2: Added "blog-" namespace prefix */}
+                          <motion.div variants={dropdownRow} key={item.path}>
                             <button
                               onClick={() =>
                                 toggleCategory(
@@ -475,14 +564,13 @@ const Navbar = () => {
                               )}
                             </AnimatePresence>
                             <DropdownMenuSeparator />
-                          </div>
+                          </motion.div>
                         );
                       }
 
                       if (item.path === "/blog/category/buy-and-sell-scrap") {
                         return (
-                          <div key={item.path}>
-                            {/* CHANGE 2: Added "blog-" namespace prefix */}
+                          <motion.div variants={dropdownRow} key={item.path}>
                             <button
                               onClick={() =>
                                 toggleCategory("blog-Buy & Sell Scrap")
@@ -519,11 +607,12 @@ const Navbar = () => {
                               )}
                             </AnimatePresence>
                             <DropdownMenuSeparator />
-                          </div>
+                          </motion.div>
                         );
                       }
-                      return null;
-                    })}
+                        return null;
+                      })}
+                    </motion.div>
 
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
@@ -566,10 +655,14 @@ const Navbar = () => {
                   >
                     <DropdownMenuLabel>Service Categories</DropdownMenuLabel>
 
-                    <div className="max-h-[70vh] overflow-y-auto overflow-x-hidden pr-1">
+                    <motion.div
+                      variants={dropdownContainer}
+                      initial="hidden"
+                      animate="show"
+                      className="max-h-[70vh] overflow-y-auto overflow-x-hidden pr-1"
+                    >
                       {serviceCategoriesNav.map((category, idx) => (
-                        <div key={category.name}>
-                          {/* CHANGE 3: Added "service-" namespace prefix so identical names do not sync up */}
+                        <motion.div variants={dropdownRow} key={category.name}>
                           <button
                             onClick={() =>
                               toggleCategory(`service-${category.name}`)
@@ -608,19 +701,19 @@ const Navbar = () => {
                           {idx < serviceCategoriesNav.length - 1 && (
                             <DropdownMenuSeparator />
                           )}
-                        </div>
+                        </motion.div>
                       ))}
-                      <DropdownMenuSeparator />
+                    </motion.div>
+                    <DropdownMenuSeparator />
 
-                      <DropdownMenuItem asChild>
-                        <Link
-                          to="/services"
-                          className="block w-full px-4 py-2 text-sm text-foreground"
-                        >
-                          All services
-                        </Link>
-                      </DropdownMenuItem>
-                    </div>
+                    <DropdownMenuItem asChild>
+                      <Link
+                        to="/services"
+                        className="block w-full px-4 py-2 text-sm text-foreground"
+                      >
+                        All services
+                      </Link>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
@@ -628,12 +721,7 @@ const Navbar = () => {
 
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link
-                to="/contact"
-                className="px-5 py-2.5 bg-secondary text-primary-foreground font-semibold rounded-lg text-sm hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/25 hover:shadow-secondary/40"
-              >
-                Get Started
-              </Link>
+              <MarketplaceButton />
             </div>
 
             {/* Mobile Toggle */}
@@ -656,6 +744,11 @@ const Navbar = () => {
               className="lg:hidden bg-primary/98 backdrop-blur-xl border-t border-primary-foreground/10 max-h-[calc(100vh-80px)] overflow-y-auto"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
+                <MarketplaceButton
+                  onClick={() => setIsOpen(false)}
+                  className="justify-center mb-2"
+                />
+
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
@@ -698,7 +791,6 @@ const Navbar = () => {
                           ) {
                             return (
                               <div key={item.path} className="pl-2">
-                                {/* CHANGE 4: Matching unique "blog-" namespace updates for the mobile structure */}
                                 <button
                                   onClick={() =>
                                     toggleCategory(
@@ -745,7 +837,6 @@ const Navbar = () => {
                           if (item.path === "/blog/category/recycling-setups") {
                             return (
                               <div key={item.path} className="pl-2">
-                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
                                   onClick={() =>
                                     toggleCategory("blog-Recycling Setups")
@@ -790,7 +881,6 @@ const Navbar = () => {
                           if (item.path === "/blog/category/epr-credits") {
                             return (
                               <div key={item.path} className="pl-2">
-                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
                                   onClick={() =>
                                     toggleCategory("blog-EPR Credits")
@@ -835,7 +925,6 @@ const Navbar = () => {
                           ) {
                             return (
                               <div key={item.path} className="pl-2">
-                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
                                   onClick={() =>
                                     toggleCategory("blog-Buy & Sell Scrap")
@@ -883,7 +972,6 @@ const Navbar = () => {
                           ) {
                             return (
                               <div key={item.path} className="pl-2">
-                                {/* CHANGE 4: Matching unique "blog-" prefix */}
                                 <button
                                   onClick={() =>
                                     toggleCategory(
@@ -963,7 +1051,6 @@ const Navbar = () => {
                       >
                         {serviceCategoriesNav.map((category) => (
                           <div key={category.name} className="pl-2">
-                            {/* CHANGE 5: Matching unique "service-" prefix inside mobile version */}
                             <button
                               onClick={() =>
                                 toggleCategory(`service-${category.name}`)
@@ -1012,20 +1099,12 @@ const Navbar = () => {
                     )}
                   </AnimatePresence>
                 </div>
-
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="mt-4 px-5 py-3 bg-secondary text-primary-foreground font-semibold rounded-lg text-sm text-center"
-                >
-                  Get Started
-                </Link>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
