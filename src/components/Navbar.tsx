@@ -84,7 +84,8 @@ const recyclingSetupsSubcategories = [
   { label: "Plastic Recycling Setup", path: "/blog/category/plastic" },
   { label: "Tyre Recycling Setup", path: "/blog/category/tyre" },
   { label: "Biogas Recycling Setup", path: "/blog/category/biogas" },
-];
+  { label: "Lithium-Ion Battery Manufacturing",path: "/blog/category/lithium-ion-battery-manufacturing", slug: "lithium-ion-battery-manufacturing"},
+  ];
 
 const eprCreditsSubcategories = [
   { label: "EPR Plastic", path: "/blog/category/epr-plastic" },

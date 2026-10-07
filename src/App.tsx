@@ -19,6 +19,19 @@ import CBGPlantSetup from '@/components/blogs/recycling-setups/biogas/compressed
 
 // ____________________________________________________________________________________________________
 
+// added lithium ion battery manufecturing imports 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+import LithiumIonBatteryManufectruing from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/master-blueprint-for-compliance-and-certification.tsx"
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+// services 
+// Adjust the path to match your exact file location
+import LithiumIonBatteryManufacturingBlog from "@/components/services/plant-setups/LithiumIonBatteryManufecturingBlog";
+import LFPBatterySpecificationsEVBlog from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithium-ion-battery-specification-used-in-ev";
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
@@ -91,7 +104,7 @@ const AppContent = () => (
           <Route path="/team" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="test" element={<BusinessGrowthAndLeadGeneration/>} /> 
+          <Route path="test" element={<BusinessGrowthAndLeadGeneration />} />
           <Route path="/license-and-certification" element={<LicenseAndCertificationPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -99,22 +112,33 @@ const AppContent = () => (
           {/* Now i created here  */}
           <Route path="/blogs/recycling-setups/biogas/cbgp-set-up" element={<CBGPlantSetup />} />
           <Route path="/blogs/recycling-setups/biogas/cbg-loan-assistance" element={<CBGLoanAssistance />} />
-          <Route path="/blogs/recycling-setups/biogas/cbg-subsidies" element={<CBGSubsidies />}/>
-          <Route path="/blogs/recycling-setups/biogas/cbg-project-feasibility" element={<CBGProjectFeasibility />}/>
-         {/* _______________________________________________________________________________ */}
-         
+          <Route path="/blogs/recycling-setups/biogas/cbg-subsidies" element={<CBGSubsidies />} />
+          <Route path="/blogs/recycling-setups/biogas/cbg-project-feasibility" element={<CBGProjectFeasibility />} />
+          {/* _______________________________________________________________________________ */}
+
           {/* HERE ARE FOR BIOGAS PAGES ROUTES  */}
+          <Route
+            path="/blog/lithium-ion-battery-specification-used-in-ev"
+            element={<LFPBatterySpecificationsEVBlog />}
+          />          {/* <Route path="/blog/category/biogas" element={<BiogasCategoryPage />} /> */}
 
-          {/* <Route path="/blog/category/biogas" element={<BiogasCategoryPage />} /> */}
-
-          <Route   path="/blog/compressed-biogas-plant-machinery-setup"  element={<CBGPlantSetup />} 
-/>
+          <Route path="/blog/compressed-biogas-plant-machinery-setup" element={<CBGPlantSetup />}
+          />
           <Route path="/blog/compressed-biogas-subsidies-and-incentives" element={<CBGSubsidies />} />
           <Route path="/blog/compressed-biogas-project-planning-and-feasiblity" element={<CBGProjectFeasibility />} />
           <Route path="/blog/compressed-biogas-plant-bank-loan-assistance" element={<CBGLoanAssistance />} />
 
 
           {/* _____________________________________________________________________________ */}
+          {/* ---------------------------------------------------------------------------------------- */}
+
+          {/* services related blogs of lithium ion Battery Manufacturing */}
+
+          <Route
+            path="/services/lithium-ion-battery-manufacturing"
+            element={<LithiumIonBatteryManufacturingBlog />}
+          />
+          <Route path="/services" element={<Services />} />
 
 
         </Routes>
@@ -127,23 +151,23 @@ const AppContent = () => (
 
 const App = () => (
   <HelmetProvider>
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <ScrollToTop/>
-        <Loader>
-          <AppContent />
-        </Loader>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <ScrollToTop />
+          <Loader>
+            <AppContent />
+          </Loader>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   </HelmetProvider>
 );
 

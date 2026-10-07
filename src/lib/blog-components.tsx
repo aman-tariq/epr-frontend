@@ -141,6 +141,26 @@ import CBGPlantSetup from "@/components/blogs/recycling-setups/biogas/compressed
 import CBGLoanAssistance from "@/components/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance";
 import CBGSubsidies from "@/components/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives";
 import CBGProjectFeasibility from "@/components/blogs/recycling-setups/biogas/compressed-biogas-project-planning-and-feasiblity";
+
+// ------------------------------------------------------------------------------------------------------
+//  Lithium Ion Bttery Manufacturing 
+
+
+import LithiumIonBatteryManufacturing from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/master-blueprint-for-compliance-and-certification";
+import DecodingChemistryOfPower from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/decoding-the-chemistry-of-power";
+import LithiumIonBatteryDetailedProjectReport from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithiium-ion-battery-the-detailed-project-report";
+import LithiumIonBatteryMarketAnalysis from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithium-ion-battery-manufacturing-market-analysis";
+import LithiumIonBatteryManufacturingLicenseAndCertification from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithium-ion-battery-manufacturing-license-and-certification";
+import LithiumIonBatterySpecificationUsedInEv from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithium-ion-battery-specification-used-in-ev";
+
+// -------------------------------------------------------------------------------------------------------
+// Service Blog
+
+
+
+// -------------------------------------------------------------------------------------------------------
+
+
 export const blogComponents: Record<string, React.ComponentType<any>> = {
   // e-waste
   "e-waste-buying-selling": EWasteBuyingSelling,
@@ -148,11 +168,11 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "e-waste-market-analysis": EWasteMarketAnalysis,
   "e-waste-machinery": EWasteMachinery,
   "e-waste-dpr": EWasteDpr,
-  "e-waste-compliance-and-consultancy" : EwasteComplianceAndConsultancy,
-  "e-waste-registration-guide" : EwasteRegistrationGuide,
-  "e-waste-plant-setup" : EwastePlantSetup,
-  "e-waste-management-solution" : EwasteManagementSolution,
-  "e-waste-management-rule" : EwasteManagementRule,
+  "e-waste-compliance-and-consultancy": EwasteComplianceAndConsultancy,
+  "e-waste-registration-guide": EwasteRegistrationGuide,
+  "e-waste-plant-setup": EwastePlantSetup,
+  "e-waste-management-solution": EwasteManagementSolution,
+  "e-waste-management-rule": EwasteManagementRule,
   // "e-waste-new-blog" : eWasteNewBlog,
 
   // tyre
@@ -177,7 +197,7 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "lithium-battery-market-analysis": LithiumBatteryMarketAnalysis,
   "lithium-ion-battery-manufacturing": LithiumIonBatteryManufacturingBlog,
   "lithium-ion-battery-compliance-certification": ComplianceAndCertification,
-  "decoding-lithium-ion-chemistries": DecodingLithiumIonChemistries, 
+  "decoding-lithium-ion-chemistries": DecodingLithiumIonChemistries,
   "lithium-ion-manufacturing-master-blueprint": LithiumIonManufacturingMasterBlueprint,
 
   // rvsf (ELV reclassified)
@@ -188,7 +208,7 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "rvsf-dpr": RvsfDpr,
   "rvsf-future": RvsfFuture,
   "rvsf-facility": RvsfFacility,
-  "rvsf-growth" : RvsfGrowth,
+  "rvsf-growth": RvsfGrowth,
   "rvsf-license": RvsfLicense,
   "rvsf-registration": RvsfRegistration,
 
@@ -218,79 +238,91 @@ export const blogComponents: Record<string, React.ComponentType<any>> = {
   "standardize-operations-for-plant-scaling": StandardizeOperationsForPlantScaling,
   "multi-plant-growth-playbook": MultiPlantGrowthPlaybook,
 
-// epr-credits and buy-sell-scrap
-"epr-battery-analysis": BatteryEprAnalysisBlog,
-"epr-battery-approvals": BatteryEprApprovalsBlog,
-"epr-battery-dpr": BatteryEprDprBlog,
-"epr-battery-machinery": BatteryEprMachineryBlog,
-"epr-battery-trading": BatteryEprTradingBlog,
-"epr-electronic-analysis": ElectricEprAnalysisBlog,
-"epr-electronic-approvals": ElectricEprApprovalsBlog,
-"epr-electronic-dpr": ElectricEprDprBlog,
-"epr-electronic-machinery": ElectricEprMachinaryBlog,
-"epr-electronic-trading": ElectricEprTradingBlog,
-"epr-elv-analysis": ElvEprAnalysisBlog,
-"epr-elv-approvals": ElvEprApprovalsBlog,
-"epr-elv-dpr": ElvEprDprBlog,
-"epr-elv-machinery": ElvEprMachineryBlog,
-"epr-elv-trading": ElvEprTradingBlog,
-//epr lithium
-"epr-lithium-analysis": LithiumEprAnalysisBlog,
-"epr-lithium-approvals": LithiumEprApprovalsBlog,
-"epr-lithium-dpr": LithiumEprDprBlog,
-"epr-lithium-machinery": LithiumEprMachineryBlog,
-"epr-lithium-trading": LithiumEprTradingBlog,
-//epr metals
-"epr-metals-analysis": MetalsEprAnalysisBlog,
-"epr-metals-approvals": MetalsEprApprovalsBlog,
-"epr-metals-dpr": MetalsEprDprBlog,
-"epr-metals-machinery": MetalsEprMachineryBlog,
-"epr-metals-trading": MetalsEprTradingBlog,
-//epr plastic 
-"market-analysis-and-business-opportunities-for-epr-plastic": PlasticEprAnalysisBlog,
-"how-to-register-for-epr-plastic-in-india": PlasticEprRegisterBlog,
-"how-target-calculated-for-epr-plastic": PlasticEprTargetBlog,
-"how-to-buy-epr-plastic-certificates-in-india": PlasticEprCertificatesBlog,
-"why-is-my-plastic-epr-registration-rejected": PlasticEprRegistrationRejectedBlog,
-"what-it-costs-to-start-a-plastic-recycling-plant-in-india": PlasticEprCostBlog,
+  // epr-credits and buy-sell-scrap
+  "epr-battery-analysis": BatteryEprAnalysisBlog,
+  "epr-battery-approvals": BatteryEprApprovalsBlog,
+  "epr-battery-dpr": BatteryEprDprBlog,
+  "epr-battery-machinery": BatteryEprMachineryBlog,
+  "epr-battery-trading": BatteryEprTradingBlog,
+  "epr-electronic-analysis": ElectricEprAnalysisBlog,
+  "epr-electronic-approvals": ElectricEprApprovalsBlog,
+  "epr-electronic-dpr": ElectricEprDprBlog,
+  "epr-electronic-machinery": ElectricEprMachinaryBlog,
+  "epr-electronic-trading": ElectricEprTradingBlog,
+  "epr-elv-analysis": ElvEprAnalysisBlog,
+  "epr-elv-approvals": ElvEprApprovalsBlog,
+  "epr-elv-dpr": ElvEprDprBlog,
+  "epr-elv-machinery": ElvEprMachineryBlog,
+  "epr-elv-trading": ElvEprTradingBlog,
+  //epr lithium
+  "epr-lithium-analysis": LithiumEprAnalysisBlog,
+  "epr-lithium-approvals": LithiumEprApprovalsBlog,
+  "epr-lithium-dpr": LithiumEprDprBlog,
+  "epr-lithium-machinery": LithiumEprMachineryBlog,
+  "epr-lithium-trading": LithiumEprTradingBlog,
+  //epr metals
+  "epr-metals-analysis": MetalsEprAnalysisBlog,
+  "epr-metals-approvals": MetalsEprApprovalsBlog,
+  "epr-metals-dpr": MetalsEprDprBlog,
+  "epr-metals-machinery": MetalsEprMachineryBlog,
+  "epr-metals-trading": MetalsEprTradingBlog,
+  //epr plastic 
+  "market-analysis-and-business-opportunities-for-epr-plastic": PlasticEprAnalysisBlog,
+  "how-to-register-for-epr-plastic-in-india": PlasticEprRegisterBlog,
+  "how-target-calculated-for-epr-plastic": PlasticEprTargetBlog,
+  "how-to-buy-epr-plastic-certificates-in-india": PlasticEprCertificatesBlog,
+  "why-is-my-plastic-epr-registration-rejected": PlasticEprRegistrationRejectedBlog,
+  "what-it-costs-to-start-a-plastic-recycling-plant-in-india": PlasticEprCostBlog,
 
-"epr-plastic-trading": PlasticEprTradingBlog,
-"epr-tyre-analysis": TyreEprAnalysisBlog,
-"epr-tyre-approvals": TyreEprApprovalsBlog,
-"epr-tyre-dpr": TyreEprDprBlog,
-"epr-tyre-machinery": TyreEprMachineryBlog,
-"epr-tyre-trading": TyreEprTradingBlog,
-"epr-used-oil-analysis": UsedOilEprAnalysisBlog,
-"epr-used-oil-approvals": UsedOilEprApprovals,
-"epr-used-oil-dpr": UsedOilEprDprBlog,
-"epr-used-oil-machinery": UsedOilEprMachineryBlog,
-"epr-used-oil-trading": UsedOilEprTradingBlog,
-"sell-e-waste-benefits-india": BuyEwasteAnalysisBlog,
-"types-of-e-waste-you-can-sell": BuyEwasteApprovalsBlog,
-"is-selling-e-waste-legal-india": BuyEwasteMachineryBlog,
-"e-waste-price-calculation": BuyEwasteTradingBlog,
-"sell-industrial-batteries-legally": SellBatteriesAnalysisBlog,
-"lithium-ion-battery-scrap-value": SellBatteriesApprovalsBlog,
-"corporate-guide-sell-scrap-batteries": SellBatteriesDprBlog,
-"battery-waste-recycling-marketplace": SellBatteriesTradingBlog,
-"metal-scrap-epr-fines-guidelines": BuyMetalsAnalysisBlog,
-"fair-pricing-industrial-metal-scrap": BuyMetalsApprovalsBlog,
-"non-ferrous-metal-epr-framework": BuyMetalsDprBlog,
-"verified-metal-scrap-marketplace-india": BuyMetalsTradingBlog,
+  "epr-plastic-trading": PlasticEprTradingBlog,
+  "epr-tyre-analysis": TyreEprAnalysisBlog,
+  "epr-tyre-approvals": TyreEprApprovalsBlog,
+  "epr-tyre-dpr": TyreEprDprBlog,
+  "epr-tyre-machinery": TyreEprMachineryBlog,
+  "epr-tyre-trading": TyreEprTradingBlog,
+  "epr-used-oil-analysis": UsedOilEprAnalysisBlog,
+  "epr-used-oil-approvals": UsedOilEprApprovals,
+  "epr-used-oil-dpr": UsedOilEprDprBlog,
+  "epr-used-oil-machinery": UsedOilEprMachineryBlog,
+  "epr-used-oil-trading": UsedOilEprTradingBlog,
+  "sell-e-waste-benefits-india": BuyEwasteAnalysisBlog,
+  "types-of-e-waste-you-can-sell": BuyEwasteApprovalsBlog,
+  "is-selling-e-waste-legal-india": BuyEwasteMachineryBlog,
+  "e-waste-price-calculation": BuyEwasteTradingBlog,
+  "sell-industrial-batteries-legally": SellBatteriesAnalysisBlog,
+  "lithium-ion-battery-scrap-value": SellBatteriesApprovalsBlog,
+  "corporate-guide-sell-scrap-batteries": SellBatteriesDprBlog,
+  "battery-waste-recycling-marketplace": SellBatteriesTradingBlog,
+  "metal-scrap-epr-fines-guidelines": BuyMetalsAnalysisBlog,
+  "fair-pricing-industrial-metal-scrap": BuyMetalsApprovalsBlog,
+  "non-ferrous-metal-epr-framework": BuyMetalsDprBlog,
+  "verified-metal-scrap-marketplace-india": BuyMetalsTradingBlog,
 
-// business-growth-and-lead-generation
-"sustainable-recycling-business-growth": BGLGAnalysisBlog,
-"sustainability-lead-generation-strategy": BGLGApprovalsBlog,
-"recycling-compliance-market-trends": BGLGDprBlog,
-"epr-compliance-business-opportunities": BGLGMachineryBlog,
-"waste-to-wealth-growth-strategy": BGLGTradingBlog,
+  // business-growth-and-lead-generation
+  "sustainable-recycling-business-growth": BGLGAnalysisBlog,
+  "sustainability-lead-generation-strategy": BGLGApprovalsBlog,
+  "recycling-compliance-market-trends": BGLGDprBlog,
+  "epr-compliance-business-opportunities": BGLGMachineryBlog,
+  "waste-to-wealth-growth-strategy": BGLGTradingBlog,
 
-//  I DEFINE IT HERE BIOGAS Blogs
+  //  I DEFINE IT HERE BIOGAS Blogs
 
-"compressed-biogas-plant-machinery-setup": CBGPlantSetup,
-"compressed-biogas-plant-bank-loan-assistance": CBGLoanAssistance,
-"compressed-biogas-subsidies-and-incentives":CBGSubsidies,
-"compressed-biogas-project-planning-and-feasiblity":CBGProjectFeasibility,
+  "compressed-biogas-plant-machinery-setup": CBGPlantSetup,
+  "compressed-biogas-plant-bank-loan-assistance": CBGLoanAssistance,
+  "compressed-biogas-subsidies-and-incentives": CBGSubsidies,
+  "compressed-biogas-project-planning-and-feasiblity": CBGProjectFeasibility,
+
+  // Lithium ion Battery Manufecturing
+
+  "master-blueprint-for-compliance-and-certification": LithiumIonBatteryManufacturing,
+  "decoding-the-chemistry-of-power": DecodingChemistryOfPower,
+  "lithium-ion-battery-detailed-project-report": LithiumIonBatteryDetailedProjectReport,
+  "lithium-ion-battery-market-analysis": LithiumIonBatteryMarketAnalysis,
+  "lithium-ion-battery-manufacturing-license-and-certification": LithiumIonBatteryManufacturingLicenseAndCertification,
+  "litjum-ion-battery-specification-used-in-ev": LithiumIonBatterySpecificationUsedInEv,
+
+  
+
 };
 
 export default blogComponents;

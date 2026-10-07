@@ -16,7 +16,9 @@ export interface ServiceItem {
     | "buy-sell"
     | "recycling-setups"
     | "business-growth-lead-generation"
-    | "license-and-certification";
+    | "license-and-certification" 
+    | "Plant Setups";
+
   subcategory?: string;
   fullContent?: string;
 }
@@ -1281,6 +1283,32 @@ export const services: ServiceItem[] = [
     category: "license-and-certification",
     subcategory: "Directorate General Of Foreign Trade",
   },
+
+  // --------------------------------------------------------------------------------------------------------------------------------------
+{
+    slug: "lithium-ion-battery-manufacturing",
+    title: "Lithium-ion Battery Manufacturing Plant Setup",
+    subtitle:
+      "Advanced manufacturing setups for modern lithium-ion battery technology.",
+    desc: "Expert guidance and turnkey solutions for establishing state-of-the-art lithium-ion battery manufacturing and assembly facilities.",
+    details:
+      "We guide manufacturers through the entire process of setting up lithium-ion battery plants, including cleanroom design, automated assembly line integration, testing protocols, and compliance with battery waste management rules.",
+    features: [
+      "Cleanroom & Facility Design",
+      "Assembly Line Procurement",
+      "Quality Control Setup",
+      "EPR & Safety Compliance",
+    ],
+    highlights: [
+      "High-efficiency production",
+      "Advanced automation support",
+      "Strict safety standards",
+      "Future-ready technology",  
+    ],
+    path: "/services/lithium-ion-battery-manufacturing",
+    category: "Plant Setups",
+    subcategory: "Lithium-ion Battery Manufacturing Plant setups ",
+  },
 ];
 
 export const serviceDropdown = [
@@ -1311,12 +1339,22 @@ export const serviceDropdown = [
     label: "Lithium Battery Recycling",
     path: "/services/recycling-lithium-ion-battery",
   },
+
   { label: "Biogas Plant Setup", path: "/services/biogas-plant-setup" },
+  // -----------------------------------------------------------------------------------------------------------------------
+  {
+    label: "Lithium-ion Battery Manufacturing Plant Setup",
+    path: "/services/lithium-ion-battery-manufacturing",
+  },
   { label: "E-Waste Recycling", path: "/services/recycling-ewaste" },
   {
     label: "Registered Vehicles Scraping Facility Plant",
     path: "/services/recycling-vehicles-scrapping",
   },
+  // ----------------------------------------------------------------------------
+
+
+  // ----------------------------------------------------------------------------
   { label: "Solar Panel Recycling", path: "/services/recycling-solar-panel" },
   { label: "Plastic Recycling", path: "/services/recycling-plastic" },
   {
@@ -1386,6 +1424,10 @@ export const serviceCategoriesNav: ServiceCategory[] = [
         path: "/services/biogas-plant-setup",
       },
       {
+        label: "Lithium-ion Battery Manufacturing Plant Setup",
+        path: "/services/lithium-ion-battery-manufacturing",
+      },
+      {
         label: "Lithium Battery Recycling",
         path: "/services/recycling-lithium-ion-battery",
       },
@@ -1399,6 +1441,7 @@ export const serviceCategoriesNav: ServiceCategory[] = [
         path: "/services/recycling-solar-panel",
       },
       { label: "Plastic Recycling", path: "/services/recycling-plastic" },
+      
     ],
   },
   {

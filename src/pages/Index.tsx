@@ -1,3 +1,70 @@
+// import Seo from "@/components/Seo";
+// import HeroSlider from "@/components/HeroSlider";
+// import ServicesGrid from "@/components/ServicesGrid";
+// import ProcessSection from "@/components/ProcessSection";
+// import TradingPlatform from "@/components/TradingPlatform";
+// import SustainabilityTree from "@/components/SustainabilityTree";
+// import WhyChooseUs from "@/components/WhyChooseUs";
+// import ClientsSlider from "@/components/ClientsSlider";
+// import EWasteTypes from "@/components/EWasteTypes";
+// import ShowcaseGallery from "@/components/ShowcaseGallery";
+// import Gallery from "@/components/Gallery";
+// import ContactCTA from "@/components/ContactCTA";
+
+// const Index = () => {
+//   return (
+//     <>
+//     <Seo
+//         title="EPR Nexuss | EPR Compliance & Recycling Solutions India"
+//         description="EPR Nexuss provides EPR compliance, EPR credit trading, recycling plant setup, waste management, and CPCB compliance solutions across India."
+//         keywords={["EPR", "EPR Credit Trading", "Waste Management", "CPCB Compliance", "E-Waste Recycling", "Plastic EPR","EPR Credit Trading",
+//     "EPR Compliance India",
+//     "Waste Management Solutions",
+//     "CPCB EPR Registration",
+//     "Plastic EPR",
+//     "Battery EPR",
+//     "Solar Panel Recycling",
+//     "E-Waste Recycling",
+//     "Tyre EPR",
+//     "ELV Scrapping",
+//     "How to get EPR Certificate",
+//     "EPR Credit Trading Platform",
+//     "EPR Compliance Services",
+//     "EPR Consultancy",
+//     "EPR Auditing",
+//     "EPR Reporting",
+//     "EPR Training",
+//     "EPR Software Solutions",
+//     "EPR for Manufacturers",
+//     "EPR for Importers",
+//     "EPR for Retailers",
+//     "EPR for E-Commerce",
+//     "EPR for Plastic Packaging",
+//     "EPR for Batteries",
+//     "EPR for Solar Panels",]}
+//         url="https://eprnexuss.com/"
+//         type="website"
+//       />
+//       <HeroSlider />
+//       <ClientsSlider />
+//       <ServicesGrid />
+//       <ProcessSection />
+//       <TradingPlatform />
+//       <WhyChooseUs />
+//       <SustainabilityTree />
+      
+      
+//       {/* <EWasteTypes /> */}
+//       <ShowcaseGallery />
+//       <Gallery />
+//       <ContactCTA />
+//     </>
+//   );
+// }
+
+
+// export default Index;
+
 import Seo from "@/components/Seo";
 import HeroSlider from "@/components/HeroSlider";
 import ServicesGrid from "@/components/ServicesGrid";
@@ -10,6 +77,7 @@ import EWasteTypes from "@/components/EWasteTypes";
 import ShowcaseGallery from "@/components/ShowcaseGallery";
 import Gallery from "@/components/Gallery";
 import ContactCTA from "@/components/ContactCTA";
+import LithiumIonBlogs from "@/components/blogs/recycling-setups/lithium-ion-battery-manufacturing/lithium-ion-battery-manufacturing-license-and-certification";
 
 const Index = () => {
   return (
@@ -41,7 +109,9 @@ const Index = () => {
     "EPR for E-Commerce",
     "EPR for Plastic Packaging",
     "EPR for Batteries",
-    "EPR for Solar Panels",]}
+    "EPR for Solar Panels",
+    "Lithium-ion-battery-manufacturing",
+  ]}
         url="https://eprnexuss.com/"
         type="website"
       />
@@ -52,6 +122,7 @@ const Index = () => {
       <TradingPlatform />
       <WhyChooseUs />
       <SustainabilityTree />
+      {/* <LithiumIonBlogs /> */}
       
       
       {/* <EWasteTypes /> */}

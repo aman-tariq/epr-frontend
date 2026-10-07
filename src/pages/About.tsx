@@ -81,31 +81,88 @@ const executiveTeam = [
     name: "Mohammad Tabish",
     designation: "Chief Executive Officer (CEO)",
     image: tabish,
+    alt: "Mohammad Tabish - Chief Executive Officer (CEO) of EPR Nexuss, expert in CPCB portal strategy, environmental policy consultation, and enterprise compliance partnerships with over 15 years of experience",
     bio: "Mohammad shapes the core compliance methodologies at EPR Nexuss, bringing over 15 years of structured environmental policy consultation experience. Under his management, the firm has successfully translated multi-state compliance challenges into seamless digital portal milestones.",
     highlight: "Oversees CPCB Portal Strategy & Enterprise Investor Partnerships.",
-    socials: { linkedin: "#",  Facebook: "#" }
+    socials: { linkedin: "#", Facebook: "#" }
   },
   {
     name: "Dilshad Malik",
     designation: "Managing Director (MD)",
     image: dilshad,
+    alt: "Dilshad Malik - Managing Director (MD) of EPR Nexuss, specialist in reverse logistics, certified recycling facility integration, and nationwide recycler network operations for EPR compliance",
     bio: "Dilshad Malik manages ground-level reverse logistics pipelines and handles structural integration with certified recycling facilities nationwide. His operational architecture bridges the gap between raw factory waste collections and authentic certified credit conversions.",
     highlight: "Directs Nationwide Recycler Framework Alignment & Operations Validation.",
-    socials: { linkedin: "#",  Facebook: "#" }
+    socials: { linkedin: "#", Facebook: "#" }
   }
 ];
 
 const carouselTeam = [
-  { name: "Aman Tariq", designation: "Digital Marketing Head / Senior Web Developer", image: aman, details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", socials: { linkedin: "https://www.linkedin.com/in/aman-tariq-27611227b",  Facebook: "https://www.facebook.com/shams.aman.35" } },
-  { name: "Bhanu", designation: "Sales Head", image: bhanu, details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", socials: { linkedin: "#",  Facebook: "#" } },
-  { name: "Affan Aziz", designation: "Social Media Executive", image: affan, details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", socials: { linkedin: "#",  Facebook: "#" } },
-  { name: "Sakib Rajput", designation: "Web Developer", image: sakib, details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios",  Facebook: "#" } },
-  { name: "Rajinder Kumar", designation: "Web Developer", image: rajendra, details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",  Facebook: "#" } },
-  { name: "Swati Maurya", designation: "Web Developer Executive", image: swati, details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android",   Facebook: "#" } },
-  { name: "Aina Marziya", designation: "Business Developement Executive", image: aina, details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", socials: { linkedin: "#",   Facebook: "#" } },
-  { name: "Anurag Singh", designation: "Business Developement Executive", image: anurag, details: "Driving business growth through strategic partnerships and sustainable compliance solutions.", socials: { linkedin: "#",   Facebook: "#" } },
-  { name: "Abdullah", designation: "Legal Advisor", image: abdullah, details: "Ensures legal compliance, reviews contracts, and provides strategic legal guidance to support business growth and protect organizational interests.", socials: { linkedin: "#", Facebook: "#" } }
+  { 
+    name: "Aman Tariq", 
+    designation: "Digital Marketing Head / Senior Web Developer", 
+    image: aman, 
+    alt: "Aman Tariq - Digital Marketing Head and Senior Web Developer at EPR Nexuss, driving omni-channel growth strategies, brand visibility, and lead generation for EPR compliance services",
+    details: "Drives omni-channel growth strategies, brand visibility, and target lead generation frameworks across our digital ecosystems.", 
+    socials: { linkedin: "https://www.linkedin.com/in/aman-tariq-27611227b", Facebook: "https://www.facebook.com/shams.aman.35" } 
+  },
+  { 
+    name: "Bhanu", 
+    designation: "Sales Head", 
+    image: bhanu, 
+    alt: "Bhanu - Sales Head at EPR Nexuss, accelerating corporate client onboardings, pipeline acquisition, and custom EPR credit transaction deals",
+    details: "Accelerates pipeline acquisition, corporate client onboardings, and custom compliance credit transaction deal structures.", 
+    socials: { linkedin: "#", Facebook: "#" } 
+  },
+  { 
+    name: "Affan Aziz", 
+    designation: "Social Media Executive", 
+    image: affan, 
+    alt: "Affan Aziz - Social Media Executive at EPR Nexuss, managing community engagement campaigns, content creation, and digital narratives for environmental compliance awareness",
+    details: "Orchestrates community engagement campaigns, interactive platform narratives, and creative content delivery timelines.", 
+    socials: { linkedin: "#", Facebook: "#" } 
+  },
+  { 
+    name: "Sakib Rajput", 
+    designation: "Web Developer", 
+    image: sakib, 
+    alt: "Sakib Rajput - Web Developer at EPR Nexuss, architecting responsive front-end experiences, dynamic interfaces, and secure portal applications for EPR compliance platforms",
+    details: "Architects responsive front-end user experiences, dynamic interface frameworks, and secure portal application deployments.", 
+    socials: { linkedin: "https://www.linkedin.com/in/sakib-khan-8484462b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios", Facebook: "#" } 
+  },
+  { 
+    name: "Rajinder Kumar", 
+    designation: "Web Developer", 
+    image: rajendra, 
+    alt: "Rajinder Kumar - Web Developer at EPR Nexuss, specializing in database architecture, server-side integrations, and platform optimization for environmental compliance tracking systems",
+    details: "Engineers database architecture integrations, server-side data logs, and optimizations for platform engine tracking systems.", 
+    socials: { linkedin: "https://www.linkedin.com/in/rajinder-se-5b47222b2?utm_source=share_via&utm_content=profile&utm_medium=member_android", Facebook: "#" } 
+  },
+  { 
+    name: "Swati Maurya", 
+    designation: "Web Developer Executive", 
+    image: swati, 
+    alt: "Swati Maurya - Web Developer Executive at EPR Nexuss, handling UI component styling, interactive layout testing, and front-end bug resolution for EPR digital platforms",
+    details: "Assists with component styling modules, UI element testing sequences, and interactive layout bug resolutions.", 
+    socials: { linkedin: "https://www.linkedin.com/in/swati-maurya-5301653a7?utm_source=share_via&utm_content=profile&utm_medium=member_android", Facebook: "#" } 
+  },
+  { 
+    name: "Aina Marziya", 
+    designation: "Business Developement Executive", 
+    image: aina, 
+    alt: "Aina Marziya - Business Development Executive at EPR Nexuss, supporting market research, campaign auditing, and SEO keyword strategies for EPR compliance services",
+    details: "Supports market research tracking initiatives, basic campaign auditing, and search optimization keyword mapping layers.", 
+    socials: { linkedin: "#", Facebook: "#" } 
+  },
 
+  { 
+    name: "Abdullah", 
+    designation: "Legal Advisor", 
+    image: abdullah, 
+    alt: "Abdullah - Legal Advisor at EPR Nexuss, ensuring legal compliance, contract reviews, and strategic legal guidance for EPR and CPCB regulatory frameworks",
+    details: "Ensures legal compliance, reviews contracts, and provides strategic legal guidance to support business growth and protect organizational interests.", 
+    socials: { linkedin: "#", Facebook: "#" } 
+  }
 ];
 
 const servicesData = [

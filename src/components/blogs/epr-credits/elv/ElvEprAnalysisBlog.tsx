@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+
 import {
   Bar,
   BarChart,
@@ -11,6 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+
 import {
   AlertTriangle,
   ArrowRight,
@@ -31,13 +33,32 @@ import {
   Truck,
   Users,
 } from "lucide-react";
+
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 /* ============================================================================
    UTILITIES
 ============================================================================ */
+
+function MarketplaceButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className={`inline-flex items-center gap-2 rounded-xl bg-brandGreen px-5 py-3 text-sm font-semibold text-[#0B1210] transition-transform hover:scale-[1.03] hover:shadow-lg hover:shadow-brandGreen/20 ${className}`}
+    >
+      {children}
+      <ArrowRight className="h-4 w-4" />
+    </a>
+  );
+}
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -46,6 +67,7 @@ function useReveal<T extends HTMLElement>() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -55,7 +77,9 @@ function useReveal<T extends HTMLElement>() {
       },
       { threshold: 0.15 },
     );
+
     observer.observe(el);
+
     return () => observer.disconnect();
   }, []);
 
@@ -72,6 +96,7 @@ function Reveal({
   className?: string;
 }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
+
   return (
     <div
       ref={ref}
@@ -89,20 +114,29 @@ function Reveal({
 
 function useCountUp(end: number, active: boolean, duration = 1400) {
   const [value, setValue] = useState(0);
+
   useEffect(() => {
     if (!active) return;
+
     let start: number | null = null;
     let frame: number;
+
     const step = (timestamp: number) => {
       if (start === null) start = timestamp;
+
       const progress = Math.min((timestamp - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
+
       setValue(Math.round(eased * end));
+
       if (progress < 1) frame = requestAnimationFrame(step);
     };
+
     frame = requestAnimationFrame(step);
+
     return () => cancelAnimationFrame(frame);
   }, [active, end, duration]);
+
   return value;
 }
 
@@ -133,7 +167,9 @@ function HeroSection() {
           }}
         />
       </div>
+
       <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brandGreen/20 blur-3xl animate-[pulse_5s_ease-in-out_infinite]" />
+
       <div className="pointer-events-none absolute -bottom-32 -left-16 h-72 w-72 rounded-full bg-brandGreen/10 blur-3xl" />
 
       <div className="relative z-10 max-w-3xl">
@@ -172,17 +208,20 @@ function HeroSection() {
             See How Credits Flow
             <ArrowRight className="h-4 w-4" />
           </a>
+
           <a
             href="#faq"
             className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             Read the FAQs
           </a>
+
+          <MarketplaceButton>
+            Explore EPR ELV Credits Marketplace
+          </MarketplaceButton>
         </div>
       </div>
 
-      {/* Illustrative graphic placeholder — swap with a licensed photo
-          at /images/epr-elv-credits-hero.jpg for production use */}
       <div className="relative z-10 mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl">
         {[
           { icon: Truck, label: "Producers / PIBOs" },
@@ -195,6 +234,7 @@ function HeroSection() {
             style={{ animationDelay: `${320 + i * 100}ms` }}
           >
             <item.icon className="h-6 w-6 text-brandGreen" />
+
             <span className="text-[11px] font-medium text-white/70 text-center px-1">
               {item.label}
             </span>
@@ -256,12 +296,14 @@ function StatItem({
   active: boolean;
 }) {
   const value = useCountUp(end, active);
+
   return (
     <div className="flex flex-col items-center text-center px-4 py-2">
       <span className="font-display text-3xl font-bold text-foreground sm:text-4xl">
         {value}
         <span className="text-brandGreen">{suffix}</span>
       </span>
+
       <span className="mt-1 text-xs text-muted-foreground sm:text-sm">
         {label}
       </span>
@@ -271,6 +313,7 @@ function StatItem({
 
 function QuickStatsBar() {
   const { ref, visible } = useReveal<HTMLDivElement>();
+
   return (
     <div
       ref={ref}
@@ -282,18 +325,21 @@ function QuickStatsBar() {
         label="FY26 Steel Recovery Target"
         active={visible}
       />
+
       <StatItem
         end={5}
         suffix="yr"
         label="EPR Certificate Validity"
         active={visible}
       />
+
       <StatItem
         end={70}
         suffix="%"
         label="FY26 Scrappage Shortfall Reported"
         active={visible}
       />
+
       <StatItem
         end={3}
         suffix=""
@@ -315,18 +361,21 @@ const ECOSYSTEM = [
     detail:
       "Vehicle manufacturers, importers, assemblers, and brand owners who must meet annual steel-recovery targets tied to vehicles they sold 15–20 years earlier.",
   },
+
   {
     icon: Recycle,
     title: "Registered Vehicle Scrapping Facilities (RVSFs)",
     detail:
       "Depollute and dismantle end-of-life vehicles, verify material recovery, and generate the EPR certificates that producers rely on for compliance.",
   },
+
   {
     icon: Landmark,
     title: "CPCB EPR Portal",
     detail:
       "The central digital system for producer registration, target declaration, certificate issuance, and cross-verification of recycling claims.",
   },
+
   {
     icon: Users,
     title: "PROs & Aggregators",
@@ -344,9 +393,11 @@ function EcosystemSection() {
             <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brandGreen/10 text-brandGreen transition-transform group-hover:scale-110">
               <a.icon className="h-5 w-5" />
             </div>
+
             <h3 className="font-display text-base font-semibold text-foreground">
               {a.title}
             </h3>
+
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               {a.detail}
             </p>
@@ -363,9 +414,11 @@ function EcosystemSection() {
 
 function ChartTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
+
   return (
     <div className="rounded-lg border border-border bg-popover px-3 py-2 text-xs shadow-md">
       <p className="font-medium text-popover-foreground">{label}</p>
+
       <p className="text-brandGreen">
         {payload[0].value}% steel recovery target
       </p>
@@ -375,6 +428,7 @@ function ChartTooltip({ active, payload, label }: any) {
 
 // function TargetEscalationChart() {
 //   const { ref, visible } = useReveal<HTMLDivElement>();
+
 //   return (
 //     <div
 //       ref={ref}
@@ -385,12 +439,14 @@ function ChartTooltip({ active, payload, label }: any) {
 //           <h3 className="font-display text-lg font-semibold text-foreground">
 //             EPR Target Escalation (Indicative)
 //           </h3>
+
 //           <p className="mt-1 text-sm text-muted-foreground">
 //             Steel-recovery targets are reported to step up over successive years
 //             — a rising bar that widens the gap between demand and available
 //             certificates.
 //           </p>
 //         </div>
+
 //         <TrendingUp className="hidden h-8 w-8 shrink-0 text-brandGreen/40 sm:block" />
 //       </div>
 
@@ -406,11 +462,13 @@ function ChartTooltip({ active, payload, label }: any) {
 //                 vertical={false}
 //                 className="stroke-border"
 //               />
+
 //               <XAxis
 //                 dataKey="name"
 //                 tick={{ fontSize: 12, fill: "currentColor" }}
 //                 className="text-muted-foreground"
 //               />
+
 //               <YAxis
 //                 tick={{ fontSize: 11, fill: "currentColor" }}
 //                 className="text-muted-foreground"
@@ -421,10 +479,12 @@ function ChartTooltip({ active, payload, label }: any) {
 //                   fontSize: 11,
 //                 }}
 //               />
+
 //               <Tooltip
 //                 content={<ChartTooltip />}
 //                 cursor={{ fill: "rgba(90,195,97,0.08)" }}
 //               />
+
 //               <Bar
 //                 dataKey="target"
 //                 radius={[6, 6, 0, 0]}
@@ -438,6 +498,7 @@ function ChartTooltip({ active, payload, label }: any) {
 //           </ResponsiveContainer>
 //         )}
 //       </div>
+
 //       <p className="mt-4 text-xs text-muted-foreground">
 //         * FY26 reflects the notified target reported at rollout. FY27/FY28
 //         figures are indicative of the reported escalation path — rules have
@@ -449,28 +510,36 @@ function ChartTooltip({ active, payload, label }: any) {
 // }
 
 /* ============================================================================
-   6. CREDIT FLOW (signature roadmap element)
+   6. CREDIT FLOW
 ============================================================================ */
 
-type Step = { title: string; detail: string; icon: any };
+type Step = {
+  title: string;
+  detail: string;
+  icon: any;
+};
 
 function FlowSteps({ steps }: { steps: Step[] }) {
   return (
     <ol className="relative space-y-8 pl-2">
       <div className="absolute left-[27px] top-2 bottom-2 w-px bg-gradient-to-b from-brandGreen via-brandGreen/40 to-transparent" />
+
       {steps.map((step, i) => (
         <Reveal key={step.title} delay={i * 80}>
           <li className="relative flex gap-5">
             <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border-2 border-brandGreen bg-background font-display text-sm font-bold text-brandGreen shadow-sm">
               {String(i + 1).padStart(2, "0")}
             </div>
+
             <div className="flex-1 rounded-2xl border border-border bg-card p-5 transition-all hover:border-brandGreen/40">
               <div className="flex items-center gap-2">
                 <step.icon className="h-4 w-4 text-brandGreen" />
+
                 <h4 className="font-display text-sm font-semibold text-foreground sm:text-base">
                   {step.title}
                 </h4>
               </div>
+
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.detail}
               </p>
@@ -489,36 +558,42 @@ const CREDIT_FLOW_STEPS: Step[] = [
     detail:
       "A vehicle is classified end-of-life after failing fitness testing or crossing its age threshold under the Motor Vehicles Rules.",
   },
+
   {
     icon: Truck,
     title: "Deposited at an Authorized Facility",
     detail:
       "The owner deposits the vehicle at a designated collection centre or RVSF within the prescribed window after classification.",
   },
+
   {
     icon: Layers,
     title: "Depollution & Dismantling",
     detail:
       "The RVSF removes fluids, batteries, and hazardous components, then dismantles the vehicle and segregates recoverable materials.",
   },
+
   {
     icon: FileCheck2,
     title: "Material Recovery Verified",
     detail:
       "Steel and other recovered material is measured and recorded, forming the basis for the certificates the facility can generate.",
   },
+
   {
     icon: ShieldCheck,
     title: "Certificate of Deposit Issued",
     detail:
       "The vehicle owner receives a Certificate of Deposit, unlocking registration fee waivers and motor vehicle tax concessions.",
   },
+
   {
     icon: ClipboardList,
     title: "EPR Certificate Logged on the CPCB Portal",
     detail:
       "The RVSF generates an EPR certificate reflecting verified recovery, recorded centrally for cross-verification.",
   },
+
   {
     icon: CheckCircle2,
     title: "Producer Applies the Certificate",
@@ -538,12 +613,14 @@ const OPPORTUNITIES = [
     detail:
       "Lock in RVSF supply relationships early. With formal ELV inflow running well below target, producers who secure certificate supply now avoid scrambling as the gap tightens.",
   },
+
   {
     icon: Recycle,
     title: "For Recyclers / RVSFs",
     detail:
       "Formal capacity is structurally undersupplied against demand. Compliant, well-documented facilities are positioned to capture stronger certificate pricing as scarcity persists.",
   },
+
   {
     icon: Users,
     title: "For PROs & Aggregators",
@@ -561,9 +638,11 @@ function OpportunitySegments() {
             <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brandGreen/10 text-brandGreen">
               <o.icon className="h-5 w-5" />
             </div>
+
             <h4 className="mt-4 font-display text-sm font-semibold text-foreground sm:text-base">
               {o.title}
             </h4>
+
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               {o.detail}
             </p>
@@ -580,9 +659,13 @@ function OpportunitySegments() {
 
 const DYNAMICS = [
   "Formal ELV inflow to RVSFs is reported well below notified targets, keeping certificate supply tight.",
+
   "A March 2026 amendment narrowed eligible steel sources to vehicle-only scrap, removing a route producers had planned around.",
+
   "Scrapping infrastructure remains concentrated in a handful of states, adding logistics cost for producers elsewhere.",
+
   "CPCB portal cross-verification makes recycling claims digitally auditable, raising the bar for informal players.",
+
   "Targets and eligibility rules have already been amended once since notification — build for continued regulatory change.",
 ];
 
@@ -593,10 +676,12 @@ function DynamicsSection() {
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400">
           <AlertTriangle className="h-5 w-5" />
         </div>
+
         <h3 className="font-display text-lg font-semibold text-foreground">
           Market Dynamics to Watch
         </h3>
       </div>
+
       <ul className="space-y-3">
         {DYNAMICS.map((p, i) => (
           <Reveal key={p} delay={i * 70}>
@@ -620,18 +705,22 @@ const FAQS = [
     q: "Who exactly needs to comply with ELV EPR obligations?",
     a: "Vehicle manufacturers, importers, and assemblers (PIBOs), along with bulk consumers owning more than 100 vehicles, are covered under the current framework.",
   },
+
   {
     q: "How is a producer's EPR target calculated?",
     a: "As a percentage of the steel-equivalent weight of vehicles the producer sold in a base year roughly 15–20 years earlier, with the percentage stepping up over successive years.",
   },
+
   {
     q: "Can EPR certificates be bought and sold freely?",
     a: "Certificates generated by RVSFs are logged and applied through the CPCB portal to meet a producer's target. Transfer rules have been refined since the framework took effect, so it's worth confirming current portal rules for your specific case.",
   },
+
   {
     q: "What role can a PRO play here?",
     a: "A Producer Responsibility Organization can aggregate obligations across multiple producers and help secure verified certificate supply — a role already well established in India's e-waste and packaging EPR streams.",
   },
+
   {
     q: "Is this analysis the final, complete picture?",
     a: "This is a working overview while our team finalizes a full deep-dive with detailed pricing and state-wise data. Reach out for current, situation-specific guidance in the meantime.",
@@ -658,15 +747,19 @@ function FAQItem({
         <span className="font-display text-sm font-semibold text-foreground sm:text-base">
           {q}
         </span>
+
         <ChevronDown
           className={`h-4 w-4 shrink-0 text-brandGreen transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
+
       <div
         className={`grid transition-all duration-300 ease-out ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          isOpen
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <div className="overflow-hidden">
@@ -681,6 +774,7 @@ function FAQItem({
 
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
+
   return (
     <div className="space-y-3">
       {FAQS.map((f, i) => (
@@ -705,18 +799,21 @@ function FinalCTA() {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-border bg-[#0B1210] px-6 py-12 text-center text-white sm:px-10 sm:py-16">
       <div className="pointer-events-none absolute -top-16 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-brandGreen/20 blur-3xl" />
+
       <div className="relative z-10 mx-auto max-w-xl">
         <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-brandGreen/15 text-brandGreen">
           <Banknote className="h-6 w-6" />
         </div>
+
         <h3 className="font-display text-2xl font-bold sm:text-3xl">
           Get Guidance on Your EPR ELV Credit Strategy
         </h3>
+
         <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-         Talk to our
-          team now for guidance tailored to where you sit in the ELV credit
-          chain.
+          Talk to our team now for guidance tailored to where you sit in the
+          ELV credit chain.
         </p>
+
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#contact"
@@ -725,6 +822,10 @@ function FinalCTA() {
             Talk to Our Team
             <ArrowRight className="h-4 w-4" />
           </a>
+
+          <MarketplaceButton>
+            Trade EPR ELV Credits
+          </MarketplaceButton>
         </div>
       </div>
     </div>
@@ -754,15 +855,18 @@ function BlogSection({
         <p className="text-xs font-semibold uppercase tracking-wider text-brandGreen">
           {eyebrow}
         </p>
+
         <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
           {title}
         </h2>
+
         {intro && (
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {intro}
           </p>
         )}
       </Reveal>
+
       <div className="mt-8">{children}</div>
     </section>
   );
@@ -778,6 +882,7 @@ export default function EPRELVCreditsMarketAnalysis() {
       <div className="container mx-auto px-4 pb-20 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
           {/* MAIN CONTENT */}
+
           <main className="min-w-0 space-y-16 sm:space-y-20">
             <Seo
               title="EPR ELV Credits: Market Analysis & Business Opportunity"
@@ -812,13 +917,13 @@ export default function EPRELVCreditsMarketAnalysis() {
               url="https://eprnexuss.com/blog/epr-elv-analysis"
               type="article"
             />
-            <HeroSection />
 
-         
+            <HeroSection />
 
             <QuickStatsBar />
 
             {/* mobile-only contact form, appears inline (not sticky) */}
+
             <div className="lg:hidden">
               <StickyContactForm />
             </div>
@@ -839,7 +944,7 @@ export default function EPRELVCreditsMarketAnalysis() {
               intro="Steel-recovery obligations step up year over year, while formal ELV inflow to scrapping facilities continues to lag — a gap that shapes where the business opportunity lies."
             >
               {/* <TargetEscalationChart /> */}
-            {/* </BlogSection> */} 
+            {/* </BlogSection> */}
 
             <BlogSection
               id="credit-flow"
@@ -848,6 +953,12 @@ export default function EPRELVCreditsMarketAnalysis() {
               intro="From a vehicle reaching end-of-life to a producer applying a certificate against its target, here's the full chain."
             >
               <FlowSteps steps={CREDIT_FLOW_STEPS} />
+
+              <div className="mt-8 flex justify-center">
+                <MarketplaceButton>
+                  Buy & Sell EPR ELV Credits
+                </MarketplaceButton>
+              </div>
             </BlogSection>
 
             <BlogSection
@@ -891,6 +1002,7 @@ export default function EPRELVCreditsMarketAnalysis() {
           </main>
 
           {/* SIDEBAR */}
+
           <aside className="hidden lg:block">
             <div className="sticky top-28 max-h-[calc(100vh-3rem)] overflow-y-auto pr-1">
               <StickyContactForm />

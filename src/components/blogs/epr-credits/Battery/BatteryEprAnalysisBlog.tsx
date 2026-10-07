@@ -1,5 +1,4 @@
 "use client";
-
 import { useRef, useState } from "react";
 import {
   motion,
@@ -25,12 +24,23 @@ import {
 import StickyContactForm from "@/components/StickyContactForm";
 import { useNavigate } from "react-router-dom";
 import Seo from "@/components/Seo";
-
-/* ------------------------------------------------------------------ */
-/*  DATA — replace indicative figures with confirmed numbers once the */
-/*  full deep-dive report is finalized.                               */
-/* ------------------------------------------------------------------ */
-
+function MarketplaceButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className={`inline-flex items-center gap-2 rounded-xl bg-brandGreen px-5 py-3 font-semibold text-[#0B1210] transition-all hover:scale-[1.03] hover:shadow-lg hover:shadow-brandGreen/20 ${className}`}
+    >
+      {children}
+      <ArrowRight size={18} />
+    </a>
+  );
+}
 const marketStats = [
   {
     label: "Registered battery producers tracked",
@@ -45,21 +55,18 @@ const marketStats = [
   },
   { label: "Tonnes Lead EPR Credits Transferred", value: "1.59M+", icon: ShieldCheck },
 ];
-
 const volumeByYear = [
   { label: "FY22", value: 120 },
   { label: "FY23", value: 210 },
   { label: "FY24", value: 340 },
   { label: "FY25E", value: 520 },
 ];
-
 const priceIndex = [
   { label: "Q1", value: 100 },
   { label: "Q2", value: 118 },
   { label: "Q3", value: 132 },
   { label: "Q4", value: 150 },
 ];
-
 const stakeholders = [
   {
     icon: Factory,
@@ -72,7 +79,6 @@ const stakeholders = [
     body: "Every tonne processed converts into a certificate with resale value. Formal registration and clean documentation are what separate scrap volume from monetized credits.",
   },
 ];
-
 const ledgerSteps = [
   {
     code: "EPR-01",
@@ -105,7 +111,6 @@ const ledgerSteps = [
     body: "Producers submit compliance reports; shortfalls attract environmental compensation.",
   },
 ];
-
 const faqs = [
   {
     q: "What exactly is an EPR battery credit?",
@@ -124,11 +129,6 @@ const faqs = [
     a: "Unmet obligations that aren't covered by purchased credits typically result in environmental compensation payments, which is why early forecasting is cheaper than late buying.",
   },
 ];
-
-/* ------------------------------------------------------------------ */
-/*  ATOMS                                                              */
-/* ------------------------------------------------------------------ */
-
 function Eyebrow({
   code,
   children,
@@ -148,7 +148,6 @@ function Eyebrow({
     </div>
   );
 }
-
 function Reveal({
   children,
   delay = 0,
@@ -167,13 +166,11 @@ function Reveal({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
-    >
+     >
       {children}
     </motion.div>
   );
 }
-
-/* Signature element: a fixed "battery charge" reading-progress rail */
 function ChargeRail() {
   const { scrollYProgress } = useScroll();
   const height = useTransform(scrollYProgress, [0, 1], ["4%", "100%"]);
@@ -192,11 +189,6 @@ function ChargeRail() {
     </div>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 1 — Hero                                                   */
-/* ------------------------------------------------------------------ */
-
 function Hero() {
   return (
     <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card via-card to-brandGreen/5 px-6 py-14 sm:px-10 sm:py-20">
@@ -212,7 +204,7 @@ function Hero() {
       <Reveal delay={0.05}>
         <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight text-foreground max-w-3xl">
           EPR Battery Credits: Market Analysis{" "}
-          <span className="text-brandGreen">&amp; Business Opportunity</span>
+          <span className="text-brandGreen">& Business Opportunity</span>
         </h1>
       </Reveal>
       <Reveal delay={0.15} className="max-w-2xl">
@@ -224,21 +216,18 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.25}>
         <div className="mt-9 flex flex-wrap items-center gap-4">
-          
           <a  href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
-          >
+           >
             Get immediate guidance <ArrowRight className="w-4 h-4" />
           </a>
-          
            <a href="#market-analysis"
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
-          >
+           >
             See the market data
           </a>
         </div>
       </Reveal>
-
       {/* signature illustration: battery-as-circuit */}
       <Reveal delay={0.3} className="mt-14">
         <BatteryHeroGraphic />
@@ -246,7 +235,6 @@ function Hero() {
     </section>
   );
 }
-
 function BatteryHeroGraphic() {
   return (
     <svg
@@ -254,7 +242,7 @@ function BatteryHeroGraphic() {
       className="w-full h-auto"
       role="img"
       aria-label="Battery credit flow illustration"
-    >
+     >
       <rect
         x="20"
         y="55"
@@ -312,11 +300,6 @@ function BatteryHeroGraphic() {
     </svg>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 2 — Market pulse stats                                     */
-/* ------------------------------------------------------------------ */
-
 function MarketPulseStats() {
   return (
     <section className="mt-16">
@@ -344,11 +327,6 @@ function MarketPulseStats() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 3 — What are EPR battery credits                           */
-/* ------------------------------------------------------------------ */
-
 function WhatAreCredits() {
   return (
     <section className="mt-20 grid lg:grid-cols-2 gap-10 items-center">
@@ -374,7 +352,7 @@ function WhatAreCredits() {
             <li
               key={line}
               className="flex items-start gap-3 text-sm text-foreground"
-            >
+             >
               <ShieldCheck className="w-4 h-4 mt-0.5 text-brandGreen shrink-0" />
               {line}
             </li>
@@ -387,7 +365,6 @@ function WhatAreCredits() {
     </section>
   );
 }
-
 function CircuitIllustration() {
   return (
     <svg viewBox="0 0 400 340" className="w-full max-w-md mx-auto">
@@ -463,17 +440,12 @@ function CircuitIllustration() {
         y="290"
         textAnchor="middle"
         className="fill-muted-foreground font-mono text-[11px]"
-      >
+       >
         recycled volume → verified → credit issued
       </text>
     </svg>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 4 — Bar chart: credit volume by year                       */
-/* ------------------------------------------------------------------ */
-
 function BarChart() {
   const max = Math.max(...volumeByYear.map((d) => d.value));
   return (
@@ -498,7 +470,6 @@ function BarChart() {
     </div>
   );
 }
-
 function LineChart() {
   const max = Math.max(...priceIndex.map((d) => d.value));
   const w = 320;
@@ -508,7 +479,6 @@ function LineChart() {
   const path = points
     .map((p, i) => `${i === 0 ? "M" : "L"} ${p[0]} ${p[1]}`)
     .join(" ");
-
   return (
     <svg viewBox={`0 0 ${w} ${h + 30}`} className="w-full h-auto">
       <motion.path
@@ -530,7 +500,7 @@ function LineChart() {
             y={h + 22}
             textAnchor="middle"
             className="fill-muted-foreground font-mono text-[10px]"
-          >
+           >
             {priceIndex[i].label}
           </text>
         </g>
@@ -538,7 +508,6 @@ function LineChart() {
     </svg>
   );
 }
-
 function MarketAnalysisChart() {
   return (
     <section id="market-analysis" className="mt-20 scroll-mt-28">
@@ -552,7 +521,7 @@ function MarketAnalysisChart() {
         <Reveal
           delay={0.1}
           className="rounded-2xl border border-border bg-card p-6"
-        >
+         >
           <div className="flex items-center gap-2 mb-1">
             <BarChart3 className="w-4 h-4 text-brandGreen" />
             <h3 className="font-medium text-foreground">
@@ -567,7 +536,7 @@ function MarketAnalysisChart() {
         {/* <Reveal
           delay={0.2}
           className="rounded-2xl border border-border bg-card p-6"
-        >
+         >
           <div className="flex items-center gap-2 mb-1">
             <TrendingUp className="w-4 h-4 text-brandGreen" />
             <h3 className="font-medium text-foreground">
@@ -583,11 +552,6 @@ function MarketAnalysisChart() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 5 — Stakeholder opportunity cards                          */
-/* ------------------------------------------------------------------ */
-
 function StakeholderOpportunities() {
   return (
     <section className="mt-20">
@@ -617,11 +581,6 @@ function StakeholderOpportunities() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 6 — Ledger / compliance timeline                           */
-/* ------------------------------------------------------------------ */
-
 function ComplianceTimeline() {
   return (
     <section className="mt-20">
@@ -649,11 +608,6 @@ function ComplianceTimeline() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 7 — Animated credit flow diagram                           */
-/* ------------------------------------------------------------------ */
-
 function CreditFlowDiagram() {
   const nodes = [
     { icon: Factory, label: "Producer" },
@@ -672,7 +626,7 @@ function CreditFlowDiagram() {
       <Reveal
         delay={0.1}
         className="mt-8 rounded-2xl border border-border bg-card p-8 overflow-x-auto"
-      >
+       >
         <div className="flex items-center justify-between min-w-[640px] relative">
           <div className="absolute left-8 right-8 top-7 h-[2px] bg-border" />
           <motion.div
@@ -686,7 +640,7 @@ function CreditFlowDiagram() {
             <div
               key={n.label}
               className="relative z-10 flex flex-col items-center gap-2 flex-1"
-            >
+             >
               <div className="w-14 h-14 rounded-full bg-background border-2 border-brandGreen flex items-center justify-center">
                 <n.icon className="w-6 h-6 text-brandGreen" />
               </div>
@@ -700,11 +654,6 @@ function CreditFlowDiagram() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 8 — CTA banner                                             */
-/* ------------------------------------------------------------------ */
-
 function CTABanner() {
   return (
     <section className="mt-20">
@@ -722,10 +671,9 @@ function CTABanner() {
             to our team for immediate, specific guidance instead of waiting on
             the published version.
           </p>
-          
            <a href="/contact"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:scale-[1.03] transition-transform"
-          >
+           >
             Reach out for guidance <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -733,11 +681,6 @@ function CTABanner() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 9 — FAQ accordion                                          */
-/* ------------------------------------------------------------------ */
-
 function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -756,7 +699,7 @@ function FAQAccordion() {
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
-              >
+               >
                 <span className="font-medium text-foreground text-sm sm:text-base">
                   {item.q}
                 </span>
@@ -772,7 +715,7 @@ function FAQAccordion() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
-                  >
+                   >
                     <p className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">
                       {item.a}
                     </p>
@@ -786,11 +729,6 @@ function FAQAccordion() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  SECTION 10 — Closing note / trust strip                             */
-/* ------------------------------------------------------------------ */
-
 function ClosingTrustStrip() {
   const navigate = useNavigate();
   return (
@@ -804,13 +742,12 @@ function ClosingTrustStrip() {
               after the market has already moved.
             </p>
           </div>
-          
            <a href="/contact"
             onClick={() => {
               navigate("#contact");
             }}
             className="inline-flex items-center gap-2 rounded-full border border-brandGreen px-5 py-2.5 text-sm font-medium text-brandGreen hover:bg-brandGreen hover:text-white transition-colors"
-          >
+           >
             Talk to our team <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -818,11 +755,6 @@ function ClosingTrustStrip() {
     </section>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  PAGE                                                               */
-/* ------------------------------------------------------------------ */
-
 export default function EPRBatteryCreditsBlog() {
   return (
     <div className="bg-background min-h-screen">
@@ -860,25 +792,39 @@ export default function EPRBatteryCreditsBlog() {
                 "Battery credit business opportunities",
                 "Battery credit market analysis 2026",
               ]}
-              url="https://eprnexuss.com/blog/epr-battery-analysis"
+              url="https\://eprnexuss.com/blog/epr-battery-analysis"
               type="article"
             />
             <Hero />
+            <div className="mt-8 mb-16">
+              <MarketplaceButton>
+                Explore EPR Battery Marketplace
+              </MarketplaceButton>
+            </div>
             <MarketPulseStats />
             <WhatAreCredits />
             <MarketAnalysisChart />
+            <div className="mb-16 flex justify-center sm:justify-start">
+              <MarketplaceButton>
+                Buy & Sell Battery EPR Credits
+              </MarketplaceButton>
+            </div>
             <StakeholderOpportunities />
             <ComplianceTimeline />
             <CreditFlowDiagram />
             <CTABanner />
+            <div className="mt-10 mb-16 flex justify-center">
+              <MarketplaceButton>
+                Trade EPR Battery Credits
+              </MarketplaceButton>
+            </div>
             <FAQAccordion />
             {/* <ClosingTrustStrip /> */}
           </main>
-
           <aside
             id="contact"
             className="lg:sticky lg:top-28 lg:self-start scroll-mt-28"
-          >
+           >
             <StickyContactForm />
           </aside>
         </div>

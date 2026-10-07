@@ -219,7 +219,17 @@ import CBGSubsidies from "@/components/blogs/recycling-setups/biogas/compressed-
 // -----------------------------------------------------------------------------
 // Images of Compressed Biogas Plant
 import biogasImage from "@/assets/banner/blogs/recycling-setup/biogas/biogasImage.jpg";
+// ------------------------------------------------------------------------------------------------
 
+
+// Lithium Ion Battery Manufecturing 
+import lithiumIonBanner from "@/assets/banner/blogs/recycling-setup/lithium/LithiumIonBanner.jpg";
+import lithiumIonHero from "@/assets/banner/blogs/recycling-setup/lithium/LithiumIonHero.jpg";
+import LithiumChemisty from "@/assets/banner/blogs/recycling-setup/lithium/LithiumChemistry.jpg";
+import lithiumIonDprBanner from "@/assets/banner/blogs/recycling-setup/lithium/lithiumIonDprBanner.jpg";
+import lithiumMarketAnalysis from "@/assets/banner/blogs/recycling-setup/lithium/lithiumMarketAnalysis.jpg";
+import lithiumLicenseBanner from "@/assets/banner/blogs/recycling-setup/lithium/lithiumLicenseBanner.jpg";
+// ------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------
 // TYPE: BlogPostSection
 // Used only when a post has NO dedicated component and NO fullContent HTML.
@@ -267,31 +277,32 @@ export interface BlogPost {
   metaDescription: string;
   sections?: BlogPostSection[];
   category:
-    | "epr-plastic"
-    | "epr-battery"
-    | "epr-tyre"
-    | "e-waste"
-    | "solar-panel"
-    | "sops-kpis-checklists"
-    | "rvsf"
-    | "lithium"
-    | "plastic"
-    | "epr-elv"
-    | "tyre"
-    | "setup-commissioning-documentation"
-    | "operation-performance-management"
-    | "scale-and-growth-systems"
-    | "epr-electronic"
-    | "epr-lithium"
-    | "epr-metals"
-    | "epr-used-oil"
-    | "buy-e-waste"
-    | "sell-batteries"
-    | "buy-and-sell-metals"
-    | "business-growth-and-lead-generation"
-    | "biogas"
-    | "cbgp-set-up";
-     // <-- Add your new category here
+  | "epr-plastic"
+  | "epr-battery"
+  | "epr-tyre"
+  | "e-waste"
+  | "solar-panel"
+  | "sops-kpis-checklists"
+  | "rvsf"
+  | "lithium"
+  | "plastic"
+  | "epr-elv"
+  | "tyre"
+  | "setup-commissioning-documentation"
+  | "operation-performance-management"
+  | "scale-and-growth-systems"
+  | "epr-electronic"
+  | "epr-lithium"
+  | "epr-metals"
+  | "epr-used-oil"
+  | "buy-e-waste"
+  | "sell-batteries"
+  | "buy-and-sell-metals"
+  | "business-growth-and-lead-generation"
+  | "biogas"
+  | "cbgp-set-up"
+  | "lithium-ion-battery-manufacturing";
+  // <-- Add your new category here
   // ↑ To add a new category: add a new string here AND add a BlogCategory object at the bottom of this file
   previewContent?: string;
   fullContent?: string;
@@ -425,6 +436,10 @@ export const blogPosts: BlogPost[] = [
   //     },
   //   ],
   // },
+
+
+
+
   // ===========================================================================
   // SECTION 2: E-WASTE POSTS
   // 5 posts covering Approvals, Buying/Selling, Market Analysis, Machinery, DPR.
@@ -434,6 +449,9 @@ export const blogPosts: BlogPost[] = [
   // dangerouslySetInnerHTML after scoping its CSS so it doesn't leak.
   // To edit content → edit eWasteBlogContent in src/lib/blog-content.ts.
   // ===========================================================================
+
+
+
   {
     slug: "e-waste-buying-selling",
     path: "/blog/e-waste-buying-selling",
@@ -776,6 +794,292 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+
+  // ----------------------------------------------------------------------------------------------------
+  // Lithium ion battery manufecturing Blogs 
+
+  {
+    slug: "master-blueprint-for-compliance-and-certification",
+    path: "/blog/master-blueprint-for-compliance-and-certification",
+    title:
+      "Machinery and Technology Setup for Lithium-Ion Battery Manufacturing Plant",
+    summary:
+      "Explore essential machinery, automated pack assembly lines, cell testing equipment, and safety controls required to build a modern lithium-ion battery manufacturing unit.",
+    date: "September 21, 2026",
+    readingTime: "9 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumIonBanner,
+    tags: ["Lithium Battery", "Machinery", "Plant Setup", "Technology"],
+    keywords: [
+      "lithium battery machinery",
+      "battery cell manufacturing equipment",
+      "pack assembly line",
+      "battery testing setup",
+    ],
+    metaDescription:
+      "Complete guide on machinery, testing equipment, and automated setup required for lithium-ion battery manufacturing and pack assembly plants.",
+    category: "lithium-ion-battery-manufacturing",
+    previewContent:
+      "Setting up a high-efficiency lithium-ion battery manufacturing or pack assembly unit requires selecting the right machinery, automated sorting lines, spot welders, and fire-safe environmental controls.",
+    sections: [
+      {
+        title: "Key Machinery for Battery Manufacturing & Assembly",
+        body: "A modern battery manufacturing line relies on precise automated machinery to ensure cell balancing, safety compliance, and thermal management across packs.",
+        bullets: [
+          "Automatic Cell Sorting & Grading Machine (Internal Resistance & Voltage Test)",
+          "Automatic CNC Spot Welding / Laser Welding Station",
+          "BMS (Battery Management System) Tester & Programmer",
+          "Charge-Discharge Battery Pack Analyzer & Aging Cabinet",
+          "Thermal Insulating & Shrink Wrapping Line",
+          "Dry Room & Environmental Chamber Setup",
+        ],
+      },
+      {
+        title: "Quality Control and Safety Rigs",
+        body: "Quality testing rigs protect the plant against thermal runaway risks. Implementing automated cell aging cabinets and BMS calibration benches guarantees that every pack meets BIS safety standards before leaving the factory.",
+      },
+    ],
+  },
+  {
+    slug: "decoding-the-chemistry-of-power",
+    path: "/blog/decoding-the-chemistry-of-power",
+    title:
+      "Decoding the Chemistry of Power: LFP vs. NMC in Lithium-Ion Battery Manufacturing",
+    summary:
+      "Understand the key differences between LFP and NMC battery chemistries, energy density, lifecycle costs, and market suitability for your manufacturing setup.",
+    date: "September 22, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: LithiumChemisty,
+    tags: ["Lithium Battery", "Battery Chemistry", "LFP", "NMC", "Manufacturing"],
+    keywords: [
+      "decoding the chemistry of power",
+      "LFP vs NMC battery manufacturing",
+      "lithium battery cell chemistry",
+      "lithium ion power chemistry",
+    ],
+    metaDescription:
+      "A comprehensive guide comparing LFP and NMC chemistries for lithium-ion battery manufacturing, performance metrics, and application selection.",
+    category: "lithium-ion-battery-manufacturing",
+    previewContent:
+      "Selecting the right battery chemistry is the foundational step in lithium-ion battery manufacturing. Choosing between Lithium Iron Phosphate (LFP) and Nickel Manganese Cobalt (NMC) shapes your raw material supply chain, cell testing setups, and target market segments.",
+    sections: [
+      {
+        title: "Comparing Core Chemistries: LFP vs. NMC",
+        body: "LFP and NMC offer distinct trade-offs between thermal safety, cycle life, energy density, and manufacturing costs:",
+        bullets: [
+          "LFP (Lithium Iron Phosphate): Exceptional thermal stability, higher cycle life (2,000–5,000 cycles), lower raw material cost, ideal for 2W/3W EVs and ESS.",
+          "NMC (Nickel Manganese Cobalt): Superior energy density, lighter weight, preferred for long-range 4W passenger EVs and premium applications.",
+        ],
+      },
+      {
+        title: "Manufacturing & Assembly Implications",
+        body: "Your choice of cell chemistry directly impacts factory equipment parameters, such as voltage threshold settings on automated grading machines, BMS balancing algorithms, and thermal management testing protocols.",
+      },
+    ],
+  },
+  {
+    slug: "lithium-ion-battery-detailed-project-report",
+    path: "/blog/lithium-ion-battery-detailed-project-report",
+    title:
+      "Detailed Project Report (DPR) for Lithium-Ion Battery Manufacturing & Assembly",
+    summary:
+      "A comprehensive Detailed Project Report (DPR) covering market feasibility, capital investment, land requirements, ROI analysis, and operational workflow for setting up a Lithium-Ion battery plant.",
+    date: "September 24, 2026",
+    readingTime: "11 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumIonDprBanner,
+    tags: ["Project Report", "DPR", "Lithium Battery", "CAPEX", "Feasibility"],
+    keywords: [
+      "lithium ion battery project report",
+      "battery plant DPR",
+      "lithium battery manufacturing cost",
+      "EV battery plant feasibility report",
+    ],
+    metaDescription:
+      "Download and explore the Detailed Project Report (DPR) for setting up a Lithium-Ion battery pack assembly and manufacturing unit, including financial viability, CAPEX, and raw material requirements.",
+    category: "lithium-ion-battery-manufacturing",
+    previewContent:
+      "Building a successful Lithium-Ion battery plant begins with a robust Detailed Project Report (DPR). Evaluate financial modeling, machinery ROI, land allocation, and regulatory compliance before executing capital deployment.",
+    sections: [
+      {
+        title: "Core Components of the Detailed Project Report (DPR)",
+        body: "A successful DPR serves as a bankable document for investors, financial institutions, and government approvals. It evaluates technical viability alongside precise financial forecasting.",
+        bullets: [
+          "Executive Summary & Market Demand Analysis (EV & Energy Storage Systems)",
+          "CAPEX (Capital Expenditure) & OPEX (Operational Expenditure) Breakdown",
+          "Plant Capacity Planning & Production Throughput Estimates",
+          "Factory Layout Plan, Land Allocation & Dry Room Spatial Requirements",
+          "Bill of Materials (BOM) & Supply Chain Sourcing Strategy",
+          "Financial Projections: Profit & Loss, IRR, NPV, and Break-Even Analysis",
+        ],
+      },
+      {
+        title: "Regulatory Approvals & Subsidy Schemes",
+        body: "The report integrates necessary statutory requirements including Pollution Control Board NOCs (CTO/CTE), BIS Certifications (IS 16046 / IS 17855), and eligibility analysis for state and central government EV subsidies and PLI schemes.",
+      },
+    ],
+  },
+  {
+    slug: "lithium-ion-battery-market-analysis",
+    path: "/blog/lithium-ion-battery-market-analysis",
+    title:
+      "Lithium-Ion Battery Market Analysis & Industry Outlook: Growth, Demand & Investment Opportunities",
+    summary:
+      "An in-depth analysis of global and domestic lithium-ion battery market trends, demand drivers across EV and ESS sectors, supply chain dynamics, and future growth projections.",
+    date: "September 24, 2026",
+    readingTime: "10 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumMarketAnalysis,
+    tags: ["Market Analysis", "Lithium Battery", "EV Industry", "Market Growth", "Investment"],
+    keywords: [
+      "lithium ion battery market analysis",
+      "EV battery market size",
+      "battery manufacturing growth trends",
+      "energy storage market demand",
+    ],
+    metaDescription:
+      "Comprehensive market analysis for lithium-ion battery manufacturing, covering domestic demand, export potential, market size, and growth drivers for manufacturers.",
+    category: "lithium-ion-battery-manufacturing",
+    previewContent:
+      "The surge in electric vehicle adoption and renewable energy storage projects has triggered exponential demand for domestic lithium-ion battery manufacturing. Understanding market dynamics is crucial for strategic positioning and long-term profitability.",
+    sections: [
+      {
+        title: "Key Market Drivers & Demand Forecast",
+        body: "Rapid electrification across transportation and power sectors is driving unprecedented growth in battery pack assembly and cell production capacity.",
+        bullets: [
+          "Exponential EV penetration in 2-wheeler, 3-wheeler, and commercial fleet segments",
+          "Grid-scale Energy Storage Systems (ESS) for solar and wind power integration",
+          "Government localization mandates, import duty adjustments, and PLI incentives",
+          "Increasing shift from lead-acid to lithium chemistry in telecom and UPS backups",
+        ],
+      },
+      {
+        title: "Competitive Landscape & Supply Chain Dynamics",
+        body: "Analyzing domestic market share, raw material price volatility (Lithium, Nickel, Cobalt, LFP cells), and local sourcing strategies helps manufacturers build resilient supply chains and secure reliable off-take agreements.",
+      },
+    ],
+  },
+  {
+    slug: "lithium-ion-battery-manufacturing-license-and-certification",
+    path: "/blog/lithium-ion-battery-manufacturing-license-and-certification",
+    title:
+      "Licenses, Safety Approvals & Regulatory Certifications for Lithium-Ion Battery Manufacturing",
+    summary:
+      "A definitive regulatory roadmap covering compulsory BIS certifications, Pollution Control Board approvals (CTE/CTO), EPR compliance, and international transport safety standards required to operate a battery plant.",
+    date: "September 24, 2026",
+    readingTime: "11 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumLicenseBanner,
+    tags: ["Regulatory Compliance", "BIS Certification", "EPR Compliance", "Battery Safety", "Licenses"],
+    keywords: [
+      "lithium battery manufacturing license",
+      "BIS certification for battery pack",
+      "IS 16046 compliance",
+      "lithium battery CTE CTO pollution clearance",
+      "UN 38.3 transport safety testing",
+    ],
+    metaDescription:
+      "Complete checklist of legal licenses, BIS safety certifications (IS 16046 / IS 17855), CPCB environmental approvals, and statutory requirements for setting up a lithium-ion battery plant.",
+    category: "lithium-ion-battery-manufacturing",
+    previewContent:
+      "Operating a lithium-ion battery assembly or manufacturing facility requires navigating stringent environmental regulations, electrical safety standards, and hazardous material transport protocols before commercial distribution.",
+    sections: [
+      {
+        title: "Mandatory Quality & Electrical Safety Standards",
+        body: "Battery cells and assembled packs must undergo rigorous mechanical, electrical, and thermal testing to comply with national and global safety mandates:",
+        bullets: [
+          "BIS (Bureau of Indian Standards) Certification under IS 16046 (Part 1 & 2) for Secondary Cells and Batteries",
+          "AIS 156 & AIS 038 Rev 2 Compliance for Electric Vehicle (EV) Traction Battery Packs",
+          "UN 38.3 Certification for Safe Air and Sea Transportation of Hazardous Lithium Batteries",
+          "IEC 62133 / ISO 9001 Quality Management System Integration for Factory Audits",
+        ],
+      },
+      {
+        title: "Environmental Clearances & Extended Producer Responsibility (EPR)",
+        body: "Manufacturing units must obtain Consent to Establish (CTE) and Consent to Operate (CTO) from the State Pollution Control Board (SPCB). Additionally, producers must register under Battery Waste Management Rules (BWMR) on the CPCB portal to fulfill statutory EPR obligations.",
+      },
+    ],
+  },
+
+
+  {
+    slug: "lithium-ion-battery-specification-used-in-ev",
+
+    path: "/blog/lithium-ion-battery-specification-used-in-ev",
+
+    title:
+      "Lithium-Ion Battery Specifications Used in Electric Vehicles: Types, Chemistries & Key Parameters",
+
+    summary:
+      "A detailed guide to lithium-ion battery specifications used in electric vehicles, covering LFP, NMC, NCA, battery voltage, capacity, energy density, C-rate, cycle life, thermal performance, and battery pack configuration.",
+
+    date: "September 30, 2026",
+
+    readingTime: "12 min read",
+
+    author: "EPR Nexuss Team",
+
+    // image: lithiumEVSpecificationBanner,
+    image: lithiumBanner,
+
+    tags: [
+      "EV Batteries",
+      "Lithium-Ion Battery",
+      "LFP Battery",
+      "NMC Battery",
+      "Battery Specifications",
+      "Electric Vehicles",
+    ],
+
+    keywords: [
+      "lithium ion battery specification used in EV",
+      "types of lithium ion batteries for electric vehicles",
+      "LFP battery specification for EV",
+      "NMC battery specification for EV",
+      "EV battery voltage and capacity",
+      "EV battery energy density",
+      "lithium battery C rate",
+      "EV battery pack configuration",
+      "electric vehicle battery chemistry",
+      "lithium ion battery types used in electric vehicles",
+    ],
+
+    metaDescription:
+      "Learn about lithium-ion battery specifications used in electric vehicles, including LFP and NMC chemistries, voltage, capacity, energy density, C-rate, cycle life, thermal performance, and EV battery pack configuration.",
+
+    category: "lithium-ion-battery-manufacturing",
+
+    previewContent:
+      "Electric vehicles use different lithium-ion battery chemistries and specifications depending on range, performance, safety, cost, and application. Understanding LFP, NMC, voltage, capacity, energy density, C-rate, and battery pack configuration is essential for EV battery manufacturing and design.",
+
+    sections: [
+      {
+        title: "What Specifications Define an EV Lithium-Ion Battery?",
+
+        body:
+          "An EV battery is defined by several electrical, mechanical, thermal, and performance parameters. These specifications determine vehicle range, acceleration, charging capability, safety, battery life, and overall pack performance.",
+
+        bullets: [
+          "Nominal voltage and operating voltage range",
+          "Battery capacity measured in Ah",
+          "Energy capacity measured in kWh",
+          "Energy density measured in Wh/kg or Wh/L",
+          "Power output and charging capability",
+          "C-rate for charging and discharging",
+          "Cycle life and expected service life",
+          "Operating and storage temperature range",
+        ],
+      },
+    ],
+  },
+
+
+
+
+
+
+  // ----------------------------------------------------------------------------------------
 
   //new blog 
 
@@ -1502,46 +1806,46 @@ export const blogPosts: BlogPost[] = [
   // -------------------------------biogas related slugs ---------------------------------
 
   {
-  slug: "compressed-biogas-plant-machinery-setup",
-  // Fixed typo (machinery), converted to lowercase, and aligned with slug
-  path: "/blog/compressed-biogas-plant-machinery-setup", 
-  title: "Compressed Bio-Gas (CBG) Plant Setup: A Complete Implementation Guide",
-  summary: "A strategic overview of setting up a Compressed Bio-Gas (CBG) plant, covering major requirements and compliance.",
-  date: "May 20, 2026",
-  readingTime: "8 min read",
-  author: "EPR Nexuss Team",
-  image: biogasImage,
-  tags: ["CBG", "Bio-Gas", "Plant Setup", "Renewable Energy", "Waste to Energy"],
-  keywords: [
-    "Compressed Bio Gas plant setup",
-    "CBG plant prerequisites",
-    "Biogas plant business model",
-    "CBG regulatory compliance",
-  ],
-  metaDescription: "Discover how to set up a Compressed Bio-Gas (CBG) plant. Explore essential requirements, regulatory compliance, and business models.",
-  category: "biogas",
-},
+    slug: "compressed-biogas-plant-machinery-setup",
+    // Fixed typo (machinery), converted to lowercase, and aligned with slug
+    path: "/blog/compressed-biogas-plant-machinery-setup",
+    title: "Compressed Bio-Gas (CBG) Plant Setup: A Complete Implementation Guide",
+    summary: "A strategic overview of setting up a Compressed Bio-Gas (CBG) plant, covering major requirements and compliance.",
+    date: "May 20, 2026",
+    readingTime: "8 min read",
+    author: "EPR Nexuss Team",
+    image: biogasImage,
+    tags: ["CBG", "Bio-Gas", "Plant Setup", "Renewable Energy", "Waste to Energy"],
+    keywords: [
+      "Compressed Bio Gas plant setup",
+      "CBG plant prerequisites",
+      "Biogas plant business model",
+      "CBG regulatory compliance",
+    ],
+    metaDescription: "Discover how to set up a Compressed Bio-Gas (CBG) plant. Explore essential requirements, regulatory compliance, and business models.",
+    category: "biogas",
+  },
 
-{
-  slug: "compressed-biogas-plant-bank-loan-assistance",
-  path: "/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance",
-  title: "Compressed Bio Gas Plant Bank Loan Assistance",
-  summary: "A practical guide on securing bank loans for Compressed Bio Gas plants under SATAT and priority sector schemes.",
-  date: "May 22, 2026",
-  readingTime: "9 min read",
-  author: "EPR Nexuss Team",
-  image: biogasImage,
-  tags: ["CBG", "SATAT", "Bank Loan", "Project Finance", "Renewable Energy"],
-  keywords: [
-    "CBG plant bank loan",
-    "SATAT scheme loan assistance",
-    "Compressed Bio Gas project finance",
-    "IREDA CBG loan",
-  ],
-  metaDescription: "Learn how to secure bank financing for a Compressed Bio-Gas (CBG) plant, including eligibility criteria, required documents, and scheme terms.",
-  category: "biogas",
-},
-{
+  {
+    slug: "compressed-biogas-plant-bank-loan-assistance",
+    path: "/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance",
+    title: "Compressed Bio Gas Plant Bank Loan Assistance",
+    summary: "A practical guide on securing bank loans for Compressed Bio Gas plants under SATAT and priority sector schemes.",
+    date: "May 22, 2026",
+    readingTime: "9 min read",
+    author: "EPR Nexuss Team",
+    image: biogasImage,
+    tags: ["CBG", "SATAT", "Bank Loan", "Project Finance", "Renewable Energy"],
+    keywords: [
+      "CBG plant bank loan",
+      "SATAT scheme loan assistance",
+      "Compressed Bio Gas project finance",
+      "IREDA CBG loan",
+    ],
+    metaDescription: "Learn how to secure bank financing for a Compressed Bio-Gas (CBG) plant, including eligibility criteria, required documents, and scheme terms.",
+    category: "biogas",
+  },
+  {
     slug: "compressed-biogas-subsidies-and-incentives",
     path: "/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives",
     title: "Compressed Biogas Subsidies and Incentives",
@@ -1563,27 +1867,27 @@ export const blogPosts: BlogPost[] = [
   },
 
   {
-  slug: "compressed-biogas-project-planning-and-feasiblity",
-  path: "/blog/compressed-biogas-project-planning-and-feasiblity",
-  title: "Compressed Biogas Project Planning and Feasibility",
-  summary: "A complete guide to CBG project planning in India, covering feedstock validation, site selection, financial modeling, and regulatory compliance.",
-  date: "August 28, 2026",
-  readingTime: "7 min read",
-  author: "EPR Nexuss Team",
-  image: biogasImage,
-  tags: ["CBG", "Project Planning", "Feasibility Study", "Business Setup", "Renewable Energy"],
-  keywords: [
-    "CBG project feasibility",
-    "Compressed Bio Gas planning",
-    "CBG DPR preparation",
-    "CBG plant cost India",
-    "CBG project setup"
-  ],
-  metaDescription: "Learn how to plan a viable Compressed Biogas (CBG) project in India with our guide on feedstock assessment, financial feasibility, and regulatory compliance.",
-  category: "biogas"
-},
+    slug: "compressed-biogas-project-planning-and-feasiblity",
+    path: "/blog/compressed-biogas-project-planning-and-feasiblity",
+    title: "Compressed Biogas Project Planning and Feasibility",
+    summary: "A complete guide to CBG project planning in India, covering feedstock validation, site selection, financial modeling, and regulatory compliance.",
+    date: "August 28, 2026",
+    readingTime: "7 min read",
+    author: "EPR Nexuss Team",
+    image: biogasImage,
+    tags: ["CBG", "Project Planning", "Feasibility Study", "Business Setup", "Renewable Energy"],
+    keywords: [
+      "CBG project feasibility",
+      "Compressed Bio Gas planning",
+      "CBG DPR preparation",
+      "CBG plant cost India",
+      "CBG project setup"
+    ],
+    metaDescription: "Learn how to plan a viable Compressed Biogas (CBG) project in India with our guide on feedstock assessment, financial feasibility, and regulatory compliance.",
+    category: "biogas"
+  },
 
-  
+
   // ---------------------------------------------------------------------
   {
     slug: "rvsf-license",
@@ -1916,206 +2220,206 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-  slug: "lithium-ion-battery-manufacturing",
-  path: "/blog/lithium-ion-battery-manufacturing",
+    slug: "lithium-ion-battery-manufacturing",
+    path: "/blog/lithium-ion-battery-manufacturing",
 
-  title:
-    "Lithium-Ion Battery Manufacturing in India: Process, Setup & Compliance",
+    title:
+      "Lithium-Ion Battery Manufacturing in India: Process, Setup & Compliance",
 
-  summary:
-    "Explore lithium-ion battery manufacturing, cell production, machinery, quality testing, plant setup, and Indian compliance considerations.",
+    summary:
+      "Explore lithium-ion battery manufacturing, cell production, machinery, quality testing, plant setup, and Indian compliance considerations.",
 
-  date: "2026-09-18",
-  readingTime: "16 min read",
-  author: "EPR Nexuss Team",
+    date: "2026-09-18",
+    readingTime: "16 min read",
+    author: "EPR Nexuss Team",
 
-  image: batteryImage,
+    image: batteryImage,
 
-  tags: [
-    "Lithium-Ion Battery",
-    "Battery Manufacturing",
-    "Plant Setup",
-    "Compliance",
-  ],
+    tags: [
+      "Lithium-Ion Battery",
+      "Battery Manufacturing",
+      "Plant Setup",
+      "Compliance",
+    ],
 
-  keywords: [
-    "lithium ion battery manufacturing",
-    "lithium battery manufacturing process",
-    "battery manufacturing plant India",
-    "lithium ion cell production",
-  ],
+    keywords: [
+      "lithium ion battery manufacturing",
+      "lithium battery manufacturing process",
+      "battery manufacturing plant India",
+      "lithium ion cell production",
+    ],
 
-  metaDescription:
-    "Learn about lithium-ion battery manufacturing in India, including cell production, machinery, quality testing, plant setup, and compliance considerations.",
+    metaDescription:
+      "Learn about lithium-ion battery manufacturing in India, including cell production, machinery, quality testing, plant setup, and compliance considerations.",
 
-  category: "lithium",
+    category: "lithium",
 
-  sections: [],
-},
+    sections: [],
+  },
 
-{
-  slug: "lithium-ion-battery-compliance-certification",
-  path: "/blog/lithium-ion-battery-compliance-certification",
-  title:
-    "Lithium-Ion Manufacturing: The Master Blueprint for Compliance & Certification",
-  summary:
-    "A complete guide to lithium-ion battery manufacturing compliance and certification, covering key regulatory requirements, documentation, testing, and certification readiness.",
-  date: "September 19, 2026",
-  readingTime: "10 min read",
-  author: "EPR Nexuss Team",
+  {
+    slug: "lithium-ion-battery-compliance-certification",
+    path: "/blog/lithium-ion-battery-compliance-certification",
+    title:
+      "Lithium-Ion Manufacturing: The Master Blueprint for Compliance & Certification",
+    summary:
+      "A complete guide to lithium-ion battery manufacturing compliance and certification, covering key regulatory requirements, documentation, testing, and certification readiness.",
+    date: "September 19, 2026",
+    readingTime: "10 min read",
+    author: "EPR Nexuss Team",
     image: lithiumTrading,
-  tags: [
-    "Lithium Battery",
-    "Compliance",
-    "Certification",
-    "Battery Manufacturing",
-  ],
-  keywords: [
-    "lithium ion battery compliance",
-    "lithium battery certification",
-    "battery manufacturing compliance",
-    "lithium ion battery certification",
-    "battery compliance India",
-    "BIS battery certification",
-    "battery EPR compliance",
-  ],
-  metaDescription:
-    "Learn about lithium-ion battery manufacturing compliance and certification, including documentation, testing, regulatory requirements, and certification readiness.",
-  category: "lithium",
-  previewContent:
-    "Setting up a lithium-ion battery manufacturing business involves more than machinery and production. Compliance, certification, documentation, testing, and regulatory readiness are critical parts of building a legally and operationally prepared manufacturing facility.",
-  sections: [
-    {
-      title: "Understanding Lithium-Ion Battery Compliance",
-      body:
-        "Lithium-ion battery manufacturing requires careful attention to applicable regulatory requirements, product standards, documentation, testing, and environmental compliance. Understanding these requirements early helps manufacturers plan their facility and operations correctly.",
-    },
-    {
-      title: "The Certification Roadmap",
-      body:
-        "A structured certification roadmap helps manufacturers identify the standards, testing requirements, technical documentation, approvals, and compliance activities applicable to their specific battery products and manufacturing setup.",
-    },
-    {
-      title: "Documentation and Compliance Readiness",
-      body:
-        "Proper technical documentation, manufacturing records, testing reports, product specifications, and compliance documentation make the certification and approval process more organized and easier to manage.",
-    },
-    {
-      title: "How EPR Nexuss Can Help",
-      body:
-        "EPR Nexuss helps businesses understand their compliance requirements, organize the required documentation, plan certification activities, and prepare their lithium-ion battery manufacturing project for regulatory and operational readiness.",
-    },
-  ],
-},
-{
-  slug: "decoding-lithium-ion-chemistries",
-  path: "/blog/decoding-lithium-ion-chemistries",
-  title:
-    "Decoding the Chemistry of Power — Types of Lithium-Ion Battery Manufacturing",
-  summary:
-    "Complete guide to the 6 major Lithium-Ion battery chemistries (LFP, NMC, LCO, LMO, NCA, LTO), form factors, and the EPR Nexuss master blueprint for starting a profitable battery manufacturing plant in India.",
-  date: "September 19, 2026",
-  readingTime: "12 min read",
-  author: "EPR Nexuss Team",
-  image: lithiumTrading, // or replace with a dedicated image if you have one
-  tags: [
-    "Lithium Battery",
-    "Battery Chemistries",
-    "LFP",
-    "NMC",
-    "Battery Manufacturing",
-    "Form Factors",
-  ],
-  keywords: [
-    "lithium ion battery chemistries",
-    "LFP vs NMC",
-    "types of lithium ion batteries",
-    "battery manufacturing plant India",
-    "LFP prismatic cells",
-    "NMC cylindrical cells",
-    "battery form factors",
-    "dry room battery manufacturing",
-    "AIS 156 BMS design",
-    "CPCB EPR battery manufacturing",
-  ],
-  metaDescription:
-    "Learn the 6 major Lithium-Ion battery chemistries (LFP, NMC, LCO, LMO, NCA, LTO), form factors, and the EPR Nexuss master blueprint for profitable battery manufacturing in India.",
-  category: "lithium",
-  previewContent:
-    "Choosing the exact right lithium-ion chemistry is the first step to plant profitability. This guide decodes LFP, NMC, LCO, LMO, NCA and LTO, explains form factors, and shows how EPR Nexuss helps you build a successful manufacturing plant without wasting capital.",
-  sections: [
-    {
-      title: "The 6 Major Li-Ion Chemistries",
-      body:
-        "LFP, NMC, LCO, LMO, NCA and LTO each serve different markets. Matching chemistry to your target use-case (2W EVs, buses, solar ESS, consumer electronics) is critical for product-market fit and plant profitability.",
-    },
-    {
-      title: "Manufacturing Form Factors",
-      body:
-        "Cylindrical, Prismatic and Pouch formats dictate your assembly-line machinery. Switching form factors later requires major CapEx, so the decision must be made at the planning stage.",
-    },
-    {
-      title: "The EPR Nexuss Master Blueprint",
-      body:
-        "A five-phase approach covering market-to-chemistry mapping, dry-room engineering, smart BMS & pack design, CPCB/EPR compliance, and on-site commissioning & training.",
-    },
-    {
-      title: "How EPR Nexuss Can Help",
-      body:
-        "EPR Nexuss helps entrepreneurs avoid expensive mistakes by drafting exact technical specs, mapping the right chemistry, and clearing CTE/CTO and EPR registrations so the plant launches cleanly.",
-    },
-  ],
-},
-{
-  slug: "lithium-ion-manufacturing-master-blueprint",
-  path: "/blog/lithium-ion-manufacturing-master-blueprint",
-  title:
-    "The Master Blueprint of Lithium-Ion Battery Manufacturing: Domain-Specific Technologies, Hidden Layers & Plant Setup",
-  summary:
-    "Authoritative industrial guide on Li-Ion cell chemistry selection, dry room specs, automated assembly, CPCB compliance, and how EPR Nexuss eliminates capital wastage for new and restarting manufacturers.",
-  date: "September 19, 2026",
-  readingTime: "14 min read",
-  author: "EPR Nexuss Team",
-  image: lithiumTrading, // or your image import
-  tags: [
-    "Lithium Battery",
-    "Manufacturing Blueprint",
-    "Dry Room",
-    "Plant Setup",
-    "Battery Chemistry",
-  ],
-  keywords: [
-    "lithium ion battery manufacturing blueprint",
-    "li-ion plant setup India",
-    "dry room dew point battery",
-    "LFP NMC LTO manufacturing",
-    "battery pack assembly line",
-    "CPCB battery manufacturing compliance",
-  ],
-  metaDescription:
-    "Master blueprint for lithium-ion battery manufacturing: electrode layers, domain-specific technologies, dry room specs, ROI estimator, and EPR Nexuss CapEx optimization.",
-  category: "lithium",
-  previewContent:
-    "Manufacturing a lithium-ion battery is an exercise in sub-micron precision and strict atmospheric control. This blueprint covers electrode preparation, domain-specific chemistries, dry room targets, an interactive ROI estimator, and how EPR Nexuss cuts CapEx waste.",
-  sections: [
-    {
-      title: "Hidden Engineering Layers",
-      body: "Slurry mixing, slot-die coating, calendering, and precision slitting — the chemical core of every Li-Ion cell.",
-    },
-    {
-      title: "Domain-Specific Technologies",
-      body: "EV, ESS, AGV, consumer, and medical applications each demand different chemistry and form-factor choices.",
-    },
-    {
-      title: "Plant Setup ROI Estimator",
-      body: "Interactive capacity and chemistry selector to estimate CapEx savings, commissioning time, and EPR credit potential.",
-    },
-    {
-      title: "How EPR Nexuss Helps",
-      body: "Exact machine specs, chemistry mapping, dry-room design, and parallel CTE/CTO + EPR clearance to avoid capital waste.",
-    },
-  ],
-},
+    tags: [
+      "Lithium Battery",
+      "Compliance",
+      "Certification",
+      "Battery Manufacturing",
+    ],
+    keywords: [
+      "lithium ion battery compliance",
+      "lithium battery certification",
+      "battery manufacturing compliance",
+      "lithium ion battery certification",
+      "battery compliance India",
+      "BIS battery certification",
+      "battery EPR compliance",
+    ],
+    metaDescription:
+      "Learn about lithium-ion battery manufacturing compliance and certification, including documentation, testing, regulatory requirements, and certification readiness.",
+    category: "lithium",
+    previewContent:
+      "Setting up a lithium-ion battery manufacturing business involves more than machinery and production. Compliance, certification, documentation, testing, and regulatory readiness are critical parts of building a legally and operationally prepared manufacturing facility.",
+    sections: [
+      {
+        title: "Understanding Lithium-Ion Battery Compliance",
+        body:
+          "Lithium-ion battery manufacturing requires careful attention to applicable regulatory requirements, product standards, documentation, testing, and environmental compliance. Understanding these requirements early helps manufacturers plan their facility and operations correctly.",
+      },
+      {
+        title: "The Certification Roadmap",
+        body:
+          "A structured certification roadmap helps manufacturers identify the standards, testing requirements, technical documentation, approvals, and compliance activities applicable to their specific battery products and manufacturing setup.",
+      },
+      {
+        title: "Documentation and Compliance Readiness",
+        body:
+          "Proper technical documentation, manufacturing records, testing reports, product specifications, and compliance documentation make the certification and approval process more organized and easier to manage.",
+      },
+      {
+        title: "How EPR Nexuss Can Help",
+        body:
+          "EPR Nexuss helps businesses understand their compliance requirements, organize the required documentation, plan certification activities, and prepare their lithium-ion battery manufacturing project for regulatory and operational readiness.",
+      },
+    ],
+  },
+  {
+    slug: "decoding-lithium-ion-chemistries",
+    path: "/blog/decoding-lithium-ion-chemistries",
+    title:
+      "Decoding the Chemistry of Power — Types of Lithium-Ion Battery Manufacturing",
+    summary:
+      "Complete guide to the 6 major Lithium-Ion battery chemistries (LFP, NMC, LCO, LMO, NCA, LTO), form factors, and the EPR Nexuss master blueprint for starting a profitable battery manufacturing plant in India.",
+    date: "September 19, 2026",
+    readingTime: "12 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumTrading, // or replace with a dedicated image if you have one
+    tags: [
+      "Lithium Battery",
+      "Battery Chemistries",
+      "LFP",
+      "NMC",
+      "Battery Manufacturing",
+      "Form Factors",
+    ],
+    keywords: [
+      "lithium ion battery chemistries",
+      "LFP vs NMC",
+      "types of lithium ion batteries",
+      "battery manufacturing plant India",
+      "LFP prismatic cells",
+      "NMC cylindrical cells",
+      "battery form factors",
+      "dry room battery manufacturing",
+      "AIS 156 BMS design",
+      "CPCB EPR battery manufacturing",
+    ],
+    metaDescription:
+      "Learn the 6 major Lithium-Ion battery chemistries (LFP, NMC, LCO, LMO, NCA, LTO), form factors, and the EPR Nexuss master blueprint for profitable battery manufacturing in India.",
+    category: "lithium",
+    previewContent:
+      "Choosing the exact right lithium-ion chemistry is the first step to plant profitability. This guide decodes LFP, NMC, LCO, LMO, NCA and LTO, explains form factors, and shows how EPR Nexuss helps you build a successful manufacturing plant without wasting capital.",
+    sections: [
+      {
+        title: "The 6 Major Li-Ion Chemistries",
+        body:
+          "LFP, NMC, LCO, LMO, NCA and LTO each serve different markets. Matching chemistry to your target use-case (2W EVs, buses, solar ESS, consumer electronics) is critical for product-market fit and plant profitability.",
+      },
+      {
+        title: "Manufacturing Form Factors",
+        body:
+          "Cylindrical, Prismatic and Pouch formats dictate your assembly-line machinery. Switching form factors later requires major CapEx, so the decision must be made at the planning stage.",
+      },
+      {
+        title: "The EPR Nexuss Master Blueprint",
+        body:
+          "A five-phase approach covering market-to-chemistry mapping, dry-room engineering, smart BMS & pack design, CPCB/EPR compliance, and on-site commissioning & training.",
+      },
+      {
+        title: "How EPR Nexuss Can Help",
+        body:
+          "EPR Nexuss helps entrepreneurs avoid expensive mistakes by drafting exact technical specs, mapping the right chemistry, and clearing CTE/CTO and EPR registrations so the plant launches cleanly.",
+      },
+    ],
+  },
+  {
+    slug: "lithium-ion-manufacturing-master-blueprint",
+    path: "/blog/lithium-ion-manufacturing-master-blueprint",
+    title:
+      "The Master Blueprint of Lithium-Ion Battery Manufacturing: Domain-Specific Technologies, Hidden Layers & Plant Setup",
+    summary:
+      "Authoritative industrial guide on Li-Ion cell chemistry selection, dry room specs, automated assembly, CPCB compliance, and how EPR Nexuss eliminates capital wastage for new and restarting manufacturers.",
+    date: "September 19, 2026",
+    readingTime: "14 min read",
+    author: "EPR Nexuss Team",
+    image: lithiumTrading, // or your image import
+    tags: [
+      "Lithium Battery",
+      "Manufacturing Blueprint",
+      "Dry Room",
+      "Plant Setup",
+      "Battery Chemistry",
+    ],
+    keywords: [
+      "lithium ion battery manufacturing blueprint",
+      "li-ion plant setup India",
+      "dry room dew point battery",
+      "LFP NMC LTO manufacturing",
+      "battery pack assembly line",
+      "CPCB battery manufacturing compliance",
+    ],
+    metaDescription:
+      "Master blueprint for lithium-ion battery manufacturing: electrode layers, domain-specific technologies, dry room specs, ROI estimator, and EPR Nexuss CapEx optimization.",
+    category: "lithium",
+    previewContent:
+      "Manufacturing a lithium-ion battery is an exercise in sub-micron precision and strict atmospheric control. This blueprint covers electrode preparation, domain-specific chemistries, dry room targets, an interactive ROI estimator, and how EPR Nexuss cuts CapEx waste.",
+    sections: [
+      {
+        title: "Hidden Engineering Layers",
+        body: "Slurry mixing, slot-die coating, calendering, and precision slitting — the chemical core of every Li-Ion cell.",
+      },
+      {
+        title: "Domain-Specific Technologies",
+        body: "EV, ESS, AGV, consumer, and medical applications each demand different chemistry and form-factor choices.",
+      },
+      {
+        title: "Plant Setup ROI Estimator",
+        body: "Interactive capacity and chemistry selector to estimate CapEx savings, commissioning time, and EPR credit potential.",
+      },
+      {
+        title: "How EPR Nexuss Helps",
+        body: "Exact machine specs, chemistry mapping, dry-room design, and parallel CTE/CTO + EPR clearance to avoid capital waste.",
+      },
+    ],
+  },
   {
     slug: "lithium-battery-buy-selling",
     path: "/blog/lithium-battery-buy-selling",
@@ -5770,7 +6074,7 @@ export const blogPosts: BlogPost[] = [
       "EPR Metals Credits: Credit Trading & Marketplace Guide. Learn what obligated entities and recyclers need to know about EPR metal scrap — practical, India-focused, CPCB-aligned guidance from EPR Nexuss.",
     category: "epr-metals",
   },
-{
+  {
     slug: "market-analysis-and-business-opportunities-for-epr-plastic",
     path: "/blog/market-analysis-and-business-opportunities-for-epr-plastic",
     title: "EPR Plastic Credits: Market Analysis & Business Opportunity",
@@ -5910,8 +6214,8 @@ export const blogPosts: BlogPost[] = [
       "The cost of starting a plastic recycling plant in India — investment by plant size, machinery, licenses, operating costs and profitability factors.",
     category: "epr-plastic",
   },
-  
-  
+
+
   {
     slug: "epr-tyre-analysis",
     path: "/blog/epr-tyre-analysis",
@@ -6553,6 +6857,24 @@ export const blogCategories: BlogCategory[] = [
   // ── Recycling Setup Categories ──────────────────────────────────────────────
   // These appear under "Recycling Setups" in the Navbar dropdown.
   // Each has a dedicated set of 5 posts (Approvals, Buy/Sell, Machinery, Market, DPR).
+  // ---------------------------------------------------------------------------------------------------------------------------------------
+
+  // Lithium ion battery Category 
+
+  {
+    id: "lithium-ion-battery-manufacturing",
+    slug: "lithium-ion-battery-manufacturing",
+    name: "Lithium-Ion Battery Manufacturing Setup",
+    path: "/blog/category/lithium-ion-battery-manufacturing",
+    description:
+      "Explore lithium-ion battery manufacturing plant setup, CPCB guidelines, machinery requirements, EPR frameworks, and compliance blueprints.",
+    image: lithiumIonBanner,
+    heroImage: lithiumIonHero,
+    tagLine: "Lithium-Ion Battery Plant Setup & EPR Compliance",
+  },
+
+
+
   {
     id: "e-waste",
     slug: "e-waste",
@@ -6563,6 +6885,22 @@ export const blogCategories: BlogCategory[] = [
     image: ewasteBanner,
     heroImage: ewasteHero,
     tagLine: "E-Waste Recycling & Plant Management",
+  },
+
+  // ---------------------------------------------------------------------------------------------------------------------------------------
+
+  // Lithium ion battery Category 
+
+  {
+    id: "lithium-ion-battery-manufacturing",
+    slug: "lithium-ion-battery-manufacturing",
+    name: "Lithium-Ion Battery Manufacturing Setup",
+    path: "/blog/category/lithium-ion-battery-manufacturing",
+    description:
+      "Explore lithium-ion battery manufacturing plant setup, CPCB guidelines, machinery requirements, EPR frameworks, and compliance blueprints.",
+    image: lithiumIonBanner,
+    heroImage: lithiumIonHero,
+    tagLine: "Lithium-Ion Battery Plant Setup & EPR Compliance",
   },
   // ── EPR Credit Categories ────────────────────────────────────────────────────
   // These appear under "EPR Credits" in the Navbar dropdown.

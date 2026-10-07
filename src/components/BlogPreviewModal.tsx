@@ -43,7 +43,7 @@ export const BlogPreviewModal: React.FC<BlogPreviewModalProps> = ({
               <div className="relative h-64 md:h-80 bg-gradient-to-br from-secondary to-secondary/50 overflow-hidden">
                 <img
                   src={post.image}
-                  alt={post.title}
+                  alt={`${post.title} — blog post cover image related to EPR, recycling and industrial compliance`}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />

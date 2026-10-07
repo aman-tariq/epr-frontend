@@ -85,7 +85,6 @@ const items: GalleryItem[] = [
     file: "Non-selective domestic waste sorting machine.JPG",
     aspect: "square",
   },
-  
   {
     id: "g10",
     title: "Manual waste sorting line",
@@ -151,7 +150,7 @@ function GalleryTile({
     >
       <img
         src={commonsUrl(item.file)}
-        alt={item.title}
+        alt={`${item.title} — industrial recycling and materials recovery facility photograph showing sorting and processing equipment`}
         loading="lazy"
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -241,7 +240,7 @@ function Lightbox({
         <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
           <img
             src={commonsUrl(item.file, 1600)}
-            alt={item.title}
+            alt={`${item.title} — detailed view of recycling and waste-processing equipment in an industrial materials recovery facility`}
             className="w-full max-h-[70vh] object-contain mx-auto"
           />
         </div>

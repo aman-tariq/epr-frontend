@@ -78,7 +78,7 @@ const ShowcaseGallery = () => {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} — industrial recycling, waste management and EPR compliance facility photograph`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />

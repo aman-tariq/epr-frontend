@@ -25,7 +25,7 @@ const CompanyBanner = () => {
       {/* Background Decorations */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2" />
-      
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -59,16 +59,16 @@ const CompanyBanner = () => {
             <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/20 to-primary/20 rounded-3xl blur-xl opacity-60" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-secondary/20 rounded-full blur-2xl" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
-            
+
             {/* Main Image Container */}
-            <motion.div 
+            <motion.div
               className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-card"
               whileHover={{ scale: 1.02, rotateY: 2 }}
               transition={{ duration: 0.4 }}
             >
               <img
                 src={companyBanner}
-                alt="EPR Nexuss Solutions - Company Banner"
+                alt="EPR Nexuss Solutions company banner showcasing plastic recycling, industrial waste management and EPR compliance services in India"
                 className="w-full h-auto object-cover"
               />
               {/* Subtle Overlay */}

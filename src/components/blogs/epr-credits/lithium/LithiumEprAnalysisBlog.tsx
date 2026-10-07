@@ -1,6 +1,7 @@
 import StickyContactForm from "@/components/StickyContactForm";
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
@@ -27,6 +28,25 @@ function Reveal({
     >
       {children}
     </motion.div>
+  );
+}
+
+
+function MarketplaceButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#5AC361] px-6 py-3 font-semibold text-[#0B1210] no-underline transition-all duration-200 hover:scale-[1.03] hover:bg-[#4fb457] hover:shadow-lg ${className}`}
+    >
+      {children}
+      <ArrowRight size={18} />
+    </a>
   );
 }
 
@@ -202,6 +222,11 @@ export default function EPRLithiumCredits() {
               </div>
             </div>
           </motion.section>
+            <div className="mt-6 mb-2 flex justify-center">
+              <MarketplaceButton>
+                Explore EPR Lithium Marketplace
+              </MarketplaceButton>
+            </div>
             <div className="container max-w-5xl">
               {/* Section: Lithium Credit Lifecycle */}
               <Reveal delay={0.05}>
@@ -806,6 +831,12 @@ export default function EPRLithiumCredits() {
                 </section>{" "}
               </Reveal>
 
+              <div className="my-8 flex justify-center sm:justify-start">
+                <MarketplaceButton>
+                  Buy &amp; Sell Lithium EPR Credits
+                </MarketplaceButton>
+              </div>
+
               {/* Section: Business Opportunities */}
               <Reveal delay={0.05}>
                 {" "}
@@ -1315,6 +1346,12 @@ export default function EPRLithiumCredits() {
                   </div>
                 </section>{" "}
               </Reveal>
+
+              <div className="my-8 flex justify-center">
+                <MarketplaceButton>
+                  Trade EPR Lithium Credits
+                </MarketplaceButton>
+              </div>
 
               {/* Section: CTA Placement (Empty placeholder preserved from original source) */}
               <section className="mt-5.5 scroll-mt-5" id="cta" />

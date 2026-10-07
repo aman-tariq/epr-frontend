@@ -41,7 +41,7 @@ const Gallery = () => {
             >
               <img
                 src={img.src}
-                alt={img.alt}
+                alt={`${img.alt} — industrial recycling and waste management facility photograph`}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
