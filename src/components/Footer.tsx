@@ -33,8 +33,8 @@ const contactInfo = [
     label: "Visit Us",
     lines: [
       {
-        text: "H-73, No.107, Sector-63, Noida, Dist. Gautam Buddha Nagar, U.P. 201301",
-        href: "https://www.google.com/maps/dir//EPR+Nexuss,+1st+Floor,+H+73,+Sector+63+Rd,+H+Block,+Sector+63,+Noida,+Uttar+Pradesh+201301/@28.6260722,77.3668959,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x390cef2a5c81fb13:0x7d1918f56e42426b!2m2!1d77.3766912!2d28.6287437?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D",
+        text: "H-161, BSI Business Park, C Block, Phase 2, Industrial Area, Sector 62, Noida, Uttar Pradesh 201301",
+        href: "https://www.google.com/maps/dir//EPR+Nexuss,+H+161,+Office,+BSI+Business+Park,+09,+Sector+63+Rd,+H+Block,+Sector+63,+Noida,+Uttar+Pradesh+201301/@28.6260722,77.3668959,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x390cef2a5c81fb13:0x7d1918f56e42426b!2m2!1d77.3784466!2d28.6252325?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D",
         external: true,
       },
     ],

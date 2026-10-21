@@ -1,9 +1,7 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  CheckCircle2,
   HelpCircle,
   Layers,
   Coins,
@@ -11,22 +9,16 @@ import {
   Timer,
   Recycle,
   ShieldCheck,
-  Table,
-  Workflow,
-  TrendingUp,
   AlertTriangle,
-  FlameKindling,
-  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
-
 // Reveal Animation Setup
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0 },
 };
-
 function Reveal({
   children,
   className,
@@ -50,9 +42,26 @@ function Reveal({
   );
 }
 
+function MarketplaceButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#5AC361] px-6 py-3 font-semibold text-[#0B1210] no-underline transition-all duration-200 hover:scale-[1.03] hover:bg-[#4fb457] hover:shadow-lg ${className}`}
+    >
+      {children}
+      <ArrowRight className="w-4 h-4" aria-hidden="true" />
+    </a>
+  );
+}
+
 export default function EprCreditsTyreWasteBlog() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   return (
     <div className="min-h-screen text-[#163225] bg-gradient-to-b from-[#edf8f1] via-white to-[#f4faf6] selection:bg-emerald-100 antialiased mt-10 pt-24 pb-12">
       <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -89,7 +98,6 @@ export default function EprCreditsTyreWasteBlog() {
           url="https://eprnexuss.com/services/epr-tyre"
           type="article"
         />
-
         {/* Editorial Content Left Column */}
         <div className="lg:col-span-3 space-y-12">
           {/* Introductory Abstract block */}
@@ -107,7 +115,13 @@ export default function EprCreditsTyreWasteBlog() {
               </p>
             </div>
           </Reveal>
-
+          <Reveal delay={0.1}>
+            <div className="flex justify-center">
+              <MarketplaceButton>
+                Explore the Tyre EPR Marketplace
+              </MarketplaceButton>
+            </div>
+          </Reveal>
           {/* Key Topics Hub */}
           <Reveal delay={0.1}>
             <section className="bg-white border border-[#dbe9e0] rounded-[32px] p-6 sm:p-8 shadow-sm">
@@ -121,7 +135,6 @@ export default function EprCreditsTyreWasteBlog() {
                   timely compliance.
                 </p>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-[#edf8f1]/50 border border-[#dbe9e0]">
                   <Layers className="w-5 h-5 text-[#1f7a4a] mb-2.5" />
@@ -135,7 +148,6 @@ export default function EprCreditsTyreWasteBlog() {
                     responsibility through authorized channels.
                   </p>
                 </div>
-
                 <div className="p-5 rounded-2xl bg-[#edf8f1]/50 border border-[#dbe9e0]">
                   <Coins className="w-5 h-5 text-[#1f7a4a] mb-2.5" />
                   <h3 className="font-bold text-base text-[#16402b] mb-1">
@@ -148,7 +160,6 @@ export default function EprCreditsTyreWasteBlog() {
                     reliable records, and fewer delays.
                   </p>
                 </div>
-
                 <div className="p-5 rounded-2xl bg-[#edf8f1]/50 border border-[#dbe9e0]">
                   <FileCheck2 className="w-5 h-5 text-[#1f7a4a] mb-2.5" />
                   <h3 className="font-bold text-base text-[#16402b] mb-1">
@@ -161,7 +172,6 @@ export default function EprCreditsTyreWasteBlog() {
                     structured way.
                   </p>
                 </div>
-
                 <div className="p-5 rounded-2xl bg-[#edf8f1]/50 border border-[#dbe9e0]">
                   <Timer className="w-5 h-5 text-[#1f7a4a] mb-2.5" />
                   <h3 className="font-bold text-base text-[#16402b] mb-1">
@@ -176,7 +186,6 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
           {/* What are Tyre Credits Deep Dive */}
           <Reveal delay={0.1}>
             <section className="space-y-4">
@@ -221,7 +230,6 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
           {/* Business Value Matrix & Table */}
           <Reveal delay={0.1}>
             <section className="bg-white border border-[#dbe9e0] rounded-[32px] p-6 sm:p-8 shadow-sm space-y-6">
@@ -235,7 +243,6 @@ export default function EprCreditsTyreWasteBlog() {
                   management, and customers.
                 </p>
               </div>
-
               <div className="border border-[#dbe9e0] rounded-2xl overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
@@ -284,7 +291,6 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
           {/* Process Workflow Cards */}
           <Reveal delay={0.1}>
             <section className="space-y-6">
@@ -297,7 +303,6 @@ export default function EprCreditsTyreWasteBlog() {
                   records stay clean and the partners stay registered.
                 </p>
               </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
                 {[
                   {
@@ -344,7 +349,19 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
+          <Reveal delay={0.1}>
+            <div className="rounded-2xl border border-[#dbe9e0] bg-white p-6 text-center shadow-sm">
+              <h3 className="mb-2 text-xl font-black text-[#16402b]">
+                Ready to Trade Tyre EPR Credits?
+              </h3>
+              <p className="mb-4 text-sm text-[#5d7065]">
+                Explore marketplace options for buying or selling tyre EPR credits.
+              </p>
+              <MarketplaceButton>
+                Buy &amp; Sell Tyre EPR Credits
+              </MarketplaceButton>
+            </div>
+          </Reveal>
           {/* Visual Progress CSS Graph alternative */}
           <Reveal delay={0.1}>
             <section className="bg-white border border-[#dbe9e0] rounded-[32px] p-6 sm:p-8 shadow-sm space-y-4">
@@ -357,7 +374,6 @@ export default function EprCreditsTyreWasteBlog() {
                   adoption of organized tyre recycling compliance in India.
                 </p>
               </div>
-
               <div className="p-4 border border-[#dbe9e0] rounded-2xl bg-slate-50/50 space-y-4">
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-bold text-[#16402b]">
@@ -371,7 +387,6 @@ export default function EprCreditsTyreWasteBlog() {
                     />
                   </div>
                 </div>
-
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-bold text-[#16402b]">
                     <span>Registered Tyre Recyclers (Later Report)</span>
@@ -392,7 +407,6 @@ export default function EprCreditsTyreWasteBlog() {
               </p>
             </section>
           </Reveal>
-
           {/* Operational Case Study Matrix */}
           <Reveal delay={0.1}>
             <section className="bg-gradient-to-br from-white via-[#f7fcf9] to-white border border-[#dbe9e0] rounded-[32px] p-6 sm:p-8 shadow-sm space-y-4">
@@ -408,7 +422,6 @@ export default function EprCreditsTyreWasteBlog() {
                   obligations monthly.
                 </p>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-medium">
                 <div className="p-4 bg-white border border-[#dbe9e0] rounded-xl">
                   <strong className="block text-[#1f7a4a] text-sm font-bold mb-1">
@@ -433,7 +446,6 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
           {/* Dual Columns: Mistakes vs Best Practices */}
           <Reveal delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -469,7 +481,6 @@ export default function EprCreditsTyreWasteBlog() {
                   </li>
                 </ul>
               </section>
-
               <section className="bg-white border border-[#dbe9e0] rounded-2xl p-6 shadow-xs">
                 <div className="flex items-center gap-2 mb-3 text-[#1f7a4a]">
                   <ShieldCheck className="w-5 h-5" />
@@ -497,7 +508,19 @@ export default function EprCreditsTyreWasteBlog() {
               </section>
             </div>
           </Reveal>
-
+          <Reveal delay={0.1}>
+            <div className="rounded-[32px] bg-gradient-to-br from-[#edf8f1] to-white border border-[#dbe9e0] p-6 sm:p-8 text-center">
+              <h3 className="mb-2 text-xl sm:text-2xl font-black text-[#16402b]">
+                Simplify Your Tyre EPR Credit Trading
+              </h3>
+              <p className="mx-auto mb-4 max-w-2xl text-sm text-[#5d7065]">
+                Connect with the EPR Nexuss marketplace to explore tyre credit trading opportunities.
+              </p>
+              <MarketplaceButton>
+                Trade Tyre EPR Credits
+              </MarketplaceButton>
+            </div>
+          </Reveal>
           {/* FAQ Accordion Module */}
           <Reveal delay={0.1}>
             <section className="space-y-4">
@@ -510,7 +533,6 @@ export default function EprCreditsTyreWasteBlog() {
                   registry.
                 </p>
               </div>
-
               <div className="space-y-2.5">
                 {[
                   {
@@ -566,7 +588,6 @@ export default function EprCreditsTyreWasteBlog() {
               </div>
             </section>
           </Reveal>
-
           {/* Strategic Conclusion Block */}
           <Reveal delay={0.1}>
             <section className="p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#edf8f1] to-white border border-[#dbe9e0] text-center space-y-3">
@@ -584,7 +605,6 @@ export default function EprCreditsTyreWasteBlog() {
             </section>
           </Reveal>
         </div>
-
         {/* Form Layout Right Column */}
         <aside className="lg:col-span-1">
           <div className="sticky top-24">

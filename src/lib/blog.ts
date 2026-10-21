@@ -1828,7 +1828,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "compressed-biogas-plant-bank-loan-assistance",
-    path: "/blogs/recycling-setups/biogas/compressed-biogas-plant-bank-loan-assistance",
+    path: "/blog/compressed-biogas-plant-bank-loan-assistance",
     title: "Compressed Bio Gas Plant Bank Loan Assistance",
     summary: "A practical guide on securing bank loans for Compressed Bio Gas plants under SATAT and priority sector schemes.",
     date: "May 22, 2026",
@@ -1847,7 +1847,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "compressed-biogas-subsidies-and-incentives",
-    path: "/blogs/recycling-setups/biogas/compressed-biogas-subsidies-and-incentives",
+    path: "/blog/compressed-biogas-subsidies-and-incentives",
     title: "Compressed Biogas Subsidies and Incentives",
     summary: "A comprehensive guide to CBG subsidies in India, covering the new GOBARdhan scheme, capital assistance, offtake assurance, and eligibility conditions.",
     date: "August 12, 2026",

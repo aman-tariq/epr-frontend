@@ -142,7 +142,7 @@ const CompanyBanner = () => {
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Registered Address</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  H-73, No.107, Sector-63, Noida,<br />
+                  BSI Business Park, H-161, No.09, Sector-63, Noida,<br />
                   Dist. Gautam Buddha Nagar, U.P. 201301
                 </p>
               </div>

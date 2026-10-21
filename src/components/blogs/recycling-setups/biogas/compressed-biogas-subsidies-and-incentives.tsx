@@ -435,23 +435,7 @@ export default function CBGSubsidies() {
           </aside>
         </div>
 
-        <footer>
-          <div className="footer-grid">
-            <div>
-              <h3>EPR Nexuss</h3>
-              <p>Support for CBG subsidies and incentives, registrations, documentation and compliance planning.</p>
-            </div>
-            <div className="contact">
-              <p><b>Mobile</b><br /><a href="tel:+91-9289659966">9289659966</a></p>
-              <p><b>Landline</b><br /><a href="tel:+911204605014">0120-4605014</a></p>
-            </div>
-            <div className="contact">
-              <p><b>Website</b><br /><a href="https://www.eprnexuss.com" target="_blank" rel="noopener noreferrer">www.eprnexuss.com</a></p>
-              <p><b>Email</b><br /><a href="mailto:info@eprnexuss.com">info@eprnexuss.com</a></p>
-            </div>
-          </div>
-          <div className="copyright">© 2026 EPR Nexuss. For general information only. Government scheme eligibility, assistance amounts, release conditions and implementation guidelines are subject to the applicable notification and competent authority.</div>
-        </footer>
+        
       </div>
     </>
   );

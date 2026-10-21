@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Chart from "chart.js/auto";
 import {
-  Cylinder,
   ArrowRight,
   Table,
   Star,
@@ -18,9 +16,6 @@ import {
   Scale,
   Handshake,
   Layers,
-  Coins,
-  RefreshCw,
-  Timer,
   Factory,
   Briefcase,
   HelpCircle,
@@ -28,16 +23,13 @@ import {
 } from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
-
 /* ---------------------------------------------------------------------- */
 /*  Animation Variants & Reveal Component                                 */
 /* ---------------------------------------------------------------------- */
-
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0 },
 };
-
 function Reveal({
   children,
   className,
@@ -60,19 +52,33 @@ function Reveal({
     </motion.div>
   );
 }
+function MarketplaceButton({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#5AC361] px-6 py-3 font-semibold text-[#0B1210] no-underline transition-all duration-200 hover:scale-[1.03] hover:bg-[#4fb457] hover:shadow-lg ${className}`}
+    >
+      {children}
+      <ArrowRight className="w-4 h-4" />
+    </a>
+  );
+}
 
 export default function EprCreditsMetalsBlog() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   const growthChartRef = useRef<HTMLCanvasElement | null>(null);
   const comparisonChartRef = useRef<HTMLCanvasElement | null>(null);
   const databaseChartRef = useRef<HTMLCanvasElement | null>(null);
-
   useEffect(() => {
     let growthChart: Chart | null = null;
     let comparisonChart: Chart | null = null;
     let databaseChart: Chart | null = null;
-
     if (growthChartRef.current) {
       growthChart = new Chart(growthChartRef.current, {
         type: "bar",
@@ -106,7 +112,6 @@ export default function EprCreditsMetalsBlog() {
         },
       });
     }
-
     if (comparisonChartRef.current) {
       comparisonChart = new Chart(comparisonChartRef.current, {
         type: "line",
@@ -144,7 +149,6 @@ export default function EprCreditsMetalsBlog() {
         },
       });
     }
-
     if (databaseChartRef.current) {
       databaseChart = new Chart(databaseChartRef.current, {
         type: "bar",
@@ -176,14 +180,12 @@ export default function EprCreditsMetalsBlog() {
         },
       });
     }
-
     return () => {
       if (growthChart) growthChart.destroy();
       if (comparisonChart) comparisonChart.destroy();
       if (databaseChart) databaseChart.destroy();
     };
   }, []);
-
   return (
     <div className="min-h-screen text-[#24163d] mt-20 bg-gradient-to-b from-white via-[#fbf9ff] to-[#f6f0ff] selection:bg-green-200 antialiased">
       <Seo
@@ -219,7 +221,6 @@ export default function EprCreditsMetalsBlog() {
         url="https://eprnexuss.com/services/epr-metals"
         type="article"
       />
-
       {/* Main Grid Architecture */}
       <div className="max-w-8xl mx-auto px-1 sm:px-2 lg:px-2 relative grid grid-cols-1 lg:grid-cols-4 gap-4 top-10">
         {/* Editorial Left Content Column */}
@@ -229,16 +230,13 @@ export default function EprCreditsMetalsBlog() {
             <Reveal delay={0.1}>
               <header className="bg-gradient-to-b from-white to-[#faf7ff] border border-green-100 rounded-[34px] p-6 sm:p-10 shadow-xl shadow-green-950/5 relative overflow-hidden">
                 <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-green-400/10 pointer-events-none animate-pulse" />
-
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100/60 border border-green-200/50 text-green-600 text-xs font-extrabold mb-6 relative z-10">
                   <Star className="w-3.5 h-3.5 fill-green-500 text-green-500" />{" "}
                   Premium Metal Recycling & Value Protection
                 </div>
-
                 <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-none mb-6 max-w-2xl">
                   EPR Credits of EPR Metals
                 </h1>
-
                 <p className="text-lg text-[#65567d] leading-relaxed max-w-2xl mb-8">
                   Metal circular ecosystems are quickly redefining heavy
                   manufacturing operations. EPR Credits turn structural scrap metal
@@ -246,7 +244,6 @@ export default function EprCreditsMetalsBlog() {
                   generating clear corporate data, and optimizing regulatory
                   visibility.
                 </p>
-
                 <div className="flex flex-wrap gap-3 mb-8 relative z-10">
                   <a
                     href="#overview"
@@ -261,7 +258,6 @@ export default function EprCreditsMetalsBlog() {
                     <Table className="w-4 h-4" /> Open data ledgers
                   </a>
                 </div>
-
                 <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                   {[
                     "metal recovery EPR",
@@ -279,7 +275,6 @@ export default function EprCreditsMetalsBlog() {
                     </span>
                   ))}
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-[28px] bg-gradient-to-br from-green-50/50 to-green-100/40 border border-green-100 shadow-sm relative z-10">
                   <div className="flex gap-3 items-center">
                     <Recycle className="w-5 h-5 text-green-500 shrink-0" />
@@ -318,7 +313,11 @@ export default function EprCreditsMetalsBlog() {
               </header>
             </Reveal>
           </section>
-
+          <Reveal delay={0.1}>
+            <div className="flex justify-center px-2">
+              <MarketplaceButton>Explore the Metal EPR Marketplace</MarketplaceButton>
+            </div>
+          </Reveal>
           {/* Section: Overview */}
           <section id="overview" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -334,7 +333,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               <Reveal delay={0.2} className="h-full">
                 <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-gradient-to-b from-white to-[#fbf8ff] h-full">
@@ -374,7 +372,6 @@ export default function EprCreditsMetalsBlog() {
                   </div>
                 </div>
               </Reveal>
-
               <Reveal delay={0.3} className="h-full">
                 <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
                   <div className="flex items-center gap-2 mb-3 text-sm font-bold">
@@ -388,7 +385,6 @@ export default function EprCreditsMetalsBlog() {
               </Reveal>
             </div>
           </section>
-
           {/* Section: Process Loop */}
           <section id="process" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -402,7 +398,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-8">
               {[
                 {
@@ -444,7 +439,6 @@ export default function EprCreditsMetalsBlog() {
                 </Reveal>
               ))}
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               <Reveal delay={0.2} className="h-full">
                 <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
@@ -457,7 +451,6 @@ export default function EprCreditsMetalsBlog() {
                   </div>
                 </div>
               </Reveal>
-
               <Reveal delay={0.3} className="h-full">
                 <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-white h-full">
                   <h3 className="text-xl font-bold mb-3">
@@ -488,7 +481,11 @@ export default function EprCreditsMetalsBlog() {
               </Reveal>
             </div>
           </section>
-
+          <Reveal delay={0.1}>
+            <div className="flex justify-center px-2">
+              <MarketplaceButton>Buy &amp; Sell Metal EPR Credits</MarketplaceButton>
+            </div>
+          </Reveal>
           {/* Section: Benefits Matrix */}
           <section id="benefits" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -502,7 +499,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Reveal delay={0.1} className="h-full">
                 <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm h-full">
@@ -514,7 +510,6 @@ export default function EprCreditsMetalsBlog() {
                   </p>
                 </div>
               </Reveal>
-
               <Reveal delay={0.2} className="h-full">
                 <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm h-full">
                   <Handshake className="w-8 h-8 text-green-500 mb-4" />
@@ -525,7 +520,6 @@ export default function EprCreditsMetalsBlog() {
                   </p>
                 </div>
               </Reveal>
-
               <Reveal delay={0.3} className="h-full">
                 <div className="p-6 rounded-3xl bg-gradient-to-b from-white to-[#f9f6ff] border border-green-100 shadow-sm h-full">
                   <Globe className="w-8 h-8 text-green-500 mb-4" />
@@ -538,7 +532,6 @@ export default function EprCreditsMetalsBlog() {
               </Reveal>
             </div>
           </section>
-
           {/* Section: Database Layout */}
           <section id="database" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -552,7 +545,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.2}>
               <div className="border border-green-100 rounded-3xl shadow-sm overflow-hidden bg-white mb-6">
                 <div className="overflow-x-auto">
@@ -602,7 +594,6 @@ export default function EprCreditsMetalsBlog() {
                 </div>
               </div>
             </Reveal>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               <Reveal delay={0.2} className="h-full">
                 <div className="p-8 rounded-[34px] border border-green-100 shadow-md bg-white h-full">
@@ -631,7 +622,6 @@ export default function EprCreditsMetalsBlog() {
                   </div>
                 </div>
               </Reveal>
-
               <Reveal delay={0.3} className="h-full">
                 <div className="p-6 rounded-[34px] border border-green-100 shadow-md bg-white h-72 relative">
                   <div className="flex items-center gap-2 mb-3 text-sm font-bold">
@@ -645,7 +635,6 @@ export default function EprCreditsMetalsBlog() {
               </Reveal>
             </div>
           </section>
-
           {/* Section: Sector Solutions */}
           <section className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -659,7 +648,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Reveal delay={0.1} className="h-full">
                 <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all h-full">
@@ -671,7 +659,6 @@ export default function EprCreditsMetalsBlog() {
                   </p>
                 </div>
               </Reveal>
-
               <Reveal delay={0.2} className="h-full">
                 <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all h-full">
                   <Briefcase className="w-8 h-8 text-green-500 mb-3" />
@@ -682,7 +669,6 @@ export default function EprCreditsMetalsBlog() {
                   </p>
                 </div>
               </Reveal>
-
               <Reveal delay={0.3} className="h-full">
                 <div className="p-6 rounded-2xl border border-green-100 bg-white shadow-sm hover:border-green-300 transition-all h-full">
                   <Layers className="w-8 h-8 text-green-500 mb-3" />
@@ -695,7 +681,6 @@ export default function EprCreditsMetalsBlog() {
               </Reveal>
             </div>
           </section>
-
           {/* Section: Case Study */}
           <section id="case-study" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -709,7 +694,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.2}>
               <div className="bg-gradient-to-br from-white via-[#f4efff] to-white border border-green-100 rounded-[36px] p-6 sm:p-10 shadow-lg">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
@@ -750,7 +734,6 @@ export default function EprCreditsMetalsBlog() {
                     </p>
                   </div>
                 </div>
-
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { val: "54%", lbl: "Faster Audit Readiness" },
@@ -774,7 +757,11 @@ export default function EprCreditsMetalsBlog() {
               </div>
             </Reveal>
           </section>
-
+          <Reveal delay={0.1}>
+            <div className="flex justify-center px-2">
+              <MarketplaceButton>Trade Metal EPR Credits</MarketplaceButton>
+            </div>
+          </Reveal>
           {/* Section: FAQs Accordion */}
           <section id="faq" className="scroll-mt-24 space-y-8">
             <Reveal delay={0.1}>
@@ -788,7 +775,6 @@ export default function EprCreditsMetalsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.2}>
               <div className="space-y-3">
                 {[
@@ -845,7 +831,6 @@ export default function EprCreditsMetalsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Bottom Action Callout Block */}
           <section>
             <Reveal delay={0.1}>
@@ -875,7 +860,6 @@ export default function EprCreditsMetalsBlog() {
             </Reveal>
           </section>
         </div>
-
         <aside className="hidden lg:block w-[320px] shrink-0">
           <div className="sticky top-28 px-2">
             {/* Imported Prebuilt Shared Component Trigger Entry */}

@@ -661,7 +661,7 @@ export default function BisIsiMark(): JSX.Element {
                         <strong>Email:</strong> info@eprnexuss.com
                       </li>
                       <li className="my-[8px] text-white/90">
-                        <strong>Address:</strong> H-73, No.107, Sector-63, Noida
+                        <strong>Address:</strong> BSI Business Park, H-161, No.09, Sector-63, Noida
                       </li>
                     </ul>
                   </div>

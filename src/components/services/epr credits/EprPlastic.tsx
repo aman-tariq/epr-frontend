@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Chart from "chart.js/auto";
@@ -32,13 +31,11 @@ import {
 } from "lucide-react";
 import StickyContactForm from "@/components/StickyContactForm";
 import Seo from "@/components/Seo";
-
 // Reveal Animation Setup
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0 },
 };
-
 function Reveal({
   children,
   className,
@@ -62,18 +59,27 @@ function Reveal({
   );
 }
 
+function MarketplaceButton({ children }: { children: React.ReactNode }) {
+  return (
+    <a
+      href="https://www.eprnexuss.com/marketplace/"
+      className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#5AC361] px-6 py-3 font-semibold text-[#0B1210] no-underline transition-all duration-200 hover:scale-[1.03] hover:bg-[#4fb457] hover:shadow-lg"
+    >
+      {children}
+      <ArrowRight className="w-4 h-4" />
+    </a>
+  );
+}
+
 export default function EprCreditsPlasticsBlog() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   const growthChartRef = useRef<HTMLCanvasElement | null>(null);
   const comparisonChartRef = useRef<HTMLCanvasElement | null>(null);
   const databaseChartRef = useRef<HTMLCanvasElement | null>(null);
-
   useEffect(() => {
     let growthChart: Chart | null = null;
     let comparisonChart: Chart | null = null;
     let databaseChart: Chart | null = null;
-
     if (growthChartRef.current) {
       growthChart = new Chart(growthChartRef.current, {
         type: "bar",
@@ -107,7 +113,6 @@ export default function EprCreditsPlasticsBlog() {
         },
       });
     }
-
     if (comparisonChartRef.current) {
       comparisonChart = new Chart(comparisonChartRef.current, {
         type: "line",
@@ -145,7 +150,6 @@ export default function EprCreditsPlasticsBlog() {
         },
       });
     }
-
     if (databaseChartRef.current) {
       databaseChart = new Chart(databaseChartRef.current, {
         type: "bar",
@@ -177,14 +181,12 @@ export default function EprCreditsPlasticsBlog() {
         },
       });
     }
-
     return () => {
       if (growthChart) growthChart.destroy();
       if (comparisonChart) comparisonChart.destroy();
       if (databaseChart) databaseChart.destroy();
     };
   }, []);
-
   return (
     <div className="min-h-screen mt-20 text-[#141414] bg-gradient-to-b from-[#f6f8fc] via-white to-[#f3f7ff] selection:bg-blue-100 antialiased">
       <Seo
@@ -220,7 +222,6 @@ export default function EprCreditsPlasticsBlog() {
         url="https://eprnexuss.com/services/epr-plastic"
         type="article"
       />
-
       {/* Main Grid Architecture */}
       <div className="max-w-8xl mx-auto px-4 sm:px-2 lg:px-2 relative grid grid-cols-1 lg:grid-cols-4 gap-4">
         {/* Editorial Left Content Column */}
@@ -229,23 +230,19 @@ export default function EprCreditsPlasticsBlog() {
           <Reveal>
             <header className="bg-gradient-to-b from-white to-[#f6f9ff] border border-[#e8edf4] rounded-[34px] p-6 sm:p-10 shadow-xl shadow-blue-950/5 relative overflow-hidden">
               <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-blue-50/5 pointer-events-none" />
-
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 text-[#0b7cff] text-xs font-extrabold mb-6 relative z-10">
                 <Star className="w-3.5 h-3.5 fill-[#0b7cff] text-[#0b7cff]" />{" "}
                 Compliance made simple, credible, and measurable
               </div>
-
               <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-none mb-6 max-w-3xl">
                 EPR Credits of EPR Plastic
               </h1>
-
               <p className="text-lg text-[#5c6675] leading-relaxed max-w-2xl mb-8">
                 In a market where sustainability is becoming a business
                 expectation, EPR Plastic Credits give companies a practical way to
                 prove responsibility, improve recycling outcomes, and strengthen
                 their compliance story.
               </p>
-
               <div className="flex flex-wrap gap-3 mb-8 relative z-10">
                 <a
                   href="#about"
@@ -260,7 +257,6 @@ export default function EprCreditsPlasticsBlog() {
                   <Briefcase className="w-4 h-4" /> View case study
                 </a>
               </div>
-
               <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                 {[
                   "EPR compliance",
@@ -278,7 +274,6 @@ export default function EprCreditsPlasticsBlog() {
                   </span>
                 ))}
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-[28px] bg-white border border-[#e8edf4] shadow-sm relative z-10">
                 <div className="flex flex-col gap-1.5 p-3 rounded-xl bg-[#f3f7ff]">
                   <Recycle className="w-5 h-5 text-[#0b7cff]" />
@@ -319,8 +314,11 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </header>
           </Reveal>
+          <div className="flex justify-center -mt-8">
+          <MarketplaceButton>Explore the Plastic EPR Marketplace</MarketplaceButton>
+        </div>
 
-          {/* Section: About */}
+        {/* Section: About */}
           <section id="about" className="scroll-mt-24">
             <Reveal>
               <div className="text-center max-w-3xl mx-auto mb-10">
@@ -336,7 +334,6 @@ export default function EprCreditsPlasticsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.1}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 <div className="p-8 rounded-[34px] border border-[#e8edf4] shadow-md bg-white">
@@ -380,7 +377,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Core Values Columns */}
           <section className="bg-white border border-[#e8edf4] rounded-[34px] p-8">
             <Reveal>
@@ -416,7 +412,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Section: Process Loop */}
           <section id="process" className="scroll-mt-24">
             <Reveal>
@@ -430,7 +425,6 @@ export default function EprCreditsPlasticsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.1}>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                 {[
@@ -475,7 +469,6 @@ export default function EprCreditsPlasticsBlog() {
                 ))}
               </div>
             </Reveal>
-
             <Reveal delay={0.2}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 <div className="p-6 rounded-[34px] border border-[#e8edf4] shadow-md bg-white h-72 relative">
@@ -516,7 +509,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Section: Benefits Matrix */}
           <section id="benefits" className="scroll-mt-24">
             <Reveal>
@@ -573,7 +565,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Section: Types of Credits */}
           <section id="types" className="scroll-mt-24">
             <Reveal>
@@ -620,8 +611,11 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
+          <div className="flex justify-center -mt-8">
+          <MarketplaceButton>Buy &amp; Sell Plastic EPR Credits</MarketplaceButton>
+        </div>
 
-          {/* Section: Rates Market Analysis */}
+        {/* Section: Rates Market Analysis */}
           <section id="rates" className="scroll-mt-24">
             <Reveal>
               <div className="bg-gradient-to-br from-white to-[#f6f8fc] border border-[#e8edf4] rounded-[34px] p-8">
@@ -632,7 +626,6 @@ export default function EprCreditsPlasticsBlog() {
                   EPR credit rates depend on material purity, verification
                   protocols, regional constraints, and procurement volume.
                 </p>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-2xl border border-[#e8edf4]">
                     <h4 className="font-bold mb-2 text-sm text-[#0b7cff]">
@@ -660,7 +653,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Section: Database Layout */}
           <section id="database" className="scroll-mt-24">
             <Reveal>
@@ -674,7 +666,6 @@ export default function EprCreditsPlasticsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.1}>
               <div className="border border-[#e8edf4] rounded-3xl shadow-sm overflow-hidden bg-white mb-6">
                 <div className="overflow-x-auto">
@@ -724,7 +715,6 @@ export default function EprCreditsPlasticsBlog() {
                 </div>
               </div>
             </Reveal>
-
             <Reveal delay={0.2}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 <div className="p-8 rounded-[34px] border border-[#e8edf4] shadow-md bg-white">
@@ -765,7 +755,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Timely Compliance Grid */}
           <section className="scroll-mt-24">
             <Reveal>
@@ -816,7 +805,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Section: Case Study */}
           <section id="case-study" className="scroll-mt-24">
             <Reveal>
@@ -830,7 +818,6 @@ export default function EprCreditsPlasticsBlog() {
                     habits into reliable execution layers.
                   </p>
                 </div>
-
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
                   <div className="space-y-4 text-sm text-[#5c6675] leading-relaxed">
                     <p>
@@ -884,8 +871,11 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
+          <div className="flex justify-center -mt-8">
+          <MarketplaceButton>Trade Plastic EPR Credits</MarketplaceButton>
+        </div>
 
-          {/* Section: FAQs Accordion */}
+        {/* Section: FAQs Accordion */}
           <section id="faq" className="scroll-mt-24">
             <Reveal>
               <div className="text-center max-w-3xl mx-auto mb-10">
@@ -898,7 +888,6 @@ export default function EprCreditsPlasticsBlog() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.1}>
               <div className="space-y-3">
                 {[
@@ -955,7 +944,6 @@ export default function EprCreditsPlasticsBlog() {
               </div>
             </Reveal>
           </section>
-
           {/* Bottom Action Callout Block */}
           <section>
             <Reveal>
@@ -986,7 +974,6 @@ export default function EprCreditsPlasticsBlog() {
             </Reveal>
           </section>
         </div>
-
         {/* Right Layout Column: Sticky Form Wrapper */}
         <aside className="lg:col-span-1 py-12">
           <div className="sticky top-28 space-y-6">

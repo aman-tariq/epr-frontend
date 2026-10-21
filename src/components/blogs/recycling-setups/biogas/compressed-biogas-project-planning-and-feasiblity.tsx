@@ -1245,47 +1245,7 @@ const CBGProjectFeasibility: React.FC = () => {
           </aside>
         </div>
 
-        <footer>
-          <div className="footer-grid">
-            <div>
-              <h3>EPR Nexuss</h3>
-              <p>
-                Support for CBG project planning, feasibility, documentation,
-                registration and compliance.
-              </p>
-            </div>
-            <div className="contact">
-              <p>
-                <b>Mobile</b>
-                <br />
-                <a href="tel:+919289659966">+91 9289659966</a>
-              </p>
-            </div>
-            <div className="contact">
-              <p>
-                <b>Website</b>
-                <br />
-                <a
-                  href="https://www.eprnexuss.com"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  www.eprnexuss.com
-                </a>
-              </p>
-              <p>
-                <b>Email</b>
-                <br />
-                <a href="mailto:info@eprnexuss.com">info@eprnexuss.com</a>
-              </p>
-            </div>
-          </div>
-          <div className="copyright">
-            © 2026 EPR Nexuss. For general information only. Project cost,
-            feasibility, approvals, incentives and commercial results depend on
-            the specific CBG project and current applicable rules.
-          </div>
-        </footer>
+       
       </div>
     </>
   );

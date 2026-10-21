@@ -732,25 +732,7 @@ export default function CBGPlantSetup(): React.JSX.Element {
           </aside>
         </div>
 
-        <footer id="contact">
-          <div className="footer-grid">
-            <div>
-              <h3>CBG Plant Setup Support</h3>
-              <p>End-to-end advisory and compliance solutions for compressed biogas infrastructure in India.</p>
-            </div>
-            <div>
-              <h3>Key Focus Areas</h3>
-              <p>Feedstock Analysis<br />Technology Selection<br />SPCB & PESO Approvals<br />Central Subsidies</p>
-            </div>
-            <div className="contact">
-              <h3>Contact Us</h3>
-              <p><b>EPR Nexuss</b><br />Email: info@eprnexuss.com<br />India</p>
-            </div>
-          </div>
-          <div className="copyright">
-            © {new Date().getFullYear()} EPR Nexuss. All rights reserved.
-          </div>
-        </footer>
+        
       </div>
     </>
   );

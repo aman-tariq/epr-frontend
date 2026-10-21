@@ -116,7 +116,7 @@ Message: ${message || "I would like to know about your EPR services"}`;
   };
 
   const openGoogleMaps = () => {
-    const address = encodeURIComponent("EPR Nexuss,H-73, Sector-63, Noida");
+    const address = encodeURIComponent("H-161, BSI Business Park, C Block, Phase 2, Industrial Area, Sector 62, Noida, Uttar Pradesh 201301");
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${address}`,
       "_blank",
@@ -445,7 +445,7 @@ Message: ${message || "I would like to know about your EPR services"}`;
                       Visit Us
                     </div>
                     <div className="font-semibold text-foreground text-[15px]">
-                      H-73, No.107, Sector-63, Noida, Dist. Gautam Buddha Nagar,
+                      BSI Business Park, H-161, No.09, Sector-63, Noida, Dist. Gautam Buddha Nagar,
                       U.P. 201301
                     </div>
                     <div className="text-sm text-muted-foreground mt-0.5 flex items-center gap-1">

@@ -385,23 +385,7 @@ export default function CBGLoanAssistance() {
           </aside>
         </div>
 
-        <footer>
-          <div className="footer-grid">
-            <div>
-              <h3>EPR Nexuss</h3>
-              <p>Support for CBG bank loan facilitation, registrations, documentation and compliance planning.</p>
-            </div>
-            <div className="contact">
-              <p><b>Mobile</b><br /><a href="tel:+919289659966">9289659966</a></p>
-              <p><b>Landline</b><br /><a href="tel:+911204605014">0120-4605014</a></p>
-            </div>
-            <div className="contact">
-              <p><b>Website</b><br /><a href="https://www.eprnexuss.com" target="_blank" rel="noopener">www.eprnexuss.com</a></p>
-              <p><b>Email</b><br /><a href="mailto:info@eprnexuss.com">info@eprnexuss.com</a></p>
-            </div>
-          </div>
-          <div className="copyright">© 2026 EPR Nexuss. For general information only. Final loan sanction, interest rate, security, eligibility and government-assistance treatment are subject to the applicable lender and scheme.</div>
-        </footer>
+        
       </div>
     </>
   );

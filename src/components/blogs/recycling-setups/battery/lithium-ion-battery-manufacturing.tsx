@@ -1158,7 +1158,7 @@ export default function LithiumIonBatteryManufacturingBlog(): JSX.Element {
           <div><strong>Landline:</strong> <a href="tel:01204605014">0120-4605014</a></div>
           <div><strong>Email:</strong> <a href="mailto:info@eprnexuss.com">info@eprnexuss.com</a></div>
           <div><strong>Website:</strong> <a href="https://www.eprnexuss.com" target="_blank" rel="noopener">www.eprnexuss.com</a></div>
-          <div style={{gridColumn: '1 / -1'}}><strong>Office:</strong> H-73, No.107, Sector-63, Noida, Dist. Gautam Buddha Nagar, U.P. 201301</div>
+          <div style={{gridColumn: '1 / -1'}}><strong>Office:</strong> BSI Business Park, H-161, No.09, Sector-63, Noida, Dist. Gautam Buddha Nagar, U.P. 201301</div>
         </div>
       </div>
     </section>
