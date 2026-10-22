@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Phone } from "lucide-react";
 
-const StickyContactForm: React.FC = () => {
+const fieldClass =
+  "w-full px-3 py-2 border border-[#d5eadc] rounded-lg text-[13px] text-[#102018] bg-white transition-all duration-200 placeholder:text-[#5e6d65] focus:outline-none focus:border-[#1e7a4c] focus:ring-[3px] focus:ring-[#1e7a4c]/10 focus:bg-[#fbfdfc]";
 
+const StickyContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,7 +18,6 @@ const StickyContactForm: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -27,7 +28,6 @@ const StickyContactForm: React.FC = () => {
 
   // EMAIL FALLBACK
   const sendEmailFallback = () => {
-
     const body = `
 Name: ${formData.name}
 Email: ${formData.email}
@@ -46,7 +46,6 @@ ${formData.message}
 
   // FORM SUBMIT
   const handleSubmit = async (e: React.FormEvent) => {
-
     e.preventDefault();
 
     if (isSubmitting) return;
@@ -54,7 +53,6 @@ ${formData.message}
     setIsSubmitting(true);
 
     try {
-
       await fetch(
         "https://script.google.com/macros/s/AKfycbxkbsNez-OY7tUV8Vb0weFImRaxs2A8O9-85H82BdLPzSL8T_jzWBrwwOQ9cCVJl0ll/exec",
         {
@@ -78,49 +76,39 @@ ${formData.message}
         phone: "",
         message: "",
       });
-
     } catch (error) {
-
       console.error("Submission Error:", error);
 
       alert("Something went wrong. Opening email client...");
 
       sendEmailFallback();
-
     } finally {
-
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="sticky-form-wrapper">
-
-      <style>{formStyles}</style>
-
-      <div className="sticky-form">
-
-        <h3>Book a Technical Call with Expert</h3>
+    // WIDTH: change max-w-[300px] to make the form wider or narrower
+    <div className="w-full max-w-[300px] max-[1440px]:right-[10px] max-[980px]:hidden">
+      {/* HEIGHT: never taller than the viewport; scrolls inside if the screen is very short */}
+      <div className="max-h-[calc(100vh-6rem)] overflow-y-auto bg-gradient-to-br from-[#f0fdf4] to-[#f8fbf9] border border-[#254732] rounded-2xl py-3 px-3.5 shadow-[0_10px_40px_rgba(16,32,24,0.12)] backdrop-blur-md [scrollbar-width:thin]">
+        <h3 className="m-0 mb-2 text-sm font-bold text-[#102018] leading-[1.3]">
+          Book a Technical Call with Expert
+        </h3>
 
         {/* CONTACT BUTTON */}
-        <div className="form-contact-info">
-
+        <div className="mb-2">
           <a
             href="tel:+919289659966"
-            className="contact-link"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1e7a4c] text-white no-underline rounded-lg text-xs font-semibold transition-all duration-200 hover:bg-[#165a3a] hover:-translate-y-px"
           >
-            <Phone size={16} />
-
+            <Phone size={14} />
             +91 9289659966
           </a>
         </div>
 
         {/* FORM */}
-        <form
-          onSubmit={handleSubmit}
-          className="contact-form"
-        >
-
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-2">
           {/* NAME */}
           <input
             type="text"
@@ -129,6 +117,7 @@ ${formData.message}
             value={formData.name}
             onChange={handleChange}
             required
+            className={fieldClass}
           />
 
           {/* EMAIL */}
@@ -139,6 +128,7 @@ ${formData.message}
             value={formData.email}
             onChange={handleChange}
             required
+            className={fieldClass}
           />
 
           {/* PHONE */}
@@ -149,171 +139,36 @@ ${formData.message}
             value={formData.phone}
             onChange={handleChange}
             required
+            className={fieldClass}
           />
 
           {/* MESSAGE */}
           <textarea
             name="message"
             placeholder="Your Message"
-            rows={4}
+            rows={2}
             value={formData.message}
             onChange={handleChange}
             required
+            className={`${fieldClass} resize-none`}
           />
 
           {/* SUBMIT BUTTON */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="submit-btn"
+            className="w-full px-4 py-2.5 bg-gradient-to-br from-[#1e7a4c] to-[#2ea66a] text-white border-none rounded-lg text-[13px] font-bold cursor-pointer tracking-[0.5px] transition-all duration-300 hover:enabled:-translate-y-0.5 hover:enabled:shadow-[0_8px_20px_rgba(30,122,76,0.3)] disabled:opacity-80 disabled:cursor-not-allowed"
           >
-            {isSubmitting
-              ? "Submitting Request..."
-              : "Book Consultation"}
+            {isSubmitting ? "Submitting Request..." : "Book Consultation"}
           </button>
         </form>
 
-        <p className="form-note">
+        <p className="m-0 text-[11px] text-[#5e6d65] text-center leading-normal italic">
           We'll get back to you within 24 hours
         </p>
       </div>
     </div>
   );
 };
-
-const formStyles = `
-.sticky-form-wrapper {
-  width: 100%;
-}
-
-.sticky-form {
-  background: linear-gradient(135deg, #f0fdf4 0%, #f8fbf9 100%);
-  border: 1px solid #254732;
-  border-radius: 18px;
-  padding: 12px 14px;
-  box-shadow: 0 10px 40px rgba(16, 32, 24, 0.12);
-  backdrop-filter: blur(12px);
-}
-
-.sticky-form h3 {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #102018;
-  line-height: 1.3;
-}
-
-.form-contact-info {
-  margin-bottom: 16px;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  background: #1e7a4c;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.contact-link:hover {
-  background: #165a3a;
-  transform: translateY(-1px);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 11px 12px;
-  border: 1px solid #d5eadc;
-  border-radius: 8px;
-  font-size: 13px;
-  font-family: inherit;
-  color: #102018;
-  background: #fff;
-  transition: all 0.2s;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #5e6d65;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #1e7a4c;
-  box-shadow: 0 0 0 3px rgba(30, 122, 76, 0.1);
-  background: #fbfdfc;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 12px 16px;
-  background: linear-gradient(135deg, #1e7a4c 0%, #2ea66a 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
-  letter-spacing: 0.5px;
-}
-
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(30, 122, 76, 0.3);
-}
-
-.submit-btn:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.form-note {
-  margin: 0;
-  font-size: 11px;
-  color: #5e6d65;
-  text-align: center;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-@media (max-width: 1440px) {
-
-  .sticky-form-wrapper {
-    right: 10px;
-  }
-
-  .sticky-form {
-    padding: 12px 14px;
-  }
-
-  .sticky-form h3 {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .sticky-form-wrapper {
-    display: none;
-  }
-}
-`;
 
 export default StickyContactForm;

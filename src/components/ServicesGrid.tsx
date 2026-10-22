@@ -222,7 +222,7 @@ const ServicesGrid = () => {
               needs.
             </h2>
           </div>
-          <p className="max-w-xl text-base text-muted-foreground md:text-lg lg:justify-self-end">
+          <p className="max-w-xl text-primary-900 text-base text-muted-foreground md:text-4xl lg:justify-self-end">
             From recycling plant setups to certified EPR credits and growth services — we deliver
             end-to-end solutions, all in one place.
           </p>
